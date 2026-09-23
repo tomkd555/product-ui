@@ -4,7 +4,7 @@
     "name": "tomkd555",
     "url": "https://github.com/tomkd555"
   },
-  "description": "One Claude Code plugin for web interfaces that read as a real product: product-ui settles tokens and wording first, decides whether each user-visible string should exist, sets a 14px text minimum and checks it at generation, after each write and on the rendered page (12px for a short Latin-only run), checks the output mechanically, and reviews the rendered screen independently.",
+  "description": "One Claude Code plugin for web interfaces that read as a real product: product-ui settles tokens and wording first, decides whether each user-visible string should exist, keeps every text at 14px or more (12px for a short Latin-only run), checks the output mechanically, and reviews the rendered screen independently.",
   "plugins": [
     {
       "name": "product-ui",

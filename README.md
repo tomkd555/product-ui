@@ -1,6 +1,6 @@
 # product-ui
 
-One Claude Code plugin for web interfaces that read as a real product. It settles the design tokens and the wording before any markup exists, decides whether each user-visible string should be on the screen at all, sets a 14px minimum for text (12px for a short Latin-only run) and checks it at generation, after each write and on the rendered page, checks the output with deterministic scripts, and hands the rendered screen to an independent reviewer.
+One Claude Code plugin for web interfaces that read as a real product. It settles the design tokens and the wording before any markup exists, decides whether each user-visible string should be on the screen at all, keeps every text at 14px or more (12px for a short Latin-only run), checks the output with deterministic scripts, and hands the rendered screen to an independent reviewer.
 
 Three ideas carry it:
 
