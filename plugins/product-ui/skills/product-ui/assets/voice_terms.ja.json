@@ -1,0 +1,19 @@
+{
+  "_note": "`terms` is empty: each project settles its own words in tokens.json under voice.terms (see references/ui-copy.md, The operation vocabulary). `choon_pairs` is the list check C9 reads.",
+  "terms": {},
+  "_choon_note": "C9 reports a pair only when both of its forms appear in one project. Which form is correct depends on voice.katakana_choon: `jtf` keeps the 長音 everywhere, `wordrabbit` drops it from a word of five characters or more, counted with the 長音.",
+  "choon_pairs": [
+    ["ユーザ", "ユーザー"],
+    ["サーバ", "サーバー"],
+    ["ブラウザ", "ブラウザー"],
+    ["フォルダ", "フォルダー"],
+    ["コンピュータ", "コンピューター"],
+    ["プリンタ", "プリンター"],
+    ["メンバ", "メンバー"],
+    ["フィルタ", "フィルター"],
+    ["マスタ", "マスター"],
+    ["ヘッダ", "ヘッダー"],
+    ["フッタ", "フッター"],
+    ["パラメータ", "パラメーター"]
+  ]
+}

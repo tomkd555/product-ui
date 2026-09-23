@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local harness settings
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+

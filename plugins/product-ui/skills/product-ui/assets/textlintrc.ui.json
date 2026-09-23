@@ -1,0 +1,18 @@
+{
+  "rules": {
+    "preset-smarthr": {
+      "sentence-length": false,
+      "ja-no-mixed-period": false,
+      "no-exclamation-question-mark": false
+    },
+    "@textlint-ja/preset-ai-writing": {
+      "no-ai-list-formatting": false,
+      "no-ai-emphasis-patterns": false,
+      "no-ai-colon-continuation": false,
+      "ai-tech-writing-guideline": {
+        "disableStructureGuidance": true,
+        "enableDocumentAnalysis": false
+      }
+    }
+  }
+}

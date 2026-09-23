@@ -1,0 +1,38 @@
+{
+  "name": "product-ui",
+  "owner": {
+    "name": "tomkd555",
+    "url": "https://github.com/tomkd555"
+  },
+  "description": "One Claude Code plugin for web interfaces that read as a real product: product-ui settles tokens and wording first, decides whether each user-visible string should exist, keeps every text at 14px or more (12px for a short Latin-only run), checks the output mechanically, and reviews the rendered screen independently.",
+  "plugins": [
+    {
+      "name": "product-ui",
+      "source": "./plugins/product-ui",
+      "description": "Builds web interfaces that read as a real product: design tokens and UI wording settled in tokens.json before any markup, a test for whether each user-visible string should exist, a text-size minimum of 14px or more (12px for a short Latin-only run) that a PostToolUse hook checks after every write and reports back to Claude, deterministic checks on the output, and an independent rendered review. Carries the rules for Japanese UI copy and a lookup of palettes, font pairings, styles, charts and per-stack rules.",
+      "version": "1.1.0",
+      "author": {
+        "name": "tomkd555",
+        "url": "https://github.com/tomkd555"
+      },
+      "homepage": "https://github.com/tomkd555/product-ui",
+      "repository": "https://github.com/tomkd555/product-ui",
+      "license": "MIT",
+      "category": "design",
+      "keywords": [
+        "ui",
+        "design-tokens",
+        "ui-copy",
+        "microcopy",
+        "japanese",
+        "tailwind",
+        "shadcn",
+        "dads-tokens",
+        "smarthr-ui-tokens",
+        "helper-text",
+        "captions",
+        "font-size"
+      ]
+    }
+  ]
+}

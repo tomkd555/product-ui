@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "name": "Preset using DADS token values",
+    "surface": "saas",
+    "reference": "digital-agency-design-system",
+    "stack": {
+      "renderer": "vite-react",
+      "tailwind": "4",
+      "base": "react-aria"
+    },
+    "defaults_applied": [
+      "color_dark omitted — DADS β publishes no dark theme",
+      "motion left at the product-ui default — DADS β publishes no motion tokens",
+      "spacing left at the product-ui default — the DADS Tailwind plugin declares no spacing scale",
+      "T10 warning accepted — DADS --shadow-1/2/3 all use alpha 0.1 and 0.3, and only the blur differs",
+      "voice follows references/ui-copy.md — DADS defines no writing guideline"
+    ]
+  },
+  "color": {
+    "background": "oklch(100% 0 0)",
+    "foreground": "oklch(21.8% 0 0)",
+    "primary": "oklch(38% 0.245 264)",
+    "primary_foreground": "oklch(100% 0 0)",
+    "muted": "oklch(96.1% 0 0)",
+    "muted_foreground": "oklch(56.6% 0 0)",
+    "border": "oklch(66.7% 0 0)",
+    "destructive": "oklch(59.2% 0.243 29)",
+    "accent": "oklch(88.3% 0.164 92)"
+  },
+  "typography": {
+    "display": {
+      "family": "Noto Sans JP",
+      "source": "Google Fonts",
+      "weights": [400, 700]
+    },
+    "body": {
+      "family": "Noto Sans JP",
+      "source": "Google Fonts",
+      "weights": [400, 700]
+    },
+    "scale": {
+      "ratio": 1.125,
+      "base_px": 16
+    }
+  },
+  "spacing": {
+    "base_px": 4,
+    "steps": [1, 2, 3, 4, 6, 8, 12, 16, 24, 32]
+  },
+  "radius": {
+    "sm": "0.25rem",
+    "md": "0.5rem",
+    "lg": "0.75rem",
+    "full": "624.9375rem"
+  },
+  "shadow": {
+    "sm": "0 2px 8px 1px oklch(0% 0 0 / 0.1), 0 1px 5px 0 oklch(0% 0 0 / 0.3)",
+    "md": "0 2px 12px 2px oklch(0% 0 0 / 0.1), 0 1px 6px 0 oklch(0% 0 0 / 0.3)",
+    "lg": "0 4px 16px 3px oklch(0% 0 0 / 0.1), 0 1px 6px 0 oklch(0% 0 0 / 0.3)"
+  },
+  "motion": {
+    "duration": {
+      "fast": "120ms",
+      "base": "200ms",
+      "slow": "320ms"
+    },
+    "easing": {
+      "standard": "cubic-bezier(0.2, 0, 0, 1)",
+      "spring": "linear(0, 0.36, 0.82, 1.02, 1)"
+    }
+  },
+  "voice": {
+    "lang": "ja",
+    "register": "敬体",
+    "button_form": "終止形。サ変は「する」を省く",
+    "katakana_choon": "jtf",
+    "case": null,
+    "terms": {
+      "サインイン": "ログイン",
+      "消去": "削除"
+    },
+    "allow": []
+  }
+}

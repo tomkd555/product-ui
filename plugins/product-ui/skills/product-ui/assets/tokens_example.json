@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "name": "Expense review console",
+    "surface": "saas",
+    "reference": null,
+    "stack": {
+      "renderer": "vite-react",
+      "tailwind": "4",
+      "base": "base-ui"
+    },
+    "defaults_applied": [
+      "motion easing left at the standard curve; no reference product was named"
+    ]
+  },
+  "color": {
+    "background": "oklch(98.5% 0.002 247)",
+    "foreground": "oklch(21% 0.012 247)",
+    "primary": "oklch(52% 0.16 172)",
+    "primary_foreground": "oklch(99% 0.003 172)",
+    "muted": "oklch(96% 0.004 247)",
+    "muted_foreground": "oklch(52% 0.014 247)",
+    "border": "oklch(91% 0.006 247)",
+    "destructive": "oklch(57% 0.2 27)",
+    "accent": "oklch(74% 0.13 76)"
+  },
+  "color_dark": {
+    "background": "oklch(17% 0.01 247)",
+    "foreground": "oklch(95% 0.005 247)",
+    "muted": "oklch(24% 0.012 247)",
+    "muted_foreground": "oklch(68% 0.014 247)",
+    "border": "oklch(28% 0.012 247)"
+  },
+  "typography": {
+    "display": {
+      "family": "Fraunces",
+      "source": "Google Fonts",
+      "weights": [400, 600]
+    },
+    "body": {
+      "family": "Public Sans",
+      "source": "Google Fonts",
+      "weights": [400, 500, 700]
+    },
+    "scale": {
+      "ratio": 1.25,
+      "base_px": 16
+    }
+  },
+  "spacing": {
+    "base_px": 4,
+    "steps": [1, 2, 3, 4, 6, 8, 12, 16, 24, 32]
+  },
+  "radius": {
+    "sm": "0.125rem",
+    "md": "0.375rem",
+    "lg": "0.75rem",
+    "full": "9999px"
+  },
+  "shadow": {
+    "sm": "0 1px 2px 0 oklch(0% 0 0 / 0.04)",
+    "md": "0 4px 12px -2px oklch(0% 0 0 / 0.08)",
+    "lg": "0 16px 40px -8px oklch(0% 0 0 / 0.14)"
+  },
+  "motion": {
+    "duration": {
+      "fast": "120ms",
+      "base": "200ms",
+      "slow": "320ms"
+    },
+    "easing": {
+      "standard": "cubic-bezier(0.2, 0, 0, 1)",
+      "spring": "linear(0, 0.36, 0.82, 1.02, 1)"
+    }
+  },
+  "voice": {
+    "lang": "ja",
+    "register": "敬体",
+    "button_form": "終止形。サ変は「する」を省く",
+    "katakana_choon": "jtf",
+    "case": null,
+    "terms": {
+      "サインイン": "ログイン",
+      "消去": "削除"
+    },
+    "allow": []
+  }
+}
