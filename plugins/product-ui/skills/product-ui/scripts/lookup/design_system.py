@@ -1008,7 +1008,7 @@ def _generate_intelligent_overrides(page_name: str, page_query: str, design_syst
     Generate intelligent overrides based on page type using layered search.
     
     Uses the existing search infrastructure to find relevant style, UX, and layout
-    data instead of hardcoded page types.
+    data, so each page type draws on the search results.
     """
     from core import search
     

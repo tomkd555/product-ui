@@ -26,9 +26,9 @@ Read `{SKILL_DIR}` below as the absolute path of this skill's directory: `<plugi
 
 1. **Tokens before markup.** A model told not to use a colour returns to it on the next generation. "Did this file use a value outside the token set" is checkable, so the tokens are settled first and the implementation reads only those variables. The same holds for wording: `tokens.json` carries a `voice` block, and `check_copy.py` asks whether the implementation used it.
 2. **A string exists only if a product writer could defend it.** A label labels, an error says what to do, an empty state says the list is empty. Text that explains the screen, describes the layout, defends a number or fills a slot does not ship. `references/ban-list.md` names each ban and is read before any string is written.
-3. **Nothing below the minimum size.** Body text is 16px, and no text is under 14px, except a Latin-only run of at most 24 characters (a unit, a timestamp, a code), which may go to 12px. The rule is enforced three times: at generation by the ban list, after every write by the `ui-text-lint` hook, which reports errors back to Claude, and after rendering by `check_render.py` R7. A string that only fits at 11px is deleted, not shrunk.
-4. **Prohibitions live in scripts, not prose.** Anything written as "never do X" belongs in `check_slop.py`, `check_copy.py` or `check_shippable_text.py`. A rule nobody can fail is a rule nobody follows.
-5. **Review happens elsewhere.** Step 5 hands the rendered result to a reviewer with none of the context that produced it. Self-review is not review.
+3. **Nothing below the minimum size.** Body text is 16px, and no text is under 14px, except a Latin-only run of at most 24 characters (a unit, a timestamp, a code), which may go to 12px. The rule is enforced three times: at generation by the ban list, after every write by the `ui-text-lint` hook in the plugin install, which reports errors back to Claude, and after rendering by `check_render.py` R7. A string that only fits at 11px is deleted.
+4. **Prohibitions live in scripts.** Anything written as "never do X" belongs in `check_slop.py`, `check_copy.py` or `check_shippable_text.py`. A rule nobody can fail is a rule nobody follows.
+5. **Review happens elsewhere.** Step 5 hands the rendered result to a reviewer with none of the context that produced it. Review is the work of a reader who holds none of the author's context.
 
 ## Out of scope
 
@@ -105,7 +105,7 @@ Do not spend a question on the interface language; read it off the project. `reg
 
 Write `tokens.json`. Derive the colours by the rules under "Deriving the colours" in `references/tokens-format.md`; route the arithmetic to `interfaces:better-colors` and the candidate palettes and pairings to `scripts/lookup/search.py` (`references/lookup.md`) before writing a value by hand. Settle `voice` in the same pass: write `terms` for the product, one word per operation, reading the words already on existing screens first; `assets/voice_terms.ja.json` carries the 長音 pairs C9 checks.
 
-When `meta.reference` names a preset, copy that reference's mapping instead. For any other reference product, work from a screenshot and a written description of it together.
+When `meta.reference` names a preset, copy that reference's mapping. For any other reference product, work from a screenshot and a written description of it together.
 
 ### Step 2 — Mechanical check on the tokens
 
@@ -120,7 +120,7 @@ One error sends this back to Step 1, and the generator does not run. `generate_t
 
 Follow the routing table. Colours, type, spacing, radius, shadow and motion come from `theme.css` variables only; components follow `references/components.md` or the preset's component reference.
 
-Read `references/ban-list.md` and `references/ui-copy.md` **before** writing any string a user will see. The ban list settles whether a string exists and how small text may be; ui-copy.md settles how a string that exists is worded. When the brief gives no real content for a slot, leave `[TODO: …]` in a comment, not on the screen, and ask the user one question; inventing prose to fill a slot is itself a defect.
+Read `references/ban-list.md` and `references/ui-copy.md` **before** writing any string a user will see. The ban list settles whether a string exists and how small text may be; ui-copy.md settles how a string that exists is worded. When the brief gives no real content for a slot, leave `[TODO: …]` in a source comment and ask the user one question; inventing prose to fill a slot is itself a defect.
 
 ### Step 4 — Mechanical checks on the output
 
@@ -136,7 +136,7 @@ npx textlint --config {SKILL_DIR}/assets/textlintrc.ui.json copy-prose.md
 
 textlint is optional and this plugin does not install it; the README names the npm packages `assets/textlintrc.ui.json` needs. When `npx textlint` is unavailable, skip it and write `textlint skipped: not installed` in the hand-over — the three Python scripts still gate.
 
-An error from any of the three scripts sends this back to Step 3. `check_shippable_text.py` resolves the size every text run gets through the stylesheets and reports ST7 for anything under the minimum, ST10 for a declaration under it, and ST1–ST6, ST8 and ST9 for text that should not exist; its warnings do not stop the pipeline but are ruled on one by one — delete the annotation, or keep it and name the allowance. Text that explains the design or the way through the screen is deleted whichever severity reported it. Do not start Step 5 while any finding remains.
+An error from any of the three scripts sends this back to Step 3. `check_shippable_text.py` resolves the size every text run gets through the stylesheets and reports ST7 for anything under the minimum, ST10 for a declaration under it, and ST1–ST6, ST8 and ST9 for text that should not exist; its warnings let the pipeline continue and are ruled on one by one — delete the annotation, or keep it and name the allowance. Text that explains the design or the way through the screen is deleted whichever severity reported it. Do not start Step 5 while any finding remains.
 
 `check_copy.py` covers the labels; textlint covers the prose-shaped strings written to `copy-prose.md`. Fix each textlint finding; deleting the string counts as a fix. The one exception is a string under the carve-out in `references/ui-copy.md`.
 
@@ -149,7 +149,7 @@ Silence a misfire of `check_slop.py` or `check_copy.py` in the file itself, as `
 Then launch both agents in one message, each with `model: opus`:
 
 - `review-design-lead`, with `plan: ui-brief.md`, `target:` the project directory, and `scripts: {SKILL_DIR}/scripts/render`. It renders through headless Chrome (`scripts/render/cdp.js`) at 1280px and 375px and runs `scripts/render/check_render.py`, whose R7 measures the text-size minimum on the computed size — the check the source scripts cannot make for a size set from JavaScript or a transform.
-- `shippable-text-auditor` (`agents/shippable-text-auditor.md` in this plugin), with the built file paths and the surface type (`application` or `landing`) and nothing else — not the brief, not the reasoning. It returns `remove` and `rewrite` findings.
+- `shippable-text-auditor` (`agents/shippable-text-auditor.md` in this plugin), with the built file paths and the surface type (`application` or `landing`) and nothing else; the brief and the reasoning stay with you. It returns `remove` and `rewrite` findings.
 
 Rule on each finding individually: delete the string where the finding is that it should not exist, rewrite it where the finding is about wording, and keep it only under the carve-out in `references/ui-copy.md`, naming the clause in the hand-over. 不合格 (BLOCK), or any critical finding, sends this back to Step 3. Two returns at most; report anything still unresolved as an open question.
 
@@ -169,9 +169,9 @@ python {SKILL_DIR}/scripts/check_shippable_text.py <path> --json
 
 Every finding is a deletion candidate here, warnings included: the user has asked for the annotations gone, so a warning is deleted unless step 5 below keeps it.
 
-1. Delete the element, not the string alone. A `<p class="hint">` emptied of its text still holds its margin.
+1. Delete the whole element along with its string. A `<p class="hint">` emptied of its text still holds its margin.
 2. Delete what the element leaves behind — the wrapper with nothing else inside it, the prop, the import, the class rule nothing references any more.
-3. Never shorten instead, and never shrink instead. A trimmed annotation is still an annotation; an ST7 run is raised to 14px or deleted, and the stylesheet rule that set it is fixed at its declaration (the finding names the selector).
+3. Delete the annotation outright. A trimmed annotation is still an annotation; an ST7 run is raised to 14px or deleted, and the stylesheet rule that set it is fixed at its declaration (the finding names the selector).
 4. Run `shippable-text-auditor` afterwards for the phrasings no pattern reaches, and delete what it returns; in this mode a `rewrite` verdict is deleted as well, unless the string names something the reader cannot get from the screen.
 5. Keep a string only under an allowance named in `references/ban-list.md` — a constraint line under a field, a legend over a genuinely ambiguous encoding, a Latin-short run at 12px — and name the allowance in the hand-over.
 6. Re-run the script until it reports nothing but the strings kept that way, then run Step 4 in full.
@@ -190,7 +190,7 @@ When the hook reports an error: raise the size at the declaration it names, or d
 | Step 4 | `check_slop.py`, `check_copy.py` and `check_shippable_text.py` all exit 0, every textlint finding is fixed, and every `check_shippable_text.py` warning is ruled on | back to Step 3 |
 | Step 5 | 合格 (CLEAN) or 条件付き合格 (CONCERNS), and every `shippable-text-auditor` finding ruled on | back to Step 3, twice at most |
 
-Verdicts: 不合格 (BLOCK) / 条件付き合格 (CONCERNS) / 合格 (CLEAN). When resuming interrupted work, decide the next step from which files exist — `tokens.json`, `theme.css`, the built output — not from the conversation.
+Verdicts: 不合格 (BLOCK) / 条件付き合格 (CONCERNS) / 合格 (CLEAN). When resuming interrupted work, decide the next step from which files exist — `tokens.json`, `theme.css`, the built output — and from those alone.
 
 The Step 2 and Step 4 scripts exit 0 on pass and 1 on failure (`check_shippable_text.py` exits 2 when a directory holds no file in scope), and print readable output when `--json` is omitted. `check_slop.py` locates `theme.css` on its own: it searches beneath the paths first, then up to four directories above them. `check_copy.py` looks for `tokens.json` only upward: in the directory holding the paths, then up to three directories above it (`--tokens` names the file directly); `check_shippable_text.py` reads `meta.surface` from the nearest `tokens.json` for ST3 (`--surface lp|app` overrides), takes `--checks <IDs>` to run a subset, `--css <file.css>` to add a stylesheet to the cascade, and `--dom <dump.json>` to judge a `cdp.js` dump.
 

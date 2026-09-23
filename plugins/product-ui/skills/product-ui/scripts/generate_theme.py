@@ -8,7 +8,7 @@ before it.
 Rules:
     {{a.b.c}}       replaced by that value from tokens.json. A missing value fails
                     the run, except for the optional tokens below, whose line is
-                    dropped instead
+                    dropped
     --brand-surface any line naming it is dropped when color.surface is absent;
                     radius.full and motion.easing.spring are the other optional ones
     {{color_dark}}  expands to a .dark block with one --brand-<key> line per key

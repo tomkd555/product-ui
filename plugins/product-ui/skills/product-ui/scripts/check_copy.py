@@ -183,7 +183,7 @@ def kind_from_key(key):
 
 
 def looks_like_copy(text):
-    """Filter out expressions, class lists and other markup that is not a sentence."""
+    """Keep sentences and labels; filter out expressions, class lists and other markup."""
     text = text.strip()
     if not text or text.startswith("{") or text.startswith("$"):
         return False
@@ -192,7 +192,7 @@ def looks_like_copy(text):
     # A plain word is a label — "OK" and "Submit" are exactly what C13 and C15 look for.
     if re.fullmatch(r"[A-Za-z]+", text):
         return True
-    # Anything else that reads as one identifier or path is markup, not copy.
+    # Anything else that reads as one identifier or path is markup.
     return bool(re.search(r"[A-Za-z]{2,}", text)) and not re.fullmatch(r"[\w\-./:#]+", text)
 
 

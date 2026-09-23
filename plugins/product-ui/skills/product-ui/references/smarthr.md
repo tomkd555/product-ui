@@ -13,8 +13,8 @@ scale, the spacing scale and the components are already decided, so Step 1 maps 
 screenshot reading takes place.
 
 It also replaces most of Step 3. SmartHR ships an official Claude Code plugin holding a guide for each of its
-components and design patterns (104 and 22 as of September 2026), so the components are not documented here — install the plugin and read
-its guides instead.
+components and design patterns (104 and 22 as of September 2026), so the components are documented in that plugin — install it and read
+its guides.
 
 ## Resources
 
@@ -46,8 +46,8 @@ It carries two skills:
 - `design-pattern-guidelines` — page layout, table, list, wizard, delete dialog, empty data, feedback,
   permission settings and fifteen more.
 
-Step 3 routes there instead of to `references/components.md`. Where the plugin is not installed, tell the user the two
-commands above rather than reconstructing component APIs from memory — the props move between versions, and
+Step 3 routes there for every component on this route. Where the plugin is not installed, tell the user the two
+commands above; component APIs come from those guides alone — the props move between versions, and
 each guide names the `smarthr-ui` version it was generated against.
 
 ## The stack
@@ -75,13 +75,12 @@ Import `smarthr-ui.css` after the Tailwind entry point. The library disables Tai
 its own base layer — the body font, the margin resets, `text-spacing-trim` — and that layer has to land after
 v4's preflight to survive it.
 
-Set `meta.stack.base` to `smarthr-ui`: the component base on this route is the library itself, not a headless
-one.
+Set `meta.stack.base` to `smarthr-ui`: the component base on this route is the library itself.
 
 ## Token mapping
 
 SmartHR ships hex, and rule T2 requires `oklch()`. These are the nine required keys of `tokens.json` and the optional `surface`, converted from the
-published semantic tokens with the Oklab transform. Use them verbatim rather than reconverting.
+published semantic tokens with the Oklab transform. Use them verbatim.
 
 | `tokens.json` | SmartHR token | hex | oklch |
 |---|---|---|---|
@@ -96,13 +95,13 @@ published semantic tokens with the Oklab transform. Use them verbatim rather tha
 | `destructive` | `DANGER` | `#e01e5a` | `oklch(58.8% 0.222 11)` |
 | `accent` | `BRAND` | `#00c4cc` | `oklch(74.6% 0.127 200)` |
 
-Why these and not others:
+Why these values:
 
 - SmartHR separates the page ground from the panel ground: `BACKGROUND` `#f8f7f6` is the screen, and panels
   drawn with `Base` sit on `WHITE`. Both enter `tokens.json` — the screen as `background`, the panel as the
   optional `surface` key — so a panel the product builds itself lands on the same white the library's own
   components do. Text on either is `foreground`.
-- `muted` takes `HEAD` rather than `OVER_BACKGROUND`. `OVER_BACKGROUND` `#f2f1f0` sits 1.8% in lightness away
+- `muted` takes `HEAD`. The neighbouring grey, `OVER_BACKGROUND` `#f2f1f0`, sits 1.8% in lightness away
   from `BACKGROUND`, which is too little to read as a distinct surface; `HEAD`, the table-header ground, is the
   one grey that separates.
 - `accent` takes `BRAND` `#00c4cc`, the SmartHR blue. It is the only non-`MAIN` hue the system carries as an
@@ -126,8 +125,8 @@ Everything else:
 
 `scale.ratio` is an approximation. SmartHR's font sizes come from `6 / (6 + d)`, which gives 0.667, 0.75,
 0.857, 1, 1.2, 1.5 and 2rem — a harmonic series, where each neighbouring pair sits at a different ratio (1.2,
-1.25, 1.333 above the base). `1.2` is the closest single geometric ratio, and the real sizes come from the
-`Text` component's `size` prop rather than from this field.
+1.25, 1.333 above the base). `1.2` is the closest single geometric ratio, and the `Text` component's `size`
+prop sets the real sizes.
 
 Spacing is char-relative: one unit is one character at the 16px base size, and the published tokens run
 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3, 3.5, 4 and 8 characters. Written as multiples of 4px, that is the
@@ -142,14 +141,14 @@ Four entries belong in `meta.defaults_applied` on this route, so each departure 
 
 `assets/tokens_example.smarthr.json` is this mapping written out in full.
 
-## The font is a decision, not a default
+## The font is a deliberate decision
 
 T5 and S2 both treat `system-ui` as the mark of a font nobody chose. On this route it is a value copied from
 the reference: `smarthr-ui` ships `font-family: system-ui, sans-serif` in its base layer, and the OS then
 renders each language with its own UI font. T5 falls to a warning whenever `meta.reference` is set, which
 covers it.
 
-S2 reads the built output rather than `tokens.json`, so keep the family out of the markup and let
+S2 reads the built output alone, so keep the family out of the markup and let
 `smarthr-ui.css` set the body font. The one place the family is recorded is `tokens.json`; the next section
 generates a `theme.css` that leaves it out.
 
@@ -182,5 +181,5 @@ import 'smarthr-ui/smarthr-ui.css'
 ```
 
 `check_slop.py` reads every `oklch()` literal out of the generated file, so S1 keeps working: a raw
-`#0077c7` written into markup still fails, which is the intended outcome. Use the component, or the utility —
-never the hex.
+`#0077c7` written into markup still fails, which is the intended outcome. Use the component or the utility
+class.

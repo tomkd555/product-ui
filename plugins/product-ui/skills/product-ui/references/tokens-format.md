@@ -21,7 +21,7 @@ So the tokens are settled before any markup exists, and the implementation uses 
       "tailwind": "4",
       "base": "base-ui"
     },
-    "defaults_applied": ["items settled by default rather than asked about"]
+    "defaults_applied": ["items Step 0 settled by default"]
   },
   "color": {
     "background": "oklch(98.5% 0.002 247)",
@@ -79,7 +79,7 @@ So the tokens are settled before any markup exists, and the implementation uses 
 | `stack.renderer` | yes | `vite-react` / `astro-react` / `next-react` / `html` / `server-templates` |
 | `stack.tailwind` | yes | `"4"`. Version 3 is out of scope for this skill |
 | `stack.base` | yes | `base-ui` / `radix` / `react-aria` / `smarthr-ui`, or `null` when `stack.renderer` is `html` or `server-templates` |
-| `defaults_applied` | yes | array of strings recording what Step 0 settled by default instead of asking. May be empty |
+| `defaults_applied` | yes | array of strings recording what Step 0 settled by default. May be empty |
 
 `stack-defaults.md` holds the permitted pairings of `surface` and `stack.renderer`.
 
@@ -97,11 +97,11 @@ The key count of `color` stays at twelve or fewer; past that, T9 warns. A palett
 
 #### Deriving the colours
 
-Contrast is not earned by muddying a colour. A brand blue pulled down to L 40% and C 0.08 "so the white text passes" is a different, duller colour, and the screen that results reads as nobody's. The rules below keep the brand value intact and move something else instead.
+Contrast comes from lightness and from the choice of text colour, with the brand colour left intact. A brand blue pulled down to L 40% and C 0.08 "so the white text passes" is a different, duller colour, and the screen that results reads as nobody's. The rules below keep the brand value intact and move something else.
 
 1. **Hue comes from the brand or the reference.** The neutrals — `background`, `muted`, `border`, `muted_foreground` — share that hue at chroma ≤ 0.012, so the page ground belongs to the same product as the buttons. Pure grey (`0 0`) is a choice only when the reference makes it, as DADS does.
 2. **Chroma of `primary`, `accent` and `destructive` is never lowered to earn contrast.** When a pairing fails, move the lightness of the *other* side — a lighter ground under a mid-tone primary, a darker `foreground` on a tinted background — or change which colour carries the text.
-3. **A light primary or accent (L above 65%) takes `foreground` as its text, not `primary_foreground`.** SmartHR's brand colour and the DADS accent yellow both work this way; `references/dads.md` and `references/smarthr.md` each record the case. Text colour follows the ground it sits on, not the name of the token.
+3. **A light primary or accent (L above 65%) takes `foreground` as its text.** SmartHR's brand colour and the DADS accent yellow both work this way; `references/dads.md` and `references/smarthr.md` each record the case. Text colour follows the ground it sits on.
 4. **`destructive` keeps its chroma even beside a quiet palette.** A desaturated red is the one place where dullness costs the reader a warning.
 5. **Derive with the tools that already hold the arithmetic.** `interfaces:better-colors` handles OKLCH gamut limits and the pairing of a hue across lightness steps; `scripts/lookup/search.py` (`references/lookup.md`) supplies candidate palettes and font pairings when the brand names none. Step 1 routes to both before writing a value by hand.
 
@@ -153,7 +153,7 @@ The wording the interface uses, settled before any string is written, for the sa
 
 `katakana_choon` is a project setting because the Japanese authorities disagree. The JTF style guide keeps the 長音 on every word. wordrabbit drops it from a word of five characters or more, counted with the 長音, so 「ブラウザー」 becomes 「ブラウザ」 and 「ユーザー」 keeps its 長音. Check C9 asks whether the project is consistent with itself, and its message names the form the setting implies.
 
-Sentence case versus title case is a field for the same reason: Polaris, GOV.UK, Material 3, Atlassian and Carbon all mandate sentence case; Mailchimp uses title case for global navigation; Apple declines to choose and asks only for consistency.
+Sentence case versus title case is a field for the same reason: product style guides differ on it, and the check asks only that the project is consistent with its setting.
 
 ## Validation rules
 

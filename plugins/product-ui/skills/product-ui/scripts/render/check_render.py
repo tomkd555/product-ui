@@ -499,7 +499,7 @@ def main(argv=None):
     args = parser.parse_args(argv)
     for p in list(args.dumps) + args.console + ([args.tokens] if args.tokens else []):
         if not Path(p).is_file():
-            print("not a file: %s" % p, file=sys.stderr)
+            print("expected a file: %s" % p, file=sys.stderr)
             return 2
     try:
         result = run(args.dumps, args.console, args.tokens)

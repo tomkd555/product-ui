@@ -89,7 +89,7 @@ P3 runs on opus because the seven copy questions are judgements about what a Jap
    `{name}` is `design-1-rendering`, `design-2-information`, `design-3-copy`; `{perspective}` is the table cell verbatim. An auditor that wrote no file is relaunched alone.
 8. **Merge** — Read every `*.json` under `$OUT/findings` — `design-0-measured` plus one per perspective launched — and build one list. Tag every finding with its file's top-level `perspective` before merging; a merged row lists both, comma-separated.
    - A NOTE stays in the report and is not corroborated.
-   - Two findings whose `location` names the same element are one row when they make the same claim — compare the whole `evidence`, not its first phrase — listing both perspectives, at the higher severity.
+   - Two findings whose `location` names the same element are one row when they make the same claim — compare the whole `evidence`, from its first phrase to its last — listing both perspectives, at the higher severity.
    - Every CRITICAL and WARNING is corroborated. Group them by screen or file, at most three per verifier.
 9. **Corroborate** — skip this step when no CRITICAL or WARNING survived step 8, and write `## Rejected findings` as `(none)`. Otherwise launch every verifier in one message, `model: opus` for a group holding a CRITICAL and `model: sonnet` for a group of WARNINGs only. Each instruction carries `mode: design`, every field of each finding (id, perspective, severity, location, evidence, fix), the screenshot and dump paths for every capture, the measured file's path when a finding cites an `R-n` id, the real path of the file it cites, and `output path: $OUT/verdicts/{group}.json`. Never pass the auditors' instructions or reasoning. Fold the verdicts: `uphold` keeps the row (a `severity_suggestion` in `reason` lowers it); `reject` and `reject-allowed` move the row to the rejected table with the verifier's reason; `unverifiable` keeps the row at WARNING or below, marked `unverifiable`. A group whose verifier wrote no file is relaunched alone.
 10. **Report** — write `$OUT/report.md` in this shape and return its full text as the final response, opening with the verdict line:
@@ -127,7 +127,7 @@ The severity definitions are in `review-design-auditor.md`; every auditor holds 
 | CONCERNS | 0 CRITICAL, 1 or more WARNING |
 | CLEAN | 0 CRITICAL, 0 WARNING |
 
-A recommended fix is a pinpoint edit — where, from what, to what — never a regeneration of the whole target.
+A recommended fix is a pinpoint edit — where, from what, to what — confined to the element at fault.
 
 ## Verdict is advisory
 
@@ -135,7 +135,7 @@ Design does not settle pass/fail automatically. The `## Summary` states that the
 
 ## Prohibitions
 
-- Auditing the target yourself instead of launching the perspectives, or judging from the screenshots yourself.
+- Auditing the target yourself, or judging from the screenshots yourself; the launched perspectives do the auditing.
 - Launching any subagent type outside the tables above, or leaving a perspective unlaunched.
 - Waiting for a subagent: an `Agent` call returns when its agent is done, so there is nothing to poll.
 - Reporting an uncorroborated CRITICAL or WARNING without the `unverifiable` mark, or finishing with "no findings" and no `## Scope covered`.

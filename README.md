@@ -1,12 +1,12 @@
 # product-ui
 
-One Claude Code plugin for web interfaces that read as a real product. It settles the design tokens and the wording before any markup exists, decides whether each user-visible string should be on the screen at all, keeps every text at 14px or more (12px for a short Latin-only run), checks the output with deterministic scripts, and hands the rendered screen to an independent reviewer.
+One Claude Code plugin for web interfaces that read as a real product. It settles the design tokens and the wording before any markup exists, decides whether each user-visible string should be on the screen at all, sets a 14px minimum for text (12px for a short Latin-only run) and checks it at generation, after each write and on the rendered page, checks the output with deterministic scripts, and hands the rendered screen to an independent reviewer.
 
 Three ideas carry it:
 
 - **Tokens before markup.** Every colour, type, spacing, radius, shadow and motion value — and the 文体, the shape of a button label and the word for each operation — lands in `tokens.json` first; the implementation reads only those variables, and a script asks whether it did.
 - **A string exists only if a product writer could defend it.** Explanatory captions, helper text under every field, self-describing screens, notes defending a number and placeholder filler do not ship. A ban list names each one, a script (ST1–ST10) catches what a pattern can settle, and an auditor agent reads the built text cold for the rest.
-- **Nothing below the minimum size.** Body text 16px, minimum 14px, 12px only for a Latin-only run of at most 24 characters. The checker resolves the size each text run actually gets through the stylesheets and the cascade, a PostToolUse hook runs it after every write and reports errors back to Claude, and the rendered review measures the computed size.
+- **Nothing below the minimum size.** Body text 16px, minimum 14px, 12px only for a Latin-only run of at most 24 characters. The checker resolves each text run's size through the stylesheets and the cascade (`references/ban-list.md` lists what it leaves to the rendered review), a PostToolUse hook in the plugin install runs it after every write and reports errors back to Claude, and the rendered review measures the computed size.
 
 ## When to use it
 

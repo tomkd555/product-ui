@@ -43,7 +43,7 @@ Analytics and experimentation products agree on where each kind of explanation g
 | The explanation is… | Where it goes | Never | Seen in |
 |---|---|---|---|
 | The definition of a metric — what the number is | An info icon beside the label, opening a tooltip of one sentence in the present tense | A `<dl>` of definitions under the chart | Power BI: [Help tooltips](https://learn.microsoft.com/power-bi/visuals/power-bi-visualization-help-tooltips) "appear when a consumer selects the **Help tooltip** icon in the visual header" ([Tooltips overview](https://learn.microsoft.com/power-bi/visuals/power-bi-visualization-tooltips-overview)) |
-| The state of the data — sampled, thresholded, estimated, not enough yet | A status indicator, icon or badge, with a fixed noun-phrase label and a link for the mechanism | A sentence narrating what the pipeline did or did not do | GA4: the [data quality indicator](https://support.google.com/analytics/answer/12856703) at the top of a report, with the status "Thresholding applied"; Optimizely: the [Results page](https://support.optimizely.com/hc/en-us/articles/4410284017421-Optimizely-Experiment-Results-page) "displays that more visitors are needed" |
+| The state of the data — sampled, thresholded, estimated, awaiting more data | A status indicator, icon or badge, with a fixed noun-phrase label and a link for the mechanism | A sentence narrating what the pipeline did or did not do | GA4: the [data quality indicator](https://support.google.com/analytics/answer/12856703) at the top of a report, with the status "Thresholding applied"; Optimizely: the [Results page](https://support.optimizely.com/hc/en-us/articles/4410284017421-Optimizely-Experiment-Results-page) "displays that more visitors are needed" |
 | Statistical uncertainty | The interval drawn on the chart, or a status — winning, losing, inconclusive | Prose about the hypothesis, the p-value or the false-positive rate | Optimizely: on the [Results page](https://support.optimizely.com/hc/en-us/articles/4410284017421-Optimizely-Experiment-Results-page), "statistical significance" is a link to the help centre |
 | How the method works | A help-centre page reached by 「詳しく見る」 or a link naming the page, such as "How significance is calculated" (C15 reports a bare "Learn more") | Inline | Optimizely and GA4 link out |
 | A fact about the data — the source, the period, an exclusion, a break in the series, an axis that does not start at zero | One line under the chart, stated as a fact: 「出典：アクセス解析ログ、2026年1月〜8月」 | A paragraph; a note attached to the title | [Datawrapper Academy](https://www.datawrapper.de/academy/annotate-tab): notes "clarify any abnormalities about your data" and "appear below the chart"; [Eurostat](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Tutorial:Guidelines_for_notes_and_footnotes): notes are "restricted to the maximum extent", and "Footnotes should not be attached to the chart or table title" |
@@ -55,7 +55,7 @@ Sources are linked in the table and the paragraph above.
 
 ### The UI never describes itself
 
-「この画面では各種指標を確認できます」 / "This dashboard lets you review your metrics." Banned outright. Screens are used, not read about.
+「この画面では各種指標を確認できます」 / "This dashboard lets you review your metrics." Banned outright. Screens are for using.
 
 **Why.** The sentence exists only because the generator needed something to put in the space under the heading. A real product has data there.
 
@@ -78,7 +78,7 @@ Onboarding lives in a dismissible surface — a tour, a first-run panel, a help 
 | Running text and UI text — labels, table cells, buttons, helper lines, captions that survived the bans above | 16px | 14px |
 | A Latin-only run of at most 24 visible characters — a unit, a timestamp, a code, a badge | — | 12px |
 
-Nothing is set below the minimum, in any unit, in any stylesheet, at any breakpoint other than print. A string that only fits at 11px is a string the screen has no room for, and the honest move is to delete it, not to shrink it. `typography.scale.base_px` in `tokens.json` is 16 to 18.
+Nothing is set below the minimum, in any unit, in any stylesheet, at any breakpoint other than print. A string that only fits at 11px is a string the screen has no room for, and the honest move is to delete it. `typography.scale.base_px` in `tokens.json` is 16 to 18.
 
 **Why.** The Digital Agency Design System's Tailwind plugin starts its standard text utilities (`text-std-*`) at 16px, and its smallest utility of any group is 14px; Yahoo! JAPAN measured 16–19px as the readable range for Japanese and saw early abandonment fall by up to 23% at 17px. 漢字 lose their strokes at sizes where Latin letters still read, so the Latin allowance does not extend to a run holding a single CJK character. Sources: `@digital-go-jp/tailwind-theme-plugin` 1.0.1, `dist/v4.css` (MIT); techblog.yahoo.co.jp/entry/2023052430423559/.
 
@@ -90,7 +90,7 @@ A label labels, an example demonstrates, a placeholder shows a shape, an error s
 
 ### Never invent prose to fill a slot
 
-When the brief gives no real content for a slot, leave a labelled blank in a comment and ask the user exactly one question. Filler is not a placeholder — it survives into the build, gets read as intent, and is defended in review.
+When the brief gives no real content for a slot, leave a labelled blank in a comment and ask the user exactly one question. Filler survives into the build, gets read as intent, and is defended in review.
 
 **Why.** Every explanatory caption in a generated screen started as a slot nobody had content for.
 
@@ -124,7 +124,7 @@ ST3 asks whether the file sits on a promotional surface. The answer comes from `
 
 **Check.** A Japanese positional phrase — `(下記|上記|以下|左記|右記|下|上|右|左)の(フォーム|入力欄|ボタン|欄|メニュー|タブ|カード|リンク|チェックボックス|プルダウン)` — in a string that also carries an instruction (`ください`, `入力`, `選択`, `押`, `クリック`, `タップ`, `参照`, `ご覧`). In English, an instruction verb followed by a UI noun and then `below` or `above`, or the bare form `the <noun> below/above`.
 
-**Allowed.** The positional word without a UI noun. 「以下の条件」「上記の合計金額」 point at content, not at layout, and pass. The nouns that name content as readily as chrome are out of the list as well — 項目, 一覧, 表, リスト — so 「以下の項目をご確認のうえ、送信してください」 and 「下記の一覧に誤りがあれば修正してください」 both pass. Those are what a confirmation screen says, and it says it about the data on the screen, not about the layout. Only the unambiguous chrome nouns remain.
+**Allowed.** The positional word without a UI noun. 「以下の条件」「上記の合計金額」 point at content and pass. The nouns that name content as readily as chrome are out of the list as well — 項目, 一覧, 表, リスト — so 「以下の項目をご確認のうえ、送信してください」 and 「下記の一覧に誤りがあれば修正してください」 both pass. Those are what a confirmation screen says, and it says it about the data on the screen. Only the unambiguous chrome nouns remain.
 
 **Why.** Requiring both the position and the UI noun is what keeps this off ordinary content pages, where 「以下の」 opens a perfectly good list.
 
@@ -134,7 +134,7 @@ ST3 asks whether the file sits on a promotional surface. The answer comes from `
 
 **Allowed.** Empty-state text — recognised by `empty`, `EmptyState`, `no-data`, `nodata`, `空`, `ありません`, `ございません` or `0件` within 200 characters of the string — which legitimately says what becomes possible. Hero copy on a landing-page surface, as the surface is settled above. A `title` or `tooltip` attribute or prop, where stating what a control does is the whole job of the string: 「Ctrl+S でも保存できます」 passes. A string that already raised ST1 is not reported twice.
 
-**Why.** The length bound is what separates a caption from a paragraph. A body paragraph on a documentation page ends in 「できます」 constantly and is none of this skill's business; a 20-character grey line under a card is. This is a warning rather than an error because the allowance list cannot be completed mechanically — a confirmation dialog and a line of reassurance microcopy both end in 「できます」 with every right to — and only mechanical certainty stops the pipeline. 
+**Why.** The length bound is what separates a caption from a paragraph. A body paragraph on a documentation page ends in 「できます」 constantly and falls outside the length bound; a 20-character grey line under a card is this skill's business. This is a warning because the allowance list cannot be completed mechanically — a confirmation dialog and a line of reassurance microcopy both end in 「できます」 with every right to — and only mechanical certainty stops the pipeline. 
 
 ### ST4 — helper text restating its label (warning)
 
@@ -158,7 +158,7 @@ ST3 asks whether the file sits on a promotional surface. The answer comes from `
 
 **Allowed.** A file carrying a recognisable wizard or stepper. The signals are markup only — `stepper`, `wizard`, `role="tablist"`, `aria-current="step"`, an `<ol>`, a `<Step>` or `<Steps>` component, or `steps` as a whole quoted value. There the steps are the interface. The signals are read from markup alone, because onboarding prose is where the word "steps" appears in visible text, and counting it would switch the check off on the files it exists for.
 
-**Why.** File-level rather than string-level, because the defect is a sequence of instructions spread across the layout, which no single string reveals.
+**Why.** File-level, because the defect is a sequence of instructions spread across the layout, which no single string reveals.
 
 ### ST7 — text below the minimum size (error)
 
@@ -166,13 +166,13 @@ ST3 asks whether the file sits on a promotional surface. The answer comes from `
 
 Resolution follows the cascade as far as a stylesheet can be read without a browser. Stylesheets are every `<style>` block in the file, every `<link rel="stylesheet" href>` that resolves to a local file, the nearest `theme.css` or `tokens.css` (beneath the scanned path, then up to four directories above), and any `.css` named on the command line. A `@media` block whose only media type is `print` is skipped; every other `@media` block is read as if unconditional, because a size that appears only under a width query is still a size a reader gets. Supported selectors are a type, `.class`, `#id`, compounds of those, and descendant chains matched against the element's ancestors. The markup is walked with a stack of computed sizes. Precedence, highest first: an inline `style` (or a JSX `style={{fontSize}}`) marked `!important`; a matching stylesheet rule marked `!important`; the inline `style`; an SVG `font-size` attribute; a Tailwind size class (the last one in source order when several are present; variant prefixes such as `md:` are not read); the matching stylesheet rules by the higher specificity counted as (ids, classes, types), then the later one in source order; inheritance. The root is 16px unless an `html` or `:root` rule (alone or in a grouped selector such as `html, body`) declares a px size, which `rem` then uses. Units: `px`; `rem`; `em` and `%` against the parent; `pt` at 4/3; the keywords `xx-small` 9, `x-small` 10, `small` 13, `medium` 16, `large` 18, `x-large` 24, `xx-large` 32, `smaller` ×0.83, `larger` ×1.2; `var(--x)` when `--x` is declared literally on `:root`, on `html` or in `@theme`; `clamp()`, `min()` and `max()` as the smallest px literal inside. Tailwind classes resolve as `text-xs` 12, `text-sm` 14, `text-base` 16, `text-lg` 18, `text-xl` 20, `text-2xl` 24, `text-3xl` 30, `text-4xl` 36, `text-5xl` 48, `text-6xl` 60, `text-7xl` 72, `text-8xl` 96, `text-9xl` 128 and `text-[N(px|rem|pt)]`, with a `--text-*` declaration in the found theme overriding the default. An SVG `<text font-size="N">` counts. A `var()` whose property is undeclared resolves to its fallback when it carries one. A run whose nearest declared size is an undeclared `var()` with no fallback, a `clamp()` with no px literal, or a rule in a stylesheet that could not be opened inherits its parent's size and is not reported as unresolved. What counts as text is settled in the Scope section above.
 
-The finding names the resolved size and where it came from — `inline`, the selector, the Tailwind class, or `inherited from <tag.class>` — so the fix lands on the declaration rather than on the element.
+The finding names the resolved size and where it came from — `inline`, the selector, the Tailwind class, or `inherited from <tag.class>` — so the fix lands on the declaration itself.
 
 With `--dom <dump.json>`, the same rule runs over the computed `fontSize` of every entry in a `cdp.js` dump's `text` array, and the source is reported as `rendered`. That mode sees what the stylesheet reader cannot: a size set from JavaScript, a `transform: scale()`, a `zoom`.
 
 **Allowed.** Only the Latin-short case in the check itself. A dense table does not defend 13px Japanese; it gets 14px and fewer columns.
 
-**Why.** Resolving the cascade is what makes the ban above enforceable: a `.note { font-size: 11px }` rule in a stylesheet is where most small text is born, and a check that reads only the element never sees it. The Latin-short allowance is the one case where 12px reads, and it is bounded by length so it cannot become a caption. ST10 follows here rather than after ST9 because the two size checks are read together.
+**Why.** Resolving the cascade is what makes the ban above enforceable: a `.note { font-size: 11px }` rule in a stylesheet is where most small text is born, and a check that reads only the element never sees it. The Latin-short allowance is the one case where 12px reads, and it is bounded by length so it cannot become a caption. ST10 follows ST7 directly because the two size checks are read together.
 
 ### ST10 — a size below the minimum declared in a stylesheet (error and warning)
 
@@ -186,7 +186,7 @@ With `--dom <dump.json>`, the same rule runs over the computed `fontSize` of eve
 
 **Check.** In any visible string: `説明テキスト`, `ダミーテキスト`, `サンプルテキスト`, `テキストが入ります`, `ここにテキスト`, `lorem ipsum`, `Description goes here`, `Placeholder text`, and a string opening `TODO:` or `TODO：`.
 
-**Allowed.** Nothing. A `placeholder` attribute holding a real example (`yamada@example.com`) is not filler and does not match.
+**Allowed.** Nothing. A `placeholder` attribute holding a real example (`yamada@example.com`) passes.
 
 **Why.** Filler reaches production because it looks deliberate in a screenshot. `lorem ipsum` is also reported by C15 (`references/ui-copy.md`); each script runs on its own, so both report it.
 
@@ -202,13 +202,13 @@ With `--dom <dump.json>`, the same rule runs over the computed `fontSize` of eve
 
 ## Out of reach for this script
 
-A size set from JavaScript, a `transform: scale()` or a `zoom` on an ancestor, and a rule behind a selector the resolver does not read (`:nth-child`, `:not()`, attribute selectors, and the `>`, `+` and `~` combinators, which are skipped rather than approximated) are not seen by ST7 in source mode. ST10 still reports such a declaration at its own line when it is under the minimum; the element it lands on is seen only by ST7's `--dom` mode, which `review-design-lead`'s `check_render.py` R7 also covers at review time.
+A size set from JavaScript, a `transform: scale()` or a `zoom` on an ancestor, and a rule behind a selector the resolver does not read (`:nth-child`, `:not()`, attribute selectors, and the `>`, `+` and `~` combinators, which are skipped outright) are not seen by ST7 in source mode. ST10 still reports such a declaration at its own line when it is under the minimum; the element it lands on is seen only by ST7's `--dom` mode, which `review-design-lead`'s `check_render.py` R7 also covers at review time.
 
 The `shippable-text-auditor` agent judges these on the built screen. Every one of them needs a reader who can tell what a sentence means, which no pattern can.
 
 - A self-describing screen phrased in a way the ST1 patterns do not carry. 「各種指標をまとめてご覧いただける場所です」 says the same thing and matches nothing.
-- A label describing the feature instead of naming the action — 「ユーザー管理機能」 on the control that opens the user list.
-- Helper text that restates its label semantically rather than lexically, which ST4's bigram overlap cannot see.
+- A label describing the feature where the action should be named — 「ユーザー管理機能」 on the control that opens the user list.
+- Helper text that restates its label in meaning through different words, which ST4's bigram overlap cannot see.
 - A caption stating what is already visible on the chart, the table or the card above it.
 - Whether a legend's encoding is genuinely ambiguous, which is the only question that decides ST5.
 - Whether an empty state's sentence names a next action or merely reports the emptiness.

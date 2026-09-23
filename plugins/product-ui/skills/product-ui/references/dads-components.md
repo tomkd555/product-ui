@@ -12,7 +12,7 @@ first; nothing here works without the Tailwind plugin installed.
 
 ## There is no CLI
 
-DADS is distributed as example code, not as a package. `npx shadcn add` cannot reach these components. Copying is the supported route:
+DADS is distributed as example code to copy. `npx shadcn add` cannot reach these components. Copying is the supported route:
 
 ```bash
 # React
@@ -80,8 +80,8 @@ one. The two cover almost the same ground under different names.
 45 components on the React side, 42 on the HTML side. `Slot` is an internal helper, and the `deprecated/` and
 `v1/` directories are earlier versions — skip all three.
 
-Where a component exists on only one side, build the missing one out of the primitives rather than pulling in
-the other repository: the two have no shared runtime.
+Where a component exists on only one side, build the missing one out of the primitives of the
+repository in use: the two have no shared runtime.
 
 ## React conventions
 
@@ -109,10 +109,10 @@ export const buttonSizeStyle: { [key in ButtonSize]: string } = {
 };
 ```
 
-- **Style objects, not `cva`.** Variants are plain string maps exported alongside the component, so a variant
+- **Plain style objects.** Variants are plain string maps exported alongside the component, so a variant
   can be reused on another element by importing the map.
-- **`aria-disabled`, not `disabled`.** Disabled controls stay focusable and keyboard-reachable; the click
-  handler calls `preventDefault()` instead. Keep this — it is the accessibility position of the system, and
+- **`aria-disabled` marks a disabled control.** Disabled controls stay focusable and keyboard-reachable; the click
+  handler calls `preventDefault()`. Keep this — it is the accessibility position of the system, and
   swapping in `disabled` silently removes the control from the tab order.
 - **`asChild` through a local `Slot`.** Same idea as Radix's `Slot`, but a private implementation in
   `src/components/Slot`. Copy it once; every `asChild` component depends on it.
@@ -121,7 +121,7 @@ export const buttonSizeStyle: { [key in ButtonSize]: string } = {
 - **Typography is one utility.** `text-oln-16B-100` sets size, weight, line-height and letter-spacing together.
   Never pair it with `font-bold` or `leading-*`.
 - **Radius utilities are numeric**: `rounded-4`, `rounded-6`, `rounded-8`, `rounded-12`, matching the plugin's
-  `--radius-*` steps rather than Tailwind's `sm`/`md`/`lg`.
+  `--radius-*` steps.
 - Interactive components import from `react-aria-components`. Install it before copying anything beyond the
   presentational pieces.
 
@@ -146,8 +146,8 @@ components; the README acknowledges it and leaves the fix to the caller.
 
 Set out in the repository's own `AGENTS.md`, and worth matching in any markup written alongside:
 
-- BEM naming under a `dads-` prefix, with variants selected by data attributes — `[data-type="solid-fill"]`
-  rather than a modifier class.
+- BEM naming under a `dads-` prefix, with variants selected by data attributes such as
+  `[data-type="solid-fill"]`.
 - Custom elements without Shadow DOM, so page CSS still applies. Listeners are removed in
   `disconnectedCallback`.
 - Tokens live in `src/global.css` as `:root` custom properties, which is the same arrangement `theme.css` from Step 2 uses. On this route the Tailwind plugin is not needed at all.

@@ -27,7 +27,7 @@ A project on the Digital Agency Design System takes its wording rules from this 
 
 The button and label forms, the operation vocabulary, the punctuation and the error-message structure below are this skill's own rules. For further reading on Japanese product writing, the SmartHR Design System publishes its writing guidelines at https://smarthr.design/products/contents/.
 
-English rules come from Shopify Polaris, GOV.UK, Material 3, Atlassian and IBM Carbon, kept to what all of them agree on. `interfaces:better-writing` holds the rest; route there and keep this section to the consensus.
+The English rules are this skill's own short list. `interfaces:better-writing` holds the rest; route there for anything past it.
 
 ## Scope
 
@@ -141,7 +141,7 @@ The keys are what C10 reports. A project where 「サインイン」 is the word
 
 ## English rules
 
-Kept to what Polaris, GOV.UK, Material 3, Atlassian and Carbon all state. For anything past this, route to `interfaces:better-writing`.
+These are this skill's own rules for English copy. For anything past them, route to `interfaces:better-writing`.
 
 - Sentence case for buttons, headings, labels and menu items — `Upload file`
 - A button label is a verb, or a verb and a noun, in three words or fewer
@@ -153,11 +153,7 @@ Kept to what Polaris, GOV.UK, Material 3, Atlassian and Carbon all state. For an
 - No `e.g.`, `i.e.` or `etc.` — they do not survive translation
 - Second person throughout; never mix `you`/`your` with `me`/`my` on one screen
 
-Three sources dissent on points this list settles:
-
-- **Apple** does not mandate sentence case. It says pick a case convention and hold to it. Do not cite Apple for sentence case
-- **Mailchimp** uses title case for global navigation and for titles. This skill overrules it
-- **GOV.UK** bans negative contractions (`don't`, `can't`) where Polaris, Atlassian and Carbon all want contractions. Settle it per product in `voice.case`'s neighbourhood and do not script it
+Two points stay with the product: the case convention, recorded in `voice.case`, and whether negative contractions (`don't`, `can't`) are used, which no check scripts.
 
 ## Checks
 
@@ -257,7 +253,7 @@ An error means the string contradicts something the project settled or carries n
 
 **Check.** A `button` string that is exactly `OK` (or `Ok`, or the full-width `ＯＫ`), `確認`, `送信`, `実行`, `はい`, `いいえ`, `進む` or `完了`.
 
-**Allowed.** Anything in `voice.allow`. `キャンセル`, `閉じる`, `戻る`, `次へ`, `保存` are not reported — they name their action already.
+**Allowed.** Anything in `voice.allow`. `キャンセル`, `閉じる`, `戻る`, `次へ`, `保存` pass — they name their action already.
 
 **On the threshold.** 「確認」 and 「完了」 are legitimate as step names in a wizard, so this check is a warning; a wizard keeps them with `ignore C13` and the reason.
 

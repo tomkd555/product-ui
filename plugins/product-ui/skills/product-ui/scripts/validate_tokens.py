@@ -38,7 +38,7 @@ PAIRINGS = {
     ("lp", "html"),
 }
 
-# T8 warns instead of failing on these: an existing project the skill did not
+# T8 raises a warning for these: an existing project the skill did not
 # choose the stack for. See the pairing table in references/stack-defaults.md.
 WARNED_PAIRINGS = {
     ("saas", "server-templates"),
@@ -169,8 +169,8 @@ def check_typography(doc, rep):
             continue
         families.append(family)
         if family.strip().lower() in FORBIDDEN_FAMILIES:
-            # A named reference means the family was chosen upstream rather than
-            # defaulted to, which is the only thing T5 is looking for.
+            # A named reference means the family was chosen upstream; T5 looks
+            # only for a family nobody chose.
             report = rep.warn if get(doc, "meta.reference") else rep.error
             report("T5", f"typography.{key}.family",
                    f"{family!r} is on the forbidden list; see references/tokens-format.md")

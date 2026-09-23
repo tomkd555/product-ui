@@ -1,4 +1,4 @@
-/* theme.css — generated from tokens.json. Edit tokens.json, not this file.
+/* theme.css — generated from tokens.json. Edit tokens.json and regenerate.
  *
  * Two tiers, because @theme inline emits no global variable and so cannot be
  * overridden later. Tier 1 holds the raw palette and swaps under .dark; tier 2

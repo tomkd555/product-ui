@@ -292,7 +292,7 @@ def check_file(path, text, known_colors, rep, totals):
 
 
 def is_fragment_reference(text, index):
-    """True for href="#id" and the like, where # is not opening a colour."""
+    """True for href="#id" and the like, where # opens a fragment reference."""
     window = text[max(0, index - 12):index]
     return bool(re.search(r"(?:href|id|xlink:href|url)\s*=?\s*[\"'(]?\s*$", window, re.IGNORECASE))
 

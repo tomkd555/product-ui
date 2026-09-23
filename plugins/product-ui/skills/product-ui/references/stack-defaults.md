@@ -6,7 +6,7 @@ This file is the source of record for what this skill builds with when the reque
 
 | Layer | Default | Why this one |
 |---|---|---|
-| Tokens | Tailwind CSS v4 `@theme`, with context-dependent tokens in a two-tier `@theme inline` plus `:root`/`.dark` arrangement | A variable declared in `@theme` is emitted as a CSS custom property and decides which utility classes exist. "A value outside the token set cannot be written" holds structurally rather than by instruction |
+| Tokens | Tailwind CSS v4 `@theme`, with context-dependent tokens in a two-tier `@theme inline` plus `:root`/`.dark` arrangement | A variable declared in `@theme` is emitted as a CSS custom property and decides which utility classes exist. "A value outside the token set cannot be written" holds structurally, through the set of utility classes the tokens generate |
 | Components | shadcn/ui on **Base UI** | Focus management and keyboard behaviour need a base that supplies them, and React is the only ecosystem where three such bases are first-class options in shadcn |
 | SaaS renderer | Vite + React | An application screen is mostly interaction — state, events, focus — and that is where an application framework earns its cost |
 | Landing-page renderer | Astro, using the same React components as islands | Astro renders every UI component to HTML and CSS by default, stripping client JavaScript. The component layer stays shared with the SaaS side, so nothing is implemented twice |
@@ -22,11 +22,11 @@ This file is the source of record for what this skill builds with when the reque
 | `lp` | `astro-react` | default |
 | `lp` | `next-react` | when the landing page lives inside an existing Next.js app |
 | `lp` | `html` | a single self-contained file, no build step. `stack.base` is `null` |
-| `saas` | `server-templates` | **warned, not permitted.** An existing application that renders its screens from server templates — Flask, Django, Rails, htmx — with no bundler. `stack.base` is `null`. T8 warns instead of failing, and `defaults_applied` records that dialogs and menus have no component base, so focus management and keyboard behaviour follow the APG dialog pattern linked below, written by hand |
+| `saas` | `server-templates` | **tolerated with a warning.** An existing application that renders its screens from server templates — Flask, Django, Rails, htmx — with no bundler. `stack.base` is `null`. T8 raises a warning for it, and `defaults_applied` records that dialogs and menus have no component base, so focus management and keyboard behaviour follow the APG dialog pattern linked below, written by hand |
 
-`saas` with `html` is rejected. A single HTML file has no component base, which leaves focus management and keyboard behaviour to be rewritten by hand on every dialog. `server-templates` admits the same gap for a project that already exists and cannot be moved; it is never a choice for a new one.
+`saas` with `html` is rejected. A single HTML file has no component base, which leaves focus management and keyboard behaviour to be rewritten by hand on every dialog. `server-templates` admits the same gap for a project that already exists and cannot be moved, and for that case alone.
 
-## Why not Next.js by default
+## Why Next.js is kept for existing projects
 
 Next.js describes itself as a framework for building full-stack web applications. Routing, server execution and React Server Components are surface a UI-generation task does not need, and every additional surface is somewhere generation can fail. It stays a sound choice for a project already built on it, which is why the pairing table admits it.
 
@@ -34,7 +34,7 @@ Next.js describes itself as a framework for building full-stack web applications
 
 ### The two tiers
 
-`@theme` alone is not enough for anything that changes with context. Values declared inside `@theme inline` get no global CSS variable, so nothing exists to override later. Dark mode therefore needs two tiers, which is also the shape shadcn/ui itself uses:
+Anything that changes with context needs more than `@theme`. Values declared inside `@theme inline` get no global CSS variable, so nothing exists to override later. Dark mode therefore needs two tiers, which is also the shape shadcn/ui itself uses:
 
 ```css
 @import "tailwindcss";
@@ -65,7 +65,7 @@ Next.js describes itself as a framework for building full-stack web applications
 
 Configuration moved into CSS. A `tailwind.config.js` still works for backward compatibility but is no longer detected automatically — it has to be pulled in with `@config`. The default palette moved from rgb to oklch. The browser floor is Safari 16.4, Chrome 111, Firefox 128; below that, v4 does not run.
 
-Anything written for v3 is a hazard here rather than a head start: a config-file answer to "how do I add a colour" is now the wrong answer.
+Anything written for v3 is a hazard here: a config-file answer to "how do I add a colour" is now the wrong answer.
 
 ## The component base
 
@@ -73,7 +73,7 @@ shadcn/ui defaults new projects to Base UI ([changelog, July 2026](https://ui.sh
 
 Pick a different base with `shadcn init -b radix` or `-b aria` ([CLI reference](https://ui.shadcn.com/docs/cli)), and record the choice in `tokens.json` under `stack.base`.
 
-`stack.base` takes a fourth value, `smarthr-ui`. It is not a headless base but a component library carrying its own styling, so it replaces both layers at once; `references/smarthr.md` holds that route.
+`stack.base` takes a fourth value, `smarthr-ui`. It is a component library carrying its own styling, so it replaces both layers at once; `references/smarthr.md` holds that route.
 
 ### The "every shadcn app looks the same" objection
 

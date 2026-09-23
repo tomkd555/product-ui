@@ -26,7 +26,7 @@ invents none, and no screenshot reading takes place.
 | Illustrations and icons (separate terms of use) | https://www.digital.go.jp/policies/servicedesign/designsystem/Illustration_Icons |
 
 Versions this file was written against, as of September 2026: plugin `1.0.1`, `@digital-go-jp/design-tokens` `2.x`, Figma v2 series.
-Both component repositories are labelled example implementations, not a distributed library.
+Both component repositories are labelled example implementations, meant to be copied into a project.
 
 ## What the plugin provides
 
@@ -45,8 +45,8 @@ The v4 entry point (`dist/v4.css`) declares an `@theme` block and, as of plugin 
 - **Typography**: 55 utilities named `text-<group>-<px><B|N>-<leading>`, where the group is `dsp` (display),
   `std` (standard, leading 140–175), `dns` (dense, 120–130), `oln` (one line, 100) or `mono`. `B` is weight 700
   and `N` is 400. `text-std-17N-170` is 17px regular at line-height 1.7; `text-oln-16B-100` is 16px bold at 1.0.
-  These are `@utility` blocks setting `font-size`, `font-weight`, `line-height` and `letter-spacing` together —
-  not theme variables, so no `--text-*` variable exists to reference.
+  These are `@utility` blocks setting `font-size`, `font-weight`, `line-height` and `letter-spacing` together,
+  so no `--text-*` variable exists to reference.
 - **Fonts**: `--font-sans: 'Noto Sans JP', …`, `--font-mono: 'Noto Sans Mono', monospace`, weights 400 and 700.
 - **Radius**: `--radius-4/6/8/12/16/24/32` and `--radius-full: 624.9375rem`.
 - **Shadow**: `--shadow-1` through `--shadow-8`, each a two-layer shadow at alpha 0.1 and 0.3.
@@ -57,7 +57,7 @@ The plugin does not touch spacing, so Tailwind's own scale stays in place.
 ## Token mapping
 
 DADS ships hex, and rule T2 requires `oklch()`. These are the nine keys of `tokens.json`, converted from the
-plugin's own values with the Oklab transform. Use them verbatim rather than reconverting.
+plugin's own values with the Oklab transform. Use them verbatim.
 
 | `tokens.json` | DADS variable | hex | oklch |
 |---|---|---|---|
@@ -71,13 +71,13 @@ plugin's own values with the Oklab transform. Use them verbatim rather than reco
 | `destructive` | `--color-error-1` | `#ec0000` | `oklch(59.2% 0.243 29)` |
 | `accent` | `--color-yellow-300` | `#ffd43d` | `oklch(88.3% 0.164 92)` |
 
-Why these and not others:
+Why these values:
 
 - `solid-gray-536` and `solid-gray-420` are the two greys DADS itself uses for secondary text and for borders
   on white; the numbers are the contrast ratios they were chosen for.
 - DADS has no separate brand accent. `yellow-300` is what its components paint as the focus ring
   (`focus-visible:ring-yellow-300`), so it is the one non-blue hue the system actually shows. It is a light
-  colour: text on top of it must be `foreground`, never `primary_foreground`.
+  colour: text on top of it must be `foreground`.
 - The full palette stays out of `tokens.json` — thirteen scales at thirteen steps would breach T9's ceiling of
   twelve keys. It lives in the plugin's `@theme`, where the utilities pick it up.
 
@@ -130,7 +130,7 @@ Generate it from a project copy of the template, through the generator's `--temp
 The two coexist: the plugin supplies `bg-key-900`, `text-std-17N-170` and the rest, while the template's
 `@theme inline` block supplies `bg-primary`, `text-foreground` and the semantic names the rest of this skill
 uses. `check_slop.py` reads every `oklch()` literal out of the generated file, so S1 keeps working — and a
-raw `#0017c1` written into markup still fails it, which is the intended outcome. Use the utility, not the hex.
+raw `#0017c1` written into markup still fails it, which is the intended outcome. Use the utility class.
 
 ## Which implementation to copy
 
@@ -143,8 +143,8 @@ raw `#0017c1` written into markup still fails it, which is the intended outcome.
 
 Set `meta.stack.base` to `react-aria` on the React route, and to `null` on the HTML route.
 
-`references/dads-components.md` holds the component inventory and the copying procedure. Route
-there in Step 3 instead of to the shadcn reference — the two systems do not mix inside one screen.
+`references/dads-components.md` holds the component inventory and the copying procedure. Step 3
+routes there for every component on this route — the two systems do not mix inside one screen.
 
 The React repository targets Tailwind v3. Its DADS-specific classes come from the plugin and work unchanged
 under v4; only Tailwind's own renamed core utilities need fixing as each component is copied.

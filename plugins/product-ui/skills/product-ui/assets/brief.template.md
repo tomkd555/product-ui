@@ -18,7 +18,7 @@ Everything the scripts cannot: overlap and alignment, whether anything guides th
 ## Copy questions, answered against the running page
 
 1. Does each button label name what the button actually does? 「保存」 on a control that publishes, 「送信」 on one that only validates, passes every script.
-2. Does each error state a cause the reader can act on, rather than a plausible one?
+2. Does each error state the actual cause, in terms the reader can act on?
 3. Is each heading specific to this screen? 「概要」「詳細」「設定」「情報」 pass every rule and carry nothing.
 4. Is the copy true — 「削除したファイルは復元できません」 on a file the trash can restore, a dialog understating what it deletes, a count that does not match the rows shown?
 5. Is one object called by one name throughout, including names not yet in `voice.terms` in `tokens.json`?

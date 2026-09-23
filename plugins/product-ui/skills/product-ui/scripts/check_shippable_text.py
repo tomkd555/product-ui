@@ -19,8 +19,7 @@ CLI:
 <path> may be a file or a directory. The surface comes from meta.surface in the
 nearest tokens.json unless --surface overrides it. --css adds a stylesheet to the
 cascade ST7 resolves against. --checks limits the run to the named check IDs.
---dom runs ST7 over a cdp.js dump instead of over markup, and the dump is then the
-only input.
+--dom runs ST7 over a cdp.js dump, and the dump is then the only input.
 
 Exit codes: 0 = PASS (no errors; warnings are allowed), 1 = FAIL (one or more errors),
 2 = a directory was given and no file in it is in scope.
@@ -80,7 +79,7 @@ ST3_JA = re.compile(r"(?:でき|出来)ます。?\s*$|が表示されます。?\
 ST3_EN = re.compile(r"^\s*(?:You can|You'll be able to|You are able to)\b", re.IGNORECASE)
 ST3_MAX_CHARS = 80
 EMPTY_STATE = re.compile(r"empty|no-?data|nodata|空|ありません|ございません|0件", re.IGNORECASE)
-# A tooltip states what a control does; that is the job of a tooltip, not a caption.
+# A tooltip states what a control does; that is the whole job of a tooltip.
 TOOLTIP_SOURCES = {"title", "tooltip"}
 
 # --- ST4: helper text restating its label ---------------------------------
@@ -115,7 +114,7 @@ ST6_NEXT = re.compile(r"次に|その後|続いて|最後に")
 ST6_IMPERATIVE = re.compile(r"してください|して下さい")
 ST6_EN = re.compile(r"\bFirst,")
 ST6_EN_NEXT = re.compile(r"\bThen\b")
-# Markup-only signals: the bare word "steps" in visible prose is not a stepper.
+# Markup-only signals: the bare word "steps" in visible prose is how onboarding prose reads.
 WIZARD = re.compile(r"stepper|wizard|role\s*=\s*[\"']tablist[\"']|aria-current\s*=\s*[\"']step[\"']"
                     r"|<ol\b|<Steps?\b|[\"']steps?[\"']", re.IGNORECASE)
 
@@ -174,7 +173,7 @@ SVG_SIZE = re.compile(r"(?<![\w-])font-size\s*=\s*[\"']?([\w.%-]+)[\"']?", re.IG
 # conditional, and the unprefixed class on the same element is the one that always lands.
 TW_SIZE = re.compile(r"\btext-(xs|sm|base|lg|xl|[2-9]xl)\b")
 TW_ARBITRARY_SIZE = re.compile(r"\btext-\[(\d*\.?\d+)(px|rem|pt)\]")
-# A JSX expression standing alone is code, not text.
+# A JSX expression standing alone is code.
 JSX_ONLY = re.compile(r"^\{[^{}]*\}$", re.DOTALL)
 HAS_RUN = re.compile(r"[0-9A-Za-z぀-ヿ一-鿿]")
 
@@ -222,11 +221,11 @@ TEXT_NODE = re.compile(r">(?P<text>[^<>{}]+)<")
 HAS_WORD = re.compile(r"[぀-ヿ一-鿿A-Za-z]")
 
 FIX = {
-    "ST1": "delete it; the screen is used, not read about",
+    "ST1": "delete it; a screen is for using",
     "ST2": "delete the positional phrase; copy never describes the layout",
     "ST3": "delete it, or replace it with the data or the action it stands in front of",
     "ST4": "delete it, or replace it with the format, the limit or the consequence",
-    "ST5": "delete it, or make the encoding unambiguous instead",
+    "ST5": "delete it, or make the encoding unambiguous",
     "ST6": "move the sequence into a dismissible first-run surface, or drop it",
     "ST7": "raise the size to 14px (12px for a Latin-only run of at most 24 characters), "
            "or delete the run",
@@ -478,7 +477,7 @@ class Rule:
 def parse_selector(selector):
     """A descendant chain of (tag, ids, classes), or None where the resolver stops.
 
-    A selector the resolver cannot read matches nothing rather than being guessed at:
+    A selector the resolver cannot read matches nothing, because a guess misleads:
     reading `.a > .b` as a descendant chain reports a grandchild the rule never
     reaches. ST10 and --dom are what see those rules.
     """
@@ -978,7 +977,7 @@ def main():
     parser.add_argument("--checks", metavar="ID,ID",
                         help="run only these check IDs; any other ID is skipped")
     parser.add_argument("--dom", nargs="?", const=True, metavar="DUMP.JSON",
-                        help="run ST7 over a cdp.js dump instead of over markup")
+                        help="run ST7 over a cdp.js dump as the only input")
     parser.add_argument("--json", action="store_true", help="emit machine-readable output")
     args = parser.parse_args()
 
@@ -993,7 +992,7 @@ def main():
     checks = {one.strip().upper() for one in args.checks.split(",")} if args.checks else None
     rep, files = run(args.path, args.surface, args.css, checks, dump)
 
-    # A directory that collected nothing is a wrong path or a wrong scope, not a pass.
+    # A directory that collected nothing is a wrong path or a wrong scope, and fails.
     if not files and Path(target).is_dir():
         print(f"FAIL: no files in scope: {target}", file=sys.stderr)
         return 2

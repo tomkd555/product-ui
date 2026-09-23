@@ -112,7 +112,7 @@ Comment syntax follows the file: `<!-- -->` in HTML, `/* */` in CSS, `{/* */}` i
 <!-- product-ui: ignore-file S9 title separators in <title>, not prose -->
 ```
 
-Suppress only a misfire — the check read the line wrong. Where it read the line correctly, fix the line rather than suppressing it. The reason states how the check misread it; that is what a later reader checks.
+Suppress only a misfire — the check read the line wrong. Where it read the line correctly, fix the line. The reason states how the check misread it; that is what a later reader checks.
 
 ## Out of reach for this script
 
