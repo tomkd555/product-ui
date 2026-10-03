@@ -112,7 +112,7 @@ NAV_OPEN = re.compile(
 NAV_KEYS = {"nav", "navigation", "sidebar"}
 # A search field inside the navigation keeps its placeholder and its tooltip.
 NAV_SKIP_KINDS = {"placeholder", "tooltip"}
-# A breadcrumb names where the reader is, and its last item may be an operation.
+# A breadcrumb names where the reader is, and its last item may be a task.
 BREADCRUMB = re.compile(r"breadcrumb|パンくず", re.IGNORECASE)
 
 
@@ -408,8 +408,8 @@ def check_string(item, voice, structure, rep):
     if structure == "ooui" and item.nav and text not in allow and (
             C17_JA.search(text) or C17_EN.search(text)):
         rep.add("ERROR", "C17", item.path, item.line,
-                f"ナビゲーション項目が操作の名前になっている: {text!r}. "
-                "オブジェクトの名前を書き、操作はそのオブジェクトの画面に移す")
+                f"ナビゲーション項目がタスクの名前になっている: {text!r}. "
+                "オブジェクトの名前を書き、アクションはそのオブジェクトのビューに移す")
 
     if C1.search(text):
         rep.add("ERROR", "C1", item.path, item.line,

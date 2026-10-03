@@ -13,7 +13,7 @@ OOUI designs a screen from objects: the things the user came for, each named by 
 3. The user selects the object first and the action second.
 4. All objects work together to compose the interface.
 
-A screen built around a task fixes the order of work and hides the object inside it. With the objects in front, one list and one detail view serve every task on an object, so the product needs fewer screens and the user chooses the order.
+A screen built around a task fixes the order of work and hides the object inside it. With the objects in front, one collection view and one single view serve every task on an object, so the product needs fewer screens and the user chooses the order.
 
 ## Choosing the structure
 
@@ -24,7 +24,7 @@ Step 0 records the answer in `meta.structure`; the request usually points to one
 | `ooui` | The product manages sets of same-kind objects, and the user chooses which one to act on | An admin console, a SaaS workspace, a CRM, an inventory, a ticket tracker |
 | `task` | The object is fixed and needs no selection, or the screen is a self-contained procedure offered as a fixed input flow | An ATM-style terminal, sign-up, checkout, an application form, an onboarding flow, a landing page |
 
-The two `task` conditions are the exceptions ソシオメディア names for a task-based GUI. Practitioners add two more: a user who must be led to one goal with certainty, and an operation that must run without a mistake, as in an emergency.
+The two `task` conditions are the exceptions ソシオメディア names for a task-oriented UI. Practitioners add two more: a user who must be led to one goal with certainty, and an operation that must run without a mistake, as in an emergency.
 
 One product can hold both: an `ooui` application keeps a task flow for a case in the `task` row, such as its sign-up. Name each such flow in `ui-brief.md` so the reviewer reads it as intended.
 
@@ -42,17 +42,17 @@ List the nouns in the request, the existing screens and the data model. A noun i
 - the product manages it as a set of the same kind,
 - its instances share the same actions.
 
-A word that fails is an operation (登録, 検索), which acts on an object; a value (金額, 期日), which is an attribute of one; or a screen name (一覧, 詳細), which is a view of one.
+A word that fails is an action (登録, 検索), which acts on an object; a value (金額, 期日), which is a property of one; or a screen name (一覧, 詳細), which is a view of one.
 
-For each object, write down its name, key attributes, actions and the objects it refers to. One object keeps one name across the product; settle a competing pair in `voice.terms`. The objects the user comes to the product for are the main objects.
+For each object, write down its name, key properties, actions and related objects. One object keeps one name across the product; settle a competing pair in `voice.terms`. The objects the user comes to the product for are the main objects.
 
 ### Step 2 — Views and navigation
 
-- Each main object gets a collection view, showing the set with the key attributes, and a single view, showing one object with the rest of its attributes.
+- Each main object gets a collection view, showing the set with the key properties, and a single view, showing one object with the rest of its properties.
 - Choosing an object in the collection view opens its single view.
-- Root navigation lists the main objects, each as a noun. C17 reports an item that names an operation.
+- Root navigation lists the main objects, each as a noun. C17 reports an item that names a task.
 - An action sits on the object it acts on: in the row or in the single view, after the object is selected. Creation sits at the collection, as 「新規」 above the list. Editing turns the single view into a form.
-- A reference between objects becomes a link between views: the single view of a 顧客 shows the collection of that customer's 請求書.
+- A relation between objects becomes a link between views: the single view of a 顧客 shows the collection of that customer's 請求書.
 - The object-then-action order holds across the whole application.
 
 ### Step 3 — Layout patterns
@@ -61,8 +61,8 @@ Map each view onto a component from `references/components.md` or the preset's c
 
 | View | Layout |
 |---|---|
-| Collection | A table for attribute comparison, a list for scanning by name, a card grid for objects recognised by image |
-| Single, beside its collection | A two-pane master and detail layout at desktop width, a separate page at 375px |
+| Collection | A table for comparing properties, a list for scanning by name, a card grid for objects recognised by image |
+| Single, beside its collection | The Master-Detail pattern in two panes at desktop width, a separate page at 375px |
 | Single, on its own | A page with the object's name as the heading and its actions beside the heading |
 | Create and edit | The single view as a form, in the same pane or page |
 
@@ -70,18 +70,18 @@ Map each view onto a component from `references/components.md` or the preset's c
 
 上野学 treats design as judgement past mechanical rules, so one check is scripted and the rest goes to a reader of the rendered screen.
 
-- C17 in `check_copy.py`, an error, reports a navigation item ending in an unambiguous operation word. 「申請」「承認」「顧客管理」 and the like go to the reviewer.
+- C17 in `check_copy.py`, an error, reports a navigation item ending in an unambiguous action word. 「申請」「承認」「顧客管理」 and the like go to the reviewer.
 - C10 checks one name per object for the names in `voice.terms`.
-- The five structure questions in `assets/brief.template.md` carry each rule above to the reviewer: noun navigation (1), a collection and a single view joined by selection (2), each action on its object after selection (3), one name and one set of key attributes per object (4), and every sequence a flow the `task` row admits (5).
+- The five structure questions in `assets/brief.template.md` carry each rule above to the reviewer: noun navigation (1), a collection and a single view joined by selection (2), each action on its object after selection (3), one name and one set of key properties per object (4), and every sequence a flow the `task` row admits (5).
 
 ## Sources
 
 | Source | What it settles here |
 |---|---|
 | ソシオメディア、上野学、藤井幸多『[オブジェクト指向UIデザイン](https://gihyo.jp/book/2020/978-4-297-11351-3)』（技術評論社、2020年） | The four principles and the three steps |
-| 上野学「[OOUI – オブジェクトベースのUIモデリング](https://www.sociomedia.co.jp/7279)」（2016年） | The two conditions under which a task-based GUI is tolerated |
+| 上野学「[OOUI – オブジェクトベースのUIモデリング](https://www.sociomedia.co.jp/7279)」（2016年） | The two conditions under which a task-oriented UI is tolerated |
 | 上野学「[OOUI の目当て](https://www.sociomedia.co.jp/8740)」（2019年） | Noun-form navigation, the collection and single views, the edit form in the single view, the object-then-action order |
 | uenitty「[Design process of OOUI](https://speakerdeck.com/uenitty/design-process-of-ooui)」（2020年） | The three tests for an object |
-| yiio による同書の読書記録（[note](https://note.com/yiio/n/n646b6a031626)、2021年） | References between objects drawn as links between views |
+| yiio による同書の読書記録（[note](https://note.com/yiio/n/n646b6a031626)、2021年） | Relations between objects drawn as links between views |
 | nextbeat design の記事（[note](https://note.com/nextbeat_design/n/nbbb7efcedee0)、2021年） | The two practitioner conditions for a task flow |
 | 上野学「[オブジェクト指向デザインの道具論](https://ekrits.jp/2020/10/3914/)」（2020年） | Design as judgement past mechanical rules |

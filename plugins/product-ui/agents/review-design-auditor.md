@@ -80,9 +80,9 @@ The seven copy questions, each answered against the rendered page, with the answ
 6. Is the empty state's action the right next action for a reader who cannot perform it yet?
 7. Does the register suit this audience at all — 敬体 on an internal operations screen, 常体 on a public form?
 
-When the brief carries a `## Structure` section, the screen was built object-first: the section lists the objects, their views, and five structure questions. Answer each against the rendered page and the dump's `controls`, and record the answers in `checked_scope` beside the copy questions. A script has already reported the navigation items that end in an unambiguous operation word; yours are the items it leaves to a reader, such as 「申請」「承認」「顧客管理」. Severity:
+When the brief carries a `## Structure` section, the screen was built object-first: the section lists the objects, their views, and five structure questions. Answer each against the rendered page and the dump's `controls`, and record the answers in `checked_scope` beside the copy questions. A script has already reported the navigation items that end in an unambiguous action word; yours are the items it leaves to a reader, such as 「申請」「承認」「顧客管理」. Severity:
 
-- WARNING: a root navigation item that names an operation; an object in the table with no collection view or no single view; an action offered before its object is chosen.
+- WARNING: a root navigation item that names a task; an object in the table with no collection view or no single view; an action offered before its object is chosen.
 - CRITICAL: a main object the user cannot reach.
 
 ## Accepted patterns (do not report)

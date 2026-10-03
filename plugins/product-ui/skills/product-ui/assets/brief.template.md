@@ -36,9 +36,9 @@ Written by product-ui Step 5: the plan `review-design-lead` conforms the screen 
 
 Keep this section when Structure is ooui; delete it for task and unset.
 
-| Object | Key attributes | Actions | Refers to | Collection view | Single view |
+| Object | Key properties | Actions | Related objects | Collection view | Single view |
 |---|---|---|---|---|---|
-| {{object}} | {{attributes}} | {{actions}} | {{related objects}} | {{path or screen}} | {{path or screen}} |
+| {{object}} | {{properties}} | {{actions}} | {{related objects}} | {{path or screen}} | {{path or screen}} |
 
 Task flows kept as a sequence, each with the condition that admits it: {{flows, or none}}
 
@@ -47,5 +47,5 @@ Structure questions, answered against the running page:
 1. Does each root navigation item name an object from the table, as a noun?
 2. Does each object in the table have its collection view and its single view, and does choosing an item in the collection open its single view?
 3. Does each action sit on the object it acts on — in the row or in the single view, after the object is chosen — with creation at the collection?
-4. Does one object carry the same name and the same key attributes in every view that shows it?
+4. Does one object carry the same name and the same key properties in every view that shows it?
 5. Is every flow that runs as a fixed sequence one of the task flows named above?

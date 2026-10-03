@@ -58,7 +58,7 @@ STANDARD escalates to DEEP once the surface spans more than one screen, and the 
 | Whether a user-visible string should exist; stripping annotations, captions, helper text and small text | `references/ban-list.md`; the REMOVE mode |
 | The words on a Japanese screen: labels, buttons, errors, empty states | `references/ui-copy.md` |
 | The words on an English screen | `interfaces:better-writing`, with `references/ui-copy.md` for what the checks enforce |
-| Which objects a product shows, their list and detail views, what the navigation lists, where an action sits | `references/ooui.md` |
+| Which objects a product shows, their collection and single views, what the navigation lists, where an action sits | `references/ooui.md` |
 | A shadcn component; dark mode; an accessible dialog, dropdown, form or table; a responsive layout in utility classes | `references/components.md` and the official documentation it links |
 | Palettes, font pairings, visual styles, chart types, UX rules, per-stack rules | `references/lookup.md` and `scripts/lookup/search.py` |
 | Building on the Digital Agency Design System | `references/dads.md` for the tokens, `references/dads-components.md` for the components |
@@ -85,7 +85,7 @@ Detect the existing stack (`package.json`, `tailwind.config.*`, an `@import "tai
 
 - **Surface**: landing page or application.
 - **Reference**: デジタル庁デザインシステム (`references/dads.md`) for public-sector sites, SmartHR (`references/smarthr.md`) for Japanese B2B SaaS dense with forms and tables, or なし, where the tokens come from the request or from a product the user names.
-- **Structure**: オブジェクト指向 (OOUI) or タスク指向, recorded in `meta.structure` as `ooui` or `task`. Put first the one the table under "Choosing the structure" in `references/ooui.md` points to. A request that already names one settles it, and the question is left out.
+- **Structure**: オブジェクト指向UI (OOUI) or タスク指向UI, recorded in `meta.structure` as `ooui` or `task`. Put first the one the table under "Choosing the structure" in `references/ooui.md` points to. A request that already names one settles it, and the question is left out.
 - **Stack**: confirmation of what the detection found.
 
 Settle everything else by default and record each default in `meta.defaults_applied`; `register` defaults to 敬体 and `katakana_choon` to `jtf`. Read the interface language off the project and spend no question on it.

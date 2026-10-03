@@ -269,15 +269,15 @@ An error means the string contradicts something the project settled or carries n
 
 **Why.** The [GOV.UK Design System](https://design-system.service.gov.uk/components/error-message/) names `forbidden`, `illegal`, `you forgot`, `prohibited`, `sorry`, `invalid` and `oops` among the words an error message avoids; `uh-oh`, `whoops` and a bare `something went wrong` are the same kind. `invalid` gives the reader nothing to act on.
 
-### C17 — ナビゲーション項目が操作名 (error)
+### C17 — ナビゲーション項目がタスク名 (error)
 
 **Check.** Runs only when `meta.structure` in `tokens.json` is `ooui`, on every string marked as a navigation item, whatever its kind. Japanese: an item that starts with `新規`, ends with `する`, `します` or `を` followed by one to eight characters, or carries at least one character before a final `登録`, `作成`, `追加`, `編集`, `変更`, `削除`, `照会`, `入力`, `検索`, `出力`, `発行` or `送信`. English: an item that starts with `create`, `add`, `edit`, `register`, `delete`, `remove` or `search` followed by another word. With no `tokens.json` found, C17 is skipped, and C10's warning names both.
 
 **Allowed.** Anything in `voice.allow`. An action noun away from the item's end: 「変更履歴」「登録情報」. The action noun alone: a bare 「検索」 opens a product-wide search.
 
-**Why.** Under `references/ooui.md` the navigation lists objects, and an operation sits on its object. 「顧客登録」「顧客検索」「顧客照会」 as three items are one object, 顧客, with three actions.
+**Why.** Under `references/ooui.md` the navigation lists objects, and an action sits on its object. 「顧客登録」「顧客検索」「顧客照会」 as three items are one object, 顧客, with three actions.
 
-**On the threshold.** The list holds words that name an operation and nothing else. 「申請」「承認」「注文」「予約」「管理」 name an object or a queue as often as an operation, and `New` and `Update` open 「New arrivals」 and 「Update history」; those go to the reviewer through structure question 1 in the brief. A task flow the brief admits (`references/ooui.md`, Choosing the structure) keeps its navigation entry with `ignore C17` and the reason.
+**On the threshold.** The list holds words that name an action and nothing else. 「申請」「承認」「注文」「予約」「管理」 name an object or a queue as often as an action, and `New` and `Update` open 「New arrivals」 and 「Update history」; those go to the reviewer through structure question 1 in the brief. A task flow the brief admits (`references/ooui.md`, Choosing the structure) keeps its navigation entry with `ignore C17` and the reason.
 
 ## Suppressing a misfire
 
