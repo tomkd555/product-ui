@@ -13,7 +13,8 @@ recommends and a reason may exist.
 
 Prose-shaped strings get C1, C2, C9, C10, C12 and C15's click here / lorem ipsum
 pattern here, and belong to textlint for the rest. --emit-prose writes the Japanese
-ones out one per line for that run.
+ones out one per line for that run. C17 reads the element text inside a navigation
+block, and runs only where tokens.json sets meta.structure to "ooui".
 
 CLI:
     python check_copy.py <path>... [--tokens tokens.json] [--emit-prose out.md] [--json]
@@ -22,8 +23,9 @@ A finding ruled on and kept is silenced from the markup itself:
     product-ui: ignore C13 <reason>        the line before, or the same line
     product-ui: ignore-file C12 <reason>   anywhere in the file
 A form with no reason is reported as C0 and silences nothing. Catalogs (.json)
-carry no comments; voice.allow covers a catalog term for C10 and a catalog label
-for C13, and a catalog string any other check reports is rewritten.
+carry no comments; voice.allow covers a catalog term for C10, a catalog label
+for C13 and a navigation item for C17, and a catalog string any other check
+reports is rewritten.
 
 Exit codes: 0 = PASS (no errors; warnings are allowed), 1 = FAIL (one or more errors).
 """
@@ -99,7 +101,19 @@ TS_ENTRY = re.compile(r"[\"']?(?P<key>[A-Za-z0-9_.\-]+)[\"']?\s*:\s*[\"'](?P<tex
 
 DESTRUCTIVE = re.compile(r"destructive|danger|delete|destroy|remove", re.IGNORECASE)
 
-COMMENT = re.compile(r"/\*.*?\*/|//[^\n]*|<!--.*?-->", re.DOTALL)
+# A // straight after a scheme (https://) is a URL, and stays.
+COMMENT = re.compile(r"/\*.*?\*/|(?<![A-Za-z]:)//[^\n]*|<!--.*?-->", re.DOTALL)
+
+# C17 reads the element text inside these blocks as navigation items.
+NAV_OPEN = re.compile(
+    r"<(?P<tag>nav|NavigationMenu|SidebarMenu)\b[^<>]*>"
+    r"|<(?P<role>[A-Za-z][A-Za-z0-9]*)\b[^<>]*role\s*=\s*[\"']navigation[\"'][^<>]*>",
+)
+NAV_KEYS = {"nav", "navigation", "sidebar"}
+# A search field inside the navigation keeps its placeholder and its tooltip.
+NAV_SKIP_KINDS = {"placeholder", "tooltip"}
+# A breadcrumb names where the reader is, and its last item may be an operation.
+BREADCRUMB = re.compile(r"breadcrumb|パンくず", re.IGNORECASE)
 
 
 SUPPRESS = re.compile(r"product-ui:\s*ignore(?P<file>-file)?\s+(?P<id>[SC]\d+)(?P<rest>[^\n]*)")
@@ -152,13 +166,14 @@ class Report:
 class Str:
     """One string a user will see, with everything the checks need to judge it."""
 
-    def __init__(self, text, kind, path, line, key=None, destructive=False):
+    def __init__(self, text, kind, path, line, key=None, destructive=False, nav=False):
         self.text = text.strip()
         self.kind = kind
         self.path = path
         self.line = line
         self.key = key
         self.destructive = destructive
+        self.nav = nav
 
     @property
     def japanese(self):
@@ -196,8 +211,36 @@ def looks_like_copy(text):
     return bool(re.search(r"[A-Za-z]{2,}", text)) and not re.fullmatch(r"[\w\-./:#]+", text)
 
 
+def nav_key(key):
+    return bool(set(re.split(r"[._\-/]", key.lower())) & NAV_KEYS)
+
+
+def nav_spans(body):
+    """Spans of the navigation blocks, each closed at the tag that pairs with its opening one."""
+    spans = []
+    for match in NAV_OPEN.finditer(body):
+        if match.group(0).endswith("/>"):
+            continue
+        tag = match.group("tag") or match.group("role")
+        depth, end = 0, len(body)
+        for step in re.finditer(rf"<(/?){tag}\b", body[match.start():]):
+            depth += -1 if step.group(1) else 1
+            if depth == 0:
+                end = match.start() + step.end()
+                break
+        # The breadcrumb mark sits on the block's own tag or on its first child's.
+        if not BREADCRUMB.search("".join(body[match.start():end].split(">", 2)[:2])):
+            spans.append((match.start(), end))
+    return spans
+
+
 def extract_markup(body, path):
     found = []
+    spans = nav_spans(body)
+
+    def in_nav(index):
+        return any(start <= index < end for start, end in spans)
+
     for match in TEXT_ELEMENT.finditer(body):
         text = match.group("text")
         if not looks_like_copy(text):
@@ -213,7 +256,8 @@ def extract_markup(body, path):
             else:
                 kind = "prose"
         found.append(Str(text, kind, path, line_of(body, match.start()),
-                         destructive=bool(DESTRUCTIVE.search(attrs))))
+                         destructive=bool(DESTRUCTIVE.search(attrs)),
+                         nav=in_nav(match.start())))
 
     for match in ATTR_TEXT.finditer(body):
         text = match.group("text")
@@ -237,8 +281,10 @@ def walk_catalog(node, path, prefix, body, found):
         at = body.find(quoted)
         if at >= 0:
             line = line_of(body, at)
-        found.append(Str(node, kind_from_key(prefix), path, line, key=prefix,
-                         destructive=bool(DESTRUCTIVE.search(prefix))))
+        kind = kind_from_key(prefix)
+        found.append(Str(node, kind, path, line, key=prefix,
+                         destructive=bool(DESTRUCTIVE.search(prefix)),
+                         nav=nav_key(prefix) and kind not in NAV_SKIP_KINDS))
 
 
 def extract_catalog(body, path):
@@ -256,8 +302,10 @@ def extract_catalog(body, path):
         if not looks_like_copy(text):
             continue
         key = match.group("key")
-        found.append(Str(text, kind_from_key(key), path, line_of(body, match.start()),
-                         key=key, destructive=bool(DESTRUCTIVE.search(key))))
+        kind = kind_from_key(key)
+        found.append(Str(text, kind, path, line_of(body, match.start()),
+                         key=key, destructive=bool(DESTRUCTIVE.search(key)),
+                         nav=nav_key(key) and kind not in NAV_SKIP_KINDS))
     return found
 
 
@@ -300,7 +348,9 @@ def collect(roots):
         if catalog:
             strings.extend(extract_catalog(body, path))
         else:
-            strings.extend(extract_markup(COMMENT.sub("", body), path))
+            # Each comment keeps its newlines, so a finding's line matches the file.
+            strings.extend(extract_markup(
+                COMMENT.sub(lambda m: "\n" * m.group(0).count("\n"), body), path))
     return files, strings, suppress
 
 
@@ -332,6 +382,9 @@ C16 = re.compile(r"\b(oops|uh-oh|whoops|sorry|invalid|illegal|forbidden|prohibit
                  re.IGNORECASE)
 C16_VAGUE = re.compile(r"something went wrong", re.IGNORECASE)
 C16_FIX = re.compile(r"\b(try|refresh|reload|retry|contact|check)\b", re.IGNORECASE)
+C17_JA = re.compile(r"^新規|(する|します|を[^を]{1,8})$"
+                    r"|.(登録|作成|追加|編集|変更|削除|照会|入力|検索|出力|発行|送信)$")
+C17_EN = re.compile(r"^(create|add|edit|register|delete|remove|search)\s+\S", re.IGNORECASE)
 
 BUDGET = {"button": 8, "label": 12, "tooltip": 80}
 
@@ -348,9 +401,15 @@ def in_dirs(path, names):
     return bool({p.lower() for p in path.replace("\\", "/").split("/")} & names)
 
 
-def check_string(item, voice, rep):
+def check_string(item, voice, structure, rep):
     text = item.text
     allow = set(voice.get("allow") or [])
+
+    if structure == "ooui" and item.nav and text not in allow and (
+            C17_JA.search(text) or C17_EN.search(text)):
+        rep.add("ERROR", "C17", item.path, item.line,
+                f"ナビゲーション項目が操作の名前になっている: {text!r}. "
+                "オブジェクトの名前を書き、操作はそのオブジェクトの画面に移す")
 
     if C1.search(text):
         rep.add("ERROR", "C1", item.path, item.line,
@@ -490,14 +549,16 @@ def find_tokens(roots):
     return None
 
 
-def load_voice(path):
+def load_tokens(path):
+    """Return (voice, meta.structure, path); path is None when no file was read."""
     if not path or not os.path.isfile(path):
-        return {}, None
+        return {}, None, None
     try:
         with open(path, encoding="utf-8") as handle:
-            return json.load(handle).get("voice") or {}, path
+            doc = json.load(handle)
     except (OSError, json.JSONDecodeError):
-        return {}, None
+        return {}, None, None
+    return doc.get("voice") or {}, (doc.get("meta") or {}).get("structure"), path
 
 
 def load_choon_pairs():
@@ -515,20 +576,21 @@ def run(roots, tokens_path):
         roots = [roots]
     rep = Report()
     files, strings, rep.suppress = collect(roots)
-    voice, tokens_used = load_voice(tokens_path or find_tokens(roots))
+    voice, structure, tokens_used = load_tokens(tokens_path or find_tokens(roots))
 
     for item in [s for s in strings if s.kind == "suppression"]:
         rep.findings.append({"severity": "WARN", "id": "C0", "file": item.path, "line": item.line,
                              "message": "suppression carries no reason, so it suppresses nothing"})
     strings = [s for s in strings if s.kind != "suppression"]
     for item in strings:
-        check_string(item, voice, rep)
+        check_string(item, voice, structure, rep)
     check_register([s for s in strings if s.japanese], rep)
     check_choon(strings, load_choon_pairs(), voice.get("katakana_choon", "jtf"), rep)
 
     if not tokens_used:
         rep.add("WARN", "C10", roots[0], 0,
-                "tokens.json が見つからず、用語辞書の検査 (C10) を飛ばした")
+                "tokens.json が見つからず、用語辞書の検査 (C10) と"
+                "ナビゲーション項目の検査 (C17) を飛ばした")
     return rep, files, strings, tokens_used
 
 

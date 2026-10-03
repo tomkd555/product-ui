@@ -3,6 +3,7 @@
     "name": "Expense review console",
     "surface": "saas",
     "reference": null,
+    "structure": "ooui",
     "stack": {
       "renderer": "vite-react",
       "tailwind": "4",

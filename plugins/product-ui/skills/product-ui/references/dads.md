@@ -2,14 +2,9 @@
 
 product-ui is an independent project with no affiliation to or endorsement from the Digital Agency (デジタル庁); this preset uses the token values published in `digital-go-jp/tailwind-theme-plugin` (https://github.com/digital-go-jp/tailwind-theme-plugin) under the MIT licence.
 
-The design system published by Japan's Digital Agency (デジタル庁デザインシステム), currently at β. The component
-repositories and the Tailwind plugin are MIT-licensed (© デジタル庁); the other resources below, such as the
-Figma library and the illustrations and icons, carry their own terms. This file is the source of record for the DADS route: read it in
-Step 1 whenever `meta.reference` is `"digital-agency-design-system"`, and in Step 3 before writing markup.
+The design system published by Japan's Digital Agency (デジタル庁デザインシステム), currently at β. The component repositories and the Tailwind plugin are MIT-licensed (© デジタル庁); the other resources below, such as the Figma library and the illustrations and icons, carry their own terms. Read this file in Step 1 whenever `meta.reference` is `"digital-agency-design-system"`, and in Step 3 before writing markup.
 
-Choosing DADS replaces the usual token derivation. The palette, the type scale and the components have already
-been decided, with WCAG 2.2 AA as the target DADS states, so Step 1 maps the existing values and
-invents none, and no screenshot reading takes place.
+DADS has already settled the palette, the type scale and the components, targeting WCAG 2.2 AA, so Step 1 maps the existing values, invents none and reads no screenshot.
 
 ## Resources
 
@@ -25,8 +20,7 @@ invents none, and no screenshot reading takes place.
 | Accessibility guidebook | https://www.digital.go.jp/resources/introduction-to-web-accessibility-guidebook |
 | Illustrations and icons (separate terms of use) | https://www.digital.go.jp/policies/servicedesign/designsystem/Illustration_Icons |
 
-Versions this file was written against, as of September 2026: plugin `1.0.1`, `@digital-go-jp/design-tokens` `2.x`, Figma v2 series.
-Both component repositories are labelled example implementations, meant to be copied into a project.
+Written against, as of September 2026: plugin `1.0.1`, `@digital-go-jp/design-tokens` `2.x`, Figma v2 series. Both component repositories are example implementations meant to be copied into a project.
 
 ## What the plugin provides
 
@@ -37,7 +31,7 @@ Both component repositories are labelled example implementations, meant to be co
 
 The v4 entry point (`dist/v4.css`) declares an `@theme` block and, as of plugin `1.0.1`, 58 custom utilities.
 
-- **Colour**: thirteen scales at steps 50–1200 (`--color-key-*`, `blue`, `light-blue`, `cyan`, `green`, `lime`,
+- **Colour**: the scales at steps 50–1200 (`--color-key-*`, `blue`, `light-blue`, `cyan`, `green`, `lime`,
   `yellow`, `orange`, `red`, `magenta`, `purple`), `--color-solid-gray-50…900` and its `--color-opacity-gray-*`
   counterpart in `rgba()`, plus the semantic pairs `--color-success-1/2`, `--color-error-1/2`,
   `--color-warning-yellow-1/2`, `--color-warning-orange-1/2`, `--color-focus-yellow`, `--color-focus-blue`.
@@ -45,19 +39,17 @@ The v4 entry point (`dist/v4.css`) declares an `@theme` block and, as of plugin 
 - **Typography**: 55 utilities named `text-<group>-<px><B|N>-<leading>`, where the group is `dsp` (display),
   `std` (standard, leading 140–175), `dns` (dense, 120–130), `oln` (one line, 100) or `mono`. `B` is weight 700
   and `N` is 400. `text-std-17N-170` is 17px regular at line-height 1.7; `text-oln-16B-100` is 16px bold at 1.0.
-  These are `@utility` blocks setting `font-size`, `font-weight`, `line-height` and `letter-spacing` together,
-  so no `--text-*` variable exists to reference.
+  Each is an `@utility` block setting `font-size`, `font-weight`, `line-height` and `letter-spacing` together,
+  so there is no `--text-*` variable to reference.
 - **Fonts**: `--font-sans: 'Noto Sans JP', …`, `--font-mono: 'Noto Sans Mono', monospace`, weights 400 and 700.
 - **Radius**: `--radius-4/6/8/12/16/24/32` and `--radius-full: 624.9375rem`.
 - **Shadow**: `--shadow-1` through `--shadow-8`, each a two-layer shadow at alpha 0.1 and 0.3.
 - **List markers**: `list-circle`, `list-square`, `list-lower-latin`.
-
-The plugin does not touch spacing, so Tailwind's own scale stays in place.
+- **Spacing**: Tailwind's own scale, which the plugin leaves in place.
 
 ## Token mapping
 
-DADS ships hex, and rule T2 requires `oklch()`. These are the nine keys of `tokens.json`, converted from the
-plugin's own values with the Oklab transform. Use them verbatim.
+T2 requires `oklch()`; these nine keys are converted from the plugin's hex with the Oklab transform. Use them verbatim.
 
 | `tokens.json` | DADS variable | hex | oklch |
 |---|---|---|---|
@@ -71,15 +63,9 @@ plugin's own values with the Oklab transform. Use them verbatim.
 | `destructive` | `--color-error-1` | `#ec0000` | `oklch(59.2% 0.243 29)` |
 | `accent` | `--color-yellow-300` | `#ffd43d` | `oklch(88.3% 0.164 92)` |
 
-Why these values:
-
-- `solid-gray-536` and `solid-gray-420` are the two greys DADS itself uses for secondary text and for borders
-  on white; the numbers are the contrast ratios they were chosen for.
-- DADS has no separate brand accent. `yellow-300` is what its components paint as the focus ring
-  (`focus-visible:ring-yellow-300`), so it is the one non-blue hue the system actually shows. It is a light
-  colour: text on top of it must be `foreground`.
-- The full palette stays out of `tokens.json` — thirteen scales at thirteen steps would breach T9's ceiling of
-  twelve keys. It lives in the plugin's `@theme`, where the utilities pick it up.
+- `solid-gray-536` and `solid-gray-420` are the greys DADS itself uses for secondary text and for borders on white; the numbers are the contrast ratios they were chosen for.
+- `yellow-300` is the focus ring DADS components paint (`focus-visible:ring-yellow-300`), the one non-blue hue the system shows; DADS has no separate brand accent. It is a light colour, so text on it must be `foreground`.
+- The full palette stays in the plugin's `@theme`, where the utilities pick it up: every scale at every step would breach T9's ceiling of twelve keys.
 
 Everything else:
 
@@ -94,7 +80,9 @@ Everything else:
 | `color_dark` | omitted | DADS β has no dark theme |
 | `voice` | product-ui's own default | DADS publishes no writing guideline — see below |
 
-Five entries belong in `meta.defaults_applied` on this route, so each departure from the preset carries its reason:
+The shadows are written in `oklch(0% 0 0 / a)` because `rgba(0, 0, 0, a)` hides the alpha from T10, and a warning accepted with a reason beats one that cannot fire.
+
+Five entries belong in `meta.defaults_applied` on this route:
 
 - `"color_dark omitted — DADS β publishes no dark theme"`
 - `"motion left at the product-ui default — DADS β publishes no motion tokens"`
@@ -102,21 +90,15 @@ Five entries belong in `meta.defaults_applied` on this route, so each departure 
 - `"T10 warning accepted — DADS --shadow-1/2/3 all use alpha 0.1 and 0.3, and only the blur differs"`
 - `"voice follows references/ui-copy.md — DADS defines no writing guideline"`
 
-The shadows are rewritten into `oklch(0% 0 0 / a)` because `rgba(0, 0, 0, a)` hides the alpha from T10's check,
-and a warning that cannot fire is worse than one that is accepted with a reason.
-
 `assets/tokens_example.dads.json` is this mapping written out in full.
 
 ## DADS defines no writing guideline
 
-DADS publishes its visual foundations, its components and its accessibility guidance. The wording of a button, a form label or an error message is left to each project.
-
-`references/ui-copy.md` supplies those rules on this route — this skill's own rules and 文化審議会「公用文作成の考え方」（建議、令和4年1月7日） — and applies unchanged. Tell the user that the wording rules come from this skill.
+DADS publishes visual foundations, components and accessibility guidance, and leaves the wording of buttons, labels and errors to each project. `references/ui-copy.md` applies unchanged on this route — this skill's own rules and 文化審議会「公用文作成の考え方」（建議、令和4年1月7日）. Tell the user the wording rules come from this skill.
 
 ## theme.css
 
-Generate it from a project copy of the template, through the generator's `--template` option, so that
-`theme.css` is never edited by hand:
+Generate it from a project copy of the template, so `theme.css` stays generated:
 
 1. Copy `assets/theme.template.css` beside `tokens.json` as `theme.template.css`.
 2. In the copy, add one line directly after `@import "tailwindcss";`:
@@ -127,10 +109,7 @@ Generate it from a project copy of the template, through the generator's `--temp
 
 3. Run `python {SKILL_DIR}/scripts/generate_theme.py tokens.json --template theme.template.css`.
 
-The two coexist: the plugin supplies `bg-key-900`, `text-std-17N-170` and the rest, while the template's
-`@theme inline` block supplies `bg-primary`, `text-foreground` and the semantic names the rest of this skill
-uses. `check_slop.py` reads every `oklch()` literal out of the generated file, so S1 keeps working — and a
-raw `#0017c1` written into markup still fails it, which is the intended outcome. Use the utility class.
+The plugin supplies `bg-key-900`, `text-std-17N-170` and the rest; the template's `@theme inline` block supplies `bg-primary`, `text-foreground` and the semantic names this skill uses. `check_slop.py` reads the `oklch()` literals out of the generated file, so S1 still fails a raw `#0017c1` in markup. Use the utility class.
 
 ## Which implementation to copy
 
@@ -141,10 +120,6 @@ raw `#0017c1` written into markup still fails it, which is the intended outcome.
 | `vite-react`, `next-react` | `design-system-example-components-react` | `react-aria-components`, Tailwind |
 | `html` | `design-system-example-components-html` | `dads-`-prefixed BEM, custom elements without Shadow DOM |
 
-Set `meta.stack.base` to `react-aria` on the React route, and to `null` on the HTML route.
+Set `meta.stack.base` to `react-aria` on the React route and to `null` on the HTML route.
 
-`references/dads-components.md` holds the component inventory and the copying procedure. Step 3
-routes there for every component on this route — the two systems do not mix inside one screen.
-
-The React repository targets Tailwind v3. Its DADS-specific classes come from the plugin and work unchanged
-under v4; only Tailwind's own renamed core utilities need fixing as each component is copied.
+Step 3 takes every component on this route from `references/dads-components.md`, which holds the inventory and the copying procedure; DADS and shadcn stay on separate screens.

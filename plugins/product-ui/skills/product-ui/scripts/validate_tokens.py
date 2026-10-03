@@ -92,6 +92,10 @@ def check_meta(doc, rep):
     if surface is not None and surface not in ("saas", "lp"):
         rep.error("T1", "meta.surface", f"expected 'saas' or 'lp', found {surface!r}")
 
+    structure = get(doc, "meta.structure")
+    if structure is not None and structure not in ("ooui", "task"):
+        rep.error("T1", "meta.structure", f"expected 'ooui' or 'task', found {structure!r}")
+
     tailwind = get(doc, "meta.stack.tailwind")
     if tailwind is not None and str(tailwind) != "4":
         rep.error("T7", "meta.stack.tailwind", f"expected '4', found {tailwind!r}; version 3 is out of scope")

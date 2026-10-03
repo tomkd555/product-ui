@@ -4,14 +4,12 @@ This file is the source of record for checks S1 through S10. `scripts/check_slop
 
 ## What is actually being judged
 
-"Does this look AI-generated" is a judgement no script can make and no two reviewers make the same way. The checks target what a script can settle.
-
-A script can check two things:
+"Does this look AI-generated" is a judgement no script can make and no two reviewers make the same way. A script can settle two things:
 
 1. **Does a value appear that the token set does not contain** — `tokens.json` and `theme.css` hold the answer, so a diff decides it
 2. **Is an implementation missing** — form validation and error states are either present or absent
 
-The remaining checks (S5 through S9) claim no more than a tendency, so all of them are warnings. Only S1–S4 and S10, where a correct answer exists, stop the pipeline.
+S1–S4 and S10 have a correct answer and are errors that stop the pipeline. S5 through S9 claim only a tendency and are warnings.
 
 ## Scope
 
@@ -27,19 +25,19 @@ Excluded: `theme.css` and `tokens.css` (the token definitions themselves), `node
 
 **Allowed.** CSS and JS comments. Fragment references such as `href="#..."` and `id="#..."`. SVG `currentColor`. `transparent` and `inherit`.
 
-**Why.** A model that has the tokens still writes hex literals. Checking whether the tokens were used is what closes the loop.
+**Why.** A model that has the tokens still writes hex literals; this check closes the loop.
 
 ### S2 — a font reached for by default (error)
 
 **Check.** Look in `font-family` declarations and Tailwind `font-[...]` arbitrary values for `Inter`, `Roboto`, `Open Sans`, `Lato`, `Arial`, `Helvetica`, `system-ui`, `-apple-system`, `Space Grotesk`, `Poppins` or `Montserrat`.
 
-**Allowed.** Any position after the first in a fallback list — `"Public Sans", system-ui, sans-serif` passes. Only the leading family raises an error.
+**Allowed.** Any position after the first in a fallback list: `"Public Sans", system-ui, sans-serif` passes. Only the leading family raises an error.
 
 **Why.** Anthropic's prompting cookbook, [Prompting for frontend aesthetics](https://github.com/anthropics/claude-cookbooks/blob/main/coding/prompting_for_frontend_aesthetics.ipynb) (as of September 2026), carries both the ban and its limit: "**Never use:** Inter, Roboto, Open Sans, Lato, default system fonts" and "You still tend to converge on common choices (Space Grotesk, for example) across generations." A written ban leaves the convergence in place, so the ban becomes a check.
 
 ### S3 — a blue-to-purple gradient (error)
 
-**Check.** In `linear-gradient`, `radial-gradient` and `conic-gradient` arguments, and in Tailwind `from-*`, `via-*` and `to-*` classes, find a blue family (blue, indigo, sky, cyan) and a purple family (purple, violet, fuchsia) appearing together. For raw OKLCH and hex values, decide it on whether two or more stops fall in the 240–300 degree hue range.
+**Check.** In `linear-gradient`, `radial-gradient` and `conic-gradient` arguments, and in Tailwind `from-*`, `via-*` and `to-*` classes, find a blue family (blue, indigo, sky, cyan) and a purple family (purple, violet, fuchsia) appearing together. For raw OKLCH and hex values, it fires when two or more stops fall in the 240–300 degree hue range.
 
 **Why.** A blue-to-purple gradient is the default accent of generated interfaces, and it marks a colour nobody chose.
 
@@ -47,31 +45,31 @@ Excluded: `theme.css` and `tokens.css` (the token definitions themselves), `node
 
 **Check.** Across the whole scope, count the distinct families appearing in leading position. Three or more raises an error.
 
-**Allowed.** Monospace families (`ui-monospace`, `Menlo`, `Consolas`, `Fira Code` and the like) do not count — code blocks need one.
+**Allowed.** Monospace families (`ui-monospace`, `Menlo`, `Consolas`, `Fira Code` and the like) do not count; code blocks need one.
 
-**Why.** Two families — one for display, one for body — give every hierarchy a screen needs. A third family adds a voice without adding a level.
+**Why.** Two families, one for display and one for body, give every hierarchy a screen needs. A third adds a voice without adding a level.
 
 ### S5 — more than five colours outside the token set (warning)
 
-**Check.** Count the distinct values S1 found. More than five raises a warning.
+**Check.** Count the distinct values S1 found, including those silenced with `ignore S1`. More than five raises a warning.
 
-**Why.** A palette past five colours stops carrying meaning: the reader can no longer tell which colour signals what. It counts the colours S1 found, including those silenced with `ignore S1`, so it catches colours accumulating through suppressions while each S1 error stops the pipeline on its own.
+**Why.** Past five colours a palette stops carrying meaning: the reader can no longer tell which colour signals what. Counting suppressed values catches colours accumulating one suppression at a time.
 
 ### S6 — a single radius everywhere (warning)
 
 **Check.** Collect `border-radius` values and Tailwind `rounded-*` classes. Excluding `0`, `0px`, `none`, `9999px`, `full` and `50%`, a warning fires when exactly one distinct value remains and it appears in five or more places.
 
-**Why.** Identical padding, radius and card height across a whole screen is a recurring observation about generated interfaces — the absence of any weight difference. The five-occurrence floor keeps small surfaces, where one radius is correct, out of it.
+**Why.** Identical padding, radius and card height across a whole screen, with no weight difference anywhere, is a recurring observation about generated interfaces. The five-occurrence floor keeps small surfaces, where one radius is correct, out of it.
 
-**On the threshold.** One radius across a surface can be a deliberate choice, so this check stays a warning. A project where it fires on a deliberate single radius silences it with `ignore-file S6` and the reason.
+**On the threshold.** One radius across a surface can be a deliberate choice, so this stays a warning. A project where it fires on a deliberate single radius silences it with `ignore-file S6` and the reason.
 
 ### S7 — one alpha across every shadow (warning)
 
 **Check.** Collect the alpha values inside `box-shadow` colours. A warning fires when exactly one distinct value remains, it falls between 0.05 and 0.15, and it appears in three or more places.
 
-**Why.** The same observations name one shadow near 0.1 alpha on every card. Bounding it to 0.05–0.15 avoids catching a deliberately heavy or deliberately faint shadow applied consistently.
+**Why.** The same observations name one shadow near 0.1 alpha on every card. The 0.05–0.15 bound lets a deliberately heavy or deliberately faint shadow, applied consistently, pass.
 
-**On the threshold.** Same caution as S6.
+**On the threshold.** As for S6: a warning, silenced with `ignore-file S7` and the reason where the single alpha is deliberate.
 
 ### S8 — emoji standing in for icons (warning)
 
@@ -83,15 +81,20 @@ Excluded: `theme.css` and `tokens.css` (the token definitions themselves), `node
 
 ### S9 — em-dashes piling up (warning)
 
-**Check.** Count `—` (U+2014) in visible text. Three or more in one file raises a warning.
+**Check.** Count `—` (U+2014) in visible text. Three or more in one file raises a warning. The Japanese full-width dash `―` (U+2015) is out of scope.
 
 **Allowed.** Comments, the contents of `<code>` and `<pre>`, and attribute values.
 
-**Why.** Repeatedly named as a trace of generated prose. The Japanese full-width dash `―` (U+2015) is out of scope.
+**Why.** Repeatedly named as a trace of generated prose.
 
 ### S10 — a form with no state design (error)
 
-**Check.** On finding a `<form>` element, or `useForm`, `react-hook-form`, `Formik` or `zodResolver` in the file, look for at least one of, anywhere in the file: the word `required`, `aria-required`, `aria-invalid`, `aria-describedby`, a `pattern` attribute, or something recognisable as error display (`role="alert"`, a JSX expression reading `errors.`, `errorMessage`, `helperText` or `FormMessage`). None of them present raises an error.
+**Check.** On finding a `<form>` element, or `useForm`, `react-hook-form`, `Formik` or `zodResolver` in the file, look anywhere in the file for at least one of:
+
+- the word `required`, `aria-required`, `aria-invalid`, `aria-describedby`, or a `pattern` attribute;
+- something recognisable as error display: `role="alert"`, or a JSX expression reading `errors.`, `errorMessage`, `helperText` or `FormMessage`.
+
+None of them present raises an error.
 
 **Allowed.** A file carrying `role="search"` or `type="search"`, read as a search form.
 
@@ -112,11 +115,11 @@ Comment syntax follows the file: `<!-- -->` in HTML, `/* */` in CSS, `{/* */}` i
 <!-- product-ui: ignore-file S9 title separators in <title>, not prose -->
 ```
 
-Suppress only a misfire — the check read the line wrong. Where it read the line correctly, fix the line. The reason states how the check misread it; that is what a later reader checks.
+Suppress only a misfire, where the check read the line wrong; where it read the line correctly, fix the line. The reason states how the check misread it, for a later reader to verify.
 
 ## Out of reach for this script
 
-Step 5 — the independent review through `review-design-lead` — judges these against the rendered page.
+Step 5, the independent review through `review-design-lead`, judges these against the rendered page:
 
 - Headline copy that says nothing ("Scale without limits." and its relatives, which would suit any product)
 - The reused shape of centred hero, then three equal-width cards

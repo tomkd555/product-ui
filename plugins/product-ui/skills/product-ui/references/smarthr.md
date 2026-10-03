@@ -2,19 +2,9 @@
 
 product-ui is an independent project with no affiliation to or endorsement from SmartHR, Inc.; this preset uses the token values published in `smarthr-ui` (https://github.com/kufu/smarthr-ui) under the MIT licence.
 
-The design system SmartHR publishes at https://smarthr.design/, and `smarthr-ui`, the React component library
-that implements it. `smarthr-ui` is MIT-licensed (© 2018 SmartHR). The content of smarthr.design is © SmartHR
-under its own terms (https://smarthr.design/terms/), which reserve copyright and ask users to refrain from
-redistributing it; the design system repository, `kufu/smarthr-design-system`, carries no licence file. This file is the source of record for the SmartHR route: read it in
-Step 1 whenever `meta.reference` is `"smarthr"`, and in Step 3 before writing markup.
+The design system SmartHR publishes at https://smarthr.design/, and `smarthr-ui`, the React component library that implements it. `smarthr-ui` is MIT-licensed (© 2018 SmartHR). The content of smarthr.design is © SmartHR under its own terms (https://smarthr.design/terms/), which reserve copyright and ask users to refrain from redistributing it; the design system repository, `kufu/smarthr-design-system`, carries no licence file. Read this file in Step 1 whenever `meta.reference` is `"smarthr"`, and in Step 3 before writing markup.
 
-Choosing SmartHR replaces the usual token derivation, exactly as the DADS route does. The palette, the type
-scale, the spacing scale and the components are already decided, so Step 1 maps the published values and no
-screenshot reading takes place.
-
-It also replaces most of Step 3. SmartHR ships an official Claude Code plugin holding a guide for each of its
-components and design patterns (104 and 22 as of September 2026), so the components are documented in that plugin — install it and read
-its guides.
+SmartHR has already settled the palette, the type scale, the spacing scale and the components, so Step 1 maps the published values and reads no screenshot. For the components, Step 3 reads SmartHR's official Claude Code plugin, which holds a guide for each of its components and design patterns.
 
 ## Resources
 
@@ -29,7 +19,7 @@ its guides.
 | Design system repository | https://github.com/kufu/smarthr-design-system |
 | Claude Code plugin | the `plugins/smarthr-design-system` directory of that repository |
 
-Versions this file was written against, as of September 2026: `smarthr-ui` 99.2.0, plugin 0.6.0.
+Written against, as of September 2026: `smarthr-ui` 99.2.0, plugin 0.6.0.
 
 ## The official plugin
 
@@ -40,47 +30,30 @@ Versions this file was written against, as of September 2026: `smarthr-ui` 99.2.
 
 It carries two skills:
 
-- `component-guidelines` — one guide per component, each holding the props and types generated from
-  `smarthr-ui/metadata.json`, the Do and Don't drawn from `eslint-plugin-smarthr`, and a usage checklist. A
-  `component-selector.md` maps a UI requirement onto the component that serves it.
-- `design-pattern-guidelines` — page layout, table, list, wizard, delete dialog, empty data, feedback,
-  permission settings and fifteen more.
+- `component-guidelines` — one guide per component, each holding the props and types generated from `smarthr-ui/metadata.json`, the Do and Don't drawn from `eslint-plugin-smarthr`, and a usage checklist. A `component-selector.md` maps a UI requirement onto the component that serves it.
+- `design-pattern-guidelines` — page layout, table, list, wizard, delete dialog, empty data, feedback, permission settings and the rest of the pattern guides.
 
-Step 3 routes there for every component on this route. Where the plugin is not installed, tell the user the two
-commands above; component APIs come from those guides alone — the props move between versions, and
-each guide names the `smarthr-ui` version it was generated against.
+Step 3 routes there for every component on this route. When the plugin is missing, give the user the two commands above. Component APIs come from those guides alone, because the props move between versions and each guide names the `smarthr-ui` version it was generated against.
 
 ## The stack
 
-`smarthr-ui` is a React component library with `styled-components` as a peer dependency, and it ships its own
-compiled stylesheet:
+`smarthr-ui` is a React library with peer dependencies `react`, `react-dom`, `react-intl` and `styled-components`, and it ships its own compiled stylesheet:
 
 ```tsx
 import { createTheme, ThemeProvider, Button } from 'smarthr-ui'
 import 'smarthr-ui/smarthr-ui.css'
 ```
 
-Peer dependencies are `react`, `react-dom`, `react-intl` and `styled-components`. `createTheme()` takes
-overrides for the colour, font-size, spacing, radius and shadow themes; calling it bare gives the published
-defaults, which is what this route assumes.
+`createTheme()` takes overrides for the colour, font-size, spacing, radius and shadow themes; this route calls it bare, which gives the published defaults.
 
-Internally the library is built with Tailwind v3 under the `shr-` prefix, and `smarthr-ui.css` is that build,
-already compiled. So the product's own Tailwind stays at v4 and `meta.stack.tailwind` stays `"4"`.
-
-**The product never writes a `shr-` class.** Component styling arrives compiled in `smarthr-ui.css`; the
-product's own layout uses the v4 utilities its `theme.css` generates. Authoring `shr-` utilities would mean
-loading `smarthr-ui/smarthr-ui-preset` into a Tailwind v3 config, which is out of this skill's scope.
-
-Import `smarthr-ui.css` after the Tailwind entry point. The library disables Tailwind's preflight and supplies
-its own base layer — the body font, the margin resets, `text-spacing-trim` — and that layer has to land after
-v4's preflight to survive it.
-
-Set `meta.stack.base` to `smarthr-ui`: the component base on this route is the library itself.
+- **Tailwind stays at v4.** The library is built internally with Tailwind v3 under the `shr-` prefix, and `smarthr-ui.css` is that build, compiled. `meta.stack.tailwind` stays `"4"`.
+- **The product never writes a `shr-` class.** Component styling arrives in `smarthr-ui.css`; the product's own layout uses the v4 utilities its `theme.css` generates. Authoring `shr-` utilities would need `smarthr-ui/smarthr-ui-preset` in a Tailwind v3 config, outside this skill's scope.
+- **Import `smarthr-ui.css` after the Tailwind entry point.** The library disables Tailwind's preflight and supplies its own base layer (the body font, the margin resets, `text-spacing-trim`), which has to land after v4's preflight to survive it.
+- **`meta.stack.base` is `smarthr-ui`**: the library is the component base on this route.
 
 ## Token mapping
 
-SmartHR ships hex, and rule T2 requires `oklch()`. These are the nine required keys of `tokens.json` and the optional `surface`, converted from the
-published semantic tokens with the Oklab transform. Use them verbatim.
+T2 requires `oklch()`; these are the nine required keys and the optional `surface`, converted from the published semantic tokens' hex with the Oklab transform. Use them verbatim.
 
 | `tokens.json` | SmartHR token | hex | oklch |
 |---|---|---|---|
@@ -95,20 +68,10 @@ published semantic tokens with the Oklab transform. Use them verbatim.
 | `destructive` | `DANGER` | `#e01e5a` | `oklch(58.8% 0.222 11)` |
 | `accent` | `BRAND` | `#00c4cc` | `oklch(74.6% 0.127 200)` |
 
-Why these values:
-
-- SmartHR separates the page ground from the panel ground: `BACKGROUND` `#f8f7f6` is the screen, and panels
-  drawn with `Base` sit on `WHITE`. Both enter `tokens.json` — the screen as `background`, the panel as the
-  optional `surface` key — so a panel the product builds itself lands on the same white the library's own
-  components do. Text on either is `foreground`.
-- `muted` takes `HEAD`. The neighbouring grey, `OVER_BACKGROUND` `#f2f1f0`, sits 1.8% in lightness away
-  from `BACKGROUND`, which is too little to read as a distinct surface; `HEAD`, the table-header ground, is the
-  one grey that separates.
-- `accent` takes `BRAND` `#00c4cc`, the SmartHR blue. It is the only non-`MAIN` hue the system carries as an
-  identity colour, and the Tailwind preset exposes it as `bg-brand`. It is light: text on top of it must be
-  `foreground`.
-- `WARNING_YELLOW` `#ffcc17` has no slot among these ten keys. It stays in the library, where the components that
-  need it already paint it.
+- **`background` and `surface`**: SmartHR puts the screen on `BACKGROUND` `#f8f7f6` and panels drawn with `Base` on `WHITE`. Both enter `tokens.json`, so a panel the product builds lands on the same white as the library's own. Text on either is `foreground`.
+- **`muted` takes `HEAD`**, the table-header ground. `OVER_BACKGROUND` `#f2f1f0` sits 1.8% in lightness from `BACKGROUND`, too close to read as a distinct surface.
+- **`accent` takes `BRAND` `#00c4cc`**, the SmartHR blue: the only non-`MAIN` identity hue, exposed by the Tailwind preset as `bg-brand`. It is light, so text on it must be `foreground`.
+- **`WARNING_YELLOW` `#ffcc17` has no slot.** It stays in the library, where the components that need it paint it.
 
 Everything else:
 
@@ -123,16 +86,10 @@ Everything else:
 | `color_dark` | omitted | SmartHR publishes no dark theme |
 | `voice` | product-ui's own default | `references/ui-copy.md` — see below |
 
-`scale.ratio` is an approximation. SmartHR's font sizes come from `6 / (6 + d)`, which gives 0.667, 0.75,
-0.857, 1, 1.2, 1.5 and 2rem — a harmonic series, where each neighbouring pair sits at a different ratio (1.2,
-1.25, 1.333 above the base). `1.2` is the closest single geometric ratio, and the `Text` component's `size`
-prop sets the real sizes.
+- **`scale.ratio` is an approximation.** SmartHR's font sizes come from `6 / (6 + d)`: 0.667, 0.75, 0.857, 1, 1.2, 1.5 and 2rem, a harmonic series whose neighbouring ratios differ (1.2, 1.25, 1.333 above the base). `1.2` is the closest single geometric ratio; the `Text` component's `size` prop sets the real sizes.
+- **Spacing is char-relative**: one unit is one character at the 16px base. The published tokens run 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3, 3.5, 4 and 8 characters, which in multiples of 4px is the `steps` array above.
 
-Spacing is char-relative: one unit is one character at the 16px base size, and the published tokens run
-0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3, 3.5, 4 and 8 characters. Written as multiples of 4px, that is the
-`steps` array above.
-
-Four entries belong in `meta.defaults_applied` on this route, so each departure from the preset carries its reason:
+Four entries belong in `meta.defaults_applied` on this route:
 
 - `"color_dark omitted — SmartHR publishes no dark theme"`
 - `"motion left at the product-ui default — SmartHR publishes no motion tokens"`
@@ -143,43 +100,25 @@ Four entries belong in `meta.defaults_applied` on this route, so each departure 
 
 ## The font is a deliberate decision
 
-T5 and S2 both treat `system-ui` as the mark of a font nobody chose. On this route it is a value copied from
-the reference: `smarthr-ui` ships `font-family: system-ui, sans-serif` in its base layer, and the OS then
-renders each language with its own UI font. T5 falls to a warning whenever `meta.reference` is set, which
-covers it.
-
-S2 reads the built output alone, so keep the family out of the markup and let
-`smarthr-ui.css` set the body font. The one place the family is recorded is `tokens.json`; the next section
-generates a `theme.css` that leaves it out.
+`system-ui` is copied from the reference: `smarthr-ui` ships `font-family: system-ui, sans-serif` in its base layer, and the OS renders each language in its own UI font. T5 and S2 both treat `system-ui` as the mark of a font nobody chose. T5 drops to a warning because `meta.reference` is set (`references/tokens-format.md`). S2 reads the built output alone, so keep the family out of the markup and let `smarthr-ui.css` set the body font. The family is recorded in `tokens.json` only; the `theme.css` below leaves it out.
 
 ## Wording
 
-The `voice` block and the rules in `references/ui-copy.md` apply on this route as written; the project settles
-its own `voice.terms` there.
-
-For further reading, the design system publishes its writing style, its UI text guidance and its 用字用語 at
-https://smarthr.design/products/contents/. The `preset-smarthr` textlint rules in Step 4 check 用字用語 against
-that guidance.
+The `voice` block and `references/ui-copy.md` apply as written; the project settles its own `voice.terms`. SmartHR's writing style, UI text guidance and 用字用語 are at https://smarthr.design/products/contents/, and the `preset-smarthr` textlint rules in Step 4 check 用字用語 against that guidance.
 
 ## theme.css
 
-The standard template writes the family in quotes — `"system-ui", ui-serif, serif` for `h1`–`h3` — and a
-quoted `"system-ui"` is read as a font name, so headings would fall through to a serif. Generate from a project
-copy of the template instead, through the generator's `--template` option:
+The standard template quotes the family — `"system-ui", ui-serif, serif` for `h1`–`h3` — and a quoted `"system-ui"` is read as a font name, so headings would fall through to a serif. Generate from a project copy of the template through `--template`:
 
 1. Copy `assets/theme.template.css` beside `tokens.json` as `theme.template.css`.
-2. In the copy, delete the `--font-display` and `--font-body` lines from the `@theme inline` block, and the two
-   `font-family` declarations from the base layer.
+2. In the copy, delete the `--font-display` and `--font-body` lines from the `@theme inline` block, and the two `font-family` declarations from the base layer.
 3. Run `python {SKILL_DIR}/scripts/generate_theme.py tokens.json --template theme.template.css`.
 
-Each regeneration reads the project copy, so `theme.css` is still never edited by hand. Load the two
-stylesheets in this order:
+Each regeneration reads the project copy, so `theme.css` stays generated. Load the two stylesheets in this order:
 
 ```tsx
 import './theme.css'
 import 'smarthr-ui/smarthr-ui.css'
 ```
 
-`check_slop.py` reads every `oklch()` literal out of the generated file, so S1 keeps working: a raw
-`#0077c7` written into markup still fails, which is the intended outcome. Use the component or the utility
-class.
+`check_slop.py` reads the `oklch()` literals out of the generated file, so S1 still fails a raw `#0077c7` in markup. Use the component or the utility class.

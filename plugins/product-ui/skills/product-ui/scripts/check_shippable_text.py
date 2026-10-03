@@ -13,7 +13,7 @@ Wording is out of scope. Whether a string that has earned its place is worded we
 belongs to product-ui's check_copy.py.
 
 CLI:
-    python check_shippable_text.py <path> [--surface lp|app] [--css <file.css>]...
+    python check_shippable_text.py <path> [--surface lp|saas] [--css <file.css>]...
                                           [--checks ST7,ST10] [--dom <dump.json>] [--json]
 
 <path> may be a file or a directory. The surface comes from meta.surface in the
@@ -45,7 +45,7 @@ SKIP_PATTERNS = (".min.", ".test.", ".spec.")
 # ST3 allows a capability sentence on a promotional surface. meta.surface in the
 # nearest tokens.json settles it; the path heuristics are the fallback when no
 # tokens.json and no --surface are available.
-LANDING_SURFACES = {"lp", "landing", "marketing"}
+LANDING_SURFACES = {"lp"}
 LANDING_DIRS = {"marketing", "landing", "lp"}
 LANDING_NAMES = ("landing", "hero")
 
@@ -970,7 +970,7 @@ def main():
     parser = argparse.ArgumentParser(
         description="Run shippable-text existence checks ST1-ST10.")
     parser.add_argument("path", nargs="?", help="file or directory to check")
-    parser.add_argument("--surface", choices=["lp", "app"],
+    parser.add_argument("--surface", choices=["lp", "saas"],
                         help="override meta.surface from tokens.json")
     parser.add_argument("--css", action="append", default=[], metavar="FILE.CSS",
                         help="add a stylesheet to the cascade ST7 resolves against")
