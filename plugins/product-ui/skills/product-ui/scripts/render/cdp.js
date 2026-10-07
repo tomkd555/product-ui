@@ -12,7 +12,7 @@
 //                 font-weight / line-height / bounding rect of every element that carries text (a
 //                 translucent background comes with `backgroundBase`, the opaque colour under it),
 //                 and the composition of the first <main> (else <body>): `scope` (its rect),
-//                 `boxes` (elements drawn as an enclosure: a border, a fill that differs from the
+//                 `boxes` (elements drawn as an enclosure: a border on two or more sides, a fill that differs from the
 //                 background behind it, or a shadow; with nesting depth and parent box), and
 //                 `gaps` (per parent, the spacing between consecutive children, 0..200px rounded
 //                 to 4px)
@@ -74,7 +74,7 @@ const DUMP_EXPR = `(() => {
   const v = window, d = document;
   // [colour, fallback]: fallback is true when no ancestor paints a background.
   const painted = c => c && c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent';
-  const alphaOfBg = c => { const m = /\/\s*([\d.]+)(%?)\s*\)\s*$/.exec(c); if (m) return m[2] ? m[1] / 100 : +m[1]; const r = /^rgba\([^,]+,[^,]+,[^,]+,\s*([\d.]+)\)$/.exec(c); return r ? +r[1] : 1; };
+  const alphaOfBg = c => { const m = /\\/\\s*([\\d.]+)(%?)\\s*\\)\\s*$/.exec(c); if (m) return m[2] ? m[1] / 100 : +m[1]; const r = /^rgba\\([^,]+,[^,]+,[^,]+,\\s*([\\d.]+)\\)$/.exec(c); return r ? +r[1] : 1; };
   // [colour, fallback, base]: the nearest painted background; when it is translucent, base is the nearest opaque
   // ancestor colour to composite it over (white when none paints). fallback is true when no ancestor paints at all.
   const bg = el => { let first = null; for (let e = el; e; e = e.parentElement) { const c = v.getComputedStyle(e).backgroundColor; if (!painted(c)) continue; if (first === null) { first = c; if (alphaOfBg(c) >= 1) return [c, false, undefined]; continue; } if (alphaOfBg(c) >= 1) return [first, false, c]; } return first === null ? ['rgb(255, 255, 255)', true, undefined] : [first, false, 'rgb(255, 255, 255)']; };
@@ -110,7 +110,7 @@ const DUMP_EXPR = `(() => {
   // A custom property that holds a colour (a literal or a color-mix of other tokens) is resolved through a probe
   // element, so the checks can match an element's computed colour against the value the variable gives.
   const probe = d.createElement('span'); probe.style.position = 'absolute'; probe.style.left = '-9999px'; d.body.appendChild(probe);
-  const COLOURISH = /^(#|rgb|hsl|oklch|oklab|lab|lch|color\(|color-mix\()/;
+  const COLOURISH = /^(#|rgb|hsl|oklch|oklab|lab|lch|color\\(|color-mix\\()/;
   for (const prop of Object.keys(tokens)) { if (!COLOURISH.test(tokens[prop])) continue; probe.style.color = ''; probe.style.color = 'var(' + prop + ')'; const c = v.getComputedStyle(probe).color; if (painted(c)) tokens[prop] = c; }
   probe.remove();
   // Composition of the first <main> (else <body>): enclosures and the spacing between siblings.
@@ -131,7 +131,7 @@ const DUMP_EXPR = `(() => {
       if (BOX_DISPLAY.has(s.display) && s.visibility !== 'hidden') {
         const r = el.getBoundingClientRect();
         if (r.width >= 40 && r.height >= 40 &&
-            (SIDES.some(k => parseFloat(s['border' + k + 'Width']) > 0 && s['border' + k + 'Style'] !== 'none' && alphaOf(s['border' + k + 'Color']) > 0) ||
+            (SIDES.filter(k => parseFloat(s['border' + k + 'Width']) > 0 && s['border' + k + 'Style'] !== 'none' && alphaOf(s['border' + k + 'Color']) > 0).length >= 2 ||
              (alphaOf(s.backgroundColor) > 0 && s.backgroundColor !== bg(el.parentElement)[0]) || s.boxShadow !== 'none')) {
           boxesTotal++;
           if (boxes.length < MAX_BOXES) {

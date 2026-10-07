@@ -14,7 +14,7 @@ Written at product-ui Step 3, before any markup, and completed at Step 5: the pl
 
 ## Composition
 
-One block per screen, from `references/composition.md`. `check_render.py --plan` reads the Job class line.
+One block per screen, from `references/composition.md`. With two or more screens, head each block `### {{screen}} \`{{route}}\`` (a parameter as `:id`, a tab as `?tab=…`); `check_render.py --plan` reads the Job class of the block whose route matches the Built files line.
 
 - Job class: {{monitor|enter|lookup|decide}}
 - Reader: {{role from meta.users}}, {{frequency}}, {{expertise}}

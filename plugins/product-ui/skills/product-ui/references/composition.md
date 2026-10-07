@@ -72,7 +72,7 @@ A tile row belongs to a `monitor` screen. An `enter` or `lookup` screen carries 
 | One enclosure level | S11 (source), R12 (rendered) | whether the one region is the right cue |
 | Three spacing steps | R13 | whether the steps map to within, between and section |
 | Three emphasis levels | R14 | whether the dominant element is the purpose |
-| A tile row on `monitor` only | R15 (needs `--plan`) | whether each tile is a monitored quantity with a comparison |
+| A tile row on `monitor` only | R15 (needs `--plan`; in a brief with one block per screen, the block whose heading carries the captured route in backticks, as `### 契約 \`/contracts\``, supplies the job class) | whether each tile is a monitored quantity with a comparison |
 | Reader fit | T18 requires `meta.users` | which recorded fact justifies each structural choice |
 | Labels | C18 to C21 | whether a label predicts its destination in the reader's words |
 

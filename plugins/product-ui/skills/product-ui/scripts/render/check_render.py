@@ -305,9 +305,53 @@ def token_name(colour, tokens):
     return None
 
 
+BUILT_FILES = re.compile(r"^\s*-\s*Built files:\s*(.+)$", re.M)
+BLOCK_ROUTE = re.compile(r"`(/[^`\s]*)`")
+
+
+def _route_of(built):
+    """The hash route of a Built files line (`index.html#/stores/s1?as=manager` gives `/stores/s1`, `tab=…`)."""
+    m = re.search(r"#(/[^\s?]*)(\?[^\s]*)?", built)
+    if not m:
+        return "", ""
+    query = m.group(2) or ""
+    tab = re.search(r"[?&]tab=([^&\s]+)", query)
+    return m.group(1), (tab.group(1) if tab else "")
+
+
+def _route_matches(pattern, path, tab):
+    """`/stores/:id?tab=targets` matches `/stores/s1` with tab `targets`; `/` matches only `/`."""
+    head, _, query = pattern.partition("?")
+    want_tab = re.search(r"tab=([^&]+)", query)
+    if want_tab and want_tab.group(1) != tab:
+        return False
+    regex = "^" + re.sub(r":[A-Za-z_]+", "[^/]+", re.escape(head)) + "$"
+    return re.match(regex, path) is not None
+
+
 def read_plan_job(path):
-    """The plan's `- Job class:` value, or "" when the plan names none."""
-    m = JOB_CLASS.search(Path(path).read_text(encoding="utf-8", errors="replace"))
+    """The `- Job class:` value of the block whose route matches the plan's Built files line, else the
+    first Job class in the plan, else "". A brief that holds one block per screen names each block's
+    route in its heading (### 契約 `/contracts`), and the Built files line names the screen captured."""
+    text = Path(path).read_text(encoding="utf-8", errors="replace")
+    built = BUILT_FILES.search(text)
+    route, tab = _route_of(built.group(1)) if built else ("", "")
+    if route:
+        blocks = re.split(r"^(?=### )", text, flags=re.M)
+        best, best_len = None, -1
+        for block in blocks:
+            heading = block.split("\n", 1)[0]
+            for pattern in BLOCK_ROUTE.findall(heading):
+                if _route_matches(pattern, route, tab):
+                    want_tab = "tab=" in pattern
+                    score = len(pattern) + (100 if want_tab and tab else 0)
+                    if score > best_len:
+                        best, best_len = block, score
+        if best is not None:
+            m = JOB_CLASS.search(best)
+            if m:
+                return m.group(1).lower()
+    m = JOB_CLASS.search(text)
     return m.group(1).lower() if m else ""
 
 
@@ -480,7 +524,9 @@ def check_dump(label, dump, tokens, report, job=None):
     seen_contrast, seen_off_token, seen_small = {}, {}, {}
     for el in texts:
         fg, bg = parse_colour(el.get("color")), parse_colour(el.get("background"))
-        # A translucent background is laid over the nearest opaque ancestor colour the dump recorded.
+        bg_raw_parsed = bg
+        # A translucent background is laid over the nearest opaque ancestor colour the dump recorded (R1);
+        # R2 matches the raw value, so a tint of a token (the token at a low alpha) stays on-token.
         base = parse_colour(el.get("backgroundBase")) if el.get("backgroundBase") else None
         if bg and bg[3] < 1 and base:
             bg = composite(bg, base)
@@ -502,12 +548,13 @@ def check_dump(label, dump, tokens, report, job=None):
                     entry = seen_contrast.setdefault(key, {"ratio": ratio, "size": size, "locs": []})
                     entry["locs"].append(location(el))
         if tokens:
-            for raw, parsed, kind in ((el.get("color"), fg, "colour"), (el.get("background"), bg, "background")):
+            for raw, parsed, kind in ((el.get("color"), fg, "colour"), (el.get("background"), bg_raw_parsed, "background")):
                 if parsed is None or parsed[3] == 0 or (fallback and kind == "background"):
                     continue
                 if token_name(parsed, tokens) is None:
                     seen_off_token.setdefault((kind, raw), []).append(location(el))
-        if el.get("clipped") and text:
+        hidden = "sr-only" in (el.get("cls") or "") or min((el.get("rect") or {}).get("w", 99), (el.get("rect") or {}).get("h", 99)) <= 1
+        if el.get("clipped") and text and not hidden:
             report.add(("R4", selector(el), text), "WARNING", location(el),
                        "clipped text: scrollWidth exceeds clientWidth at " + LABEL,
                        "Let the text wrap, or widen the container.", label)
