@@ -2,11 +2,13 @@
 name: product-ui
 description: >-
   Builds web screens that read as a real product: tokens and wording settled before markup,
-  shadcn/ui on Tailwind v4 or DADS or SmartHR, an OOUI or task-oriented structure chosen at intake, a test for whether each
+  shadcn/ui on Tailwind v4 or DADS or SmartHR, an OOUI or task-oriented structure chosen at intake, the users recorded
+  and each screen composed (its job, its dominant element, its reading order, its containers) before markup, a test for whether each
   user-visible string should exist, text at 14px or more (12px for a short Latin-only run), checks and an independent review. REMOVE mode strips annotations and small text from an existing screen;
   lookup data answers palette, pairing, style, chart and stack questions.
   Use for any screen, component or UI wording, and when an interface reads as AI-made.
   trigger words: 画面, ページ, ランディングページ, ダッシュボード, デザイントークン, AIっぽい,
+  構成, レイアウト, カードだらけ, 全部カード, 同じ画面, テンプレ感, 誰向け,
   ダサい, 文字が小さい, 文言, ラベル, エラーメッセージ, UIライティング, マイクロコピー,
   説明っぽい, 説明文が入る, 注釈だらけ, 注記だらけ, キャプション, ヘルプテキスト, 補足テキスト,
   小さい文字の説明, 注釈を消して, 但し書き, 手法の説明, サブテキストを削除, 説明文を消して,
@@ -30,6 +32,7 @@ One entry point for building and reworking web interfaces. Every design decision
 3. **Text is 14px or more.** Body text is 16px. A Latin-only run of at most 24 characters (a unit, a timestamp, a code) may go to 12px. A string that only fits at 11px is deleted.
 4. **Prohibitions live in scripts.** A rule written as "never do X" belongs in `check_slop.py`, `check_copy.py` or `check_shippable_text.py`, where a file can fail it.
 5. **Review happens elsewhere.** Step 5 hands the rendered result to a reviewer who holds none of the context that produced it.
+6. **The screen is composed before it is built.** `tokens.json` records who uses the product (`meta.users`), and `ui-brief.md` records, before any markup, what each screen is for, who reads it, what dominates, in what order it is read and which container each section gets (`references/composition.md`). The reviewer judges the whole screen against that plan before judging its parts.
 
 ## Out of scope
 
@@ -49,7 +52,7 @@ This skill covers interactive screens. These belong to other tools:
 | DEEP | A whole product surface, or the user asks for thoroughness | Steps 0 through 6, with Step 5 on every distinct screen | one review round per screen |
 | REMOVE | The screen exists and carries annotations or small text: 「注釈を消して」「サブテキストを削除して」「文字が小さい」 | The REMOVE procedure, then Step 4 | scripts plus the auditor |
 
-STANDARD escalates to DEEP once the surface spans more than one screen, and the escalation holds for the rest of the work. The first line of the reply after intake states the mode and the reason — `Mode: STANDARD — one new screen, tokens.json absent` — so the user sees the cost before any agent starts.
+STANDARD escalates to DEEP once the surface spans more than one screen, and the escalation holds for the rest of the work. The first line of the reply after intake states the mode and the reason, `Mode: STANDARD (one new screen, tokens.json absent)`, so the user sees the cost before any agent starts.
 
 ## Routing
 
@@ -59,6 +62,7 @@ STANDARD escalates to DEEP once the surface spans more than one screen, and the 
 | The words on a Japanese screen: labels, buttons, errors, empty states | `references/ui-copy.md` |
 | The words on an English screen | `interfaces:better-writing`, with `references/ui-copy.md` for what the checks enforce |
 | Which objects a product shows, their collection and single views, what the navigation lists, where an action sits | `references/ooui.md` |
+| What a screen is for and who reads it; what goes first and what dominates; whether a section is a panel, a table, a list or a heading on the ground; whether a KPI row exists | `references/composition.md` |
 | A shadcn component; dark mode; an accessible dialog, dropdown, form or table; a responsive layout in utility classes | `references/components.md` and the official documentation it links |
 | Palettes, font pairings, visual styles, chart types, UX rules, per-stack rules | `references/lookup.md` and `scripts/lookup/search.py` |
 | Building on the Digital Agency Design System | `references/dads.md` for the tokens, `references/dads-components.md` for the components |
@@ -75,9 +79,9 @@ The external skills are published separately: `hallmark` at https://github.com/N
 
 ## Pipeline
 
-When resuming interrupted work, decide the next step from which files exist, and from those alone: `tokens.json`, `theme.css`, the built output.
+When resuming interrupted work, decide the next step from which files exist, and from those alone: `tokens.json`, `theme.css`, `ui-brief.md`, the built output.
 
-### Step 0 — Intake
+### Step 0: Intake
 
 Skip this step when `tokens.json` exists and the request is a local change.
 
@@ -86,11 +90,12 @@ Detect the existing stack (`package.json`, `tailwind.config.*`, an `@import "tai
 - **Surface**: landing page or application.
 - **Reference**: デジタル庁デザインシステム (`references/dads.md`) for public-sector sites, SmartHR (`references/smarthr.md`) for Japanese B2B SaaS dense with forms and tables, or なし, where the tokens come from the request or from a product the user names.
 - **Structure**: オブジェクト指向UI (OOUI) or タスク指向UI, recorded in `meta.structure` as `ooui` or `task`. Put first the one the table under "Choosing the structure" in `references/ooui.md` points to. A request that already names one settles it, and the question is left out.
-- **Stack**: confirmation of what the detection found.
+- **Users**: the groups who use the product, each with a role, how often they use it (daily, weekly, occasional, first time), their expertise (novice, intermediate, expert) and the outcome they come for. Offer the roles the request implies as options. The answer goes into `meta.users` with `basis: reported`; a group settled by default goes in with `basis: assumed`. An `lp` surface spends no question on it.
+- **Stack**: a question only when the detection is ambiguous; otherwise the detected stack is recorded in `meta.defaults_applied`.
 
 Settle everything else by default and record each default in `meta.defaults_applied`; `register` defaults to 敬体 and `katakana_choon` to `jtf`. Read the interface language off the project and spend no question on it.
 
-### Step 1 — Settle the tokens
+### Step 1: Settle the tokens
 
 Write `tokens.json` in the shape `references/tokens-format.md` defines. `assets/tokens_example.json` is a filled-in example, and `assets/tokens_example.{dads,smarthr}.json` are the two presets.
 
@@ -98,7 +103,7 @@ Write `tokens.json` in the shape `references/tokens-format.md` defines. `assets/
 - **Voice**: write `terms` for the product, one word per operation, reading the words already on existing screens first. `assets/voice_terms.ja.json` carries the 長音 pairs C9 checks.
 - **Reference**: when `meta.reference` names a preset, copy that reference's mapping. For any other reference product, work from a screenshot and a written description of it together.
 
-### Step 2 — Mechanical check on the tokens
+### Step 2: Mechanical check on the tokens
 
 ```bash
 python {SKILL_DIR}/scripts/validate_tokens.py tokens.json --json
@@ -107,15 +112,15 @@ python {SKILL_DIR}/scripts/generate_theme.py tokens.json
 
 An error from `validate_tokens.py` sends this back to Step 1 before the generator runs. `generate_theme.py` writes `theme.css` beside `tokens.json`, with a `--text-*` scale that starts at `text-xs` (12px, Latin-short only) and `text-sm` (14px). Change `theme.css` only through `tokens.json` and the generator.
 
-### Step 3 — Build
+### Step 3: Build
 
-Follow the routing table. Colours, type, spacing, radius, shadow and motion come from `theme.css` variables only; components follow `references/components.md` or the preset's component reference.
+Before any markup, write `ui-brief.md` beside `tokens.json` from `assets/brief.template.md`: the screen's purpose in one sentence and the Composition section from `references/composition.md`, one block per screen (job class, reader, dominant element, reading order, density, archetype, grouping cue per section, what is constant and what is decided here, omissions, the tile row or `none`). When `meta.structure` is `ooui`, work through the three steps in `references/ooui.md` first and fill the brief's Structure section with the object table. The brief is the plan the Step 5 reviewer conforms the screen to, so a decision the markup departs from is changed in the brief first.
 
-When `meta.structure` is `ooui`, work through the three steps in `references/ooui.md` before any markup, and keep the object table for the Step 5 brief.
+Then follow the routing table. Colours, type, spacing, radius, shadow and motion come from `theme.css` variables only; components follow `references/components.md` or the preset's component reference; containers follow the table in `references/composition.md`.
 
 Read `references/ban-list.md` and `references/ui-copy.md` before writing any string a user will see. The ban list settles whether a string exists and how small text may be; ui-copy.md settles how a string that exists is worded. When the brief gives no real content for a slot, leave `[TODO: …]` in a source comment and ask the user one question; prose invented to fill a slot is a defect.
 
-### Step 4 — Mechanical checks on the output
+### Step 4: Mechanical checks on the output
 
 ```bash
 python {SKILL_DIR}/scripts/check_slop.py <path> --json
@@ -140,33 +145,34 @@ When a check fails, read the reference that owns its ID:
 
 | IDs | Script | Reference |
 |---|---|---|
-| T1–T17 | `validate_tokens.py` | `references/tokens-format.md` |
-| S1–S10 | `check_slop.py` | `references/slop-checklist.md` |
-| C1–C17 | `check_copy.py` | `references/ui-copy.md`; `references/ooui.md` for C17 |
+| T1–T18 | `validate_tokens.py` | `references/tokens-format.md` |
+| S1–S11 | `check_slop.py` | `references/slop-checklist.md`; `references/composition.md` for S11 |
+| C1–C21 | `check_copy.py` | `references/ui-copy.md`; `references/ooui.md` for C17; `references/composition.md` for C18–C21 |
 | ST1–ST10 | `check_shippable_text.py` | `references/ban-list.md` |
+| R1–R15 | `check_render.py` (Step 5) | `references/composition.md` for R12–R15 |
 
-### Step 5 — Independent review
+### Step 5: Independent review
 
 The step needs a renderable entry point, Node 22 or later, a Chrome install and the Agent tool.
 
-Write `ui-brief.md` beside `tokens.json` from `assets/brief.template.md`: the screen's purpose in one sentence, the paths, the surface type, whether controls are wired, and the seven copy questions. When `meta.structure` is `ooui`, fill the template's Structure section with the object table from Step 3 and keep its five structure questions; otherwise delete that section.
+Complete the `ui-brief.md` written in Step 3: the built file paths and whether the controls are wired. The template's Composition section, the eight cold-read questions, the seven copy questions and the three reader-fit questions stay; the Structure section stays when `meta.structure` is `ooui` and is deleted otherwise.
 
 Then launch both agents in one message, each with `model: opus`:
 
-- `review-design-lead`, with `plan: ui-brief.md`, `target:` the project directory, and `scripts: {SKILL_DIR}/scripts/render`; it requires all three and returns `{"error": …}` when one is missing. It renders through headless Chrome at 1280px and 375px and measures the page with `check_render.py` (R1–R11). R7 measures the computed text size, which covers a size set from JavaScript or a transform.
+- `review-design-lead`, with `plan: ui-brief.md`, `target:` the project directory, and `scripts: {SKILL_DIR}/scripts/render`; it requires all three and returns `{"error": …}` when one is missing. It renders through headless Chrome at 1280px and 375px and measures the page with `check_render.py` (R1–R15, with `--plan` reading the brief's job class for R15). R7 measures the computed text size, which covers a size set from JavaScript or a transform; R12 to R15 measure nested enclosures, spacing steps, emphasis levels and equal tile rows. P2 answers the cold-read questions from the screenshot before reading the dump.
 - `shippable-text-auditor`, with the built file paths and the `meta.surface` value (`saas` or `lp`) only; the brief and the reasoning stay with you. It returns `remove` and `rewrite` findings.
 
 Rule on each finding individually: delete the string where the finding is that it should go, rewrite it where the finding is about wording, and keep it only under the carve-out in `references/ui-copy.md`, naming the clause in the hand-over.
 
 The verdicts are 不合格 (BLOCK), 条件付き合格 (CONCERNS) and 合格 (CLEAN). 条件付き合格 and 合格 pass once every finding is ruled on. 不合格, or any critical finding, sends this back to Step 3. Two returns at most; report anything still unresolved as an open question.
 
-When the step cannot run, write `Step 5 skipped: <reason>` in the hand-over, run `check_shippable_text.py --dom` over a `cdp.js` dump if one can be captured, and answer the brief's copy questions and structure questions against the built files.
+When the step cannot run, write `Step 5 skipped: <reason>` in the hand-over, run `check_shippable_text.py --dom` over a `cdp.js` dump if one can be captured, and answer the brief's cold-read, copy, reader-fit and structure questions against the built files.
 
-### Step 6 — Hand over
+### Step 6: Hand over
 
 List what was produced, any string kept under the carve-out with the clause it falls under, any size kept under the Latin-short allowance, and anything left open.
 
-## REMOVE — stripping what already shipped
+## REMOVE: stripping what already shipped
 
 ```bash
 python {SKILL_DIR}/scripts/check_shippable_text.py <path> --json
@@ -178,7 +184,7 @@ Every finding is a deletion candidate here, warnings included.
 2. Delete what the element leaves behind: the empty wrapper, the prop, the import, the class rule that has lost its last user.
 3. Delete an annotation whole; a trimmed annotation is still an annotation. An ST7 run is raised to 14px or deleted, and the stylesheet rule that set it is fixed at its declaration (the finding names the selector).
 4. Run `shippable-text-auditor` afterwards and delete what it returns. A `rewrite` verdict is deleted as well, unless the string names something the reader cannot get from the screen.
-5. Keep a string only under an allowance named in `references/ban-list.md` — a constraint line under a field, a legend over a genuinely ambiguous encoding, a Latin-short run at 12px — and name the allowance in the hand-over.
+5. Keep a string only under an allowance named in `references/ban-list.md` (a constraint line under a field, a legend over an ambiguous encoding, a Latin-short run at 12px) and name the allowance in the hand-over.
 6. Re-run the script until it reports only the strings kept that way, then run Step 4 in full.
 
 ## The hook

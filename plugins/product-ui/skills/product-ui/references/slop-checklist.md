@@ -1,15 +1,15 @@
 # Slop checks
 
-This file is the source of record for checks S1 through S10. `scripts/check_slop.py` implements the rules written here; change this file first when a check or a threshold changes.
+This file is the source of record for checks S1 through S11. `scripts/check_slop.py` implements the rules written here; change this file first when a check or a threshold changes.
 
 ## What is actually being judged
 
 "Does this look AI-generated" is a judgement no script can make and no two reviewers make the same way. A script can settle two things:
 
-1. **Does a value appear that the token set does not contain** — `tokens.json` and `theme.css` hold the answer, so a diff decides it
-2. **Is an implementation missing** — form validation and error states are either present or absent
+1. **Does a value appear that the token set does not contain**: `tokens.json` and `theme.css` hold the answer, so a diff decides it
+2. **Is an implementation missing**: form validation and error states are either present or absent
 
-S1–S4 and S10 have a correct answer and are errors that stop the pipeline. S5 through S9 claim only a tendency and are warnings.
+S1–S4, S10 and S11 have a correct answer and are errors that stop the pipeline. S5 through S9 claim only a tendency and are warnings.
 
 ## Scope
 
@@ -19,7 +19,7 @@ Excluded: `theme.css` and `tokens.css` (the token definitions themselves), `node
 
 ## Checks
 
-### S1 — a colour outside the token set (error)
+### S1: a colour outside the token set (error)
 
 **Check.** Find hex literals (`#rgb`, `#rgba`, `#rrggbb`, `#rrggbbaa`), `rgb()`, `rgba()`, `hsl()` and `hsla()`. A value written anywhere in the theme file passes: the `theme.css` or `tokens.css` found beneath the paths or up to four directories above them, or the file `--theme` names. With no theme file, every literal is reported.
 
@@ -27,7 +27,7 @@ Excluded: `theme.css` and `tokens.css` (the token definitions themselves), `node
 
 **Why.** A model that has the tokens still writes hex literals; this check closes the loop.
 
-### S2 — a font reached for by default (error)
+### S2: a font reached for by default (error)
 
 **Check.** Look in `font-family` declarations and Tailwind `font-[...]` arbitrary values for `Inter`, `Roboto`, `Open Sans`, `Lato`, `Arial`, `Helvetica`, `system-ui`, `-apple-system`, `Space Grotesk`, `Poppins` or `Montserrat`.
 
@@ -35,13 +35,13 @@ Excluded: `theme.css` and `tokens.css` (the token definitions themselves), `node
 
 **Why.** Anthropic's prompting cookbook, [Prompting for frontend aesthetics](https://github.com/anthropics/claude-cookbooks/blob/main/coding/prompting_for_frontend_aesthetics.ipynb) (as of September 2026), carries both the ban and its limit: "**Never use:** Inter, Roboto, Open Sans, Lato, default system fonts" and "You still tend to converge on common choices (Space Grotesk, for example) across generations." A written ban leaves the convergence in place, so the ban becomes a check.
 
-### S3 — a blue-to-purple gradient (error)
+### S3: a blue-to-purple gradient (error)
 
 **Check.** In `linear-gradient`, `radial-gradient` and `conic-gradient` arguments, and in Tailwind `from-*`, `via-*` and `to-*` classes, find a blue family (blue, indigo, sky, cyan) and a purple family (purple, violet, fuchsia) appearing together. For raw OKLCH and hex values, it fires when two or more stops fall in the 240–300 degree hue range.
 
 **Why.** A blue-to-purple gradient is the default accent of generated interfaces, and it marks a colour nobody chose.
 
-### S4 — three or more font families (error)
+### S4: three or more font families (error)
 
 **Check.** Across the whole scope, count the distinct families appearing in leading position. Three or more raises an error.
 
@@ -49,13 +49,13 @@ Excluded: `theme.css` and `tokens.css` (the token definitions themselves), `node
 
 **Why.** Two families, one for display and one for body, give every hierarchy a screen needs. A third adds a voice without adding a level.
 
-### S5 — more than five colours outside the token set (warning)
+### S5: more than five colours outside the token set (warning)
 
 **Check.** Count the distinct values S1 found, including those silenced with `ignore S1`. More than five raises a warning.
 
 **Why.** Past five colours a palette stops carrying meaning: the reader can no longer tell which colour signals what. Counting suppressed values catches colours accumulating one suppression at a time.
 
-### S6 — a single radius everywhere (warning)
+### S6: a single radius everywhere (warning)
 
 **Check.** Collect `border-radius` values and Tailwind `rounded-*` classes. Excluding `0`, `0px`, `none`, `9999px`, `full` and `50%`, a warning fires when exactly one distinct value remains and it appears in five or more places.
 
@@ -63,7 +63,7 @@ Excluded: `theme.css` and `tokens.css` (the token definitions themselves), `node
 
 **On the threshold.** One radius across a surface can be a deliberate choice, so this stays a warning. A project where it fires on a deliberate single radius silences it with `ignore-file S6` and the reason.
 
-### S7 — one alpha across every shadow (warning)
+### S7: one alpha across every shadow (warning)
 
 **Check.** Collect the alpha values inside `box-shadow` colours. A warning fires when exactly one distinct value remains, it falls between 0.05 and 0.15, and it appears in three or more places.
 
@@ -71,7 +71,7 @@ Excluded: `theme.css` and `tokens.css` (the token definitions themselves), `node
 
 **On the threshold.** As for S6: a warning, silenced with `ignore-file S7` and the reason where the single alpha is deliberate.
 
-### S8 — emoji standing in for icons (warning)
+### S8: emoji standing in for icons (warning)
 
 **Check.** Find elements whose entire content is emoji, and `<li>`, `<button>` and `<a>` whose direct text begins with an emoji.
 
@@ -79,7 +79,7 @@ Excluded: `theme.css` and `tokens.css` (the token definitions themselves), `node
 
 **Why.** Emoji used as iconography is a listed tell. It marks a skipped decision about which icon set to use.
 
-### S9 — em-dashes piling up (warning)
+### S9: em-dashes piling up (warning)
 
 **Check.** Count `—` (U+2014) in visible text. Three or more in one file raises a warning. The Japanese full-width dash `―` (U+2015) is out of scope.
 
@@ -87,7 +87,7 @@ Excluded: `theme.css` and `tokens.css` (the token definitions themselves), `node
 
 **Why.** Repeatedly named as a trace of generated prose.
 
-### S10 — a form with no state design (error)
+### S10: a form with no state design (error)
 
 **Check.** On finding a `<form>` element, or `useForm`, `react-hook-form`, `Formik` or `zodResolver` in the file, look anywhere in the file for at least one of:
 
@@ -100,14 +100,27 @@ None of them present raises an error.
 
 **Why.** A generated form often ships with no validation, no error states and no mark on the required fields. None of that shows in a screenshot, so a visual review misses it and a check has to find it.
 
+### S11: a card inside a card (error)
+
+**Check.** In markup files (`.html`, `.jsx`, `.tsx`, `.vue`, `.svelte`, `.astro`), keep a stack of the open tags: push each opening tag, pop at its closing tag, skip self-closing tags (`/>`) and the HTML void elements (`img`, `br`, `hr`, `input`, `meta`, `link`, `source`, `track`, `wbr`, `area`, `base`, `col`, `embed`, `param`). A *card element* is an opening tag that is either:
+
+- the JSX component `<Card` exactly (`<CardContent`, `<CardHeader`, `<CardTitle`, `<CardFooter` and `<CardDescription` are other components), or
+- any element whose `class` or `className` attribute holds a token equal to `card` or `panel`, or ending in `-card`, `_card`, `-panel` or `_panel`. `stat-card` and `kpi_panel` count; `card-title`, `card-body` and `panel-heading` do not. Tokens are split on whitespace, and a JSX `className={...}` expression is read for its string literals only.
+
+The error is reported at the line of a card element that opens while another card element in the same file is still open. Comments and the contents of `<script>`, `<style>` and `<pre>` are skipped, as for the other checks.
+
+**Allowed.** shadcn's `CardContent`, `CardHeader` and the like inside `Card`. Sibling cards. A `card-title` or `card-body` class inside a card. A card inside a `<dialog>` or an element with `role="dialog"`: a dialog is its own surface, so the search for an enclosing card stops there.
+
+**Why.** An enclosure is a strong grouping cue, so a box inside a box asserts a second relation that the reader has to resolve, and it adds padding, border and shadow around the same content. The SmartHR Design System's [Base component](https://smarthr.design/products/components/base/) says so of its own container: 「Baseの上にBaseを重ねることもレイヤー順序を把握しづらくさせます」. Nielsen Norman Group's [The Principle of Common Region](https://www.nngroup.com/articles/common-region/) describes the boundary around a set of elements as the cue that makes them read as one group, which is why a second boundary inside the first reads as a second group.
+
 ## Suppressing a misfire
 
 A misfire returns on every rerun until the reason sits where the script can read it. Two comment forms do that, and the reason is part of the syntax:
 
 | Form | Where | Silences |
 |---|---|---|
-| `product-ui: ignore S8 <reason>` | the line before the finding, or the same line | that ID on that line only. For the per-line checks: S1, S2, S3, S8, S10 |
-| `product-ui: ignore-file S9 <reason>` | anywhere in a scanned file | that ID for the whole file — S9 — or, for the per-run checks S4, S5, S6 and S7, for the whole run |
+| `product-ui: ignore S8 <reason>` | the line before the finding, or the same line | that ID on that line only. For the per-line checks: S1, S2, S3, S8, S10, S11 |
+| `product-ui: ignore-file S9 <reason>` | anywhere in a scanned file | that ID for the whole file (S9) or, for the per-run checks S4, S5, S6 and S7, for the whole run |
 
 Comment syntax follows the file: `<!-- -->` in HTML, `/* */` in CSS, `{/* */}` in JSX. A form with no reason after the ID is reported as **S0 (warning)** and suppresses nothing, so a bare `ignore` cannot pass silently.
 

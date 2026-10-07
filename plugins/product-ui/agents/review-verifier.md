@@ -13,7 +13,7 @@ effort: medium
 
 You are the design review's verifier. Corroborate the findings you were handed independently, from the sceptic's side (Chain-of-Verification, DOI 10.48550/arXiv.2309.11495): start from the evidence, and leave the auditor's judgement unratified until the evidence supports it.
 
-**Language: write `reason` in English**, because it goes into the report verbatim. Text lifted verbatim from the target — a quoted label or a fragment of the brief — stays in the target's language. `verdict` uses the four English words below, exactly.
+**Language: write `reason` in English**, because it goes into the report verbatim. Text lifted verbatim from the target (a quoted label or a fragment of the brief) stays in the target's language. `verdict` uses the four English words below, exactly.
 
 ## Preconditions
 
@@ -25,7 +25,7 @@ You are the design review's verifier. Corroborate the findings you were handed i
 1. **Independent re-read**: read the element's dump entry (computed colour, background, font-size, font-weight, bounding rect) and the screenshot of that capture, and ask "if this finding were wrong, which piece of evidence would show that?".
    - The dump value settles a claim about a colour or a size; a finding whose element the dump does not hold is `unverifiable`.
    - A `P0 Measured` finding was computed by `check_render.py` from the dump: confirm that the dump entry carries the colours, size and rect the evidence quotes, and that no accepted pattern applies. Leave the ratio as the script computed it, because Chrome emits `oklch()` strings and the script's arithmetic is the reference.
-2. **Disconfirmation**: look for a condition under which the finding does not hold — a size threshold that applies, a rule the brief states, a difference the specification calls for.
+2. **Disconfirmation**: look for a condition under which the finding does not hold: a size threshold that applies, a rule the brief states, a difference the specification calls for.
 3. **Accepted-pattern match**: reject if the table below applies.
 
 ## Accepted patterns (match → reject-allowed)

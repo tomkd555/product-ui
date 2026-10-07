@@ -11,7 +11,7 @@ SmartHR has already settled the palette, the type scale, the spacing scale and t
 | What | Where |
 |---|---|
 | Design system site | https://smarthr.design/ |
-| Component library | `smarthr-ui` on npm — https://github.com/kufu/smarthr-ui |
+| Component library | `smarthr-ui` on npm (https://github.com/kufu/smarthr-ui) |
 | Component gallery (Storybook) | https://story.smarthr-ui.dev |
 | Design tokens | https://smarthr.design/products/design-tokens/ |
 | Writing guidelines | https://smarthr.design/products/contents/ |
@@ -30,8 +30,8 @@ Written against, as of September 2026: `smarthr-ui` 99.2.0, plugin 0.6.0.
 
 It carries two skills:
 
-- `component-guidelines` — one guide per component, each holding the props and types generated from `smarthr-ui/metadata.json`, the Do and Don't drawn from `eslint-plugin-smarthr`, and a usage checklist. A `component-selector.md` maps a UI requirement onto the component that serves it.
-- `design-pattern-guidelines` — page layout, table, list, wizard, delete dialog, empty data, feedback, permission settings and the rest of the pattern guides.
+- `component-guidelines`: one guide per component, each holding the props and types generated from `smarthr-ui/metadata.json`, the Do and Don't drawn from `eslint-plugin-smarthr`, and a usage checklist. A `component-selector.md` maps a UI requirement onto the component that serves it.
+- `design-pattern-guidelines`: page layout, table, list, wizard, delete dialog, empty data, feedback, permission settings and the rest of the pattern guides.
 
 Step 3 routes there for every component on this route. When the plugin is missing, give the user the two commands above. Component APIs come from those guides alone, because the props move between versions and each guide names the `smarthr-ui` version it was generated against.
 
@@ -68,7 +68,7 @@ T2 requires `oklch()`; these are the nine required keys and the optional `surfac
 | `destructive` | `DANGER` | `#e01e5a` | `oklch(58.8% 0.222 11)` |
 | `accent` | `BRAND` | `#00c4cc` | `oklch(74.6% 0.127 200)` |
 
-- **`background` and `surface`**: SmartHR puts the screen on `BACKGROUND` `#f8f7f6` and panels drawn with `Base` on `WHITE`. Both enter `tokens.json`, so a panel the product builds lands on the same white as the library's own. Text on either is `foreground`.
+- **`background` and `surface`**: SmartHR puts the screen on `BACKGROUND` `#f8f7f6` and panels drawn with `Base` on `WHITE`. Both enter `tokens.json`, so a panel the product builds lands on the same white as the library's own. Text on either is `foreground`. SmartHR's own guidance agrees with the container rule in `references/composition.md`: distance groups first, a `Base` second, a rule last, and a `Base` is never placed on a `Base` (`BaseColumn` groups inside one).
 - **`muted` takes `HEAD`**, the table-header ground. `OVER_BACKGROUND` `#f2f1f0` sits 1.8% in lightness from `BACKGROUND`, too close to read as a distinct surface.
 - **`accent` takes `BRAND` `#00c4cc`**, the SmartHR blue: the only non-`MAIN` identity hue, exposed by the Tailwind preset as `bg-brand`. It is light, so text on it must be `foreground`.
 - **`WARNING_YELLOW` `#ffcc17` has no slot.** It stays in the library, where the components that need it paint it.
@@ -84,7 +84,7 @@ Everything else:
 | `spacing.base_px` / `steps` | `4` / `[1, 2, 3, 4, 5, 6, 8, 10, 12, 14, 16, 32]` | the char-relative scale at 16px per character |
 | `motion` | product-ui's own default | SmartHR publishes no motion tokens |
 | `color_dark` | omitted | SmartHR publishes no dark theme |
-| `voice` | product-ui's own default | `references/ui-copy.md` — see below |
+| `voice` | product-ui's own default | `references/ui-copy.md`, see below |
 
 - **`scale.ratio` is an approximation.** SmartHR's font sizes come from `6 / (6 + d)`: 0.667, 0.75, 0.857, 1, 1.2, 1.5 and 2rem, a harmonic series whose neighbouring ratios differ (1.2, 1.25, 1.333 above the base). `1.2` is the closest single geometric ratio; the `Text` component's `size` prop sets the real sizes.
 - **Spacing is char-relative**: one unit is one character at the 16px base. The published tokens run 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3, 3.5, 4 and 8 characters, which in multiples of 4px is the `steps` array above.
@@ -108,7 +108,7 @@ The `voice` block and `references/ui-copy.md` apply as written; the project sett
 
 ## theme.css
 
-The standard template quotes the family — `"system-ui", ui-serif, serif` for `h1`–`h3` — and a quoted `"system-ui"` is read as a font name, so headings would fall through to a serif. Generate from a project copy of the template through `--template`:
+The standard template quotes the family (`"system-ui", ui-serif, serif` for `h1`–`h3`) and a quoted `"system-ui"` is read as a font name, so headings would fall through to a serif. Generate from a project copy of the template through `--template`:
 
 1. Copy `assets/theme.template.css` beside `tokens.json` as `theme.template.css`.
 2. In the copy, delete the `--font-display` and `--font-body` lines from the `@theme inline` block, and the two `font-family` declarations from the base layer.

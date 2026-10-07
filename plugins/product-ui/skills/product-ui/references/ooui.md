@@ -34,7 +34,7 @@ When `meta.structure` is `task`, the screen follows the order of the procedure, 
 
 Work through these before writing markup, in any order the work needs: when a later step exposes a gap in an earlier one, go back and settle it there.
 
-### Step 1 — Extract the objects
+### Step 1: Extract the objects
 
 List the nouns in the request, the existing screens and the data model. A noun is an object when it passes all three tests:
 
@@ -46,7 +46,7 @@ A word that fails is an action (登録, 検索), which acts on an object; a valu
 
 For each object, write down its name, key properties, actions and related objects. One object keeps one name across the product; settle a competing pair in `voice.terms`. The objects the user comes to the product for are the main objects.
 
-### Step 2 — Views and navigation
+### Step 2: Views and navigation
 
 - Each main object gets a collection view, showing the set with the key properties, and a single view, showing one object with the rest of its properties.
 - Choosing an object in the collection view opens its single view.
@@ -55,13 +55,13 @@ For each object, write down its name, key properties, actions and related object
 - A relation between objects becomes a link between views: the single view of a 顧客 shows the collection of that customer's 請求書.
 - The object-then-action order holds across the whole application.
 
-### Step 3 — Layout patterns
+### Step 3: Layout patterns
 
-Map each view onto a component from `references/components.md` or the preset's component reference. The mapping is this skill's own.
+Map each view onto a component from `references/components.md` or the preset's component reference, after the composition plan in `references/composition.md` has settled the screen's dominant element, reading order and density. The mapping is this skill's own.
 
 | View | Layout |
 |---|---|
-| Collection | A table for comparing properties, a list for scanning by name, a card grid for objects recognised by image |
+| Collection | A table for comparing properties, a list for scanning by name, a card grid only for objects recognised by image and browsed (the container rule in `references/composition.md`) |
 | Single, beside its collection | The Master-Detail pattern in two panes at desktop width, a separate page at 375px |
 | Single, on its own | A page with the object's name as the heading and its actions beside the heading |
 | Create and edit | The single view as a form, in the same pane or page |
@@ -70,7 +70,7 @@ Map each view onto a component from `references/components.md` or the preset's c
 
 上野学 treats design as judgement past mechanical rules, so one check is scripted and the rest goes to a reader of the rendered screen.
 
-- C17 in `check_copy.py`, an error, reports a navigation item ending in an unambiguous action word. 「申請」「承認」「顧客管理」 and the like go to the reviewer.
+- C17 in `check_copy.py`, an error, reports a navigation item ending in an unambiguous action word; C19, a warning, reports the `<noun>管理` shape. 「申請」「承認」 and the like go to the reviewer.
 - C10 checks one name per object for the names in `voice.terms`.
 - The five structure questions in `assets/brief.template.md` carry each rule above to the reviewer: noun navigation (1), a collection and a single view joined by selection (2), each action on its object after selection (3), one name and one set of key properties per object (4), and every sequence a flow the `task` row admits (5).
 

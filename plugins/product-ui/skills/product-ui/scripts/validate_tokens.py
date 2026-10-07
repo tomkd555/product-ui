@@ -54,6 +54,13 @@ SHADOW_STEPS = ["sm", "md", "lg"]
 
 ALPHA = re.compile(r"/\s*(\d*\.?\d+)\s*\)")
 
+# T18: the sets a meta.users entry draws from. See references/tokens-format.md.
+USER_SETS = {
+    "frequency": ("daily", "weekly", "occasional", "first"),
+    "expertise": ("novice", "intermediate", "expert"),
+    "basis": ("observed", "reported", "assumed"),
+}
+
 
 class Report:
     def __init__(self):
@@ -120,6 +127,34 @@ def check_meta(doc, rep):
     applied = get(doc, "meta.defaults_applied")
     if applied is not None and not isinstance(applied, list):
         rep.error("T1", "meta.defaults_applied", "must be an array of strings")
+
+
+def check_users(doc, rep):
+    """T18 - meta.users: required on saas, validated wherever it is present."""
+    users = get(doc, "meta.users")
+    if users is None or users == []:
+        if get(doc, "meta.surface") == "saas":
+            rep.error("T18", "meta.users", "required and non-empty when surface is 'saas'; "
+                      "name each user group (role, frequency, expertise, job, basis)")
+        return
+    if not isinstance(users, list):
+        rep.error("T18", "meta.users", "must be an array of user groups")
+        return
+    for index, entry in enumerate(users):
+        where = f"meta.users[{index}]"
+        if not isinstance(entry, dict):
+            rep.error("T18", where, "must be an object")
+            continue
+        for field in ("role", "job"):
+            value = entry.get(field)
+            if not (isinstance(value, str) and value.strip()):
+                rep.error("T18", f"{where}.{field}", "required, a non-empty string")
+        for field, allowed in USER_SETS.items():
+            value = entry.get(field)
+            if field not in entry:
+                rep.error("T18", f"{where}.{field}", "required field is missing")
+            elif value not in allowed:
+                rep.error("T18", f"{where}.{field}", f"expected one of {', '.join(allowed)}, found {value!r}")
 
 
 def check_color(doc, rep):
@@ -308,6 +343,7 @@ def check_voice(doc, rep):
 def validate(doc):
     rep = Report()
     check_meta(doc, rep)
+    check_users(doc, rep)
     check_voice(doc, rep)
     check_color(doc, rep)
     check_typography(doc, rep)

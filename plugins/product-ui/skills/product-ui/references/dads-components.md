@@ -1,4 +1,4 @@
-# Digital Agency Design System — Component Reference
+# Digital Agency Design System: Component Reference
 
 The component implementations published by Japan's Digital Agency (デジタル庁デザインシステム), β, MIT-licensed (© デジタル庁). Counts and line numbers below are as of September 2026.
 
@@ -35,7 +35,7 @@ Neither repository accepts pull requests; adaptations stay local.
 | `Breadcrumbs` | `breadcrumb` |
 | `Button` | `button` |
 | `Calendar` | `calendar` |
-| `Card` | `card` |
+| `Card` | `card` (DADS: 「単一の主題に関するコンテンツをまとめて表示するコンテナ」, and tables for comparison; the container rule in `references/composition.md` says the same) |
 | `Carousel` | `carousel` |
 | `Checkbox` | `checkbox` |
 | `ChipLabel` | `chip-label` |
@@ -69,8 +69,8 @@ Neither repository accepts pull requests; adaptations stay local.
 | `Table` | `table` |
 | `Textarea` | `textarea` |
 | `UtilityLink` | `utility-link` |
-| `ErrorText`, `Legend`, `SupportText`, `RequirementBadge`, `StatusBadge`, `SeparatedDatePicker` | — |
-| — | `switch`, `toc`, `page-navigation` |
+| `ErrorText`, `Legend`, `SupportText`, `RequirementBadge`, `StatusBadge`, `SeparatedDatePicker` | none |
+| none | `switch`, `toc`, `page-navigation` |
 
 Skip `Slot` (an internal helper) and the `deprecated/` and `v1/` directories (earlier versions). A component missing on one side is built from the primitives of the repository in use, since the two share no runtime.
 

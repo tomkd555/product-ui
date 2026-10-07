@@ -2,7 +2,7 @@
 """Measure what the rendered page's DOM dumps settle without judgement.
 
     python check_render.py <dump.json> [<dump.json> ...] [--console <txt> ...]
-                           [--tokens tokens.json] --out findings.json [--text]
+                           [--tokens tokens.json] [--plan ui-brief.md] --out findings.json [--text]
 
 Reads the dumps cdp.js wrote (one per width, or per width and theme), and the console
 files beside them, and writes one findings file in the auditors' shape, perspective
@@ -17,7 +17,8 @@ Checks:
       Text inside a disabled control is exempt, as WCAG exempts inactive controls; so is
       text whose background no ancestor paints (`backgroundFallback`), because the white
       cdp.js reports there is nobody's choice. The count of those is in checked_scope.
-  R2  a text colour or background outside the token set, when --tokens is given
+  R2  a text colour or background outside the token set, when --tokens is given; a colour a root
+      custom property of the dump resolves to (a color-mix of tokens included) counts as on-token
       (color and color_dark, matched within 2/255 per sRGB channel)
   R3  horizontal overflow at a width
   R4  an element whose text is clipped
@@ -32,6 +33,15 @@ Checks:
       has them by design; the brief says whether the screen is wired
   R11 the viewport the page reported differs from the width the file name asks for —
       CRITICAL, because every other measurement was then taken at the wrong width
+  R12 an enclosure inside an enclosure: a box drawn inside another box (dump `boxes`, depth 1 or more)
+  R13 fewer than 3 distinct spacing steps among the gaps between siblings, from 6 measured
+      gaps up (dump `gaps`; gaps of 4px and more)
+  R14 fewer than 3 distinct (font size, weight) pairs among the text inside the first
+      <main>, from 8 text entries up
+  R15 a row of 3 or more equal tiles (same size within 2px, each carrying a digit) in the
+      top 40% of the viewport. A WARNING unless the plan's `- Job class:` line is
+      `monitor`, which suppresses it; a NOTE when --plan is absent or names no job class.
+      R12, R13 and R15 skip a dump that carries no `boxes` / `gaps` (an older dump).
 
 The same defect measured at two widths, or in the light and the dark theme, is one
 finding listing every label it held at; the element list and the count come from the
@@ -59,6 +69,16 @@ LARGE_BOLD_PX = 18.66
 TOKEN_TOLERANCE = 2 / 255
 EXEMPT_INPUT_TYPES = ("hidden", "submit", "button", "reset", "image")
 SEVERITY_ORDER = {"CRITICAL": 3, "WARNING": 2, "NOTE": 1}
+NEST_DEPTH = 1            # R12: a box this many boxes deep is an enclosure inside an enclosure
+SPACING_MIN_GAP = 4       # R13: a smaller gap is two items that touch
+SPACING_MIN_STEPS = 3
+SPACING_MIN_GAPS = 6
+EMPHASIS_MIN_LEVELS = 3   # R14
+EMPHASIS_MIN_TEXTS = 8
+TILE_MIN = 3              # R15
+TILE_TOLERANCE = 2
+TILE_TOP_FRACTION = 0.4
+JOB_CLASS = re.compile(r"^\s*-\s*(?i:Job class):\s*(monitor|enter|lookup|decide)\b", re.M)
 LABEL = "{L}"   # stands for the width or theme label until the findings are written out
 
 NAMED = {"white": (1.0, 1.0, 1.0, 1.0), "black": (0.0, 0.0, 0.0, 1.0),
@@ -285,6 +305,107 @@ def token_name(colour, tokens):
     return None
 
 
+def read_plan_job(path):
+    """The plan's `- Job class:` value, or "" when the plan names none."""
+    m = JOB_CLASS.search(Path(path).read_text(encoding="utf-8", errors="replace"))
+    return m.group(1).lower() if m else ""
+
+
+def box_location(b):
+    r = b.get("rect") or {}
+    return "%s %dx%d (x=%d, y=%d) at %s" % (selector(b), r.get("w") or 0, r.get("h") or 0,
+                                          r.get("x") or 0, r.get("y") or 0, LABEL)
+
+
+def tile_runs(boxes):
+    """Runs of TILE_MIN or more boxes that share a parent box, follow one another in document
+    order, carry a digit, and match in width and height within TILE_TOLERANCE."""
+    by_parent = {}
+    for b in boxes:
+        by_parent.setdefault(b.get("parentBox"), []).append(b)
+    runs = []
+    for group in by_parent.values():
+        run = []
+        for b in group + [None]:
+            r = (b or {}).get("rect") or {}
+            fits = bool(b) and b.get("hasDigit") and r.get("w") is not None and r.get("h") is not None
+            if fits and run:
+                ws = [t["rect"]["w"] for t in run] + [r["w"]]
+                hs = [t["rect"]["h"] for t in run] + [r["h"]]
+                fits = max(ws) - min(ws) <= TILE_TOLERANCE and max(hs) - min(hs) <= TILE_TOLERANCE
+            if fits:
+                run.append(b)
+                continue
+            if len(run) >= TILE_MIN:
+                runs.append(run)
+            run = [b] if b and b.get("hasDigit") and r.get("w") is not None and r.get("h") is not None else []
+    return runs
+
+
+def check_composition(label, dump, texts, job, report):
+    """R12 to R15: how the screen is composed, from the dump's boxes, gaps and text."""
+    boxes, gaps = dump.get("boxes"), dump.get("gaps")
+
+    # R12 nested enclosures
+    if boxes is not None:
+        nested = [b for b in boxes if (b.get("depth") or 0) >= NEST_DEPTH]
+        if nested:
+            report.add(("R12",), "WARNING", "; ".join(box_location(b) for b in nested[:MAX_LOCATIONS]),
+                       "an enclosure inside an enclosure: %d box%s drawn inside another box (depth %d or more); flatten to spacing, type and dividers"
+                       % (len(nested), "" if len(nested) == 1 else "es", NEST_DEPTH),
+                       "Remove the border, fill or shadow of the inner box; group with spacing, type size and dividers.", label)
+
+    # R13 spacing steps
+    if gaps is not None:
+        values = [n for g in gaps for n in (g.get("values") or []) if n >= SPACING_MIN_GAP]
+        steps = sorted(set(values))
+        if len(values) >= SPACING_MIN_GAPS and len(steps) < SPACING_MIN_STEPS:
+            report.add(("R13",), "WARNING", "gaps at " + LABEL,
+                       "%d distinct spacing step%s among %d gaps at %s: %s px; a scale needs at least %d"
+                       % (len(steps), plural(len(steps)), len(values), LABEL,
+                          ", ".join("%g" % n for n in steps), SPACING_MIN_STEPS),
+                       "Use a spacing scale of at least %d steps, so related items sit close and separate groups sit apart."
+                       % SPACING_MIN_STEPS, label)
+
+    # R14 emphasis levels
+    scope = (dump.get("scope") or {}).get("rect")
+    pairs, counted = set(), 0
+    for el in texts:
+        r = el.get("rect") or {}
+        size = px(el.get("fontSize"))
+        if not (el.get("text") or "").strip() or size is None:
+            continue
+        if scope and not (r.get("x", 0) >= scope.get("x", 0) - 1 and r.get("y", 0) >= scope.get("y", 0) - 1
+                          and r.get("x", 0) + r.get("w", 0) <= scope.get("x", 0) + scope.get("w", 0) + 1
+                          and r.get("y", 0) + r.get("h", 0) <= scope.get("y", 0) + scope.get("h", 0) + 1):
+            continue
+        counted += 1
+        pairs.add((size, weight_of(el.get("fontWeight"))))
+    if counted >= EMPHASIS_MIN_TEXTS and len(pairs) < EMPHASIS_MIN_LEVELS:
+        report.add(("R14",), "WARNING", "text at " + LABEL,
+                   "%d emphasis level%s among %d text entries at %s: %s; a hierarchy needs at least %d"
+                   % (len(pairs), plural(len(pairs)), counted, LABEL,
+                      ", ".join("%gpx/%d" % p for p in sorted(pairs)), EMPHASIS_MIN_LEVELS),
+                   "Separate the levels by size and weight: one dominant figure or heading, a body level, a quiet level.", label)
+
+    # R15 a row of equal tiles
+    height = (dump.get("viewport") or {}).get("height")
+    if boxes is not None and height and job != "monitor":
+        for run in tile_runs(boxes):
+            first = run[0]["rect"]
+            if first.get("y", 0) >= TILE_TOP_FRACTION * height:
+                continue
+            message = ("%d equal tiles of %dx%d at y=%d; a tile row needs a dominant tile and a monitoring job"
+                       % (len(run), first["w"], first["h"], first["y"]))
+            severity = "WARNING"
+            if job is None:
+                severity, message = "NOTE", message + " (no plan: pass --plan ui-brief.md to settle)"
+            elif job == "":
+                severity, message = "NOTE", message + " (the plan has no `- Job class:` line: add one to settle)"
+            report.add(("R15", len(run), first["w"], first["h"]), severity, box_location(run[0]),
+                       message, "Give one tile the dominant size and the figure the reader acts on, or drop the tiles.", label)
+
+
 class Report:
     """Findings keyed by the identity of the defect, so one defect at two widths is one row.
 
@@ -327,7 +448,7 @@ def asked_width(label):
         return None
 
 
-def check_dump(label, dump, tokens, report):
+def check_dump(label, dump, tokens, report, job=None):
     texts = dump.get("text", [])
     controls = dump.get("controls", [])
     viewport = (dump.get("viewport") or {}).get("width")
@@ -348,9 +469,21 @@ def check_dump(label, dump, tokens, report):
                    "Let the widest element wrap or shrink below the viewport width.", label)
 
     # R1 contrast, R2 tokens, R4 clipped, R7 size — one pass over the text elements
+    # The dump's root custom properties that resolve to a colour (color-mix of tokens included) count as
+    # tokens too: a value a theme variable gives is on-token.
+    if tokens:
+        tokens = dict(tokens)
+        for prop, value in (dump.get("tokens") or {}).items():
+            parsed = parse_colour(value) if isinstance(value, str) else None
+            if parsed:
+                tokens.setdefault("root.%s" % prop, parsed)
     seen_contrast, seen_off_token, seen_small = {}, {}, {}
     for el in texts:
         fg, bg = parse_colour(el.get("color")), parse_colour(el.get("background"))
+        # A translucent background is laid over the nearest opaque ancestor colour the dump recorded.
+        base = parse_colour(el.get("backgroundBase")) if el.get("backgroundBase") else None
+        if bg and bg[3] < 1 and base:
+            bg = composite(bg, base)
         for raw, parsed in ((el.get("color"), fg), (el.get("background"), bg)):
             if raw and parsed is None:
                 report.unparsed.add(raw)
@@ -441,6 +574,8 @@ def check_dump(label, dump, tokens, report):
                        "Use h%d, or add the missing level." % (prev + 1), label)
         prev = level
 
+    check_composition(label, dump, texts, job, report)
+
     report.scope.append("%s: %d text elements (%d skipped for an unpainted background), %d controls, %d headings, viewport %s"
                         % (label, len(texts), skipped_fallback, dump.get("controlsTotal", len(controls)),
                            len(headings), viewport))
@@ -469,17 +604,19 @@ def label_of(path, prefix=""):
     return stem
 
 
-def run(dump_paths, console_paths, tokens_path):
+def run(dump_paths, console_paths, tokens_path, plan_path=None):
     report = Report()
+    job = read_plan_job(plan_path) if plan_path else None
     tokens = load_tokens(tokens_path) if tokens_path else {}
     for p in dump_paths:
         dump = json.loads(Path(p).read_text(encoding="utf-8"))
-        check_dump(label_of(p), dump, tokens, report)
+        check_dump(label_of(p), dump, tokens, report, job)
     for p in console_paths:
         lines = Path(p).read_text(encoding="utf-8", errors="replace").splitlines()
         check_console(label_of(p, "console-"), lines, report)
     scope = "; ".join(report.scope)
     scope += ("; tokens: %d colours from %s" % (len(tokens), tokens_path)) if tokens else "; no tokens.json given, R2 skipped"
+    scope += "; plan job class: %s" % (job or "unknown" if plan_path else "no --plan given")
     return {
         "perspective": "P0 Measured",
         "viewport": "both",
@@ -494,15 +631,16 @@ def main(argv=None):
     parser.add_argument("dumps", nargs="+", help="DOM dump JSON files from cdp.js; the file stem names the width or theme")
     parser.add_argument("--console", action="append", default=[], help="console text file from cdp.js (repeatable)")
     parser.add_argument("--tokens", help="tokens.json; enables R2")
+    parser.add_argument("--plan", help="ui-brief.md; its `- Job class:` line settles R15")
     parser.add_argument("--out", required=True, help="findings JSON to write")
     parser.add_argument("--text", action="store_true", help="print a readable list as well")
     args = parser.parse_args(argv)
-    for p in list(args.dumps) + args.console + ([args.tokens] if args.tokens else []):
+    for p in list(args.dumps) + args.console + ([args.tokens] if args.tokens else []) + ([args.plan] if args.plan else []):
         if not Path(p).is_file():
             print("expected a file: %s" % p, file=sys.stderr)
             return 2
     try:
-        result = run(args.dumps, args.console, args.tokens)
+        result = run(args.dumps, args.console, args.tokens, args.plan)
     except (ValueError, AttributeError) as exc:  # a file that is not JSON, or JSON of the wrong shape
         print("unusable input: %s" % exc, file=sys.stderr)
         return 2

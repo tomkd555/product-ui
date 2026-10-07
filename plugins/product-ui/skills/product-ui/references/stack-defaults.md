@@ -8,7 +8,7 @@ This file is the source of record for what this skill builds with when the reque
 |---|---|---|
 | Tokens | Tailwind CSS v4 `@theme`, with context-dependent tokens in a two-tier `@theme inline` plus `:root`/`.dark` arrangement | The tokens decide which utility classes exist, so a value outside the token set has no class to write (`references/tokens-format.md`) |
 | Components | shadcn/ui on **Base UI** | Focus management and keyboard behaviour need a base that supplies them, and React is the only ecosystem where three such bases are first-class options in shadcn |
-| SaaS renderer | Vite + React | An application screen is mostly interaction — state, events, focus — and that is where an application framework earns its cost |
+| SaaS renderer | Vite + React | An application screen is mostly interaction (state, events, focus), and that is where an application framework earns its cost |
 | Landing-page renderer | Astro, using the same React components as islands | Astro renders every UI component to HTML and CSS by default, stripping client JavaScript, and the component layer stays shared with the SaaS side |
 
 ## Permitted pairings
@@ -22,7 +22,7 @@ This file is the source of record for what this skill builds with when the reque
 | `lp` | `astro-react` | default |
 | `lp` | `next-react` | when the landing page lives inside an existing Next.js app |
 | `lp` | `html` | a single self-contained file, no build step. `stack.base` is `null` |
-| `saas` | `server-templates` | **tolerated with a warning.** An existing application that renders its screens from server templates — Flask, Django, Rails, htmx — with no bundler. `stack.base` is `null`. T8 raises a warning for it, and `defaults_applied` records that dialogs and menus have no component base, so focus management and keyboard behaviour follow the APG dialog pattern linked below, written by hand |
+| `saas` | `server-templates` | **tolerated with a warning.** An existing application that renders its screens from server templates (Flask, Django, Rails, htmx) with no bundler. `stack.base` is `null`. T8 raises a warning for it, and `defaults_applied` records that dialogs and menus have no component base, so focus management and keyboard behaviour follow the APG dialog pattern linked below, written by hand |
 
 `saas` with `html` is rejected: a single HTML file has no component base, so every dialog would rewrite focus management and keyboard behaviour by hand. `server-templates` admits the same gap only for an existing project that cannot be moved.
 

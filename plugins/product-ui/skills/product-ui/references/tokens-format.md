@@ -15,6 +15,15 @@ Telling a model to avoid a colour does not hold: Anthropic's cookbook [Prompting
     "surface": "saas",
     "reference": "product being referenced, or null",
     "structure": "ooui",
+    "users": [
+      {
+        "role": "店長",
+        "frequency": "daily",
+        "expertise": "intermediate",
+        "job": "今月の目標との差を見て、担当者に声を掛ける",
+        "basis": "reported"
+      }
+    ],
     "stack": {
       "renderer": "vite-react",
       "tailwind": "4",
@@ -76,6 +85,7 @@ Telling a model to avoid a colour does not hold: Anthropic's cookbook [Prompting
 | `surface` | yes | `saas` or `lp` |
 | `reference` | yes | name of the product being referenced, or `null` |
 | `structure` | no | `ooui` or `task`: the screen structure Step 0 asked for. `ooui` turns on check C17 and the rules in `ooui.md`. A file written before the field existed leaves it out, and C17 then stays off |
+| `users` | when `surface` is `saas` | an array of user groups, at least one. Each is an object with `role`, `frequency`, `expertise`, `job` and `basis`. Optional when `surface` is `lp`; where present it is validated the same way |
 | `stack.renderer` | yes | `vite-react` / `astro-react` / `next-react` / `html` / `server-templates` |
 | `stack.tailwind` | yes | `"4"`. Version 3 is out of scope for this skill |
 | `stack.base` | yes | `base-ui` / `radix` / `react-aria` / `smarthr-ui`, or `null` when `stack.renderer` is `html` or `server-templates` |
@@ -83,11 +93,19 @@ Telling a model to avoid a colour does not hold: Anthropic's cookbook [Prompting
 
 The permitted pairings of `surface` and `stack.renderer` are in `stack-defaults.md`.
 
+`users` names who the screens are for before any screen exists, one entry per group. ISO 9241-11:2018 defines a user group as a subset of users "differentiated from other intended users by characteristics of the users, tasks or environments that could influence usability". The fields record those differences:
+
+- **`role`** is a non-empty string, the name the group goes by in the business.
+- **`frequency`** is `daily`, `weekly`, `occasional` or `first`: how often the group opens the product, `first` being a group that meets it for the first time.
+- **`expertise`** is `novice`, `intermediate` or `expert`: the group's skill with the product and its domain.
+- **`job`** is a non-empty string, the outcome the group comes to the product for. It is written as the result the person wants, in their words.
+- **`basis`** is `observed`, `reported` or `assumed`. It records whether the entry comes from watching the group use a product, from a stakeholder's account, or from a guess, so a later reader knows how far to trust it.
+
 ### color and color_dark
 
 `color` is required and carries nine keys: `background`, `foreground`, `primary`, `primary_foreground`, `muted`, `muted_foreground`, `border`, `destructive`, `accent`.
 
-- **`surface`** is an optional tenth key: the ground a panel, card or table sits on, where that differs from the page ground. Declare it when the page ground is tinted and the panels untinted, as on most SaaS screens and on SmartHR. Leave it out when panels sit directly on `background`, as on DADS. `foreground` reads on both; add a `surface_foreground` only for a project whose panel text colour genuinely differs.
+- **`surface`** is an optional tenth key: the ground a panel, card or table sits on, where that differs from the page ground. Declare it when the page ground is tinted and the panels untinted, as on most SaaS screens and on SmartHR. Leave it out when panels sit directly on `background`, as on DADS. `foreground` reads on both; add a `surface_foreground` only for a project whose panel text colour differs.
 - **`color_dark`** is optional. Its keys must be a subset of `color`'s: write only the colours dark mode overrides.
 - **Notation**: every value is `oklch(...)`. OKLCH holds hue and chroma steady as lightness moves, and every major browser has supported it since May 2023. A hex or `rgb()` value is an error.
 - **Count**: `color` holds twelve keys or fewer; past that, T9 warns. A palette with every hue given equal weight is one of the things that makes a generated screen read as unconsidered.
@@ -96,8 +114,8 @@ The permitted pairings of `surface` and `stack.renderer` are in `stack-defaults.
 
 Contrast comes from lightness and from the choice of text colour, with the brand colour left intact. A brand blue pulled down to L 40% and C 0.08 "so the white text passes" is a duller colour that reads as nobody's.
 
-1. **Hue comes from the brand or the reference.** The neutrals — `background`, `muted`, `border`, `muted_foreground` — share that hue at chroma ≤ 0.012, so the page ground belongs to the same product as the buttons. Pure grey (`0 0`) is a choice only when the reference makes it, as DADS does.
-2. **Chroma of `primary`, `accent` and `destructive` is never lowered to earn contrast.** When a pairing fails, move the lightness of the *other* side — a lighter ground under a mid-tone primary, a darker `foreground` on a tinted background — or change which colour carries the text.
+1. **Hue comes from the brand or the reference.** The neutrals (`background`, `muted`, `border`, `muted_foreground`) share that hue at chroma ≤ 0.012, so the page ground belongs to the same product as the buttons. Pure grey (`0 0`) is a choice only when the reference makes it, as DADS does.
+2. **Chroma of `primary`, `accent` and `destructive` is never lowered to earn contrast.** When a pairing fails, move the lightness of the *other* side (a lighter ground under a mid-tone primary, a darker `foreground` on a tinted background) or change which colour carries the text.
 3. **A light primary or accent (L above 65%) takes `foreground` as its text.** Text colour follows the ground it sits on. SmartHR's brand colour and the DADS accent yellow both work this way; `references/dads.md` and `references/smarthr.md` each record the case.
 4. **`destructive` keeps its chroma even beside a quiet palette.** A desaturated red is the one place where dullness costs the reader a warning.
 5. **Derive with the tools that already hold the arithmetic.** `interfaces:better-colors` handles OKLCH gamut limits and the pairing of a hue across lightness steps; `scripts/lookup/search.py` (`references/lookup.md`) supplies candidate palettes and font pairings when the brand names none. Step 1 routes to both before writing a value by hand.
@@ -142,7 +160,7 @@ The interface's wording, settled before any string is written, for the same reas
 | `terms` | yes | an object mapping a word to stop using to the word this product uses. May be empty |
 | `allow` | no | words and labels that the checks skip |
 
-- **`terms`** is the copy equivalent of the colour set: the project settles the word, and check C10 asks whether the implementation used it. Settle one entry for each operation the screens offer that has competing words (`references/ui-copy.md`, The operation vocabulary). A product whose business genuinely says 「サインイン」 leaves that word out of `terms`.
+- **`terms`** is the copy equivalent of the colour set: the project settles the word, and check C10 asks whether the implementation used it. Settle one entry for each operation the screens offer that has competing words (`references/ui-copy.md`, The operation vocabulary). A product whose business says 「サインイン」 leaves that word out of `terms`.
 - **`katakana_choon`** is a project setting because the authorities disagree. The JTF style guide keeps the 長音 on every word. wordrabbit drops it from a word of five characters or more, counted with the 長音, so 「ブラウザー」 becomes 「ブラウザ」 and 「ユーザー」 keeps its 長音. Check C9 asks whether the project is consistent with itself, and its message names the form the setting implies.
 - **`case`** is a field for the same reason: product style guides differ, and the check asks only that the project is consistent with its setting.
 
@@ -159,7 +177,7 @@ An error means the token set does not hold together; a warning means it holds bu
 | T5 | error | a typography family appears on the forbidden list. A warning when `meta.reference` is set |
 | T6 | error | a missing `sm`, `md` or `lg` radius step, or all three identical |
 | T7 | error | `stack.tailwind` is not `"4"` |
-| T8 | error | the `surface` and `stack.renderer` pairing is absent from the table in `stack-defaults.md`. A warning for the pairings that table marks as warned — an existing project the skill did not choose the stack for |
+| T8 | error | the `surface` and `stack.renderer` pairing is absent from the table in `stack-defaults.md`. A warning for the pairings that table marks as warned (an existing project the skill did not choose the stack for) |
 | T9 | warning | more than twelve `color` keys |
 | T10 | warning | identical alpha across every shadow step |
 | T11 | warning | `motion.duration.base` outside 120–400ms |
@@ -169,5 +187,6 @@ An error means the token set does not hold together; a warning means it holds bu
 | T15 | error | `lang` is `en` and `case` is neither `sentence` nor `title` |
 | T16 | error | a `terms` entry maps a word to itself, or to a word that is itself a key |
 | T17 | warning | `terms` is empty while `lang` is `ja` |
+| T18 | error | `meta.users` is missing or empty while `surface` is `saas`; or, wherever `users` is present, an entry is not an object, lacks a required key, holds an empty `role` or `job`, or holds a `frequency`, `expertise` or `basis` outside its set. The message names the entry index and the field |
 
 Contrast ratio is deliberately absent. OKLCH lightness only approximates it, and what a pairing looks like depends on the rendered result, so Step 5 (`review-design-lead`) judges it against the running page.

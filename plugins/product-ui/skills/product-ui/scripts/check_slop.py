@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """product-ui: deterministic (non-LLM) slop checks over generated markup and styles.
 
-Standard library only. Runs checks S1-S10 against the files an implementation step
+Standard library only. Runs checks S1-S11 against the files an implementation step
 produced. The source of record for these checks is references/slop-checklist.md;
 change that file first when a check or a threshold changes.
 
@@ -73,6 +73,15 @@ STATE_SIGNALS = (
     "helperText", "FormMessage",
 )
 SEARCH_FORM = re.compile(r'role=["\']search["\']|type=["\']search["\']', re.IGNORECASE)
+# S11 - a card element opening inside another card element.
+TAG_OPEN = re.compile(r"<(/?)([A-Za-z][\w.:-]*)")
+RAW_BLOCK = re.compile(r"<(script|style|pre)\b.*?</\1\s*>", re.DOTALL | re.IGNORECASE)
+CLASS_ATTR = re.compile(r"(?<![\w:-])(?:class|className)\s*=\s*")
+STRING_LITERAL = re.compile(r"\"([^\"]*)\"|'([^']*)'|`([^`]*)`")
+CARD_TOKEN = re.compile(r"(?:^|[-_])(?:card|panel)$")
+ROLE_DIALOG = re.compile(r"""(?<![\w:-])role\s*=\s*["']dialog["']""")
+VOID_TAGS = {"img", "br", "hr", "input", "meta", "link", "source", "track", "wbr",
+             "area", "base", "col", "embed", "param"}
 
 
 SUPPRESS = re.compile(r"product-ui:\s*ignore(?P<file>-file)?\s+(?P<id>[SC]\d+)(?P<rest>[^\n]*)")
@@ -290,6 +299,96 @@ def check_file(path, text, known_colors, rep, totals):
             rep.add("ERROR", "S10", rel, line_of(body, form.start()),
                     "form has no validation, error state or required marking")
 
+    # S11 - a card element inside a card element.
+    if not path.endswith(".css"):
+        markup = RAW_BLOCK.sub(lambda m: re.sub(r"[^\n]", " ", m.group(0)), body)
+        for index, name in nested_cards(markup, path):
+            rep.add("ERROR", "S11", rel, line_of(markup, index),
+                    f"<{name}> opens inside another card; a box in a box asserts a second "
+                    "grouping around the same content, so drop the inner enclosure")
+
+
+def read_tag(text, start):
+    """From just after a tag name: (end, attrs, self_closing), or None when the tag never closes."""
+    depth, quote = 0, None
+    for i in range(start, len(text)):
+        ch = text[i]
+        if quote:
+            if ch == quote:
+                quote = None
+        elif ch in "\"'`":
+            quote = ch
+        elif ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth = max(0, depth - 1)
+        elif ch == ">" and depth == 0:
+            return i + 1, text[start:i], text[i - 1] == "/"
+    return None
+
+
+def class_tokens(attrs):
+    """Tokens of a class/className attribute; a {...} expression yields its string literals only."""
+    found = CLASS_ATTR.search(attrs)
+    if not found:
+        return []
+    rest = attrs[found.end():]
+    if rest[:1] in ("\"", "'"):
+        close = rest.find(rest[0], 1)
+        return rest[1:close if close > 0 else len(rest)].split()
+    if rest[:1] == "{":
+        depth, end = 0, len(rest)
+        for i, ch in enumerate(rest):
+            depth += (ch == "{") - (ch == "}")
+            if depth == 0:
+                end = i
+                break
+        return [token for m in STRING_LITERAL.finditer(rest[:end])
+                for token in next(g for g in m.groups() if g is not None).split()]
+    return rest.split()[:1]
+
+
+def nested_cards(markup, path):
+    """Yield (offset, tag name) of each card element that opens while another card is open.
+
+    A dialog is its own surface: the search for an enclosing card stops at one, and a
+    card that is itself a dialog is never nested.
+    """
+    stack, pos = [], 0  # entries: (tag name, is_card, is_dialog)
+    generics = path.endswith((".tsx", ".jsx"))  # useState<Card>( holds a type argument, not a tag
+    while True:
+        tag = TAG_OPEN.search(markup, pos)
+        if not tag:
+            return
+        closing, name = tag.group(1), tag.group(2)
+        if closing:
+            end = markup.find(">", tag.end())
+            pos = len(markup) if end < 0 else end + 1
+            for i in range(len(stack) - 1, -1, -1):
+                if stack[i][0] == name:
+                    del stack[i:]
+                    break
+            continue
+        before = markup[tag.start() - 1] if tag.start() else " "
+        if generics and (before.isalnum() or before in "_)]"):
+            pos = tag.end()
+            continue
+        parsed = read_tag(markup, tag.end())
+        if not parsed:
+            return
+        pos, attrs, self_closing = parsed
+        is_dialog = name == "dialog" or bool(ROLE_DIALOG.search(attrs))
+        is_card = name == "Card" or any(CARD_TOKEN.search(t) for t in class_tokens(attrs))
+        if is_card and not is_dialog:
+            for _, enclosing_card, enclosing_dialog in reversed(stack):
+                if enclosing_dialog:
+                    break
+                if enclosing_card:
+                    yield tag.start(), name
+                    break
+        if not self_closing and name not in VOID_TAGS:
+            stack.append((name, is_card, is_dialog))
+
 
 def is_fragment_reference(text, index):
     """True for href="#id" and the like, where # opens a fragment reference."""
@@ -403,7 +502,7 @@ def run(targets, theme_path):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Run product-ui slop checks S1-S10.")
+    parser = argparse.ArgumentParser(description="Run product-ui slop checks S1-S11.")
     parser.add_argument("path", nargs="+", help="files or directories to check")
     parser.add_argument("--theme", help="path to theme.css (found automatically when omitted)")
     parser.add_argument("--json", action="store_true", help="emit machine-readable output")

@@ -14,7 +14,8 @@ recommends and a reason may exist.
 Prose-shaped strings get C1, C2, C9, C10, C12 and C15's click here / lorem ipsum
 pattern here, and belong to textlint for the rest. --emit-prose writes the Japanese
 ones out one per line for that run. C17 reads the element text inside a navigation
-block, and runs only where tokens.json sets meta.structure to "ooui".
+block, and runs only where tokens.json sets meta.structure to "ooui"; C18 and C19
+read the same mark. C21 runs only where tokens.json carries a meta.name.
 
 CLI:
     python check_copy.py <path>... [--tokens tokens.json] [--emit-prose out.md] [--json]
@@ -24,8 +25,8 @@ A finding ruled on and kept is silenced from the markup itself:
     product-ui: ignore-file C12 <reason>   anywhere in the file
 A form with no reason is reported as C0 and silences nothing. Catalogs (.json)
 carry no comments; voice.allow covers a catalog term for C10, a catalog label
-for C13 and a navigation item for C17, and a catalog string any other check
-reports is rewritten.
+for C13 and a navigation item for C17, and a catalog string for C18, C19 and C21;
+a catalog string any other check reports is rewritten.
 
 Exit codes: 0 = PASS (no errors; warnings are allowed), 1 = FAIL (one or more errors).
 """
@@ -386,6 +387,13 @@ C17_JA = re.compile(r"^新規|(する|します|を[^を]{1,8})$"
                     r"|.(登録|作成|追加|編集|変更|削除|照会|入力|検索|出力|発行|送信)$")
 C17_EN = re.compile(r"^(create|add|edit|register|delete|remove|search)\s+\S", re.IGNORECASE)
 
+# C18: a label that names nothing. Compared on the lower-cased trimmed text.
+C18 = {"概要", "詳細", "情報", "管理", "各種", "その他",
+       "overview", "details", "information", "more", "dashboard"}
+# C19: a label shaped like a feature. The class is kanji, hiragana, katakana and the 長音 mark.
+C19_JA = re.compile(r"^[一-鿿ぁ-んァ-ヶー]{1,8}管理$")
+C19_EN = re.compile(r"\b\w+ management$", re.IGNORECASE)
+
 BUDGET = {"button": 8, "label": 12, "tooltip": 80}
 
 
@@ -401,7 +409,20 @@ def in_dirs(path, names):
     return bool({p.lower() for p in path.replace("\\", "/").split("/")} & names)
 
 
-def check_string(item, voice, structure, rep):
+def feature_shape(text):
+    """The C19 pattern a text matches, or None."""
+    if text.endswith("機能"):
+        return "ends with 機能"
+    if text.startswith("各種"):
+        return "starts with 各種"
+    if C19_JA.match(text):
+        return "an object name followed by 管理"
+    if C19_EN.search(text):
+        return "an object name followed by 'management'"
+    return None
+
+
+def check_string(item, voice, structure, rep, name=None):
     text = item.text
     allow = set(voice.get("allow") or [])
 
@@ -410,6 +431,21 @@ def check_string(item, voice, structure, rep):
         rep.add("ERROR", "C17", item.path, item.line,
                 f"ナビゲーション項目がタスクの名前になっている: {text!r}. "
                 "オブジェクトの名前を書き、アクションはそのオブジェクトのビューに移す")
+
+    labelled = item.kind in ("heading", "label") or item.nav
+    if labelled and text.lower() in C18 and text not in allow:
+        rep.add("WARN", "C18", item.path, item.line,
+                f"generic label {text!r}; name the object or the task it governs")
+    elif (item.kind == "heading" or item.nav) and text not in allow:
+        shape = feature_shape(text)
+        if shape:
+            rep.add("WARN", "C19", item.path, item.line,
+                    f"feature-shaped label {text!r} ({shape}); name the object or the task it governs")
+    if (name and item.kind in ("heading", "label") and name in text and len(text) > len(name)
+            and text not in allow):
+        rep.add("WARN", "C21", item.path, item.line,
+                f"product name {name!r} inside {item.kind} {text!r}; the name belongs to the logo "
+                "and the title, so name the object or the task here")
 
     if C1.search(text):
         rep.add("ERROR", "C1", item.path, item.line,
@@ -508,6 +544,19 @@ def check_register(strings, rep):
                     f"敬体と常体が混ざる: {polite[0].text!r} と {plain[0].text!r}")
 
 
+def check_headings(strings, rep):
+    """C20 - the same heading text twice in one file."""
+    first = {}
+    for item in sorted((i for i in strings if i.kind == "heading"), key=lambda i: i.line):
+        key = (item.path, item.text)
+        if key not in first:
+            first[key] = item.line
+        else:
+            rep.add("WARN", "C20", item.path, item.line,
+                    f"duplicate heading {item.text!r}, first at line {first[key]}; "
+                    "one name for two places makes the reader unsure which one they are on")
+
+
 def check_choon(strings, pairs, preferred, rep):
     """C9 — both forms of a 長音 pair present anywhere in the project."""
     seen = {}
@@ -550,15 +599,16 @@ def find_tokens(roots):
 
 
 def load_tokens(path):
-    """Return (voice, meta.structure, path); path is None when no file was read."""
+    """Return (voice, meta.structure, meta.name, path); path is None when no file was read."""
     if not path or not os.path.isfile(path):
-        return {}, None, None
+        return {}, None, None, None
     try:
         with open(path, encoding="utf-8") as handle:
             doc = json.load(handle)
     except (OSError, json.JSONDecodeError):
-        return {}, None, None
-    return doc.get("voice") or {}, (doc.get("meta") or {}).get("structure"), path
+        return {}, None, None, None
+    meta = doc.get("meta") or {}
+    return doc.get("voice") or {}, meta.get("structure"), meta.get("name"), path
 
 
 def load_choon_pairs():
@@ -576,21 +626,23 @@ def run(roots, tokens_path):
         roots = [roots]
     rep = Report()
     files, strings, rep.suppress = collect(roots)
-    voice, structure, tokens_used = load_tokens(tokens_path or find_tokens(roots))
+    voice, structure, name, tokens_used = load_tokens(tokens_path or find_tokens(roots))
+    name = name.strip() if isinstance(name, str) and len(name.strip()) >= 2 else None
 
     for item in [s for s in strings if s.kind == "suppression"]:
         rep.findings.append({"severity": "WARN", "id": "C0", "file": item.path, "line": item.line,
                              "message": "suppression carries no reason, so it suppresses nothing"})
     strings = [s for s in strings if s.kind != "suppression"]
     for item in strings:
-        check_string(item, voice, structure, rep)
+        check_string(item, voice, structure, rep, name)
+    check_headings(strings, rep)
     check_register([s for s in strings if s.japanese], rep)
     check_choon(strings, load_choon_pairs(), voice.get("katakana_choon", "jtf"), rep)
 
     if not tokens_used:
         rep.add("WARN", "C10", roots[0], 0,
-                "tokens.json が見つからず、用語辞書の検査 (C10) と"
-                "ナビゲーション項目の検査 (C17) を飛ばした")
+                "tokens.json が見つからず、用語辞書の検査 (C10)、"
+                "ナビゲーション項目の検査 (C17)、製品名の検査 (C21) を飛ばした")
     return rep, files, strings, tokens_used
 
 

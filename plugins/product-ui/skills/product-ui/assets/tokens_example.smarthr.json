@@ -3,6 +3,10 @@
     "name": "Preset using smarthr-ui token values",
     "surface": "saas",
     "reference": "smarthr",
+    "users": [
+      { "role": "HR administrator", "frequency": "daily", "expertise": "intermediate",
+        "job": "Keep employee records current and complete the monthly paperwork", "basis": "assumed" }
+    ],
     "stack": {
       "renderer": "vite-react",
       "tailwind": "4",

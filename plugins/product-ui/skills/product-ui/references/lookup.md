@@ -1,4 +1,4 @@
-# Lookup — palettes, pairings, styles, charts, UX rules, per-stack rules
+# Lookup: palettes, pairings, styles, charts, UX rules, per-stack rules
 
 `scripts/lookup/search.py` searches the data under `data/`, which came from the ui-ux-pro-max skill: colour palettes, font pairings, visual styles, chart types, UX guidelines, and implementation rules per stack. It answers one question at a time; the answer feeds Step 1 (tokens) or Step 3 (build) of `SKILL.md`, and the Step 4 checks still apply to whatever it returned.
 
@@ -42,7 +42,7 @@ python {SKILL_DIR}/scripts/lookup/search.py "<keyword>" --domain <domain> [-n <m
 python {SKILL_DIR}/scripts/lookup/search.py "<keyword>" --stack <stack>
 ```
 
-Stacks: `angular`, `astro`, `avalonia`, `flutter`, `html-tailwind`, `javafx`, `jetpack-compose`, `laravel`, `nextjs`, `nuxt-ui`, `nuxtjs`, `react-native`, `react`, `shadcn`, `svelte`, `swiftui`, `threejs`, `uno`, `uwp`, `vue`, `winui`, `wpf` — one CSV each under `data/stacks/`.
+Stacks: `angular`, `astro`, `avalonia`, `flutter`, `html-tailwind`, `javafx`, `jetpack-compose`, `laravel`, `nextjs`, `nuxt-ui`, `nuxtjs`, `react-native`, `react`, `shadcn`, `svelte`, `swiftui`, `threejs`, `uno`, `uwp`, `vue`, `winui`, `wpf` (one CSV each under `data/stacks/`).
 
 ## When a result does not fit
 

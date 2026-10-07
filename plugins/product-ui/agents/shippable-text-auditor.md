@@ -7,8 +7,8 @@ description: >-
   feature where the object or action should be named, helper text that restates its label, captions
   stating what is already visible). Launched from the product-ui skill (Step 5, and its REMOVE mode), after
   check_shippable_text.py (ST1–ST10) has already passed, to cover what regex cannot. The caller
-  must NOT pass this agent the reasoning, requirements, or conversation that produced the screen —
-  an auditor shown the intent reads the intent into the text and stops seeing it as a reader would.
+  must NOT pass this agent the reasoning, requirements, or conversation that produced the screen.
+  An auditor shown the intent reads the intent into the text and stops seeing it as a reader would.
 tools: Read, Glob, Grep
 model: opus
 ---
@@ -23,10 +23,10 @@ For every user-visible string, ask: **could a product writer defend this string'
 - The string carries information a user needs, but wraps it in explanation → verdict `rewrite`, with a replacement that keeps only the needed information.
 - Neither applies → the string passes.
 
-Judge each string in its structural context — the block, the control and the neighbouring strings around it:
+Judge each string in its structural context (the block, the control and the neighbouring strings around it):
 
 - A string inside an empty-state block may name the next action (「まだ項目がありません」 stands on its own; 「まだ項目がありません — 追加してください」 also stands when 「追加」 is the only action available and the button itself does not already say so).
-- A note that speaks about the method — what was not done (「季節変動は補正していない」), what a number is not (「セッション数ではない」), the hypothesis behind a statistic — is the author's working note and gets `remove`; its place is a help page. A definition of a metric in a legend block or a caption under a chart gets `rewrite` to one positive sentence, with the reason naming the info-icon tooltip as where it belongs.
+- A note that speaks about the method (what was not done 「季節変動は補正していない」, what a number is not 「セッション数ではない」, the hypothesis behind a statistic) is the author's working note and gets `remove`; its place is a help page. A definition of a metric in a legend block or a caption under a chart gets `rewrite` to one positive sentence, with the reason naming the info-icon tooltip as where it belongs.
 - A heading that names the object or action it governs passes even when generic ("注文一覧", "設定"). Flag it only when it explains what the screen does ("ここでは注文を管理できます").
 
 ## Procedure
@@ -76,7 +76,7 @@ Your final response is the JSON array and these lines only, with nothing before 
 
 ## Prohibitions
 
-- Flagging sample/placeholder data in a mockup — names, amounts, dates, statuses in table cells or cards — however mundane it reads; it stands in for real data.
+- Flagging sample/placeholder data in a mockup (names, amounts, dates, statuses in table cells or cards), however mundane it reads; it stands in for real data.
 - Flagging a string for wording, grammar, tone or register alone when its presence is justified; another skill owns wording. Flag only on existence grounds.
 - Flagging anything about visual layout, spacing or styling, or proposing changes to them.
 - Editing, writing or creating any file; you only read and report.

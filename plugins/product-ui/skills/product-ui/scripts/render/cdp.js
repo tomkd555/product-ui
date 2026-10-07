@@ -6,9 +6,16 @@
 //   SHOT=<png>    write a full-page screenshot
 //   DUMP=<json>   write a DOM dump: headings, landmarks, controls (with href / type / disabled /
 //                 inline), the custom properties declared on :root — including those nested in
-//                 @layer, @media and Tailwind's @theme — with their computed values, horizontal
+//                 @layer, @media and Tailwind's @theme — with their computed values (a colour-valued
+//                 property, color-mix included, resolved through a probe element), horizontal
 //                 overflow, and the computed colour / background / opacity / font-size /
-//                 font-weight / line-height / bounding rect of every element that carries text
+//                 font-weight / line-height / bounding rect of every element that carries text (a
+//                 translucent background comes with `backgroundBase`, the opaque colour under it),
+//                 and the composition of the first <main> (else <body>): `scope` (its rect),
+//                 `boxes` (elements drawn as an enclosure: a border, a fill that differs from the
+//                 background behind it, or a shadow; with nesting depth and parent box), and
+//                 `gaps` (per parent, the spacing between consecutive children, 0..200px rounded
+//                 to 4px)
 //   CLASS=<name>  add this class to <html> after load and before capture (`dark` renders a
 //                 theme.css dark block)
 //   CHROME=<exe>  Chrome binary (default: the first of the install paths below that exists)
@@ -47,7 +54,7 @@ const STARTUP_TRIES = 40;       // x 300 ms: how long Chrome gets to answer /jso
 const LOAD_TRIES = 40;          // x 250 ms: how long the page gets to reach readyState complete
 const SETTLE_MS = 700;          // fonts and late layout after readyState complete
 const WALL_CLOCK_MS = 60000;    // a dead socket ends the run with code 2
-const MAX_ELS = 1500, MAX_CONTROLS = 300, TEXT_CAP = 80, LABEL_CAP = 40;
+const MAX_ELS = 1500, MAX_CONTROLS = 300, TEXT_CAP = 80, LABEL_CAP = 40, MAX_BOXES = 400, MAX_GAP_PARENTS = 300;
 const profile = (process.env.TEMP || process.env.TMPDIR || '/tmp') + '/cdp-profile-' + port + '-' + process.pid;
 
 // Chrome refuses to start as root on Linux unless its sandbox is off; everywhere else it keeps the sandbox.
@@ -63,10 +70,14 @@ setTimeout(() => fail('timed out after ' + WALL_CLOCK_MS + ' ms'), WALL_CLOCK_MS
 
 // Runs inside the page. Returns plain data only.
 const DUMP_EXPR = `(() => {
-  const MAX_ELS = ${MAX_ELS}, MAX_CONTROLS = ${MAX_CONTROLS}, TEXT_CAP = ${TEXT_CAP}, LABEL_CAP = ${LABEL_CAP};
+  const MAX_ELS = ${MAX_ELS}, MAX_CONTROLS = ${MAX_CONTROLS}, TEXT_CAP = ${TEXT_CAP}, LABEL_CAP = ${LABEL_CAP}, MAX_BOXES = ${MAX_BOXES}, MAX_GAP_PARENTS = ${MAX_GAP_PARENTS};
   const v = window, d = document;
   // [colour, fallback]: fallback is true when no ancestor paints a background.
-  const bg = el => { for (let e = el; e; e = e.parentElement) { const c = v.getComputedStyle(e).backgroundColor; if (c && c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent') return [c, false]; } return ['rgb(255, 255, 255)', true]; };
+  const painted = c => c && c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent';
+  const alphaOfBg = c => { const m = /\/\s*([\d.]+)(%?)\s*\)\s*$/.exec(c); if (m) return m[2] ? m[1] / 100 : +m[1]; const r = /^rgba\([^,]+,[^,]+,[^,]+,\s*([\d.]+)\)$/.exec(c); return r ? +r[1] : 1; };
+  // [colour, fallback, base]: the nearest painted background; when it is translucent, base is the nearest opaque
+  // ancestor colour to composite it over (white when none paints). fallback is true when no ancestor paints at all.
+  const bg = el => { let first = null; for (let e = el; e; e = e.parentElement) { const c = v.getComputedStyle(e).backgroundColor; if (!painted(c)) continue; if (first === null) { first = c; if (alphaOfBg(c) >= 1) return [c, false, undefined]; continue; } if (alphaOfBg(c) >= 1) return [first, false, c]; } return first === null ? ['rgb(255, 255, 255)', true, undefined] : [first, false, 'rgb(255, 255, 255)']; };
   const ownText = el => Array.from(el.childNodes).filter(n => n.nodeType === 3).map(n => n.textContent).join(' ').replace(/\\s+/g, ' ').trim();
   const all = d.body.querySelectorAll('*');
   const text = [];
@@ -75,9 +86,9 @@ const DUMP_EXPR = `(() => {
     const own = ownText(el); if (!own) continue;
     const s = v.getComputedStyle(el); if (s.display === 'none' || s.visibility === 'hidden') continue;
     const r = el.getBoundingClientRect(); if (!r.width && !r.height) continue;
-    const [background, backgroundFallback] = bg(el);
+    const [background, backgroundFallback, backgroundBase] = bg(el);
     text.push({ tag: el.tagName.toLowerCase(), id: el.id || undefined, cls: (el.className && typeof el.className === 'string') ? el.className.slice(0, 60) : undefined,
-      text: own.slice(0, TEXT_CAP), color: s.color, background, backgroundFallback: backgroundFallback || undefined,
+      text: own.slice(0, TEXT_CAP), color: s.color, background, backgroundFallback: backgroundFallback || undefined, backgroundBase,
       opacity: s.opacity !== '1' ? s.opacity : undefined, fontSize: s.fontSize, fontWeight: s.fontWeight,
       lineHeight: s.lineHeight, rect: { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height) },
       clipped: el.scrollWidth > el.clientWidth + 1 && s.overflowX !== 'visible',
@@ -96,6 +107,55 @@ const DUMP_EXPR = `(() => {
     for (const prop of Array.from(rule.style)) if (prop.startsWith('--')) tokens[prop] = rootStyle.getPropertyValue(prop).trim();
   } };
   for (const sheet of Array.from(d.styleSheets)) { try { collect(sheet.cssRules); } catch (e) {} }
+  // A custom property that holds a colour (a literal or a color-mix of other tokens) is resolved through a probe
+  // element, so the checks can match an element's computed colour against the value the variable gives.
+  const probe = d.createElement('span'); probe.style.position = 'absolute'; probe.style.left = '-9999px'; d.body.appendChild(probe);
+  const COLOURISH = /^(#|rgb|hsl|oklch|oklab|lab|lch|color\(|color-mix\()/;
+  for (const prop of Object.keys(tokens)) { if (!COLOURISH.test(tokens[prop])) continue; probe.style.color = ''; probe.style.color = 'var(' + prop + ')'; const c = v.getComputedStyle(probe).color; if (painted(c)) tokens[prop] = c; }
+  probe.remove();
+  // Composition of the first <main> (else <body>): enclosures and the spacing between siblings.
+  const root = d.querySelector('main') || d.body;
+  const rr = r => ({ x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height) });
+  const alphaOf = c => { if (!c || c === 'transparent') return 0; const m = /\\/\\s*([\\d.]+)(%?)\\s*\\)\\s*$/.exec(c); if (m) return m[2] ? m[1] / 100 : +m[1];
+    const f = /^rgba\\(([^)]*)\\)$/.exec(c); if (f) { const p = f[1].split(','); if (p.length === 4) return +p[3]; } return 1; };
+  const NOT_BOX = new Set(['a','button','input','select','textarea','img','svg','canvas','video','td','th','tr','thead','tbody','table','li','summary','label']);
+  const BOX_DISPLAY = new Set(['block','flex','grid','flow-root']);
+  const SIDES = ['Top','Right','Bottom','Left'];
+  const sel = el => { const c = (el.className && typeof el.className === 'string') ? el.className.trim().split(/\\s+/)[0] : ''; return el.tagName.toLowerCase() + (el.id ? '#' + el.id : c ? '.' + c : ''); };
+  const boxes = [], boxAt = new Map(), gaps = [];
+  let boxesTotal = 0, gapsTotal = 0;
+  for (const el of [root, ...root.querySelectorAll('*')]) {
+    if (el.namespaceURI !== 'http://www.w3.org/1999/xhtml') continue;   // the insides of an svg are not layout
+    if (el !== root && !NOT_BOX.has(el.tagName.toLowerCase())) {
+      const s = v.getComputedStyle(el);
+      if (BOX_DISPLAY.has(s.display) && s.visibility !== 'hidden') {
+        const r = el.getBoundingClientRect();
+        if (r.width >= 40 && r.height >= 40 &&
+            (SIDES.some(k => parseFloat(s['border' + k + 'Width']) > 0 && s['border' + k + 'Style'] !== 'none' && alphaOf(s['border' + k + 'Color']) > 0) ||
+             (alphaOf(s.backgroundColor) > 0 && s.backgroundColor !== bg(el.parentElement)[0]) || s.boxShadow !== 'none')) {
+          boxesTotal++;
+          if (boxes.length < MAX_BOXES) {
+            let a = el.parentElement; while (a && !boxAt.has(a)) a = a.parentElement;
+            const up = a ? boxAt.get(a) : null;
+            boxAt.set(el, { i: boxes.length, depth: up ? up.depth + 1 : 0 });
+            boxes.push({ tag: el.tagName.toLowerCase(), id: el.id || undefined, cls: (el.className && typeof el.className === 'string') ? el.className.slice(0, 60) : undefined,
+              rect: rr(r), depth: up ? up.depth + 1 : 0, parentBox: up ? up.i : null, children: el.childElementCount,
+              hasDigit: /[0-9\\uFF10-\\uFF19]/.test(el.textContent) });
+          }
+        }
+      }
+    }
+    if (el.childElementCount >= 2) {
+      const kids = Array.from(el.children).map(k => k.getBoundingClientRect()).filter(r => r.width > 0 && r.height > 0).sort((p, q) => p.y - q.y || p.x - q.x);
+      const values = [];
+      for (let i = 1; i < kids.length; i++) {
+        const p = kids[i - 1], q = kids[i];
+        const g = Math.round((q.y >= p.y + p.height ? q.y - (p.y + p.height) : q.x - (p.x + p.width)) / 4) * 4;
+        if (g >= 0 && g <= 200) values.push(g || 0);
+      }
+      if (values.length) { gapsTotal++; if (gaps.length < MAX_GAP_PARENTS) gaps.push({ parent: sel(el), values }); }
+    }
+  }
   return { title: d.title, viewport: { width: v.innerWidth, height: v.innerHeight }, htmlClass: d.documentElement.className || '',
     tokens,
     horizontalOverflow: d.documentElement.scrollWidth > d.documentElement.clientWidth,
@@ -109,6 +169,8 @@ const DUMP_EXPR = `(() => {
       disabled: !!el.disabled || el.getAttribute('aria-disabled') === 'true' || undefined,
       inline: s.display === 'inline' || undefined }; }),
     elementsTotal: all.length, textTruncated: text.length >= MAX_ELS,
+    scope: { tag: root.tagName.toLowerCase(), rect: rr(root.getBoundingClientRect()) },
+    boxes, boxesTotal, gaps, gapsTotal,
     text };
 })()`;
 

@@ -3,6 +3,10 @@
     "name": "Preset using DADS token values",
     "surface": "saas",
     "reference": "digital-agency-design-system",
+    "users": [
+      { "role": "Resident applicant", "frequency": "occasional", "expertise": "novice",
+        "job": "Submit one application and learn whether it was accepted", "basis": "assumed" }
+    ],
     "stack": {
       "renderer": "vite-react",
       "tailwind": "4",

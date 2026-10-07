@@ -8,7 +8,7 @@ A named ban with a reason changes the next generation; positive advice leaves it
 
 ---
 
-## Part 1 — Generation-time bans
+## Part 1: Generation-time bans
 
 ### Helper text is default OFF
 
@@ -24,7 +24,7 @@ The title names the data and the data shows itself. A caption ships only when it
 
 ### Legends are default OFF
 
-Valid only where an encoding is genuinely ambiguous: multiple series in one colour family, a scale whose direction is unclear. A legend explaining that red means unhandled explains a convention the badge already carries.
+Valid only where an encoding is ambiguous: multiple series in one colour family, a scale whose direction is unclear. A legend explaining that red means unhandled explains a convention the badge already carries.
 
 **Why.** A legend for a self-evident encoding says the reader could not be trusted to read the screen.
 
@@ -38,11 +38,11 @@ A note about the method (what was left undone, what a number does not measure, t
 
 | The explanation is… | Where it goes | Never | Seen in |
 |---|---|---|---|
-| The definition of a metric — what the number is | An info icon beside the label, opening a tooltip of one sentence in the present tense | A `<dl>` of definitions under the chart | Power BI: [Help tooltips](https://learn.microsoft.com/power-bi/visuals/power-bi-visualization-help-tooltips) "appear when a consumer selects the **Help tooltip** icon in the visual header" ([Tooltips overview](https://learn.microsoft.com/power-bi/visuals/power-bi-visualization-tooltips-overview)) |
-| The state of the data — sampled, thresholded, estimated, awaiting more data | A status indicator, icon or badge, with a fixed noun-phrase label and a link for the mechanism | A sentence narrating what the pipeline did or did not do | GA4: the [data quality indicator](https://support.google.com/analytics/answer/12856703) at the top of a report, with the status "Thresholding applied"; Optimizely: the [Results page](https://support.optimizely.com/hc/en-us/articles/4410284017421-Optimizely-Experiment-Results-page) "displays that more visitors are needed" |
-| Statistical uncertainty | The interval drawn on the chart, or a status — winning, losing, inconclusive | Prose about the hypothesis, the p-value or the false-positive rate | Optimizely: on the [Results page](https://support.optimizely.com/hc/en-us/articles/4410284017421-Optimizely-Experiment-Results-page), "statistical significance" is a link to the help centre |
+| The definition of a metric: what the number is | An info icon beside the label, opening a tooltip of one sentence in the present tense | A `<dl>` of definitions under the chart | Power BI: [Help tooltips](https://learn.microsoft.com/power-bi/visuals/power-bi-visualization-help-tooltips) "appear when a consumer selects the **Help tooltip** icon in the visual header" ([Tooltips overview](https://learn.microsoft.com/power-bi/visuals/power-bi-visualization-tooltips-overview)) |
+| The state of the data: sampled, thresholded, estimated, awaiting more data | A status indicator, icon or badge, with a fixed noun-phrase label and a link for the mechanism | A sentence narrating what the pipeline did or did not do | GA4: the [data quality indicator](https://support.google.com/analytics/answer/12856703) at the top of a report, with the status "Thresholding applied"; Optimizely: the [Results page](https://support.optimizely.com/hc/en-us/articles/4410284017421-Optimizely-Experiment-Results-page) "displays that more visitors are needed" |
+| Statistical uncertainty | The interval drawn on the chart, or a status: winning, losing, inconclusive | Prose about the hypothesis, the p-value or the false-positive rate | Optimizely: on the [Results page](https://support.optimizely.com/hc/en-us/articles/4410284017421-Optimizely-Experiment-Results-page), "statistical significance" is a link to the help centre |
 | How the method works | A help-centre page reached by 「詳しく見る」 or a link naming the page, such as "How significance is calculated" (C15 reports a bare "Learn more") | Inline | Optimizely and GA4 link out |
-| A fact about the data — the source, the period, an exclusion, a break in the series, an axis that does not start at zero | One line under the chart, stated as a fact: 「出典：アクセス解析ログ、2026年1月〜8月」 | A paragraph; a note attached to the title | [Datawrapper Academy](https://www.datawrapper.de/academy/annotate-tab): notes "clarify any abnormalities about your data" and "appear below the chart"; [Eurostat](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Tutorial:Guidelines_for_notes_and_footnotes): notes are "restricted to the maximum extent", and "Footnotes should not be attached to the chart or table title" |
+| A fact about the data: the source, the period, an exclusion, a break in the series, an axis that does not start at zero | One line under the chart, stated as a fact: 「出典：アクセス解析ログ、2026年1月〜8月」 | A paragraph; a note attached to the title | [Datawrapper Academy](https://www.datawrapper.de/academy/annotate-tab): notes "clarify any abnormalities about your data" and "appear below the chart"; [Eurostat](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Tutorial:Guidelines_for_notes_and_footnotes): notes are "restricted to the maximum extent", and "Footnotes should not be attached to the chart or table title" |
 | A legal disclaimer | Fixed wording, in the footer or directly under each result card | The author's own paraphrase | Any product whose statute or regulator fixes the wording, quoted verbatim |
 
 The legal row is the only one where a negation ships, and there it is the statute's wording, under `ui-copy.md`'s carve-out. The definition row is a tooltip, so a chart needing three definitions gets three info icons; a legend block of definitions means this placement was skipped.
@@ -69,8 +69,8 @@ Onboarding lives in a dismissible surface (a tour, a first-run panel, a help pag
 
 | Text | Standard | Minimum |
 |---|---|---|
-| Running text and UI text — labels, table cells, buttons, helper lines, captions that survived the bans above | 16px | 14px |
-| A Latin-only run of at most 24 visible characters — a unit, a timestamp, a code, a badge | — | 12px |
+| Running text and UI text: labels, table cells, buttons, helper lines, captions that survived the bans above | 16px | 14px |
+| A Latin-only run of at most 24 visible characters: a unit, a timestamp, a code, a badge | none | 12px |
 
 Nothing is set below the minimum, in any unit, in any stylesheet, at any breakpoint other than print. A string that only fits at 11px is a string the screen has no room for; delete it. `typography.scale.base_px` in `tokens.json` is 16 to 18.
 
@@ -88,9 +88,33 @@ When the brief gives no real content for a slot, leave a labelled blank in a com
 
 **Why.** Filler survives into the build, gets read as intent, and is defended in review; every explanatory caption in a generated screen started as a slot nobody had content for.
 
+### Enclosures are default OFF
+
+A section of the page is a heading and distance on the page ground. A panel, card or bordered box appears only where `references/composition.md` admits a region: one unit in a browsed set of heterogeneous items, or a group that distance cannot separate. A panel inside a panel never ships (S11 in `check_slop.py`, R12 at review).
+
+**Why.** An enclosure is a strong grouping cue, so every box asserts a relation the reader has to resolve, and a box around every section leaves no box meaning anything. SmartHR's design system treats a rule as 「余白や矩形でグループを表現できない場合の最終手段」 and places no `Base` on a `Base`; Nielsen Norman Group's common-region article adds a border only where whitespace cannot group; GOV.UK's review panel found that "cards are often used to compensate for poor information hierarchy or content design".
+
+### A KPI tile row is default OFF
+
+A row of tiles appears on a `monitor` screen in the composition plan, with a monitored quantity and one comparison in each tile and a dominant tile in the row. An `enter` or `lookup` screen carries none; a figure it needs goes in the heading or the filter bar. A category, a name or a date is a line in a list, never a tile (R15 at review).
+
+**Why.** Stephen Few: a figure "without any context means little", and "not all data are equally important"; a row of four equal tiles on every screen is the layout a generator reaches for when no decision about the screen's job has been made.
+
+### Equal weight is default OFF
+
+Every screen names one dominant element in its composition plan and gives it the top step of size, weight or position. Text in the main region shows at least three emphasis levels (R14) and the layout uses at least three spacing steps (R13).
+
+**Why.** "If everything is contrasted, then nothing stands out" (Nielsen Norman Group); when every panel weighs the same, the reader has to read the whole screen to find what it is for.
+
+### A label names the object or the reader's task
+
+A heading, a navigation item or a KPI label names the object it governs or the outcome the reader gets, in the reader's words. A label that names the feature (「ユーザー管理機能」), the computation (「掲載車種内シェアが最大のセグメント」), the product, or only a generic noun (「概要」「詳細」「情報」「管理」) is rewritten (C18 to C21 in `check_copy.py`; the reader-fit questions in the brief for the rest).
+
+**Why.** Two people choose the same word for one thing with probability under 0.20 (Furnas et al., 1987), so a word the generator picked predicts nothing until it is the reader's own; a generic label carries no information scent (Nielsen Norman Group). Microsoft's style guide: "In most cases, don't talk about products, features, or commands in headings."
+
 ---
 
-## Part 2 — Checks
+## Part 2: Checks
 
 An **error** means a pattern settles it mechanically: the string describes the interface, describes the layout, or is filler. A **warning** means a tendency, which is all the evidence supports. Only errors stop the pipeline.
 
@@ -107,7 +131,7 @@ Inside a file, these are out of scope:
 
 `<title>`, `<noscript>` and `<template>` are matched in lower case only, so a JSX component such as `<Title>` is read as markup; `<script>`, `<style>`, `<code>` and `<pre>` are matched in any case. A `//` opens a comment only where nothing precedes it that makes it part of a value (a scheme, a word character, a quote or an `=`), so `href="//cdn.example.com"` survives with the rest of its line.
 
-Two kinds of string are read: text between tags, and the value of a text-carrying attribute or prop — `label`, `placeholder`, `description`, `helperText`, `helpText`, `hint`, `title`, `aria-label`, `alt`, `caption`, `subtitle`, `legend`, `tooltip`.
+Two kinds of string are read: text between tags, and the value of a text-carrying attribute or prop (`label`, `placeholder`, `description`, `helperText`, `helpText`, `hint`, `title`, `aria-label`, `alt`, `caption`, `subtitle`, `legend`, `tooltip`).
 
 ### The surface
 
@@ -117,7 +141,7 @@ ST3 asks whether the file sits on a promotional surface. In order of precedence:
 2. `meta.surface` in the nearest `tokens.json`, looked for in the scanned directory (a scanned file's own directory) and then up to three directories above it. `lp` means a landing page and `saas` an application, the two values `validate_tokens.py` accepts; the auditor agent takes the same two values.
 3. The path, the weakest signal: a segment named `marketing`, `landing` or `lp`, or a file name containing `landing` or `hero`.
 
-### ST1 — the screen describing itself (error)
+### ST1: the screen describing itself (error)
 
 **Check.** In any visible string: `(この|本)(画面|ページ|ダッシュボード|タブ|セクション|アプリ|サービス|機能)(では|から|で|には)`, a string opening with `ここでは`, and `(This|The) (page|screen|dashboard|view|section|tab|app) (lets|allows|enables|shows|displays|helps)`.
 
@@ -125,17 +149,17 @@ ST3 asks whether the file sits on a promotional surface. In order of precedence:
 
 **Why.** This is the most recognisable mark of a generated screen, and the one case where the pattern and the defect coincide exactly.
 
-### ST2 — an instruction that points at the layout (error)
+### ST2: an instruction that points at the layout (error)
 
-**Check.** A Japanese positional phrase — `(下記|上記|以下|左記|右記|下|上|右|左)の(フォーム|入力欄|ボタン|欄|メニュー|タブ|カード|リンク|チェックボックス|プルダウン)` — in a string that also carries an instruction (`ください`, `入力`, `選択`, `押`, `クリック`, `タップ`, `参照`, `ご覧`). In English, an instruction verb followed by a UI noun and then `below` or `above`, or the bare form `the <noun> below/above`.
+**Check.** A Japanese positional phrase, `(下記|上記|以下|左記|右記|下|上|右|左)の(フォーム|入力欄|ボタン|欄|メニュー|タブ|カード|リンク|チェックボックス|プルダウン)`, in a string that also carries an instruction (`ください`, `入力`, `選択`, `押`, `クリック`, `タップ`, `参照`, `ご覧`). In English, an instruction verb followed by a UI noun and then `below` or `above`, or the bare form `the <noun> below/above`.
 
 **Allowed.** The positional word without a UI noun: 「以下の条件」「上記の合計金額」 point at content and pass. The nouns that name content as readily as chrome (項目, 一覧, 表, リスト) are left off the list, so 「以下の項目をご確認のうえ、送信してください」 and 「下記の一覧に誤りがあれば修正してください」 pass; a confirmation screen says these about its own data.
 
 **Why.** Requiring both the position and the UI noun keeps this off ordinary content pages, where 「以下の」 opens a perfectly good list.
 
-### ST3 — the capability explainer (warning)
+### ST3: the capability explainer (warning)
 
-**Check.** A short single-sentence string (80 characters or fewer after collapsing whitespace, carrying at most one 。 and at most one full stop) ending `できます`, `出来ます`, `が表示されます` or `をご覧いただけます` — with the trailing 。 optional in each — or opening `You can`, `You'll be able to` or `You are able to`.
+**Check.** A short single-sentence string (80 characters or fewer after collapsing whitespace, carrying at most one 。 and at most one full stop) ending `できます`, `出来ます`, `が表示されます` or `をご覧いただけます` (with the trailing 。 optional in each) or opening `You can`, `You'll be able to` or `You are able to`.
 
 **Allowed.**
 
@@ -146,23 +170,23 @@ ST3 asks whether the file sits on a promotional surface. In order of precedence:
 
 **Why.** The length bound separates a caption from a paragraph: a documentation paragraph ends in 「できます」 constantly, while a 20-character grey line under a card is this skill's business. It is a warning because the allowance list cannot be completed mechanically; a confirmation dialog and a line of reassurance microcopy both end in 「できます」 with every right to.
 
-### ST4 — helper text restating its label (warning)
+### ST4: helper text restating its label (warning)
 
-**Check.** Helper text — a `helperText`, `helpText`, `hint`, `description`, `caption` or `subtitle` value, or an element whose class contains `help`, `hint`, `description`, `caption`, `form-text` or `field-note` — whose character-bigram overlap with the nearest label reaches 0.6. Nearest means nearest in either direction within 600 characters, because a section description above its label is as real a case as helper text below one.
+**Check.** Helper text (a `helperText`, `helpText`, `hint`, `description`, `caption` or `subtitle` value, or an element whose class contains `help`, `hint`, `description`, `caption`, `form-text` or `field-note`) whose character-bigram overlap with the nearest label reaches 0.6. Nearest means nearest in either direction within 600 characters, because a section description above its label is as real a case as helper text below one.
 
 **Allowed.** Helper text carrying a constraint token: a digit, `半角`, `全角`, `文字`, `以内`, `以上`, `以下`, `必須`, `任意`, `形式`, `拡張子`, `桁`, `バイト`, `@`, or the English `format`, `max`, `min`, `maximum`, `minimum`, `required`, `optional`, `characters`, `digits`, `must`, `at least`, `up to`, `MB`, `KB`.
 
 **On the threshold.** Overlap is the trigger and a constraint token is the exemption. A missing constraint token alone is too weak a signal: a legitimate consequence line (「保存すると担当者に通知が届きます」) carries none. Restatement in different words belongs to the auditor, which can see that 「登録に使うアドレス」 restates 「メールアドレス」 without sharing a character with it.
 
-### ST5 — a legend for the self-evident (warning)
+### ST5: a legend for the self-evident (warning)
 
 **Check.** `(色|アイコン|マーク|バッジ|印|ラベル)` followed within 20 characters by `示します`, `表します` or `意味します`; and in English a colour word followed within 30 characters by `means`, `indicates`, `shows` or `denotes`. A leading `※` or `注:` is common and optional.
 
-**Allowed.** Nothing mechanical. A genuinely ambiguous encoding needs its legend, so this is a warning and the reason for keeping one gets stated.
+**Allowed.** Nothing mechanical. An ambiguous encoding needs its legend, so this is a warning and the reason for keeping one gets stated.
 
 **Why.** A sentence explaining what a colour means is a sentence saying the colour did not mean it.
 
-### ST6 — inline tutorial prose (warning)
+### ST6: inline tutorial prose (warning)
 
 **Check.** Per file. The visible text carries `まず`, `最初に` or `はじめに` together with `してください` or `して下さい`, and also carries `次に`, `その後`, `続いて` or `最後に`. In English, `First,` together with `Then`.
 
@@ -170,7 +194,7 @@ ST3 asks whether the file sits on a promotional surface. In order of precedence:
 
 **Why.** File-level, because the defect is a sequence of instructions spread across the layout, which no single string reveals.
 
-### ST7 — text below the minimum size (error)
+### ST7: text below the minimum size (error)
 
 **Check.** Resolve the size every visible run actually gets, then report any run under 14px, unless the run holds no CJK character, is at most 24 visible characters, and is at least 12px.
 
@@ -195,7 +219,7 @@ Resolution follows the cascade as far as a stylesheet can be read without a brow
 
 What counts as text is settled in the Scope section above.
 
-The finding names the resolved size and where it came from — `inline`, the selector, the Tailwind class, or `inherited from <tag.class>` — so the fix lands on the declaration itself.
+The finding names the resolved size and where it came from (`inline`, the selector, the Tailwind class, or `inherited from <tag.class>`), so the fix lands on the declaration itself.
 
 With `--dom <dump.json>`, the same rule runs over the computed `fontSize` of every entry in a `cdp.js` dump's `text` array, and the source is reported as `rendered`. That mode sees what the stylesheet reader cannot: a size set from JavaScript, a `transform: scale()`, a `zoom`.
 
@@ -203,7 +227,7 @@ With `--dom <dump.json>`, the same rule runs over the computed `fontSize` of eve
 
 **Why.** A `.note { font-size: 11px }` rule in a stylesheet is where most small text is born, and a check that reads only the element never sees it. The Latin-short allowance is the one case where 12px reads, and its length bound keeps it from becoming a caption.
 
-### ST10 — a size below the minimum declared in a stylesheet (error and warning)
+### ST10: a size below the minimum declared in a stylesheet (error and warning)
 
 **Check.** In a `.css` or `.scss` file or a `<style>` block, outside `@media print`, a `font-size` declaration that resolves to a literal under 12px is an error; 12px to under 14px is a warning naming the Latin-short allowance. `rem` resolves against 16px, `pt` at 4/3, and the absolute keywords as ST7 lists them. `smaller`, `larger`, a `var()`, a percentage, an `em` and a `clamp()` with no px literal need a parent, so ST10 passes them to ST7, which judges them where they land. A file that raises the root (`html { font-size: 18px }`) can draw a warning here that ST7 clears; the ST7 result settles it, and one declaration is reported once, at its own line.
 
@@ -211,7 +235,7 @@ With `--dom <dump.json>`, the same rule runs over the computed `fontSize` of eve
 
 **Why.** ST7 catches the size where text is; this catches it where it is written, so a stylesheet written before any markup exists, or a rule nothing uses yet, is reported at the moment of writing, which is where the PostToolUse hook runs. A declaration under 12px has no legitimate reader on any screen.
 
-### ST8 — placeholder filler (error)
+### ST8: placeholder filler (error)
 
 **Check.** In any visible string: `説明テキスト`, `ダミーテキスト`, `サンプルテキスト`, `テキストが入ります`, `ここにテキスト`, `lorem ipsum`, `Description goes here`, `Placeholder text`, and a string opening `TODO:` or `TODO：`.
 
@@ -219,7 +243,7 @@ With `--dom <dump.json>`, the same rule runs over the computed `fontSize` of eve
 
 **Why.** Filler reaches production because it looks deliberate in a screenshot. C15 (`references/ui-copy.md`) also reports `lorem ipsum`; each script runs on its own, so both report it.
 
-### ST9 — a note defending the method (warning)
+### ST9: a note defending the method (warning)
 
 **Check.** In any visible string, method vocabulary together with a negation:
 
@@ -228,9 +252,9 @@ With `--dom <dump.json>`, the same rule runs over the computed `fontSize` of eve
 - English method vocabulary: `test|tested|hypothesis|p-value|significan\w*|false positive|confidence interval|parameter|tuned|fitted|adjusted|optimi[sz]ed|sample|benchmark|model|statistic`, each noun except `hypothesis` also in the plural
 - English negation: `not|never|without|n't|un(tested|adjusted|tuned|fitted)`, and `no` only directly before `significance`, `test`, `adjustment`, `correction` or `hypothesis`
 
-Also, with no negation at all, a string longer than ten visible characters carrying test vocabulary — `検定|仮説|p値|偽陽性|信頼区間|記述統計|有意水準|帰無`, or `hypothesis|p-value|false positive|confidence interval|null hypothesis|descriptive statistic` — because 「p値」 is a column heading and 「AとBの差がゼロという仮説のもとでのp値」 is the author explaining it.
+Also, with no negation at all, a string longer than ten visible characters carrying test vocabulary (`検定|仮説|p値|偽陽性|信頼区間|記述統計|有意水準|帰無`, or `hypothesis|p-value|false positive|confidence interval|null hypothesis|descriptive statistic`) because 「p値」 is a column heading and 「AとBの差がゼロという仮説のもとでのp値」 is the author explaining it.
 
-**Allowed.** Empty-state text, recognised as ST3 recognises it. Nothing else mechanically: a data-fact note can carry a negation legitimately (an exclusion), so this is a warning, and a kept note is restated in the positive where one exists — 「集計対象は支払いが完了した注文だけです」 for 「未払いの注文は集計していない」 — with the reason in the hand-over.
+**Allowed.** Empty-state text, recognised as ST3 recognises it. Nothing else mechanically: a data-fact note can carry a negation legitimately (an exclusion), so this is a warning, and a kept note is restated in the positive where one exists (「集計対象は支払いが完了した注文だけです」 for 「未払いの注文は集計していない」), with the reason in the hand-over.
 
 **Why.** Negation alone is everywhere in good copy (「削除したファイルは復元できません」), and method words alone are column headings. Together, in a caption, they are the author telling the reader what was not done.
 
@@ -243,9 +267,9 @@ ST7 in source mode misses a size set from JavaScript, a `transform: scale()` or 
 The `shippable-text-auditor` agent judges the following on the built screen, since each needs a reader who can tell what a sentence means:
 
 - A self-describing screen phrased in a way the ST1 patterns do not carry. 「各種指標をまとめてご覧いただける場所です」 says the same thing and matches nothing.
-- A label describing the feature where the action should be named — 「ユーザー管理機能」 on the control that opens the user list.
+- A label describing the feature where the action should be named: 「ユーザー管理機能」 on the control that opens the user list.
 - Helper text that restates its label in meaning through different words, which ST4's bigram overlap cannot see.
 - A caption stating what is already visible on the chart, the table or the card above it.
-- Whether a legend's encoding is genuinely ambiguous, which is the only question that decides ST5.
+- Whether a legend's encoding is ambiguous, which is the only question that decides ST5.
 - Whether an empty state's sentence names a next action or merely reports the emptiness.
 - A definitions legend under a chart written without a negation. 「購入まで進んだセッションの、全セッションに対する割合」 is a tooltip's sentence sitting in a `<dl>`, and only a reader can tell it from a data-fact note.

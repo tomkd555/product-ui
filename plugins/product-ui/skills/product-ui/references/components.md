@@ -1,4 +1,4 @@
-# Components — shadcn/ui on Base UI, Radix or React Aria, with Tailwind v4
+# Components: shadcn/ui on Base UI, Radix or React Aria, with Tailwind v4
 
 Read from Step 3 of `SKILL.md` when the request installs or adapts a component, binds theme variables to utilities, wires dark mode, builds an accessible dialog, dropdown, form or table, or lays out a responsive page with utility classes. `theme.css` from Step 2 is the only source of colour, type, spacing, radius, shadow and motion.
 
@@ -27,10 +27,11 @@ Tailwind-only (Vite): `npm install -D tailwindcss @tailwindcss/vite`, add `tailw
 
 - Colours, fonts, radii and shadows come from `theme.css` variables (`bg-background`, `text-muted-foreground`, `rounded-md`, `shadow-sm`); a literal in a class string is what `check_slop.py` S1 reports.
 - Text sizes follow `references/ban-list.md`: body `text-base` (16px), UI text `text-sm` (14px) or larger, and `text-xs` (12px) only on a Latin-only run of at most 24 characters. `text-[Npx]` under 14 is an ST7 error unless the run is Latin-only, at most 24 characters, and at least 12px.
-- Every form ships its states — `required`, `aria-invalid`, `aria-describedby`, a `FormMessage` — or `check_slop.py` S10 stops the pipeline.
+- Every form ships its states (`required`, `aria-invalid`, `aria-describedby`, a `FormMessage`) or `check_slop.py` S10 stops the pipeline.
 - Mobile first: base classes for the narrow layout, `md:` and `lg:` variants for wider; inputs keep 16px on mobile so iOS Safari does not zoom.
 - Dark mode uses the `.dark` class and the `dark:` variant on every themed element, drawing on the single palette in `theme.css`.
 - Utility classes on the element are the default; extract a component only for real repetition.
+- `Card` is for one unit in a browsed heterogeneous set, or for a group that distance cannot separate; a section of the page is a heading and spacing on the ground, and a `Card` inside a `Card` is `check_slop.py` S11 (`references/composition.md`).
 
 ## Patterns
 
@@ -53,14 +54,22 @@ Form with validation (react-hook-form + zod):
 </Form>
 ```
 
-Responsive card grid that follows the theme in both modes:
+A page of sections on the ground, following the theme in both modes; the one `Card` holds the browsed unit the composition plan admits:
 
 ```tsx
-<div className="min-h-screen bg-background text-foreground">
-  <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <Card><CardContent className="p-6"><h3 className="text-xl font-semibold">注文</h3></CardContent></Card>
+<main className="min-h-screen bg-background text-foreground">
+  <div className="container mx-auto px-4 py-8 space-y-10">
+    <section>
+      <h2 className="text-2xl font-semibold">満期3か月以内の契約</h2>
+      <Table>…</Table>
+    </section>
+    <section>
+      <h2 className="text-lg font-semibold">未読のお知らせ</h2>
+      <ul className="divide-y divide-border">…</ul>
+    </section>
+    <Card><CardContent className="p-6">…</CardContent></Card>
   </div>
-</div>
+</main>
 ```
 
 Sources: shadcn/ui (https://ui.shadcn.com/llms.txt), Tailwind CSS (https://tailwindcss.com/docs), Base UI (https://base-ui.com), Radix UI (https://radix-ui.com).

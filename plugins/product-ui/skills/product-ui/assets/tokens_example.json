@@ -4,6 +4,10 @@
     "surface": "saas",
     "reference": null,
     "structure": "ooui",
+    "users": [
+      { "role": "Expense approver", "frequency": "daily", "expertise": "intermediate",
+        "job": "Clear the day's pending expense reports and send back the ones that break policy", "basis": "reported" }
+    ],
     "stack": {
       "renderer": "vite-react",
       "tailwind": "4",

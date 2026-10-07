@@ -11,7 +11,7 @@ DADS has already settled the palette, the type scale and the components, targeti
 | What | Where |
 |---|---|
 | Resource index | https://design.digital.go.jp/dads/resources/ |
-| Tailwind plugin (tokens) | `@digital-go-jp/tailwind-theme-plugin` — https://github.com/digital-go-jp/tailwind-theme-plugin |
+| Tailwind plugin (tokens) | `@digital-go-jp/tailwind-theme-plugin` (https://github.com/digital-go-jp/tailwind-theme-plugin) |
 | React components | https://github.com/digital-go-jp/design-system-example-components-react |
 | React Storybook | https://design.digital.go.jp/dads/react/ |
 | HTML components | https://github.com/digital-go-jp/design-system-example-components-html |
@@ -78,7 +78,7 @@ Everything else:
 | `spacing` | product-ui's own default | the plugin declares none |
 | `motion` | product-ui's own default | DADS β publishes no motion tokens |
 | `color_dark` | omitted | DADS β has no dark theme |
-| `voice` | product-ui's own default | DADS publishes no writing guideline — see below |
+| `voice` | product-ui's own default | DADS publishes no writing guideline, see below |
 
 The shadows are written in `oklch(0% 0 0 / a)` because `rgba(0, 0, 0, a)` hides the alpha from T10, and a warning accepted with a reason beats one that cannot fire.
 
@@ -94,7 +94,7 @@ Five entries belong in `meta.defaults_applied` on this route:
 
 ## DADS defines no writing guideline
 
-DADS publishes visual foundations, components and accessibility guidance, and leaves the wording of buttons, labels and errors to each project. `references/ui-copy.md` applies unchanged on this route — this skill's own rules and 文化審議会「公用文作成の考え方」（建議、令和4年1月7日）. Tell the user the wording rules come from this skill.
+DADS publishes visual foundations, components and accessibility guidance, and leaves the wording of buttons, labels and errors to each project. `references/ui-copy.md` applies unchanged on this route: this skill's own rules and 文化審議会「公用文作成の考え方」（建議、令和4年1月7日）. Tell the user the wording rules come from this skill.
 
 ## theme.css
 
