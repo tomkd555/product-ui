@@ -1,0 +1,65 @@
+# url: https://doi.org/10.18653/v1/2025.findings-acl.657
+# accessed: 2026-10-30
+# chars: 11675
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Human-LLM Coevolution: Evidence from Academic Writing - ACL Anthology ACL Anthology About Announcements Communication channels Related work Copyright Credits Volunteer Development Feedback Using 
+Author directory Citing papers Links in the Anthology Data access All FAQs Details Anthology identifiers Names ORCID iDs DOIs Verified authors Contributions Submissions Corrections Maintain author 
+pages Attachments GitHub Human- LLM Coevolution: Evidence from Academic Writing Mingmeng Geng , Roberto Trotta Correct Metadata for Use this form to create a GitHub issue with structured data 
+describing the correction. You will need a GitHub account. Once you create that issue, the correction will be reviewed by a staff member. ⚠️ Mobile Users: Submitting this form to create a new issue 
+will only work with github.com, not the GitHub Mobile app. Important : The Anthology treat PDFs as authoritative. Please use this form only to correct data that is out of line with the PDF. See our 
+corrections guidelines if you need to change the PDF. Title Adjust the title. Retain tags such as <fixed-case>. Authors Adjust author names and order to match the PDF. Add Author Abstract Correct 
+abstract if needed. Retain XML formatting tags such as <tex-math>. You may use <b>...</b> for bold , <i>...</i> for italic , <u>...</u> for underline , <sc>...</sc> for small-caps , <tt>...<tt> for 
+typewriter text , <url>...</url> for URLs, <a href=...> for hyperlinks, and <par/> for paragraph breaks. Verification against PDF Ensure that the new title/authors match the snapshot below. (If there 
+is no snapshot or it is too small, consult the PDF .) Authors concatenated from the text boxes above: ALL author names match the snapshot above—including middle initials, hyphens, and accents. Create 
+GitHub issue for staff review Abstract With a statistical analysis of arXiv paper abstracts, we report a marked drop in the frequency of several words previously identified as overused by ChatGPT, 
+such as “delve”, starting soon after they were pointed out in early 2024. The frequency of certain other words favored by ChatGPT, such as “significant”, has instead kept increasing. These phenomena 
+suggest that some authors of academic papers have adapted their use of large language models (LLMs), for example, by selecting outputs or applying modifications to the LLM-generated content. Such 
+coevolution and cooperation of humans and LLMs thus introduce additional challenges to the detection of machine-generated text in real-world scenarios. Estimating the impact of LLMs on academic 
+writing by examining word frequency remains feasible, and more attention should be paid to words that were already frequently employed, including those that have decreased in frequency due to LLMs’ 
+disfavor. The coevolution between humans and LLMs also merits further study. Anthology ID: 2025.findings-acl.657 Volume: Findings of the Association for Computational Linguistics: ACL 2025 Month: 
+July Year: 2025 Address: Vienna, Austria Editors: Wanxiang Che , Joyce Nabende , Ekaterina Shutova , Mohammad Taher Pilehvar Venue: Findings SIG: Publisher: Association for Computational Linguistics 
+Note: Pages: 12689–12696 Language: URL: https://aclanthology.org/2025.findings-acl.657/ DOI: 10.18653/v1/2025.findings-acl.657 Bibkey: geng-trotta-2025-human Cite (ACL): Mingmeng Geng and Roberto 
+Trotta. 2025. Human-LLM Coevolution: Evidence from Academic Writing . In Findings of the Association for Computational Linguistics: ACL 2025 , pages 12689–12696, Vienna, Austria. Association for 
+Computational Linguistics. Cite (Informal): Human-LLM Coevolution: Evidence from Academic Writing (Geng & Trotta, Findings 2025) Copy Citation: BibTeX Markdown MODS XML Endnote More options... PDF: 
+https://aclanthology.org/2025.findings-acl.657.pdf PDF Cite Search Fix data Export citation BibTeX MODS XML Endnote Preformatted @inproceedings{geng-trotta-2025-human, title = "Human-{LLM} 
+Coevolution: Evidence from Academic Writing", author = "Geng, Mingmeng and Trotta, Roberto", editor = "Che, Wanxiang and Nabende, Joyce and Shutova, Ekaterina and Pilehvar, Mohammad Taher", booktitle 
+= "Findings of the {A}ssociation for {C}omputational {L}inguistics: {ACL} 2025", month = jul, year = "2025", address = "Vienna, Austria", publisher = "Association for Computational Linguistics", url 
+= "https://aclanthology.org/2025.findings-acl.657/", doi = "10.18653/v1/2025.findings-acl.657", pages = "12689--12696", ISBN = "979-8-89176-256-5", abstract = "With a statistical analysis of arXiv 
+paper abstracts, we report a marked drop in the frequency of several words previously identified as overused by ChatGPT, such as ``delve'', starting soon after they were pointed out in early 2024. 
+The frequency of certain other words favored by ChatGPT, such as ``significant'', has instead kept increasing. These phenomena suggest that some authors of academic papers have adapted their use of 
+large language models (LLMs), for example, by selecting outputs or applying modifications to the LLM-generated content. Such coevolution and cooperation of humans and LLMs thus introduce additional 
+challenges to the detection of machine-generated text in real-world scenarios. Estimating the impact of LLMs on academic writing by examining word frequency remains feasible, and more attention 
+should be paid to words that were already frequently employed, including those that have decreased in frequency due to LLMs' disfavor. The coevolution between humans and LLMs also merits further 
+study." } Download as File Copy to Clipboard <?xml version="1.0" encoding="UTF-8"?> <modsCollection xmlns="http://www.loc.gov/mods/v3"> <mods ID="geng-trotta-2025-human"> <titleInfo> <title>Human-LLM 
+Coevolution: Evidence from Academic Writing</title> </titleInfo> <name type="personal"> <namePart type="given">Mingmeng</namePart> <namePart type="family">Geng</namePart> <role> <roleTerm 
+authority="marcrelator" type="text">author</roleTerm> </role> </name> <name type="personal"> <namePart type="given">Roberto</namePart> <namePart type="family">Trotta</namePart> <role> <roleTerm 
+authority="marcrelator" type="text">author</roleTerm> </role> </name> <originInfo> <dateIssued>2025-07</dateIssued> </originInfo> <typeOfResource>text</typeOfResource> <relatedItem type="host"> 
+<titleInfo> <title>Findings of the Association for Computational Linguistics: ACL 2025</title> </titleInfo> <name type="personal"> <namePart type="given">Wanxiang</namePart> <namePart 
+type="family">Che</namePart> <role> <roleTerm authority="marcrelator" type="text">editor</roleTerm> </role> </name> <name type="personal"> <namePart type="given">Joyce</namePart> <namePart 
+type="family">Nabende</namePart> <role> <roleTerm authority="marcrelator" type="text">editor</roleTerm> </role> </name> <name type="personal"> <namePart type="given">Ekaterina</namePart> <namePart 
+type="family">Shutova</namePart> <role> <roleTerm authority="marcrelator" type="text">editor</roleTerm> </role> </name> <name type="personal"> <namePart type="given">Mohammad</namePart> <namePart 
+type="given">Taher</namePart> <namePart type="family">Pilehvar</namePart> <role> <roleTerm authority="marcrelator" type="text">editor</roleTerm> </role> </name> <originInfo> <publisher>Association 
+for Computational Linguistics</publisher> <place> <placeTerm type="text">Vienna, Austria</placeTerm> </place> </originInfo> <genre authority="marcgt">conference publication</genre> <identifier 
+type="isbn">979-8-89176-256-5</identifier> </relatedItem> <abstract>With a statistical analysis of arXiv paper abstracts, we report a marked drop in the frequency of several words previously 
+identified as overused by ChatGPT, such as “delve”, starting soon after they were pointed out in early 2024. The frequency of certain other words favored by ChatGPT, such as “significant”, has 
+instead kept increasing. These phenomena suggest that some authors of academic papers have adapted their use of large language models (LLMs), for example, by selecting outputs or applying 
+modifications to the LLM-generated content. Such coevolution and cooperation of humans and LLMs thus introduce additional challenges to the detection of machine-generated text in real-world scenarios.
+ Estimating the impact of LLMs on academic writing by examining word frequency remains feasible, and more attention should be paid to words that were already frequently employed, including those that 
+have decreased in frequency due to LLMs’ disfavor. The coevolution between humans and LLMs also merits further study.</abstract> <identifier type="citekey">geng-trotta-2025-human</identifier> 
+<identifier type="doi">10.18653/v1/2025.findings-acl.657</identifier> <location> <url>https://aclanthology.org/2025.findings-acl.657/</url> </location> <part> <date>2025-07</date> <extent 
+unit="page"> <start>12689</start> <end>12696</end> </extent> </part> </mods> </modsCollection> Download as File Copy to Clipboard %0 Conference Proceedings %T Human-LLM Coevolution: Evidence from 
+Academic Writing %A Geng, Mingmeng %A Trotta, Roberto %Y Che, Wanxiang %Y Nabende, Joyce %Y Shutova, Ekaterina %Y Pilehvar, Mohammad Taher %S Findings of the Association for Computational 
+Linguistics: ACL 2025 %D 2025 %8 July %I Association for Computational Linguistics %C Vienna, Austria %@ 979-8-89176-256-5 %F geng-trotta-2025-human %X With a statistical analysis of arXiv paper 
+abstracts, we report a marked drop in the frequency of several words previously identified as overused by ChatGPT, such as “delve”, starting soon after they were pointed out in early 2024. The 
+frequency of certain other words favored by ChatGPT, such as “significant”, has instead kept increasing. These phenomena suggest that some authors of academic papers have adapted their use of large 
+language models (LLMs), for example, by selecting outputs or applying modifications to the LLM-generated content. Such coevolution and cooperation of humans and LLMs thus introduce additional 
+challenges to the detection of machine-generated text in real-world scenarios. Estimating the impact of LLMs on academic writing by examining word frequency remains feasible, and more attention 
+should be paid to words that were already frequently employed, including those that have decreased in frequency due to LLMs’ disfavor. The coevolution between humans and LLMs also merits further 
+study. %R 10.18653/v1/2025.findings-acl.657 %U https://aclanthology.org/2025.findings-acl.657/ %U https://doi.org/10.18653/v1/2025.findings-acl.657 %P 12689-12696 Download as File Copy to Clipboard 
+Markdown (Informal) [Human-LLM Coevolution: Evidence from Academic Writing](https://aclanthology.org/2025.findings-acl.657/) (Geng & Trotta, Findings 2025) Human-LLM Coevolution: Evidence from 
+Academic Writing (Geng & Trotta, Findings 2025) ACL Mingmeng Geng and Roberto Trotta. 2025. Human-LLM Coevolution: Evidence from Academic Writing . In Findings of the Association for Computational 
+Linguistics: ACL 2025 , pages 12689–12696, Vienna, Austria. Association for Computational Linguistics. Copy Markdown to Clipboard Copy ACL to Clipboard ACL materials are Copyright © 1963–2026 ACL; 
+other materials are copyrighted by their respective copyright holders. Materials prior to 2016 here are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 International 
+License . Permission is granted to make copies for the purposes of teaching and research. Materials published in or after 2016 are licensed on a Creative Commons Attribution 4.0 International License 
+. The ACL Anthology is managed and built by the ACL Anthology team of volunteers. Site last built on 30 October 2026 at 05:12 UTC with commit 15f4cc3 .

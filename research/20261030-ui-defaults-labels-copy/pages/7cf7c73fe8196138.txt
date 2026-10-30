@@ -1,0 +1,31 @@
+# url: https://polaris.shopify.com/components/page-actions
+# accessed: 2026-10-30
+# chars: 5121
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Polaris references Skip to main content Apps Storefronts Agents References Changelog Ask assistant / Help • Log in Collapse sidebar API references Overview Core concepts Versioning API authentication 
+Access scopes Graph QL pagination Search query syntax Global IDs Response status codes Limits Idempotent requests Feature previews Dev tools Shopify CLI Shopify Git Hub app React Router app package 
+Stores Libraries and templates App data and logic Graph QL Admin API Shopify Functions Shopify QL for analytics Events Webhooks Payments Apps API REST Admin API (legacy) Polaris Polaris references 
+App Home (iframe) App Home (UI extension) Admin Checkout Customer accounts POS Using web components Storefronts Storefront API Liquid Ajax API Hydrogen framework Hydrogen React library Storefront Web 
+Components Standard events and actions Customer Privacy API Customer Account API Web MCP Tools App management Partner API App Events API Additional APIs Customer authentication Web pixel Shop API 
+Shop Minis Shop Pay Wallet API Full index Expand On this page App Home Extensions in other surfaces Polaris references Install AI Toolkit Ask about this page Copy MD Shopify apps can appear across 
+multiple surfaces in the Shopify platform. Each surface has its own set of available APIs and components. For an overview of all surfaces and how to build apps for them, see Build apps for Shopify . 
+All app surfaces use Polaris , Shopify's unified UI framework built on web components, to deliver a consistent experience across the platform. Learn more about using web components , including 
+layouts , icons , how to handle events , and more. Anchor to App Home App Home App Home is your app's main page in the Shopify admin. There are two ways to build it. App Home (iframe) Build your 
+app's main page as an iframe in Shopify admin using App Bridge and Polaris. App Home (iframe) Build your app's main page as an iframe in Shopify admin using App Bridge and Polaris. App Home (iframe) 
+Build your app's main page as an iframe in Shopify admin using App Bridge and Polaris. App Home (UI extension) Build your app's main page as a Preact-based UI extension. App Home (UI extension) Build 
+your app's main page as a Preact-based UI extension. App Home (UI extension) Build your app's main page as a Preact-based UI extension. Anchor to Extensions in other surfaces Extensions in other 
+surfaces Extensions put your app's UI inside a surface that Shopify renders: actions and blocks on admin resource pages, defined points in checkout and customer accounts, and the smart grid and cart 
+in Point of Sale. Each surface has its own extension APIs and its own subset of Polaris web components. Admin UI extensions Add custom actions and blocks from your app to resource pages in the 
+Shopify admin, including products, orders, and customers. Admin UI extensions Add custom actions and blocks from your app to resource pages in the Shopify admin, including products, orders, and 
+customers. Admin UI extensions Add custom actions and blocks from your app to resource pages in the Shopify admin, including products, orders, and customers. Checkout UI extensions Build custom 
+functionality that merchants can install at defined points in the checkout flow, including product information, shipping, payment, order summary, and Shop Pay. Checkout UI extensions Build custom 
+functionality that merchants can install at defined points in the checkout flow, including product information, shipping, payment, order summary, and Shop Pay. Checkout UI extensions Build custom 
+functionality that merchants can install at defined points in the checkout flow, including product information, shipping, payment, order summary, and Shop Pay. Customer account UI extensions Build 
+custom functionality that merchants can install at defined points on the order index, order status, and profile pages in customer accounts. Customer account UI extensions Build custom functionality 
+that merchants can install at defined points on the order index, order status, and profile pages in customer accounts. Customer account UI extensions Build custom functionality that merchants can 
+install at defined points on the order index, order status, and profile pages in customer accounts. POS UI extensions Build custom functionality that merchants can install at defined points in the 
+Shopify Point of Sale (POS) app, including the smart grid, cart, and post-purchase screens. POS UI extensions Build custom functionality that merchants can install at defined points in the Shopify 
+Point of Sale (POS) app, including the smart grid, cart, and post-purchase screens. POS UI extensions Build custom functionality that merchants can install at defined points in the Shopify Point of 
+Sale (POS) app, including the smart grid, cart, and post-purchase screens. Was this page helpful? Yes No App Home Extensions in other surfaces Updates Developer changelog Shopify Editions Business 
+growth Shopify Partners Program Shopify App Store Legal Terms of service API terms of use Privacy policy Partners Program Agreement Shopify About Shopify Shopify Plus Careers Investors Press and media

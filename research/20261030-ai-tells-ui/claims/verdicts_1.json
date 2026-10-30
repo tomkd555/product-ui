@@ -1,0 +1,37 @@
+[
+  {
+    "cid": "C1",
+    "verdict": "partial",
+    "reason": "Read together, the cited pages name each listed trait: a purple/indigo gradient to blue (E5) or to pink (E116 page), an unchosen Inter, one radius and one shadow on every card, three equal cards with emoji or icons, a centred hero with a pill badge in a fixed order, and filler copy with invented proof. However, two of the same 2026 sources (E5, E13) say AI output moves to a second cluster once these defaults are banned: cream with terracotta, near-black with one acid accent, and broadsheet hairlines. So 'one consistent cluster' overstates how uniform the 2026 writing is.",
+    "found": "The second wave appears once those are banned: cream with a terracotta accent, near-black with one acid-green or vermilion highlight, broadsheet hairlines, identical cards with one shadow, and tracked all-caps eyebrow labels over every heading.",
+    "source": "https://capitalandcompute.net/blog/fix-ai-slop-design/"
+  },
+  {
+    "cid": "C2",
+    "verdict": "supported",
+    "reason": "E71 and E73 were read verbatim in their cached abstracts. Abstract records for E70, E72 and E74 (Semantic Scholar, OpenAlex) state the same findings: a human label raises liking and every other rating of art (E70), disclosers of AI use are trusted less across 13 experiments (E72), and consumers forgive AI-made misrepresentative ads less because those ads are perceived as involving less effort (E74). The search found no meta-analysis showing a null effect. Note that E74 studies ads that misrepresent marginalized communities and that a strong brand reputation weakens the effect. The verbatim abstracts of E70, E72 and E74 were not retrieved.",
+    "found": "The AI-generated label significantly reduced perceived effort, whereas the human-made label did not differ from the unlabeled condition",
+    "source": "https://doi.org/10.3389/fpsyg.2026.1840483"
+  },
+  {
+    "cid": "C3",
+    "verdict": "supported",
+    "reason": "E71 says raters could not tell the two kinds of text apart in the blind test. According to the E75 abstract record, readers identified AI poems at or below chance and rated them more favourably. In E93, 92 participants rated prototypes without knowing who made them; ratings were positive for usability and neutral or negative for originality, and the paper's title calls the prototypes 'Usable but Conventional'.",
+    "found": "An empirical survey with 92 participants evaluated AI-generated and human-created prototypes without prior identification of authorship.",
+    "source": "https://arxiv.org/abs/2605.15124"
+  },
+  {
+    "cid": "C4",
+    "verdict": "partial",
+    "reason": "E92 supports the claim that errors and technical problems cost a site credibility. E69's abstract could not be retrieved; its record shows a 2000 self-report study. The cited E83 passage says only that humans detect fake reviews at chance. It does not say that readers who learn the cues of fake reviews trust them less and buy less. The paper's abstract was unavailable, so neither the trust effect nor the purchase effect could be confirmed.",
+    "found": "Typographical errors and broken links hurt a site's credibility more than most people imagine.",
+    "source": "https://credibility.stanford.edu/guidelines/index.html"
+  },
+  {
+    "cid": "C5",
+    "verdict": "partial",
+    "reason": "E82's abstract record describes the uncanny valley as a negative reaction to artificial entities that look human, with an overall effect of g = 1.01. That supports only the part about human-like figures. E82 says nothing about why readers dislike AI-made pages: no decision, no effort, or deception. It also does not state that page layouts lack evidence, although the search found no layout study either. The verbatim abstract was not retrieved, only a summary of it.",
+    "found": "",
+    "source": "https://doi.org/10.1145/3470742"
+  }
+]

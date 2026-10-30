@@ -1,0 +1,104 @@
+[
+  {
+    "cid": "C11",
+    "sentence": "These sources name one radius and a 0.1-opacity shadow on everything, wide tracking on uppercase eyebrows, oversized hero text, a three-column icon grid, a stock section order and a \"Get Started\" gradient button [E99, E100, E101, E102, E105, E108].",
+    "evidence": [
+      {
+        "id": "E99",
+        "quote": "Border radius around half a rem on everything. Box shadows at roughly 0.1 opacity. A three-column feature grid with an icon per card.",
+        "url": "https://devtake.pages.dev/article/ai-generated-frontend-slop",
+        "page": "pages/8fd5e127cc33cdc2.txt"
+      },
+      {
+        "id": "E100",
+        "quote": "Oversized hero text over vague copy.",
+        "url": "https://devtake.pages.dev/article/ai-generated-frontend-slop",
+        "page": "pages/8fd5e127cc33cdc2.txt"
+      },
+      {
+        "id": "E101",
+        "quote": "Wide tracking on uppercase labels and eyebrow text was a deliberate stylistic choice years ago. Now it is auto-applied everywhere,",
+        "url": "https://noqta.tn/blog/ai-design-slop-overused-ui-patterns-fix-2026",
+        "page": "pages/68ee034d8d1fd348.txt"
+      },
+      {
+        "id": "E102",
+        "quote": "buttons, inputs, badges, and images all rounded to the same exaggerated radius. When every element has identical corners, hierarchy disappears and the layout reads as flat.",
+        "url": "https://noqta.tn/blog/ai-design-slop-overused-ui-patterns-fix-2026",
+        "page": "pages/68ee034d8d1fd348.txt"
+      },
+      {
+        "id": "E105",
+        "quote": "Stock section order. Hero, logos, three features, a testimonial, pricing, CTA - in that exact order, every time.",
+        "url": "https://superdesign.dev/blog/fix-generic-ai-landing-page",
+        "page": "pages/10f6646335a49bfb.txt"
+      },
+      {
+        "id": "E108",
+        "quote": "There is a gradient button that says \"Get Started.\"",
+        "url": "https://www.925studios.co/blog/ai-slop-design-tells",
+        "page": "pages/c9fe85fcf9260f65.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C12",
+    "sentence": "None of them gives a measured spacing or size value that marks AI output [E99, E100].",
+    "evidence": [
+      {
+        "id": "E99",
+        "quote": "Border radius around half a rem on everything. Box shadows at roughly 0.1 opacity. A three-column feature grid with an icon per card.",
+        "url": "https://devtake.pages.dev/article/ai-generated-frontend-slop",
+        "page": "pages/8fd5e127cc33cdc2.txt"
+      },
+      {
+        "id": "E100",
+        "quote": "Oversized hero text over vague copy.",
+        "url": "https://devtake.pages.dev/article/ai-generated-frontend-slop",
+        "page": "pages/8fd5e127cc33cdc2.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C13",
+    "sentence": "403 Japanese participants had limited ability to tell AI-written text from human text and judged it by surface cues [E119, E121].",
+    "evidence": [
+      {
+        "id": "E119",
+        "quote": "revealing that overall human AI-detection ability was limited.",
+        "url": "https://ideas.repec.org/a/plo/pone00/0335369.html",
+        "page": "pages/2b7eef6f9049f879.txt"
+      },
+      {
+        "id": "E121",
+        "quote": "participants primarily relied on superficial impressions based on phraseology, expression, the",
+        "url": "https://ideas.repec.org/a/plo/pone00/0335369.html",
+        "page": "pages/2b7eef6f9049f879.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C14",
+    "sentence": "A Hiroshima University bachelor's thesis, reported by Fyve, found that 1 of 148 popular 「AIらしさ」 claims matched measurement [E112].",
+    "evidence": [
+      {
+        "id": "E112",
+        "quote": "人が挙げた148件の「AIらしさ」のうち、実測と一致したのはわずか1件でした。",
+        "url": "https://fyve.co.jp/ai-advisor/articles/ai-text-detection-myths-japan",
+        "page": "pages/57c72296b27c1c57.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C15",
+    "sentence": "The spacing base unit is 4px in Tailwind CSS v4.3, which sets `--spacing` to 0.25rem [E1].",
+    "evidence": [
+      {
+        "id": "E1",
+        "quote": "--spacing : 0.25 rem ;",
+        "url": "https://tailwindcss.com/docs/theme",
+        "page": "pages/2c29428720911e44.txt"
+      }
+    ]
+  }
+]

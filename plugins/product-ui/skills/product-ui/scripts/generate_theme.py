@@ -13,6 +13,15 @@ Rules:
                     radius.full and motion.easing.spring are the other optional ones
     {{color_dark}}  expands to a .dark block with one --brand-<key> line per key
                     in color_dark, or to nothing when color_dark is absent
+    {{type_ramp}}   expands to the --text-base ... --text-9xl lines: base is
+                    typography.scale.base_px, each step above multiplies by
+                    typography.scale.ratio; line heights are unitless
+    {{spacing_unit}} expands to --spacing: <spacing.base_px / 16>rem;
+    {{body_text}}   expands to the body line-height and letter-spacing for voice.lang
+                    and meta.surface; the same line height goes to --text-base
+    {{family_ja.display}}, {{family_ja.body}}
+                    expand to "<typography.<slot>.family_ja>", or to nothing when
+                    the slot has no family_ja
 
 CLI:
     python generate_theme.py <tokens.json> [--out theme.css] [--template path]
@@ -30,6 +39,23 @@ import sys
 
 PLACEHOLDER = re.compile(r"\{\{([a-z_]+(?:\.[a-z_]+)+)\}\}")
 DARK_MARKER = "{{color_dark}}"
+RAMP_MARKER = "{{type_ramp}}"
+SPACING_MARKER = "{{spacing_unit}}"
+BODY_MARKER = "{{body_text}}"
+FAMILY_JA = re.compile(r"\{\{family_ja\.(display|body)\}\}")
+
+# Line heights of Tailwind's own steps, unitless, for text-base and up.
+LINE_HEIGHTS = [1.5, 1.556, 1.4, 1.333, 1.2, 1.111, 1, 1, 1, 1, 1]
+STEPS = ["base", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "9xl"]
+
+
+def body_leading(doc):
+    """Body line height and letter spacing: DADS reading text for ja on a landing page,
+    1.5 and no tracking otherwise (SmartHR paragraphs, WCAG 1.4.8)."""
+    if get(doc, "voice.lang") == "ja" and get(doc, "meta.surface") == "lp":
+        return 1.7, "0.02em"
+    return 1.5, "0"
+
 
 # tokens-format.md does not require these; their line is dropped when absent.
 OPTIONAL = {"color.surface", "radius.full", "motion.easing.spring"}
@@ -51,6 +77,33 @@ def dark_block(color_dark):
     return ".dark {\n" + "\n".join(lines) + "\n}"
 
 
+def rem(value):
+    """Round to two places and print without trailing zeros, as 1rem or 1.25rem."""
+    return f"{round(value, 2):g}rem"
+
+
+def ja_line_height(size_px, body_height):
+    """Line height of a Japanese step by its size, after DADS's standard text styles:
+    160% at 18px, 150% from 20 to 32px, 140% from 36px."""
+    if size_px < 18:
+        return body_height
+    if size_px < 20:
+        return 1.6
+    if size_px < 36:
+        return 1.5
+    return 1.4
+
+
+def type_ramp(base_px, ratio, body_height, lang=None):
+    sizes = [base_px * ratio ** n for n in range(len(STEPS))]
+    if lang == "ja":
+        heights = [body_height] + [ja_line_height(size, body_height) for size in sizes[1:]]
+    else:
+        heights = [body_height] + LINE_HEIGHTS[1:]
+    return [f"--text-{step}: {rem(size / 16)}; --text-{step}--line-height: {height:g};"
+            for step, size, height in zip(STEPS, sizes, heights)]
+
+
 def render(template, doc):
     """Return (css, unfilled). unfilled lists placeholders that had no value and
     were not on a droppable line."""
@@ -62,6 +115,30 @@ def render(template, doc):
             if block:
                 out.append(block)
             continue
+        if line.strip() in (RAMP_MARKER, SPACING_MARKER):
+            indent = line[:len(line) - len(line.lstrip())]
+            if line.strip() == RAMP_MARKER:
+                base_px, ratio = get(doc, "typography.scale.base_px"), get(doc, "typography.scale.ratio")
+                if base_px is None or ratio is None:
+                    unfilled.extend(k for k, v in (("typography.scale.base_px", base_px),
+                                                   ("typography.scale.ratio", ratio)) if v is None)
+                    continue
+                out.extend(indent + text for text in type_ramp(base_px, ratio, body_leading(doc)[0],
+                                                               get(doc, "voice.lang")))
+            else:
+                unit = get(doc, "spacing.base_px")
+                if unit is None:
+                    unfilled.append("spacing.base_px")
+                    continue
+                out.append(f"{indent}--spacing: {rem(unit / 16)};")
+            continue
+        if line.strip() == BODY_MARKER:
+            indent = line[:len(line) - len(line.lstrip())]
+            height, tracking = body_leading(doc)
+            out.extend([f"{indent}line-height: {height:g};", f"{indent}letter-spacing: {tracking};"])
+            continue
+        line = FAMILY_JA.sub(lambda m: f'"{get(doc, f"typography.{m.group(1)}.family_ja")}", '
+                             if get(doc, f"typography.{m.group(1)}.family_ja") else "", line)
         if "--brand-surface" in line and not has_surface:
             continue
         missing = []

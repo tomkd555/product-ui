@@ -1,0 +1,92 @@
+[
+  {
+    "cid": "C21",
+    "sentence": "A Japanese freelancer who has delivered more than 50 landing pages writes that the feature section of AI-made pages takes this shape 「ほぼ100%」, with rockets or gears as emoji on cards of identical width [E116].",
+    "evidence": [
+      {
+        "id": "E116",
+        "quote": "横に3つ並んだ角丸カード。それぞれにアイコン(だいたい絵文字)、太字の見出し、2〜3行の説明文。",
+        "url": "https://note.com/chitosedev/n/n0f2f2daaf0c6",
+        "page": "pages/cbcf58928860da43.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C22",
+    "sentence": "The fixed page order is named by 5 publishers [E6, E13, E36, E112, E115].",
+    "evidence": [
+      {
+        "id": "E6",
+        "quote": "Stock page order Centred hero, pill badge, two buttons, logo row, three",
+        "url": "https://capitalandcompute.net/blog/fix-ai-slop-design/",
+        "page": "pages/3d5a5b6c214a7de5.txt"
+      },
+      {
+        "id": "E13",
+        "quote": "A centered hero in Inter , with a small pill-shaped badge sitting directly above the headline.",
+        "url": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same",
+        "page": "pages/0a288eefefa7f07d.txt"
+      },
+      {
+        "id": "E36",
+        "quote": "Benefit copy that could belong to anyone. \"Save time. Work smarter. Scale faster.\" True of every product, specific to none.",
+        "url": "https://superdesign.dev/blog/fix-generic-ai-landing-page",
+        "page": "pages/10f6646335a49bfb.txt"
+      },
+      {
+        "id": "E112",
+        "quote": "AIが生成するWebサイトで最も顕著な特徴の一つは、デザインの「均質化」です。",
+        "url": "https://note.com/hasilan/n/n96dcba69b1ec",
+        "page": "pages/f14e3172cb587335.txt"
+      },
+      {
+        "id": "E115",
+        "quote": "「未来の働き方を変える」 「あなたの可能性を解き放つ」",
+        "url": "https://note.com/nikki_r2d2/n/ndf9325b559c5",
+        "page": "pages/595698fc52649946.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C23",
+    "sentence": "A pill-shaped badge above the headline appears in 2 of these [E6, E13].",
+    "evidence": [
+      {
+        "id": "E6",
+        "quote": "Stock page order Centred hero, pill badge, two buttons, logo row, three",
+        "url": "https://capitalandcompute.net/blog/fix-ai-slop-design/",
+        "page": "pages/3d5a5b6c214a7de5.txt"
+      },
+      {
+        "id": "E13",
+        "quote": "A centered hero in Inter , with a small pill-shaped badge sitting directly above the headline.",
+        "url": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same",
+        "page": "pages/0a288eefefa7f07d.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C24",
+    "sentence": "aismells, the only source on bento, adds that the bento grid is a mainstream design trend of 2024 to 2026, so the trait is over-application of a real pattern [E18].",
+    "evidence": [
+      {
+        "id": "E18",
+        "quote": "Bento grids are a real design trend, not an invented AI hallucination.",
+        "url": "https://aismells.pages.dev/bento-box-sprawl.html",
+        "page": "pages/b2da701c1c2dda15.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C25",
+    "sentence": "925studios writes that \"None of these choices are bad on their own\" [E3].",
+    "evidence": [
+      {
+        "id": "E3",
+        "quote": "a fingerprint: the Inter typeface, an indigo-to-purple gradient, three rounded cards in a row, and a hero section that could belong to any of ten thousand other products.",
+        "url": "https://www.925studios.co/blog/ai-slop-design-tells",
+        "page": "pages/c9fe85fcf9260f65.txt"
+      }
+    ]
+  }
+]

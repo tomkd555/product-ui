@@ -1,0 +1,62 @@
+# url: https://builtin.com/articles/ai-design-slop-era
+# accessed: 2026-10-30
+# chars: 11057
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+The New Skeuomorphism: How AI Makes Bad Design Look Good Enough | Built In Companies Jobs Articles Can't find your company? Create a company profile. View All Jobs Join Log In For Employers 
+Artificial Intelligence Design + UX Expert Contributors +5 Digital Design Product Design User Interface Design UX Design Design +7 AI Makes Bad Design Look Good Enough Every design era has its 
+embarrassing phase. Ours is happening right now, and we’re calling it efficiency. Written by Tanya Donska Published on Jun. 11, 2026 Image: Shutterstock / Built In REVIEWED BY Seth Wilson | Jun 10, 
+2026 Summary: Just as skeuomorphism once dominated tech with faux-physical textures, AI-driven product design is ushering in a new era of slop. Today's software relies on interchangeable, generic UX 
+flows that are technically correct but devoid of specific identity, setting up another era of design cringe. more Just as skeuomorphism once dominated tech with faux-physical textures, AI-driven 
+product design is ushering in a new era of slop. Today's software relies on interchangeable, generic UX flows that are technically correct but devoid of specific identity, setting up another era of 
+design cringe. The linen was load-bearing. We were sure of it. There was a period, not that long ago, when putting a reflection underneath your logo was correct. Not decorative — correct. The logo 
+sat on an invisible glass floor, and its mirror image faded below it, and this communicated something, though nobody could quite say what. Professionalism, maybe. The sense that the brand existed in 
+physical space rather than just on a screen. At the same time, every text input on the internet had an inset shadow pressed into it. The field wasn't just a field. It was a hole, carved into the 
+surface of the page, and you typed into the hole. And behind half the UI on the web, there was a linen texture. Not because anyone particularly liked linen, but because surfaces needed to feel like 
+surfaces, and a flat color apparently wasn’t enough. This was skeuomorphism . And at the time, it wasn’t considered embarrassing. It was considered good design . The arguments were reasonable. 
+Screens were new. Interfaces needed to communicate affordance. If something looked like it existed in the physical world, users would know how to interact with it. Each of those patterns had a job to 
+do. I believed this. I shipped this. We all did. Those arguments correctly identified a real problem but offered the wrong solution, and it took years to notice. That wasn’t because designers were 
+stupid, but because the era made the wrong answer look like the only answer. Users didn’t complain. The metrics were fine. We are doing this again right now with AI . We’re just calling it something 
+else. What Is AI Design Slop? AI design slop is the widespread reliance on AI tools to generate software interfaces, resulting in a market filled with generic, interchangeable user experiences. Much 
+like the skeuomorphism trend of the early 2010s, this work passes review because it is technically correct, but it lacks a specific brand identity or point of view, ultimately eroding user trust. 
+More From Tanya Donska The UK Is Training 10 Million People to Use AI. That’s the Problem. Technically Correct Is the New Good The tell with skeuomorphism was that it looked like it meant something. 
+The logo reflection, the inset shadow, the linen — it all pointed back to a physical world with weight and texture and depth. The design was saying, “You know how this works because you’ve 
+encountered surfaces before.” That was the gesture. The problem was that, after a while, the reference became the point. The inset shadow stopped meaning “This is where you type” and started just 
+being a shadow. The ornamentation outlasted the reason for it. AI design slop works the same way, except the reference was never there to begin with. To be specific about what I ’ m talking about: 
+not the AI stock photo, not the ChatGPT blog post. I mean the thing inside the product. The onboarding flow your team shipped last quarter — three steps, large headline, progress dots along the 
+bottom. The empty state with the friendly illustration and two lines of copy that could belong to any product in your category. The error message that is clear, polite and tells you nothing useful 
+about what actually went wrong. The kind of design that lives inside working software, that users interact with daily, that passed every review because it was technically correct. You ’ ve seen it. 
+You ’ ve probably shipped it. It doesn’t look like something specific. It looks like everything, approximately. It is the average of all design that has ever been fed into a model, rendered with 
+enough technical competence to clear every review it will ever face. Where skeuomorphism pointed at a real object and said, “This is familiar,” AI points at nothing in particular and says, “This is 
+professional.” The gradient blob on every SaaS landing page — soft, orbital, vaguely optimistic — communicates the same thing the logo reflection did: that something serious is happening here. It 
+communicates this about every product equally, which is to say it communicates nothing about any product specifically: The hero illustration with the abstract shapes and the friendly, diverse team of 
+floating torsos. The dashboard with the clean card layout and the donut chart in the top right. The onboarding screen with the large headline and the single CTA and the progress dots along the bottom.
+ All of it is correct. All of it could belong to anything. This is the version serious designers talk about: the visual sameness, the gradient, the blob, the illustration pack that ships with every 
+AI tool. And that critique is right. It’s also the easy version of the critique because you can see it immediately. Yet the harder version doesn’t look wrong at all. It looks correct: AI-generated UX 
+flows are technically correct in the same way that a hotel room is technically furnished. Everything is there. The proportions are fine. Nothing is broken. You couldn’t tell which city you’re in from 
+looking at the bathroom. Onboarding has the same three steps. Empty states have the same illustration and the same two lines of microcopy . Navigation follows every established pattern so faithfully 
+that it has stopped communicating anything about the product it belongs to. The architecture is right, the hierarchy is right, the copy is clear and none of it is specific to anything. I’ve reviewed 
+work from more than a dozen different SaaS products this year where I couldn’t, without looking at the brief, tell which product I was looking at. The designs were competent. They were also 
+interchangeable. That didn’t happen at this scale before. The baseline for acceptable design has quietly shifted to whatever AI produces. Because AI produces work that is competent enough to not fail 
+any individual review, the shift is invisible from inside any single sprint. You only see it when you look at the market as a whole. Nobody Decided to Make the Era Embarrassing In the last year, I’ve 
+heard the same three sentences from three different product teams, phrased slightly differently each time. “It’s efficient.” “It’s good enough for what users need.” “We can refine it later once we’ve 
+validated the concept.” I’ve also read blog posts on the web archive from 2011 where designers said: “It’s more intuitive.” “Users need the metaphor.” “The platform is new — this is appropriate for 
+where we are.” The ideas are the same. The era is different. Nobody has noticed. None of these are stupid arguments. They’re reasonable responses to real pressure. Timelines are short. Headcount is 
+down. The board wants to see something by Tuesday again. AI tools produce something by Tuesday morning, and that something passes the review because the review is also running on a short timeline and 
+the work is technically correct. So it ships. This is how eras happen. Nobody decided to make this one particularly embarrassing. They just decide to ship the thing. The difference is that 
+skeuomorphism had an aesthetic position. You could look at the 00s interface and identify what it was reaching for, even if what it was reaching for was wrongheaded. It had conviction. Misplaced, but 
+present. AI slop has no position. It is the output of averaging, which means it resembles everything and argues for nothing. When the cringe arrives — and it will — there will be nothing to point at. 
+No logo reflection to laugh about. Just a decade of interfaces that looked a whole lot like each other and felt like no one made them. More in Design + UX Why UX Research Powers Better Agentic AI The 
+Cringe Is Scheduled. We Just Don’t Know the Date. Skeuomorphism ended not because designers woke up one morning and decided the inset shadows were embarrassing. It ended because the problem it was 
+solving stopped being a problem. Users got comfortable with screens. The metaphors became unnecessary, and then they became noise. The era expired. AI slop won’t expire the same way because the 
+pressures that produce it — speed, cost, headcount — aren’t going away. But something is already shifting. I notice it in user sessions. The person who completes the onboarding flow correctly and 
+never comes back. The one who emails support asking a question the interface should have answered. They don’t say, “This is broken.” There’s just a faint sense that nobody thought about the users 
+specifically, which is correct, because nobody did. The interface was designed for a user, just not for them. Trust erodes without anyone raising a complaint. Churn happens without a ticket. And no 
+one in the postmortem mentions the design because the design wasn’t wrong. It was just assembled. Designers will have a word for this era, eventually, the way we have a word for skeuomorphism. It 
+won’t be flattering. And the work that ages best will be the work that was actually made by someone with a point of view. Not about AI, of course, but about the specific product they were inside at 
+the time. We’re in the middle of the embarrassing era. The least we can do is realize it. Recent Artificial Intelligence Articles 18 Top AI Marketing Tools How AI Coding Agents Are Reigniting the 
+Cloud Wars PHP Has Powered the Web for Decades — Now It’s at the Center of a Major Security Crisis Explore Job Matches . Job Title or Keyword Clear search Location No Results Found Job Type Clear 
+Apply See Jobs Companies Jobs Tracker Articles More Join Log In Tech Jobs Companies Articles Remote Best Places To Work Tech Hubs Post Job © 2026 Built In. All rights reserved. About Our Story 
+Careers Our Staff Writers Content Descriptions Get Involved Recruit With Built In Become an Expert Contributor Resources Customer Support Share Feedback Report a Bug Job Tools + Career Resources 
+Browse Jobs A-Z Hubs Our Sites © 2026 Built In. All rights reserved. Learning Lab User Agreement Accessibility Statement Copyright Policy Privacy Policy Terms of Use Your Privacy Choices/Cookie 
+Settings CA Notice of Collection

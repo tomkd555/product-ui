@@ -1,0 +1,1427 @@
+{
+ "title": "アカウント・表示設定 | 販社ポータル",
+ "viewport": {
+  "width": 1280,
+  "height": 1200
+ },
+ "htmlClass": "",
+ "tokens": {
+  "--font-sans": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--font-mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--spacing": ".25rem",
+  "--container-md": "28rem",
+  "--container-3xl": "48rem",
+  "--font-weight-normal": "400",
+  "--font-weight-semibold": "600",
+  "--font-weight-bold": "700",
+  "--radius-sm": ".375rem",
+  "--radius-md": ".5rem",
+  "--radius-lg": ".75rem",
+  "--shadow-sm": "0 1px 2px 0 oklch(0% 0 0/.04)",
+  "--shadow-lg": "0 4px 16px 0 oklch(0% 0 0/.08)",
+  "--default-transition-duration": ".15s",
+  "--default-transition-timing-function": "cubic-bezier(.4, 0, .2, 1)",
+  "--default-font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--default-mono-font-family": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--color-background": "oklch(0.961 0 0)",
+  "--color-foreground": "oklch(0.218 0 0)",
+  "--color-surface": "oklch(1 0 0)",
+  "--color-primary": "oklch(0.531 0.218 29)",
+  "--color-primary-foreground": "oklch(1 0 0)",
+  "--color-muted": "oklch(0.976 0 0)",
+  "--color-muted-foreground": "oklch(0.52 0 0)",
+  "--color-border": "oklch(0.922 0 0)",
+  "--color-destructive": "oklch(0.429 0.176 29)",
+  "--color-accent": "oklch(0.546 0.215 263)",
+  "--font-display": "\"Inter\", ui-serif, serif",
+  "--font-body": "\"Inter\", ui-sans-serif, sans-serif",
+  "--radius-full": "9999px",
+  "--ease-standard": "cubic-bezier(.4, 0, .2, 1)",
+  "--brand-background": "oklch(0.961 0 0)",
+  "--brand-foreground": "oklch(0.218 0 0)",
+  "--brand-surface": "oklch(1 0 0)",
+  "--brand-primary": "oklch(0.531 0.218 29)",
+  "--brand-primary-foreground": "oklch(1 0 0)",
+  "--brand-muted": "oklch(0.976 0 0)",
+  "--brand-muted-foreground": "oklch(0.52 0 0)",
+  "--brand-border": "oklch(0.922 0 0)",
+  "--brand-destructive": "oklch(0.429 0.176 29)",
+  "--brand-accent": "oklch(0.546 0.215 263)",
+  "--duration-fast": ".15s",
+  "--duration-base": ".25s",
+  "--duration-slow": ".4s",
+  "--sidebar-width": "260px",
+  "--content-max-width": "1440px",
+  "--shell-nav-fg": "oklch(0.3388 0 0)",
+  "--shell-hover": "oklch(0.218 0 0 / 0.025)",
+  "--shell-active": "oklch(0.531 0.218 29 / 0.06)",
+  "--shell-ring": "oklch(0.531 0.218 29 / 0.08)",
+  "--shell-border-hover": "oklch(0.7612 0 0)",
+  "--chart-brand": "oklch(0.531 0.218 29)",
+  "--chart-1": "oklch(0.546 0.215 263)",
+  "--chart-2": "oklch(0.43696 0 0)",
+  "--chart-3": "oklch(0.71852 0.1333 299.86)",
+  "--chart-4": "oklch(0.62464 0 0)",
+  "--chart-band": "oklch(0.546 0.215 263 / 0.14)",
+  "--tint-primary": "color(srgb 0.983933 0.91983 0.92075)",
+  "--tint-accent": "oklch(0.9546 0.0215 350.3)",
+  "--primary-text": "oklch(0.531 0.218 29)",
+  "--accent-text": "oklch(0.4476 0.1505 292.1)",
+  "--lightningcss-light": "",
+  "--lightningcss-dark": ""
+ },
+ "horizontalOverflow": false,
+ "scrollWidth": 1280,
+ "pageHeight": 1200,
+ "headings": [
+  {
+   "level": 1,
+   "text": "アカウント・表示設定"
+  },
+  {
+   "level": 2,
+   "text": "アカウント"
+  },
+  {
+   "level": 2,
+   "text": "表示"
+  },
+  {
+   "level": 2,
+   "text": "パスワードの変更"
+  }
+ ],
+ "landmarks": [
+  {
+   "sel": "header",
+   "count": 1
+  },
+  {
+   "sel": "nav",
+   "count": 1
+  },
+  {
+   "sel": "main",
+   "count": 1
+  },
+  {
+   "sel": "aside",
+   "count": 1
+  },
+  {
+   "sel": "footer",
+   "count": 0
+  },
+  {
+   "sel": "form",
+   "count": 2
+  },
+  {
+   "sel": "[role]",
+   "count": 4
+  }
+ ],
+ "controlsTotal": 28,
+ "controls": [
+  {
+   "tag": "a",
+   "text": "ホーム",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/"
+  },
+  {
+   "tag": "a",
+   "text": "販売店",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/stores"
+  },
+  {
+   "tag": "a",
+   "text": "スタッフ",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/staff"
+  },
+  {
+   "tag": "a",
+   "text": "市場動向",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/market"
+  },
+  {
+   "tag": "a",
+   "text": "契約",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/contracts"
+  },
+  {
+   "tag": "a",
+   "text": "見積り",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/estimates"
+  },
+  {
+   "tag": "a",
+   "text": "車種",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/vehicles"
+  },
+  {
+   "tag": "a",
+   "text": "金利・キャンペーン",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/rates"
+  },
+  {
+   "tag": "a",
+   "text": "お知らせ2",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/notices"
+  },
+  {
+   "tag": "a",
+   "text": "問い合わせ1",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/inquiries"
+  },
+  {
+   "tag": "a",
+   "text": "よくあるご質問・資料",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/library"
+  },
+  {
+   "tag": "a",
+   "text": "使い方ガイド",
+   "w": 235,
+   "h": 41,
+   "labelled": true,
+   "href": "#/guide"
+  },
+  {
+   "tag": "button",
+   "text": "メニュー",
+   "w": 0,
+   "h": 0,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "input",
+   "text": "契約を検索",
+   "w": 230,
+   "h": 26,
+   "labelled": true,
+   "type": "search"
+  },
+  {
+   "tag": "button",
+   "text": "高",
+   "w": 36,
+   "h": 36,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "radio"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "radio"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "radio"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "radio"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "radio"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "radio"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "radio"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "radio"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "checkbox"
+  },
+  {
+   "tag": "input",
+   "text": "",
+   "w": 448,
+   "h": 44,
+   "labelled": true,
+   "type": "password"
+  },
+  {
+   "tag": "input",
+   "text": "",
+   "w": 448,
+   "h": 44,
+   "labelled": true,
+   "type": "password"
+  },
+  {
+   "tag": "input",
+   "text": "",
+   "w": 448,
+   "h": 44,
+   "labelled": true,
+   "type": "password"
+  },
+  {
+   "tag": "button",
+   "text": "パスワードを変更",
+   "w": 162,
+   "h": 44,
+   "labelled": true,
+   "type": "submit"
+  }
+ ],
+ "elementsTotal": 190,
+ "textTruncated": false,
+ "scope": {
+  "tag": "main",
+  "rect": {
+   "x": 260,
+   "y": 0,
+   "w": 1020,
+   "h": 1200
+  }
+ },
+ "boxes": [
+  {
+   "tag": "header",
+   "cls": "content-header",
+   "rect": {
+    "x": 260,
+    "y": 0,
+    "w": 1020,
+    "h": 77
+   },
+   "depth": 0,
+   "parentBox": null,
+   "children": 2,
+   "hasDigit": false
+  }
+ ],
+ "boxesTotal": 1,
+ "gaps": [
+  {
+   "parent": "main.main-content",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.content-header__tools",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    40,
+    40
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "dl.grid",
+   "values": [
+    0,
+    8,
+    0,
+    8,
+    0,
+    8,
+    0
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    20,
+    20
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    8,
+    8
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    8,
+    8,
+    8,
+    8
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "form.flex",
+   "values": [
+    20,
+    20,
+    20
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    4,
+    4
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    4
+   ]
+  }
+ ],
+ "gapsTotal": 16,
+ "text": [
+  {
+   "tag": "div",
+   "cls": "sidebar-logo",
+   "text": "H",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "16px",
+   "fontWeight": "800",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 24,
+    "y": 27,
+    "w": 36,
+    "h": 36
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "sidebar-title",
+   "text": "販社ポータル",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16.8px",
+   "fontWeight": "700",
+   "lineHeight": "26.88px",
+   "rect": {
+    "x": 72,
+    "y": 20,
+    "w": 100,
+    "h": 27
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "sidebar-subtitle",
+   "text": "世田谷店",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 72,
+    "y": 48,
+    "w": 100,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "ホーム",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 103,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "分析",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 148,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "販売店",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 195,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "スタッフ",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 238,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "市場動向",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 281,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "提案",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 325,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "契約",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 373,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "見積り",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 415,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "車種",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 458,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "金利・キャンペーン",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 501,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "ホンダファイナンス",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 545,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "お知らせ",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 593,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "nav-badge",
+   "text": "2",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "12px",
+   "fontWeight": "700",
+   "lineHeight": "19.2px",
+   "rect": {
+    "x": 201,
+    "y": 602,
+    "w": 22,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "問い合わせ",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 635,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "nav-badge",
+   "text": "1",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "12px",
+   "fontWeight": "700",
+   "lineHeight": "19.2px",
+   "rect": {
+    "x": 201,
+    "y": 644,
+    "w": 22,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "よくあるご質問・資料",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 678,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "使い方ガイド",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 1081,
+    "w": 235,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-avatar",
+   "text": "高",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.546 0.215 263)",
+   "fontSize": "14px",
+   "fontWeight": "700",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 20,
+    "y": 1137,
+    "w": 34,
+    "h": 34
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-name",
+   "text": "高橋 美咲",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 64,
+    "y": 1131,
+    "w": 60,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-role",
+   "text": "店長",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 64,
+    "y": 1154,
+    "w": 60,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h1",
+   "cls": "content-title",
+   "text": "アカウント・表示設定",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "21.6px",
+   "fontWeight": "700",
+   "lineHeight": "34.56px",
+   "rect": {
+    "x": 292,
+    "y": 21,
+    "w": 214,
+    "h": 35
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-bold",
+   "text": "高",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "700",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 1223,
+    "y": 28,
+    "w": 14,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "settings-account",
+   "text": "アカウント",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 105,
+    "w": 92,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "text-sm font-semibold text-[var(--shell-nav-fg)]",
+   "text": "氏名",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 146,
+    "w": 128,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "高橋 美咲",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 420,
+    "y": 146,
+    "w": 828,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "text-sm font-semibold text-[var(--shell-nav-fg)]",
+   "text": "メールアドレス",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 180,
+    "w": 128,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "takahashi@hondacars-kanto.example.jp",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 420,
+    "y": 180,
+    "w": 828,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "text-sm font-semibold text-[var(--shell-nav-fg)]",
+   "text": "所属",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 214,
+    "w": 128,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "世田谷店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 420,
+    "y": 214,
+    "w": 828,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "text-sm font-semibold text-[var(--shell-nav-fg)]",
+   "text": "役割",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 247,
+    "w": 128,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "店長",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 420,
+    "y": 247,
+    "w": 828,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "settings-display",
+   "text": "表示",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 313,
+    "w": 37,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-semibold",
+   "text": "文字の大きさ",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 354,
+    "w": 956,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "btn border-primary text-primary",
+   "text": "標準",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 382,
+    "w": 98,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "btn ",
+   "text": "大",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 398,
+    "y": 382,
+    "w": 82,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "btn ",
+   "text": "特大",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 488,
+    "y": 382,
+    "w": 98,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-semibold",
+   "text": "テーマ",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 446,
+    "w": 956,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "btn border-primary text-primary",
+   "text": "ライト",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 474,
+    "w": 114,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "btn ",
+   "text": "ダーク",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 414,
+    "y": 474,
+    "w": 114,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "btn ",
+   "text": "高コントラスト",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 536,
+    "y": 474,
+    "w": 178,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "btn ",
+   "text": "赤が見分けにくい方向け",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 722,
+    "y": 474,
+    "w": 242,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "btn ",
+   "text": "緑が見分けにくい方向け",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 971,
+    "y": 474,
+    "w": 242,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "flex min-h-11 w-fit items-center gap-3 font-semibold",
+   "text": "画面の動きを減らす",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 538,
+    "w": 180,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "settings-password",
+   "text": "パスワードの変更",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 622,
+    "w": 147,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "flex items-center gap-2 text-sm font-semibold",
+   "text": "現在のパスワード",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 664,
+    "w": 448,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-semibold text-[var(--primary-text)]",
+   "text": "必須",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 412,
+    "y": 664,
+    "w": 28,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "flex items-center gap-2 text-sm font-semibold",
+   "text": "新しいパスワード",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 752,
+    "w": 448,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-semibold text-[var(--primary-text)]",
+   "text": "必須",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 412,
+    "y": 752,
+    "w": 28,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "id": "pw-next-hint",
+   "cls": "text-sm text-muted-foreground",
+   "text": "8文字以上",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 824,
+    "w": 448,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "flex items-center gap-2 text-sm font-semibold",
+   "text": "新しいパスワード（確認）",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 864,
+    "w": 448,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-semibold text-[var(--primary-text)]",
+   "text": "必須",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 468,
+    "y": 864,
+    "w": 28,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "cls": "btn btn-primary w-fit",
+   "text": "パスワードを変更",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 952,
+    "w": 162,
+    "h": 44
+   },
+   "clipped": false
+  }
+ ]
+}

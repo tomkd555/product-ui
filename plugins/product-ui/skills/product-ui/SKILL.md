@@ -21,7 +21,7 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash, AskUserQuestion, Skill, Agen
 
 # product-ui
 
-One entry point for building and reworking web interfaces. Every design decision lands in `tokens.json` — the colours, the type and the wording — and the result reaches the user once the check scripts and one independent reviewer have passed it. The lookup data under `scripts/lookup/` and `data/` comes from ui-ux-pro-max (`THIRD_PARTY_NOTICES.md`).
+One entry point for building and reworking web interfaces. Every design decision lands in `tokens.json` — the colours, the type and the wording — and the result reaches the user once the check scripts and one independent reviewer have passed it. The lookup data and scripts under `scripts/lookup/` and `data/` come from ui-ux-pro-max, adapted to this skill (`THIRD_PARTY_NOTICES.md`).
 
 `{SKILL_DIR}` is the absolute path of this skill's directory: `<plugin root>/skills/product-ui` under the plugin, `~/.claude/skills/product-ui` under a manual install. Under the plugin the agents carry the `product-ui:` prefix (`product-ui:review-design-lead`) and the hook registers itself; a manual install uses the bare agent names. The commands say `python`; on macOS and Linux run `python3`.
 
@@ -33,6 +33,7 @@ One entry point for building and reworking web interfaces. Every design decision
 4. **Prohibitions live in scripts.** A rule written as "never do X" belongs in `check_slop.py`, `check_copy.py` or `check_shippable_text.py`, where a file can fail it.
 5. **Review happens elsewhere.** Step 5 hands the rendered result to a reviewer who holds none of the context that produced it.
 6. **The screen is composed before it is built.** `tokens.json` records who uses the product (`meta.users`), and `ui-brief.md` records, before any markup, what each screen is for, who reads it, what dominates, in what order it is read and which container each section gets (`references/composition.md`). The reviewer judges the whole screen against that plan before judging its parts.
+7. **Every visible choice has a source.** Colours, type and the logo record where they came from (`meta.provenance`, `meta.logo`), because a value equal to a known default with no recorded source shows that nobody chose it. A brand element (logo, product name, company name) appears only where the brief's `Brand area` lists it. Proof on a screen (figures, testimonials, customer logos) comes from the brief's Proof section or stays off the screen. Each collection, fetch and form has its empty, loading and error state in the brief, and a mock control is shown disabled or left out, never reporting an effect it does not have.
 
 ## Out of scope
 
@@ -68,6 +69,7 @@ STANDARD escalates to DEEP once the surface spans more than one screen, and the 
 | Building on the Digital Agency Design System | `references/dads.md` for the tokens, `references/dads-components.md` for the components |
 | Building on the SmartHR Design System or smarthr-ui | `references/smarthr.md` for the tokens, SmartHR's own Claude Code plugin for the components |
 | A new landing page or marketing site | `hallmark` for the page layout, this skill for tokens and checks |
+| A named adjustment of an existing screen: bolder, quieter, distill, delight, onboard, overdrive, and the verbs it routes on | `references/steering.md`, in LIGHT mode, then Step 4 |
 | Polishing an existing interface | `interfaces:better-ui`, `interfaces:better-layout`, `interfaces:better-typography`, `interfaces:better-colors` |
 | Whether motion belongs, and how it should feel | `emil-design-eng`; Apple-like gesture motion to `apple-design` |
 | Finding places that should animate, auditing all motion, reviewing motion in a diff | `find-animation-opportunities`, `improve-animations`, `review-animations` (user-invoked) |
@@ -91,7 +93,10 @@ Detect the existing stack (`package.json`, `tailwind.config.*`, an `@import "tai
 - **Reference**: デジタル庁デザインシステム (`references/dads.md`) for public-sector sites, SmartHR (`references/smarthr.md`) for Japanese B2B SaaS dense with forms and tables, or なし, where the tokens come from the request or from a product the user names.
 - **Structure**: オブジェクト指向UI (OOUI) or タスク指向UI, recorded in `meta.structure` as `ooui` or `task`. Put first the one the table under "Choosing the structure" in `references/ooui.md` points to. A request that already names one settles it, and the question is left out.
 - **Users**: the groups who use the product, each with a role, how often they use it (daily, weekly, occasional, first time), their expertise (novice, intermediate, expert) and the outcome they come for. Offer the roles the request implies as options. The answer goes into `meta.users` with `basis: reported`; a group settled by default goes in with `basis: assumed`. An `lp` surface spends no question on it.
+- **Brand**: the product's own colour, typeface and logo file. Asked only when the request names none of them. A preset named in the Reference answer overrides the Brand answer.
 - **Stack**: a question only when the detection is ambiguous; otherwise the detected stack is recorded in `meta.defaults_applied`.
+
+Take the questions in the order Surface, Reference, Structure, Users, Brand, Stack, and skip each one the request or the project already settles. A question the cap of four leaves out is settled by default and recorded in `meta.defaults_applied`: Users with `basis: assumed`; Brand with colours from the lookup under `lookup:` provenance and `meta.logo: null`. A Reference preset named in the request settles Brand with `reference:` provenance; when Reference is asked in the same round, Brand is asked too, and a preset answer overrides it.
 
 Settle everything else by default and record each default in `meta.defaults_applied`; `register` defaults to 敬体 and `katakana_choon` to `jtf`. Read the interface language off the project and spend no question on it.
 
@@ -102,6 +107,7 @@ Write `tokens.json` in the shape `references/tokens-format.md` defines. `assets/
 - **Colours**: follow "Deriving the colours" in `references/tokens-format.md`. Route the arithmetic to `interfaces:better-colors` and the candidate palettes and pairings to `scripts/lookup/search.py` (`references/lookup.md`) before writing a value by hand.
 - **Voice**: write `terms` for the product, one word per operation, reading the words already on existing screens first. `assets/voice_terms.ja.json` carries the 長音 pairs C9 checks.
 - **Reference**: when `meta.reference` names a preset, copy that reference's mapping. For any other reference product, work from a screenshot and a written description of it together.
+- **Provenance**: write `meta.provenance` with one entry each for `color.primary`, `color.accent`, `typography.display` and `typography.body`, every value starting with `brand:`, `reference:`, `user:`, `lookup:` or `derived:` and naming the source. A palette taken from the lookup is recorded as `lookup:`, and T20 rejects a Tailwind default colour from it. Write `meta.logo` as the path of the product's logo file, or `null`; with `null` nothing is drawn in the logo's place, and a brand element (logo, product name, company name) appears only where the brief's `Brand area` lists it. On a `ja` interface, a type slot whose family is a Latin face takes a Japanese `family_ja` (T22).
 
 ### Step 2: Mechanical check on the tokens
 
@@ -110,11 +116,13 @@ python {SKILL_DIR}/scripts/validate_tokens.py tokens.json --json
 python {SKILL_DIR}/scripts/generate_theme.py tokens.json
 ```
 
-An error from `validate_tokens.py` sends this back to Step 1 before the generator runs. `generate_theme.py` writes `theme.css` beside `tokens.json`, with a `--text-*` scale that starts at `text-xs` (12px, Latin-short only) and `text-sm` (14px). Change `theme.css` only through `tokens.json` and the generator.
+An error from `validate_tokens.py` sends this back to Step 1 before the generator runs. Rule on each warning in the hand-over: fix it, or keep it with a stated reason. `generate_theme.py` writes `theme.css` beside `tokens.json`. Its `--text-*` scale starts at `text-xs` (12px, Latin-short only) and `text-sm` (14px); `text-base` and the steps above it are computed from `typography.scale` (`base_px` and `ratio`), and `--spacing` from `spacing.base_px`, so regenerating replaces Tailwind's fixed steps. Change `theme.css` only through `tokens.json` and the generator.
 
 ### Step 3: Build
 
 Before any markup, write `ui-brief.md` beside `tokens.json` from `assets/brief.template.md`: the screen's purpose in one sentence and the Composition section from `references/composition.md`, one block per screen (job class, reader, dominant element, reading order, density, archetype, grouping cue per section, what is constant and what is decided here, omissions, the tile row or `none`). When `meta.structure` is `ooui`, work through the three steps in `references/ooui.md` first and fill the brief's Structure section with the object table. The brief is the plan the Step 5 reviewer conforms the screen to, so a decision the markup departs from is changed in the brief first.
+
+The brief also carries the sections the checks and the reviewer read: `## Proof` (each figure, testimonial, customer logo and claim the screen shows, with its source; empty means the screen shows none), `## States` (per screen: each collection's empty state, each fetch's loading and error state, each form's validation), `## Sample data` (who supplied it; mock data varies names, dates and amounts and carries no statistic the reader did not ask for) and, on `lp`, the lead content (what the reader sees first: the product itself, named). A mock control is shown disabled or left out.
 
 Then follow the routing table. Colours, type, spacing, radius, shadow and motion come from `theme.css` variables only; components follow `references/components.md` or the preset's component reference; containers follow the table in `references/composition.md`.
 
@@ -133,40 +141,40 @@ npx textlint --config {SKILL_DIR}/assets/textlintrc.ui.json copy-prose.md
 ```
 
 - **Errors**: an error from any of the three scripts sends this back to Step 3.
-- **Warnings**: rule on each `check_shippable_text.py` warning: delete the annotation, or keep it and name its allowance in the hand-over. Delete text that explains the design or the way through the screen at either severity.
+- **Warnings**: every warning from `check_slop.py`, `check_copy.py` and `check_shippable_text.py` gets a ruling in the hand-over: fixed, or kept with its reason. For a `check_shippable_text.py` warning, delete the annotation, or keep it and name its allowance. Delete text that explains the design or the way through the screen at either severity.
 - **textlint**: it covers the prose-shaped strings `check_copy.py` writes to `copy-prose.md`. Fix each finding; deleting the string counts as a fix, and a string under the carve-out in `references/ui-copy.md` stays. textlint is optional: the plugin leaves its install to the user, and the README names the npm packages. When `npx textlint` is unavailable, skip it and write `textlint skipped: not installed` in the hand-over; the three Python scripts still gate.
 - **Misfires**: silence a misfire of `check_slop.py` or `check_copy.py` in the file itself, as `product-ui: ignore <ID> <reason>` or `product-ui: ignore-file <ID> <reason>` (forms in `references/slop-checklist.md` and `references/ui-copy.md`). Suppress only a misfire; fix a string the check read correctly. Fix every `check_shippable_text.py` error, because that script reads no suppression form.
 
-Step 5 starts once no finding remains.
+Step 5 starts once no error remains and every warning has its ruling.
 
-The Step 2 and Step 4 scripts exit 0 on pass and 1 on failure, and print readable output when `--json` is omitted; `check_shippable_text.py` exits 2 when a directory holds no file in scope. `check_slop.py` finds `theme.css` beneath the paths, then up to four directories above them. `check_copy.py` finds `tokens.json` in the directory holding the paths, then up to three directories above it; `--tokens` names the file directly. `check_shippable_text.py` reads `meta.surface` from the nearest `tokens.json` for ST3 (`--surface lp|saas` overrides). It takes `--checks <IDs>` to run a subset, `--css <file.css>` to add a stylesheet to the cascade, and `--dom <dump.json>` to judge a `cdp.js` dump.
+The Step 2 and Step 4 scripts exit 0 on pass and 1 on failure, and print readable output when `--json` is omitted; `check_shippable_text.py` exits 2 when a directory holds no file in scope. `check_slop.py` finds `theme.css` beneath the paths, then up to four directories above them. `check_copy.py` finds `tokens.json` in the directory holding the paths, then up to three directories above it; `--tokens` names the file directly. C27 reads the `## Proof` section of `ui-brief.md` beside `tokens.json`; `--brief PATH` names another brief. `check_shippable_text.py` reads `meta.surface` from the nearest `tokens.json` for ST3 (`--surface lp|saas` overrides). It takes `--checks <IDs>` to run a subset, `--css <file.css>` to add a stylesheet to the cascade, and `--dom <dump.json>` to judge a `cdp.js` dump.
 
 When a check fails, read the reference that owns its ID:
 
 | IDs | Script | Reference |
 |---|---|---|
-| T1–T18 | `validate_tokens.py` | `references/tokens-format.md` |
-| S1–S11 | `check_slop.py` | `references/slop-checklist.md`; `references/composition.md` for S11 |
-| C1–C21 | `check_copy.py` | `references/ui-copy.md`; `references/ooui.md` for C17; `references/composition.md` for C18–C21 |
+| T1–T22 | `validate_tokens.py` | `references/tokens-format.md` (T19 provenance, T20 default colour, T21 tinted neutrals, T22 Japanese family) |
+| S1–S37 | `check_slop.py` | `references/slop-checklist.md`; `references/composition.md` for S11 |
+| C1–C32 | `check_copy.py` | `references/ui-copy.md`; `references/ooui.md` for C17; `references/composition.md` for C18–C21 |
 | ST1–ST10 | `check_shippable_text.py` | `references/ban-list.md` |
-| R1–R15 | `check_render.py` (Step 5) | `references/composition.md` for R12–R15 |
+| R1–R41 | `check_render.py` (Step 5) | `references/composition.md` for R4's collision form, R12–R15, R21–R22, R30, R32, R34–R37 and R39; `references/slop-checklist.md` for R16–R20, R25–R29, R31, R33 and R41; `references/ui-copy.md` for R23, R24, R38 and R40 |
 
 ### Step 5: Independent review
 
 The step needs a renderable entry point, Node 22 or later, a Chrome install and the Agent tool.
 
-Complete the `ui-brief.md` written in Step 3: the built file paths and whether the controls are wired. The template's Composition section, the eight cold-read questions, the seven copy questions and the three reader-fit questions stay; the Structure section stays when `meta.structure` is `ooui` and is deleted otherwise.
+Complete the `ui-brief.md` written in Step 3: the built file paths and whether the controls are wired. The Proof, States and Sample data sections stay; P3 compares the rendered screen with them. The template's Composition section, the eight cold-read questions, the seven copy questions and the three reader-fit questions stay; the Structure section stays when `meta.structure` is `ooui` and is deleted otherwise.
 
 Then launch both agents in one message, each with `model: opus`:
 
-- `review-design-lead`, with `plan: ui-brief.md`, `target:` the project directory, and `scripts: {SKILL_DIR}/scripts/render`; it requires all three and returns `{"error": …}` when one is missing. It renders through headless Chrome at 1280px and 375px and measures the page with `check_render.py` (R1–R15, with `--plan` reading the brief's job class for R15). R7 measures the computed text size, which covers a size set from JavaScript or a transform; R12 to R15 measure nested enclosures, spacing steps, emphasis levels and equal tile rows. P2 answers the cold-read questions from the screenshot before reading the dump.
+- `review-design-lead`, with `plan: ui-brief.md`, `target:` the project directory, and `scripts: {SKILL_DIR}/scripts/render`; it requires all three and returns `{"error": …}` when one is missing. It renders through headless Chrome at 1280px and 375px and measures the page with `check_render.py` (R1–R41, with `--plan` reading the brief's job class for R15). R7 measures the computed text size, which covers a size set from JavaScript or a transform; R12 to R15 measure nested enclosures, spacing steps, emphasis levels and equal tile rows; R16 to R20 flag gradient text, backdrop blur, one radius on every box, a missing Japanese font and icon tiles above headings; R25 to R41 are the impeccable ports listed in the reference files. P2 answers the cold-read questions from the screenshot before reading the dump.
 - `shippable-text-auditor`, with the built file paths and the `meta.surface` value (`saas` or `lp`) only; the brief and the reasoning stay with you. It returns `remove` and `rewrite` findings.
 
 Rule on each finding individually: delete the string where the finding is that it should go, rewrite it where the finding is about wording, and keep it only under the carve-out in `references/ui-copy.md`, naming the clause in the hand-over.
 
 The verdicts are 不合格 (BLOCK), 条件付き合格 (CONCERNS) and 合格 (CLEAN). 条件付き合格 and 合格 pass once every finding is ruled on. 不合格, or any critical finding, sends this back to Step 3. Two returns at most; report anything still unresolved as an open question.
 
-When the step cannot run, write `Step 5 skipped: <reason>` in the hand-over, run `check_shippable_text.py --dom` over a `cdp.js` dump if one can be captured, and answer the brief's cold-read, copy, reader-fit and structure questions against the built files.
+When the step cannot run, write `Step 5 skipped: <reason>` in the hand-over. When the Agent tool is available, still launch `shippable-text-auditor` as above. Run `check_shippable_text.py --dom` over a `cdp.js` dump if one can be captured, answer the brief's cold-read, copy, reader-fit and structure questions against the built files, and list those answers in the hand-over as the author's own, unreviewed.
 
 ### Step 6: Hand over
 

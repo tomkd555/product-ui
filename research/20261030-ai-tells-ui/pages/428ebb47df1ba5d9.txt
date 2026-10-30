@@ -1,0 +1,96 @@
+# url: https://prg.sh/ramblings/Why-Your-AI-Keeps-Building-the-Same-Purple-Gradient-Website
+# accessed: 2026-10-30
+# chars: 17650
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Why Your AI Keeps Building the Same Purple Gradient Website prg .sh Ramblings Notes Bookmarks Experiments Search Search Close Esc Search titles, notes, tags, and article text. Try #AI for tag search. 
+Type to search. Dark mode Light mode Reader mode Home ❯ ramblings ❯ Why Your AI Keeps Building the Same Purple Gradient Website Why Your AI Keeps Building the Same Purple Gradient Website Oct 26, 
+2025 12 min read AI LLM frontend design UX ramblings In August 2025, Adam Wathan posted an apology on X that got over 1 million views. He apologized for making every button in Tailwind UI use 
+bg-indigo-500 five years ago, which caused every AI-generated interface on Earth to turn purple. He wasn’t joking. There’s now a documented phenomenon called “AI slop” where AI-generated designs are 
+instantly recognizable. Purple gradients. Inter font. Three boxes with icons arranged in a grid. Timid color palettes. The same layout, over and over, like a cargo cult reenactment of what modern web 
+design looked like in 2020. LLMs are excellent at generating code, but they’re not designers, they’re statistical pattern matchers. When you ask Claude or GPT-5 to “build a landing page” without 
+specific constraints, you’re not getting design. You’re getting the median of every Tailwind CSS tutorial scraped from GitHub between 2019 and 2024. And that median is purple. How Purple Became the 
+Default The Tailwind purple story is a perfect case study in how training data shapes LLM behavior. When Tailwind CSS launched its component library five years ago, the team needed a default color 
+for demos. They picked bg-indigo-500 . Not because it was particularly special, but because it needed to be something, and indigo was neutral enough to work across examples. That single choice 
+saturated the web. Thousands of developers copied those examples. Thousands of tutorials used those defaults. When LLMs trained on code scraped from the internet, they learned an implicit rule: 
+“modern web design = purple buttons.” Now, when you prompt an LLM to build a UI, it reaches for purple. Not because purple is objectively good. Because purple is statistically common in the training 
+corpus. The same pattern repeats across every design dimension: Typography : Inter, Roboto, or Arial (the “safe” system fonts that appear in thousands of examples) Layouts : Three-column grids with 
+icons (the structure of every SaaS landing page template) Colors : Purple gradients on white backgrounds (Tailwind’s influence) Animations : Subtle fades and hover effects (what CSS animation 
+tutorials teach first) These aren’t bad choices. They’re just boring. Safe. Predictable. The design equivalent of plain oatmeal. graph LR A["Ambiguous Prompt:<br/>Build a landing page"] -->|"LLM 
+fills blanks<br/>with training data"| B["Statistical Average"] B --> C["Purple Gradient"] B --> D["Inter Font"] B --> E["Three-Box Layout"] F["Constrained Prompt:<br/>1970s ski lodge aesthetic"] 
+-->|"Specific direction"| G["Targeted Output"] G --> H["Burnt Orange"] G --> I["Custom Typography"] G --> J["Asymmetric Layout"] style B fill:#8b5cf6,color:#fff style G fill:#22c55e,color:#fff What 
+AI Slop Actually Looks Like If you’ve generated frontends with LLMs , you’ve seen this before: The hallmarks of AI slop: Inter or Roboto font (never anything with personality) Purple/indigo accent 
+colors Hero section with centered text and a CTA button Three features in boxes below, each with an icon White or light gray background Rounded corners on everything Subtle shadows (exactly 0.1 
+opacity) What’s usually missing: Any visual hierarchy beyond “bigger text = header” Thoughtful color theory (complementary, analogous, triadic relationships) Typography pairings (mixing serif and 
+sans-serif with intention) White space used as a design element Personality or brand voice Required field indicators Input validation Accessibility considerations (ARIA labels, keyboard navigation) 
+The Functional Gap The functional problems matter more than the aesthetic ones. An LLM will generate a contact form with no validation, no error states, no indication of which fields are required. It 
+looks like a form, but it doesn’t work like a form a human designer would build. Why? Because LLMs are trained on static code, not interactive behavior. They’ve seen thousands of form HTML structures,
+ but they haven’t experienced the user flow of actually filling one out and hitting an error. The Anthropic Cookbook Solution The Anthropic team documented this problem in their cookbook , and their 
+solution is surprisingly straightforward: give the model explicit design constraints. Three strategies work: 1. Guide specific design dimensions Don’t ask for “a nice-looking page.” That’s ambiguous. 
+The model fills ambiguity with averages. Instead, direct attention to individual elements: Typography: “Choose fonts that are beautiful, unique, and interesting. Avoid Arial and Inter.” Color: “Use 
+CSS variables for theming. Choose a dominant color with sharp accents. NOT timid palettes.” Motion: “One well-orchestrated page load beats scattered micro-interactions. No spinner animations.” 
+Backgrounds: “Create atmosphere and depth. Layer gradients or use geometric patterns. Avoid solid colors.” 2. Reference design inspirations LLMs trained on text can’t visualize Dribbble mockups, but 
+they can reason about design aesthetics if you describe them. Try prompts like: “Use the color palette of a 1970s ski lodge: burnt orange, avocado green, warm browns” “Typography inspired by art 
+deco: high contrast, geometric, bold” “Layout inspired by Japanese print design: asymmetric, plenty of negative space” This gives the model a target that isn’t just “the average website.” You’re 
+asking it to interpolate between training examples that share a specific aesthetic thread. 3. Explicitly call out defaults to avoid Tell the model what not to do: “Do not use Inter, Roboto, or Arial 
+fonts” “No purple gradients on white backgrounds” “Avoid the three-boxes-with-icons cliché” “No cookie-cutter layouts” This works because transformer models can perform negation during inference. 
+You’re explicitly reducing the probability weight of the patterns you want to avoid. The Distilled Aesthetics Prompt The Anthropic cookbook provides a comprehensive system prompt that addresses all 
+four design areas: <frontend_aesthetics> You tend to converge toward generic, "on distribution" outputs. In frontend design, this creates what users call the "AI slop" aesthetic. Avoid this: make 
+creative, distinctive frontends that surprise and delight. Focus on: Typography: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for 
+distinctive choices that elevate the frontend's aesthetics. Color & Theme: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, 
+evenly-distributed palettes. Draw from IDE themes and cultural aesthetics for inspiration. Motion: Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML. Use 
+Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions. 
+Backgrounds: Create atmosphere and depth rather than defaulting to solid colors. Layer CSS gradients, use geometric patterns, or add contextual effects that match the overall aesthetic. Avoid generic 
+AI-generated aesthetics: - Overused font families (Inter, Roboto, Arial, system fonts) - Clichéd color schemes (particularly purple gradients on white backgrounds) - Predictable layouts and component 
+patterns - Cookie-cutter design that lacks context-specific character Interpret creatively and make unexpected choices that feel genuinely designed for the context. Vary between light and dark themes,
+ different fonts, different aesthetics. You still tend to converge on common choices (Space Grotesk, for example) across generations. Avoid this: it is critical that you think outside the box! 
+</frontend_aesthetics> This prompt does two things: it provides positive guidance (what to aim for) and explicit prohibitions (what to avoid). Both matter. Here are the results of UI generations both 
+with and without the prompt section above. Without guidance, Claude often defaults to simplistic designs with white and purple backgrounds. With the aesthetics prompt, it produces more varied and 
+visually interesting designs. Example 1: SaaS Landing Page Prompt: Create a SaaS landing page for a project management tool Without Aesthetics Prompt: View live artifact: [ https://claude.
+ai/public/artifacts/5f736c0b-2d97-490f-af01-b547eac598ab ] With Aesthetics Prompt: View live artifact: [ https://claude.ai/public/artifacts/6622f59b-2d03-4db4-bdcb-6718d560b73d ] Example 2: Blog Post 
+Layout Prompt: Build a blog post layout with author bio, reading time, and related articles Without Aesthetics Prompt: View live artifact: [ https://claude.
+ai/public/artifacts/c8f1cdca-c91d-43be-8f48-8337b6788e86 ] With Aesthetics Prompt: View live artifact: [ https://claude.ai/public/artifacts/0629512a-df13-4f33-8771-81ec1438edc3 ] Example 3: Admin 
+Dashboard Prompt: Create an admin panel with a data table showing users, their roles, and action buttons Without Aesthetics Prompt: View live artifact: [ https://claude.
+ai/public/artifacts/8c7f77a4-cd81-4158-ab43-c65add20522f ] With Aesthetics Prompt: View live artifact: [ https://claude.ai/public/artifacts/b7180d4f-e0dd-468e-a78f-a2c5ae419142 ] For More Control: 
+Isolated Prompting When you want targeted control over a specific design dimension, the cookbook recommends isolating that constraint in its own prompt. Here’s their typography-focused example: 
+<use_interesting_fonts> Typography instantly signals quality. Avoid using boring, generic fonts. **Never use:** Inter, Roboto, Open Sans, Lato, default system fonts **Impact choices:** - Code 
+aesthetic: JetBrains Mono, Fira Code, Space Grotesk - Editorial: Playfair Display, Crimson Pro, Fraunces - Startup: Clash Display, Satoshi, Cabinet Grotesk - Technical: IBM Plex family, Source Sans 3 
+- Distinctive: Bricolage Grotesque, Obviously, Newsreader **Pairing principle:** High contrast = interesting. Display + monospace, serif + geometric sans, variable font across weights. **Use 
+extremes:** 100/200 weight vs 800/900, not 400 vs 600. Size jumps of 3x+, not 1.5x. Pick one distinctive font, use it decisively. Load from Google Fonts. State your choice before coding. 
+</use_interesting_fonts> This approach works when you’re iterating on an existing design and want to fix one dimension without regenerating everything. You can create similar isolated prompts for 
+color schemes, layouts, or animation patterns. What Actually Works in Practice I’ve tested this with multiple LLMs. Here’s what I’ve learned: Claude Sonnet performs best on thoughtful design when 
+given specific constraints. It’s better at reasoning about visual hierarchy and user experience than GPT-5 or Gemini. But it still falls into templates without strong prompts. v0 (Vercel’s tool) 
+consistently produces better-looking designs than Claude or Cursor for pure frontend generation. Why? Because v0 is specifically trained on shadcn/ui components and Tailwind patterns. It’s optimized 
+for this narrow domain. shadcn/ui + Tailwind are “AI-ready” because they have predictable, component-based structures. LLMs trained on these patterns can recombine them effectively. This is why v0 
+works well and why hand-rolled custom CSS often confuses models. Assign roles and personas in your prompts. “You are a senior frontend engineer with 20+ years experience and a background in print 
+design” produces different results than no preamble. It changes the probability distribution the model samples from. Request multiple options. Ask for three different design directions. The model 
+will explore more of the solution space instead of converging on the first local maximum (which is usually purple). Lock in specific themes with XML tags. If you’re iterating on a design, wrap 
+aesthetic constraints in tags: < theme > Solarpunk aesthetic: warm, optimistic colors (yellows, greens, oranges) Nature-inspired patterns and organic shapes Bright, hopeful atmosphere </ theme > This 
+ensures the theme persists across multiple generations without drifting back to defaults. The Reference-Driven Approach The most reliable technique I’ve found: extract design references before 
+prompting the LLM. The workflow: Find 3-5 designs you like on Dribbble , Mobbin , or Awwwards Describe what makes them work: “This uses a split-screen layout with a full-bleed image on the left and 
+content on the right. The typography is all caps sans-serif for headers, paired with a serif body font. The color palette is monochrome with a single accent color.” Feed that description to the LLM 
+along with your functional requirements Iterate by referencing specific elements: “Make the header bolder, like the Stripe homepage” or “Use more white space, like Apple’s product pages” This 
+approach works because you’re not asking the LLM to invent aesthetic taste. You’re asking it to apply patterns you’ve identified in existing designs. The LLM becomes a translator: you describe what 
+you want in design language, and it outputs the code. The Deeper Problem The purple gradient issue is a symptom of something more fundamental: LLMs don’t have taste. Taste requires lived experience. 
+A human designer develops taste by looking at thousands of designs, by feeling the emotional impact of a layout, by noticing which interfaces delight and which frustrate. This builds an internal 
+model of “good” that’s hard to articulate but easy to recognize. LLMs don’t have that internal model. They have statistical correlations between tokens. “Modern design” correlates with certain CSS 
+patterns in their training data, so they reproduce those patterns. But correlation isn’t taste. This is why the best AI-generated designs come from designers using AI as a tool. The designer provides 
+taste, constraints, and judgment. The AI provides speed and execution. If you’re not a designer, the best move is to steal taste from people who are. Find designs you like. Describe what makes them 
+work. Give the LLM those constraints. Iterate. You’re not asking the AI to be creative. You’re asking it to implement someone else’s creativity at scale. A Quick Checklist when working with LLMs for 
+frontend Before you start: Find 2-3 reference designs that match the aesthetic you want Write down what makes them work (layout, colors, typography, spacing) Identify what you explicitly want to 
+avoid In your prompt: Assign a role: “You are a senior frontend designer” Provide explicit constraints for typography, color, layout, and motion Include your “avoid” list: no Inter font, no purple 
+gradients, no three-box layouts Reference specific inspirations: “Wes Anderson color palette” or “Brutalist layout” After generation: Check for functional issues: validation, required fields, error 
+states, accessibility Iterate on specific elements: “Make the header font more unique” or “Add more white space” Request multiple options if the first result is too safe Tools that help: v0 for rapid 
+prototyping with good defaults Claude Sonnet for thoughtful design reasoning shadcn/ui components as building blocks Your own taste, stolen from Dribbble The Takeaway LLMs generate code that looks 
+like code should look. That’s their strength. But design isn’t just about syntax. It’s about taste, context, and user experience. The purple gradient problem exists because we ask LLMs to fill in 
+blanks we should be filling ourselves. When you say “build a landing page,” you’re asking the model to invent constraints. It can’t. So it chooses the statistical average, which is boring. Give it 
+constraints instead. Tell it what you want. Show it examples. Describe the aesthetic. Explicitly rule out the defaults. The model can execute. You have to direct. And maybe, if we’re lucky, we can 
+kill the purple gradient once and for all. Related reading Apr 30, 2026 The Prompt Is Not the Product If AI agents are going to do real work, the prompt is only one part of the setup. The interface 
+around the AI matters more. AI agents LLM Jan 11, 2026 Spec Kit + Ralph Wiggum: The Workflow Nobody's Talking About GitHub's Spec Kit gives AI agents structure. The Ralph Wiggum loop gives them 
+persistence. Together, with the right prompt, they solve the two biggest problems in agentic coding. AI LLM Claude-Code Oct 11, 2025 MCPs Are Great and All But We Need to Talk About the Risks Model 
+Context Protocol servers promise to solve LLM limitations, but they introduce security vulnerabilities and architectural complexity that most people aren't discussing. AI MCP security Backlinks 
+GitHub Spec Kit Open-source toolkit for spec-driven development with AI coding agents Spec Kit + Ralph Wiggum: The Workflow Nobody's Talking About GitHub's Spec Kit gives AI agents structure. The 
+Ralph Wiggum loop gives them persistence. Together, with the right prompt, they solve the two biggest problems in agentic coding. Table of Contents How Purple Became the Default What AI Slop Actually 
+Looks Like The Anthropic Cookbook Solution The Distilled Aesthetics Prompt Example 1: SaaS Landing Page Example 2: Blog Post Layout Example 3: Admin Dashboard For More Control: Isolated Prompting 
+What Actually Works in Practice The Reference-Driven Approach The Deeper Problem A Quick Checklist when working with LLMs for frontend The Takeaway Graph View Last watered August 30, 2026 . GitHub 
+LinkedIn Discord Community

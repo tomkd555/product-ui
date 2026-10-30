@@ -1,0 +1,146 @@
+[
+  {
+    "cid": "C1",
+    "sentence": "Designers, agencies and tool authors who wrote about AI-generated web pages in 2025 and 2026 name one consistent cluster of traits: a purple or indigo gradient running to blue or pink, an unchosen default typeface such as Inter, one large radius and one soft shadow on every card, a row of 3 equal feature cards with emoji or icon tiles, a centred hero with a pill badge in a fixed section order, and generic benefit copy with invented proof [E1, E3, E5, E13, E33, E116, E120].",
+    "evidence": [
+      {
+        "id": "E1",
+        "quote": "Purple gradients. Inter font. Three boxes with icons arranged in a grid.",
+        "url": "https://prg.sh/ramblings/Why-Your-AI-Keeps-Building-the-Same-Purple-Gradient-Website",
+        "page": "pages/428ebb47df1ba5d9.txt"
+      },
+      {
+        "id": "E3",
+        "quote": "a fingerprint: the Inter typeface, an indigo-to-purple gradient, three rounded cards in a row, and a hero section that could belong to any of ten thousand other products.",
+        "url": "https://www.925studios.co/blog/ai-slop-design-tells",
+        "page": "pages/c9fe85fcf9260f65.txt"
+      },
+      {
+        "id": "E5",
+        "quote": "Unchosen gradient Purple or indigo fading to blue, often on the headline",
+        "url": "https://capitalandcompute.net/blog/fix-ai-slop-design/",
+        "page": "pages/3d5a5b6c214a7de5.txt"
+      },
+      {
+        "id": "E13",
+        "quote": "A centered hero in Inter , with a small pill-shaped badge sitting directly above the headline.",
+        "url": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same",
+        "page": "pages/0a288eefefa7f07d.txt"
+      },
+      {
+        "id": "E33",
+        "quote": "invented testimonials, placeholder logos still sitting in the bar, or a precise stat with no source",
+        "url": "https://landingdoctors.com/guides/why-ai-landing-pages-convert-worse",
+        "page": "pages/5c80bfda5d1d3c7d.txt"
+      },
+      {
+        "id": "E116",
+        "quote": "横に3つ並んだ角丸カード。それぞれにアイコン(だいたい絵文字)、太字の見出し、2〜3行の説明文。",
+        "url": "https://note.com/chitosedev/n/n0f2f2daaf0c6",
+        "page": "pages/cbcf58928860da43.txt"
+      },
+      {
+        "id": "E120",
+        "quote": "「あなたの課題を解決」「最適なソリューション」など意味の薄い抽象コピー",
+        "url": "https://note.com/chitosedev/n/n7116d07f3e49",
+        "page": "pages/a8584d40d7e5f9f3.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C2",
+    "sentence": "Labelling or disclosing AI authorship lowers liking, trust and perceived effort [E70, E71, E72, E73], and consumers forgive misrepresentation in AI-made ads less because those ads look low-effort [E74].",
+    "evidence": [
+      {
+        "id": "E70",
+        "quote": "Study 1 found increased positive judgements for human- compared to AI-labelled art across all criteria.",
+        "url": "https://doi.org/10.1186/s41235-023-00499-6",
+        "page": null
+      },
+      {
+        "id": "E71",
+        "quote": "While the raters could not differentiate the two types of texts in the blind test, they overwhelmingly favored content labeled as \"Human Generated,\" over those labeled \"AI Generated,\" by a preference score of over 30%.",
+        "url": "https://doi.org/10.18653/v1/2025.findings-acl.1329",
+        "page": null
+      },
+      {
+        "id": "E72",
+        "quote": "Thirteen experiments consistently demonstrate that actors who disclose their AI usage are trusted less than those who do not.",
+        "url": "https://doi.org/10.1016/j.obhdp.2025.104405",
+        "page": null
+      },
+      {
+        "id": "E73",
+        "quote": "The AI-generated label significantly reduced perceived effort, whereas the human-made label did not differ from the unlabeled condition",
+        "url": "https://doi.org/10.3389/fpsyg.2026.1840483",
+        "page": null
+      },
+      {
+        "id": "E74",
+        "quote": "consumers are less forgiving of AI-created misrepresentative ads than human-created ones because AI ads are perceived as involving less effort",
+        "url": "https://doi.org/10.1080/00218499.2026.2677339",
+        "page": null
+      }
+    ]
+  },
+  {
+    "cid": "C3",
+    "sentence": "When authorship is hidden, readers often cannot tell AI output apart and sometimes prefer it [E71, E75], and blind raters judged AI-generated prototypes usable but unoriginal [E93].",
+    "evidence": [
+      {
+        "id": "E71",
+        "quote": "While the raters could not differentiate the two types of texts in the blind test, they overwhelmingly favored content labeled as \"Human Generated,\" over those labeled \"AI Generated,\" by a preference score of over 30%.",
+        "url": "https://doi.org/10.18653/v1/2025.findings-acl.1329",
+        "page": null
+      },
+      {
+        "id": "E75",
+        "quote": "participants performed below chance levels in identifying AI-generated poems (46.6% accuracy",
+        "url": "https://doi.org/10.1038/s41598-024-76900-1",
+        "page": null
+      },
+      {
+        "id": "E93",
+        "quote": "Results indicate positive evaluations in pragmatic aspects, such as usability and efficiency, and neutral or negative evaluations in hedonic aspects, including originality and innovation.",
+        "url": "https://arxiv.org/abs/2605.15124",
+        "page": "pages/4d845444449238f1.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C4",
+    "sentence": "Fabricated content and broken behaviour do harm with no attribution at all: errors and technical problems cost a site credibility [E69, E92], and readers who learn the cues of fake reviews trust them less and buy less [E83].",
+    "evidence": [
+      {
+        "id": "E69",
+        "quote": "People reported that a Web site loses credibility when it has errors, technical problems, or distracting advertisements.",
+        "url": "https://doi.org/10.1145/633292.633460",
+        "page": null
+      },
+      {
+        "id": "E92",
+        "quote": "errors and broken links hurt a site's credibility more than most people imagine.",
+        "url": "https://credibility.stanford.edu/guidelines/index.html",
+        "page": "pages/b63b42c964265aa1.txt"
+      },
+      {
+        "id": "E83",
+        "quote": "while computers can effectively detect fake reviews, humans are no more accurate than chance",
+        "url": "https://doi.org/10.1016/j.jbusres.2022.113538",
+        "page": null
+      }
+    ]
+  },
+  {
+    "cid": "C5",
+    "sentence": "The distaste is therefore very likely the reader concluding that no decision was made and no effort was spent, plus, where proof is invented, a sense of being deceived; the measured uncanny-valley effect concerns human-like figures and has no evidence for page layouts [E82].",
+    "evidence": [
+      {
+        "id": "E82",
+        "quote": "the UV effect had a large effect size, Hedges’ g = 1.01 [0.80, 1.22]",
+        "url": "https://doi.org/10.1145/3470742",
+        "page": null
+      }
+    ]
+  }
+]

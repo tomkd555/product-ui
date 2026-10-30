@@ -1,0 +1,66 @@
+# url: https://primer.style/foundations/primitives/size
+# accessed: 2026-10-30
+# chars: 11580
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Size | Primer Skip to main content Skip to filter input Primer / Product UI Product UI Brand UI Octicons Accessibility Brand Toolkit Switch to dark mode Give feedback Navigation Product UI Search 
+Product UI Product UI navigation Getting Started Component status Figma libraries Foundations Overview MCP server Color usage Content Icons Layout Responsive Typography Rails Overview Migration 
+guides Component list React Overview Migration guides Linting Primer React Philosophy Recommended practices Extending components Theming Theme Reference GitHub shared components Primitives Color Size 
+Typography Token Names Migrating to CSS Variables UI Patterns Data visualization Degraded experiences Empty states Feature onboarding Forms Loading Navigation Notification messaging Progressive 
+disclosure Saving Scenario Patterns Copy Create Customize Delegate Delete Edit Filter Search View Components ActionBar ActionList ActionMenu AnchoredOverlay Autocomplete Avatar AvatarStack Banner 
+Blankslate BranchName Breadcrumbs Button ButtonGroup Card Checkbox CheckboxGroup CircleBadge ConfirmationDialog CounterLabel DataTable Details Dialog FormControl Heading IconButton InlineMessage 
+KeybindingHint Label LabelGroup Link NavList Overlay PageHeader PageLayout Pagination Popover ProgressBar Radio RadioGroup RelativeTime SegmentedControl Select SelectPanel SkeletonAvatar SkeletonBox 
+SkeletonText Spinner SplitPageLayout Stack StateLabel Text TextInput TextInputWithTokens Textarea Timeline ToggleSwitch Token Tooltip TreeView Truncate UnderlineNav UnderlinePanels Internal 
+Components ActionListItems BannerStack ChartCard CommandPalette ControlGroup CopilotAnimation CopyToClipboard DatePicker DragAndDrop EmojiAutocomplete Filter FilterCore GitHubAvatar 
+InlineAutocomplete LifecycleLabels ListFilterButton ListItemActionMenu ListView MarkdownEditor MarkdownEditorViewSwitch NestedListView QuickSearch SimpleListView SimpleSelect UiCommands React Hooks 
+useColorSchemeVar useConfirm useDetails useFocusTrap useFocusZone useFormControlForwardedProps useOnEscapePress useOnOutsideClick useOpenAndCloseFocus useOverlay useProvidedRefOrCreate 
+useRefObjectAsForwardedRef useResizeObserver useResponsiveValue useRovingTabIndex useSafeTimeout useSlots useTheme CSS Utilities Animations Borders Box shadow Colors Details Flexbox Grid Layout 
+Margin Padding Typography Contribute Adding new components Contributing to Figma Design Documentation Handling new patterns How to contribute Product UI Primitives Size Size An overview of all 
+available size CSS variables Base View in Storybook Sample CSS variable Output value Source value --base-size-negative-48 Copy to clipboard -3rem -48px --base-size-negative-44 Copy to clipboard -2.
+75rem -44px --base-size-negative-40 Copy to clipboard -2.5rem -40px --base-size-negative-36 Copy to clipboard -2.25rem -36px --base-size-negative-32 Copy to clipboard -2rem -32px 
+--base-size-negative-28 Copy to clipboard -1.75rem -28px --base-size-negative-24 Copy to clipboard -1.5rem -24px --base-size-negative-20 Copy to clipboard -1.25rem -20px --base-size-negative-16 Copy 
+to clipboard -1rem -16px --base-size-negative-12 Copy to clipboard -0.75rem -12px --base-size-negative-8 Copy to clipboard -0.5rem -8px --base-size-negative-6 Copy to clipboard -0.375rem -6px 
+--base-size-negative-4 Copy to clipboard -0.25rem -4px --base-size-negative-2 Copy to clipboard -0.125rem -2px --base-size-2 Copy to clipboard 0.125rem 2px --base-size-4 Copy to clipboard 0.25rem 4px 
+--base-size-6 Copy to clipboard 0.375rem 6px --base-size-8 Copy to clipboard 0.5rem 8px --base-size-12 Copy to clipboard 0.75rem 12px --base-size-16 Copy to clipboard 1rem 16px --base-size-20 Copy to 
+clipboard 1.25rem 20px --base-size-24 Copy to clipboard 1.5rem 24px --base-size-28 Copy to clipboard 1.75rem 28px --base-size-32 Copy to clipboard 2rem 32px --base-size-36 Copy to clipboard 2.25rem 
+36px --base-size-40 Copy to clipboard 2.5rem 40px --base-size-44 Copy to clipboard 2.75rem 44px --base-size-48 Copy to clipboard 3rem 48px --base-size-64 Copy to clipboard 4rem 64px --base-size-80 
+Copy to clipboard 5rem 80px --base-size-96 Copy to clipboard 6rem 96px --base-size-112 Copy to clipboard 7rem 112px --base-size-128 Copy to clipboard 8rem 128px Border Border size View in Storybook 
+Sample CSS variable Output value Source value --boxShadow-thick Copy to clipboard inset 0 0 0 0.125rem inset 0 0 0 {borderWidth.thick} --boxShadow-thicker Copy to clipboard inset 0 0 0 0.25rem inset 
+0 0 0 {borderWidth.thicker} --boxShadow-thin Copy to clipboard inset 0 0 0 0.0625rem inset 0 0 0 {borderWidth.thin} --borderWidth-default Copy to clipboard 0.0625rem {borderWidth.thin} 
+--borderWidth-thick Copy to clipboard 0.125rem 2px --borderWidth-thicker Copy to clipboard 0.25rem 4px --borderWidth-thin Copy to clipboard 0.0625rem 1px Border radius View in Storybook Sample CSS 
+variable Output value Source value --borderRadius-default Copy to clipboard 0.375rem {borderRadius.medium} --borderRadius-full Copy to clipboard 624.9375rem 9999px --borderRadius-large Copy to 
+clipboard 0.75rem 12px --borderRadius-medium Copy to clipboard 0.375rem 6px --borderRadius-small Copy to clipboard 0.1875rem 3px Outline View in Storybook Sample CSS variable Output value Source 
+value --outline-focus-offset Copy to clipboard -0.125rem {focus.outline-offset} --outline-focus-width Copy to clipboard 0.125rem {focus.outline-width} Breakpoints View in Storybook CSS variable 
+Output value Source value --breakpoint-xsmall Copy to clipboard 20rem 320px --breakpoint-small Copy to clipboard 34rem 544px --breakpoint-medium Copy to clipboard 48rem 768px --breakpoint-large Copy 
+to clipboard 63.25rem 1012px --breakpoint-xlarge Copy to clipboard 80rem 1280px --breakpoint-xxlarge Copy to clipboard 87.5rem 1400px Viewport View in Storybook CSS variable Output value 
+--viewportRange-landscape Copy to clipboard (orientation: landscape) --viewportRange-narrow Copy to clipboard (max-width: calc(48rem - 0.02px)) --viewportRange-narrowLandscape Copy to clipboard 
+((max-width: calc(63.25rem - 0.02px)) and (max-height: calc(34rem - 0.02px)) and (orientation: landscape)) --viewportRange-portrait Copy to clipboard (orientation: portrait) --viewportRange-regular 
+Copy to clipboard (min-width: 48rem) --viewportRange-wide Copy to clipboard (min-width: 87.5rem) Layout Stack Sample CSS variable Output value Source value --stack-gap-condensed Copy to clipboard 0.
+5rem {base.size.8} --stack-gap-normal Copy to clipboard 1rem {base.size.16} --stack-gap-spacious Copy to clipboard 1.5rem {base.size.24} --stack-padding-condensed Copy to clipboard 0.5rem {base.size.
+8} --stack-padding-normal Copy to clipboard 1rem {base.size.16} --stack-padding-spacious Copy to clipboard 1.5rem {base.size.24} Controls Regular Responsive Regular control stack sizes View in 
+Storybook Sample CSS variable Output value Source value --controlStack-large-gap-auto Copy to clipboard 0.5rem {base.size.8} --controlStack-large-gap-condensed Copy to clipboard 0.5rem {base.size.8} 
+--controlStack-large-gap-spacious Copy to clipboard 0.75rem {base.size.12} --controlStack-medium-gap-auto Copy to clipboard 0.5rem {base.size.8} --controlStack-medium-gap-condensed Copy to clipboard 
+0.5rem {base.size.8} --controlStack-medium-gap-spacious Copy to clipboard 0.75rem {base.size.12} --controlStack-small-gap-auto Copy to clipboard 0.5rem {base.size.8} 
+--controlStack-small-gap-condensed Copy to clipboard 0.5rem {base.size.8} --controlStack-small-gap-spacious Copy to clipboard 1rem {base.size.16} Responsive control stack sizes View in Storybook 
+Sample CSS variable Pointer: coarse Pointer: fine --controlStack-large-gap-auto Copy to clipboard 0.75rem 0.5rem --controlStack-medium-gap-auto Copy to clipboard 0.75rem 0.5rem 
+--controlStack-small-gap-auto Copy to clipboard 1rem 0.5rem XSmall Small Medium Large XLarge XSmall control sizes View in Storybook Sample CSS variable Output value Source value label 
+--control-xsmall-gap Copy to clipboard 0.25rem {base.size.4} label --control-xsmall-paddingBlock Copy to clipboard 0.125rem 2px label --control-xsmall-paddingInline-condensed Copy to clipboard 0.
+25rem {base.size.4} label --control-xsmall-paddingInline-normal Copy to clipboard 0.5rem {base.size.8} label --control-xsmall-paddingInline-spacious Copy to clipboard 0.75rem {base.size.12} label 
+--control-xsmall-size Copy to clipboard 1.5rem {base.size.24} Small control sizes View in Storybook Sample CSS variable Output value Source value label --control-small-gap Copy to clipboard 0.25rem 
+{base.size.4} label --control-small-paddingBlock Copy to clipboard 0.25rem {base.size.4} label --control-small-paddingInline-condensed Copy to clipboard 0.5rem {base.size.8} label 
+--control-small-paddingInline-normal Copy to clipboard 0.75rem {base.size.12} label --control-small-paddingInline-spacious Copy to clipboard 1rem {base.size.16} label --control-small-size Copy to 
+clipboard 1.75rem {base.size.28} Medium control sizes View in Storybook Sample CSS variable Output value Source value label --control-medium-gap Copy to clipboard 0.5rem {base.size.8} label 
+--control-medium-paddingBlock Copy to clipboard 0.375rem 6px label --control-medium-paddingInline-condensed Copy to clipboard 0.5rem {base.size.8} label --control-medium-paddingInline-normal Copy to 
+clipboard 0.75rem {base.size.12} label --control-medium-paddingInline-spacious Copy to clipboard 1rem {base.size.16} label --control-medium-size Copy to clipboard 2rem {base.size.32} Large control 
+sizes View in Storybook Sample CSS variable Output value Source value label --control-large-gap Copy to clipboard 0.5rem {base.size.8} label --control-large-paddingBlock Copy to clipboard 0.625rem 
+10px label --control-large-paddingInline-condensed Copy to clipboard 0.5rem {base.size.8} label --control-large-paddingInline-normal Copy to clipboard 0.75rem {base.size.12} label 
+--control-large-paddingInline-spacious Copy to clipboard 1rem {base.size.16} label --control-large-size Copy to clipboard 2.5rem {base.size.40} XLarge control sizes View in Storybook Sample CSS 
+variable Output value Source value label --control-xlarge-gap Copy to clipboard 0.5rem {base.size.8} label --control-xlarge-paddingBlock Copy to clipboard 0.875rem 14px label 
+--control-xlarge-paddingInline-condensed Copy to clipboard 0.5rem {base.size.8} label --control-xlarge-paddingInline-normal Copy to clipboard 0.75rem {base.size.12} label 
+--control-xlarge-paddingInline-spacious Copy to clipboard 1rem {base.size.16} label --control-xlarge-size Copy to clipboard 3rem {base.size.48} Overlay View in Storybook CSS variable Output value 
+Source value --overlay-borderRadius Copy to clipboard 0.375rem {borderRadius.medium} --overlay-height-large Copy to clipboard 27rem 432px --overlay-height-medium Copy to clipboard 20rem 320px 
+--overlay-height-small Copy to clipboard 16rem 256px --overlay-height-xlarge Copy to clipboard 37.5rem 600px --overlay-offset Copy to clipboard 0.25rem 4px --overlay-padding-condensed Copy to 
+clipboard 0.5rem {base.size.8} --overlay-padding-normal Copy to clipboard 1rem {base.size.16} --overlay-paddingBlock-condensed Copy to clipboard 0.25rem {base.size.4} --overlay-paddingBlock-normal 
+Copy to clipboard 0.75rem {base.size.12} --overlay-width-large Copy to clipboard 40rem 640px --overlay-width-medium Copy to clipboard 30rem 480px --overlay-width-small Copy to clipboard 20rem 320px 
+--overlay-width-xlarge Copy to clipboard 60rem 960px --overlay-width-xsmall Copy to clipboard 12rem 192px On this page Border Border size Border radius Outline Breakpoints Viewport Layout Stack 
+Controls Overlay

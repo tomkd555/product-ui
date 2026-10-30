@@ -1,0 +1,54 @@
+# url: https://smarthr.design/products/contents/ui-text/app-writing/
+# accessed: 2026-10-30
+# chars: 9180
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+その他のUIテキスト | UIテキスト | SmartHR Design System さがす はじめに 基本原則 基本要素 アクセシビリティ プロダクト コミュニケーション はじめに 基本原則 基本要素 アクセシビリティ プロダクト コミュニケーション さがす 利用規約 お問い合わせ・フィードバック 運用ガイドライン 更新情報(X) 別タブで開く 運営会社 別タブで開く プロダクト 
+デザイン原則 ユーザビリティ(使用性) UIデザイン使用性チェックリスト 情報設計レビュー UIレビュー ユーザビリティテスト ユーザビリティテストの計画をはじめる ユーザビリティテスト設計の観点 ファシリテーションの心得 ユーザビリティテストの被験者になったら 情報設計 情報設計のアウトプット ユーザーの業務の説明 概念モデル オブジェクトモデル ビューの呼び出し関係 メインナビゲーション 
+デザイントークン 色 タイポグラフィ 余白 角丸 レイヤー順序 影 メディアクエリ 行送り 幅 コンポーネント AccordionPanel AppHeader AppNavi Badge Base(非推奨) BaseColumn(非推奨) BottomFixedArea(非推奨) Browser Button Calendar Checkbox Chip Combobox 
+MultiCombobox SingleCombobox DatePicker(非推奨) DefinitionList Dialog ActionDialog FormDialog MessageDialog ModelessDialog RemoteDialogTrigger StepFormDialog Disclosure DropZone Dropdown 
+DropdownMenuButton FilterDropdown SortDropdown ErrorScreen AuthErrorScreen ForbiddenErrorScreen NotFoundErrorScreen UnauthorizedErrorScreen UnexpectedErrorScreen Fieldset FileViewer FloatArea 
+FormControl Formatter DateFormatter TimeFormatter TimestampFormatter Groupbox Header AppLauncher(非推奨) LanguageSwitcher Heading PageHeading Icon InformationPanel Input CurrencyInput SearchInput 
+InputFile Layout Center Cluster Container Reel Sidebar Stack LineClamp(非推奨) Loader NotificationBar PageCounter Pagination Panel Picker DatetimeLocalPicker(非推奨) MonthPicker(非推奨) TimePicker(非推奨) 
+RadioButton RadioButtonPanel ResponseMessage Scroller SectioningContent SegmentedControl Select SideMenu SideNav SmartHRAILogo SmartHRLogo SpreadsheetTable StatusLabel RequiredLabel Stepper Switch 
+TabBar Table Text TextLink HelpLink UpwardLink Textarea Timeline Tooltip VisuallyHiddenText WarekiPicker デザインパターン 視線誘導 視覚的グルーピング ページレイアウト 余白の取り方 モバイルレイアウト フィードバック モーダルなUI ウィザード 権限による表示制御 よくあるテーブル 
+よくあるリスト テーブル内の一括操作 デフォルト値 ワンクッション必要な操作 削除ダイアログ 値がない項目の表示 複数の入力要素を持つ入力フィールド 権限設定 バックグラウンド処理 ドラッグ&ドロップ 企業アカウント選択 選択コンポーネントの使い分け 「基本機能」の共通設定 「基本機能」の共通設定の操作権限項目 デザインデータ デザインデータ(Figma)の作り方 
+デザインデータ(Figma)の更新をライブラリに適用する手順 ライティング ライティングガイドラインの使い方 基本的な考え方 用字用語 索引 漢字とひらがなの使い分け カタカナ語の表記 数字・数えの表記 記号(括弧、句点、スペースなど)の表記 SmartHRの用語 操作を表す用語 コンポーネントの呼び方 その他類似する用語の使い分け UIテキスト ヘルプページへの動線 通知メール ステータス 
+ファイル名 アカウントや従業員の表記 CSVファイルの取り込みによる一括操作 その他のUIテキスト エラーメッセージ エラーメッセージの基本的な考え方 バックグラウンド処理のライティングパターン NotificationBarのライティングパターン ヘルプページ ヘルプセンターの構造設計 ヘルプページの構成 ヘルプページの書き方 概要の書き方 操作手順の書き方 仕様の一覧の書き方 
+エラーメッセージごとの対応方法の書き方 よくある質問の書き方 ヘルプセンターで使用する画像要素 コンテンツレビュー リリースノート リリースノートの基本的な考え方 リリースノートの書き方 「アクセシビリティの向上」に分類される文言の変更 AI アプリケーション・機能のネーミング ヘルプページ リソース プロダクト デザイン原則 ユーザビリティ(使用性) UIデザイン使用性チェックリスト 
+情報設計レビュー UIレビュー ユーザビリティテスト ユーザビリティテストの計画をはじめる ユーザビリティテスト設計の観点 ファシリテーションの心得 ユーザビリティテストの被験者になったら 情報設計 情報設計のアウトプット ユーザーの業務の説明 概念モデル オブジェクトモデル ビューの呼び出し関係 メインナビゲーション デザイントークン 色 タイポグラフィ 余白 角丸 レイヤー順序 影 
+メディアクエリ 行送り 幅 コンポーネント AccordionPanel AppHeader AppNavi Badge Base(非推奨) BaseColumn(非推奨) BottomFixedArea(非推奨) Browser Button Calendar Checkbox Chip Combobox MultiCombobox SingleCombobox DatePicker(非推奨) 
+DefinitionList Dialog ActionDialog FormDialog MessageDialog ModelessDialog RemoteDialogTrigger StepFormDialog Disclosure DropZone Dropdown DropdownMenuButton FilterDropdown SortDropdown ErrorScreen 
+AuthErrorScreen ForbiddenErrorScreen NotFoundErrorScreen UnauthorizedErrorScreen UnexpectedErrorScreen Fieldset FileViewer FloatArea FormControl Formatter DateFormatter TimeFormatter 
+TimestampFormatter Groupbox Header AppLauncher(非推奨) LanguageSwitcher Heading PageHeading Icon InformationPanel Input CurrencyInput SearchInput InputFile Layout Center Cluster Container Reel Sidebar 
+Stack LineClamp(非推奨) Loader NotificationBar PageCounter Pagination Panel Picker DatetimeLocalPicker(非推奨) MonthPicker(非推奨) TimePicker(非推奨) RadioButton RadioButtonPanel ResponseMessage Scroller 
+SectioningContent SegmentedControl Select SideMenu SideNav SmartHRAILogo SmartHRLogo SpreadsheetTable StatusLabel RequiredLabel Stepper Switch TabBar Table Text TextLink HelpLink UpwardLink Textarea 
+Timeline Tooltip VisuallyHiddenText WarekiPicker デザインパターン 視線誘導 視覚的グルーピング ページレイアウト 余白の取り方 モバイルレイアウト フィードバック モーダルなUI ウィザード 権限による表示制御 よくあるテーブル よくあるリスト テーブル内の一括操作 デフォルト値 ワンクッション必要な操作 削除ダイアログ 値がない項目の表示 
+複数の入力要素を持つ入力フィールド 権限設定 バックグラウンド処理 ドラッグ&ドロップ 企業アカウント選択 選択コンポーネントの使い分け 「基本機能」の共通設定 「基本機能」の共通設定の操作権限項目 デザインデータ デザインデータ(Figma)の作り方 デザインデータ(Figma)の更新をライブラリに適用する手順 ライティング ライティングガイドラインの使い方 基本的な考え方 用字用語 索引 
+漢字とひらがなの使い分け カタカナ語の表記 数字・数えの表記 記号(括弧、句点、スペースなど)の表記 SmartHRの用語 操作を表す用語 コンポーネントの呼び方 その他類似する用語の使い分け UIテキスト ヘルプページへの動線 通知メール ステータス ファイル名 アカウントや従業員の表記 CSVファイルの取り込みによる一括操作 その他のUIテキスト エラーメッセージ 
+エラーメッセージの基本的な考え方 バックグラウンド処理のライティングパターン NotificationBarのライティングパターン ヘルプページ ヘルプセンターの構造設計 ヘルプページの構成 ヘルプページの書き方 概要の書き方 操作手順の書き方 仕様の一覧の書き方 エラーメッセージごとの対応方法の書き方 よくある質問の書き方 ヘルプセンターで使用する画像要素 コンテンツレビュー リリースノート 
+リリースノートの基本的な考え方 リリースノートの書き方 「アクセシビリティの向上」に分類される文言の変更 AI アプリケーション・機能のネーミング ヘルプページ リソース ディスクリプションは敬体(です、ます調)を用いて、動詞まで書く 画面タイトルや項目名には名詞を使用する ボタンラベルには動詞の終止形を使用する 実行されるアクションをボタンラベルで示す 
+移動の操作を表すときの助詞は、具体的な対象なら「に」、相対的な位置なら「へ」 テキストリンクは「こちら」ではなく、移動先を想起しやすい表現をする よくあるテーブルの見出しに「一覧」はつけない ページタイトルは、機能名とSmartHRをバーティカルバー(|)でつなぐ 複製したオブジェクトは、オブジェクト名の頭に(コピー)をつける Tooltipのライティング 
+監査ログの操作内容は体言止め(動詞形)で書く ページ内目次 ディスクリプションは敬体(です、ます調)を用いて、動詞まで書く 画面タイトルや項目名には名詞を使用する ボタンラベルには動詞の終止形を使用する 実行されるアクションをボタンラベルで示す 移動の操作を表すときの助詞は、具体的な対象なら「に」、相対的な位置なら「へ」 テキストリンクは「こちら」ではなく、移動先を想起しやすい表現をする 
+よくあるテーブルの見出しに「一覧」はつけない ページタイトルは、機能名とSmartHRをバーティカルバー(|)でつなぐ 複製したオブジェクトは、オブジェクト名の頭に(コピー)をつける Tooltipのライティング 監査ログの操作内容は体言止め(動詞形)で書く その他のUIテキスト アプリケーション上の表現で迷ったときの判断基準や、推奨する表記を記載しています。 
+ディスクリプションは敬体(です、ます調)を用いて、動詞まで書く 説明 アプリケーションにおけるディスクリプション(説明文)は、動詞まで記載します。体言止めは避けましょう。 なお、文体は敬体(です、ます調) を用います。 画面ごとのライティングの詳細は、デザインパターンで確認してください。 画面タイトルや項目名には名詞を使用する 説明 画面タイトルや項目名は、 名詞 で表記します。 
+名詞の前に、オブジェクトを明記する場合には、助詞は「の」が適切です。 例 OK例:権限の追加、申請の取り消し NG例:権限を追加、申請を取り消す 画面ごとのライティングの詳細は、デザインパターンで確認してください。 ボタンラベルには動詞の終止形を使用する 説明と例 ボタンは、ユーザーが押すことで特定の操作や処理を実行するものです。 そのためボタンのラベルは、ユーザーの操作を表す 動詞の終止形 
+で表記します。 例:「取り込む」「取り消す」「戻る」 ただし、名詞に「する」をつけたサ行変格活用動詞の場合の「する」は省略します。 よりテキストが短くシンプルになることで、業務アプリケーションであるSmartHRに適していると考えるためです。 OK例:「追加」「削除」 NG例:「追加する」「削除する」 動詞の終止形の前に、オブジェクトを明記する場合には、助詞は「を」が適切です。 
+OK例:権限を追加、申請を取り消す NG例:権限の追加、申請の取り消し 迷う場合には、社内Slack #design_system_相談 で気軽に相談してください。 実行されるアクションをボタンラベルで示す 説明 ダイアログのタイトルと、そこに設置する実行ボタンのラベルには、実行される操作(アクション)を一致させて表記します。 
+ダイアログのタイトルは「{対象}の{アクション}」、実行ボタンのラベルは「{アクション}」とします。 例 例:ファイルをダウンロードする場合 ダイアログのタイトル:「〇〇のダウンロード」 実行ボタンのラベル:「ダウンロード」 例:オブジェクトを追加する場合 ダイアログのタイトル:「〇〇の追加」 実行ボタンのラベル:「追加」 
+移動の操作を表すときの助詞は、具体的な対象なら「に」、相対的な位置なら「へ」 説明 移動の操作を書く場合、可能な限り場所を明示し「に」を伴います。 ただし、省略する場合は、相対的な位置で示して「へ」を伴います。 〇〇画面や[〇〇一覧]といった具体的な場所を指す場合は「に」を使用します。 例 OK:「一覧に戻る」、「従業員リストに戻る」 NG:「一覧へ戻る」 
+前後左右といった相対的な位置を指す場合は「へ」を使用します。 例 OK:「前へ」、「前へ戻る」 NG:「前に戻る」 議事録 https://www.notion.so/1719994-UI-28c37b6398eb811fb034cf6876cee90c 別タブで開く テキストリンクは「こちら」ではなく、移動先を想起しやすい表現をする 説明 
+テキストリンクは、移動先にどのような情報があるかを判断しやすいよう表現します。「詳細はこちら」などのリンク先を想起しづらい表現を避け、なるべく具体的な情報を記載しましょう。 ただし、文字数に制限がある場合は「ヘルプを参照する」などの表現をして構いません。 関連ルール ヘルプページへの動線 参考文献 Web Content Accessibility Guidelines - 2.4.4 
+リンクの目的(コンテキスト内)を理解する 別タブで開く 議事録 https://www.notion.so/1308637-28c37b6398eb81c3ba67f8fcde6f5b1c?source=copy_link#28e37b6398eb813885b1ccb7b6eb409f 別タブで開く よくあるテーブルの見出しに「一覧」はつけない 説明 よくあるテーブル 
+のような表形式の一覧表示の見出しでは、「一覧」を省略します。 同様に、メインオブジェクトが一覧の画面タイトルも同様に「一覧」を省略します。 ただし、機能名とオブジェクト名が一致する場合は、同じ画面内でコンテンツを区別するために「一覧」をつけてください。 例:申請機能 申請機能の画面タイトルは「申請」 申請を一覧表示するテーブルの見出しは「申請一覧」 「上階層に戻る」リンク 
+の場合は、戻る画面を具体的に伝えるために「〇〇一覧に戻る」の表記とします。簡潔な言い回しにするため、「〜の一覧」のように「の」はつけません。 議事録 見出しについては、一覧であることが明白なので必要ないと判断。 前の画面をより具体的に伝えるために、戻るリンクには「〇〇一覧」の表記にした方が良いと考えました。 ページタイトルは、機能名とSmartHRをバーティカルバー(|)でつなぐ 説明 
+アプリケーション内、ヘルプセンター、利用規約、サービスサイトなどSmartHR全体を通して「SmartHR(スマートHR)」 という表記に統一します。 ページタイトルは、「{機能名}|SmartHR(スマートHR)」とします。 例 文書配付|SmartHR(スマートHR) 組織図|SmartHR(スマートHR) 議事録 https://kufuinc.slack.
+com/archives/CJX59GJFR/p1631164443066500 別タブで開く 複製したオブジェクトは、オブジェクト名の頭に(コピー)をつける 説明 複製したオブジェクトの名前は、オブジェクト名の頭に (コピー) をつけます。 複製を複数回行う場合は、 (コピー2) のように、複製した回数の数字を入れて表記します。 例(オブジェクト名が「hogehoge」の場合) 
+1回目の複製:(コピー)hogehoge 2回目の複製:(コピー2)hogehoge 3回目の複製:(コピー3)hogehoge ファイル名の末尾に「のコピー」などを追加していくと、一覧表示での視認性が悪くなるほか、長いオブジェクト名の場合にコピーであることに気がつきにくいため、プレフィクスをつけることにしました。 議事録 https://kufuinc.slack.
+com/archives/CJX59GJFR/p1643274254069400 別タブで開く https://kufuinc.slack.com/archives/CJX59GJFR/p1770888879892849 別タブで開く Tooltipのライティング 説明 文章は、簡潔なテキストになるよう心がけてください。 1文のみの場合でも、文章には句点をつけます。 
+単語/ラベルのみの場合は句点を省略します。 監査ログの操作内容は体言止め(動詞形)で書く 説明 監査ログの操作内容は「〜しました」のような完結した文ではなく、 体言止め(動詞形) (例:「ユーザーを作成」)で文体を統一します。 監査ログは他のUI上の文言と性質が異なり、以下の役割があります。 システム上の操作を正確かつ一貫した形式で記録する。 
+後から検索・比較・検証できる状態を保つための記録である。 このため、対象読者は管理者や情報システム担当者であり、可読性よりも 一貫性・一覧性・検索性 を優先します。 なぜ「完結した文」を使わないのか 完結した文(「〜しました」)にすると、同じ操作でも複数の表現が生まれやすく、一貫性・検索性が低下します。 
+また、文末の「〜しました」が一覧上で繰り返されることで情報のノイズになり、一覧の横幅を圧迫し視認性が低下します。 OK例:ユーザーを作成、ユーザーを削除、権限を変更 NG例:ユーザーを作成しました、ユーザーを削除しました、権限を変更しました なぜ「名詞形」ではなく「動詞形」なのか 体言止めには「名詞形(ユーザーの作成)」と「動詞形(ユーザーを作成)」が考えられますが、監査ログでは 動詞形 
+を採用します。 UIテキストの他の指針( ボタンラベル など)との一貫性を保ちやすい 多言語化時に構造を維持しやすい 「何をしたか」が直感的に理解しやすい 前へ CSVファイルの取り込みによる一括操作 次へ エラーメッセージ SmartHR Design System さがす 利用規約 お問い合わせ・フィードバック 運用ガイドライン 更新情報(X) 別タブで開く 運営会社 別タブで開く はじめに 
+利用者のかたへ コンテンツ構成 運営理念 基本原則 基本要素 ロゴ 色 タイポグラフィ アイコン イラストレーション メタ情報 伝わる文章 アクセシビリティ アクセシビリティの品質基準とプロセス アクセシビリティガイドライン アクセシビリティインサイト 多言語化の品質基準とプロセス 多言語化のガイドライン プロダクト デザイン原則 ユーザビリティ(使用性) 情報設計 デザイントークン 
+コンポーネント デザインパターン デザインデータ ライティング リソース コミュニケーション 写真・動画 アイキャッチ スライド・資料 名刺 画面キャプチャ 端末モック サンプル集 © SmartHR, Inc.

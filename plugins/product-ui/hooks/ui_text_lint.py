@@ -8,8 +8,10 @@ screen regardless of the skill that produced it:
   ST10  a font-size declaration below the minimum in a stylesheet
 An error returns decision=block so Claude raises the size or deletes the run; a
 warning goes to stderr with exit 2 and the write stands. The existence checks
-ST1-ST6 and ST9 are not run here: they belong to product-ui Step 4, where the surface
-is known.
+ST1-ST6 and ST9 are product-ui's own rules and run in its Step 4; the hook runs in any
+project and keeps to the three size and filler checks. It keeps its markup and stylesheet
+extensions: the strings of .ts, .js and .mjs data files and of message catalogs are judged by
+check_shippable_text.py in Step 4, not after every write.
 
 Never blocks permanently: a per-file counter caps consecutive blocks at 3 and
 resets when a write of that file passes.

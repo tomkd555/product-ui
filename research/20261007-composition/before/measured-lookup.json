@@ -1,0 +1,56 @@
+{
+ "perspective": "P0 Measured",
+ "viewport": "both",
+ "findings": [
+  {
+   "id": "R-1",
+   "check": "R2",
+   "severity": "WARNING",
+   "location": "a.nav-item \"販売店\" at home-advisor-1280, home-advisor-375, home-manager-1280, home-manager-375, market-manager-1280, market-manager-375; a.nav-item \"マイ目標\" at home-advisor-1280, home-advisor-375, home-manager-1280, home-manager-375, market-manager-1280, market-manager-375; a.nav-item \"市場動向\" at home-advisor-1280, home-advisor-375, home-manager-1280, home-manager-375, market-manager-1280, market-manager-375",
+   "evidence": "off-token colour oklch(0.3488 0 0) at home-advisor-1280, home-advisor-375, home-manager-1280, home-manager-375, market-manager-1280, market-manager-375 (18 elements); no entry in tokens.json color or color_dark matches it",
+   "fix": "Replace the literal with the theme.css variable that carries the intended token."
+  },
+  {
+   "id": "R-2",
+   "check": "R2",
+   "severity": "WARNING",
+   "location": "span.badge \"要対応\" at home-advisor-1280, home-advisor-375, home-manager-1280, home-manager-375, market-manager-1280, market-manager-375",
+   "evidence": "off-token background color(srgb 0.983933 0.91983 0.92075) at home-advisor-1280, home-advisor-375, home-manager-1280, home-manager-375, market-manager-1280, market-manager-375 (1 element); no entry in tokens.json color or color_dark matches it",
+   "fix": "Replace the literal with the theme.css variable that carries the intended token."
+  },
+  {
+   "id": "R-3",
+   "check": "R1",
+   "severity": "WARNING",
+   "location": "p.text-sm \"出典：日本自動車販売協会連合会・全国軽自動車協会…\" at market-manager-1280, market-manager-375",
+   "evidence": "contrast 4.42:1 oklch(0.545 0 0) on oklch(0.961 0 0) at 14px (needs 4.5:1; 1 element)",
+   "fix": "Darken the text or lighten the background until the pair reaches 4.5:1."
+  },
+  {
+   "id": "R-4",
+   "check": "R5",
+   "severity": "WARNING",
+   "location": "div \"\" at market-manager-1280, market-manager-375",
+   "evidence": "hit area 22x22 px at market-manager-1280, market-manager-375 (needs 24px on the shorter side)",
+   "fix": "Add padding until the control is at least 24px on its shorter side."
+  },
+  {
+   "id": "R-5",
+   "check": "R15",
+   "severity": "WARNING",
+   "location": "div.card 220x139 (x=292, y=170) at market-manager-1280",
+   "evidence": "4 equal tiles of 220x139 at y=170; a tile row needs a dominant tile and a monitoring job",
+   "fix": "Give one tile the dominant size and the figure the reader acts on, or drop the tiles."
+  },
+  {
+   "id": "R-6",
+   "check": "R15",
+   "severity": "WARNING",
+   "location": "div.card 328x139 (x=16, y=201) at market-manager-375",
+   "evidence": "4 equal tiles of 328x139 at y=201; a tile row needs a dominant tile and a monitoring job",
+   "fix": "Give one tile the dominant size and the figure the reader acts on, or drop the tiles."
+  }
+ ],
+ "out_of_scope_notes": [],
+ "checked_scope": "home-advisor-1280: 55 text elements (0 skipped for an unpainted background), 25 controls, 3 headings, viewport 1280; home-advisor-375: 55 text elements (0 skipped for an unpainted background), 25 controls, 3 headings, viewport 375; home-manager-1280: 52 text elements (0 skipped for an unpainted background), 24 controls, 3 headings, viewport 1280; home-manager-375: 52 text elements (0 skipped for an unpainted background), 24 controls, 3 headings, viewport 375; market-manager-1280: 131 text elements (0 skipped for an unpainted background), 44 controls, 4 headings, viewport 1280; market-manager-375: 129 text elements (0 skipped for an unpainted background), 44 controls, 4 headings, viewport 375; tokens: 17 colours from src/tokens.json; plan job class: lookup"
+}

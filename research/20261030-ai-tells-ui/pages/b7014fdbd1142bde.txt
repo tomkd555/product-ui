@@ -1,0 +1,52 @@
+# url: https://pantheon.io/press-releases/ai-scam-websites-survey
+# accessed: 2026-10-30
+# chars: 9174
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Pantheon Survey: 72% of Consumers Mistake Slow Website Performance for an AI Scam | Pantheon.io Skip to main content Menu Search Why Pantheon Why Pantheon Build exceptional websites Learn More Watch 
+Demo Image Company Brandfolder Image Customers Brandfolder Image Newsroom Brandfolder Image Pantheon recognized as Managed Hosting leader in G2 Grid® Report Learn more Platform Platform overview 
+Managed hosting, Integrated ops, workflows, and governance Learn more Brandfolder Image Infrastructure Cloud Platform Secure, scalable, always available Serverless CMS Zero-touch CMS operations Next.
+js Hosting Deploy and scale Next.js apps natively Global CDN & WAF Fast delivery, enhanced security Performance Monitoring Real-time performance insights Brandfolder Image Workflows Agile workflows 
+Efficient, flexible team collaboration Change and Release management Optimize and automate releases Command line interface (CLI) Powerful, fast command execution Content Publisher Streamline your 
+publishing workflow Brandfolder Image Governance Security & compliance Protection at every touch-point Site portfolio management Unified control for unlimited sites Autopilot Automated updates, zero 
+hassle Integrations Connect to your favorite tools Solutions Brandfolder Image Use cases Multiple site administration Hosting for WordPress Drupal hosting Next.js hosting Personalization Brandfolder 
+Image Industry Education Consumer brands Government Media Nonprofit Technology Credit Unions Brandfolder Image Business roles Developers Marketers IT Leaders Brandfolder Image Services & Support 
+Professional Services Customer Support Brandfolder Image Pantheon recognized as Managed Hosting leader in G2 Grid® Report Learn more Pricing Partners Partners Program Building winning websites 
+together Learn more Brandfolder Image Become an agency partner Brandfolder Image ISV Partner Program Brandfolder Image Partner Directory Brandfolder Image Google Cloud Partnership Brandfolder Image 
+Partner Portal Login Brandfolder Image Pantheon and Google Cloud: Powering digital innovation together Learn more Resources Resources library Expert insights, tools, and research Explore resources 
+Brandfolder Image Learn Blog Case studies Learning center Webinars What is WebOps? Brandfolder Image Product Documentation Pantheon Academy What's new? Release notes Status Brandfolder Image Connect 
+Developer Community Events & Webinars Support Login Brandfolder Image See the data behind AI adoption on the web and operational bottlenecks to fix. Learn more Product Serverless CMS Structured Agile 
+Workflows Website Portfolio Management High-Performance Hosting Advanced Global CDN Multizone Failover See All Products & Features The Forrester Total Economic ImpactTM of Pantheon Report Partners 
+Our Partner Programs Become a Partner Become a Pantheon Reseller Google Cloud Agency Partner Directory Technology Partners Directory Partner Portal Login Services Customer Support Professional 
+Services Managed Updates Site Migrations Training Getting Started with Pantheon Resources Platform Status Blog Developer Community Documentation Learn Pantheon Resource Center Support Pricing Pricing 
+Enterprise Plans Educational Institution Plans WordPress Hosting Drupal Hosting Docs Log In Contact Us Get Started Contact Us Search Pantheon Survey: 72% of Consumers Mistake Slow Website Performance 
+for an AI Scam As the rise of AI-generated cloned websites triggers an online trust crisis, 88% of consumers demand businesses do more to prove their authenticity on the web or risk permanent 
+abandonment. June 24, 2026 3 min read SAN FRANCISCO--( BUSINESS WIRE )-- Pantheon.io , the WebOps platform for running the web as one system at scale, today released findings from its new survey that 
+reveals how consumer trust is declining amidst the rise of AI-powered fakes. As scammers actively poison AI search engines and LLMs to recommend cloned websites, consumers have hit a breaking point 
+of hyper-skepticism. The data shows that 65% of consumers, including 79% of Millennial and Gen Z respondents, are confident they can identify fake websites. However, nearly 3 in 4 respondents 
+actually misidentified a legitimate site as an AI-driven scam simply because it was slow or glitchy. According to the study, 92% of consumers agree that the rise of AI-generated content is making it 
+significantly harder to determine if a website is legitimate, with 86% saying they are far more skeptical of online brands today than they were just two years ago. The Site Performance Penalty: Slow 
+is Suspicious With bad actors increasingly using generative AI to deploy convincing fake websites, consumers are on high alert. As a result, poor website performance is no longer viewed as a simple 
+technical inconvenience — it’s viewed as a security threat. Nearly three-quarters (72%) of consumers say they immediately suspect a website is unsecure or fake if it is slow or buggy. Because of this 
+heightened anxiety, businesses that fail at website best practices are accidentally alienating their audiences. Consumers admitted they have completely mistaken legitimate websites for scams due to 
+standard oversights, including the inability to find a working “Contact Us” page, design feeling outdated or unprofessional, and content not being up-to-date. As a result, 88% of consumers feel 
+companies should do more to prove their authenticity online. When credibility cues are missing, and a site feels suspicious due to poor performance, the financial consequences are immediate: 41% of 
+consumers avoid entering personal or credit card information, and 39% will completely abandon their purchase. "As cybercriminals infiltrate the AI search ecosystem with lookalike sites, trust has 
+become a business-critical priority," said Josh Koenig, co-founder and SVP of Marketing, Pantheon. "Consumers are operating with their guard up. If your website lags, contains broken pages, or serves 
+stale content, people increasingly assume you’re an AI scam instead of just having technical issues. In the AI era, a reliable web platform is mission-critical for brand protection." Additional 
+findings from the survey include: The Multi-Front AI Threat: In the last 12 months, consumers report encountering AI-generated news or blog sites with misleading info (45%), fake online stores (29%), 
+fake customer service portals or chatbots (22%), and fake local government resource sites (22%). Feeding the Competition: Suspicious web experiences drive traffic straight into the arms of rivals, 
+with 20% of consumers immediately switching to a competitor when a site feels "off." The One-Strike Reality: The damage to customer lifetime value is permanent: over half (53%) of consumers state 
+they are unlikely to return to a website after a single suspicious experience, even if it turns out to be 100% legitimate. Organizations Held Accountable: If a bad actor clones an organization's 
+website, over a third (34%) of consumers will trust the original brand less, and 28% will directly blame them for not preventing it. Consumers rank the original brand as the #2 entity responsible for 
+protecting them — behind personal vigilance but ahead of Big Tech, AI creators, and government regulators. To learn more about how Pantheon empowers organizations to secure digital trust by making 
+the web work, click here . Survey Methodology The online survey of 1,000 U.S. adults (aged 18+) was commissioned by Pantheon and fielded by global market research firm Dynata in June 2026. Contacts 
+Media Sarah Kolar pantheon@pancomm.com About Pantheon Pantheon is the WebOps platform that unifies teams around a shared way of building and running the web, and serves organizations that operate 
+large, distributed web presences as a core part of their business. Pantheon provides a shared foundation where developers, marketers, designers, and IT teams operate from the same standards and 
+source of truth. Governance is embedded directly into how work gets done, bringing structure to complexity. The result is a web environment that functions as a cohesive system, even as scale and 
+change increase. Press inquiries Press inquiries Share Explore more Pantheon news October 5, 2026 Pantheon's First User Conference Shows Web Leaders How to Move Fast and Stay in Control with AI Read 
+More September 10, 2026 Pantheon Introduces New Agentic Fleet Management for Operating the Web at AI Speed Read More August 11, 2026 Pantheon Named to the 2026 Inc. 5000 List Read More Get Started 
+Join thousands of developers, marketers, and agencies creating magical digital experiences with Pantheon. Try Pantheon for Free Platform Features Footer Connect Contact Us Contact Us 1-855-927-9387 
+Connect Contact Us Contact Us 1-855-927-9387 About Company Careers Leadership Newsroom Pantheon Storefront Products Why Pantheon? Industry Solutions Web Hosting Plans & Pricing Partners Become a 
+Partner Reseller Program Google Cloud Partnership Popular What's New? Events Platform Status Pantheon Demo Privacy Policy Data Subject Request Cookie Policy Manage Your Privacy Settings Terms of Use 
+Acceptable Use Policy Pantheon Trust Center © 2026 Pantheon Systems, Inc. © 2026 Pantheon Systems, Inc.

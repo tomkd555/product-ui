@@ -1,0 +1,207 @@
+# url: https://raw.githubusercontent.com/anthropics/claude-cookbooks/main/coding/prompting_for_frontend_aesthetics.ipynb
+# accessed: 2026-10-30
+# chars: 38985
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+{ "cells": [ { "cell_type": "markdown", "metadata": {}, "source": [ "# Frontend Aesthetics: A Prompting Guide\n", "\n", "Claude can generate high-quality frontends, but without guidance it tends 
+toward generic, conservative designs. This guide shows you how to prompt Claude to produce more distinctive, polished output." ] }, { "cell_type": "markdown", "metadata": {}, "source": [ "## 
+Prompting for Better Outputs\n", "\n", "Claude has strong knowledge of design principles, typography, and color theory, but defaults to safe choices unless explicitly encouraged otherwise. Through 
+experimentation, we've found three strategies that consistently produce better results:\n", "\n", "1. **Guide specific design dimensions** - Direct Claude's attention to typography, color, motion, 
+and backgrounds individually\n", "2. **Reference design inspirations** - Suggest sources like IDE themes or cultural aesthetics without being overly prescriptive \n", "3. **Call out common defaults** 
+- Explicitly tell Claude to avoid its tendency toward generic choices\n", "\n", "The prompt below applies these strategies across four key design areas." ] }, { "cell_type": "markdown", "metadata": 
+{}, "source": [ "## The Prompt\n", "\n", "To implement these changes, you can append this prompt section to your system prompt or CLAUDE.md file." ] }, { "cell_type": "code", "execution_count": 4, 
+"metadata": {}, "outputs": [], "source": [ "DISTILLED_AESTHETICS_PROMPT = \"\"\"\n", " \n", "You tend to converge toward generic, \"on distribution\" outputs. In frontend design, this creates what 
+users call the \"AI slop\" aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight. Focus on:\n", "\n", "Typography: Choose fonts that are beautiful, unique, and 
+interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics.\n", "\n", "Color & Theme: Commit to a cohesive aesthetic. Use CSS 
+variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes. Draw from IDE themes and cultural aesthetics for inspiration.\n", "\n", "Motion: Use 
+animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML. Use Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with 
+staggered reveals (animation-delay) creates more delight than scattered micro-interactions.\n", "\n", "Backgrounds: Create atmosphere and depth rather than defaulting to solid colors. Layer CSS 
+gradients, use geometric patterns, or add contextual effects that match the overall aesthetic.\n", "\n", "Avoid generic AI-generated aesthetics:\n", "- Overused font families (Inter, Roboto, Arial, 
+system fonts)\n", "- Clichéd color schemes (particularly purple gradients on white backgrounds)\n", "- Predictable layouts and component patterns\n", "- Cookie-cutter design that lacks 
+context-specific character\n", "\n", "Interpret creatively and make unexpected choices that feel genuinely designed for the context. Vary between light and dark themes, different fonts, different 
+aesthetics. You still tend to converge on common choices (Space Grotesk, for example) across generations. Avoid this: it is critical that you think outside the box!\n", " \n", "\"\"\"" ] }, { 
+"cell_type": "markdown", "metadata": {}, "source": [ "## Results\n", "\n", "Here are the results of UI generations both with and without the prompt section above.\n", "\n", "Without guidance, Claude 
+often defaults to simplistic designs with white and purple backgrounds. With the aesthetics prompt, it produces more varied and visually interesting designs.\n", "\n", "### Example 1: SaaS Landing 
+Page\n", "**Prompt:** `\"Create a SaaS landing page for a project management tool\"`\n", "\n", " \n", " \n", " \n", "\n", "**Without Aesthetics Prompt**\n", "\n", "![Baseline output without 
+aesthetics guidance](../images/frontend_aesthetics/baseline_saas.png)\n", "\n", " \n", " \n", "\n", "**With Aesthetics Prompt**\n", "\n", "![Enhanced output with distilled aesthetics prompt](..
+/images/frontend_aesthetics/distilled_saas.png)\n", "\n", " \n", " \n", " \n", "\n", "### Example 2: Blog Post\n", "**Prompt:** `\"Build a blog post layout with author bio, reading time, and related 
+articles\"`\n", "\n", " \n", " \n", " \n", "\n", "**Without Aesthetics Prompt**\n", "\n", "![Baseline portfolio without aesthetics guidance](../images/frontend_aesthetics/baseline_portfolio.png)\n", 
+"\n", " \n", " \n", "\n", "**With Aesthetics Prompt**\n", "\n", "![Enhanced portfolio with distilled aesthetics prompt](../images/frontend_aesthetics/distilled_portfolio.png)\n", "\n", " \n", " \n", 
+" \n", "\n", "### Example 3: Admin Table\n", "**Prompt:** `\"Create an admin panel with a data table showing users, their roles, and action buttons\"`\n", "\n", " \n", " \n", " \n", "\n", "**Without 
+Aesthetics Prompt**\n", "\n", "![Baseline dashboard without aesthetics guidance](../images/frontend_aesthetics/baseline_dashboard.png)\n", "\n", " \n", " \n", "\n", "**With Aesthetics Prompt**\n", 
+"\n", "![Enhanced dashboard with distilled aesthetics prompt](../images/frontend_aesthetics/distilled_dashboard.png)\n", "\n", " \n", " \n", " " ] }, { "cell_type": "markdown", "metadata": {}, 
+"source": [ "## Try It Yourself\n", "\n", "First, set up the helper functions:" ] }, { "cell_type": "code", "execution_count": 2, "metadata": {}, "outputs": [], "source": [ "import html\n", "import 
+os\n", "import re\n", "import time\n", "import webbrowser\n", "from datetime import datetime\n", "from pathlib import Path\n", "\n", "from anthropic import Anthropic\n", "from IPython.display import 
+HTML as DisplayHTML\n", "from IPython.display import display\n", "\n", "client = Anthropic(api_key=os.environ.get(\"ANTHROPIC_API_KEY\"))\n", "\n", "\n", "def save_html(html_content):\n", " os.
+makedirs(\"html_outputs\", exist_ok=True)\n", " timestamp = datetime.now().strftime(\"%Y%m%d_%H%M%S\")\n", " filepath = f\"html_outputs/{timestamp}.html\"\n", " with open(filepath, \"w\") as f:\n", " 
+f.write(html_content)\n", " return filepath\n", "\n", "\n", "def extract_html(text):\n", " pattern = r\"```(?:html)?\\s*(.*?)\\s*```\"\n", " matches = re.findall(pattern, text, re.DOTALL)\n", " 
+return matches[0] if matches else None\n", "\n", "\n", "def open_in_browser(filepath):\n", " abs_path = Path(filepath).resolve()\n", " webbrowser.open(f\"file://{abs_path}\")\n", " print(f\"🌐 Opened 
+in browser: {filepath}\")\n", "\n", "\n", "def generate_html_with_claude(system_prompt, user_prompt):\n", " print(\"🚀 Generating HTML...\\n\")\n", "\n", " full_response = \"\"\n", " start_time = time.
+time()\n", " display_id = display(DisplayHTML(\"\"), display_id=True)\n", "\n", " with client.messages.stream(\n", " model=\"claude-sonnet-5-5\",\n", " max_tokens=64000,\n", " system=system_prompt,
+\n", " messages=[{\"role\": \"user\", \"content\": user_prompt}],\n", " ) as stream:\n", " for text in stream.text_stream:\n", " full_response += text\n", " escaped_text = html.
+escape(full_response)\n", " display_html = f\"\"\"\n", " \n", " {escaped_text} \n", " \n", " \n", " \"\"\"\n", " display_id.update(DisplayHTML(display_html))\n", "\n", " elapsed = time.time() - 
+start_time\n", " escaped_text = html.escape(full_response)\n", " final_html = f\"\"\"\n", " \n", " {escaped_text} \n", " \n", " \"\"\"\n", " display_id.update(DisplayHTML(final_html))\n", "\n", " 
+print(f\"\\n✅ Complete in {elapsed:.1f}s\\n\")\n", "\n", " html_content = extract_html(full_response)\n", " if html_content is None:\n", " print(\"❌ Error: Could not extract HTML from response.\")\n",
+ " raise ValueError(\"Failed to extract HTML from Claude's response.\")\n", "\n", " filepath = save_html(html_content)\n", " print(f\"💾 HTML saved to: {filepath}\")\n", " open_in_browser(filepath)\n",
+ "\n", " return filepath" ] }, { "cell_type": "markdown", "metadata": {}, "source": [ "Generate with the aesthetics prompt:" ] }, { "cell_type": "code", "execution_count": 3, "metadata": {}, 
+"outputs": [ { "name": "stdout", "output_type": "stream", "text": [ "🚀 Generating HTML...\n", "\n" ] }, { "data": { "text/html": [ "\n", " \n", " ```html\n", "<!DOCTYPE html>\n", "<html lang="en">\n",
+ "<head>\n", " <meta charset="UTF-8">\n", " <meta name="viewport" content="width=device-width, initial-scale=1.0">\n", " <title>Momentum — Project Management Reimagined</title>\n", " <script 
+src="https://cdn.tailwindcss.com"></script>\n", " <link rel="preconnect" href="https://fonts.googleapis.com">\n", " <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n", " <link 
+href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">\n", " <style>\n", " :root {\n", " --primary: #FF6B35;\n", " 
+--primary-dark: #E85A2A;\n", " --secondary: #004E89;\n", " --accent: #FFD23F;\n", " --dark: #1A1A2E;\n", " --light: #F8F9FA;\n", " }\n", "\n", " * {\n", " margin: 0;\n", " padding: 0;\n", " 
+box-sizing: border-box;\n", " }\n", "\n", " body {\n", " font-family: 'DM Sans', sans-serif;\n", " background: var(--light);\n", " color: var(--dark);\n", " overflow-x: hidden;\n", " }\n", "\n", " h1,
+ h2, h3, h4 {\n", " font-family: 'Syne', sans-serif;\n", " font-weight: 800;\n", " }\n", "\n", " /* Animated background */\n", " .hero-bg {\n", " position: absolute;\n", " top: 0;\n", " left: 0;\n", 
+" width: 100%;\n", " height: 100%;\n", " background: linear-gradient(135deg, #004E89 0%, #1A1A2E 50%, #FF6B35 100%);\n", " z-index: 0;\n", " }\n", "\n", " .hero-bg::before {\n", " content: '';\n", " 
+position: absolute;\n", " width: 200%;\n", " height: 200%;\n", " background: \n", " radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.3) 0%, transparent 50%),\n", " radial-gradient(circle at 
+80% 80%, rgba(255, 210, 63, 0.2) 0%, transparent 50%),\n", " radial-gradient(circle at 40% 20%, rgba(0, 78, 137, 0.3) 0%, transparent 50%);\n", " animation: float 20s ease-in-out infinite;\n", " }\n",
+ "\n", " @keyframes float {\n", " 0%, 100% { transform: translate(0, 0) rotate(0deg); }\n", " 33% { transform: translate(30px, -30px) rotate(120deg); }\n", " 66% { transform: translate(-20px, 20px) 
+rotate(240deg); }\n", " }\n", "\n", " .mesh-gradient {\n", " background: \n", " radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 0.3) 0px, transparent 50%),\n", " radial-gradient(at 97% 21%, hsla(125, 
+98%, 72%, 0.2) 0px, transparent 50%),\n", " radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 0.3) 0px, transparent 50%),\n", " radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 0.2) 0px, transparent 
+50%);\n", " }\n", "\n", " /* Fade in animations */\n", " .fade-in {\n", " opacity: 0;\n", " transform: translateY(30px);\n", " animation: fadeInUp 0.8s ease forwards;\n", " }\n", "\n", " @keyframes 
+fadeInUp {\n", " to {\n", " opacity: 1;\n", " transform: translateY(0);\n", " }\n", " }\n", "\n", " .delay-1 { animation-delay: 0.1s; }\n", " .delay-2 { animation-delay: 0.2s; }\n", " .delay-3 { 
+animation-delay: 0.3s; }\n", " .delay-4 { animation-delay: 0.4s; }\n", " .delay-5 { animation-delay: 0.5s; }\n", " .delay-6 { animation-delay: 0.6s; }\n", "\n", " /* Feature cards */\n", " .
+feature-card {\n", " background: white;\n", " border-radius: 24px;\n", " padding: 2rem;\n", " transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);\n", " border: 2px solid transparent;\n", " position: 
+relative;\n", " overflow: hidden;\n", " }\n", "\n", " .feature-card::before {\n", " content: '';\n", " position: absolute;\n", " top: 0;\n", " left: 0;\n", " width: 100%;\n", " height: 4px;\n", " 
+background: linear-gradient(90deg, var(--primary), var(--accent));\n", " transform: scaleX(0);\n", " transform-origin: left;\n", " transition: transform 0.4s ease;\n", " }\n", "\n", " .
+feature-card:hover::before {\n", " transform: scaleX(1);\n", " }\n", "\n", " .feature-card:hover {\n", " transform: translateY(-8px);\n", " box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);\n", " 
+border-color: var(--primary);\n", " }\n", "\n", " /* CTA Button */\n", " .cta-button {\n", " background: var(--primary);\n", " color: white;\n", " padding: 1rem 2.5rem;\n", " border-radius: 50px;\n", 
+" font-weight: 700;\n", " text-decoration: none;\n", " display: inline-block;\n", " transition: all 0.3s ease;\n", " box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);\n", " position: relative;\n", " 
+overflow: hidden;\n", " }\n", "\n", " .cta-button::before {\n", " content: '';\n", " position: absolute;\n", " top: 50%;\n", " left: 50%;\n", " width: 0;\n", " height: 0;\n", " border-radius: 50%;\n",
+ " background: rgba(255, 255, 255, 0.2);\n", " transform: translate(-50%, -50%);\n", " transition: width 0.6s, height 0.6s;\n", " }\n", "\n", " .cta-button:hover::before {\n", " width: 300px;\n", " 
+height: 300px;\n", " }\n", "\n", " .cta-button:hover {\n", " transform: translateY(-2px);\n", " box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);\n", " }\n", "\n", " .cta-button span {\n", " position: 
+relative;\n", " z-index: 1;\n", " }\n", "\n", " /* Stats counter animation */\n", " .stat-number {\n", " font-size: 3rem;\n", " font-weight: 800;\n", " background: linear-gradient(135deg, 
+var(--primary), var(--accent));\n", " -webkit-background-clip: text;\n", " -webkit-text-fill-color: transparent;\n", " background-clip: text;\n", " }\n", "\n", " /* Testimonial cards */\n", " .
+testimonial {\n", " background: white;\n", " padding: 2rem;\n", " border-radius: 20px;\n", " box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);\n", " transition: transform 0.3s ease;\n", " }\n", "\n", " .
+testimonial:hover {\n", " transform: scale(1.02);\n", " }\n", "\n", " /* Icon styles */\n", " .icon-circle {\n", " width: 60px;\n", " height: 60px;\n", " border-radius: 50%;\n", " display: flex;\n", 
+" align-items: center;\n", " justify-content: center;\n", " font-size: 24px;\n", " margin-bottom: 1rem;\n", " }\n", "\n", " /* Navbar scroll effect */\n", " .navbar {\n", " transition: all 0.3s ease;
+\n", " }\n", "\n", " .navbar.scrolled {\n", " background: rgba(255, 255, 255, 0.95);\n", " backdrop-filter: blur(10px);\n", " box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);\n", " }\n", "\n", " /* Pricing 
+cards */\n", " .pricing-card {\n", " background: white;\n", " border-radius: 24px;\n", " padding: 3rem 2rem;\n", " transition: all 0.4s ease;\n", " border: 2px solid #e5e7eb;\n", " }\n", "\n", " .
+pricing-card.featured {\n", " border-color: var(--primary);\n", " transform: scale(1.05);\n", " box-shadow: 0 20px 60px rgba(255, 107, 53, 0.2);\n", " }\n", "\n", " .pricing-card:hover {\n", " 
+transform: translateY(-10px) scale(1.02);\n", " box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);\n", " }\n", "\n", " /* Dashboard mockup */\n", " .dashboard-mockup {\n", " background: white;\n", " 
+border-radius: 20px;\n", " box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);\n", " padding: 1rem;\n", " position: relative;\n", " transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);\n", " 
+transition: transform 0.5s ease;\n", " }\n", "\n", " .dashboard-mockup:hover {\n", " transform: perspective(1000px) rotateY(0deg) rotateX(0deg);\n", " }\n", "\n", " .mockup-header {\n", " display: 
+flex;\n", " gap: 8px;\n", " margin-bottom: 1rem;\n", " }\n", "\n", " .mockup-dot {\n", " width: 12px;\n", " height: 12px;\n", " border-radius: 50%;\n", " }\n", "\n", " .mockup-content {\n", " 
+background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);\n", " border-radius: 12px;\n", " height: 400px;\n", " position: relative;\n", " overflow: hidden;\n", " }\n", "\n", " .mockup-element 
+{\n", " position: absolute;\n", " background: white;\n", " border-radius: 8px;\n", " box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n", " }\n", " </style>\n", "</head>\n", "<body>\n", " <!-- Navigation 
+-->\n", " <nav class="navbar fixed w-full top-0 z-50 py-4 px-8">\n", " <div class="max-w-7xl mx-auto flex items-center justify-between">\n", " <div class="flex items-center gap-2">\n", " <div 
+class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-yellow-400 flex items-center justify-center">\n", " <span class="text-white font-bold text-xl">M</span>\n", " </div>\n", " <span 
+class="text-2xl font-bold">Momentum</span>\n", " </div>\n", " <div class="hidden md:flex items-center gap-8">\n", " <a href="#features" class="text-gray-700 hover:text-orange-500 transition 
+font-medium">Features</a>\n", " <a href="#pricing" class="text-gray-700 hover:text-orange-500 transition font-medium">Pricing</a>\n", " <a href="#testimonials" class="text-gray-700 
+hover:text-orange-500 transition font-medium">Testimonials</a>\n", " <a href="#" class="text-gray-700 hover:text-orange-500 transition font-medium">Login</a>\n", " <a href="#" 
+class="cta-button"><span>Start Free Trial</span></a>\n", " </div>\n", " <button class="md:hidden text-gray-700">\n", " <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" 
+stroke-linecap="round" stroke-linejoin="round">\n", " <line x1="3" y1="12" x2="21" y2="12"></line>\n", " <line x1="3" y1="6" x2="21" y2="6"></line>\n", " <line x1="3" y1="18" x2="21" 
+y2="18"></line>\n", " </svg>\n", " </button>\n", " </div>\n", " </nav>\n", "\n", " <!-- Hero Section -->\n", " <section class="relative min-h-screen flex items-center justify-center overflow-hidden 
+pt-20">\n", " <div class="hero-bg"></div>\n", " \n", " <div class="relative z-10 max-w-7xl mx-auto px-8 py-20">\n", " <div class="grid md:grid-cols-2 gap-12 items-center">\n", " <div 
+class="text-white">\n", " <h1 class="text-6xl md:text-7xl leading-tight mb-6 fade-in">\n", " Build momentum.<br/>\n", " <span class="text-yellow-300">Ship faster.</span>\n", " </h1>\n", " <p 
+class="text-xl mb-8 text-gray-200 fade-in delay-1">\n", " The project management tool that adapts to your team's rhythm. Stop managing tasks. Start building momentum.\n", " </p>\n", " <div 
+class="flex flex-wrap gap-4 fade-in delay-2">\n", " <a href="#" class="cta-button"><span>Get Started Free</span></a>\n", " <a href="#" class="bg-white/10 backdrop-blur text-white px-8 py-4 
+rounded-full font-bold hover:bg-white/20 transition inline-block">\n", " Watch Demo\n", " </a>\n", " </div>\n", " <div class="flex items-center gap-8 mt-12 fade-in delay-3">\n", " <div>\n", " <div 
+class="stat-number text-white">50k+</div>\n", " <div class="text-gray-300">Active Teams</div>\n", " </div>\n", " <div>\n", " <div class="stat-number text-white">4.9</div>\n", " <div 
+class="text-gray-300">Average Rating</div>\n", " </div>\n", " <div>\n", " <div class="stat-number text-white">99%</div>\n", " <div class="text-gray-300">Uptime</div>\n", " </div>\n", " </div>\n", " 
+</div>\n", " \n", " <div class="fade-in delay-4">\n", " <div class="dashboard-mockup">\n", " <div class="mockup-header">\n", " <div class="mockup-dot bg-red-500"></div>\n", " <div class="mockup-dot 
+bg-yellow-400"></div>\n", " <div class="mockup-dot bg-green-500"></div>\n", " </div>\n", " <div class="mockup-content">\n", " <div class="mockup-element" style="top: 20px; left: 20px; width: 200px; 
+height: 60px;"></div>\n", " <div class="mockup-element" style="top: 100px; left: 20px; width: 150px; height: 100px;"></div>\n", " <div class="mockup-element" style="top: 100px; right: 20px; width: 
+150px; height: 100px;"></div>\n", " <div class="mockup-element" style="top: 220px; left: 20px; width: 320px; height: 80px;"></div>\n", " <div class="mockup-element" style="bottom: 20px; right: 20px; 
+width: 100px; height: 60px; background: linear-gradient(135deg, #FF6B35, #FFD23F);"></div>\n", " </div>\n", " </div>\n", " </div>\n", " </div>\n", " </div>\n", " </section>\n", "\n", " <!-- Features 
+Section -->\n", " <section id="features" class="py-32 px-8 bg-white">\n", " <div class="max-w-7xl mx-auto">\n", " <div class="text-center mb-20">\n", " <h2 class="text-5xl md:text-6xl font-bold 
+mb-6">Everything you need.<br/>Nothing you don't.</h2>\n", " <p class="text-xl text-gray-600 max-w-2xl mx-auto">Powerful features that don't get in your way. Built for teams who want to focus on work,
+ not tools.</p>\n", " </div>\n", "\n", " <div class="grid md:grid-cols-3 gap-8">\n", " <div class="feature-card">\n", " <div class="icon-circle bg-orange-100 text-orange-500">⚡</div>\n", " <h3 
+class="text-2xl font-bold mb-4">Lightning Fast</h3>\n", " <p class="text-gray-600">Native performance across all devices. No lag, no loading spinners. Just instant productivity.</p>\n", " </div>\n", 
+"\n", " <div class="feature-card">\n", " <div class="icon-circle bg-blue-100 text-blue-500">🎯</div>\n", " <h3 class="text-2xl font-bold mb-4">Smart Workflows</h3>\n", " <p 
+class="text-gray-600">AI-powered automation that learns from your team's patterns and suggests optimizations.</p>\n", " </div>\n", "\n", " <div class="feature-card">\n", " <div class="icon-circle 
+bg-purple-100 text-purple-500">🔗</div>\n", " <h3 class="text-2xl font-bold mb-4">Seamless Integration</h3>\n", " <p class="text-gray-600">Connect with 1000+ tools your team already uses. Slack, 
+GitHub, Figma, and more.</p>\n", " </div>\n", "\n", " <div class="feature-card">\n", " <div class="icon-circle bg-green-100 text-green-500">📊</div>\n", " <h3 class="text-2xl font-bold mb-4">Real-time 
+Analytics</h3>\n", " <p class="text-gray-600">Visualize progress with beautiful dashboards that update in real-time as work happens.</p>\n", " </div>\n", "\n", " <div class="feature-card">\n", " <div 
+class="icon-circle bg-pink-100 text-pink-500">🎨</div>\n", " <h3 class="text-2xl font-bold mb-4">Customizable Views</h3>\n", " <p class="text-gray-600">Board, list, timeline, calendar - switch between 
+views instantly. See work your way.</p>\n", " </div>\n", "\n", " <div class="feature-card">\n", " <div class="icon-circle bg-yellow-100 text-yellow-600">🔒</div>\n", " <h3 class="text-2xl font-bold 
+mb-4">Enterprise Security</h3>\n", " <p class="text-gray-600">SOC 2 Type II certified. Your data encrypted at rest and in transit. Always.</p>\n", " </div>\n", " </div>\n", " </div>\n", " 
+</section>\n", "\n", " <!-- Social Proof / Stats -->\n", " <section class="py-24 px-8 bg-gradient-to-br from-gray-900 to-gray-800 text-white">\n", " <div class="max-w-7xl mx-auto">\n", " <div 
+class="text-center mb-16">\n", " <h2 class="text-4xl md:text-5xl font-bold mb-4">Trusted by teams worldwide</h2>\n", " <p class="text-xl text-gray-300">Join thousands of companies building better 
+products</p>\n", " </div>\n", " \n", " <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">\n", " <div class="text-center">\n", " <div class="text-5xl font-bold mb-2 text-yellow-400">2.
+5M+</div>\n", " <div class="text-gray-400">Projects Created</div>\n", " </div>\n", " <div class="text-center">\n", " <div class="text-5xl font-bold mb-2 text-yellow-400">50K+</div>\n", " <div 
+class="text-gray-400">Active Teams</div>\n", " </div>\n", " <div class="text-center">\n", " <div class="text-5xl font-bold mb-2 text-yellow-400">150+</div>\n", " <div 
+class="text-gray-400">Countries</div>\n", " </div>\n", " <div class="text-center">\n", " <div class="text-5xl font-bold mb-2 text-yellow-400">99.9%</div>\n", " <div class="text-gray-400">Uptime 
+SLA</div>\n", " </div>\n", " </div>\n", "\n", " <div class="flex flex-wrap justify-center items-center gap-12 opacity-60">\n", " <div class="text-3xl font-bold">Stripe</div>\n", " <div 
+class="text-3xl font-bold">Notion</div>\n", " <div class="text-3xl font-bold">Figma</div>\n", " <div class="text-3xl font-bold">Webflow</div>\n", " <div class="text-3xl font-bold">Linear</div>\n", " 
+</div>\n", " </div>\n", " </section>\n", "\n", " <!-- Testimonials -->\n", " <section id="testimonials" class="py-32 px-8 bg-gray-50">\n", " <div class="max-w-7xl mx-auto">\n", " <div 
+class="text-center mb-20">\n", " <h2 class="text-5xl font-bold mb-6">Loved by teams everywhere</h2>\n", " <p class="text-xl text-gray-600">Don't just take our word for it</p>\n", " </div>\n", "\n", " 
+<div class="grid md:grid-cols-3 gap-8">\n", " <div class="testimonial">\n", " <div class="flex items-center gap-1 mb-4">\n", " <span class="text-yellow-400 text-xl">★★★★★</span>\n", " </div>\n", " <p 
+class="text-gray-700 mb-6">"Momentum completely changed how our team works. We shipped our last feature 40% faster than usual. The automation is brilliant."</p>\n", " <div class="flex items-center 
+gap-3">\n", " <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-400"></div>\n", " <div>\n", " <div class="font-bold">Sarah Chen</div>\n", " <div class="text-sm 
+text-gray-500">Head of Product, TechCorp</div>\n", " </div>\n", " </div>\n", " </div>\n", "\n", " <div class="testimonial">\n", " <div class="flex items-center gap-1 mb-4">\n", " <span 
+class="text-yellow-400 text-xl">★★★★★</span>\n", " </div>\n", " <p class="text-gray-700 mb-6">"Finally, a project management tool that doesn't feel like homework. Our team adoption rate was 100% in 
+the first week."</p>\n", " <div class="flex items-center gap-3">\n", " <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400"></div>\n", " <div>\n", " <div 
+class="font-bold">Marcus Rodriguez</div>\n", " <div class="text-sm text-gray-500">Engineering Manager, StartupXYZ</div>\n", " </div>\n", " </div>\n", " </div>\n", "\n", " <div class="testimonial">\n",
+ " <div class="flex items-center gap-1 mb-4">\n", " <span class="text-yellow-400 text-xl">★★★★★</span>\n", " </div>\n", " <p class="text-gray-700 mb-6">"The real-time collaboration features are next 
+level. It's like Google Docs, but for project management. Game changer."</p>\n", " <div class="flex items-center gap-3">\n", " <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 
+to-emerald-400"></div>\n", " <div>\n", " <div class="font-bold">Aisha Patel</div>\n", " <div class="text-sm text-gray-500">Design Lead, CreativeStudio</div>\n", " </div>\n", " </div>\n", " </div>\n", 
+" </div>\n", " </div>\n", " </section>\n", "\n", " <!-- Pricing -->\n", " <section id="pricing" class="py-32 px-8 bg-white">\n", " <div class="max-w-7xl mx-auto">\n", " <div class="text-center 
+mb-20">\n", " <h2 class="text-5xl md:text-6xl font-bold mb-6">Simple, transparent pricing</h2>\n", " <p class="text-xl text-gray-600">No hidden fees. Cancel anytime. Start with a 14-day free trial.
+</p>\n", " </div>\n", "\n", " <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">\n", " <div class="pricing-card">\n", " <div class="text-sm font-bold text-gray-500 mb-2">STARTER</div>\n", " 
+<div class="mb-6">\n", " <span class="text-5xl font-bold">$12</span>\n", " <span class="text-gray-500">/user/month</span>\n", " </div>\n", " <ul class="space-y-4 mb-8">\n", " <li class="flex 
+items-center gap-2">\n", " <span class="text-green-500">✓</span>\n", " <span>Up to 10 team members</span>\n", " </li>\n", " <li class="flex items-center gap-2">\n", " <span 
+class="text-green-500">✓</span>\n", " <span>Unlimited projects</span>\n", " </li>\n", " <li class="flex items-center gap-2">\n", " <span class="text-green-500">✓</span>\n", " <span>Basic 
+integrations</span>\n", " </li>\n", " <li class="flex items-center gap-2">\n", " <span class="text-green-500">✓</span>\n", " <span>5GB storage</span>\n", " </li>\n", " </ul>\n", " <a href="#" 
+class="block text-center bg-gray-900 text-white py-3 rounded-full font-bold hover:bg-gray-800 transition">\n", " Start Free Trial\n", " </a>\n", " </div>\n", "\n", " <div class="pricing-card 
+featured">\n", " <div class="text-sm font-bold text-orange-500 mb-2">PROFESSIONAL</div>\n", " <div class="mb-6">\n", " <span class="text-5xl font-bold">$29</span>\n", " <span 
+class="text-gray-500">/user/month</span>\n", " </div>\n", " <ul class="space-y-4 mb-8">\n", " <li class="flex items-center gap-2">\n", " <span class="text-green-500">✓</span>\n", " <span>Unlimited 
+team members</span>\n", " </li>\n", " <li class="flex items-center gap-2">\n", " <span class="text-green-500">✓</span>\n", " <span>Advanced automation</span>\n", " </li>\n", " <li class="flex 
+items-center gap-2">\n", " <span class="text-green-500">✓</span>\n", " <span>All integrations</span>\n", " </li>\n", " <li class="flex items-center gap-2">\n", " <span 
+class="text-green-500">✓</span>\n", " <span>100GB storage</span>\n", " </li>\n", " <li class="flex items-center gap-2">\n", " <span class="text-green-500">✓</span>\n", " <span>Priority 
+support</span>\n", " </li>\n", " </ul>\n", " <a href="#" class="block text-center bg-orange-500 text-white py-3 rounded-full font-bold hover:bg-orange-600 transition">\n", " Start Free Trial\n", " 
+</a>\n", " </div>\n", "\n", " <div class="pricing-card">\n", " <div class="text-sm font-bold text-gray-500 mb-2">ENTERPRISE</div>\n", " <div class="mb-6">\n", " <span class="text-5xl 
+font-bold">Custom</span>\n", " </div>\n", " <ul class="space-y-4 mb-8">\n", " <li class="flex items-center gap-2">\n", " <span class="text-green-500">✓</span>\n", " <span>Everything in Pro</span>\n", 
+" </li>\n", " <li class="flex items-center gap-2">\n", " <span class="text-green-500">✓</span>\n", " <span>Advanced security</span>\n", " </li>\n", " <li class="flex items-center gap-2">\n", " <span 
+class="text-green-500">✓</span>\n", " <span>Custom integrations</span>\n", " </li>\n", " <li class="flex items-center gap-2">\n", " <span class="text-green-500">✓</span>\n", " <span>Unlimited 
+storage</span>\n", " </li>\n", " <li class="flex items-center gap-2">\n", " <span class="text-green-500">✓</span>\n", " <span>Dedicated support</span>\n", " </li>\n", " </ul>\n", " <a href="#" 
+class="block text-center bg-gray-900 text-white py-3 rounded-full font-bold hover:bg-gray-800 transition">\n", " Contact Sales\n", " </a>\n", " </div>\n", " </div>\n", " </div>\n", " </section>\n", 
+"\n", " <!-- CTA Section -->\n", " <section class="py-32 px-8 bg-gradient-to-br from-orange-500 to-yellow-400 text-white">\n", " <div class="max-w-4xl mx-auto text-center">\n", " <h2 class="text-5xl 
+md:text-6xl font-bold mb-6">Ready to build momentum?</h2>\n", " <p class="text-2xl mb-12 text-white/90">Join 50,000+ teams shipping faster with Momentum</p>\n", " <div class="flex flex-wrap gap-4 
+justify-center">\n", " <a href="#" class="bg-white text-orange-500 px-10 py-5 rounded-full font-bold text-lg hover:bg-gray-100 transition inline-block">\n", " Start Free Trial\n", " </a>\n", " <a 
+href="#" class="bg-white/10 backdrop-blur text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/20 transition inline-block">\n", " Schedule Demo\n", " </a>\n", " </div>\n", " <p 
+class="mt-8 text-white/80">No credit card required • 14-day free trial • Cancel anytime</p>\n", " </div>\n", " </section>\n", "\n", " <!-- Footer -->\n", " <footer class="bg-gray-900 text-white py-16 
+px-8">\n", " <div class="max-w-7xl mx-auto">\n", " <div class="grid md:grid-cols-4 gap-12 mb-12">\n", " <div>\n", " <div class="flex items-center gap-2 mb-4">\n", " <div class="w-10 h-10 rounded-full 
+bg-gradient-to-br from-orange-500 to-yellow-400 flex items-center justify-center">\n", " <span class="text-white font-bold text-xl">M</span>\n", " </div>\n", " <span class="text-2xl 
+font-bold">Momentum</span>\n", " </div>\n", " <p class="text-gray-400">Building momentum for teams that ship.</p>\n", " </div>\n", " \n", " <div>\n", " <h4 class="font-bold mb-4">Product</h4>\n", " 
+<ul class="space-y-2 text-gray-400">\n", " <li><a href="#" class="hover:text-white transition">Features</a></li>\n", " <li><a href="#" class="hover:text-white transition">Pricing</a></li>\n", " 
+<li><a href="#" class="hover:text-white transition">Integrations</a></li>\n", " <li><a href="#" class="hover:text-white transition">Changelog</a></li>\n", " </ul>\n", " </div>\n", " \n", " <div>\n", 
+" <h4 class="font-bold mb-4">Company</h4>\n", " <ul class="space-y-2 text-gray-400">\n", " <li><a href="#" class="hover:text-white transition">About</a></li>\n", " <li><a href="#" 
+class="hover:text-white transition">Blog</a></li>\n", " <li><a href="#" class="hover:text-white transition">Careers</a></li>\n", " <li><a href="#" class="hover:text-white 
+transition">Contact</a></li>\n", " </ul>\n", " </div>\n", " \n", " <div>\n", " <h4 class="font-bold mb-4">Legal</h4>\n", " <ul class="space-y-2 text-gray-400">\n", " <li><a href="#" 
+class="hover:text-white transition">Privacy</a></li>\n", " <li><a href="#" class="hover:text-white transition">Terms</a></li>\n", " <li><a href="#" class="hover:text-white 
+transition">Security</a></li>\n", " <li><a href="#" class="hover:text-white transition">GDPR</a></li>\n", " </ul>\n", " </div>\n", " </div>\n", " \n", " <div class="border-t border-gray-800 pt-8 flex 
+flex-col md:flex-row justify-between items-center gap-4">\n", " <p class="text-gray-400">© 2024 Momentum. All rights reserved.</p>\n", " <div class="flex gap-6">\n", " <a href="#" 
+class="text-gray-400 hover:text-white transition">Twitter</a>\n", " <a href="#" class="text-gray-400 hover:text-white transition">LinkedIn</a>\n", " <a href="#" class="text-gray-400 hover:text-white 
+transition">GitHub</a>\n", " </div>\n", " </div>\n", " </div>\n", " </footer>\n", "\n", " <script>\n", " // Navbar scroll effect\n", " const navbar = document.querySelector('.navbar');\n", " window.
+addEventListener('scroll', () => {\n", " if (window.scrollY > 50) {\n", " navbar.classList.add('scrolled');\n", " } else {\n", " navbar.classList.remove('scrolled');\n", " }\n", " });\n", "\n", " // 
+Smooth scroll for anchor links\n", " document.querySelectorAll('a[href^="#"]').forEach(anchor => {\n", " anchor.addEventListener('click', function (e) {\n", " e.preventDefault();\n", " const target = 
+document.querySelector(this.getAttribute('href'));\n", " if (target) {\n", " target.scrollIntoView({\n", " behavior: 'smooth',\n", " block: 'start'\n", " });\n", " }\n", " });\n", " });\n", "\n", " 
+// Intersection Observer for fade-in animations\n", " const observerOptions = {\n", " threshold: 0.1,\n", " rootMargin: '0px 0px -50px 0px'\n", " };\n", "\n", " const observer = new 
+IntersectionObserver((entries) => {\n", " entries.forEach(entry => {\n", " if (entry.isIntersecting) {\n", " entry.target.style.opacity = '1';\n", " entry.target.style.transform = 'translateY(0)';\n",
+ " }\n", " });\n", " }, observerOptions);\n", "\n", " document.querySelectorAll('.feature-card, .testimonial, .pricing-card').forEach(el => {\n", " el.style.opacity = '0';\n", " el.style.transform = 
+'translateY(30px)';\n", " el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';\n", " observer.observe(el);\n", " });\n", " </script>\n", "</body>\n", "</html>\n", "``` \n", " \n", " " ], 
+"text/plain": [ " " ] }, "metadata": {}, "output_type": "display_data" }, { "name": "stdout", "output_type": "stream", "text": [ "\n", "✅ Complete in 98.2s\n", "\n", "💾 HTML saved to: 
+html_outputs/20251021_101010.html\n", "🌐 Opened in browser: html_outputs/20251021_101010.html\n" ] }, { "data": { "text/plain": [ "'html_outputs/20251021_101010.html'" ] }, "execution_count": 3, 
+"metadata": {}, "output_type": "execute_result" } ], "source": [ "BASE_SYSTEM_PROMPT = \"\"\"\n", "You are an expert frontend engineer skilled at crafting beautiful, performant frontend applications.
+\n", "\n", " \n", "Use vanilla HTML, CSS, & Javascript. Use Tailwind CSS for your CSS variables.\n", " \n", "\n", " \n", "Generate complete, self-contained HTML code for the requested frontend 
+application. Include all CSS and JavaScript inline.\n", "\n", "CRITICAL: You must wrap your HTML code in triple backticks with html language identifier like this:\n", "```html\n", " \n", " \n", "...
+\n", " \n", "```\n", "\n", "Our parser depends on this format - do not deviate from it!\n", " \n", "\"\"\"\n", "\n", "USER_PROMPT = \"Create a SaaS landing page for a project management tool\"\n", 
+"\n", "# Generate with distilled aesthetics prompt\n", "generate_html_with_claude(BASE_SYSTEM_PROMPT + \"\\n\\n\" + DISTILLED_AESTHETICS_PROMPT, USER_PROMPT)" ] }, { "cell_type": "markdown", 
+"metadata": {}, "source": [ "## Isolated Prompting\n", "\n", "The full aesthetics prompt works well for general use, but sometimes you want targeted control. You can isolate specific dimensions 
+(typography, color, motion) or lock in a particular theme. This gives you faster generation times and more predictable outputs.\n", "\n", "### Example 1: Typography Only\n", "\n", "Isolate a single 
+design dimension when you want to improve one aspect without changing others:" ] }, { "cell_type": "code", "execution_count": null, "metadata": {}, "outputs": [], "source": [ "TYPOGRAPHY_PROMPT = 
+\"\"\"\n", " \n", "Typography instantly signals quality. Avoid using boring, generic fonts.\n", "\n", "**Never use:** Inter, Roboto, Open Sans, Lato, default system fonts\n", "\n", "**Impact 
+choices:**\n", "- Code aesthetic: JetBrains Mono, Fira Code, Space Grotesk\n", "- Editorial: Playfair Display, Crimson Pro, Fraunces\n", "- Startup: Clash Display, Satoshi, Cabinet Grotesk\n", "- 
+Technical: IBM Plex family, Source Sans 3\n", "- Distinctive: Bricolage Grotesque, Obviously, Newsreader\n", "\n", "**Pairing principle:** High contrast = interesting. Display + monospace, serif + 
+geometric sans, variable font across weights.\n", "\n", "**Use extremes:** 100/200 weight vs 800/900, not 400 vs 600. Size jumps of 3x+, not 1.5x.\n", "\n", "Pick one distinctive font, use it 
+decisively. Load from Google Fonts. State your choice before coding.\n", " \n", "\"\"\"\n", "\n", "# Generate with typography-only guidance\n", "generate_html_with_claude(BASE_SYSTEM_PROMPT + 
+\"\\n\\n\" + TYPOGRAPHY_PROMPT, USER_PROMPT)" ] }, { "cell_type": "markdown", "metadata": {}, "source": [ "### Example 2: Theme Constraint\n", "\n", "Lock in a specific aesthetic when you want 
+consistent theming across generations:" ] }, { "cell_type": "code", "execution_count": null, "metadata": {}, "outputs": [], "source": [ "SOLARPUNK_THEME_PROMPT = \"\"\"\n", " \n", "Always design with 
+Solarpunk aesthetic:\n", "- Warm, optimistic color palettes (greens, golds, earth tones)\n", "- Organic shapes mixed with technical elements\n", "- Nature-inspired patterns and textures\n", "- Bright,
+ hopeful atmosphere\n", "- Retro-futuristic typography\n", " \n", "\"\"\"\n", "\n", "# Generate with theme constraint\n", "generate_html_with_claude(\n", " BASE_SYSTEM_PROMPT + \"\\n\\n\" + 
+SOLARPUNK_THEME_PROMPT,\n", " \"Create a dashboard for renewable energy monitoring\",\n", ")" ] }, { "cell_type": "markdown", "metadata": {}, "source": [ "## Summary\n", "\n", "Claude has strong 
+design capabilities but defaults to safe, generic choices. The techniques in this guide - targeting specific design dimensions, referencing concrete inspirations, and explicitly avoiding common 
+defaults - reliably produce more distinctive output. The full aesthetics prompt works well as a baseline. For more control, use isolated prompts to focus on individual aspects or lock in specific 
+themes across multiple generations." ] } ], "metadata": { "kernelspec": { "display_name": "py311", "language": "python", "name": "python3" }, "language_info": { "codemirror_mode": { "name": "ipython",
+ "version": 3 }, "file_extension": ".py", "mimetype": "text/x-python", "name": "python", "nbconvert_exporter": "python", "pygments_lexer": "ipython3", "version": "3.11.13" } }, "nbformat": 4, 
+"nbformat_minor": 4 }

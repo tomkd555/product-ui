@@ -1,0 +1,10 @@
+# url: https://raw.githubusercontent.com/shadcn-ui/ui/main/apps/v4/registry/new-york-v4/ui/card.tsx
+# accessed: 2026-10-30
+# chars: 784
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+import * as React from "react" import { cn } from "cn" function Card({ className, ...props }: React.ComponentProps < "div">) { return ( ) } function CardHeader({ className, ...props }: React.
+ComponentProps < "div">) { return ( ) } function CardTitle({ className, ...props }: React.ComponentProps < "div">) { return ( ) } function CardDescription({ className, ...props }: React.
+ComponentProps < "div">) { return ( ) } function CardAction({ className, ...props }: React.ComponentProps < "div">) { return ( ) } function CardContent({ className, ...props }: React.ComponentProps < 
+"div">) { return ( ) } function CardFooter({ className, ...props }: React.ComponentProps < "div">) { return ( ) } export { Card, CardHeader, CardFooter, CardTitle, CardAction, CardDescription, 
+CardContent, }

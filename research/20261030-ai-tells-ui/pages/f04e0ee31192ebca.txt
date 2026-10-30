@@ -1,0 +1,88 @@
+# url: https://github.com/Laith0003/ux-skill/wiki/Anti-Patterns-Reference
+# accessed: 2026-10-30
+# chars: 16316
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Anti Patterns Reference · Laith0003/ux-skill Wiki · GitHub Skip to content Navigation Menu Sign in Products Platform GitHub Repository hosting, code review, and collaboration Copilot AI coding agent 
+for tasks, projects and automated work Build & Ship Actions CI/CD and automation Code Quality Quality analysis, fixes, and enforcement Codespaces Cloud development environments Secure Code Security 
+Vulnerability detection and remediation Secret Protection Secret scanning and leak prevention All Features Developers Learn Documentation Training Certifications Build Build with Copilot Customize 
+Copilot Integrations Explore Trending repos GitHub Sponsors Events Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+Businesses By Stage Enterprises Team Startups Nonprofits By Industry Healthcare Financial services Manufacturing Government See all industries Evaluate GitHub Why GitHub Customer Stories Business 
+insights Trust Center Add-ons GitHub Advanced Security Enterprise-grade code security Copilot for business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Resources Learn & 
+Connect Documentation Resource center Blog Events & webinars Community Forum Customer Stories Integrations Support Customer support Training GitHub Status Company About Partners Changelog GitHub 
+Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. Pricing Search / Sign in Sign up Appearance settings You signed in with another tab or 
+window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. 
+Dismiss alert {{ message }} Laith0003 ux-skill Repository navigation Code Issues Pull requests 1 ( 1 ) Discussions Actions Projects Wiki Security and quality Insights More items Anti Patterns 
+Reference Jump to bottom Laith0003 edited this page Jun 3, 2026 · 1 revision Anti-Patterns Reference This page documents the 152 anti-pattern rules that power the ux-skill linter. Each rule encodes 
+one tell of AI-generated UI: a specific, repeatable choice that unconstrained models reach for by default, which makes their output recognizable as machine-made. The linter is deterministic and 
+regex-based, runs with no model call, and exits non-zero on Critical and High findings, so it is safe to put in CI. The rule data lives in data/anti-patterns.json and is the canonical source. The 
+figures and examples below are taken from that file at v3.1.0. For the prose behind the rules, see https://uxskill.laithjunaidy.com/anti-patterns.html . To run the linter, see Getting Started . Why 
+"AI slop" is a measurable thing The phrase "looks AI-generated" sounds subjective, but in practice it is a short list of defaults. When a model is asked to design with no constraints, it optimizes 
+for the safest, most-represented choice in its training distribution. Across millions of prompts that converges on the same handful of moves, so the output becomes recognizable not because any single 
+choice is bad but because it is the default choice, repeated everywhere. That makes the problem tractable. If the tells are specific patterns, you can detect them with patterns. The linter does 
+exactly that: 152 rules, each with a detection signature, the reason it reads as slop, and the fix that gets you off the default path. The 152 rules by category Rules are grouped into nine categories.
+ The counts below are exact at v3.1.0. Category Rules What it covers A11y 41 Accessibility failures: missing alt text, focus removed without replacement, click handlers on non-interactive elements, 
+blocked zoom Content 33 Placeholder names, lorem ipsum, emoji in UI, fake testimonials, filler marketing verbs, round-number stats Layout 15 Three-equal-card grids, centered-everything heroes, 
+pill-rounded everything, fake logo clouds Typography 14 Inter as a display face, system-font-only stacks, arbitrary hero pixel sizes, title-case headlines Visual 13 Frosted-glass on every surface, 
+multi-layer default shadows, decorative blur, emoji as icons Quality 12 Inline styles, leaked console logs, TODO and FIXME comments, any types, z-index: 9999 , placeholder class names Motion 10 The 
+300ms default transition, bouncing-arrow CTAs, transition: all , animating layout properties Color 9 The purple-to-blue gradient, rainbow gradient text, purple card glows, vague Tailwind color names 
+Performance 5 Images without dimensions, JPG where WebP or AVIF belongs, render-blocking CSS imports, non-passive scroll listeners Total 152 Severity levels Every rule carries one of four severities. 
+The split at v3.1.0 is 6 Critical, 52 High, 67 Medium, 27 Low. Critical (6). Hard failures that break the product for real users, all of them accessibility violations. The linter is built to fail CI 
+on these. High (52). Strong slop fingerprints or serious accessibility and quality issues. Also fails CI by default. Medium (67). Recognizable tells worth fixing, but not blocking on their own. Low 
+(27). Minor signals and polish items. In CI, --fail-on high fails the job on Critical and High while letting Medium and Low through as warnings. Tune the threshold to your tolerance. The six Critical 
+rules These are the hard failures. Every one is an accessibility violation that makes the interface unusable for someone. Rule id Issue viewport-no-zoom Viewport meta blocks pinch-zoom, trapping 
+low-vision users outline-none-no-focus-visible Focus outline removed with no :focus-visible replacement, so keyboard users lose their place div-onclick-no-role Click handler on a <div> with no role 
+or tabindex , invisible to keyboard and assistive tech aria-hidden-on-interactive aria-hidden on a focusable interactive element, hiding it from screen readers while keeping it tabbable blink-tag A 
+<blink> element, which is both deprecated and a motion hazard onclick-on-non-button onclick on a non-interactive element, the same keyboard trap as div-onclick-no-role Example, verbatim from the rule 
+data: div-onclick-no-role (Critical, A11y). A <div onClick> is invisible to keyboard users and assistive tech, the action exists only for mouse users, a WCAG 2.1.1 and 4.1.2 failure. Fix: Use <button 
+onClick> for actions. If you must keep the <div> , add role="button" , tabindex="0" , and an onKeyDown handler for Enter and Space. Representative rules, with the reasoning and the fix The point of a 
+rule is not just to flag a pattern but to explain why it reads as slop and what to do instead. Here are seven, one per several categories, quoted from the rule data. Color: the purple-to-blue 
+gradient purple-to-blue-gradient (High). Purple-to-blue gradient on white is the strongest visual fingerprint of unconstrained model output and reads as template-marketplace AI slop. Fix: Use a 
+single restrained accent (Emerald, Electric Blue, Deep Rose, Amber) against neutrals; keep gradient hue spread under 60 degrees if used at all. Typography: Inter at display size inter-as-display 
+(High). Inter is a body font tuned for screen legibility at small sizes; deployed as display it reads as the default startup-landing fingerprint. Fix: Pair Inter (body) with a distinctive display 
+face: Geist, Satoshi, Cabinet Grotesk, General Sans, Outfit, or a brand-specific variable sans. Layout: three equal cards three-equal-card-grid (High). Three equal cards with three icons and three 
+short paragraphs is the safest default the generator reaches for and the strongest layout fingerprint in AI-generated marketing surfaces. Fix: Use asymmetric layouts: bento grids, 2-and-1 splits, 4 
+with one spanning width. Vary card size by content priority. Layout: the centered-everything hero centered-everything-hero (Medium). Centered headline plus centered subtitle plus centered button 
+stack is the laziest hero composition and signals the generator picked it when it couldn't find a better layout. Fix: Use a left-aligned hero with an editorial 7-5 or 8-4 grid split; let the imagery 
+earn its own column. Content: placeholder names fake-name-john-doe (Medium). John and Jane Doe and their cousins signal that nobody thought about who would actually use the product, an immediate 
+AI-generated-tutorial vibe. Fix: Use plausible names that fit the target market: Maya Iqbal, Adam Levin, Wen Zhang, Layla Haddad. Match region for regional products. Motion: the bouncing-arrow CTA 
+cta-arrow-rightward-bouncing (Medium). A bouncing arrow on a CTA is the desperate-attention pattern that signals the copy itself isn't doing the work. Fix: Let the CTA copy carry the action (Start a 
+14-day trial, Read the deployment guide). If you need an arrow, use a static SVG that nudges 2 to 4px on hover. Visual: frosted glass everywhere glass-morphism-default (Medium). Frosted-glass 
+everywhere is the iOS-aesthetic AI tell, signaling the generator confused depth with blur on every surface. Four or more backdrop-blur layers on a single page is the visual equivalent of using bold 
+on every word. Fix: Reserve glass for one or two surfaces that have a clear reason to feel translucent (a floating nav, a notification toast). Solid surfaces with restraint read more premium than 
+four blurred panels. Running the linter The linter reports findings; it does not edit your files. Each finding includes the location, the rule id, the severity, and the evidence that triggered the 
+match. # Python entry point (preferred) uxskill lint . # or the script directly python3 bin/ux-lint.py . # CI mode, fail on Critical and High bash bin/ux-lint.sh --ci --fail-on high In a GitHub 
+Actions workflow: - name : ux-lint run : bash bin/ux-lint.sh --ci --fail-on high To act on findings rather than just read them, chain into a fix pass: /ux-polish --fix for a cosmetic sweep on the 
+same patterns, or /ux-fix to apply findings as atomic commits sorted by severity. How the rules connect to the rest of the engine The 152 rules are not only a post-hoc check. The same anti-pattern 
+data feeds the recommender: when you run ux recommend , all 152 guardrails are activated as part of the recommended system, and your forbidden moves narrow the brand-exemplar shortlist before any 
+code is generated. So the rules act twice, once as direction going into generation and again as verification coming out. That closed loop is the difference between hoping the output is clean and 
+proving it. Contributing a rule New rules are among the most useful contributions to the project. A good rule has a precise detection signature (so it does not fire on legitimate code), a clear 
+statement of why the pattern reads as slop, and an actionable fix. False-positive reports are equally valuable: if a rule fires on correct code, that is a bug worth an issue. File either at 
+https://github.com/Laith0003/ux-skill/issues . See also Getting Started for install and the discover to recommend to design to lint loop. Home for what ux-skill is and how the manifests fit together. 
+The rule prose on the site: https://uxskill.laithjunaidy.com/anti-patterns.html The README, which is the exhaustive reference: https://github.com/Laith0003/ux-skill/blob/main/README.md Wiki pages 
+Pages 44 Loading Home Uh oh! There was an error while loading. Please reload this page . Loading All 17 Commands Uh oh! There was an error while loading. Please reload this page . Loading All 22 
+Commands Uh oh! There was an error while loading. Please reload this page . Loading All 5 Sub Agents Uh oh! There was an error while loading. Please reload this page . Loading Anti AI slop ban list 
+Uh oh! There was an error while loading. Please reload this page . Loading Anti Pattern Catalog 100 Uh oh! There was an error while loading. Please reload this page . Loading Anti Patterns Reference 
+Anti-Patterns Reference Why "AI slop" is a measurable thing The 152 rules by category Severity levels The six Critical rules Representative rules, with the reasoning and the fix Color: the 
+purple-to-blue gradient Typography: Inter at display size Layout: three equal cards Layout: the centered-everything hero Content: placeholder names Motion: the bouncing-arrow CTA Visual: frosted 
+glass everywhere Running the linter How the rules connect to the rest of the engine Contributing a rule See also Loading Architecture Uh oh! There was an error while loading. Please reload this page .
+ Loading Axis Interaction Matrix Uh oh! There was an error while loading. Please reload this page . Loading Brand Library 110 Uh oh! There was an error while loading. Please reload this page . 
+Loading Cross IDE Distribution Uh oh! There was an error while loading. Please reload this page . Loading Decisions Ledger and Learning Uh oh! There was an error while loading. Please reload this 
+page . Loading Discovery Protocol Uh oh! There was an error while loading. Please reload this page . Loading Don Normans design principles applied Uh oh! There was an error while loading. Please 
+reload this page . Loading Evolve Loop and Quality Gate Uh oh! There was an error while loading. Please reload this page . Loading FAQ Uh oh! There was an error while loading. Please reload this page 
+. Loading Frontend stacks compared Uh oh! There was an error while loading. Please reload this page . Loading Getting Started Uh oh! There was an error while loading. Please reload this page . 
+Loading How to add motion that doesnt break Core Web Vitals Uh oh! There was an error while loading. Please reload this page . Loading How to audit accessibility with Claude Code Uh oh! There was an 
+error while loading. Please reload this page . Loading How to build a SaaS landing page with Claude Code Uh oh! There was an error while loading. Please reload this page . Loading How to design a 
+dashboard with Claude Code Uh oh! There was an error while loading. Please reload this page . Loading How to detect AI slop in your design Uh oh! There was an error while loading. Please reload this 
+page . Loading How to fix AI generated UI Uh oh! There was an error while loading. Please reload this page . Loading How to fix microcopy that sounds like AI Uh oh! There was an error while loading. 
+Please reload this page . Loading How to generate a design system with Claude Code Uh oh! There was an error while loading. Please reload this page . Loading How to make AI output look human grade Uh 
+oh! There was an error while loading. Please reload this page . Loading How to ship a case study from product data Uh oh! There was an error while loading. Please reload this page . Loading 
+Installation Uh oh! There was an error while loading. Please reload this page . Loading Krug 3 Laws of Usability with examples Uh oh! There was an error while loading. Please reload this page . 
+Loading Linter Rules Uh oh! There was an error while loading. Please reload this page . Loading MCP Server Uh oh! There was an error while loading. Please reload this page . Loading Migration v2 to 
+v3 Uh oh! There was an error while loading. Please reload this page . Loading Polaris style audit reports Uh oh! There was an error while loading. Please reload this page . Loading Real life UX 
+consulting Uh oh! There was an error while loading. Please reload this page . Loading Recommender Engine Uh oh! There was an error while loading. Please reload this page . Loading Release Notes v3 Uh 
+oh! There was an error while loading. Please reload this page . Loading Synthesizer 7 axes Uh oh! There was an error while loading. Please reload this page . Loading The 30 Laws of UX Uh oh! There 
+was an error while loading. Please reload this page . Loading The 6 Audit Lenses Uh oh! There was an error while loading. Please reload this page . Loading The creative arsenal pattern library Uh oh! 
+There was an error while loading. Please reload this page . Loading Three Modes Explained Uh oh! There was an error while loading. Please reload this page . Loading v3 The Brain Uh oh! There was an 
+error while loading. Please reload this page . Loading Wfrah style case study format Uh oh! There was an error while loading. Please reload this page . Show 29 more pages... Clone this wiki locally 
+Footer © 2026 GitHub, Inc. Footer navigation Terms Privacy Security Status Community Docs Contact Manage cookies Do not share my personal information You can’t perform that action at this time.

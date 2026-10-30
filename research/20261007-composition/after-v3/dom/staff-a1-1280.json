@@ -1,0 +1,2317 @@
+{
+ "title": "佐藤 健一 | 販社ポータル",
+ "viewport": {
+  "width": 1280,
+  "height": 1200
+ },
+ "htmlClass": "",
+ "tokens": {
+  "--font-sans": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--font-mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--spacing": ".25rem",
+  "--container-md": "28rem",
+  "--container-3xl": "48rem",
+  "--font-weight-normal": "400",
+  "--font-weight-semibold": "600",
+  "--font-weight-bold": "700",
+  "--radius-sm": ".375rem",
+  "--radius-md": ".5rem",
+  "--radius-lg": ".75rem",
+  "--shadow-sm": "0 1px 2px 0 oklch(0% 0 0/.04)",
+  "--shadow-lg": "0 4px 16px 0 oklch(0% 0 0/.08)",
+  "--default-transition-duration": ".15s",
+  "--default-transition-timing-function": "cubic-bezier(.4, 0, .2, 1)",
+  "--default-font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--default-mono-font-family": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--color-background": "oklch(0.961 0 0)",
+  "--color-foreground": "oklch(0.218 0 0)",
+  "--color-surface": "oklch(1 0 0)",
+  "--color-primary": "oklch(0.531 0.218 29)",
+  "--color-primary-foreground": "oklch(1 0 0)",
+  "--color-muted": "oklch(0.976 0 0)",
+  "--color-muted-foreground": "oklch(0.52 0 0)",
+  "--color-border": "oklch(0.922 0 0)",
+  "--color-destructive": "oklch(0.429 0.176 29)",
+  "--color-accent": "oklch(0.546 0.215 263)",
+  "--font-display": "\"Inter\", ui-serif, serif",
+  "--font-body": "\"Inter\", ui-sans-serif, sans-serif",
+  "--radius-full": "9999px",
+  "--ease-standard": "cubic-bezier(.4, 0, .2, 1)",
+  "--brand-background": "oklch(0.961 0 0)",
+  "--brand-foreground": "oklch(0.218 0 0)",
+  "--brand-surface": "oklch(1 0 0)",
+  "--brand-primary": "oklch(0.531 0.218 29)",
+  "--brand-primary-foreground": "oklch(1 0 0)",
+  "--brand-muted": "oklch(0.976 0 0)",
+  "--brand-muted-foreground": "oklch(0.52 0 0)",
+  "--brand-border": "oklch(0.922 0 0)",
+  "--brand-destructive": "oklch(0.429 0.176 29)",
+  "--brand-accent": "oklch(0.546 0.215 263)",
+  "--duration-fast": ".15s",
+  "--duration-base": ".25s",
+  "--duration-slow": ".4s",
+  "--sidebar-width": "260px",
+  "--content-max-width": "1440px",
+  "--shell-nav-fg": "oklch(0.3388 0 0)",
+  "--shell-hover": "oklch(0.218 0 0 / 0.025)",
+  "--shell-active": "oklch(0.531 0.218 29 / 0.06)",
+  "--shell-ring": "oklch(0.531 0.218 29 / 0.08)",
+  "--shell-border-hover": "oklch(0.7612 0 0)",
+  "--chart-brand": "oklch(0.531 0.218 29)",
+  "--chart-1": "oklch(0.546 0.215 263)",
+  "--chart-2": "oklch(0.43696 0 0)",
+  "--chart-3": "oklch(0.71852 0.1333 299.86)",
+  "--chart-4": "oklch(0.62464 0 0)",
+  "--chart-band": "oklch(0.546 0.215 263 / 0.14)",
+  "--tint-primary": "color(srgb 0.983933 0.91983 0.92075)",
+  "--tint-accent": "oklch(0.9546 0.0215 350.3)",
+  "--primary-text": "oklch(0.531 0.218 29)",
+  "--accent-text": "oklch(0.4476 0.1505 292.1)",
+  "--lightningcss-light": "",
+  "--lightningcss-dark": ""
+ },
+ "horizontalOverflow": false,
+ "scrollWidth": 1265,
+ "pageHeight": 1272,
+ "headings": [
+  {
+   "level": 1,
+   "text": "佐藤 健一"
+  },
+  {
+   "level": 2,
+   "text": "商品別の目標レンジ"
+  },
+  {
+   "level": 2,
+   "text": "提案アドバイス"
+  },
+  {
+   "level": 3,
+   "text": "楽まる"
+  },
+  {
+   "level": 3,
+   "text": "残クレ"
+  }
+ ],
+ "landmarks": [
+  {
+   "sel": "header",
+   "count": 1
+  },
+  {
+   "sel": "nav",
+   "count": 1
+  },
+  {
+   "sel": "main",
+   "count": 1
+  },
+  {
+   "sel": "aside",
+   "count": 1
+  },
+  {
+   "sel": "footer",
+   "count": 0
+  },
+  {
+   "sel": "form",
+   "count": 1
+  },
+  {
+   "sel": "[role]",
+   "count": 5
+  }
+ ],
+ "controlsTotal": 24,
+ "controls": [
+  {
+   "tag": "a",
+   "text": "ホーム",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/"
+  },
+  {
+   "tag": "a",
+   "text": "販売店",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/stores"
+  },
+  {
+   "tag": "a",
+   "text": "マイ目標",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/staff/a1"
+  },
+  {
+   "tag": "a",
+   "text": "市場動向",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/market"
+  },
+  {
+   "tag": "a",
+   "text": "契約",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/contracts"
+  },
+  {
+   "tag": "a",
+   "text": "見積り",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/estimates"
+  },
+  {
+   "tag": "a",
+   "text": "車種",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/vehicles"
+  },
+  {
+   "tag": "a",
+   "text": "金利・キャンペーン",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/rates"
+  },
+  {
+   "tag": "a",
+   "text": "お知らせ2",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/notices"
+  },
+  {
+   "tag": "a",
+   "text": "問い合わせ1",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/inquiries"
+  },
+  {
+   "tag": "a",
+   "text": "よくあるご質問・資料",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/library"
+  },
+  {
+   "tag": "a",
+   "text": "使い方ガイド",
+   "w": 235,
+   "h": 41,
+   "labelled": true,
+   "href": "#/guide"
+  },
+  {
+   "tag": "button",
+   "text": "メニュー",
+   "w": 0,
+   "h": 0,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "input",
+   "text": "契約を検索",
+   "w": 230,
+   "h": 26,
+   "labelled": true,
+   "type": "search"
+  },
+  {
+   "tag": "button",
+   "text": "佐",
+   "w": 36,
+   "h": 36,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "a",
+   "text": "世田谷店",
+   "w": 64,
+   "h": 26,
+   "labelled": true,
+   "href": "#/stores/s1"
+  },
+  {
+   "tag": "a",
+   "text": "今月の契約件数7件",
+   "w": 112,
+   "h": 88,
+   "labelled": true,
+   "href": "#/contracts?within=12"
+  },
+  {
+   "tag": "button",
+   "text": "目標差の説明",
+   "w": 32,
+   "h": 32,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "a",
+   "text": "翌月の達成予測11件",
+   "w": 112,
+   "h": 59,
+   "labelled": true,
+   "href": "#/staff/a1?tab=trend"
+  },
+  {
+   "tag": "a",
+   "text": "バリ保の達成率100%",
+   "w": 112,
+   "h": 59,
+   "labelled": true,
+   "href": "#/stores/s1?tab=results"
+  },
+  {
+   "tag": "a",
+   "text": "安定度安定",
+   "w": 79,
+   "h": 59,
+   "labelled": true,
+   "href": "#/staff/a1?tab=trend"
+  },
+  {
+   "tag": "button",
+   "text": "今月の目標",
+   "w": 112,
+   "h": 44,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "月次の推移",
+   "w": 112,
+   "h": 44,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "目標レンジの説明",
+   "w": 32,
+   "h": 32,
+   "labelled": true,
+   "type": "button"
+  }
+ ],
+ "elementsTotal": 267,
+ "textTruncated": false,
+ "scope": {
+  "tag": "main",
+  "rect": {
+   "x": 260,
+   "y": 0,
+   "w": 1005,
+   "h": 1272
+  }
+ },
+ "boxes": [
+  {
+   "tag": "header",
+   "cls": "content-header",
+   "rect": {
+    "x": 260,
+    "y": 0,
+    "w": 1005,
+    "h": 77
+   },
+   "depth": 0,
+   "parentBox": null,
+   "children": 2,
+   "hasDigit": false
+  }
+ ],
+ "boxesTotal": 1,
+ "gaps": [
+  {
+   "parent": "main.main-content",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.content-header__tools",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.content-body",
+   "values": [
+    20,
+    20
+   ]
+  },
+  {
+   "parent": "div.analysis-stack",
+   "values": [
+    40
+   ]
+  },
+  {
+   "parent": "div.figure-row",
+   "values": [
+    32,
+    32,
+    32
+   ]
+  },
+  {
+   "parent": "div.figure",
+   "values": [
+    4,
+    4
+   ]
+  },
+  {
+   "parent": "a.figure-link",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "span.figure-value-row",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.figure",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "a.figure-link",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "span.figure-value-row",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.figure",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "a.figure-link",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "span.figure-value-row",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.figure",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "a.figure-link",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "span.figure-value-row",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    20
+   ]
+  },
+  {
+   "parent": "div.tabs",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.analysis-stack",
+   "values": [
+    40
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "table.table",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tbody",
+   "values": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.advice",
+   "values": [
+    40
+   ]
+  },
+  {
+   "parent": "div",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.contents",
+   "values": [
+    24
+   ]
+  },
+  {
+   "parent": "div.contents",
+   "values": [
+    24
+   ]
+  },
+  {
+   "parent": "div.contents",
+   "values": [
+    24
+   ]
+  },
+  {
+   "parent": "div.contents",
+   "values": [
+    24
+   ]
+  },
+  {
+   "parent": "div",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.contents",
+   "values": [
+    24
+   ]
+  },
+  {
+   "parent": "div.contents",
+   "values": [
+    24
+   ]
+  },
+  {
+   "parent": "div.contents",
+   "values": [
+    24
+   ]
+  },
+  {
+   "parent": "div.contents",
+   "values": [
+    24
+   ]
+  }
+ ],
+ "gapsTotal": 40,
+ "text": [
+  {
+   "tag": "div",
+   "cls": "sidebar-logo",
+   "text": "H",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "16px",
+   "fontWeight": "800",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 24,
+    "y": 27,
+    "w": 36,
+    "h": 36
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "sidebar-title",
+   "text": "販社ポータル",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16.8px",
+   "fontWeight": "700",
+   "lineHeight": "26.88px",
+   "rect": {
+    "x": 72,
+    "y": 20,
+    "w": 100,
+    "h": 27
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "sidebar-subtitle",
+   "text": "世田谷店",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 72,
+    "y": 48,
+    "w": 100,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "ホーム",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 103,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "分析",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 148,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "販売店",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 195,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item active",
+   "text": "マイ目標",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(0.531 0.218 29 / 0.06)",
+   "backgroundBase": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "600",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 238,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "市場動向",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 281,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "提案",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 325,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "契約",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 373,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "見積り",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 415,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "車種",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 458,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "金利・キャンペーン",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 501,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "ホンダファイナンス",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 545,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "お知らせ",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 593,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "nav-badge",
+   "text": "2",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "12px",
+   "fontWeight": "700",
+   "lineHeight": "19.2px",
+   "rect": {
+    "x": 201,
+    "y": 602,
+    "w": 22,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "問い合わせ",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 635,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "nav-badge",
+   "text": "1",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "12px",
+   "fontWeight": "700",
+   "lineHeight": "19.2px",
+   "rect": {
+    "x": 201,
+    "y": 644,
+    "w": 22,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "よくあるご質問・資料",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 678,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "使い方ガイド",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 1081,
+    "w": 235,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-avatar",
+   "text": "佐",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.546 0.215 263)",
+   "fontSize": "14px",
+   "fontWeight": "700",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 20,
+    "y": 1137,
+    "w": 34,
+    "h": 34
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-name",
+   "text": "佐藤 健一",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 64,
+    "y": 1131,
+    "w": 84,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-role",
+   "text": "営業スタッフ",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 64,
+    "y": 1154,
+    "w": 84,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h1",
+   "cls": "content-title",
+   "text": "佐藤 健一",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "21.6px",
+   "fontWeight": "700",
+   "lineHeight": "34.56px",
+   "rect": {
+    "x": 292,
+    "y": 21,
+    "w": 91,
+    "h": 35
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-bold",
+   "text": "佐",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "700",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 1208,
+    "y": 28,
+    "w": 14,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "世田谷店",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 105,
+    "w": 64,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "cls": "section-kicker",
+   "text": "世田谷店・2026年10月",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 292,
+    "y": 151,
+    "w": 152,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "figure-label",
+   "text": "今月の契約件数",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 177,
+    "w": 112,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "figure-value",
+   "text": "7",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "56px",
+   "fontWeight": "700",
+   "lineHeight": "58.8px",
+   "rect": {
+    "x": 292,
+    "y": 207,
+    "w": 58,
+    "h": 59
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "unit",
+   "text": "件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "20px",
+   "fontWeight": "600",
+   "lineHeight": "21px",
+   "rect": {
+    "x": 331,
+    "y": 237,
+    "w": 19,
+    "h": 24
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "figure-compare",
+   "text": "目標差 −2件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 269,
+    "w": 152,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "figure-label",
+   "text": "翌月の達成予測",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 476,
+    "y": 176,
+    "w": 112,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "figure-value",
+   "text": "11",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "28px",
+   "fontWeight": "700",
+   "lineHeight": "29.4px",
+   "rect": {
+    "x": 476,
+    "y": 206,
+    "w": 55,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "unit",
+   "text": "件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "16.8px",
+   "rect": {
+    "x": 516,
+    "y": 214,
+    "w": 15,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "figure-compare",
+   "text": "11月・予測範囲 7〜15件",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 476,
+    "y": 239,
+    "w": 231,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "figure-label",
+   "text": "バリ保の達成率",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 739,
+    "y": 176,
+    "w": 112,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "figure-value",
+   "text": "100%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "28px",
+   "fontWeight": "700",
+   "lineHeight": "29.4px",
+   "rect": {
+    "x": 739,
+    "y": 206,
+    "w": 81,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "figure-compare",
+   "text": "最も高い商品・店内1位／4名",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 739,
+    "y": 239,
+    "w": 231,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "figure-label",
+   "text": "安定度",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 1002,
+    "y": 176,
+    "w": 79,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "figure-value",
+   "text": "安定",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "28px",
+   "fontWeight": "700",
+   "lineHeight": "29.4px",
+   "rect": {
+    "x": 1002,
+    "y": 206,
+    "w": 55,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "figure-compare",
+   "text": "ばらつき ±2.1件",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 1002,
+    "y": 239,
+    "w": 231,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "cls": "tab",
+   "text": "今月の目標",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 335,
+    "w": 112,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "cls": "tab",
+   "text": "月次の推移",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 408,
+    "y": 335,
+    "w": 112,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "target-range",
+   "text": "商品別の目標レンジ",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 400,
+    "w": 202,
+    "h": 32
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "text": "商品",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 292,
+    "y": 444,
+    "w": 121,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "num",
+   "text": "実績",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 413,
+    "y": 444,
+    "w": 61,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "num",
+   "text": "ベースライン",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 474,
+    "y": 444,
+    "w": 131,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "num",
+   "text": "スタンダード目標",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 605,
+    "y": 444,
+    "w": 168,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "num",
+   "text": "チャレンジ",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 773,
+    "y": 444,
+    "w": 114,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "pl-6",
+   "text": "到達",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 887,
+    "y": 444,
+    "w": 196,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "num",
+   "text": "チャレンジまで",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 1083,
+    "y": 444,
+    "w": 150,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "font-semibold",
+   "text": "楽まる",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 292,
+    "y": 487,
+    "w": 121,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "1 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 413,
+    "y": 487,
+    "w": 61,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "2件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 474,
+    "y": 487,
+    "w": 131,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "2件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 605,
+    "y": 487,
+    "w": 168,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "3件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 773,
+    "y": 487,
+    "w": 114,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "pl-6",
+   "text": "未到達",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 887,
+    "y": 487,
+    "w": 196,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "あと2件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1083,
+    "y": 487,
+    "w": 150,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "font-semibold",
+   "text": "クレジット",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 292,
+    "y": 536,
+    "w": 121,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "2 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 413,
+    "y": 536,
+    "w": 61,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "2件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 474,
+    "y": 536,
+    "w": 131,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "2件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 605,
+    "y": 536,
+    "w": 168,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "3件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 773,
+    "y": 536,
+    "w": 114,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "pl-6",
+   "text": "スタンダード到達",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 887,
+    "y": 536,
+    "w": 196,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "あと1件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1083,
+    "y": 536,
+    "w": 150,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "font-semibold",
+   "text": "残クレ",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 292,
+    "y": 585,
+    "w": 121,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "3 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 413,
+    "y": 585,
+    "w": 61,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "3件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 474,
+    "y": 585,
+    "w": 131,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "4件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 605,
+    "y": 585,
+    "w": 168,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "6件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 773,
+    "y": 585,
+    "w": 114,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "pl-6",
+   "text": "ベースライン到達",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 887,
+    "y": 585,
+    "w": 196,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "あと3件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1083,
+    "y": 585,
+    "w": 150,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "font-semibold",
+   "text": "バリ保",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 292,
+    "y": 634,
+    "w": 121,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "1 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 413,
+    "y": 634,
+    "w": 61,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "1件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 474,
+    "y": 634,
+    "w": 131,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "1件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 605,
+    "y": 634,
+    "w": 168,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "2件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 773,
+    "y": 634,
+    "w": 114,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "pl-6",
+   "text": "スタンダード到達",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 887,
+    "y": 634,
+    "w": 196,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "あと1件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1083,
+    "y": 634,
+    "w": 150,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "advice",
+   "text": "提案アドバイス",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 722,
+    "w": 128,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h3",
+   "text": "楽まる",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "700",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 764,
+    "w": 451,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "font-semibold",
+   "text": "提案タイミング",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 801,
+    "w": 112,
+    "h": 51
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "車検満了日の6か月前から、車検の見積りを渡すときに提案します。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 428,
+    "y": 801,
+    "w": 315,
+    "h": 51
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "font-semibold",
+   "text": "訴求点",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 861,
+    "w": 112,
+    "h": 77
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "車両代金、税金、自賠責保険料、メンテナンス費用が月額料金に含まれ、月々のお支払いが定額になります。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 428,
+    "y": 861,
+    "w": 315,
+    "h": 77
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "font-semibold",
+   "text": "対象層",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 945,
+    "w": 112,
+    "h": 51
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "車検満了日が12か月以内のお客様と、まかせチャオに未加入のお客様です。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 428,
+    "y": 945,
+    "w": 315,
+    "h": 51
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "font-semibold",
+   "text": "商品の条件",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1005,
+    "w": 112,
+    "h": 102
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "契約期間は3年・5年・7年です。軽貨物は4年・6年です。月間走行距離は1,000kmか1,500kmから選びます。契約は個人のお客様に限ります。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 428,
+    "y": 1005,
+    "w": 315,
+    "h": 102
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h3",
+   "text": "残クレ",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "700",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 783,
+    "y": 764,
+    "w": 451,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "font-semibold",
+   "text": "提案タイミング",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 783,
+    "y": 801,
+    "w": 112,
+    "h": 51
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "満期の6か月前から、満期相談の来店のときに提案します。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 919,
+    "y": 801,
+    "w": 315,
+    "h": 51
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "font-semibold",
+   "text": "訴求点",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 783,
+    "y": 861,
+    "w": 112,
+    "h": 128
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "残価を満期まで据え置くため、月々のお支払い額を抑えられます。満期には、新車に乗り換える、そのまま乗り続ける（全額を口座引落か再クレジット）、車両を返却して終了の",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 919,
+    "y": 861,
+    "w": 315,
+    "h": 128
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "font-semibold",
+   "text": "対象層",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 783,
+    "y": 997,
+    "w": 112,
+    "h": 51
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "残クレの満期が6か月以内のお客様と、家族構成が夫婦と子どものお客様です。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 919,
+    "y": 997,
+    "w": 315,
+    "h": 51
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "font-semibold",
+   "text": "商品の条件",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 783,
+    "y": 1056,
+    "w": 112,
+    "h": 128
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "契約期間は3年・4年・5年（36回・48回・60回）です。軽貨物は2年（24回）も選べます。走行距離は月間1,000km以下で、1,500kmも選べます。実質年",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 919,
+    "y": 1056,
+    "w": 315,
+    "h": 128
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "cls": "text-sm text-[var(--shell-nav-fg)]",
+   "text": "ホンダファイナンスデータの最終更新：",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 1204,
+    "w": 941,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "whitespace-nowrap",
+   "text": "2026年10月24日 6:00",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 543,
+    "y": 1205,
+    "w": 149,
+    "h": 17
+   },
+   "clipped": false
+  }
+ ]
+}

@@ -1,0 +1,3003 @@
+{
+ "title": "販売店 | 販社ポータル",
+ "viewport": {
+  "width": 1280,
+  "height": 1200
+ },
+ "htmlClass": "",
+ "tokens": {
+  "--font-sans": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--font-mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--spacing": ".25rem",
+  "--container-md": "28rem",
+  "--container-3xl": "48rem",
+  "--font-weight-normal": "400",
+  "--font-weight-semibold": "600",
+  "--font-weight-bold": "700",
+  "--radius-sm": ".375rem",
+  "--radius-md": ".5rem",
+  "--radius-lg": ".75rem",
+  "--shadow-sm": "0 1px 2px 0 oklch(0% 0 0/.04)",
+  "--shadow-lg": "0 4px 16px 0 oklch(0% 0 0/.08)",
+  "--default-transition-duration": ".15s",
+  "--default-transition-timing-function": "cubic-bezier(.4, 0, .2, 1)",
+  "--default-font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--default-mono-font-family": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--color-background": "oklch(0.961 0 0)",
+  "--color-foreground": "oklch(0.218 0 0)",
+  "--color-surface": "oklch(1 0 0)",
+  "--color-primary": "oklch(0.531 0.218 29)",
+  "--color-primary-foreground": "oklch(1 0 0)",
+  "--color-muted": "oklch(0.976 0 0)",
+  "--color-muted-foreground": "oklch(0.52 0 0)",
+  "--color-border": "oklch(0.922 0 0)",
+  "--color-destructive": "oklch(0.429 0.176 29)",
+  "--color-accent": "oklch(0.546 0.215 263)",
+  "--font-display": "\"Inter\", ui-serif, serif",
+  "--font-body": "\"Inter\", ui-sans-serif, sans-serif",
+  "--radius-full": "9999px",
+  "--ease-standard": "cubic-bezier(.4, 0, .2, 1)",
+  "--brand-background": "oklch(0.961 0 0)",
+  "--brand-foreground": "oklch(0.218 0 0)",
+  "--brand-surface": "oklch(1 0 0)",
+  "--brand-primary": "oklch(0.531 0.218 29)",
+  "--brand-primary-foreground": "oklch(1 0 0)",
+  "--brand-muted": "oklch(0.976 0 0)",
+  "--brand-muted-foreground": "oklch(0.52 0 0)",
+  "--brand-border": "oklch(0.922 0 0)",
+  "--brand-destructive": "oklch(0.429 0.176 29)",
+  "--brand-accent": "oklch(0.546 0.215 263)",
+  "--duration-fast": ".15s",
+  "--duration-base": ".25s",
+  "--duration-slow": ".4s",
+  "--sidebar-width": "260px",
+  "--content-max-width": "1440px",
+  "--shell-nav-fg": "oklch(0.3388 0 0)",
+  "--shell-hover": "oklch(0.218 0 0 / 0.025)",
+  "--shell-active": "oklch(0.531 0.218 29 / 0.06)",
+  "--shell-ring": "oklch(0.531 0.218 29 / 0.08)",
+  "--shell-border-hover": "oklch(0.7612 0 0)",
+  "--chart-brand": "oklch(0.531 0.218 29)",
+  "--chart-1": "oklch(0.546 0.215 263)",
+  "--chart-2": "oklch(0.43696 0 0)",
+  "--chart-3": "oklch(0.71852 0.1333 299.86)",
+  "--chart-4": "oklch(0.62464 0 0)",
+  "--chart-band": "oklch(0.546 0.215 263 / 0.14)",
+  "--tint-primary": "color(srgb 0.983933 0.91983 0.92075)",
+  "--tint-accent": "oklch(0.9546 0.0215 350.3)",
+  "--primary-text": "oklch(0.531 0.218 29)",
+  "--accent-text": "oklch(0.4476 0.1505 292.1)",
+  "--lightningcss-light": "",
+  "--lightningcss-dark": ""
+ },
+ "horizontalOverflow": false,
+ "scrollWidth": 1280,
+ "pageHeight": 1200,
+ "headings": [
+  {
+   "level": 1,
+   "text": "販売店"
+  },
+  {
+   "level": 2,
+   "text": "販売店の達成率"
+  },
+  {
+   "level": 2,
+   "text": "販売店一覧"
+  }
+ ],
+ "landmarks": [
+  {
+   "sel": "header",
+   "count": 1
+  },
+  {
+   "sel": "nav",
+   "count": 1
+  },
+  {
+   "sel": "main",
+   "count": 1
+  },
+  {
+   "sel": "aside",
+   "count": 1
+  },
+  {
+   "sel": "footer",
+   "count": 0
+  },
+  {
+   "sel": "form",
+   "count": 1
+  },
+  {
+   "sel": "[role]",
+   "count": 5
+  }
+ ],
+ "controlsTotal": 36,
+ "controls": [
+  {
+   "tag": "a",
+   "text": "ホーム",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/"
+  },
+  {
+   "tag": "a",
+   "text": "販売店",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/stores"
+  },
+  {
+   "tag": "a",
+   "text": "スタッフ",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/staff"
+  },
+  {
+   "tag": "a",
+   "text": "市場動向",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/market"
+  },
+  {
+   "tag": "a",
+   "text": "契約",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/contracts"
+  },
+  {
+   "tag": "a",
+   "text": "見積り",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/estimates"
+  },
+  {
+   "tag": "a",
+   "text": "車種",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/vehicles"
+  },
+  {
+   "tag": "a",
+   "text": "金利・キャンペーン",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/rates"
+  },
+  {
+   "tag": "a",
+   "text": "お知らせ2",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/notices"
+  },
+  {
+   "tag": "a",
+   "text": "問い合わせ1",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/inquiries"
+  },
+  {
+   "tag": "a",
+   "text": "よくあるご質問・資料",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/library"
+  },
+  {
+   "tag": "a",
+   "text": "使い方ガイド",
+   "w": 235,
+   "h": 41,
+   "labelled": true,
+   "href": "#/guide"
+  },
+  {
+   "tag": "button",
+   "text": "メニュー",
+   "w": 0,
+   "h": 0,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "input",
+   "text": "契約を検索",
+   "w": 230,
+   "h": 26,
+   "labelled": true,
+   "type": "search"
+  },
+  {
+   "tag": "button",
+   "text": "高",
+   "w": 36,
+   "h": 36,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "select",
+   "text": "今月直近3か月直近6か月直近12か月前年同期比較",
+   "w": 144,
+   "h": 44,
+   "labelled": true
+  },
+  {
+   "tag": "div",
+   "text": "",
+   "w": 22,
+   "h": 22,
+   "labelled": true
+  },
+  {
+   "tag": "svg",
+   "text": "0%25%50%75%100%さいたま店千葉中央店立川店横浜北店世田谷店",
+   "w": 956,
+   "h": 240,
+   "labelled": true
+  },
+  {
+   "tag": "g",
+   "text": "",
+   "w": 824,
+   "h": 202,
+   "labelled": true,
+   "inline": true
+  },
+  {
+   "tag": "g",
+   "text": "",
+   "w": 0,
+   "h": 0,
+   "labelled": true,
+   "inline": true
+  },
+  {
+   "tag": "g",
+   "text": "",
+   "w": 0,
+   "h": 0,
+   "labelled": true,
+   "inline": true
+  },
+  {
+   "tag": "g",
+   "text": "",
+   "w": 0,
+   "h": 0,
+   "labelled": true,
+   "inline": true
+  },
+  {
+   "tag": "g",
+   "text": "",
+   "w": 789,
+   "h": 194,
+   "labelled": true,
+   "inline": true
+  },
+  {
+   "tag": "g",
+   "text": "",
+   "w": 0,
+   "h": 0,
+   "labelled": true,
+   "inline": true
+  },
+  {
+   "tag": "g",
+   "text": "",
+   "w": 0,
+   "h": 202,
+   "labelled": true,
+   "inline": true
+  },
+  {
+   "tag": "g",
+   "text": "",
+   "w": 0,
+   "h": 0,
+   "labelled": true,
+   "inline": true
+  },
+  {
+   "tag": "g",
+   "text": "",
+   "w": 0,
+   "h": 0,
+   "labelled": true,
+   "inline": true
+  },
+  {
+   "tag": "g",
+   "text": "",
+   "w": 0,
+   "h": 0,
+   "labelled": true,
+   "inline": true
+  },
+  {
+   "tag": "g",
+   "text": "",
+   "w": 0,
+   "h": 0,
+   "labelled": true,
+   "inline": true
+  },
+  {
+   "tag": "g",
+   "text": "0%25%50%75%100%さいたま店千葉中央店立川店横浜北店世田谷店",
+   "w": 916,
+   "h": 212,
+   "labelled": true,
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "全販売店",
+   "w": 60,
+   "h": 19,
+   "labelled": true,
+   "href": "#/stores/all?period=month",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "世田谷店",
+   "w": 60,
+   "h": 19,
+   "labelled": true,
+   "href": "#/stores/s1?period=month",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "横浜北店",
+   "w": 60,
+   "h": 19,
+   "labelled": true,
+   "href": "#/stores/s2?period=month",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "千葉中央店",
+   "w": 75,
+   "h": 19,
+   "labelled": true,
+   "href": "#/stores/s3?period=month",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "さいたま店",
+   "w": 75,
+   "h": 19,
+   "labelled": true,
+   "href": "#/stores/s4?period=month",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "立川店",
+   "w": 45,
+   "h": 19,
+   "labelled": true,
+   "href": "#/stores/s5?period=month",
+   "inline": true
+  }
+ ],
+ "elementsTotal": 378,
+ "textTruncated": false,
+ "scope": {
+  "tag": "main",
+  "rect": {
+   "x": 260,
+   "y": 0,
+   "w": 1020,
+   "h": 1200
+  }
+ },
+ "boxes": [
+  {
+   "tag": "header",
+   "cls": "content-header",
+   "rect": {
+    "x": 260,
+    "y": 0,
+    "w": 1020,
+    "h": 77
+   },
+   "depth": 0,
+   "parentBox": null,
+   "children": 2,
+   "hasDigit": false
+  }
+ ],
+ "boxesTotal": 1,
+ "gaps": [
+  {
+   "parent": "main.main-content",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.content-header__tools",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.content-body",
+   "values": [
+    20,
+    20
+   ]
+  },
+  {
+   "parent": "div.control-row",
+   "values": [
+    40
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "dl.facts",
+   "values": [
+    32,
+    32
+   ]
+  },
+  {
+   "parent": "div",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.analysis-stack",
+   "values": [
+    40
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "table",
+   "values": [
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "tbody",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "table.table",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tbody",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.font-semibold",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "gapsTotal": 29,
+ "text": [
+  {
+   "tag": "div",
+   "cls": "sidebar-logo",
+   "text": "H",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "16px",
+   "fontWeight": "800",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 24,
+    "y": 27,
+    "w": 36,
+    "h": 36
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "sidebar-title",
+   "text": "販社ポータル",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16.8px",
+   "fontWeight": "700",
+   "lineHeight": "26.88px",
+   "rect": {
+    "x": 72,
+    "y": 20,
+    "w": 100,
+    "h": 27
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "sidebar-subtitle",
+   "text": "世田谷店",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 72,
+    "y": 48,
+    "w": 100,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "ホーム",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 103,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "分析",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 148,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item active",
+   "text": "販売店",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(0.531 0.218 29 / 0.06)",
+   "backgroundBase": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "600",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 195,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "スタッフ",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 238,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "市場動向",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 281,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "提案",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 325,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "契約",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 373,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "見積り",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 415,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "車種",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 458,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "金利・キャンペーン",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 501,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "ホンダファイナンス",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 545,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "お知らせ",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 593,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "nav-badge",
+   "text": "2",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "12px",
+   "fontWeight": "700",
+   "lineHeight": "19.2px",
+   "rect": {
+    "x": 201,
+    "y": 602,
+    "w": 22,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "問い合わせ",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 635,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "nav-badge",
+   "text": "1",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "12px",
+   "fontWeight": "700",
+   "lineHeight": "19.2px",
+   "rect": {
+    "x": 201,
+    "y": 644,
+    "w": 22,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "よくあるご質問・資料",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 678,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "使い方ガイド",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 1081,
+    "w": 235,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-avatar",
+   "text": "高",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.546 0.215 263)",
+   "fontSize": "14px",
+   "fontWeight": "700",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 20,
+    "y": 1137,
+    "w": 34,
+    "h": 34
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-name",
+   "text": "高橋 美咲",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 64,
+    "y": 1131,
+    "w": 60,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-role",
+   "text": "店長",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 64,
+    "y": 1154,
+    "w": 60,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h1",
+   "cls": "content-title",
+   "text": "販売店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "21.6px",
+   "fontWeight": "700",
+   "lineHeight": "34.56px",
+   "rect": {
+    "x": 292,
+    "y": 21,
+    "w": 64,
+    "h": 35
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-bold",
+   "text": "高",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "700",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 1223,
+    "y": 28,
+    "w": 14,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "text-sm font-semibold text-[var(--shell-nav-fg)]",
+   "text": "期間",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 105,
+    "w": 144,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "text": "エリア達成率",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 476,
+    "y": 117,
+    "w": 169,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "81.3%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "20px",
+   "fontWeight": "700",
+   "lineHeight": "32px",
+   "rect": {
+    "x": 476,
+    "y": 141,
+    "w": 169,
+    "h": 32
+   },
+   "clipped": false
+  },
+  {
+   "tag": "small",
+   "text": "前月比 −53.7pt",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 546,
+    "y": 150,
+    "w": 99,
+    "h": 17
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "text": "販売店数",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 677,
+    "y": 117,
+    "w": 73,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "5 販売店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "20px",
+   "fontWeight": "700",
+   "lineHeight": "32px",
+   "rect": {
+    "x": 677,
+    "y": 141,
+    "w": 73,
+    "h": 32
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "text": "営業スタッフ数",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 782,
+    "y": 117,
+    "w": 98,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "text": "20 名",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "20px",
+   "fontWeight": "700",
+   "lineHeight": "32px",
+   "rect": {
+    "x": 782,
+    "y": 141,
+    "w": 98,
+    "h": 32
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "achievement-chart",
+   "text": "販売店の達成率",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 193,
+    "w": 129,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "tspan",
+   "text": "0%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 401,
+    "y": 448,
+    "w": 23,
+    "h": 17
+   },
+   "clipped": false
+  },
+  {
+   "tag": "tspan",
+   "text": "25%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 602,
+    "y": 448,
+    "w": 32,
+    "h": 17
+   },
+   "clipped": false
+  },
+  {
+   "tag": "tspan",
+   "text": "50%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 808,
+    "y": 448,
+    "w": 32,
+    "h": 17
+   },
+   "clipped": false
+  },
+  {
+   "tag": "tspan",
+   "text": "75%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 1014,
+    "y": 448,
+    "w": 32,
+    "h": 17
+   },
+   "clipped": false
+  },
+  {
+   "tag": "tspan",
+   "text": "100%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 1209,
+    "y": 448,
+    "w": 41,
+    "h": 17
+   },
+   "clipped": false
+  },
+  {
+   "tag": "tspan",
+   "text": "さいたま店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 334,
+    "y": 254,
+    "w": 70,
+    "h": 17
+   },
+   "clipped": false
+  },
+  {
+   "tag": "tspan",
+   "text": "千葉中央店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 334,
+    "y": 294,
+    "w": 70,
+    "h": 17
+   },
+   "clipped": false
+  },
+  {
+   "tag": "tspan",
+   "text": "立川店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 362,
+    "y": 334,
+    "w": 42,
+    "h": 17
+   },
+   "clipped": false
+  },
+  {
+   "tag": "tspan",
+   "text": "横浜北店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 348,
+    "y": 375,
+    "w": 56,
+    "h": 17
+   },
+   "clipped": false
+  },
+  {
+   "tag": "tspan",
+   "text": "世田谷店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 348,
+    "y": 415,
+    "w": 56,
+    "h": 17
+   },
+   "clipped": false
+  },
+  {
+   "tag": "caption",
+   "text": "販売店の達成率",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 291,
+    "y": 473,
+    "w": 176,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "text": "販売店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "700",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 291,
+    "y": 499,
+    "w": 80,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "text": "達成率（%）",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "700",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 371,
+    "y": 499,
+    "w": 96,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "text": "さいたま店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "700",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 291,
+    "y": 525,
+    "w": 80,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "text": "95.8",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 371,
+    "y": 525,
+    "w": 96,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "text": "千葉中央店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "700",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 291,
+    "y": 550,
+    "w": 80,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "text": "84.2",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 371,
+    "y": 550,
+    "w": 96,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "text": "立川店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "700",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 291,
+    "y": 576,
+    "w": 80,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "text": "84",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 371,
+    "y": 576,
+    "w": 96,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "text": "横浜北店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "700",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 291,
+    "y": 601,
+    "w": 80,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "text": "79.4",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 371,
+    "y": 601,
+    "w": 96,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "text": "世田谷店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "700",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 291,
+    "y": 627,
+    "w": 80,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "text": "68.8",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 371,
+    "y": 627,
+    "w": 96,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "store-list",
+   "text": "販売店一覧",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 514,
+    "w": 92,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "text": "販売店",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 292,
+    "y": 556,
+    "w": 95,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "text": "店長",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 387,
+    "y": 556,
+    "w": 84,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "num",
+   "text": "営業スタッフ数",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 471,
+    "y": 556,
+    "w": 118,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "num",
+   "text": "ペネトレーション",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 589,
+    "y": 556,
+    "w": 132,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "num",
+   "text": "95%区間",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 721,
+    "y": 556,
+    "w": 116,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "num",
+   "text": "契約件数",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 837,
+    "y": 556,
+    "w": 76,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "num",
+   "text": "前年同月比",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 913,
+    "y": 556,
+    "w": 90,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "num",
+   "text": "スタンダード目標",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 1003,
+    "y": 556,
+    "w": 132,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "num",
+   "text": "達成率",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 1135,
+    "y": 556,
+    "w": 68,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "num",
+   "text": "前月比",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 1203,
+    "y": 556,
+    "w": 78,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "num",
+   "text": "エリア内順位",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 1281,
+    "y": 556,
+    "w": 104,
+    "h": 43
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "全販売店",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 302,
+    "y": 613,
+    "w": 60,
+    "h": 19
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 387,
+    "y": 599,
+    "w": 84,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "20 名",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 471,
+    "y": 599,
+    "w": 118,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "38.9%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 589,
+    "y": 599,
+    "w": 132,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "33.4〜44.8%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 721,
+    "y": 599,
+    "w": 116,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "109 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 837,
+    "y": 599,
+    "w": 76,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "+1.9pt",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 913,
+    "y": 599,
+    "w": 90,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "134 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1003,
+    "y": 599,
+    "w": 132,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "81.3%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1135,
+    "y": 599,
+    "w": 68,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "−53.7pt",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1203,
+    "y": 599,
+    "w": 78,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1281,
+    "y": 599,
+    "w": 104,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "世田谷店",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 302,
+    "y": 662,
+    "w": 60,
+    "h": 19
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "text": "高橋 美咲",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 387,
+    "y": 648,
+    "w": 84,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "4 名",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 471,
+    "y": 648,
+    "w": 118,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "38.6%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 589,
+    "y": 648,
+    "w": 132,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "27.1〜51.6%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 721,
+    "y": 648,
+    "w": 116,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "22 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 837,
+    "y": 648,
+    "w": 76,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "−2.9pt",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 913,
+    "y": 648,
+    "w": 90,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "32 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1003,
+    "y": 648,
+    "w": 132,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "68.8%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1135,
+    "y": 648,
+    "w": 68,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "−53.1pt",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1203,
+    "y": 648,
+    "w": 78,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "5位",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1281,
+    "y": 648,
+    "w": 104,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "横浜北店",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 302,
+    "y": 711,
+    "w": 60,
+    "h": 19
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "text": "伊藤 大輔",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 387,
+    "y": 697,
+    "w": 84,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "4 名",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 471,
+    "y": 697,
+    "w": 118,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "39.7%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 589,
+    "y": 697,
+    "w": 132,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "28.9〜51.6%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 721,
+    "y": 697,
+    "w": 116,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "27 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 837,
+    "y": 697,
+    "w": 76,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "+5.4pt",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 913,
+    "y": 697,
+    "w": 90,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "34 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1003,
+    "y": 697,
+    "w": 132,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "79.4%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1135,
+    "y": 697,
+    "w": 68,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "−50.0pt",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1203,
+    "y": 697,
+    "w": 78,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "4位",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1281,
+    "y": 697,
+    "w": 104,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "千葉中央店",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 302,
+    "y": 760,
+    "w": 75,
+    "h": 19
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "text": "小林 誠",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 387,
+    "y": 746,
+    "w": 84,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "4 名",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 471,
+    "y": 746,
+    "w": 118,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "32.0%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 589,
+    "y": 746,
+    "w": 132,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "20.8〜45.8%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 721,
+    "y": 746,
+    "w": 116,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "16 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 837,
+    "y": 746,
+    "w": 76,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "−1.3pt",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 913,
+    "y": 746,
+    "w": 90,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "19 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1003,
+    "y": 746,
+    "w": 132,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "84.2%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1135,
+    "y": 746,
+    "w": 68,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "−47.4pt",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1203,
+    "y": 746,
+    "w": 78,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "2位",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1281,
+    "y": 746,
+    "w": 104,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "さいたま店",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 302,
+    "y": 809,
+    "w": 75,
+    "h": 19
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "text": "山田 直樹",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 387,
+    "y": 795,
+    "w": 84,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "4 名",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 471,
+    "y": 795,
+    "w": 118,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "38.3%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 589,
+    "y": 795,
+    "w": 132,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "27.1〜51.0%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 721,
+    "y": 795,
+    "w": 116,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "23 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 837,
+    "y": 795,
+    "w": 76,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "+7.8pt",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 913,
+    "y": 795,
+    "w": 90,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "24 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1003,
+    "y": 795,
+    "w": 132,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "95.8%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1135,
+    "y": 795,
+    "w": 68,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "−66.7pt",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1203,
+    "y": 795,
+    "w": 78,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "1位",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1281,
+    "y": 795,
+    "w": 104,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "立川店",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 302,
+    "y": 858,
+    "w": 45,
+    "h": 19
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "text": "木村 恵",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 387,
+    "y": 844,
+    "w": 84,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "4 名",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 471,
+    "y": 844,
+    "w": 118,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "46.7%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 589,
+    "y": 844,
+    "w": 132,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "32.9〜60.9%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 721,
+    "y": 844,
+    "w": 116,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "21 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 837,
+    "y": 844,
+    "w": 76,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "−0.1pt",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 913,
+    "y": 844,
+    "w": 90,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "25 件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1003,
+    "y": 844,
+    "w": 132,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "84.0%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1135,
+    "y": 844,
+    "w": 68,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "−52.0pt",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1203,
+    "y": 844,
+    "w": 78,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num",
+   "text": "3位",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1281,
+    "y": 844,
+    "w": 104,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "cls": "text-sm text-[var(--shell-nav-fg)]",
+   "text": "ホンダファイナンスデータの最終更新：",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 927,
+    "w": 956,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "whitespace-nowrap",
+   "text": "2026年10月24日 6:00",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 543,
+    "y": 928,
+    "w": 149,
+    "h": 17
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "id": "recharts_measurement_span",
+   "text": "さいたま店",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 0,
+    "y": -20000,
+    "w": 70,
+    "h": 22
+   },
+   "clipped": false
+  }
+ ]
+}

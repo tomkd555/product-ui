@@ -1,0 +1,85 @@
+# url: https://codemyspec.com/blog/vibe-coded-websites-look-the-same
+# accessed: 2026-10-30
+# chars: 15641
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Why Vibe Coded Websites All Look the Same CodeMySpec Product Overview Design system Behavior Supported agents Rebuild service Install Developers Method Pricing Blog Docs Log in Start free How to Keep 
+Your Website From Looking Like Every Other Vibe Coded Website By John Davenport · Published on July 26, 2026 Vibe coded websites look alike because nobody decided how yours should look, so the model 
+used the average of every site it trained on. Fixing it takes five decisions about theme, color, type, layout and tone, made once and written down, plus a rule that every page you build afterward has 
+to follow them. Better prompting page by page does not work, and the rest of this explains why. Your site is not ugly, it is indistinguishable The problem is sameness, not quality. Most vibe coded 
+sites are competently built: the spacing is even, the contrast mostly works, nothing is broken. They fail because a visitor has already seen forty sites with the same gradient and the same three 
+cards, and the recognition arrives before they read a single word. That recognition is expensive, because appearance does more work than most builders think. In the Stanford Web Credibility Project, 
+“design look” was the thing people mentioned most often when judging whether a site could be trusted, showing up in 46.1% of comments, and rising to 54.6% on finance sites. That data comes from 2002, 
+so treat it as the shape of the finding rather than a current number. The shape has not changed. Here is the part that surprises people. Conventional design is not the problem. Tuch, Presslaber and 
+colleagues showed people 119 real website screenshots and found that visual complexity and conventionality both shift how attractive a site looks within 50 milliseconds, and in a follow-up study 
+within 17. Complicated sites scored worse. Conventional sites scored better . The answer is not to get weird. Familiar layouts work, and reinventing your navigation to look distinctive will cost you 
+customers. The trouble is narrower than that: your site looks like the untouched output of a tool your visitor has also opened. What they read from it is that nobody decided anything here, and they 
+extend that assumption to your prices, your product and whether you will answer an email. Conventional is fine. Visibly undecided is not. Why every vibe coded website converges on one look Models 
+converge because unremarkable design choices dominate their training data, and a request that leaves the look open gets answered with the middle of that distribution. Anthropic named the mechanism in 
+November 2025: “During sampling, models predict tokens based on statistical patterns in training data. Safe design choices–those that work universally and offend no one–dominate web training data.” 
+The same post names the result, “Inter fonts, purple gradients on white backgrounds, and minimal animations,” and then names what it costs you: “immediately recognizable—and dismissible.” Anthropic’s 
+own cookbook says the quiet part on the record: “Claude can generate high-quality frontends, but without guidance it tends toward generic, conservative designs,” and it “defaults to safe choices 
+unless explicitly encouraged otherwise.” Ask for a landing page without saying what it should look like and you get the median landing page. Ten thousand people ask the same way and get ten thousand 
+copies of it. Nobody did anything wrong. The request was underspecified, and underspecified requests resolve to the average. The tells, in the order a visitor notices them Two independent inventories 
+have cataloged the signature, and they agree. Open your homepage on a phone and count. The purple to blue gradient , usually in the hero, sometimes as a glow behind a card, with colored box shadows 
+in the same family. A centered hero in Inter , with a small pill-shaped badge sitting directly above the headline. Three identical cards in a row , each with a centered icon, each about a third of 
+the width. The same running order every time: hero, features grid, social proof, pricing, FAQ, footer. Soft everything. Every corner heavily rounded, every card carrying the same drop shadow, often 
+with a frosted glass panel somewhere. Emoji doing the work of icons in the navigation or the feature list, and section labels set in all caps. Copy that could belong to any company. Empower , Unlock ,
+ Transform , and feature names built from two nouns in the shape of Seamless Integration . If you want the underlying class names, the recurring ones are indigo-600 and slate-900 for color, 
+rounded-2xl and rounded-3xl for the corners, and shadow-lg with p-6 on the cards. The two inventories: Adrian Krebs, 16 patterns that out a site as vibe coded , and Alan West, how to fix the 
+AI-generated look . Six of these and your site is recognizable in under a second. The purple is not your tool’s default This one is worth knowing, because it changes where you point the repair. 
+shadcn/ui, the component library behind most of these builders, does not ship a purple theme. Its default primary color is oklch(0.205 0 0) in light mode and oklch(0.922 0 0) in dark. The middle 
+number in each is saturation, and zero means no color at all. The shipped default is near black on white. Tailwind, the styling system underneath, is equally innocent. It ships more than twenty named 
+color families at eleven shades each and assigns none of them as your primary. That is a deliberate choice on their part, and the right one. Both hand you a blank. The purple arrives when a model 
+fills that blank, because bg-indigo-500 and its neighbors saturate the tutorials, galleries and starter templates the model learned from. Switching component libraries will not help you, because the 
+gap is not in the library. It sits between the library’s blank and your page, and only a decision closes it. Prompting your way out moves the cluster instead of leaving it Art direction supplied page 
+by page fails for a documented reason: the anti-slop advice grew its own cluster. Anthropic’s frontend design skill, written specifically to counteract generic output, now warns against three looks 
+by name: “a warm cream background (near #F4F1EA) with a high-contrast serif display and a terracotta accent” “a near-black background with a single bright acid-green or vermilion accent” “a 
+broadsheet-style layout with hairline rules, zero border-radius, and dense newspaper-like columns” “All three are legitimate for some briefs, but they are defaults rather than choices, and they 
+appear regardless of subject.” Tell a model to avoid purple and be distinctive and it walks to the next densest cluster. In 2026 that cluster is cream, serif and terracotta. You have moved, not 
+escaped. Anyone who tells you their prompt produces distinctive output is describing a cluster they have not noticed yet. The second failure compounds the first. Art direction supplied one page at a 
+time does not carry to the next page. Nothing holds the corner radius you picked on the pricing page when the model writes your contact page, except its recollection of a conversation that truncates 
+as you work. Six pages art-directed one at a time drift into six dialects of the same site, which is the version of this problem people spot on their own once they scroll. What each tool leans toward 
+v0 defaults to shadcn/ui, and its own documentation explains why fighting that gets expensive: v0 “is specifically trained on the default implementations of the shadcn/ui components and may struggle 
+with any customizations.” You supply a system through registries built on Vercel’s starter template. Lovable generates React, Tailwind and shadcn/ui, and treats a design system as a Lovable project 
+marked as one, released as a version, then attached to your other projects. Bolt defaults to the same stack, takes Figma and GitHub imports, and per Anna Arteeva’s cross-tool comparison “needs 
+explicit guidance for detailed design consistency.” Replit enforces no default, which sounds like freedom and works out as the opposite: it “requires manual direction for strict design-system 
+adherence.” Claude ships a frontend design skill and a cookbook prompt whose whole purpose is counteracting its own defaults. Three of the four builders default to one stack, which is why sites from 
+different tools rhyme. The more useful observation is where the vendors landed. v0 built registries. Lovable built design-system projects. Anthropic wrote a design skill. Three teams working 
+independently reached the same conclusion: supply the system up front, because per-page prompting does not hold it. If you are still choosing between builders, that comparison lives in v0 versus 
+Lovable . The five decisions Five decisions, one afternoon, whatever tool you build with. Write the answers in one file. Vague answers are what the model fills in for you later. Theme. Pick a named 
+starting theme or commit to a custom one. Naming it matters more than which one you pick, because a name is something later work can point at. Color. Assign a primary, a secondary, an accent and a 
+neutral, and write the actual values. Renaming indigo to primary changes the label, not the palette. Tie each color to something real in your business so you remember why it is there. Type. One 
+heading scale, picked from something like compact, default or spacious. One or two families, with a reason for each. Anything other than Inter clears the most common tell in a single move. Layout. 
+Navigation as sidebar, top nav or hybrid. Content width narrow, medium or wide. The page shapes you actually need, which for most sites is a home page, a detail page, a form and a list. Tone. Density 
+from spare to information dense. Corner radius. Shadow depth from none to pronounced. The feeling you want, in one word. Answer those and the model has almost nothing left to invent. That is the 
+entire mechanism. You are not trying to out-design the training distribution. You are removing the vacuum it rushes into. A worked example This site runs on a theme decided that way, and the values 
+sit in the stylesheet where anyone can check them. The framework’s built-in themes are switched off. Two custom themes replace them, light and dark, and the comment above them records the intent: 
+earthy and warm, deliberately not a terminal and not the purple and blue vibe-coder look. Light mode ground is #fdfcf9 , warm limestone, with ink at #23211b . The three brand colors carry meaning 
+rather than decoration: petrol teal #146b68 for Build, bronze #97652b for Operate, sage #556a38 for Grow. Those are the three things the product does, so the palette stays memorable to the people 
+maintaining it. Dark mode carries the same three roles at #4fb3ac , #c79a57 and #9db36f . Shape and depth get decided once and both themes share them. Corner radius at half a rem on fields, one rem 
+on cards, hairline borders, one step of depth, no noise texture. Type is one family for body and headings, IBM Plex Sans, served from this domain rather than a font CDN, with JetBrains Mono held back 
+for the occasional command. Social preview images use the same palette rather than a parallel one. The generator draws the title on #191813 with the teal, bronze and sage swatches, and no image model 
+touches it. That is the real test of whether a design system exists: the same values turn up in the places nobody remembers to check. None of that was expensive. It is one afternoon of deciding, 
+recorded in one file. Make every page cite the decision Writing a design system down accomplishes nothing on its own. A file that nothing obliges the model to open is a file the model skips. Two 
+mechanisms give it teeth, and both are cheap enough to copy whatever you build with. Require a design section on every page before it gets built. In CodeMySpec, a page specification is invalid 
+without one, alongside its route, its interactions and its dependencies. The section is plain prose: how the page is laid out, which components it uses, what happens on a narrow screen. Writing it 
+drags the choice into the open before any code exists, and it gives you something to disagree with while disagreeing is still free. Put the reference in the instructions the model receives. The 
+design rules that ship for pages and components tell the agent to read the project’s design system before building any interface, use the classes and theme values defined there, and not invent colors 
+or component patterns that deviate from it. Those rules get loaded into the prompt for the work, so the instruction arrives attached to the task instead of sitting in a document somebody hopes gets 
+opened. What those two mechanisms do not do matters as much, so here it is plainly. Nothing renders your page and compares it against the design system. The check confirms a design section exists and 
+is complete, not that the built page obeyed it. The rule tells the agent to read the design system file, so if you never made the five decisions, the rule points at nothing. This keeps decisions in 
+front of the model. It is not a compiler for visual style, and anybody selling you that is overstating what current tooling does. That shape is the whole approach at CodeMySpec: decide once through a 
+structured process, record it where the work has to reference it, and stop renegotiating the same question every session. Design is one instance, which is why the product centers on working a process 
+rather than writing better prompts . Sameness and slop code are different problems Visual sameness is one decision nobody made. Slop code is the opposite: hundreds of decisions made inconsistently by 
+a model with no memory of the previous file. People talk about them together and they need different repairs. One design system that later pages cite fixes the look. Verification that runs on every 
+change fixes the code, and that argument, with the priority order for what to check first, sits in how to prevent slop in AI-generated codebases . Plenty of sites have both at once. If yours does, 
+the path from prototype to something you can sell runs through rebuilding a vibe-coded app . {{enforced_spec_cta shape=”aside” headline=”Every vibe-coded site converges on the same three sections 
+because nothing wrote down what this one is.” sub=”A design decision nobody recorded is a design decision the next generation quietly discards.” body=”CodeMySpec keeps the decision in the repo as a 
+spec, and the build blocks when the code stops matching it.” label=”Write the decision down where it holds” campaign=”vibe-coded-websites-look-the-same”}} Where to start Open your site on a phone and 
+count the tells. Then answer the five questions, put the answers in one file, and make the next page you build reference that file. One afternoon of deciding pays for itself on every page you have 
+not built yet, and it is the cheapest work in the project, because nothing has to be torn down to do it. The interview that walks those five decisions, the file it produces, and the rules that hold 
+later pages to it live on the design system page . The rest of the process sits on the product page . Product Overview For developers Supported agents Design system Behavior Rebuild service Install 
+Methodology Pricing Case Studies Get Started Content Blog Documentation Pages Founder Story About Legal Privacy Policy Terms of Service EULA Connect GitHub LinkedIn X / Twitter YouTube © 2026 
+CodeMySpec One person. A whole software company. We can't find the internet Attempting to reconnect Something went wrong! Attempting to reconnect CodeMySpec Product Developers Supported agents Design 
+system Rebuild service Method Pricing Blog Docs Log in Start free

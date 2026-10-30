@@ -1,0 +1,70 @@
+# url: https://doi.org/10.18653/v1/2025.findings-acl.1329
+# accessed: 2026-10-30
+# chars: 12488
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Human Bias in the Face of AI: Examining Human Judgment Against Text Labeled as AI Generated - ACL Anthology ACL Anthology About Announcements Communication channels Related work Copyright Credits 
+Volunteer Development Feedback Using Author directory Citing papers Links in the Anthology Data access All FAQs Details Anthology identifiers Names ORCID iDs DOIs Verified authors Contributions 
+Submissions Corrections Maintain author pages Attachments GitHub Human Bias in the Face of AI : Examining Human Judgment Against Text Labeled as AI Generated Tiffany Zhu , Iain Weissburg , Kexun 
+Zhang , William Yang Wang Correct Metadata for Use this form to create a GitHub issue with structured data describing the correction. You will need a GitHub account. Once you create that issue, the 
+correction will be reviewed by a staff member. ⚠️ Mobile Users: Submitting this form to create a new issue will only work with github.com, not the GitHub Mobile app. Important : The Anthology treat 
+PDFs as authoritative. Please use this form only to correct data that is out of line with the PDF. See our corrections guidelines if you need to change the PDF. Title Adjust the title. Retain tags 
+such as <fixed-case>. Authors Adjust author names and order to match the PDF. Add Author Abstract Correct abstract if needed. Retain XML formatting tags such as <tex-math>. You may use <b>...</b> for 
+bold , <i>...</i> for italic , <u>...</u> for underline , <sc>...</sc> for small-caps , <tt>...<tt> for typewriter text , <url>...</url> for URLs, <a href=...> for hyperlinks, and <par/> for 
+paragraph breaks. Verification against PDF Ensure that the new title/authors match the snapshot below. (If there is no snapshot or it is too small, consult the PDF .) Authors concatenated from the 
+text boxes above: ALL author names match the snapshot above—including middle initials, hyphens, and accents. Create GitHub issue for staff review Abstract As Al advances in text generation, human 
+trust in Al generated content remains constrained by biases that go beyond concerns of accuracy. This study explores how bias shapes the perception of AI versus human generated content. Through three 
+experiments involving text rephrasing, news article summarization, and persuasive writing, we investigated how human raters respond to labeled and unlabeled content. While the raters could not 
+differentiate the two types of texts in the blind test, they overwhelmingly favored content labeled as “Human Generated,” over those labeled “AI Generated,” by a preference score of over 30%. We 
+observed the same pattern even when the labels were deliberately swapped. This human bias against AI has broader societal and cognitive implications, as it undervalues AI performance. This study 
+highlights the limitations of human judgment in interacting with AI and offers a foundation for improving human-AI collaboration, especially in creative fields. Anthology ID: 2025.findings-acl.1329 
+Volume: Findings of the Association for Computational Linguistics: ACL 2025 Month: July Year: 2025 Address: Vienna, Austria Editors: Wanxiang Che , Joyce Nabende , Ekaterina Shutova , Mohammad Taher 
+Pilehvar Venue: Findings SIG: Publisher: Association for Computational Linguistics Note: Pages: 25907–25914 Language: URL: https://aclanthology.org/2025.findings-acl.1329/ DOI: 10.18653/v1/2025.
+findings-acl.1329 Bibkey: zhu-etal-2025-human Cite (ACL): Tiffany Zhu, Iain Weissburg, Kexun Zhang, and William Yang Wang. 2025. Human Bias in the Face of AI: Examining Human Judgment Against Text 
+Labeled as AI Generated . In Findings of the Association for Computational Linguistics: ACL 2025 , pages 25907–25914, Vienna, Austria. Association for Computational Linguistics. Cite (Informal): 
+Human Bias in the Face of AI: Examining Human Judgment Against Text Labeled as AI Generated (Zhu et al., Findings 2025) Copy Citation: BibTeX Markdown MODS XML Endnote More options... PDF: 
+https://aclanthology.org/2025.findings-acl.1329.pdf PDF Cite Search Fix data Export citation BibTeX MODS XML Endnote Preformatted @inproceedings{zhu-etal-2025-human, title = "Human Bias in the Face 
+of {AI}: Examining Human Judgment Against Text Labeled as {AI} Generated", author = "Zhu, Tiffany and Weissburg, Iain and Zhang, Kexun and Wang, William Yang", editor = "Che, Wanxiang and Nabende, 
+Joyce and Shutova, Ekaterina and Pilehvar, Mohammad Taher", booktitle = "Findings of the {A}ssociation for {C}omputational {L}inguistics: {ACL} 2025", month = jul, year = "2025", address = "Vienna, 
+Austria", publisher = "Association for Computational Linguistics", url = "https://aclanthology.org/2025.findings-acl.1329/", doi = "10.18653/v1/2025.findings-acl.1329", pages = "25907--25914", ISBN = 
+"979-8-89176-256-5", abstract = "As Al advances in text generation, human trust in Al generated content remains constrained by biases that go beyond concerns of accuracy. This study explores how bias 
+shapes the perception of AI versus human generated content. Through three experiments involving text rephrasing, news article summarization, and persuasive writing, we investigated how human raters 
+respond to labeled and unlabeled content. While the raters could not differentiate the two types of texts in the blind test, they overwhelmingly favored content labeled as ``Human Generated,'' over 
+those labeled ``AI Generated,'' by a preference score of over 30{\%}. We observed the same pattern even when the labels were deliberately swapped. This human bias against AI has broader societal and 
+cognitive implications, as it undervalues AI performance. This study highlights the limitations of human judgment in interacting with AI and offers a foundation for improving human-AI collaboration, 
+especially in creative fields." } Download as File Copy to Clipboard <?xml version="1.0" encoding="UTF-8"?> <modsCollection xmlns="http://www.loc.gov/mods/v3"> <mods ID="zhu-etal-2025-human"> 
+<titleInfo> <title>Human Bias in the Face of AI: Examining Human Judgment Against Text Labeled as AI Generated</title> </titleInfo> <name type="personal"> <namePart type="given">Tiffany</namePart> 
+<namePart type="family">Zhu</namePart> <role> <roleTerm authority="marcrelator" type="text">author</roleTerm> </role> </name> <name type="personal"> <namePart type="given">Iain</namePart> <namePart 
+type="family">Weissburg</namePart> <role> <roleTerm authority="marcrelator" type="text">author</roleTerm> </role> </name> <name type="personal"> <namePart type="given">Kexun</namePart> <namePart 
+type="family">Zhang</namePart> <role> <roleTerm authority="marcrelator" type="text">author</roleTerm> </role> </name> <name type="personal"> <namePart type="given">William</namePart> <namePart 
+type="given">Yang</namePart> <namePart type="family">Wang</namePart> <role> <roleTerm authority="marcrelator" type="text">author</roleTerm> </role> </name> <originInfo> 
+<dateIssued>2025-07</dateIssued> </originInfo> <typeOfResource>text</typeOfResource> <relatedItem type="host"> <titleInfo> <title>Findings of the Association for Computational Linguistics: ACL 
+2025</title> </titleInfo> <name type="personal"> <namePart type="given">Wanxiang</namePart> <namePart type="family">Che</namePart> <role> <roleTerm authority="marcrelator" 
+type="text">editor</roleTerm> </role> </name> <name type="personal"> <namePart type="given">Joyce</namePart> <namePart type="family">Nabende</namePart> <role> <roleTerm authority="marcrelator" 
+type="text">editor</roleTerm> </role> </name> <name type="personal"> <namePart type="given">Ekaterina</namePart> <namePart type="family">Shutova</namePart> <role> <roleTerm authority="marcrelator" 
+type="text">editor</roleTerm> </role> </name> <name type="personal"> <namePart type="given">Mohammad</namePart> <namePart type="given">Taher</namePart> <namePart type="family">Pilehvar</namePart> 
+<role> <roleTerm authority="marcrelator" type="text">editor</roleTerm> </role> </name> <originInfo> <publisher>Association for Computational Linguistics</publisher> <place> <placeTerm 
+type="text">Vienna, Austria</placeTerm> </place> </originInfo> <genre authority="marcgt">conference publication</genre> <identifier type="isbn">979-8-89176-256-5</identifier> </relatedItem> 
+<abstract>As Al advances in text generation, human trust in Al generated content remains constrained by biases that go beyond concerns of accuracy. This study explores how bias shapes the perception 
+of AI versus human generated content. Through three experiments involving text rephrasing, news article summarization, and persuasive writing, we investigated how human raters respond to labeled and 
+unlabeled content. While the raters could not differentiate the two types of texts in the blind test, they overwhelmingly favored content labeled as “Human Generated,” over those labeled “AI 
+Generated,” by a preference score of over 30%. We observed the same pattern even when the labels were deliberately swapped. This human bias against AI has broader societal and cognitive implications, 
+as it undervalues AI performance. This study highlights the limitations of human judgment in interacting with AI and offers a foundation for improving human-AI collaboration, especially in creative 
+fields.</abstract> <identifier type="citekey">zhu-etal-2025-human</identifier> <identifier type="doi">10.18653/v1/2025.findings-acl.1329</identifier> <location> <url>https://aclanthology.org/2025.
+findings-acl.1329/</url> </location> <part> <date>2025-07</date> <extent unit="page"> <start>25907</start> <end>25914</end> </extent> </part> </mods> </modsCollection> Download as File Copy to 
+Clipboard %0 Conference Proceedings %T Human Bias in the Face of AI: Examining Human Judgment Against Text Labeled as AI Generated %A Zhu, Tiffany %A Weissburg, Iain %A Zhang, Kexun %A Wang, William 
+Yang %Y Che, Wanxiang %Y Nabende, Joyce %Y Shutova, Ekaterina %Y Pilehvar, Mohammad Taher %S Findings of the Association for Computational Linguistics: ACL 2025 %D 2025 %8 July %I Association for 
+Computational Linguistics %C Vienna, Austria %@ 979-8-89176-256-5 %F zhu-etal-2025-human %X As Al advances in text generation, human trust in Al generated content remains constrained by biases that 
+go beyond concerns of accuracy. This study explores how bias shapes the perception of AI versus human generated content. Through three experiments involving text rephrasing, news article 
+summarization, and persuasive writing, we investigated how human raters respond to labeled and unlabeled content. While the raters could not differentiate the two types of texts in the blind test, 
+they overwhelmingly favored content labeled as “Human Generated,” over those labeled “AI Generated,” by a preference score of over 30%. We observed the same pattern even when the labels were 
+deliberately swapped. This human bias against AI has broader societal and cognitive implications, as it undervalues AI performance. This study highlights the limitations of human judgment in 
+interacting with AI and offers a foundation for improving human-AI collaboration, especially in creative fields. %R 10.18653/v1/2025.findings-acl.1329 %U https://aclanthology.org/2025.findings-acl.
+1329/ %U https://doi.org/10.18653/v1/2025.findings-acl.1329 %P 25907-25914 Download as File Copy to Clipboard Markdown (Informal) [Human Bias in the Face of AI: Examining Human Judgment Against Text 
+Labeled as AI Generated](https://aclanthology.org/2025.findings-acl.1329/) (Zhu et al., Findings 2025) Human Bias in the Face of AI: Examining Human Judgment Against Text Labeled as AI Generated (Zhu 
+et al., Findings 2025) ACL Tiffany Zhu, Iain Weissburg, Kexun Zhang, and William Yang Wang. 2025. Human Bias in the Face of AI: Examining Human Judgment Against Text Labeled as AI Generated . In 
+Findings of the Association for Computational Linguistics: ACL 2025 , pages 25907–25914, Vienna, Austria. Association for Computational Linguistics. Copy Markdown to Clipboard Copy ACL to Clipboard 
+ACL materials are Copyright © 1963–2026 ACL; other materials are copyrighted by their respective copyright holders. Materials prior to 2016 here are licensed under the Creative Commons 
+Attribution-NonCommercial-ShareAlike 3.0 International License . Permission is granted to make copies for the purposes of teaching and research. Materials published in or after 2016 are licensed on a 
+Creative Commons Attribution 4.0 International License . The ACL Anthology is managed and built by the ACL Anthology team of volunteers. Site last built on 30 October 2026 at 05:12 UTC with commit 
+15f4cc3 .

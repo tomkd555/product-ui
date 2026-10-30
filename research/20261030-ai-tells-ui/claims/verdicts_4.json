@@ -1,0 +1,37 @@
+[
+  {
+    "cid": "C16",
+    "verdict": "partial",
+    "reason": "All 7 publishers name Inter, Roboto, Arial or system fonts as the default, but only 4 (E3 'Inter everywhere', E5 'for every word', E104 'Inter for everything', E108 'Never the system font or Inter/Geist flat') say one face is used for all text; E1, E13 and E95 name the fonts as overused defaults without the 'used for every word' scope.",
+    "found": "Default typeface Inter, Roboto or the system stack for every word, no display face (capitalandcompute); Typography : Inter, Roboto, or Arial (the “safe” system fonts that appear in thousands of examples) (prg.sh); Overused font families (Inter, Roboto, Arial, system fonts) (Anthropic cookbook); A centered hero in Inter (codemyspec)",
+    "source": "https://capitalandcompute.net/blog/fix-ai-slop-design/"
+  },
+  {
+    "cid": "C17",
+    "verdict": "supported",
+    "reason": "The cited 925studios page states the quoted reason verbatim in its section on the font, two lines before the stored E4 quote; the stored E4 quote ('the single loudest AI tell in 2026') belongs to the gradient section and should be replaced with the Inter passage.",
+    "found": "The tell is not that Inter is bad, it is that Inter unchosen signals nobody made a typography decision.",
+    "source": "https://www.925studios.co/blog/ai-slop-design-tells"
+  },
+  {
+    "cid": "C18",
+    "verdict": "partial",
+    "reason": "Only E7, E13 and E100 describe both one radius on everything and the same shadow under every card; E11 (noqta) and E108 (anti-ai-slop) describe uniform radius with no mention of shadow, and E116 describes a large radius with a faint shadow on the three feature cards, not one radius on every element.",
+    "found": "1. Oversized border radius everywhere. Cards, buttons, inputs, badges, and images all rounded to the same exaggerated radius. (noqta, no shadow on page); カードの角丸は大きめ(border-radius: 16px前後)で、うっすら影がついている。 (note/chitosedev); identical rounded cards, one border-radius on everything regardless of hierarchy, the same soft grey shadow (rgba(0,0,0,.1)) under each (Anthropic SKILL.md)",
+    "source": "https://noqta.tn/blog/ai-design-slop-overused-ui-patterns-fix-2026"
+  },
+  {
+    "cid": "C19",
+    "verdict": "supported",
+    "reason": "Each cited page names the stated values: codemyspec the Tailwind classes, Anthropic's SKILL.md the rgba(0,0,0,.1) shadow, and the chitosedev note a radius around 16px with a faint shadow.",
+    "found": "the recurring ones are indigo-600 and slate-900 for color, rounded-2xl and rounded-3xl for the corners, and shadow-lg with p-6 on the cards. / the same soft grey shadow (rgba(0,0,0,.1)) under each / カードの角丸は大きめ(border-radius: 16px前後)で、うっすら影がついている。",
+    "source": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same"
+  },
+  {
+    "cid": "C20",
+    "verdict": "partial",
+    "reason": "All 7 publishers name three feature cards or boxes, but only E3 ('evenly'), E13 ('Three identical cards in a row'), E35 ('three identical feature cards') and E116 ('完全に等幅') say the cards are equal; E1 ('Three-column grids with icons'), E6 ('three feature cards') and E115 ('特徴カード3枚') do not state that they are equal.",
+    "found": "Layouts : Three-column grids with icons (the structure of every SaaS landing page template) (prg.sh); Stock page order Centred hero, pill badge, two buttons, logo row, three feature cards, pricing, CTA (capitalandcompute); 特徴カード3枚。 (note/nikki_r2d2)",
+    "source": "https://prg.sh/ramblings/Why-Your-AI-Keeps-Building-the-Same-Purple-Gradient-Website"
+  }
+]

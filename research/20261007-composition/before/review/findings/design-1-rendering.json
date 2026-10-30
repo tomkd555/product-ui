@@ -1,0 +1,40 @@
+{
+  "perspective": "P1 Rendering soundness",
+  "viewport": "both",
+  "findings": [
+    {
+      "id": "P1-1",
+      "severity": "WARNING",
+      "location": "span.badge (キャンペーン, 商品) index-Da_oL6iI.css:1, dark-1280 and dark-375",
+      "evidence": "surface merge badge fill on card fill: dark dump gives the category badge background oklch(0.222 0.01 268) on the card background oklch(0.232 0.02 272) (rect 801,334 101x28 at dark-1280). The two surfaces differ by 0.01 in lightness, so in dark-1280.png and dark-375.png (unread-notices card, rows 1 to 3) the pill outline almost vanishes and the badge reads as bare text. Text colour oklch(0.8598 0.0118 276) is legible, so R1 does not flag it; the light theme keeps a visible pill (oklch(0.976) on oklch(1)).",
+      "fix": "Give .badge a dark-theme fill or 1px border that separates it from --color-surface (for example --brand-border as a border, or a muted value at least 0.05 lighter or darker than the surface)."
+    },
+    {
+      "id": "P1-2",
+      "severity": "WARNING",
+      "location": "p.text-sm (last-updated line) index.html / index-DKXolRs7.js, 375 and dark-375",
+      "evidence": "Japanese line break inside a date: the dump text is \"ホンダファイナンスデータの最終更新： 2026年10月24日 6:00\" (rect 16,1014 343x40 at 375, two lines). The screenshot shows the wrap between \"2026年10月\" and \"24日 6:00\", so the date is split across lines. At 1280 the rect is 956x20 (one line).",
+      "fix": "Wrap the timestamp \"2026年10月24日 6:00\" in a span with white-space: nowrap (or inline-block) so the break falls after the colon."
+    },
+    {
+      "id": "P1-3",
+      "severity": "NOTE",
+      "location": "div.card.kpi span label/value index.html, 1280 and 375",
+      "evidence": "misaligned 24px label-to-value gap: the KPI label span (id _r_8_l) ends at y=317 and its value span (_r_8_v) starts at y=341 at 375 (card rect 16,280 343x139), a 24px gap inside a flex gap of 4px. In the first card at 375 the two-line label (rect 33,138 253x40) ends at 178 and the value starts at 182, a 4px gap. Same two cards, two different label-to-value distances. At 1280 both cards show the 24px gap (labels y122 h20, values y166), so the single-line label floats away from its figure.",
+      "fix": "Remove the reserved two-line label height, or align the value to the label bottom (items-start, no min-height on the label wrapper) so the gap is the same in both cards at every width."
+    },
+    {
+      "id": "P1-4",
+      "severity": "NOTE",
+      "location": "li a row 満期3か月以内で意向未確認の契約 index.html, 375 and dark-375",
+      "evidence": "tight fit: label span rect 37,625 256x26 holds 16 full-width characters at 16px (256px, no slack) and the count \"4\" starts at x=305, leaving 12px between label end (293) and count. A longer label or a larger system font would wrap the label or push it onto the count.",
+      "fix": "Allow the label to wrap (min-w-0 with the count flex-none) or keep the count in its own column with a gap of at least 16px."
+    }
+  ],
+  "out_of_scope_notes": [
+    "P2/P3: the brief asks for one dominant figure with no tile row and a two-to-one supporting pane. The rendered Home shows two equal KPI tiles (rect 292,105 468x139 and 780,105 468x139) above two equal 468px cards, so the dominant element is missing and the pane is 1:1.",
+    "P2: all four cards share one border, radius and surface, and the 要対応 card (h=229) ends at y=493 while the notices card (h=307) ends at y=571; the brief wanted sections on the ground without panels.",
+    "P0/R3: R-3 reports 1.62:1 for the active nav item \"ホーム\" in dark. The screenshot shows that label legible on the red tint, so the measured pair may have been computed without compositing the 0.22-alpha background; the lead may want to confirm before treating it as a CRITICAL."
+  ],
+  "checked_scope": "1280, 375, dark-1280 and dark-375 screenshots read, with the 1280, 375 and dark-1280 dumps (rects, text colours, gaps, controls, headings). Overlap: no intersecting rects in the main content at any width; the sidebar sits off-canvas at 375 (x -248 to -23) behind the 36px menu button, whose opening was not exercised in this static capture. Alignment: card gutters are 20px horizontally and vertically at 1280, page margins 32px both sides, 16px at 375. Reflow at 375: single column, cards 343px wide, no horizontal overflow (scrollWidth 375), all 1280 content present. Images, icons and data: icons present in the nav and KPI cards, no NaN, undefined or mojibake in the dump text, no empty box. Japanese wrapping: the KPI label breaks at \"の / ホンダ…\" cleanly; the last-updated line splits a date (P1-2). Dark theme: card surface oklch(0.232) against the ground oklch(0.178) is distinguishable, text and links legible; badge fill merges into the surface (P1-1). Files read outside the assigned list: plan.md (brief) and design-0-measured.json, to avoid re-reporting R-1 to R-6."
+}

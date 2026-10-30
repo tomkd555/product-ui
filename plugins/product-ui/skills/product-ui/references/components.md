@@ -26,10 +26,11 @@ Tailwind-only (Vite): `npm install -D tailwindcss @tailwindcss/vite`, add `tailw
 ## Rules that hold in every component
 
 - Colours, fonts, radii and shadows come from `theme.css` variables (`bg-background`, `text-muted-foreground`, `rounded-md`, `shadow-sm`); a literal in a class string is what `check_slop.py` S1 reports.
+- `accent` takes shadcn's meaning: `bg-accent` is the hover and selected surface. The product's highlight colour is `bg-brand-accent` / `text-brand-accent`. Tailwind's default palette classes (`bg-blue-600`) are S1 errors unless `theme.css` defines that colour name.
 - Text sizes follow `references/ban-list.md`: body `text-base` (16px), UI text `text-sm` (14px) or larger, and `text-xs` (12px) only on a Latin-only run of at most 24 characters. `text-[Npx]` under 14 is an ST7 error unless the run is Latin-only, at most 24 characters, and at least 12px.
 - Every form ships its states (`required`, `aria-invalid`, `aria-describedby`, a `FormMessage`) or `check_slop.py` S10 stops the pipeline.
 - Mobile first: base classes for the narrow layout, `md:` and `lg:` variants for wider; inputs keep 16px on mobile so iOS Safari does not zoom.
-- Dark mode uses the `.dark` class and the `dark:` variant on every themed element, drawing on the single palette in `theme.css`.
+- Dark mode toggles the `.dark` class on the root; themed utilities (`bg-background`, `text-foreground`) follow it through the two tiers in `theme.css`, so an element takes a `dark:` variant only where its dark appearance departs from its token, and then with a token class.
 - Utility classes on the element are the default; extract a component only for real repetition.
 - `Card` is for one unit in a browsed heterogeneous set, or for a group that distance cannot separate; a section of the page is a heading and spacing on the ground, and a `Card` inside a `Card` is `check_slop.py` S11 (`references/composition.md`).
 

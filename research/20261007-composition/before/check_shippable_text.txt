@@ -1,0 +1,3 @@
+WARN  [ST10] C:\Mycode\ClaudeCode\hansya_Portal_V3\src\shell.portal-shell.css:191: .nav-badge declares 12px, which holds only where every element it reaches is a Latin-only run of at most 24 characters
+      '.nav-badge { font-size: 0.75rem }' -> raise the declared size to 14px (12px only where every element the rule reaches is a Latin-only run of at most 24 characters), or delete the rule
+PASS: 0 error(s), 1 warning(s) across 40 file(s)

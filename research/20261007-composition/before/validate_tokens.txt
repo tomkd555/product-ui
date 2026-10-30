@@ -1,0 +1,4 @@
+ERROR [T18] meta.users: required and non-empty when surface is 'saas'; name each user group (role, frequency, expertise, job, basis)
+WARN  [T5] typography.display.family: 'Inter' is on the forbidden list; see references/tokens-format.md
+WARN  [T5] typography.body.family: 'Inter' is on the forbidden list; see references/tokens-format.md
+FAIL: 1 error(s), 2 warning(s)

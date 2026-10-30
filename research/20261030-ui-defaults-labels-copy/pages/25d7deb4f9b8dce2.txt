@@ -1,0 +1,34 @@
+# url: https://smarthr.design/products/contents/idiomatic-usage/
+# accessed: 2026-10-30
+# chars: 5457
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+用字用語 | ライティング | SmartHR Design System さがす はじめに 基本原則 基本要素 アクセシビリティ プロダクト コミュニケーション はじめに 基本原則 基本要素 アクセシビリティ プロダクト コミュニケーション さがす 利用規約 お問い合わせ・フィードバック 運用ガイドライン 更新情報(X) 別タブで開く 運営会社 別タブで開く プロダクト デザイン原則 
+ユーザビリティ(使用性) UIデザイン使用性チェックリスト 情報設計レビュー UIレビュー ユーザビリティテスト ユーザビリティテストの計画をはじめる ユーザビリティテスト設計の観点 ファシリテーションの心得 ユーザビリティテストの被験者になったら 情報設計 情報設計のアウトプット ユーザーの業務の説明 概念モデル オブジェクトモデル ビューの呼び出し関係 メインナビゲーション デザイントークン 
+色 タイポグラフィ 余白 角丸 レイヤー順序 影 メディアクエリ 行送り 幅 コンポーネント AccordionPanel AppHeader AppNavi Badge Base(非推奨) BaseColumn(非推奨) BottomFixedArea(非推奨) Browser Button Calendar Checkbox Chip Combobox MultiCombobox 
+SingleCombobox DatePicker(非推奨) DefinitionList Dialog ActionDialog FormDialog MessageDialog ModelessDialog RemoteDialogTrigger StepFormDialog Disclosure DropZone Dropdown DropdownMenuButton 
+FilterDropdown SortDropdown ErrorScreen AuthErrorScreen ForbiddenErrorScreen NotFoundErrorScreen UnauthorizedErrorScreen UnexpectedErrorScreen Fieldset FileViewer FloatArea FormControl Formatter 
+DateFormatter TimeFormatter TimestampFormatter Groupbox Header AppLauncher(非推奨) LanguageSwitcher Heading PageHeading Icon InformationPanel Input CurrencyInput SearchInput InputFile Layout Center 
+Cluster Container Reel Sidebar Stack LineClamp(非推奨) Loader NotificationBar PageCounter Pagination Panel Picker DatetimeLocalPicker(非推奨) MonthPicker(非推奨) TimePicker(非推奨) RadioButton RadioButtonPanel 
+ResponseMessage Scroller SectioningContent SegmentedControl Select SideMenu SideNav SmartHRAILogo SmartHRLogo SpreadsheetTable StatusLabel RequiredLabel Stepper Switch TabBar Table Text TextLink 
+HelpLink UpwardLink Textarea Timeline Tooltip VisuallyHiddenText WarekiPicker デザインパターン 視線誘導 視覚的グルーピング ページレイアウト 余白の取り方 モバイルレイアウト フィードバック モーダルなUI ウィザード 権限による表示制御 よくあるテーブル よくあるリスト テーブル内の一括操作 デフォルト値 
+ワンクッション必要な操作 削除ダイアログ 値がない項目の表示 複数の入力要素を持つ入力フィールド 権限設定 バックグラウンド処理 ドラッグ&ドロップ 企業アカウント選択 選択コンポーネントの使い分け 「基本機能」の共通設定 「基本機能」の共通設定の操作権限項目 デザインデータ デザインデータ(Figma)の作り方 デザインデータ(Figma)の更新をライブラリに適用する手順 ライティング 
+ライティングガイドラインの使い方 基本的な考え方 用字用語 索引 漢字とひらがなの使い分け カタカナ語の表記 数字・数えの表記 記号(括弧、句点、スペースなど)の表記 SmartHRの用語 操作を表す用語 コンポーネントの呼び方 その他類似する用語の使い分け UIテキスト ヘルプページへの動線 通知メール ステータス ファイル名 アカウントや従業員の表記 CSVファイルの取り込みによる一括操作 
+その他のUIテキスト エラーメッセージ エラーメッセージの基本的な考え方 バックグラウンド処理のライティングパターン NotificationBarのライティングパターン ヘルプページ ヘルプセンターの構造設計 ヘルプページの構成 ヘルプページの書き方 概要の書き方 操作手順の書き方 仕様の一覧の書き方 エラーメッセージごとの対応方法の書き方 よくある質問の書き方 
+ヘルプセンターで使用する画像要素 コンテンツレビュー リリースノート リリースノートの基本的な考え方 リリースノートの書き方 「アクセシビリティの向上」に分類される文言の変更 AI アプリケーション・機能のネーミング ヘルプページ リソース プロダクト デザイン原則 ユーザビリティ(使用性) UIデザイン使用性チェックリスト 情報設計レビュー UIレビュー ユーザビリティテスト 
+ユーザビリティテストの計画をはじめる ユーザビリティテスト設計の観点 ファシリテーションの心得 ユーザビリティテストの被験者になったら 情報設計 情報設計のアウトプット ユーザーの業務の説明 概念モデル オブジェクトモデル ビューの呼び出し関係 メインナビゲーション デザイントークン 色 タイポグラフィ 余白 角丸 レイヤー順序 影 メディアクエリ 行送り 幅 コンポーネント 
+AccordionPanel AppHeader AppNavi Badge Base(非推奨) BaseColumn(非推奨) BottomFixedArea(非推奨) Browser Button Calendar Checkbox Chip Combobox MultiCombobox SingleCombobox DatePicker(非推奨) DefinitionList Dialog 
+ActionDialog FormDialog MessageDialog ModelessDialog RemoteDialogTrigger StepFormDialog Disclosure DropZone Dropdown DropdownMenuButton FilterDropdown SortDropdown ErrorScreen AuthErrorScreen 
+ForbiddenErrorScreen NotFoundErrorScreen UnauthorizedErrorScreen UnexpectedErrorScreen Fieldset FileViewer FloatArea FormControl Formatter DateFormatter TimeFormatter TimestampFormatter Groupbox 
+Header AppLauncher(非推奨) LanguageSwitcher Heading PageHeading Icon InformationPanel Input CurrencyInput SearchInput InputFile Layout Center Cluster Container Reel Sidebar Stack LineClamp(非推奨) Loader 
+NotificationBar PageCounter Pagination Panel Picker DatetimeLocalPicker(非推奨) MonthPicker(非推奨) TimePicker(非推奨) RadioButton RadioButtonPanel ResponseMessage Scroller SectioningContent SegmentedControl 
+Select SideMenu SideNav SmartHRAILogo SmartHRLogo SpreadsheetTable StatusLabel RequiredLabel Stepper Switch TabBar Table Text TextLink HelpLink UpwardLink Textarea Timeline Tooltip VisuallyHiddenText 
+WarekiPicker デザインパターン 視線誘導 視覚的グルーピング ページレイアウト 余白の取り方 モバイルレイアウト フィードバック モーダルなUI ウィザード 権限による表示制御 よくあるテーブル よくあるリスト テーブル内の一括操作 デフォルト値 ワンクッション必要な操作 削除ダイアログ 値がない項目の表示 複数の入力要素を持つ入力フィールド 権限設定 バックグラウンド処理 
+ドラッグ&ドロップ 企業アカウント選択 選択コンポーネントの使い分け 「基本機能」の共通設定 「基本機能」の共通設定の操作権限項目 デザインデータ デザインデータ(Figma)の作り方 デザインデータ(Figma)の更新をライブラリに適用する手順 ライティング ライティングガイドラインの使い方 基本的な考え方 用字用語 索引 漢字とひらがなの使い分け カタカナ語の表記 数字・数えの表記 
+記号(括弧、句点、スペースなど)の表記 SmartHRの用語 操作を表す用語 コンポーネントの呼び方 その他類似する用語の使い分け UIテキスト ヘルプページへの動線 通知メール ステータス ファイル名 アカウントや従業員の表記 CSVファイルの取り込みによる一括操作 その他のUIテキスト エラーメッセージ エラーメッセージの基本的な考え方 バックグラウンド処理のライティングパターン 
+NotificationBarのライティングパターン ヘルプページ ヘルプセンターの構造設計 ヘルプページの構成 ヘルプページの書き方 概要の書き方 操作手順の書き方 仕様の一覧の書き方 エラーメッセージごとの対応方法の書き方 よくある質問の書き方 ヘルプセンターで使用する画像要素 コンテンツレビュー リリースノート リリースノートの基本的な考え方 リリースノートの書き方 
+「アクセシビリティの向上」に分類される文言の変更 AI アプリケーション・機能のネーミング ヘルプページ リソース 用字用語とは フィードバック先 ページ内目次 用字用語とは フィードバック先 用字用語 用字用語とは 「用字用語」とは、用いる字(平仮名、カタカナ、漢字、英数字)や語(単語、熟語)のことです。 ユーザーが判断に迷わない表記をするために、用字用語を定めます。 
+特に日本語は、平仮名・カタカナ・漢字・英字と多種の文字を使用するため、用字のルールがないと表記のユレが生じやすくなります。 フィードバック先 気になることがあったときには、気軽にUXライターに声をかけてください。 また、記載内容に関する質問、用字用語の追加依頼は、社内Slack #design_system相談 チャンネルにワークフローも用意しています。こちらも利用してみてください。 前へ 
+基本的な考え方 次へ 索引 SmartHR Design System さがす 利用規約 お問い合わせ・フィードバック 運用ガイドライン 更新情報(X) 別タブで開く 運営会社 別タブで開く はじめに 利用者のかたへ コンテンツ構成 運営理念 基本原則 基本要素 ロゴ 色 タイポグラフィ アイコン イラストレーション メタ情報 伝わる文章 アクセシビリティ アクセシビリティの品質基準とプロセス 
+アクセシビリティガイドライン アクセシビリティインサイト 多言語化の品質基準とプロセス 多言語化のガイドライン プロダクト デザイン原則 ユーザビリティ(使用性) 情報設計 デザイントークン コンポーネント デザインパターン デザインデータ ライティング リソース コミュニケーション 写真・動画 アイキャッチ スライド・資料 名刺 画面キャプチャ 端末モック サンプル集 © SmartHR, 
+Inc.

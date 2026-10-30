@@ -1,0 +1,84 @@
+# url: https://landingdoctors.com/guides/why-ai-landing-pages-convert-worse
+# accessed: 2026-10-30
+# chars: 15439
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Why AI-Generated Landing Pages Convert Worse (and the 6 Fixes That Move the Needle) Landing Doctor Sample report Methodology Teardowns White-label Pricing Reviews EN Sign in Audit my page → Sample 
+report Methodology Teardowns White-label Pricing Reviews Audit my page → AI-Era CRO Why AI-Generated Landing Pages Convert Worse (and the 6 Fixes That Move the Needle) You shipped a clean page from 
+v0, Lovable, or Framer AI in an afternoon — and conversion is flat. The problem usually isn't the tool; it's that AI optimizes for "looks done," not "makes a stranger act." Here are the six failure 
+modes that show up again and again in AI-built pages, and the exact rewrite move for each. The paradox Ships in an afternoon, converts like nothing changed You know the moment. The page looks 
+production-grade — clean hero, tidy feature cards, a logo bar, a pricing table, a tasteful FAQ. It took an hour in v0, Lovable, or Framer AI. You ship it, refresh your analytics two weeks later, and 
+the signup line is flat. The reflex is to blame traffic. Usually that's the wrong diagnosis. Here's what actually happened. AI generators are trained on the average of the web. An LLM predicts the 
+most likely next token, which means the copy and layout it produces converge on the median of every page it was trained on. That is the exact opposite of what conversion requires. A page converts 
+when a specific stranger reads it and thinks "this is for me, and I know what to do next." The median page says "this is a real SaaS company" — and nothing more. So the AI page is plausible and 
+complete. It looks like the category. It does not differentiate, and it does not drive a decision. Plausible is not the same as persuasive. The good news: this is fixable copy-and-structure work, not 
+a throw-it-away situation. The visual scaffold from v0 or Framer is usually fine — often genuinely good. What needs human hands is the headline, the value prop, the proof, and the objection handling. 
+Below are six named failure modes that recur in AI-built pages. Each comes with a tell (how to spot it in 30 seconds) and a move (exactly what to change). The diagnosis The 6 failure modes (and the 
+fix for each) These map directly to six of the dimensions in our rubric: clarity, value prop, social proof, CTA, objections, and trust. Find the one that bites your page hardest and start there. 1. 
+Generic hero, no message match Tell: the headline could belong to any company in the category — "The modern platform for teams," "Streamline your workflow," "Built for the way you work." Swap in a 
+competitor's logo and it still reads true. Move: rewrite to a specific outcome for a specific person — who they are and what they walk away able to do. Then match the headline to the ad or link that 
+drove the click, so the page echoes the promise that got them here. Generic-to-specific is the single highest-leverage edit on most AI pages. 2. AI-slop value prop Tell: feature soup built from 
+abstract nouns and adjectives — powerful, seamless, AI-driven, end-to-end, robust, intuitive — with no concrete before/after. It sounds polished and says nothing. Move: replace each abstraction with 
+a measurable change or a named job-to-be-done. Not "powerful analytics" but "see which page killed the signup, in one click." Show the specific thing the user can now do that they couldn't before. 3. 
+Hallucinated or borrowed proof Tell: invented testimonials, placeholder logos still sitting in the bar, or a precise stat with no source — "trusted by 10,000 teams," "increase conversions 312%." The 
+model filled the proof slot with a confident guess. Move: strip anything you can't verify. Then use the real proof you do have — one named customer, a product screenshot, a founder's own before/after 
+number. Real and modest beats fake and impressive every time a visitor smells the fake. 4. Samey template structure Tell: hero → three feature cards → logo bar → pricing → FAQ, in that exact default 
+order, identical to a thousand other AI pages. The structure is a template, not an argument. Move: reorder around your buyer's actual decision sequence — answer what they doubt first, build to the 
+part that makes them act. Cut any section that doesn't earn its scroll. Sequence is persuasion; default order is just furniture. 5. Weak, decorative CTA Tell: a single "Get Started" button repeated 
+down the page, a form asking for more than it needs, and no statement of what happens after the click. Move: make the CTA copy name the outcome — "Audit my page free" beats "Get started." Reduce form 
+fields to the minimum that lets you deliver value, and add a one-line micro-reassurance under the button ("No card. Results in 60 seconds."). Tell the user exactly what happens next. 6. Zero 
+objection handling Tell: the page only sells upside. It never touches price, switching cost, trust, or the quiet "will this actually work for someone like me?" AI sells the dream; it rarely argues 
+against the doubt. Move: write down your buyer's top three reasons not to convert, then answer each inline, near the relevant CTA. An unaddressed objection is a silent exit. Self-diagnosis How to 
+audit your AI-built page in 15 minutes Run this on your v0, Lovable, or Framer page before you change a single pixel. Six passes, no tools, brutally honest. 1. The stranger test Read only the hero — 
+headline, subhead, CTA. Hand it to someone who's never heard of you. Can they say what it does, who it's for, and what to do next? If any of the three is fuzzy, clarity is your first fix and nothing 
+below matters until it's solved. 2. The adjective hunt Highlight every abstract word: powerful, seamless, modern, AI-driven, robust, intuitive, scalable. Each highlight is a spot where the model 
+substituted vibes for substance. Replace it with a concrete outcome or cut it. The page should get shorter and sharper. 3. The proof audit List every claim and number on the page. For each, ask: can 
+I cite a real source, screenshot, or named customer? If not, it isn't an asset — it's a liability the moment a sharp visitor notices. Remove it or replace it with something true. 4. The 
+above-the-fold check Open the page on your phone. What's visible before you scroll? AI loves decorative hero whitespace that pushes the real value prop and CTA below the first screen. If a mobile 
+visitor sees art instead of an offer, you're leaking before the page even starts. 5. The objection gap Write your buyer's top three reasons not to convert. Now find where the page answers each one. 
+Empty cells are your highest-leverage fixes — every unanswered doubt is a visitor talking themselves out of clicking. 6. The CTA next-step test Look at your primary button. Does it tell the user 
+exactly what happens after they click? "Learn more" and "Get started" leak intent because they promise nothing. "Audit my page free" sets a clear, low-risk expectation. Name the outcome on the button 
+itself. The trap Why "just regenerate it" makes it worse The obvious move after a flat page is to feed the generator a better prompt and try again. It almost never fixes conversion. Regenerating 
+reshuffles the same median patterns into a different generic page — you trade one flavor of average for another. You don't escape the average by sampling from it more. The deeper issue is that the 
+model doesn't have the inputs conversion runs on. It has no access to your real proof, your customers' actual words, or your specific positioning. So it does the only thing it can: it invents 
+(hallucinated testimonials, made-up stats) or it generalizes ("for modern teams"). Both are exactly what you need to remove. The conversion edge lives in human-supplied inputs: voice-of-customer 
+language pulled from real sales calls and reviews, your genuine outcomes, the specific objections you hear over and over. None of that is in the training data. The right division of labor is clean — 
+let AI handle layout, scaffold, and components, where it's genuinely strong; keep the headline, value prop, proof, and objection copy human and specific. This is precisely the gap an outside read 
+surfaces fast. Instead of guessing which of the six modes is bleeding the most, a structured audit ranks them for you against a fixed rubric. If you want to see how that scoring works, here's the 
+12-dimension methodology behind every audit — the same rubric that separates a clarity problem from a proof problem so you fix the costliest one first. Where it leaks Where AI pages typically leak 
+(principles, not invented numbers) We won't hand you a fabricated conversion percentage — that's the opposite of the point. Each item below is a directional CRO principle, attributed where it comes 
+from established practice. Verify before you ever quote a hard number. Hero Clarity decides first Most bounce decisions happen in the first few seconds on the hero. An unclear AI headline loses 
+visitors before any feature gets a chance to matter. Match Relevance from message match When the headline doesn't echo the ad or link that drove the click, perceived relevance drops and bounce rises 
+— a well-documented PPC/CRO pattern from practitioners like Unbounce and WordStream. Proof Fake proof costs more than none Placeholder or fabricated social proof erodes trust faster than having no 
+proof at all — once a visitor spots one fake, every claim on the page is suspect. Fold Mobile pushes value off-screen A large share of landing traffic is mobile, and decorative AI hero spacing 
+routinely pushes the value prop and CTA out of the first screen. CTA Outcome beats "Get started" Outcome-named CTAs read as lower-risk than generic "Get started" in CRO testing literature — treat 
+this as a pattern to test, not a guaranteed lift. Every line here is a principle or attributed pattern. Honesty is the moat: if you can't source a precise number, frame it as a principle — don't 
+fabricate it. Pre-publish gate Ship-ready checklist for an AI-built page Copy this and run it before you publish anything an AI generator drafted. Grouped by the dimensions AI breaks most. Clarity 
+Hero passes the stranger test — what, who, and next step are all obvious Headline names a specific outcome and a specific audience Headline matches the inbound ad or link that drove the click 
+Substance No abstract-adjective filler in the value prop (powerful, seamless, robust are gone) Every feature is tied to a concrete user job At least one explicit before/after the visitor can picture 
+Proof Every stat has a real, citable source Every testimonial is real and attributed to a named person All placeholder logos and dummy quotes removed Conversion CTA copy names the outcome, not "Get 
+started" Form friction minimized to the fields you actually need Micro-reassurance under the primary button; next step is obvious Objections & structure Top 3 buyer doubts identified and answered 
+inline before the final CTA Sections reordered around the buyer's decision path, not the default AI template order Mobile above-the-fold shows the value prop and the CTA Next step Stop guessing which 
+mode is costing you Two pages can both be "AI-built and flat" for completely different reasons — one bleeds on a generic hero, the other on fabricated proof. The fix that doubles one does nothing for 
+the other. So the first job isn't to rewrite; it's to diagnose which of the six modes is actually costing you conversions, and in what order to fix them. If you want the full diagnostic framework and 
+where this fits, start with the pillar. Then the fastest way to find your worst leak: paste your AI-built page URL into the free mini-audit. In about 60 seconds you'll see the top fixes it flags — 
+clarity, proof, CTA, or objections — so you know exactly which of the six failure modes to attack first, instead of regenerating and hoping. Read the complete landing page audit pillar to see how all 
+twelve dimensions fit together, then run yours. Frequently asked Questions, answered Are AI-generated landing pages bad for conversion? Not inherently. The visual scaffold from v0, Lovable, or Framer 
+is usually fine. The problem is that the copy and structure regress toward the median of the web — generic heroes, abstract value props, missing or fabricated proof, and no objection handling. AI is 
+strong at layout and weak at the human-supplied inputs (real proof, customer language, positioning) that actually drive conversion. Fix the copy and structure and the same page can convert well. Why 
+does my v0 / Lovable / Framer page look great but not convert? Because "looks done" and "makes a stranger act" are different goals, and AI optimizes for the first. Run the stranger test on your hero 
+(can someone say what it does, who it's for, what to do next?), hunt and replace every abstract adjective, audit each claim for a real source, and check what's visible above the fold on mobile. Most 
+flat AI pages fail on clarity and proof, not visuals. What is 'AI slop' copy on a landing page? It's copy built from abstract, interchangeable words — powerful, seamless, AI-driven, end-to-end 
+platform for modern teams — that sounds polished but says nothing specific. It fills the slot without making an argument. The fix is to replace each abstraction with a concrete outcome, a named 
+job-to-be-done, or a real before/after the visitor can picture. Should I just regenerate the page with a better prompt? Rarely solves it. Regenerating reshuffles the same median patterns into a 
+different generic page. The conversion edge lives in inputs the model doesn't have: your real proof, your customers' actual words, your genuine objections. Keep the layout AI-driven, but keep the 
+headline, value prop, proof, and objection copy human and specific. How do I know which fix to prioritize on my AI page? Diagnose, don't guess. Run the six-mode self-audit — stranger test, adjective 
+hunt, proof audit, above-the-fold check, objection gap, and CTA next-step test — and start with whichever fails hardest, usually hero clarity or fabricated/missing proof. An outside audit ranks the 
+leaks against a fixed rubric so you fix the costliest one first instead of regenerating and hoping. See your landing page score Run your page through the same diagnostic. The free preview takes about 
+a minute — no signup. Audit my page Keep reading More on auditing your page 30 Hero Headline Formulas That Pass the 5-Second Clarity Test 30 fill-in-the-blank landing page headline formulas that pass 
+the 5-second clarity test. Swipe, customize, then run a free audit to check yours. What Is Above the Fold in 2026 — and Does It Still Matter for Conversions? What is above the fold? The modern, 
+multi-viewport definition plus the 5 elements your hero must carry to convert. Run a free fold audit in 60s. The Objection Map: Find the Silent Doubts Your Landing Page Never Answers Handle 
+objections on a landing page with a 5-step objection map that surfaces silent doubts killing conversions. Run a free audit to find yours. Landing Doctor A conversion diagnostic for landing pages — 
+built on a 12-dimension rubric, applied to your real copy. Free preview, Pro from $79/mo. PRODUCT Sample report How it works Pricing Guides Public teardowns Reviews RESOURCES Free audit Landing page 
+audit Audit by industry Mistakes playbook TRUST Cookie settings Refund policy Privacy Terms CONTACT About audits@landingdoctors.com Twitter / X Recover report © 2026 Landing Doctor · made for 
+founders & small businesses, with care. english · 4 languages · built in Warsaw

@@ -1,0 +1,22 @@
+# url: https://mcpmarket.com/server/japan-ux
+# accessed: 2026-10-30
+# chars: 3261
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Japan UX: AI Assistant for Japan-Native UI/UX Design & Localization MCP Market MCP Servers Agent Skills Sell Skills Power Your Agents Connect Toggle Menu Home Servers Japan UX Japan UX by mrslbt • • 
+Claim this listing Developer Tools Productivity & Workflow Design Tools Equips AI assistants with comprehensive Japanese UX rules to build Japan-native websites and interfaces efficiently. Related 
+MCPs View more Neon Enables natural language interaction with the Neon Management API and databases through the Model Context Protocol. Figma Context Provides AI coding agents with simplified Figma 
+layout information via the Model Context Protocol. Magic Generate modern UI components instantly from natural language descriptions within your IDE. Related Skills View all Meme Maker Searches 
+curated meme templates, suggests ideal joke formats, and renders custom memes in SVG, PNG, or hosted formats. Agent Skill Creator Authors, repairs, and validates custom AgentSkills and SKILL.md 
+configurations with standardized frontmatter and bundled resources. OpenClaw Channel Configurator Configures, repairs, and verifies chat messaging channels securely using non-interactive CLI commands 
+and secret references. MCP Market Discover MCP servers that connect MCP clients like Claude and Cursor to your favorite tools. Browse the MCP Market to get started. Browse MCP Search MCP Servers MCP 
+Clients Agent Skills MCP Market Hub Categories What is an MCP server? What is WebMCP? Model Context Protocol Rankings Top MCPs Today Top Agent Skills Today Top 100 Agent Skills Top 100 MCP Servers 
+About News Signup for our newsletter Submit Advertise with us Affiliates Contact Switch language © 2026 MCP Market. All rights reserved. · Privacy · Terms About README FAQ The Japan UX tool enhances 
+AI assistants by providing a comprehensive set of Japanese UX rules, ensuring that AI-generated websites and interfaces adhere to Japan-native design conventions. It addresses common discrepancies 
+like name order, phone number formats, address flows, keigo-aware language, typography, and legal requirements, preventing developers and designers from repeatedly correcting AI's Western-centric 
+defaults. This allows for faster, more accurate development of Japanese-facing digital products, moving straight from prompt to compliant, culturally appropriate design and reducing back-and-forth 
+corrections. Key Features 01 Suggests context-appropriate keigo (politeness levels) for Japanese UI copy. 02 Rewrites Western UI markup into Japan-ready versions, providing score improvements and 
+explanations. 03 Audits existing markup and CSS for compliance with Japanese UX, typography, and layout conventions. 04 Generates Japan-native forms with correct name order, furigana, phone splitting,
+ and postal code integration. 05 0 GitHub stars 06 Provides seasonal design guidance, cultural context, and identifies launch blackout dates relevant to Japan. Use Cases 01 Streamlining the design 
+and development of Japanese-facing websites and applications using AI. 02 Aiding localization teams in adapting digital products beyond simple translation to structural UX compliance. 03 Ensuring 
+AI-generated content and forms meet specific Japanese UX and cultural standards without manual correction.

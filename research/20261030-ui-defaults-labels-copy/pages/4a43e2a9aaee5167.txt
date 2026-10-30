@@ -1,0 +1,46 @@
+# url: https://robotsonpayroll.substack.com/p/how-to-avoid-that-vibe-coded-look
+# accessed: 2026-10-30
+# chars: 8019
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+how to avoid that 'vibe coded' look. - by Jonathan Subscribe Sign in how to avoid that 'vibe coded' look. Screenshot a site you love, turn it into a design.md, and make Lovable, Bolt, Replit, Cursor, 
+or Claude follow it on every screen, forever. Jonathan Jul 21, 2026 14 1 Share Hey, okay, someone else’s confession first. Tailwind is the styling toolkit nearly every AI app builder uses under the 
+hood, and last summer its creator publicly apologized for making its default button color indigo five years ago, “leading to every AI generated UI on earth also being indigo.” He was joking. He was 
+also right. You already know how to spot AI text: the em-dashes, the “delve,” the bullet-point sandwich. Users spot AI apps the exact same way, except the tells are visual: purple-to-blue gradient, 
+Inter font, soft gray shadows on floating cards, emoji feature icons. A parody site titled “every vibe-coded website is the same page with different words” made the Hacker News front page. One 
+commenter said two no n-technical friends sent them their separate projects and both had “the same identical and unmistakable AI design.” Today: why your agent designs like everyone else’s, and the 
+15-minute fix that works on every platform. In today’s email: the reason AI design converges (it’s not fixable by prompting harder), the screenshot heist that gets you a real design system with zero 
+design skill, how to wire it into Lovable, Bolt, Replit, Cursor, or Claude so it sticks, and where the legal line actually is. Subscribe Your agent isn’t a bad designer. It’s an average one, which is 
+worse When you say “make it look nice,” you’re asking the model to make hundreds of small decisions (this gray, that corner radius, this shadow) with zero constraints. Unconstrained, it picks the 
+most statistically probable option every time. As one engineer put it , “you’re getting the median of every Tailwind CSS tutorial scraped from GitHub between 2019 and 2024.” In plain terms: your 
+app’s design is the average of everyone else’s, which is why it looks identical to everyone else who prompted “make it look nice” the same week. Here’s the receipt that settles it: Anthropic now 
+ships an official design skill whose main job is banning its own model’s taste. No Inter, no purple gradients, no predictable layouts. When the company that makes the model writes a constraints file 
+to stop the model’s defaults, the lesson is clear: the fix for AI design is not a better prompt. It’s a file. One audit of 1,590 new products launched on Hacker News this spring found fewer than half 
+were free of AI design tells , and one designer quoted in it called colored left-borders on cards “almost as reliable a sign of AI-generated design as em-dashes for text.” That’s the bar now: your 
+app is presumed AI-made until the design proves a human made deliberate choices. Good news: you don’t need taste. You need to steal someone’s. The Design Heist: screenshot in, design system out 
+Design is the one part of your product where the world’s best work is sitting in public, fully visible, free to learn from. Every designer alive learned by studying other people’s work. You’re just 
+going to do it with a vision model, in 15 minutes. Pick your mark. Find a site whose look you’d be proud to have. Browse Recent , Land-book , Mobbin , or SaaS Landing Page . Match the feeling you 
+want, not your industry. Screenshot it. Desktop width, full resolution, no cookie banner. Run the heist prompt. Paste it into Claude or ChatGPT with the screenshot attached. It reverse-engineers the 
+system behind the design (colors with hex codes, fonts, shapes, spacing, do/don’t rules) into one plain-English file: design.md . Read the output. Every color should have a name and a hex. Every rule 
+should be checkable by looking. “Generous padding” is a failure; “buttons are pill-shaped with a hard black shadow” is a pass. Taste, written down, becomes a system. Systems can be stolen. The exact 
+prompt lives in the Vault, free, in two strengths: the starter kit (plain English, no code words, built for Lovable/Bolt/Replit users) and the pro kit (full token tables, component states, dark-mode 
+variant, for Cursor and Claude Code builds). The step everyone skips: make it obey A design.md in your Downloads folder changes nothing. Every builder has a slot for standing instructions; put the 
+file there and it applies to every screen the agent ever builds: Lovable : Project settings, then Knowledge . It’s included in every request (10,000-character limit, so the starter design.md fits; it 
+also reads instruction files from your connected GitHub repo). Bolt : project Knowledge , the persistent per-project instructions. Replit : a replit.md file at the project root (root matters; 
+subfolders are ignored). Cursor : save it as an always-on rule file , so it rides along with every request. Claude Code : one line in CLAUDE.md pointing at design.md, plus “follow it for all UI work.
+” Then expect drift anyway. Deep into a long session, the rules scroll out of the agent’s attention and a new gray appears, buttons go round, a gradient sneaks in. Don’t argue about the button. Paste 
+this: “Stop. Re-read design.md. Audit the last screen you built against its color list and its don’t rules, list every violation, fix them all.” And when you catch yourself correcting the same visual 
+thing twice, add it to design.md instead of repeating yourself in chat. Steal the system, never the assets The legal line is friendlier than you’d think. Copyright doesn’t protect a site’s overall 
+look and feel; trade dress protects distinctive combinations , not single elements. A hex code, an 8-point spacing grid, a type scale: fair game. Logos, illustrations, photos, copy, mascots, and 
+cloning a direct competitor wholesale: off limits. The squint test keeps you safe: if someone squints at your app and names the site you heisted, you took too much. Steal the ratios, not the wardrobe.
+ The full fair-game versus off-limits breakdown is on the kit page . Seen this week Lovable is reportedly raising at a $13.2B valuation , double its December number , on a $500M ARR run rate. The 
+tools are compounding; the design defaults are not. Differentiation is on you. Figma’s Code Layers is in closed beta with a waitlist , per the Config 2026 announcements . Design tools are becoming 
+vibe-coding tools. The file-of-constraints skill transfers directly. tweakcn is a free visual editor for the color themes AI builders use under the hood. Handy for nudging a heisted palette by eye 
+before you lock it into design.md. Vibe coding tip of the week Run the reverse squint test on your own app. Paste a screenshot of your main screen into a fresh chat and ask: “Which AI app builder 
+made this?” If the model can guess, so can your users. That’s your before picture for the CTA below. What we liked from around the web Subscribe vibe-coded.lol : the parody that started the 
+conversation, itself vibe-coded, gradients and all. Why your AI keeps building the same purple gradient website : the clearest technical writeup of the convergence problem. Taste for Makers : Paul 
+Graham’s 2002 essay arguing taste is learnable judgment, not a gift. The philosophical case for everything above. Mobbin : the best mark-hunting ground for product UI (not just landing pages). 
+Inspiration or infringement : a lawyer’s plain-English take on the design-copying line, if you want more than my two paragraphs. One thing before you go Grab the heist prompt , run it on one screen 
+of your app today, then reply with your before and after screenshots. Best transformation gets featured next issue, with a link to whatever you’re building. Cheers, Jonathan Share 14 1 Share 
+Discussion about this post Comments Restacks Top Latest Discussions No posts Ready for more? Subscribe © 2026 Nordimark Consultancy · Privacy ∙ Terms ∙ Collection notice Start your Substack Get the 
+app Substack is the home for great culture This site requires JavaScript to run correctly. Please turn on JavaScript or unblock scripts

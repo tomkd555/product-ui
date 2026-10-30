@@ -7,7 +7,11 @@
  * Placeholders below read {{ token.path }} (no spaces) and are filled from tokens.json by
  * scripts/generate_theme.py. Lines naming --brand-surface are dropped when
  * tokens.json declares no color.surface; {{color_dark}} expands to one line per
- * key color_dark carries, or to nothing.
+ * key color_dark carries, or to nothing; the type ramp and the spacing unit
+ * expand from typography.scale and spacing.base_px.
+ *
+ * accent follows shadcn: a hover and selected surface. The brand accent colour
+ * is the brand-accent utility (bg-brand-accent, text-brand-accent).
  */
 
 @import "tailwindcss";
@@ -43,37 +47,46 @@
   --color-muted-foreground: var(--brand-muted-foreground);
   --color-border: var(--brand-border);
   --color-destructive: var(--brand-destructive);
-  --color-accent: var(--brand-accent);
+  --color-accent: var(--brand-muted);
+  --color-accent-foreground: var(--brand-foreground);
+  --color-brand-accent: var(--brand-accent);
 
-  --font-display: "{{typography.display.family}}", ui-serif, serif;
-  --font-body: "{{typography.body.family}}", ui-sans-serif, sans-serif;
+  --font-display: "{{typography.display.family}}", {{family_ja.display}}ui-serif, serif;
+  --font-body: "{{typography.body.family}}", {{family_ja.body}}ui-sans-serif, sans-serif;
 
   /* Type scale. Reset so the checker reads the project's own steps; text-xs (12px) is
    * for a Latin-only run of 24 characters or fewer, and Japanese text starts at
-   * text-sm (14px). See references/ban-list.md. */
+   * text-sm (14px). See references/ban-list.md. text-base and up come from
+   * typography.scale (base_px times ratio^n). */
   --text-*: initial;
   --text-xs: 0.75rem;    --text-xs--line-height: 1rem;
   --text-sm: 0.875rem;   --text-sm--line-height: 1.25rem;
-  --text-base: 1rem;     --text-base--line-height: 1.5rem;
-  --text-lg: 1.125rem;   --text-lg--line-height: 1.75rem;
-  --text-xl: 1.25rem;    --text-xl--line-height: 1.75rem;
-  --text-2xl: 1.5rem;    --text-2xl--line-height: 2rem;
-  --text-3xl: 1.875rem;  --text-3xl--line-height: 2.25rem;
-  --text-4xl: 2.25rem;   --text-4xl--line-height: 2.5rem;
-  --text-5xl: 3rem;      --text-5xl--line-height: 1;
-  --text-6xl: 3.75rem;   --text-6xl--line-height: 1;
-  --text-7xl: 4.5rem;    --text-7xl--line-height: 1;
-  --text-8xl: 6rem;      --text-8xl--line-height: 1;
-  --text-9xl: 8rem;      --text-9xl--line-height: 1;
+  {{type_ramp}}
 
+  /* Radius and shadow are closed to the token steps: Tailwind's own steps are reset,
+   * then the extra ones point at the nearest token step, so rounded-2xl and shadow-xl
+   * cannot reach a default value. */
+  --radius-*: initial;
   --radius-sm: {{radius.sm}};
   --radius-md: {{radius.md}};
   --radius-lg: {{radius.lg}};
   --radius-full: {{radius.full}};
+  --radius-xs: var(--radius-sm);
+  --radius-xl: var(--radius-lg);
+  --radius-2xl: var(--radius-lg);
+  --radius-3xl: var(--radius-lg);
+  --radius-4xl: var(--radius-lg);
 
+  {{spacing_unit}}
+
+  --shadow-*: initial;
   --shadow-sm: {{shadow.sm}};
   --shadow-md: {{shadow.md}};
   --shadow-lg: {{shadow.lg}};
+  --shadow-2xs: var(--shadow-sm);
+  --shadow-xs: var(--shadow-sm);
+  --shadow-xl: var(--shadow-lg);
+  --shadow-2xl: var(--shadow-lg);
 
   --ease-standard: {{motion.easing.standard}};
   --ease-spring: {{motion.easing.spring}};
@@ -102,6 +115,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
+    {{body_text}}
   }
 
   h1, h2, h3 {

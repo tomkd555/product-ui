@@ -1,0 +1,12 @@
+# url: https://tropes.fyi/tropes/negative-parallelism
+# accessed: 2026-10-30
+# chars: 1338
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Negative parallelism - Tropes tropes.fyi The Whip ai;dr Vetter Directory tropes.md ← Directory Negative parallelism Sentence Structure El Classico, the "It's not X -- it's Y" pattern. The single most 
+commonly identified AI writing tell. Man I f*cking hate it. The model uses this to create false profundity by framing everything as a surprise. Once can be effective; TEN in a blog post is a genuine 
+insult to the reader. Examples “ It's not bold. It's backwards. ” “ The question isn't whether to optimize. The question is when to stop. ” “ The real issue isn't technical. The real issue is 
+organizational. ” “ This isn't just technical -- it's a mindset change. ” “ not because it got harder but because nobody gets punished for sandbagging ” “ The metric doesn't just fail to measure 
+productivity. It reshapes behavior away from productivity. ” “ the questions that made the business better, not just the ones that made the deck better ” “ We didn't want money that showed up only 
+for the good quarters. ” “ Not to establish whether the design works, but to size the one risk that is a judgement rather than a setting. ” “ So the post did not fail. It reached the people it could 
+reach. ” “ Retrofit it in a month. Not a decade. ” Tags contrast em-dash reframe false-profundity most-common hedging Changelog made with spite by ossama.is

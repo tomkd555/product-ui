@@ -27,6 +27,8 @@ Judge each string in its structural context (the block, the control and the neig
 
 - A string inside an empty-state block may name the next action (「まだ項目がありません」 stands on its own; 「まだ項目がありません — 追加してください」 also stands when 「追加」 is the only action available and the button itself does not already say so).
 - A note that speaks about the method (what was not done 「季節変動は補正していない」, what a number is not 「セッション数ではない」, the hypothesis behind a statistic) is the author's working note and gets `remove`; its place is a help page. A definition of a metric in a legend block or a caption under a chart gets `rewrite` to one positive sentence, with the reason naming the info-icon tooltip as where it belongs.
+- A legend stating what a colour, icon or badge means passes only where the encoding is ambiguous without it (two statuses sharing a hue, an icon with no conventional meaning); otherwise `remove`.
+- A generated sentence that interprets data for the reader (「差は誤差の範囲です」, 「前月より好調です」) gets `remove`. The reader did not ask for the verdict, and the sentence states a conclusion the data does not show on its own. The caller keeps one the brief asks for.
 - A heading that names the object or action it governs passes even when generic ("注文一覧", "設定"). Flag it only when it explains what the screen does ("ここでは注文を管理できます").
 
 ## Procedure

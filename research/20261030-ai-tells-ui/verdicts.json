@@ -1,0 +1,429 @@
+{
+  "verdicts": [
+    {
+      "cid": "C1",
+      "sentence": "Designers, agencies and tool authors who wrote about AI-generated web pages in 2025 and 2026 name one consistent cluster of traits: a purple or indigo gradient running to blue or pink, an unchosen default typeface such as Inter, one large radius and one soft shadow on every card, a row of 3 equal feature cards with emoji or icon tiles, a centred hero with a pill badge in a fixed section order, and generic benefit copy with invented proof [E1, E3, E5, E13, E33, E116, E120].",
+      "evidence_ids": [
+        "E1",
+        "E3",
+        "E5",
+        "E13",
+        "E33",
+        "E116",
+        "E120"
+      ],
+      "verdict": "partial",
+      "reason": "Read together, the cited pages name each listed trait: a purple/indigo gradient to blue (E5) or to pink (E116 page), an unchosen Inter, one radius and one shadow on every card, three equal cards with emoji or icons, a centred hero with a pill badge in a fixed order, and filler copy with invented proof. However, two of the same 2026 sources (E5, E13) say AI output moves to a second cluster once these defaults are banned: cream with terracotta, near-black with one acid accent, and broadsheet hairlines. So 'one consistent cluster' overstates how uniform the 2026 writing is.",
+      "found": "The second wave appears once those are banned: cream with a terracotta accent, near-black with one acid-green or vermilion highlight, broadsheet hairlines, identical cards with one shadow, and tracked all-caps eyebrow labels over every heading.",
+      "source": "https://capitalandcompute.net/blog/fix-ai-slop-design/"
+    },
+    {
+      "cid": "C2",
+      "sentence": "Labelling or disclosing AI authorship lowers liking, trust and perceived effort [E70, E71, E72, E73], and consumers forgive misrepresentation in AI-made ads less because those ads look low-effort [E74].",
+      "evidence_ids": [
+        "E70",
+        "E71",
+        "E72",
+        "E73",
+        "E74"
+      ],
+      "verdict": "supported",
+      "reason": "E71 and E73 were read verbatim in their cached abstracts. Abstract records for E70, E72 and E74 (Semantic Scholar, OpenAlex) state the same findings: a human label raises liking and every other rating of art (E70), disclosers of AI use are trusted less across 13 experiments (E72), and consumers forgive AI-made misrepresentative ads less because those ads are perceived as involving less effort (E74). The search found no meta-analysis showing a null effect. Note that E74 studies ads that misrepresent marginalized communities and that a strong brand reputation weakens the effect. The verbatim abstracts of E70, E72 and E74 were not retrieved.",
+      "found": "The AI-generated label significantly reduced perceived effort, whereas the human-made label did not differ from the unlabeled condition",
+      "source": "https://doi.org/10.3389/fpsyg.2026.1840483"
+    },
+    {
+      "cid": "C3",
+      "sentence": "When authorship is hidden, readers often cannot tell AI output apart and sometimes prefer it [E71, E75], and blind raters judged AI-generated prototypes usable but unoriginal [E93].",
+      "evidence_ids": [
+        "E71",
+        "E75",
+        "E93"
+      ],
+      "verdict": "supported",
+      "reason": "E71 says raters could not tell the two kinds of text apart in the blind test. According to the E75 abstract record, readers identified AI poems at or below chance and rated them more favourably. In E93, 92 participants rated prototypes without knowing who made them; ratings were positive for usability and neutral or negative for originality, and the paper's title calls the prototypes 'Usable but Conventional'.",
+      "found": "An empirical survey with 92 participants evaluated AI-generated and human-created prototypes without prior identification of authorship.",
+      "source": "https://arxiv.org/abs/2605.15124"
+    },
+    {
+      "cid": "C4",
+      "sentence": "Fabricated content and broken behaviour do harm with no attribution at all: errors and technical problems cost a site credibility [E69, E92], and readers who learn the cues of fake reviews trust them less and buy less [E83].",
+      "evidence_ids": [
+        "E69",
+        "E92",
+        "E83"
+      ],
+      "verdict": "partial",
+      "reason": "E92 supports the claim that errors and technical problems cost a site credibility. E69's abstract could not be retrieved; its record shows a 2000 self-report study. The cited E83 passage says only that humans detect fake reviews at chance. It does not say that readers who learn the cues of fake reviews trust them less and buy less. The paper's abstract was unavailable, so neither the trust effect nor the purchase effect could be confirmed.",
+      "found": "Typographical errors and broken links hurt a site's credibility more than most people imagine.",
+      "source": "https://credibility.stanford.edu/guidelines/index.html"
+    },
+    {
+      "cid": "C5",
+      "sentence": "The distaste is therefore very likely the reader concluding that no decision was made and no effort was spent, plus, where proof is invented, a sense of being deceived; the measured uncanny-valley effect concerns human-like figures and has no evidence for page layouts [E82].",
+      "evidence_ids": [
+        "E82"
+      ],
+      "verdict": "partial",
+      "reason": "E82's abstract record describes the uncanny valley as a negative reaction to artificial entities that look human, with an overall effect of g = 1.01. That supports only the part about human-like figures. E82 says nothing about why readers dislike AI-made pages: no decision, no effort, or deception. It also does not state that page layouts lack evidence, although the search found no layout study either. The verbatim abstract was not retrieved, only a summary of it.",
+      "found": "",
+      "source": "https://doi.org/10.1145/3470742"
+    },
+    {
+      "cid": "C6",
+      "sentence": "Colour and gradient values, typefaces, radius and shadow uniformity, emoji icons, glass and motion utilities, stock vocabulary, negative parallelism, em-dashes and unsourced figures have signals in the source files [E5, E13, E15, E33].",
+      "evidence_ids": [
+        "E5",
+        "E13",
+        "E15",
+        "E33"
+      ],
+      "verdict": "partial",
+      "reason": "Read in context, the cited pages name most of the listed tells: gradients and indigo/slate colours, Inter, uniform radius and shadow, emoji icons, glass panels, uniform motion, stock copy and unsourced stats. Two pages tie these tells to code: one gives the Tailwind class names, the other describes deterministic scanners. None of the cited pages mentions negative parallelism or em-dashes, and one page says that \"no visual rule catches a fabricated stat\". The sentence's full list of source-file signals therefore goes beyond what the sources state.",
+      "found": "If you want the underlying class names, the recurring ones are indigo-600 and slate-900 for color, rounded-2xl and rounded-3xl for the corners, and shadow-lg with p-6 on the cards.",
+      "source": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same"
+    },
+    {
+      "cid": "C7",
+      "sentence": "The page's lead content, its real proof and the inventory of empty, loading and error states belong to a step before markup [E88, E114].",
+      "evidence_ids": [
+        "E88",
+        "E114"
+      ],
+      "verdict": "partial",
+      "reason": "The note.com page says to settle the entry view, visible proof and navigation before touching colours and corner radius. That step comes before styling, while the sentence places it before markup. The NN/g passage only says that well-designed empty states help users. Neither source mentions an inventory of empty, loading and error states, or a step for it before markup.",
+      "found": "色や角丸を触る前に、読者が3秒で理解できる入口、実物が見える証拠、押した後が分かる導線を整える。",
+      "source": "https://note.com/nikki_r2d2/n/ndf9325b559c5"
+    },
+    {
+      "cid": "C8",
+      "sentence": "Headline genericness and whole-page sameness stay with an independent reviewer [E34].",
+      "evidence_ids": [
+        "E34"
+      ],
+      "verdict": "partial",
+      "reason": "The source names headline genericness and samey template structure as tells, and it says an outside read surfaces such gaps. However, it presents its checks as a no-tools self-audit the page owner runs, including a 'swap in a competitor's logo' test. It never says that these two judgements must stay with an independent reviewer, and it does not assign whole-page sameness to a reviewer at all.",
+      "found": "Run this on your v0, Lovable, or Framer page before you change a single pixel. Six passes, no tools, brutally honest. 1. The stranger test Read only the hero — headline, subhead, CTA. Hand it to someone who's never heard of you.",
+      "source": "https://landingdoctors.com/guides/why-ai-landing-pages-convert-worse"
+    },
+    {
+      "cid": "C9",
+      "sentence": "Once the first defaults are banned, models fall back to a second set, and flagged words fade once they are publicised, so a ban list ages [E10, E42, E96].",
+      "evidence_ids": [
+        "E10",
+        "E42",
+        "E96"
+      ],
+      "verdict": "partial",
+      "reason": "The second-set fallback is supported by Capital & Compute and by the Anthropic cookbook's Space Grotesk note. The ACL paper reports a drop for several flagged words in arXiv abstracts and attributes it to authors adapting their LLM use, so the evidence concerns human-edited text and the models' own output is not shown to change. The same paper finds that other ChatGPT-favoured words such as \"significant\" kept rising, so the general claim that flagged words fade overstates it. 'So a ban list ages' is an inference no source states.",
+      "found": "we report a marked drop in the frequency of several words previously identified as overused by ChatGPT, such as “delve”, starting soon after they were pointed out in early 2024. The frequency of certain other words favored by ChatGPT, such as “significant”, has instead kept increasing. These phenomena suggest that some authors of academic papers have adapted their use of large language models (LLMs)",
+      "source": "https://doi.org/10.18653/v1/2025.findings-acl.657"
+    },
+    {
+      "cid": "C10",
+      "sentence": "A typical page layout raises perceived trustworthiness [E68], so the rules should target unchosen defaults and fabricated content and leave conventional structure in place.",
+      "evidence_ids": [
+        "E68"
+      ],
+      "verdict": "partial",
+      "reason": "Secondary sources (FWF project summary, the companion Data in Brief dataset) support a positive effect of webpage prototypicality on perceived trustworthiness for banking, e-commerce and university homepages. They also note that the effect may diminish at very high prototypicality, and the article itself was paywalled and could not be read. The second half of the sentence, that the rules should target unchosen defaults and fabricated content and leave conventional structure in place, is a recommendation the study does not make.",
+      "found": "Notably, the direct effect of prototypicality on trustworthiness outweighed the indirect effects through aesthetics and usability.",
+      "source": "https://doi.org/10.1016/j.ijhcs.2023.103103"
+    },
+    {
+      "cid": "C11",
+      "sentence": "In this run 10 publishers name it [E1, E3, E5, E11, E13, E35, E95, E104, E107, E117].",
+      "evidence_ids": [
+        "E1",
+        "E3",
+        "E5",
+        "E11",
+        "E13",
+        "E35",
+        "E95",
+        "E104",
+        "E107",
+        "E117"
+      ],
+      "verdict": "contradicted",
+      "reason": "All 10 cited pages do name the purple gradient (for E11, E13 and E35 only elsewhere on the page, not in the quoted passage), but the run's cached pages hold at least 3 more publishers naming it: github.com/Laith0003/ux-skill wiki, zenn.dev/kenimo49 and note.com/hasilan. The run's count is therefore at least 13, not 10.",
+      "found": "Purple-to-blue gradient on white is the strongest visual fingerprint of unconstrained model output and reads as template-marketplace AI slop.",
+      "source": "https://github.com/Laith0003/ux-skill/wiki/Anti-Patterns-Reference"
+    },
+    {
+      "cid": "C12",
+      "sentence": "Several of them cite each other or the same 2 inventories, so the count overstates their independence [E13].",
+      "evidence_ids": [
+        "E13"
+      ],
+      "verdict": "partial",
+      "reason": "E13 shows only that one publisher, codemyspec, draws on two inventories (Krebs and West) and quotes Anthropic. No other cached page in the run mentions Krebs or West, so 'several of them cite ... the same 2 inventories' is not shown, and codemyspec itself calls the two inventories independent. The conclusion about independence is the writer's inference.",
+      "found": "Two independent inventories have cataloged the signature, and they agree. ... The two inventories: Adrian Krebs, 16 patterns that out a site as vibe coded , and Alan West, how to fix the AI-generated look .",
+      "source": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same"
+    },
+    {
+      "cid": "C13",
+      "sentence": "The signals they give are concrete: Tailwind's `bg-indigo-500`, which prg.sh traces to the buttons of Tailwind UI [E1, E2]; `indigo-600` with `slate-900` [E15]; an indigo-to-purple gradient [E3]; purple fading to blue \"often on the headline text itself\" [E5]; and a hero background running from violet `#7c3aed` to pink `#ec4899`, or from navy to light blue [E117].",
+      "evidence_ids": [
+        "E1",
+        "E2",
+        "E15",
+        "E3",
+        "E5",
+        "E117"
+      ],
+      "verdict": "supported",
+      "reason": "Each signal appears in its cited page: prg.sh ties bg-indigo-500 to Tailwind UI buttons; codemyspec names indigo-600 and slate-900; 925studios names an indigo-to-purple gradient; capitalandcompute writes 'often on the headline text itself'; the chitosedev note describes a hero background from #7c3aed to #ec4899, or 紺→水色.",
+      "found": "He apologized for making every button in Tailwind UI use bg-indigo-500 five years ago | Purple or indigo fading to blue, often on the headline text itself | ヒーローセクションの背景がこうなります。 左上が紫(#7c3aed系)、右下がピンク(#ec4899系)のグラデーション。 もしくは、紺→水色、青→緑のパターン。",
+      "source": "https://prg.sh/ramblings/Why-Your-AI-Keeps-Building-the-Same-Purple-Gradient-Website"
+    },
+    {
+      "cid": "C14",
+      "sentence": "925studios calls the blue-to-purple gradient \"the single loudest AI tell in 2026\" [E4].",
+      "evidence_ids": [
+        "E4"
+      ],
+      "verdict": "supported",
+      "reason": "The 925studios page states the phrase verbatim about the blue-to-purple gradient.",
+      "found": "The blue-to-purple gradient is the single loudest AI tell in 2026.",
+      "source": "https://www.925studios.co/blog/ai-slop-design-tells"
+    },
+    {
+      "cid": "C15",
+      "sentence": "The colour comes from the model's habits: shadcn/ui's default primary is a neutral `oklch(0.205 0 0)`, and Tailwind assigns no primary colour at all [E16].",
+      "evidence_ids": [
+        "E16"
+      ],
+      "verdict": "supported",
+      "reason": "The page states shadcn/ui's default primary is oklch(0.205 0 0) with zero saturation (light mode), that Tailwind assigns no colour family as primary, and that the purple arrives when the model fills that blank from its training data. Secondary sources confirm the value for shadcn's Neutral base colour; other base colours give near-neutral values.",
+      "found": "Its default primary color is oklch(0.205 0 0) in light mode and oklch(0.922 0 0) in dark. ... assigns none of them as your primary. ... The purple arrives when a model fills that blank, because bg-indigo-500 and its neighbors saturate the tutorials, galleries and starter templates the model learned from.",
+      "source": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same"
+    },
+    {
+      "cid": "C16",
+      "sentence": "7 publishers name Inter, Roboto, Arial or the system stack used for every word [E1, E3, E5, E13, E95, E104, E108].",
+      "evidence_ids": [
+        "E1",
+        "E3",
+        "E5",
+        "E13",
+        "E95",
+        "E104",
+        "E108"
+      ],
+      "verdict": "partial",
+      "reason": "All 7 publishers name Inter, Roboto, Arial or system fonts as the default, but only 4 (E3 'Inter everywhere', E5 'for every word', E104 'Inter for everything', E108 'Never the system font or Inter/Geist flat') say one face is used for all text; E1, E13 and E95 name the fonts as overused defaults without the 'used for every word' scope.",
+      "found": "Default typeface Inter, Roboto or the system stack for every word, no display face (capitalandcompute); Typography : Inter, Roboto, or Arial (the “safe” system fonts that appear in thousands of examples) (prg.sh); Overused font families (Inter, Roboto, Arial, system fonts) (Anthropic cookbook); A centered hero in Inter (codemyspec)",
+      "source": "https://capitalandcompute.net/blog/fix-ai-slop-design/"
+    },
+    {
+      "cid": "C17",
+      "sentence": "925studios states the reason: \"Inter unchosen signals nobody made a typography decision\" [E4].",
+      "evidence_ids": [
+        "E4"
+      ],
+      "verdict": "supported",
+      "reason": "The cited 925studios page states the quoted reason verbatim in its section on the font, two lines before the stored E4 quote; the stored E4 quote ('the single loudest AI tell in 2026') belongs to the gradient section and should be replaced with the Inter passage.",
+      "found": "The tell is not that Inter is bad, it is that Inter unchosen signals nobody made a typography decision.",
+      "source": "https://www.925studios.co/blog/ai-slop-design-tells"
+    },
+    {
+      "cid": "C18",
+      "sentence": "6 publishers describe one radius on every element and one soft shadow under every card [E7, E11, E13, E100, E108, E116].",
+      "evidence_ids": [
+        "E7",
+        "E11",
+        "E13",
+        "E100",
+        "E108",
+        "E116"
+      ],
+      "verdict": "partial",
+      "reason": "Only E7, E13 and E100 describe both one radius on everything and the same shadow under every card; E11 (noqta) and E108 (anti-ai-slop) describe uniform radius with no mention of shadow, and E116 describes a large radius with a faint shadow on the three feature cards, not one radius on every element.",
+      "found": "1. Oversized border radius everywhere. Cards, buttons, inputs, badges, and images all rounded to the same exaggerated radius. (noqta, no shadow on page); カードの角丸は大きめ(border-radius: 16px前後)で、うっすら影がついている。 (note/chitosedev); identical rounded cards, one border-radius on everything regardless of hierarchy, the same soft grey shadow (rgba(0,0,0,.1)) under each (Anthropic SKILL.md)",
+      "source": "https://noqta.tn/blog/ai-design-slop-overused-ui-patterns-fix-2026"
+    },
+    {
+      "cid": "C19",
+      "sentence": "The named signals are `rounded-2xl` and `rounded-3xl`, `shadow-lg` and `p-6` [E15], a shadow of `rgba(0,0,0,.1)` [E100], and a radius near 16px with a faint shadow [E116].",
+      "evidence_ids": [
+        "E15",
+        "E100",
+        "E116"
+      ],
+      "verdict": "supported",
+      "reason": "Each cited page names the stated values: codemyspec the Tailwind classes, Anthropic's SKILL.md the rgba(0,0,0,.1) shadow, and the chitosedev note a radius around 16px with a faint shadow.",
+      "found": "the recurring ones are indigo-600 and slate-900 for color, rounded-2xl and rounded-3xl for the corners, and shadow-lg with p-6 on the cards. / the same soft grey shadow (rgba(0,0,0,.1)) under each / カードの角丸は大きめ(border-radius: 16px前後)で、うっすら影がついている。",
+      "source": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same"
+    },
+    {
+      "cid": "C20",
+      "sentence": "A row of 3 equal feature cards is named by 7 publishers [E1, E3, E6, E13, E35, E115, E116].",
+      "evidence_ids": [
+        "E1",
+        "E3",
+        "E6",
+        "E13",
+        "E35",
+        "E115",
+        "E116"
+      ],
+      "verdict": "partial",
+      "reason": "All 7 publishers name three feature cards or boxes, but only E3 ('evenly'), E13 ('Three identical cards in a row'), E35 ('three identical feature cards') and E116 ('完全に等幅') say the cards are equal; E1 ('Three-column grids with icons'), E6 ('three feature cards') and E115 ('特徴カード3枚') do not state that they are equal.",
+      "found": "Layouts : Three-column grids with icons (the structure of every SaaS landing page template) (prg.sh); Stock page order Centred hero, pill badge, two buttons, logo row, three feature cards, pricing, CTA (capitalandcompute); 特徴カード3枚。 (note/nikki_r2d2)",
+      "source": "https://prg.sh/ramblings/Why-Your-AI-Keeps-Building-the-Same-Purple-Gradient-Website"
+    },
+    {
+      "cid": "C21",
+      "sentence": "A Japanese freelancer who has delivered more than 50 landing pages writes that the feature section of AI-made pages takes this shape 「ほぼ100%」, with rockets or gears as emoji on cards of identical width [E116].",
+      "evidence_ids": [
+        "E116"
+      ],
+      "verdict": "supported",
+      "reason": "The page states the 50+ delivered LPs, the 'ほぼ100%' figure for the feature section of AI-made LPs, rocket and gear emoji on the cards, and fully equal-width cards. The word 'freelancer' is not on the page, but the author writes as an individual (僕) selling LP work on Coconala under the trade name 千歳開発.",
+      "found": "LP制作代行として50件以上のランディングページを納品してきた中で ... AI製LPの「特徴セクション」は、ほぼ100%こうなります。 横に3つ並んだ角丸カード。それぞれにアイコン(だいたい絵文字)、太字の見出し、2〜3行の説明文。 ... カードの上にはロケットとか歯車とかの絵文字が載っている。3つのカードは完全に等幅で、ぴったり横に並んでいる。",
+      "source": "https://note.com/chitosedev/n/n0f2f2daaf0c6"
+    },
+    {
+      "cid": "C22",
+      "sentence": "The fixed page order is named by 5 publishers [E6, E13, E36, E112, E115].",
+      "evidence_ids": [
+        "E6",
+        "E13",
+        "E36",
+        "E112",
+        "E115"
+      ],
+      "verdict": "supported",
+      "reason": "All five pages, read in context, name a stock section order: capitalandcompute ('Stock page order'), codemyspec ('The same running order every time'), superdesign ('Stock section order ... in that exact order, every time'), Hasilan (header, hero, then card-style service sections as a 極めて一般的 構成) and nikki (hero, 3 features, How it works, Testimonials, FAQ and CTA). The cited quotes for E36, E112 and E115 do not state the order themselves; the passages that do sit nearby on the same pages.",
+      "found": "Stock section order. Hero, logos, three features, a testimonial, pricing, CTA - in that exact order, every time. / ヘッダーにロゴとナビゲーション、その下にフルワイドスのヒーローセクション、さらにその下にカード型のサービス紹介や特徴説明が続くという構成が極めて一般的です。 / ヒーローに大きなキャッチコピー。 その下に3つの特徴。 次にHow it works。 その次にTestimonials。 最後にFAQとCTA。",
+      "source": "https://superdesign.dev/blog/fix-generic-ai-landing-page"
+    },
+    {
+      "cid": "C23",
+      "sentence": "A pill-shaped badge above the headline appears in 2 of these [E6, E13].",
+      "evidence_ids": [
+        "E6",
+        "E13"
+      ],
+      "verdict": "partial",
+      "reason": "Only E6 and E13 of the five sources mention a pill badge, so the count of 2 holds. Only E13 places the badge directly above the headline; E6 lists a 'pill badge' in the stock hero without giving its position.",
+      "found": "Stock page order Centred hero, pill badge, two buttons, logo row, three feature cards, pricing, CTA / A centered hero in Inter , with a small pill-shaped badge sitting directly above the headline.",
+      "source": "https://capitalandcompute.net/blog/fix-ai-slop-design/"
+    },
+    {
+      "cid": "C24",
+      "sentence": "aismells, the only source on bento, adds that the bento grid is a mainstream design trend of 2024 to 2026, so the trait is over-application of a real pattern [E18].",
+      "evidence_ids": [
+        "E18"
+      ],
+      "verdict": "partial",
+      "reason": "The aismells page states that bento grids are a real, mainstream 2024-2026 trend (citing Obergine and Senorit) and that AI over-applies them. 'The only source on bento' is false for the cached corpus: another cached page (f04e0ee31192ebca) also discusses bento grids and recommends them as a fix for the AI layout fingerprint.",
+      "found": "Bento grids are a real design trend, not an invented AI hallucination. Both Obergine and Senorit describe the layout as a mainstream 2024-2026 pattern ... So the argument here is narrow: bento grids are often good, but AI over-applies them.",
+      "source": "https://aismells.pages.dev/bento-box-sprawl.html"
+    },
+    {
+      "cid": "C25",
+      "sentence": "925studios writes that \"None of these choices are bad on their own\" [E3].",
+      "evidence_ids": [
+        "E3"
+      ],
+      "verdict": "supported",
+      "reason": "The 925studios page contains the quoted sentence verbatim, directly after the passage cited as E3.",
+      "found": "None of these choices are bad on their own. The problem is that they are not choices at all.",
+      "source": "https://www.925studios.co/blog/ai-slop-design-tells"
+    }
+  ],
+  "patch": [
+    {
+      "cid": "C1",
+      "sentence": "Designers, agencies and tool authors who wrote about AI-generated web pages in 2025 and 2026 name one consistent cluster of traits: a purple or indigo gradient running to blue or pink, an unchosen default typeface such as Inter, one large radius and one soft shadow on every card, a row of 3 equal feature cards with emoji or icon tiles, a centred hero with a pill badge in a fixed section order, and generic benefit copy with invented proof [E1, E3, E5, E13, E33, E116, E120].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C4",
+      "sentence": "Fabricated content and broken behaviour do harm with no attribution at all: errors and technical problems cost a site credibility [E69, E92], and readers who learn the cues of fake reviews trust them less and buy less [E83].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C5",
+      "sentence": "The distaste is therefore very likely the reader concluding that no decision was made and no effort was spent, plus, where proof is invented, a sense of being deceived; the measured uncanny-valley effect concerns human-like figures and has no evidence for page layouts [E82].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C6",
+      "sentence": "Colour and gradient values, typefaces, radius and shadow uniformity, emoji icons, glass and motion utilities, stock vocabulary, negative parallelism, em-dashes and unsourced figures have signals in the source files [E5, E13, E15, E33].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C7",
+      "sentence": "The page's lead content, its real proof and the inventory of empty, loading and error states belong to a step before markup [E88, E114].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C8",
+      "sentence": "Headline genericness and whole-page sameness stay with an independent reviewer [E34].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C9",
+      "sentence": "Once the first defaults are banned, models fall back to a second set, and flagged words fade once they are publicised, so a ban list ages [E10, E42, E96].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C10",
+      "sentence": "A typical page layout raises perceived trustworthiness [E68], so the rules should target unchosen defaults and fabricated content and leave conventional structure in place.",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C11",
+      "sentence": "In this run 10 publishers name it [E1, E3, E5, E11, E13, E35, E95, E104, E107, E117].",
+      "verdict": "contradicted",
+      "action": "state both sources"
+    },
+    {
+      "cid": "C12",
+      "sentence": "Several of them cite each other or the same 2 inventories, so the count overstates their independence [E13].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C16",
+      "sentence": "7 publishers name Inter, Roboto, Arial or the system stack used for every word [E1, E3, E5, E13, E95, E104, E108].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C18",
+      "sentence": "6 publishers describe one radius on every element and one soft shadow under every card [E7, E11, E13, E100, E108, E116].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C20",
+      "sentence": "A row of 3 equal feature cards is named by 7 publishers [E1, E3, E6, E13, E35, E115, E116].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C23",
+      "sentence": "A pill-shaped badge above the headline appears in 2 of these [E6, E13].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C24",
+      "sentence": "aismells, the only source on bento, adds that the bento grid is a mainstream design trend of 2024 to 2026, so the trait is over-application of a real pattern [E18].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    }
+  ]
+}

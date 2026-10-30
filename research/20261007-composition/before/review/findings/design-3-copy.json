@@ -1,0 +1,74 @@
+{
+  "perspective": "P3 Conformance to the brief and the copy",
+  "viewport": "both",
+  "findings": [
+    {
+      "id": "P3-1",
+      "severity": "CRITICAL",
+      "location": "div.card.kpi (both KPI tiles) index.html:11",
+      "evidence": "missing dominant element: the brief (plan.md Composition) makes 「マイ目標まで あと N件」 the one dominant figure for 営業スタッフ, moves the store's penetration into its comparison line, and lists 'Omitted: the second KPI tile' and 'Tile row: none'. The rendered page at ?as=advisor shows a row of two equal tiles: boxes div.card.kpi rect x292 y105 w468 h139 and x780 y105 w468 h139, both values at fontSize 30px (span#_r_5_v \"38.6%\", span#_r_8_v \"2\"). The store tile 「販売店の今月のホンダファイナンスペネトレーション」 comes first (x292 at 1280, first block at 375), so the reading order the brief sets (the figure, then its comparison line, then 要対応) starts on the store figure. Same at 375, dark-1280 and dark-375. Would not hold if the brief's Composition section was superseded after Step 5 to keep two equal tiles for the advisor account.",
+      "fix": "Render one hero figure for the advisor: 「マイ目標まで あと 2件」 at the dominant size, with a comparison line holding 「目標 9件」 and the store's penetration (38.6%, 前年同月 41.5%); remove the second div.card.kpi."
+    },
+    {
+      "id": "P3-2",
+      "severity": "WARNING",
+      "location": "span#_r_8_l \"マイ目標到達までの残件\" index.html:11",
+      "evidence": "label \"マイ目標到達までの残件\" departs from the brief's figure label 「マイ目標まで あと N件」 and keeps the computation words (到達までの残件) the brief lists under 'Omitted: the computation words in the figure's label'. The figure renders as \"2\" + \"件\" with the target on the line below (\"目標 9件\"), so the reader has to work out that 2 is the remainder.",
+      "fix": "Change the label and figure to 「マイ目標まで あと 2件」."
+    },
+    {
+      "id": "P3-3",
+      "severity": "WARNING",
+      "location": "section.card (対応が必要な項目, 未読のお知らせ) index.html:11",
+      "evidence": "brief says the two lists sit as sections on the ground with a heading each and lists 'Omitted: the panel borders and shadows around the lists'; 'no region'. The dump has both lists as section.card boxes (rect x292 y264 w468 h229; x780 y264 w468 h307) painted with background oklch(1 0 0) on a page background of oklch(0.961 0 0) (p \"ホンダファイナンスデータの最終更新…\" background), and the 1280 and 375 screenshots show bordered white panels.",
+      "fix": "Drop the card class from both sections so the lists sit on the page background, keeping the headings and the hairlines between rows."
+    },
+    {
+      "id": "P3-4",
+      "severity": "WARNING",
+      "location": "div.grid (lists row) index.html:11, desktop-1280",
+      "evidence": "brief sets 'a single column with a supporting pane for the notices from 1024px' and 'the two-to-one supporting pane'. At 1280 the 対応が必要な項目 section (w468) and the 未読のお知らせ section (w468) are equal in width, so the notices hold half the row instead of a supporting third, and the KPI tiles above repeat the same 1:1 split.",
+      "fix": "Lay the main column and the notices pane out at 2fr 1fr from 1024px, with the hero figure and 要対応 in the main column."
+    },
+    {
+      "id": "P3-5",
+      "severity": "WARNING",
+      "location": "button \"C\" in div.content-header__tools index.html:11",
+      "evidence": "label \"C\" does not name the action: the header button's accessible name in controls is \"C\" (w36 h36, type button), the same letter as the sidebar avatar div.user-avatar \"C\". A reader cannot tell from the label whether it opens the account menu, the text-size setting or something else.",
+      "fix": "Give the button an accessible name that states what it opens (for example aria-label 「アカウントメニューを開く」), and a tooltip with the same words."
+    },
+    {
+      "id": "P3-6",
+      "severity": "WARNING",
+      "location": "span.nav-badge \"2\" on a.nav-item お知らせ index.html:11",
+      "evidence": "untrue copy \"2\": the お知らせ navigation badge shows 2 while the 未読のお知らせ section lists 3 notices (NT-2026-051, NT-2026-049, NT-2026-047). The badge equals 「要対応のお知らせ 2件」, yet only one of the shown notices carries the 要対応 badge, so a reader who reads the badge as the unread count sees a number that disagrees with the list beside it, and one who reads it as 要対応 cannot find the second item on the screen.",
+      "fix": "Decide what the nav badge counts and make it match the screen: show the unread count (3) to agree with 未読のお知らせ, or label it so it reads as 要対応."
+    },
+    {
+      "id": "P3-7",
+      "severity": "NOTE",
+      "location": "h2 \"対応が必要な項目\" index.html:11",
+      "evidence": "term \"対応が必要な項目\" beside \"要対応\": the section heading spells the concept out, while the row 「要対応のお知らせ」, the notice badge 「要対応」 and the brief (\"the 要対応 list\"; お知らせ key property 要対応) use 要対応. One concept carries two names on one screen.",
+      "fix": "Title the section 「要対応」 so the heading matches the badge and the row label."
+    },
+    {
+      "id": "P3-8",
+      "severity": "NOTE",
+      "location": "h1.content-title \"ホーム\" index.html:11",
+      "evidence": "generic headline \"ホーム\": the only h1 names the navigation slot and carries nothing about the screen's purpose (this month's distance to target and today's actions). The brief keeps the shell constant across screens, so this is the shell's title pattern rather than a copy error.",
+      "fix": "Optional: keep 「ホーム」 in the navigation and title the page with its job, for example 「今月の目標と今日の対応」."
+    },
+    {
+      "id": "P3-9",
+      "severity": "NOTE",
+      "location": "nav a.nav-item 見積り, 車種, 金利・キャンペーン, マイ目標, 市場動向 index.html:11",
+      "evidence": "structure question 1: the root navigation holds nouns throughout and no item names a task, but five items fall outside the brief's object table (契約, 問い合わせ, お知らせ, 販売店): 見積り (#/estimates), 車種 (#/vehicles) and 金利・キャンペーン (#/rates) read as objects with no row in the table, and マイ目標 (#/staff/a1) and 市場動向 (#/market) name a view rather than an object. マイ目標 opens the single view of スタッフ, which the table lists only as a related object of 販売店.",
+      "fix": "Add 見積り, 車種, 金利・キャンペーン and スタッフ to the Structure table with their views, or record why マイ目標 and 市場動向 stay as view entries in the navigation."
+    }
+  ],
+  "out_of_scope_notes": [
+    "P1: at 375 the help icon button 「ペネトレーションの説明」 sits at the card's top right next to the arrow, away from the word ペネトレーション it explains (it follows the label at 1280).",
+    "P2: the two KPI tiles carry equal weight (both values 30px), so no single figure leads the eye at either width or theme."
+  ],
+  "checked_scope": "Read plan.md (brief, surface saas, structure ooui, controls wired), tokens.json (voice: register 敬体, terms), the measured file (R-1..R-6), the four screenshots (1280, 375, dark-1280, dark-375) and dom/1280.json; index.html read. The JS bundle index-DKXolRs7.js (about 265k tokens on its long lines, vendor code first) could not be searched with the available tools, so only the rendered home screen was audited; all rendered elements mount into div#root at index.html:11, which is the file:line used in locations. Dark captures show the same copy and structure as light. Conformance: hero figure, comparison line, 要対応 list, 未読のお知らせ list (3 rows, within the 3-row cap), the Updated line 「ホンダファイナンスデータの最終更新：2026年10月24日 6:00」, the help icon beside ペネトレーション and no scrolling at 1280 (pageHeight 1200) were checked; deviations in P3-1..P3-4. Wired controls: all 25 controls carry an href or a button type; every figure and row links to a list or single view (38.6% -> #/stores/s1, 2件 -> #/staff/a1, rows -> filtered #/inquiries, #/notices, #/contracts, notices -> #/notices/NT-...); destinations were not opened. Copy questions: (1) button labels name the action - yes for 「未読のお知らせを開く」 (#/notices?unread=1) and 「ペネトレーションの説明」; no for header button 「C」 (P3-5). (2) errors state the cause - no error state is rendered on this screen; unverified in the bundle. (3) headings specific - 「未読のお知らせ」 yes, 「対応が必要な項目」 yes with a term split (P3-7), 「ホーム」 generic (P3-8). (4) copy true - counts 1/2/4 件 and 2件 vs 目標 9件 are consistent; the お知らせ nav badge 2 disagrees with 3 unread rows (P3-6). (5) one name per object - voice.terms respected (お客様, 販売店, 営業スタッフ, よくあるご質問, 見積り, ペネトレーション); 要対応 vs 対応が必要 split (P3-7). (6) empty state - none rendered (all lists have rows); unverified. (7) register - 敬体 is settled; the screen carries only noun labels and one 終止形 link label, which suits a daily internal audience; yes. Structure questions: (1) root nav items are nouns, none names a task; five items fall outside the object table (P3-9). (2) 契約 #/contracts, 問い合わせ #/inquiries, お知らせ #/notices with single #/notices/:id, 販売店 #/stores with single #/stores/s1 are linked; single views for 契約 and 問い合わせ are not linked from this screen and were not opened. (3) the home screen offers no object actions, so no action precedes its object; yes. (4) objects keep one name (契約, 問い合わせ, お知らせ, 販売店) across nav, rows and links; yes. (5) no fixed-sequence flow on this screen; yes."
+}

@@ -1,0 +1,253 @@
+{
+  "verdicts": [
+    {
+      "cid": "C1",
+      "sentence": "Spacing steps sit on a 4px base in Tailwind, Carbon and Primer, on 8px in Atlassian and on 5px in GOV.UK [E1, E13, E15, E16, E10].",
+      "evidence_ids": [
+        "E1",
+        "E13",
+        "E15",
+        "E16",
+        "E10"
+      ],
+      "verdict": "contradicted",
+      "reason": "Tailwind (0.25rem), Atlassian (8px base unit) and GOV.UK (5px steps) hold, but Carbon's spacing page describes its scale as multiples of two, four and eight that complement the 2x Grid, whose mini unit Carbon's 2x Grid page gives as 8px, so placing Carbon on a 4px base against Atlassian's 8px misstates it. Primer's size page lists 2px, 6px and 4px-multiple sizes and states no 4px base.",
+      "found": "The Carbon spacing scale complements the 2x Grid and typography scale by using multiples of two, four, and eight.",
+      "source": "https://carbondesignsystem.com/elements/spacing/overview/"
+    },
+    {
+      "cid": "C2",
+      "sentence": "Body text is 16px in DADS and SmartHR, the two Japanese systems, and 14px in the dense product sets of Carbon and Atlassian [E21, E62, E67, E71].",
+      "evidence_ids": [
+        "E21",
+        "E62",
+        "E67",
+        "E71"
+      ],
+      "verdict": "partial",
+      "reason": "DADS, SmartHR and Carbon's productive set hold (DADS states 16 CSS px or more as the baseline). Atlassian has no separate dense product type set: its 14px Body M is the default in components and space-limited places, while Body L at 16px is the default for long-form content.",
+      "found": "Body L is the default size for long-form content. Use this size for a comfortable reading experience such as in blogs. Body M (Default) is the default size in components or where space is limited",
+      "source": "https://atlassian.design/foundations/typography/"
+    },
+    {
+      "cid": "C3",
+      "sentence": "DADS allows 14px only as an exception and in principle permits nothing smaller [E47].",
+      "evidence_ids": [
+        "E47"
+      ],
+      "verdict": "supported",
+      "reason": "DADS says 14px is basically unused and applies only where the 16px standard is hard to use, and that sizes below 14 CSS px are in principle not allowed.",
+      "found": "14 基本的には使用しません。フッター要素などコンテンツに付随する情報や、UIやコンテンツを構成する際の領域的な制約がある場合のように標準的な文字サイズ(16 CSS px以上)の使用が難しいケースにおいてのみ使用される文字サイズです。なお、14 CSS px未満の大きさの使用は原則として許容されません。",
+      "source": "https://design.digital.go.jp/dads/foundations/typography/"
+    },
+    {
+      "cid": "C4",
+      "sentence": "Japanese body text takes a line height of 1.5 or more and letter spacing of 0 to 2% [E48, E64, E50], and WCAG sets the line length at 80 characters, or 40 for CJK text [E73].",
+      "evidence_ids": [
+        "E48",
+        "E64",
+        "E50",
+        "E73"
+      ],
+      "verdict": "partial",
+      "reason": "The 1.5 line height and 0-2% letter spacing come from two systems (DADS, SmartHR), not from Japanese body text in general, and DADS limits the 1.5 recommendation to reading content while listing 120-130% for admin and business screens. WCAG SC 1.4.8 is Level AAA, sets a maximum width of 80 characters (40 CJK) that a user mechanism must make available, and states content is not required to use these values.",
+      "found": "Width is no more than 80 characters or glyphs (40 if CJK). ... Note 1 Content is not required to use these values. The requirement is that a mechanism is available for users to change these presentation aspects.",
+      "source": "https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html"
+    },
+    {
+      "cid": "C5",
+      "sentence": "Tailwind and shadcn/ui defaults sit inside most of these ranges: a 4px spacing unit, `text-base` at 16px on a 24px line, and a 36px default button [E1, E54, E34].",
+      "evidence_ids": [
+        "E1",
+        "E54",
+        "E34"
+      ],
+      "verdict": "supported",
+      "reason": "Tailwind sets --spacing to 0.25rem (4px) and text-base to 1rem (16px) with a 1.5 line height (24px); shadcn/ui new-york-v4 sets the default button size to h-9, which is 36px on that 0.25rem spacing unit.",
+      "found": "size: { default: \"h-9 px-4 py-2 has-[>svg]:px-3\"",
+      "source": "https://raw.githubusercontent.com/shadcn-ui/ui/main/apps/v4/registry/new-york-v4/ui/button.tsx"
+    },
+    {
+      "cid": "C6",
+      "sentence": "shadcn's base radius of 0.625rem (10px) is above the 6px of Primer and the 4px of Fluent [E7, E14, E19], and `text-sm` at 14px on a 20px line gives 1.43, below DADS's 1.5 minimum for Japanese body text (lead's computation from [E55, E48]).",
+      "evidence_ids": [
+        "E7",
+        "E14",
+        "E19",
+        "E55",
+        "E48"
+      ],
+      "verdict": "partial",
+      "reason": "The radius figures (shadcn 0.625rem, Primer default 6px, Fluent 4px) and the 1.43 ratio for text-sm (1.25rem/0.875rem) are all on the cited pages. DADS gives 1.5 as a recommendation for body text in reading content (読み物コンテンツ), not for Japanese body text in general. The same page allows 120-130% line heights for admin and business screens and lists Dense 14px styles at 1.2-1.3, so the sentence states the scope of the 1.5 minimum too broadly.",
+      "found": "読み物コンテンツにおける本文テキストの行ボックスの高さ(行高)はフォントサイズに対して少なくとも1.5倍を維持することを推奨します。 ... たとえば管理画面や業務用システムの画面など、限られた画面領域で表示する情報量を優先したい場合などは、行間をかなり狭めた表示にすることがあります。",
+      "source": "https://design.digital.go.jp/dads/foundations/typography/"
+    },
+    {
+      "cid": "C7",
+      "sentence": "For labels, Japanese and English guides agree that a button names its action [E76, E89].",
+      "evidence_ids": [
+        "E76",
+        "E89"
+      ],
+      "verdict": "supported",
+      "reason": "SmartHR (Japanese) says a button label is the plain-form verb of the user's operation, and GOV.UK (English) says button text describes the action it performs. Apple's HIG, found in the opposing search, also tells writers to describe what the button does.",
+      "found": "ボタンは、ユーザーが押すことで特定の操作や処理を実行するものです。 そのためボタンのラベルは、ユーザーの操作を表す 動詞の終止形 で表記します。 / Write button text in sentence case, describing the action it performs.",
+      "source": "https://smarthr.design/products/contents/ui-text/app-writing/"
+    },
+    {
+      "cid": "C8",
+      "sentence": "SmartHR drops 「する」 from the label, as in 「追加」, and DADS and SmartHR both reject 「こちら」 as link text [E77, E81, E86].",
+      "evidence_ids": [
+        "E77",
+        "E81",
+        "E86"
+      ],
+      "verdict": "supported",
+      "reason": "SmartHR drops する from suru-verbs in button labels and gives 「追加」 as the OK example. SmartHR and DADS both tell writers not to use 「こちら」 as link text.",
+      "found": "ただし、名詞に「する」をつけたサ行変格活用動詞の場合の「する」は省略します。 ... OK例:「追加」「削除」 NG例:「追加する」「削除する」 / 「ここ」や「こちら」をリンクテキストにしない",
+      "source": "https://smarthr.design/products/contents/ui-text/app-writing/"
+    },
+    {
+      "cid": "C9",
+      "sentence": "English guides write labels in sentence case and leave out \"please\" [E89, E94, E92, E98].",
+      "evidence_ids": [
+        "E89",
+        "E94",
+        "E92",
+        "E98"
+      ],
+      "verdict": "contradicted",
+      "reason": "GOV.UK and Microsoft use sentence case for labels, but Apple's HIG calls for title-style capitalization on button labels, so English guides do not agree on sentence case. The 'please' guidance applies to general GOV.UK content ('usually no need') and to Atlassian error messages, not to labels.",
+      "found": "Using title-style capitalization, consider starting the label with a verb to help convey the button's action — for example, a button that lets people add items to their shopping cart might use the label \"Add to Cart.\"",
+      "source": "https://developer.apple.com/design/human-interface-guidelines/buttons"
+    },
+    {
+      "cid": "C10",
+      "sentence": "The AI tells collected for values, layout and labels all rest on grade C commentary from 2026 [E99, E100, E101, E102, E105, E108].",
+      "evidence_ids": [
+        "E99",
+        "E100",
+        "E101",
+        "E102",
+        "E105",
+        "E108"
+      ],
+      "verdict": "supported",
+      "reason": "The run's evidence records list every AI-tell item for UI values, layout and labels (E99-E109) as grade C blog commentary dated June-July 2026. The only grade B items in that sub-question (E110, E111, Wikipedia) concern prose wording, not UI values, layout or labels.",
+      "found": "\"id\": \"E99\" ... \"date\": \"2026-06-13\", \"grade\": \"C\" ... \"id\": \"E105\" ... \"date\": \"2026-07-13\", \"grade\": \"C\" ... \"id\": \"E108\" ... \"date\": \"2026-06-14\", \"grade\": \"C\"",
+      "source": "C:\\Mycode\\ClaudeCode\\product-ui\\research\\20261030-ui-defaults-labels-copy\\evidence.jsonl"
+    },
+    {
+      "cid": "C11",
+      "sentence": "These sources name one radius and a 0.1-opacity shadow on everything, wide tracking on uppercase eyebrows, oversized hero text, a three-column icon grid, a stock section order and a \"Get Started\" gradient button [E99, E100, E101, E102, E105, E108].",
+      "evidence_ids": [
+        "E99",
+        "E100",
+        "E101",
+        "E102",
+        "E105",
+        "E108"
+      ],
+      "verdict": "partial",
+      "reason": "Each pattern is named by at least one cited source, but the sentence puts the 0.1-opacity shadow 'on everything' and drops 'roughly'. devtake applies 'on everything' only to the half-rem radius and gives the shadow opacity as approximate; the other sources describe soft shadows on the feature cards.",
+      "found": "Border radius around half a rem on everything. Box shadows at roughly 0.1 opacity. A three-column feature grid with an icon per card. Oversized hero text over vague copy.",
+      "source": "https://devtake.pages.dev/article/ai-generated-frontend-slop"
+    },
+    {
+      "cid": "C12",
+      "sentence": "None of them gives a measured spacing or size value that marks AI output [E99, E100].",
+      "evidence_ids": [
+        "E99",
+        "E100"
+      ],
+      "verdict": "partial",
+      "reason": "None of the four cached pages reports a measurement. The 'measurable' in devtake refers to WebAIM accessibility data. However, E99 does name a size value as an AI marker (a radius 'around half a rem'), and noqta implies a 24px radius default, both stated by observation. So the sentence holds only on the word 'measured', and the cited passages do not themselves state the absence.",
+      "found": "The signature is consistent enough to be a meme. Inter or system-ui for type. A gradient running from indigo to purple. Border radius around half a rem on everything. Box shadows at roughly 0.1 opacity.",
+      "source": "https://devtake.pages.dev/article/ai-generated-frontend-slop"
+    },
+    {
+      "cid": "C13",
+      "sentence": "403 Japanese participants had limited ability to tell AI-written text from human text and judged it by surface cues [E119, E121].",
+      "evidence_ids": [
+        "E119",
+        "E121"
+      ],
+      "verdict": "partial",
+      "reason": "The abstract supports 403 Japanese participants and limited overall detection ability. The surface-cue part rests on free-text survey comments, which the authors say 'suggested' that participants 'primarily relied on' superficial impressions. The sentence states this as an established finding.",
+      "found": "403 participants tackled “AI or Human” judgment task and estimated their own confidence, revealing that overall human AI-detection ability was limited. ... Furthermore, an additional comment from the survey suggested that participants primarily relied on superficial impressions based on phraseology, expression, the ends of words, conjunctions, and punctuation marks in judgments.",
+      "source": "https://ideas.repec.org/a/plo/pone00/0335369.html"
+    },
+    {
+      "cid": "C14",
+      "sentence": "A Hiroshima University bachelor's thesis, reported by Fyve, found that 1 of 148 popular 「AIらしさ」 claims matched measurement [E112].",
+      "evidence_ids": [
+        "E112"
+      ],
+      "verdict": "supported",
+      "reason": "Fyve names the thesis as a Hiroshima University 文学部 bachelor's thesis (令和7年度). It reports that 1 of 148 collected online 「AIらしさ」 claims, 読点使用の多さ, matched measurement. A search confirmed that the thesis exists on a Hiroshima University site. The thesis PDF itself could not be fetched, so the figure 148 was checked only as reported by Fyve.",
+      "found": "広島大学文学部の令和7年度卒業論文(大西夢「AI生成文からみた『自然な日本語』についての研究」) ... 人が挙げた148件の「AIらしさ」のうち、実測と一致したのはわずか1件でした。",
+      "source": "https://fyve.co.jp/ai-advisor/articles/ai-text-detection-myths-japan"
+    },
+    {
+      "cid": "C15",
+      "sentence": "The spacing base unit is 4px in Tailwind CSS v4.3, which sets `--spacing` to 0.25rem [E1].",
+      "evidence_ids": [
+        "E1"
+      ],
+      "verdict": "supported",
+      "reason": "The cached page is headed 'Tailwind CSS v4.3', and its default theme sets --spacing to 0.25rem, which is 4px at the browser's default 16px root size. The same page's full-theme example writes the value as --spacing: 4px.",
+      "found": "--color-black : #000 ; --color-white : #fff ; --spacing : 0.25 rem ; --breakpoint-sm : 40 rem ;",
+      "source": "https://tailwindcss.com/docs/theme"
+    }
+  ],
+  "patch": [
+    {
+      "cid": "C1",
+      "sentence": "Spacing steps sit on a 4px base in Tailwind, Carbon and Primer, on 8px in Atlassian and on 5px in GOV.UK [E1, E13, E15, E16, E10].",
+      "verdict": "contradicted",
+      "action": "state both sources"
+    },
+    {
+      "cid": "C2",
+      "sentence": "Body text is 16px in DADS and SmartHR, the two Japanese systems, and 14px in the dense product sets of Carbon and Atlassian [E21, E62, E67, E71].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C4",
+      "sentence": "Japanese body text takes a line height of 1.5 or more and letter spacing of 0 to 2% [E48, E64, E50], and WCAG sets the line length at 80 characters, or 40 for CJK text [E73].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C6",
+      "sentence": "shadcn's base radius of 0.625rem (10px) is above the 6px of Primer and the 4px of Fluent [E7, E14, E19], and `text-sm` at 14px on a 20px line gives 1.43, below DADS's 1.5 minimum for Japanese body text (lead's computation from [E55, E48]).",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C9",
+      "sentence": "English guides write labels in sentence case and leave out \"please\" [E89, E94, E92, E98].",
+      "verdict": "contradicted",
+      "action": "state both sources"
+    },
+    {
+      "cid": "C11",
+      "sentence": "These sources name one radius and a 0.1-opacity shadow on everything, wide tracking on uppercase eyebrows, oversized hero text, a three-column icon grid, a stock section order and a \"Get Started\" gradient button [E99, E100, E101, E102, E105, E108].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C12",
+      "sentence": "None of them gives a measured spacing or size value that marks AI output [E99, E100].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    },
+    {
+      "cid": "C13",
+      "sentence": "403 Japanese participants had limited ability to tell AI-written text from human text and judged it by surface cues [E119, E121].",
+      "verdict": "partial",
+      "action": "narrow the sentence to what the quote supports"
+    }
+  ]
+}

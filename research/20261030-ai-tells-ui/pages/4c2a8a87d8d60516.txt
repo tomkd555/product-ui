@@ -1,0 +1,16 @@
+# url: https://flowingdata.com/2025/10/20/signs-of-ai-writing-on-wikipedia/
+# accessed: 2026-10-30
+# chars: 2139
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Signs of AI writing on Wikipedia – FlowingData Membership Books Projects Learning Newsletters Member Login Signs of AI writing on Wikipedia October 20, 2025 Topic Artificial Intelligence / fake , 
+Wikipedia , writing From WikiProject AI Cleanup , a guide on spotting fake writing on Wikipedia . This list is not a ban on certain words, phrases, or punctuation. No one is taking your em-dashes 
+away or claiming that only AI uses them. Not all text featuring the following indicators is AI-generated, as the large language models that power AI chatbots are trained on human writing, including 
+the writing of Wikipedia editors. This is simply a catalog of very common patterns observed over many thousands of instances of AI-generated text, specific to Wikipedia. While some of its advice may 
+be broadly applicable, some signs—particularly those involving punctuation and formatting—may not apply in a non-Wikipedia context. More on em-dashes: While human editors and writers often do use em 
+dashes (—), LLM output tends to use them more often than nonprofessional human-written text of the same genre, and uses them in places where humans are more likely to use commas, parentheses, colons, 
+or (misused) hyphens (-). LLMs especially tend to use em dashes in a formulaic, pat way, often mimicking “punched up” sales-like writing by over-emphasizing clauses or parallelisms. LLMs overuse em 
+dashes because they were trained (sometimes illegally) on novels, and novelists have always used em dashes more often than is typical of a layperson. This sign is most useful when taken in 
+combination with other indicators, not by itself. I think I’ve been subconsciously using more commas these days. Related Seeing just the questions Algorithms to fix underrepresentation on Wikipedia 
+AI says if you’re the a**hole Get access to courses, tutorials, and more resources. Become a member → Second Edition Visualize This: The FlowingData Guide to Design, Visualization, and Statistics 
+(2nd Edition) New tools, refined process. Order: Amazon / Bookshop About Contact LinkedIn Bluesky Instagram RSS Copyright © 2007-Present FlowingData. All rights reserved.

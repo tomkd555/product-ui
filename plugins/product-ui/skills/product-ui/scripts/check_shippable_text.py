@@ -33,6 +33,9 @@ import sys
 from html.parser import HTMLParser
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from ts_strings import catalog_entries, script_entries  # noqa: E402
+
 # .scss joins the scope for ST10 only, read as plain CSS: a nested rule contributes
 # its own declarations but not its parent's selector, which ST10 does not need.
 STYLESHEET_SUFFIXES = {".css", ".scss"}
@@ -41,6 +44,13 @@ SCOPE_SUFFIXES = {".html", ".htm", ".jsx", ".tsx", ".vue", ".svelte",
 SKIP_DIRS = {"node_modules", "dist", "build", ".next", ".git", ".svelte-kit", "out",
              "coverage", "fixtures"}
 SKIP_PATTERNS = (".min.", ".test.", ".spec.")
+
+# Script and catalog files: their strings are read through ts_strings.py, the one rule
+# check_copy.py uses too. Only ST1-ST6, ST8 and ST9 run on them.
+SCRIPT_SUFFIXES = {".ts", ".js", ".mjs"}
+CATALOG_SUFFIXES = {".json", ".ts"}
+CATALOG_DIRS = {"locales", "locale", "i18n", "messages", "lang"}
+SCRIPT_SKIP = re.compile(r"\.d\.ts$|\.config\.|\.min\.|\.test\.|\.spec\.", re.IGNORECASE)
 
 # ST3 allows a capability sentence on a promotional surface. meta.surface in the
 # nearest tokens.json settles it; the path heuristics are the fallback when no
@@ -71,6 +81,9 @@ EN_POSITION = [
                r"[^.!?]{0,20}\b(?:below|above)\b", re.IGNORECASE),
     re.compile(r"\bthe\s+(?:form|field|button|table|list|menu|section|input|box|link)\s+"
                r"(?:below|above)\b", re.IGNORECASE),
+    # The end anchor keeps "Enter a value above 10" a comparison.
+    re.compile(r"\b(?:enter|fill|select|choose|click|tap|see|use|complete|review)\b"
+               r"[^.!?<>]{0,60}\b(?:below|above)\s*[.:!]?\s*(?:$|<)", re.IGNORECASE),
 ]
 
 # --- ST3: the capability explainer ----------------------------------------
@@ -157,15 +170,15 @@ THEME_NAMES = ("theme.css", "tokens.css")
 LINK_OR_STYLE = re.compile(r"<link\b[^<>]*>|<style\b[^<>]*>.*?</style>",
                            re.DOTALL | re.IGNORECASE)
 STYLE_BODY = re.compile(r"<style\b[^<>]*>(.*?)</style>", re.DOTALL | re.IGNORECASE)
-REL_STYLESHEET = re.compile(r"\brel\s*=\s*[\"']stylesheet[\"']", re.IGNORECASE)
-HREF = re.compile(r"\bhref\s*=\s*[\"']([^\"']+)[\"']", re.IGNORECASE)
+REL_STYLESHEET = re.compile(r"\brel\s*=\s*[\"']?stylesheet\b", re.IGNORECASE)
+HREF = re.compile(r"\bhref\s*=\s*(?:[\"']([^\"']+)[\"']|([^\s\"'<>]+))", re.IGNORECASE)
 
 # Markup.
 HIDDEN_TAGS = {"script", "style", "template", "noscript", "title"}
 VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
              "meta", "param", "source", "track", "wbr"}
-ATTR_CLASS = re.compile(r"\bclass(?:Name)?\s*=\s*[\"']([^\"']*)[\"']")
-ATTR_ID = re.compile(r"\bid\s*=\s*[\"']([^\"']*)[\"']")
+ATTR_CLASS = re.compile(r"\bclass(?:Name)?\s*=\s*(?:[\"']([^\"']*)[\"']|([^\s\"'<>/=]+))")
+ATTR_ID = re.compile(r"\bid\s*=\s*(?:[\"']([^\"']*)[\"']|([^\s\"'<>/=]+))")
 STYLE_SIZE = re.compile(r"(?<![\w-])font-size\s*:\s*([^;\"'}]+)", re.IGNORECASE)
 JSX_SIZE = re.compile(r"\bfontSize\s*:\s*[\"']?([^,}\"']+)[\"']?")
 SVG_SIZE = re.compile(r"(?<![\w-])font-size\s*=\s*[\"']?([\w.%-]+)[\"']?", re.IGNORECASE)
@@ -304,13 +317,27 @@ def line_of(body, index):
     return body.count("\n", 0, index) + 1
 
 
+def is_catalog_path(path):
+    """A .json or .ts file under a message-catalog directory."""
+    return Path(path).suffix.lower() in CATALOG_SUFFIXES \
+        and bool({part.lower() for part in Path(path).parts} & CATALOG_DIRS)
+
+
+def in_script_scope(path):
+    suffix = path.suffix.lower()
+    if is_catalog_path(path):
+        return True
+    return suffix in SCRIPT_SUFFIXES and not SCRIPT_SKIP.search(path.name)
+
+
 def collect_files(root):
     root = Path(root)
     if root.is_file():
         return [root]
     found = []
     for path in sorted(root.rglob("*")):
-        if not path.is_file() or path.suffix.lower() not in SCOPE_SUFFIXES:
+        if not path.is_file() or not (path.suffix.lower() in SCOPE_SUFFIXES
+                                      or in_script_scope(path)):
             continue
         if any(part in SKIP_DIRS for part in path.parts):
             continue
@@ -630,9 +657,10 @@ def stylesheets(path, raw, theme, extra_css):
         if not REL_STYLESHEET.search(chunk):
             continue
         href = HREF.search(chunk)
-        if not href or re.match(r"[a-z]+:|//", href.group(1), re.IGNORECASE):
+        link = (href.group(1) or href.group(2)) if href else ""
+        if not link or re.match(r"[a-z]+:|//", link, re.IGNORECASE):
             continue
-        target = (path.parent / href.group(1).split("?")[0].split("#")[0])
+        target = (path.parent / link.split("?")[0].split("#")[0])
         # The file scope excludes *.min.*, so the cascade excludes a minified
         # vendor sheet too.
         if not target.is_file() or any(p in target.name for p in SKIP_PATTERNS):
@@ -732,9 +760,9 @@ class SizeWalker(HTMLParser):
         parent = self.stack[-1] if self.stack else self.root
         names = []
         for match in ATTR_CLASS.finditer(raw):
-            names.extend(match.group(1).split())
+            names.extend((match.group(1) or match.group(2) or "").split())
         ident = ATTR_ID.search(raw)
-        frame = {"tag": tag.lower(), "id": ident.group(1) if ident else "",
+        frame = {"tag": tag.lower(), "id": (ident.group(1) or ident.group(2) or "") if ident else "",
                  "classes": frozenset(names), "class_list": names,
                  "hidden": parent["hidden"] or self.hides(tag.lower(), raw)}
         self.stack.append(frame)
@@ -799,11 +827,54 @@ def report_small_run(rep, path, line, text, size, source):
 
 # --- checks ---------------------------------------------------------------
 
+def script_segments(raw, path):
+    """Segs from a script or catalog file, read through ts_strings.
+
+    The source is the last key segment, lower-cased, where ST3 and ST4 know it as a
+    label, helper or tooltip prop; otherwise it is the entry's kind.
+    """
+    is_catalog = is_catalog_path(path)
+    if Path(path).suffix.lower() == ".json" and not is_catalog:
+        return []
+    entries = catalog_entries(raw, str(path)) if is_catalog else script_entries(raw)
+    known = LABEL_PROPS | HELPER_PROPS | TOOLTIP_SOURCES
+    segs = []
+    for entry in entries:
+        last = re.split(r"[.]", entry.key)[-1].lower() if entry.key else ""
+        segs.append(Seg(entry.text, entry.line, entry.offset, last if last in known else entry.kind))
+    return segs
+
+
+def check_script(path, raw, rep, surface=None, segs=None):
+    """ST1-ST6, ST8 and ST9 over the strings of a .ts, .js, .mjs or catalog file."""
+    if segs is None:
+        segs = script_segments(raw, path)
+    landing = surface in LANDING_SURFACES if surface else is_landing(path)
+    check_segments(path, raw, segs, rep, landing)
+    check_helper_text(path, "", segs, rep)
+    check_tutorial(path, "", segs, rep)
+
+
 def check_file(path, raw, rep, surface=None, theme=None, extra_css=()):
     body = strip_hidden(raw)
     segs = segments(body)
     landing = surface in LANDING_SURFACES if surface else is_landing(path)
+    check_segments(path, body, segs, rep, landing)
+    check_helper_text(path, body, segs, rep)
+    check_tutorial(path, body, segs, rep)
 
+    sheets = stylesheets(path, raw, theme, extra_css)
+    cascade = Cascade()
+    for text, _, _ in sheets:
+        cascade.read(text)
+    check_size(path, body, rep, cascade)
+    for text, offset, own in sheets:
+        if own:
+            check_declared_sizes(path, text, rep, offset)
+
+
+def check_segments(path, body, segs, rep, landing):
+    """ST1, ST2, ST3, ST5, ST8 and ST9 on each string; body is the context ST3 and ST9 read."""
     for seg in segs:
         described = False
 
@@ -843,18 +914,6 @@ def check_file(path, raw, rep, surface=None, theme=None, extra_css=()):
         if ST8.search(seg.text):
             rep.add("ERROR", "ST8", path, seg.line, seg.text, "filler text reached the screen")
 
-    check_helper_text(path, body, segs, rep)
-    check_tutorial(path, body, segs, rep)
-
-    sheets = stylesheets(path, raw, theme, extra_css)
-    cascade = Cascade()
-    for text, _, _ in sheets:
-        cascade.read(text)
-    check_size(path, body, rep, cascade)
-    for text, offset, own in sheets:
-        if own:
-            check_declared_sizes(path, text, rep, offset)
-
 
 def check_helper_text(path, body, segs, rep):
     """ST4 - helper text restating its label."""
@@ -881,7 +940,7 @@ def check_helper_text(path, body, segs, rep):
 
 def check_tutorial(path, body, segs, rep):
     """ST6 - inline tutorial prose, judged over the whole file."""
-    if WIZARD.search(body):
+    if WIZARD.search(TEXT_NODE.sub("><", body)):
         return
     visible = " ".join(seg.text for seg in segs)
     japanese = ST6_FIRST.search(visible) and ST6_IMPERATIVE.search(visible) \
@@ -957,13 +1016,22 @@ def run(target, surface=None, extra_css=(), checks=None, dump=None):
     surface = surface or surface_of(target)
     theme = find_theme(target)
     extra_css = [Path(one) for one in extra_css]
+    read = []
     for path in files:
         raw = path.read_text(encoding="utf-8", errors="replace")
-        if path.suffix.lower() in STYLESHEET_SUFFIXES:
+        suffix = path.suffix.lower()
+        if suffix in STYLESHEET_SUFFIXES:
             check_declared_sizes(path, raw, rep)
-            continue
-        check_file(path, raw, rep, surface, theme, extra_css)
-    return rep, files
+        elif suffix in SCRIPT_SUFFIXES or suffix == ".json":
+            # A script file with no user-visible string is no file to judge.
+            segs = script_segments(raw, path)
+            if not segs:
+                continue
+            check_script(path, raw, rep, surface, segs)
+        else:
+            check_file(path, raw, rep, surface, theme, extra_css)
+        read.append(path)
+    return rep, read
 
 
 def main():

@@ -1,0 +1,37 @@
+[
+  {
+    "cid": "C11",
+    "verdict": "contradicted",
+    "reason": "All 10 cited pages do name the purple gradient (for E11, E13 and E35 only elsewhere on the page, not in the quoted passage), but the run's cached pages hold at least 3 more publishers naming it: github.com/Laith0003/ux-skill wiki, zenn.dev/kenimo49 and note.com/hasilan. The run's count is therefore at least 13, not 10.",
+    "found": "Purple-to-blue gradient on white is the strongest visual fingerprint of unconstrained model output and reads as template-marketplace AI slop.",
+    "source": "https://github.com/Laith0003/ux-skill/wiki/Anti-Patterns-Reference"
+  },
+  {
+    "cid": "C12",
+    "verdict": "partial",
+    "reason": "E13 shows only that one publisher, codemyspec, draws on two inventories (Krebs and West) and quotes Anthropic. No other cached page in the run mentions Krebs or West, so 'several of them cite ... the same 2 inventories' is not shown, and codemyspec itself calls the two inventories independent. The conclusion about independence is the writer's inference.",
+    "found": "Two independent inventories have cataloged the signature, and they agree. ... The two inventories: Adrian Krebs, 16 patterns that out a site as vibe coded , and Alan West, how to fix the AI-generated look .",
+    "source": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same"
+  },
+  {
+    "cid": "C13",
+    "verdict": "supported",
+    "reason": "Each signal appears in its cited page: prg.sh ties bg-indigo-500 to Tailwind UI buttons; codemyspec names indigo-600 and slate-900; 925studios names an indigo-to-purple gradient; capitalandcompute writes 'often on the headline text itself'; the chitosedev note describes a hero background from #7c3aed to #ec4899, or 紺→水色.",
+    "found": "He apologized for making every button in Tailwind UI use bg-indigo-500 five years ago | Purple or indigo fading to blue, often on the headline text itself | ヒーローセクションの背景がこうなります。 左上が紫(#7c3aed系)、右下がピンク(#ec4899系)のグラデーション。 もしくは、紺→水色、青→緑のパターン。",
+    "source": "https://prg.sh/ramblings/Why-Your-AI-Keeps-Building-the-Same-Purple-Gradient-Website"
+  },
+  {
+    "cid": "C14",
+    "verdict": "supported",
+    "reason": "The 925studios page states the phrase verbatim about the blue-to-purple gradient.",
+    "found": "The blue-to-purple gradient is the single loudest AI tell in 2026.",
+    "source": "https://www.925studios.co/blog/ai-slop-design-tells"
+  },
+  {
+    "cid": "C15",
+    "verdict": "supported",
+    "reason": "The page states shadcn/ui's default primary is oklch(0.205 0 0) with zero saturation (light mode), that Tailwind assigns no colour family as primary, and that the purple arrives when the model fills that blank from its training data. Secondary sources confirm the value for shadcn's Neutral base colour; other base colours give near-neutral values.",
+    "found": "Its default primary color is oklch(0.205 0 0) in light mode and oklch(0.922 0 0) in dark. ... assigns none of them as your primary. ... The purple arrives when a model fills that blank, because bg-indigo-500 and its neighbors saturate the tutorials, galleries and starter templates the model learned from.",
+    "source": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same"
+  }
+]

@@ -1,0 +1,10 @@
+# url: https://primer.style/product/ui-patterns/button-labels
+# accessed: 2026-10-30
+# chars: 812
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Primer Skip to main content Primer Product UI Brand UI Octicons Accessibility Brand Toolkit Switch to dark mode Give feedback Navigation Primer The design system for GitHub Build UI at GitHub with 
+Primer Product UI Get started with Product UI Create for GitHub using the Brand toolkit Get started with Brand toolkit Design digital marketing experiences with Primer Brand UI Get started with Brand 
+UI Shared Foundations Accessibility Get started with creating accessible interfaces for GitHub. Learn more Octicons Octicons are a set of SVG icons built by GitHub for GitHub. Learn more Primitives 
+Primer’s design tokens for color, spacing, and typography. Learn more Design at GitHub The blog Catch up on what’s new with design at GitHub. Learn more About us Learn about the core team working on 
+Primer. Learn more

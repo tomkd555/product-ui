@@ -1,0 +1,30 @@
+# url: https://almanac.httparchive.org/en/2025/
+# accessed: 2026-10-30
+# chars: 4798
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+The 2025 Web Almanac Skip navigation Web Almanac By HTTP Archive Contributors Methodology Search Search Search Search Table of Contents Table of Contents Home Table of Contents Foreword Part I. Page 
+Content Chapter 1: Fonts Chapter 2: WebAssembly Chapter 3: Third Parties Chapter 4: Generative AI Part II. User Experience Chapter 5: SEO Chapter 6: Accessibility Chapter 7: Performance Chapter 8: 
+Privacy Chapter 9: Security Chapter 10: Capabilities Chapter 11: PWA Part III. Content Publishing Chapter 12: CMS Chapter 13: Ecommerce Part IV. Content Distribution Chapter 14: Page Weight Chapter 
+15: CDN Chapter 16: Cookies Appendices Methodology Contributors Search Ebook Ebook PDF (12MB) 2025 2024 2022 2021 2020 2019 English Deutsch Español Français Italiano Nederlands Português Türkçe 
+Русский Українська हिन्दी 日本語 简体中文 繁體中文 Help translate Contributors Methodology Search Search Table of Contents Table of Contents Switcher Home Table of Contents Foreword Chapter 1: Fonts Chapter 2: 
+WebAssembly Chapter 3: Third Parties Chapter 4: Generative AI Chapter 5: SEO Chapter 6: Accessibility Chapter 7: Performance Chapter 8: Privacy Chapter 9: Security Chapter 10: Capabilities Chapter 
+11: PWA Chapter 12: CMS Chapter 13: Ecommerce Chapter 14: Page Weight Chapter 15: CDN Chapter 16: Cookies Methodology Contributors Search Ebook PDF (12MB) Year Switcher 2025 2024 2022 2021 2020 2019 
+Language Switcher Deutsch English Español Français Italiano Nederlands Português Türkçe Русский Українська हिन्दी 日本語 简体中文 繁體中文 Help translate HTTP Archive home Twitter Bluesky GitHub 2025 Web 
+Almanac HTTP Archive’s annual state of the web report Our mission is to combine the raw stats and trends of the HTTP Archive with the expertise of the web community. The Web Almanac is a 
+comprehensive report on the state of the web, backed by real data and trusted web experts. The 2025 edition is comprised of 16 chapters spanning aspects of page content, user experience, publishing, 
+and distribution. Start exploring 2025 Featured Chapter WebAssembly WebAssembly is no longer just a “web” technology; it has evolved into a high-performance, universal bytecode format. 0.35% Desktop 
+sites using WebAssembly. 228 MB Largest WebAssembly file detected. 2.05% Desktop sites in top 1,000 using WebAssembly Read the WebAssembly chapter Contributors The Web Almanac has been made possible 
+by the hard work of the web community. 76 people have volunteered countless hours in the planning, research, writing and production phases of the 2025 Web Almanac. See the contributors 76 Methodology 
+Websites Tested 16.2M Data Processed 244 TB Unless otherwise noted, the metrics in all of the 16 chapters of the 2025 Web Almanac are sourced from the HTTP Archive dataset. HTTP Archive is a 
+community-run project that has been tracking how the web is built since 2010. Using WebPageTest and Lighthouse under the hood, metadata about over 16 million websites are tested monthly and included 
+in a public BigQuery database for analysis. The July 2025 dataset was used as the basis for the 2025 Web Almanac’s metrics. For more information, see the Methodology page. Learn about our Methodology 
+Web Almanac By HTTP Archive Contributors Methodology Search Search Search Search Table of Contents Table of Contents Home Table of Contents Foreword Part I. Page Content Chapter 1: Fonts Chapter 2: 
+WebAssembly Chapter 3: Third Parties Chapter 4: Generative AI Part II. User Experience Chapter 5: SEO Chapter 6: Accessibility Chapter 7: Performance Chapter 8: Privacy Chapter 9: Security Chapter 
+10: Capabilities Chapter 11: PWA Part III. Content Publishing Chapter 12: CMS Chapter 13: Ecommerce Part IV. Content Distribution Chapter 14: Page Weight Chapter 15: CDN Chapter 16: Cookies 
+Appendices Methodology Contributors Search Ebook Ebook PDF (12MB) 2025 2024 2022 2021 2020 2019 English Deutsch Español Français Italiano Nederlands Português Türkçe Русский Українська हिन्दी 日本語 
+简体中文 繁體中文 Help translate Contributors Methodology Search Search Table of Contents Table of Contents Switcher Home Table of Contents Foreword Chapter 1: Fonts Chapter 2: WebAssembly Chapter 3: Third 
+Parties Chapter 4: Generative AI Chapter 5: SEO Chapter 6: Accessibility Chapter 7: Performance Chapter 8: Privacy Chapter 9: Security Chapter 10: Capabilities Chapter 11: PWA Chapter 12: CMS Chapter 
+13: Ecommerce Chapter 14: Page Weight Chapter 15: CDN Chapter 16: Cookies Methodology Contributors Search Ebook PDF (12MB) Year Switcher 2025 2024 2022 2021 2020 2019 Language Switcher Deutsch 
+English Español Français Italiano Nederlands Português Türkçe Русский Українська हिन्दी 日本語 简体中文 繁體中文 Help translate HTTP Archive home Twitter Bluesky GitHub © Web Almanac. Licensed under Apache 2.0 .
+ Accessibility Statement • RSS Feed HTTP Archive home Twitter Bluesky GitHub

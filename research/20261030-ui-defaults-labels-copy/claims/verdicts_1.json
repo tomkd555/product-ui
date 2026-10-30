@@ -1,0 +1,37 @@
+[
+  {
+    "cid": "C1",
+    "verdict": "contradicted",
+    "reason": "Tailwind (0.25rem), Atlassian (8px base unit) and GOV.UK (5px steps) hold, but Carbon's spacing page describes its scale as multiples of two, four and eight that complement the 2x Grid, whose mini unit Carbon's 2x Grid page gives as 8px, so placing Carbon on a 4px base against Atlassian's 8px misstates it. Primer's size page lists 2px, 6px and 4px-multiple sizes and states no 4px base.",
+    "found": "The Carbon spacing scale complements the 2x Grid and typography scale by using multiples of two, four, and eight.",
+    "source": "https://carbondesignsystem.com/elements/spacing/overview/"
+  },
+  {
+    "cid": "C2",
+    "verdict": "partial",
+    "reason": "DADS, SmartHR and Carbon's productive set hold (DADS states 16 CSS px or more as the baseline). Atlassian has no separate dense product type set: its 14px Body M is the default in components and space-limited places, while Body L at 16px is the default for long-form content.",
+    "found": "Body L is the default size for long-form content. Use this size for a comfortable reading experience such as in blogs. Body M (Default) is the default size in components or where space is limited",
+    "source": "https://atlassian.design/foundations/typography/"
+  },
+  {
+    "cid": "C3",
+    "verdict": "supported",
+    "reason": "DADS says 14px is basically unused and applies only where the 16px standard is hard to use, and that sizes below 14 CSS px are in principle not allowed.",
+    "found": "14 基本的には使用しません。フッター要素などコンテンツに付随する情報や、UIやコンテンツを構成する際の領域的な制約がある場合のように標準的な文字サイズ(16 CSS px以上)の使用が難しいケースにおいてのみ使用される文字サイズです。なお、14 CSS px未満の大きさの使用は原則として許容されません。",
+    "source": "https://design.digital.go.jp/dads/foundations/typography/"
+  },
+  {
+    "cid": "C4",
+    "verdict": "partial",
+    "reason": "The 1.5 line height and 0-2% letter spacing come from two systems (DADS, SmartHR), not from Japanese body text in general, and DADS limits the 1.5 recommendation to reading content while listing 120-130% for admin and business screens. WCAG SC 1.4.8 is Level AAA, sets a maximum width of 80 characters (40 CJK) that a user mechanism must make available, and states content is not required to use these values.",
+    "found": "Width is no more than 80 characters or glyphs (40 if CJK). ... Note 1 Content is not required to use these values. The requirement is that a mechanism is available for users to change these presentation aspects.",
+    "source": "https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html"
+  },
+  {
+    "cid": "C5",
+    "verdict": "supported",
+    "reason": "Tailwind sets --spacing to 0.25rem (4px) and text-base to 1rem (16px) with a 1.5 line height (24px); shadcn/ui new-york-v4 sets the default button size to h-9, which is 36px on that 0.25rem spacing unit.",
+    "found": "size: { default: \"h-9 px-4 py-2 has-[>svg]:px-3\"",
+    "source": "https://raw.githubusercontent.com/shadcn-ui/ui/main/apps/v4/registry/new-york-v4/ui/button.tsx"
+  }
+]

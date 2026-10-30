@@ -1,0 +1,22 @@
+[
+  {"cid": "C21", "verdict": "supported",
+   "reason": "The page states the 50+ delivered LPs, the 'ほぼ100%' figure for the feature section of AI-made LPs, rocket and gear emoji on the cards, and fully equal-width cards. The word 'freelancer' is not on the page, but the author writes as an individual (僕) selling LP work on Coconala under the trade name 千歳開発.",
+   "found": "LP制作代行として50件以上のランディングページを納品してきた中で ... AI製LPの「特徴セクション」は、ほぼ100%こうなります。 横に3つ並んだ角丸カード。それぞれにアイコン(だいたい絵文字)、太字の見出し、2〜3行の説明文。 ... カードの上にはロケットとか歯車とかの絵文字が載っている。3つのカードは完全に等幅で、ぴったり横に並んでいる。",
+   "source": "https://note.com/chitosedev/n/n0f2f2daaf0c6"},
+  {"cid": "C22", "verdict": "supported",
+   "reason": "All five pages, read in context, name a stock section order: capitalandcompute ('Stock page order'), codemyspec ('The same running order every time'), superdesign ('Stock section order ... in that exact order, every time'), Hasilan (header, hero, then card-style service sections as a 極めて一般的 構成) and nikki (hero, 3 features, How it works, Testimonials, FAQ and CTA). The cited quotes for E36, E112 and E115 do not state the order themselves; the passages that do sit nearby on the same pages.",
+   "found": "Stock section order. Hero, logos, three features, a testimonial, pricing, CTA - in that exact order, every time. / ヘッダーにロゴとナビゲーション、その下にフルワイドスのヒーローセクション、さらにその下にカード型のサービス紹介や特徴説明が続くという構成が極めて一般的です。 / ヒーローに大きなキャッチコピー。 その下に3つの特徴。 次にHow it works。 その次にTestimonials。 最後にFAQとCTA。",
+   "source": "https://superdesign.dev/blog/fix-generic-ai-landing-page"},
+  {"cid": "C23", "verdict": "partial",
+   "reason": "Only E6 and E13 of the five sources mention a pill badge, so the count of 2 holds. Only E13 places the badge directly above the headline; E6 lists a 'pill badge' in the stock hero without giving its position.",
+   "found": "Stock page order Centred hero, pill badge, two buttons, logo row, three feature cards, pricing, CTA / A centered hero in Inter , with a small pill-shaped badge sitting directly above the headline.",
+   "source": "https://capitalandcompute.net/blog/fix-ai-slop-design/"},
+  {"cid": "C24", "verdict": "partial",
+   "reason": "The aismells page states that bento grids are a real, mainstream 2024-2026 trend (citing Obergine and Senorit) and that AI over-applies them. 'The only source on bento' is false for the cached corpus: another cached page (f04e0ee31192ebca) also discusses bento grids and recommends them as a fix for the AI layout fingerprint.",
+   "found": "Bento grids are a real design trend, not an invented AI hallucination. Both Obergine and Senorit describe the layout as a mainstream 2024-2026 pattern ... So the argument here is narrow: bento grids are often good, but AI over-applies them.",
+   "source": "https://aismells.pages.dev/bento-box-sprawl.html"},
+  {"cid": "C25", "verdict": "supported",
+   "reason": "The 925studios page contains the quoted sentence verbatim, directly after the passage cited as E3.",
+   "found": "None of these choices are bad on their own. The problem is that they are not choices at all.",
+   "source": "https://www.925studios.co/blog/ai-slop-design-tells"}
+]

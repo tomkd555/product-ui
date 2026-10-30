@@ -1,0 +1,38 @@
+# url: https://www.nngroup.com/videos/empty-states-in-application-design-guidelines/
+# accessed: 2026-10-30
+# chars: 6374
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Empty States in Application Design: 3 Guidelines (Video) - NN/G Skip to content Live Online Training | New EU-Friendly Times | Oct. 26 – 29 See Your Timezone Nielsen Norman Group Nielsen Norman Group 
+UX Training & Courses Live Online All Live Online Courses Upcoming Live Online Training Train Your Team Group-Discount Pricing Private Team Training UX Certification Self-Paced Self-Paced Courses New 
+Deciding Between Formats? Find the training option that fits your learning style. Which Format Is Right For Me? Articles & Resources Articles & Videos Reports & Books The NN/G UX Podcast Consulting 
+All Consulting Services Customized Research Expert Review Intensive Applied Workshops Keynote Speaking User Testing UX Maturity Assessment About Us About NNGroup People Clients News & Careers FAQs 
+Contact Us Search Profile Browse All Topics & Authors Topics Agile Artificial Intelligence Design Process Ecommerce Intranets Navigation Psychology and UX Research Methods Study Guides User Testing 
+UX Careers Web Usability Writing for the Web See all topics All Article Topics See fewer topics Accessibility Agile Analytics & Metrics Application Design Artificial Intelligence B2B Websites 
+Behavior Patterns Branding Content Strategy Corporate Websites Customer Journeys Design Patterns Design Process Ecommerce Email Eyetracking Heuristic Evaluation Human Computer Interaction Ideation 
+Information Architecture Interaction Design International Users Intranets Managing UX Teams Mobile & Tablet Navigation Non-Profit Websites Personas Persuasive Design Prototyping Psychology and UX 
+Remote UX Work Research Methods Search Social Media Strategy Study Guides User Testing UX Careers UX Humor UX Teams Visual Design Web Usability Writing for the Web Young Users Popular Articles 10 
+Usability Heuristics for User Interface Design Empathy Mapping: The First Step in Design Thinking Journey Mapping 101 How to Conduct a Heuristic Evaluation When to Use Which User-Experience Research 
+Methods Service Blueprints: Definition Design Thinking 101 Usability (User) Testing 101 User Interviews: How, When, and Why to Conduct Them Usability 101: Introduction to Usability Recent Articles UX 
+Disciplines: Glossary AI in UX: Work Is Faster, But Practitioners Have Mixed Feelings Synthetic Users vs. Human Respondents: Same Conclusion, Less Variation UX Maps: Glossary The New Siri’s Biggest 
+Strength Is Not Intelligence Recent Videos 5 Design Principles in Context: Stripe Prevent Last Minute Design Requests: A Guide Why Your Research Findings Aren’t Landing Are You Supporting Legacy 
+Users? Design + Development: 5 Tips for Working Together Authors Bruce Tognazzini Don Norman Jakob Nielsen See all authors All Authors See fewer authors Tony Alicea Jessa Anderson Mayya Azarova 
+Rachel Banawa Sana Behnam Josh Brown Maddie Brown Megan Brown Raluca Budiu Patty Caya Connor Chan Megan Chan Nishi Chitale Emma Cionca Taylor Dykes Adam Elman Lola Famulegun Pablo Fernández Vallejo 
+Therese Fessenden Tammi Fitzwater Sarah Gibbons Kelley Gordon Aurora Harley Varsha Jagdale Claire Jen Connor Joyce Anna Kaley Lexie Kane Kate Kaplan Georgia Kenderova Alita Kendrick Laura Klein 
+Alexander Knoll Tanner Kohler Rachel Krause Page Laubheimer Feifei Liu Hoa Loranger Kate Moran Hayley Mortin Tarun Mugunthan Tim Neusesser Jakob Nielsen The Experts at NN/g Don Norman Malgorzata 
+Papiernik Sara Paul Paz Perez Kara Pernice Kara Rivenbark Christian Rohrer Maria Rosala Pavel Samsonov Celine Santoso Katie Schmidt Hayat Sheikh Katie Sherwin Alex Smith Caleb Sponheim Evan Sunwall 
+Samhita Tankala Sarah Thompson Bruce Tognazzini Brian Utesch Huei-Hsin Wang Nate Wearin Kathryn Whitenton Amy Zhang Mingjin Zhang Empty States in Application Design: 3 Guidelines Summary: 
+Well-designed empty states in applications can help increase user confidence, improve system learnability, and help users get started with key tasks quickly. 3 minute video by 2022-10-14 3 Kate 
+Kaplan Kate Kaplan Topics: Application Design,recommendations Application Design Application Design Share this article: Share this video: X (Twitter) LinkedIn Email Enable cookies to watch NN/g 
+videos Related Article Designing Empty States in Complex Applications: 3 Guidelines Empty states provide opportunities for designers to communicate system status, increase learnability of the system, 
+and deliver direct pathways for key tasks. This article provides guidance for designing empty-state dialogues for content-less containers. Video Author Kate Kaplan specializes in applying 
+human-centered design and research practices to enterprise UX challenges. With over 15 years in UX, Kate has extensive experience in both conducting research and helping teams understand and apply 
+user insights to overall business strategy. Share: Learn More Subscribe to the weekly newsletter to get notified about future articles. Videos Icon Interpretation vs. Recognizability 4 minute video 
+Is the Floppy Disk Dead? 4 minute video 2-Factor Authentication (2-FA) 4 minute video Bulk Actions: 3 Design Guidelines 3 minute video Articles Data Tables: Four Major User Tasks Designing for Long 
+Waits and Interruptions: Mitigating Breaks in Workflow in Complex Application Design 8 Design Guidelines for Complex Applications State-Switch Controls: The Infamous Case of the "Mute" Button Complex 
+Application Design: A 5-Layer Framework Research Reports Helping Users Make Decisions: Reduce Choice Overload and Avoid Overwhelming Users Intranet Design Annual: 2022 Intranet Design Annual: 2021 
+Mobile Intranets and Enterprise Apps Website Tools and Applications with Flash UX Conference Training Course Designing Complex Apps for Specialized Domains Application Design for Web and Desktop 
+Never miss an update Get weekly UX articles, videos, upcoming courses, and job openings straight to your inbox with our newsletter. Email Subscribe Courses Live Online Training Events Self-Paced 
+Courses Consulting Intensive Applied Workshops Customized Research Expert Review Keynote Speaking User Testing UX Maturity Assessment Help Terms & Conditions Privacy Policy Copyright & Reprint Policy 
+Return Policy Live Course Tech Support FAQs Company About NNGroup People News & Careers Contact Us Copyright © 1998-2026 Nielsen Norman Group, All Rights Reserved. Cookie Preferences Cookie 
+Declaration Follow Us Youtube LinkedIn Instagram Threads Bluesky X Facebook Spotify Back to Top

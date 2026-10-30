@@ -1,0 +1,36 @@
+# url: https://atlassian.design/foundations/content/designing-messages/error-messages
+# accessed: 2026-10-30
+# chars: 6101
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Overview - Error messages - Atlassian Design Expand side navigation Design system News Search Search Theme Get started Foundations Tokens Accessibility Content Inclusive language Style, grammar, and 
+punctuation Voice and tone Date and time Designing messages Empty state Error messages Feature discovery Info messages Success messages Warning messages Spacing Grid Color Typography Motion 
+Iconography Illustrations Logos Elevation Border Radius Components Rovo UI Tools AMP Patterns Release phases Contact us Error messages An error message alerts people of a problem that has occurred 
+and informs them what to do next. An error message, different from a warning message, appears after someone has taken an action. The message draws their attention to what has happened and what the 
+consequences are, and what people need to do to move forward. Optionally, they can also include why something happened and whether the problem will occur again. When crafting an error message, 
+remember that most people scan text instead of reading everything. Make every word count and avoid irrelevant details. Writing best practices Title Titles are optional depending on the component you 
+choose. Include an informative, scannable title. Try and imagine people trying to understand what’s happening by reading the title on its own. Avoid explaining what to do. Limit titles to three to 
+four words where possible, excluding “an”, “a”, or “the”. The character count will depend on the component you choose. Write in sentence case with appropriate punctuation. Body Include: the reason 
+for the error and the problem, how someone should act and what happens if they don’t act. If you don’t know the reason for an error, don’t make one up – just say that something’s gone wrong and offer 
+a solution for what people can do. Avoid repeating content from the title. Keep messages to 1 to 2 sentences. Avoid putting technical information in the message or having people look in another 
+location. If it can't be avoided, use a link to support content. Do Don’t Call to action (CTA) When an error message invokes a choice, use imperative verbs such as “Save”, “Remove”, or “Create”, in 
+the CTA to describe what action people will be making instead of vague terms such as “OK”. An option to dismiss or cancel lets people feel reassured that they can opt out. Limit your CTA to 1 or 2 
+words. Voice and tone Errors are high-stakes situations. They can be frustrating at a minimum, or catastrophic at their worst – especially when they involve work. You want to leave people feeling 
+supported and reassured. Convey an error message with empathy and tact. The correct level of urgency will let people understand how to respond. Follow some of the following Atlassian voice and tone 
+principles to build your message: Inform to build trust Be open and clear about what's happening in the app. Be aware that your reader could be new or confused, and tone down the boldness by being 
+more prescriptive. Do Don’t Treat errors as an opportunity to educate people. Help them understand why they’re experiencing something and how they can avoid similar issues in the future. You may even 
+be able to teach them something that can help them understand and manage the technology they use beyond our apps. Encourage people along the path Be consistent and dependable. Avoid messaging that 
+focuses on the problem without offering a solution or way forward. Focus on next steps where possible and stay away from negative words or phrases. Do Don’t Use we instead of you , as emphasizing the 
+relationship between the person and the problem could make them feel like they’re being held responsible. Satisfy by meeting expectations Provide quick and thorough answers, guidance, actions, and 
+instructions. Give them the information they need then get out of their way. Do Don’t Avoid using “please” and “sorry”. Saying "sorry" in error messages can make the situation worse by causing errors 
+to appear more severe than they actually are. Similarly, saying "please" can undermine the authority and credibility of your message and lead people to think a required step is optional. Unless the 
+error has severe and irreparable consequences, avoid niceties. Patterns and UX strategies If the error has more than one potential cause or solution, try one of the following writing strategies. A 
+warning message vs. an error message An error message alerts people of a problem that has already occurred. By contrast, a warning message alerts people of a condition that might cause a problem in 
+the future. Use text, design elements, and visual clues to differentiate the difference between where people are in their journeys. Offer a backup solution Stick to the most likely cause or the 
+simplest solution in the first sentence of the error message and offer an alternative backup solution in the second sentence in case the error keeps occurring (for example, contacting support). Try 
+to reframe the error as an opportunity to inspire trust and confidence. Do Don’t Reveal additional information gradually For dead ends, start with something short but kind, and add context or other 
+details only if the error will reoccur. Related components Use error messages in the following components: Flag Inline message Modal dialog Section message Accessibility Use alternative text for 
+illustrations and symbols in your messages Avoid jargon and use simple language Make links as descriptive as possible Make text easily scannable to highlight key information. Was this page helpful? 
+Yes No We use this feedback to improve our documentation. Design system Get started Foundations Components Rovo UI Tools Release phases Contact us News Featured Design blogs Leadership talks Team 
+stories Other libraries Atlaskit ﻿ , (opens new window) Forge UI Kit ﻿ , (opens new window) Brand kit ﻿ , (opens new window) Careers Life at Atlassian ﻿ , (opens new window) Design and content roles 
+﻿ , (opens new window) Developer roles ﻿ , (opens new window) Product roles ﻿ , (opens new window) © 2026 Atlassian Trademark ﻿ , (opens new window) Privacy ﻿ , (opens new window) License

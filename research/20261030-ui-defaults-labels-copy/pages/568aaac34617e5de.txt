@@ -1,0 +1,221 @@
+# url: https://bop.unibe.ch/JEMR/article/download/2821/pdf-951/12019
+# accessed: 2026-10-30
+# chars: 42380
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Journal of Eye Movement Research 9(5):1, 1-11 1 Introduction Forms usually have complex requirements ( Harms, 2013; Nielsen, 2005; Thompson & Torabi, 2007) and pre- sent usability issues (Nielsen, 
+2005). However, beyond this complexity, the logic underlying forms is very clear and straightforward considering that users must enter the data in pre-defined fields presented to them (Harms, 2013). 
+Significant tasks in creating forms include designing user- friendly form fields (Bargas -Avila, Orsini, Piosczyk, Ur- wyler & Opwis, 2011), increasing the efficiency of users through effective form 
+designs (Katsanos, Karousos, Tse- lios, Xenos & Avouris, 2013), and facilitating the collec- tion of data from users (Bargas -Avila, Brenzikofer, Roth, Tuch, Orsini & Opwis, 2010). When designed in 
+accordance with interface guidelines, forms possess a higher level of usability than the previous versions designed before (Harms, 2013). A well-designed form should prevent users from mak- ing 
+mistakes during data entry (Bargas-Avila et al., 2011; Pauwels, Hübscher, Leuthold, Bargas -Avila & Op wis, 2009). Form fields are an active part of daily life and users encounter them in almost 
+every facet of their lives from education to work. Therefore, it is important for them to fully understand and effectively use these elements (Alton, Rinn, Summers & Straub, 2014). In addition, 
+considering that users will make mistakes during data entry, the form design should allow users and developers to prevent, rec- ognize, and correct errors in a rapid and simple manner (Jarrett & 
+Gaffney, 2008; Mockovak, 2007). In the literature, only a limited number of studies have focused on the efficiency of information presented to users from the perspective of their behavior (Alton et 
+al., 2014). Error messages presented to users are one of the most im- portant elements of Web forms. As well, error message de- sign is critical for Web forms in terms of efficient infor- 
+User-Friendly Locations of Error Messages in Web Forms: An Eye Tracking Study Yavuz Inal Department of Information Systems Engineering Faculty of Engineering Atılım University Ankara, Turkey Error 
+messages presented to users are one of the most important elements of Web forms. Error messages are embedded in different parts of the forms available on the Internet and presented in various formats.
+ One of the measures of a user-friendly error message design is the ability to easily capture users’ attention and facilitate fast error correction. In this empirical study, I tested four different 
+locations of error messages frequently used in Web forms on 32 participants. In addition, I analysed the participants’ interactions with error messages through their eye movements. The results of the 
+study showed that the participants spotted the error message fastest when it was displayed on the right s ide of the erroneous input field. When error messages displayed further the input field users 
+have less saccades to and fixations on error messages compared to those located near to this field, suggesting that less effort has been spent to understand the given message. However, group mean 
+dif- ferences were not statistically significant for form completion time, error recognition time, the number of saccades, and error correction time. Keywords: Usability, eye movement, error message 
+design, web forms, interaction design Received June 19, 2016; Published December 7, 2016. Citation: Inal, Y. (2016). User-friendly locations of error messa- ges in Web forms: An eye tracking study. 
+Journal of Eye Move- ment Research, 9(5):1, 1-11. Digital Object Identifier: 10.16910/jemr.9.5.1 ISSN: 1995-8692 This article is licensed under a Creative Commons Attribution 4.0 International 
+license. Journal of Eye Movement Research Inal, Y. (2016) 9(5):1, 1-11 User-friendly locations of error messages in web forms: An eye tracking study 2 mation presentation considering design 
+guidelines. Fur- thermore, despite the availability of form design guide- lines, there are few empirical studies that have tested these guidelines (Alton et al., 2014). Therefore, the aim of this 
+study is to perform an experimental analysis of most fre- quently used methods for displaying error messages in Web forms reported by Seckler, Tuch, Opwis, and Bargas- Avila (2012) in accordance with 
+design guidelines pre- sented by Seckler, Heinz, Bargas-Avila, Opwis, and Tuch (2014). The study uses an eye-tracking device to conduct a behavioral analysis of the users’ interaction with form 
+completion tasks and error messages presented in these forms. Theoretical Background Web Forms Nowadays, many companies and institutions choose to use Web forms to obtain important information about 
+their customers and users (Wroblewski, 2008). Forms are considered to be a bridge between users and applications (Seckler et al. , 2014) . Users interact with various form elements such as form 
+content, form template, data input types, and error message s (Bargas-Avila, Brenzikofer, Tuch, Roth & Opwis, 2011). Designing user-friendly form fields is one of the most critical aspects of overall 
+user experience with Web forms (Karousos, Katsanos, Tselios & Xenos, 2013). Web forms lacking usability result in a significant level of user dissatisfaction thus increasing the drop -out rate, 
+preventing the collection of the require d data (Seckler, Heinz, Bargas -Avila, Opwis & Tuch, 2013), and decreasing the number of logins to a Web application (Thompson & Torabi, 2007). The usability 
+of form fields vary greatly depending on how they are designed , but minor changes to the form desig n make it possible to increase the interaction speed, reduce user errors , and improve user 
+satisfaction (Seckler et al., 2014). Two main issues related to form design are (1) identifying the appropriate i nput for the data to be entered and (2) determining the correct way of entering data 
+(Pauwels et al., 2009). According to Wroblewski (2008), the labels and data input fields used in Web forms should inform users about the content and type of data to be entered. It is also important 
+to clearly show to users, before they start filling the form, which fields must be completed and which are optional (Linderman & Fried, 2004). Although user errors cannot be avoided, they can be 
+reduced by displaying accurate information and placing certain restrictions within the forms (Bargas-Avila et al., 2011; Seckler et al., 2012) such as the designation of the required and optional 
+input fields (Tullis & Pons, 1997). However, despite all these design guidelines, user errors are inevitable (Thompson & Torabi, 2007) . Thus, the design and presentation of error messages during 
+data entry is of great importance. Error Handling in Web Forms In the literature, there are only a limited number of studies that have experimentally investigated how to create effective and 
+understandable e rror messages (Bargas - Avila, Oberholzer, Schmutz, de Vito & Opwis, 2007) and present them in Web forms (Seckler et al., 2012). As a result of two empirical studies conducted with 
+77 and 90 participants, Bargas-Avila et al. (2007) reported that the most effective way of presenting error messages is after users have completed the whole form s. In another study, Pauwels et al. 
+(2009) studied different solutions for presenting the required and optional input fields with 24 participants. They found that colour -coding the fields resulted in fewer errors, faster data entry, 
+and higher user satisfaction. Seckler et al. (2012) conducted a study with 303 participants to investigate the efficiency of displaying the error messages in the different locations: right, left, 
+above, and below the erroneous input field and at the top and bottom of the form. They found that the most effective, productive, and satisfactory result was achieved when the error messages were 
+presented next to the erroneous input field. A further result was that the participants found the messages most satisfying and intuitive when they were placed on the right side of the field. However, 
+as explained in the next section, they did not study the users’ behaviour when facing these error messages. Several studies in the literature have reported on and provided guidelines for the 
+effective design of error messages in Web forms. These studies mostly focus on the content, duration, design, and location of these messages (Seckler et al. , 2012). For example, Nielsen (2001) 
+suggested that error messages should be located in a way that is highly visible to users and , thus, assist users in correcting the error. According to Brown (1983), error messages should also be 
+informatory. In a ddition, information about the errors should be presented using a respectful and polite language (Seckler et al. , 2012). Journal of Eye Movement Research Inal, Y. (2016) 9(5):1, 
+1-11 User-friendly locations of error messages in web forms: An eye tracking study 3 Similarly, Linderman and Fried (2004) suggested that a simple language should be used to inform the users about 
+errors and give them in structions to correct it. According to Bargas-Avila et al. (2011), if users are expected to use a specific input format, they should be informed before they start filling in 
+the field. Another suggestion to easily capture users’ attention is to use colors, icons, or text to highlight errors (Seckler et al., 2012; Wroblewski, 2008). Once the form has been completed, as 
+much of the data entered by users as possible should be preserved in the event of an erroneous entry in a field. The users should not be expected to fill in the whole form again , only being required 
+to correct or complete the specific field in question (Nielsen, 2001). Eye-tracking Research in Web Forms Eye-tracking research dominates the small number of available empirical studies concerning 
+the usability of Web forms. This approach tracks and records the users’ eye movements to monitor their attention (Duchowski, 2007; Sharafi, Soh & Gueheneuc, 2015). In addition, using these devices 
+allows the collection of significant data about the cognitive processes of the participants (Sharafi et al., 2015). Understanding the visual attention of users when performing a task and making 
+inferences about their eye movements can provide valuable information about the usability of Web forms (Strohl, Gonzalez, Sauser, Montazeri & Griepentrog, 2015). Das, McEwan , and Douglas (2008) used 
+an eye - tracking system to examine the usability of label positions in Web forms and found that right-aligned labels provided the shortest completion time. In another study conducted with 23 
+participants, optimized Web forms were found to produce faster data entry, fewer errors, less eye fixation , and higher user satisfaction (Seckler et al., 2013). In their usability study, Strohl et 
+al. (2015) optimized the design of existing forms according to the following facets of user experience: usefulness, usability, accessibility, credibility, findability, and desirability. The authors 
+reported that the original forms led to longer eye fixation and saccade whereas the newly designed forms were more productive and placed less cognitive load on users. Similarly, Seckler et al. (2014) 
+conducted an empirical ey e-tracking study with 65 participants to analyze user behavior towards forms optimized according to the design guidelines developed by Bargas -Avila et al. (2010). The 
+authors reported faster form completion time, fewer input errors , and less eye movements using the optimized Web forms. Problem and Methodology Seckler et al. (2012) and Seckler et al. (2014) 
+offered the most comprehensive analysis of locations of error mes- sages and error message design. However, very little is known about empirical analysis of user behavior towards locations of error 
+messages in these studies. Thus, the cur- rent study attempts to analyze user behaviors thoroughly by utilizing eye-tracking device. In this study, I designed and implemented a Web form consisting of 
+the following four steps; “Membership Infor- mation”, “Personal Information”, “Educational Infor- mation”, and “Preferences”. Because the length of Web forms have an impact on user performance and 
+preference (Wang & Yueh, 2004), to minimize this effect in the study all the form fields were designed to be of the same length for all the participant groups (Figure 1). In the literature, there is 
+no previous experimental re- search focusing on locations of error messages in Web forms using an eye tracking device. The main aim of this study is therefore to evaluate locations of error messages 
+in Web forms using an eye-tracking device and to conduct in-depth behavioral analysis of the users’ interaction with form completion tasks and error messages contained in these forms. The data was 
+collected using a demographic survey, eye tracking, a think-aloud protocol, and retrospective in- terviews. Eye -tracking data based on particular design guidelines provides valuable information 
+about the lan- guage used in Web forms as well as a deep insight into user performance (Strohl et al., 2015). In the current study, Us- ers’ eye movements were obtained during their completion of the 
+tasks presented in the Web forms to analyze, in de- tail, the pattern of their interactions with error messages. I presented error messages at four different locations; (1) on the right side of the 
+erroneous input field and (2) below the erroneous input field, (3) at the top, and (4) bot- tom of the form. To explore the impact of being exposed to different error locations on form completion 
+time, error recognition time, the number of saccades , and error cor- rection time, a series of between-subject one-way analysis of variance (ANOVA) was conducted utilizing SPSS 20.0. In the analyses,
+ the statistical effects were tested at the .05 significant level. For all analyses, the assumption of equal- ity of variance was not violated as indicated by non-signif- icant Levene's test for 
+homogeneity. Journal of Eye Movement Research Inal, Y. (2016) 9(5):1, 1-11 User-friendly locations of error messages in web forms: An eye tracking study 4 Figure 1. Presentation of the locations of 
+erroneous message in four participant groups Participants A total of 32 participants, 12 women and 20 men, par- ticipated in the study voluntarily. Participants were re- cruited using a convenient 
+sampling method. All partici- pants were computer engineering students and left-to-right readers and writers. Mean age of participants was 26.88 (SD=1.72). The educational levels of the participants 
+were bachelor’s degree (n= 20) and master’s degree (n= 12). Of the participants, 62% connected to the Internet using their computers (62%), 19% on their smartphones, 13% on both computers and 
+smartphones, 3% on their tablet s, and 3% used all three devices. In terms of the daily use of the In- ternet, 63% used it for 5 hours or more, 28% 3 to 5 hours, and 9% 1 to 3 hours. The majority of 
+the participants stated that they used the Internet mostly for communication and accessing information. Participants rated their level of skills concerning the use of computers and the I nternet on 
+Likert type scale ranging from 1 (lowest level) to 7 (highest level). Regard- ing computer use, of the participants, 69% reported to have expert skills on com puter. Of the participants, 63% re- 
+ported their internet use skill level as expert. Procedure I divided the participants into four study groups, each containing 8 participants (3 female and 5 male). All the participants were informed 
+about the study at the begin- ning of the experiments. Then, they filled out a question- naire form consisting of questions about demographic in- formation such as age, gender, education level, and 
+com- puter, and Internet skills. For the experiment, participants completed a Web form consisting of the following four steps: Membership Infor- mation, Personal Information, Educational Information ,
+ and Preferences. All groups were exposed the same form fields but error messages were positioned differently for each group. I designed and manipulated the form fields in such a way that users would 
+receive the same error mes- sage at each step. The participants moved on to the follow- ing screen after they corrected the error (s) in the input upon receiving the error message(s) (Figure 2). 
+Journal of Eye Movement Research Inal, Y. (2016) 9(5):1, 1-11 User-friendly locations of error messages in web forms: An eye tracking study 5 Figure 2. Overview of the experimental procedure An 
+eye-tracking device was used to record the partici- pants’ eye movements. The participants were asked to think aloud during the experiment s and their feed backs were recorded in the form of notes. 
+The researcher did not intervene in the form-filling process, but, at the end of the experiment, asked participants to discuss about the record- ing of their behavior during the experiment. Each 
+retro- spective interview lasted approximately 20 minutes about locations of error messages in Web forms. Apparatus Tobii TX300 device was used to record the partici- pants’ eye movements during the 
+display of error messages and eye movement patterns were analysed using the Tobii studio software (version 3.2.1). The participants were po- sitioned 60 cm from the device and, to ensure the accuracy 
+and reliability of the results, were asked to only look at the screen and not to move their heads. At the beginning of the study, a calibration test was performed with each partici- pant, in which 
+they were asked to follow points displayed on the screen. Among participants, two failed the calibra- tion test and were replaced by the new ones. The researcher performed the experiment only with 
+the participants that passed this test. Results Form Completion Time Form completion time refers to the time taken from the opening of the form in the browser to completing the form successfully. The 
+average form completion time was 2.42 minutes for Group 1, 2.41 minutes in Group 2, 2.36 minutes in Group 3 , and 2.31 minutes in Group 4. As shown in Table 1, the participants who were presented the 
+error messages on the right side of or below the erroneous input field took longer to complete the form than those par- ticipants who saw these messages further from the errone- ous input field (at 
+the top or bottom of the form). Table 1 Performance of the participants in completing the forms. Mean (SD) Group 1 (right) Group 2 (below) Group 3 (top) Group 4 (bottom) Form com- pletion time (m) 2.
+42 (0.23) 2.41 (0.22) 2.31 (0.30) 2.36 (0.27) Error recognition time (s) 0.30 (0.08) 0.33 (0.07) 0.34 (0.07) 0.44 (0.16) Error cor- rection time (s) 12.55 (3.69) 12.68 (3.60) 12.07 (2.55) 11.98 (2.
+90) When the error messages were displayed further from the input field, participants spent more time to complete the form compared to those who had the error messages closer to the input field. 
+However, the ANOVA results yielded that differences between group means w ere not significant for form completion time, F(3, 28) = 0.27, p=0.85. Error Recognition Time Error recognition time is the 
+time taken by the user completing the form and clicking the ‘Continue’ button to the moment that s/he identifies the displayed error mes- sage. It is the time difference between clicking the con- 
+tinue button and the first fixation on the error message. The average error recognition time was 0.30 seconds for mes- sages displayed on the right side of the erroneous text field (Group 1), 0.33 
+seconds for messages presented below the erroneous text field (Group 2), 0.34 seconds for those pre- sented at the top of the form (Group 3) , and 0.44 seconds for those displayed at the bot tom of 
+the form (Group 4) (see Table 1). The participants who were presented the error mes- sages at the bottom of the form took longer to recognize these messages. According to the observation of the 
+users’ behavior, after clicking the ‘Continue’ button at the bottom of the form, the participants moved their eyes to the top of the form to be ready for the following page, which may be the reason 
+why Group 4 took longer to see the error mes- sages. The shortest error recognition time was obtained from the messages displayed on the right of the erroneous Journal of Eye Movement Research Inal, 
+Y. (2016) 9(5):1, 1-11 User-friendly locations of error messages in web forms: An eye tracking study 6 input field. However, the ANOVA results yielded that dif- ferences between group means were not 
+significant for er- ror recognition time, F(3, 28) = 2.74, p=0.06. Number of Saccades to and Eye Fixations on the Error Message The number of saccades to and fixations on the error messages was 
+analysed from the appearance of the mes- sage on the screen to the moment that the participants cor- rected the error and clicked the ‘Continue’ button. The to- tal number of saccades and fixations 
+was directly related to the participants’ need to read and reread the message until they could correct the entry, thus representing the ef- fort and time spent in this process. According to the 
+results, the total number of saccades was 244 for both the error messages displayed on the right of and below the erroneous input field. However, this num- ber was significantly lower for the 
+messages located at the top (217) and bottom (206) of the form. This observation indicates that, when trying to correct an error, the partici- pants tended to look at the message more frequently when 
+it was located closer to the erroneous input field. When the messages were displayed further from the related field, the participants tended to look at the message less frequently and exerted less 
+effort to understand the error message. Thus, the number of saccades and fixations was lower for the error messages located at the bottom of the form. How- ever, the ANOVA results yielded that 
+differences between group means w ere not significant for the number of sac- cades to and eye fixations on the error message, F(3, 28) = 0.26, p=0.85. The analysis of the heat maps of the 
+participants’ sac- cades to error messages provided interesting results. The participants mostly fixated and moved their eyes to the in- formation about the input format and the examples con- tained 
+in the error messages (Figu re 3). They mainly fo- cused on the error message elements that they considered useful in correcting the error, without paying much atten- tion to the remaining content. 
+This observation shows the importance of providing examples in error messages to in- struct the users on how to correct the error. Figure 3. Heat maps of the participants’ saccades to error messages 
+by each group Journal of Eye Movement Research Inal, Y. (2016) 9(5):1, 1-11 User-friendly locations of error messages in web forms: An eye tracking study 7 Error Correction Time Error correction time 
+refers to the time taken by the participants from receiving the error message related to a form field to entering the correct data and moving on to the next step. This data showed whether the 
+location of the er- ror messages had an effect on the time and ef fort the par- ticipants spent on correcting the error. The participants, who were presented the error mes- sages on the right side of 
+and below the erroneous input field, corrected the error in an average of 12.55 seconds and 12.68 seconds, respectively. However, when the error messages were displayed at the top and bottom of the 
+form, the participants corrected them in shorter time, on average of 12.07 seconds and 11.98 seconds, respectively. These observations indicate that the participants took more time to correct an 
+error when the error message was located closer to the erroneous input field , possibly because the participants’ looked at the message more frequently when it was closer to the erroneous input field.
+ In contrast, in forms where the error message s were displayed further from the input field, the participants fixated the error mes- sages less, thus their error cor rection time was shorter. Since 
+the error message is located further from the periph- eral vision, participants may prefer to focus on input field, rather than error message, thereby spending less time with occasional saccades. The 
+ANOVA results revealed that that differences between group means were not significant for error correction time, F(3, 28) = 0.14, p=0.94. Participants’ Views on Error Message Design According to the 
+feedback from the think-aloud proce- dure and the retrospective interviews, a significant number of the participants preferred a Web form design that places restrictions on data input related to the 
+required format and contains tooltips or placeholders to inform the users about the correct format of the input. They further explained that such a design not only prevents erroneous input but also 
+saves time in completing the form. Further more, the par- ticipants wished to be warned by the system upon entering erroneous data. They stated that it takes more time to cor- rect an error if they 
+are informed about it after they have filled in the input fields on a form page and clicked ‘Con- tinue’ to move on to the next step. Rather, they suggested that the system should give them feedback 
+about the cor- rect and incorrect input immediately after entering data in each field. Primarily, the participants of this study preferred error messages that contained examples to inform the user 
+how to correct the error. They commented that such messages help them to more easily understand the content of the er- ror message and, thus, reduces the time for them to correct the error. This 
+feedback highlights the significance of in- cluding examples in the instructions in the error message. Furthermore, the participants mentioned that they felt un- comfortable when no examples were 
+provided. The participants who were presented the error mes- sages on the right side of and below the erroneous input field reported that they were satisfied with the location of these messages 
+whereas almost all the participants who were offered the messages at the top or bottom of the form complained about the distance between the error message and the erroneous input field. Most 
+participants stated that both required and erroneous input fields should be marked with a color to better capture their attention. Thus, users spot the erroneous fields easily and quickly and spend 
+less time for error correction. Discussion and Conclusion Forms are one of the basic elements that allow interac- tion with users in Web applications (Seckler et al., 2012). Poorly designed Web forms 
+result in a loss of data, lower conversion rate, and higher number of dropouts (Strohl et al., 2015). Therefore, Web forms should be designed in a way that is effective, efficient , and satisfactory 
+for users (Bargas-Avila et al., 2011). In this study, eye-tracking data was used to conduct an empirical analysis of the effective- ness of the most frequently used methods for presenting error 
+messages in Web forms according to the design guidelines. The current study analysed the effect of error message location on the user’s form completion time. Although er- ror messages located closer 
+to the erroneous input field re- sulted in users taking longer to amend the entry compared to those messages displayed further from the related field, differences between group means were not 
+significant for form completion time. It might be expected to observe higher performance when the error messages were pre- sented closer to the erroneous input field as evidenced by Seckler et al. 
+(2012). However, the present study fell short on statistical significance. Journal of Eye Movement Research Inal, Y. (2016) 9(5):1, 1-11 User-friendly locations of error messages in web forms: An eye 
+tracking study 8 The participants’ error recognition time depends on the location of error messages. There are different findings in the literature about effective and efficient location of error 
+messages to capture users’ attention easily. In the current study, eye tracking data showed that the participants no- ticed the error messages in a shorter time when they were displayed on the rig ht 
+of the erroneous input field. Eye tracking results of this study are in agreement with those reported by Seckler et al. (2012), who concluded that effi- ciency of error correction is influenced by 
+the distance be- tween the erroneous input field and the error message and error messages located closer to the input field capture the users’ attention more easily in Web forms. Although, there was 
+no significant difference between group means for error recognition time, the findings of the current study stand contradictory in a way that the close location of error messages to the related field 
+was found to be associated with faster reaction time, however; users spent more time to complete the form when error messages are located closer to the erroneous field. The longer completion time may 
+be explained by users’ tendency for continuous track- ing of error message when it is located nearby. Eye tracking data showed that the number of saccades to and fixations on the error messages to be 
+higher for mes- sages closer to the input field. The participants tended to look at these error messages more frequently during the error correction process. When the message was displayed at the top 
+or bottom of the form, the participants moved their eyes to these messages less frequently and exerted less effort to understand the content. However, the eye tracking findings of the current study 
+do not support the previous research by Alton et al. (2014). They reported that presenting instructions closer to the input field would prevent excess effort on the users’ part in terms of eye fix- 
+ation. These inconsistent results may due to the differences in Web form complexities used in these studies. Seckler et al. (2012) reported that when the messages were placed near the input field, 
+the participants tended to make fewer mistakes. In the current study, it was found that close location of errors to the input field is relat ed to more saccades and fixations, which may result in 
+fewer er- rors. Although current study did not aim to evaluate cor- rectness of error messages, future studies may highlight the relationship between location of error messages and number of mistakes.
+ According to the heat maps of the error message con- tent, it was found that the participants tended to fixate on content providing information about the correct format and offered examples. They 
+paid more attention to direct in- structions on how to correct the error, mostly disregarding the remaining content of the error message. In the interviews, the participants of the current study 
+stated that their performance improved when the form fields contained inline validation. In addition, they wanted to see tool tips or placeholders that would pre vent them from making a mistake. They 
+also wanted to be informed about an error immediately after it occurred and before they completed the whole form. Applications that allow users to check the validity of their input ha ve also been 
+reported to increase the quality of the data (Fox, Mocko- vak, Fisher & Rho, 2004). Another common method for reducing errors is to place format -related restrictions on the input fields and only 
+allowing entries that conform to the given rules (Seckler et al., 2012). This method was mostly preferred by the participants of the current study. These restrictions will not only reduce the number 
+of erroneous inputs but are also an efficient way of instructing the users the way they can enter data accurately (Bargas-Avila et al., 2011). Design features such as the length of the form and the 
+presentation of messages have a significant impact on us- ers’ performance in form -filling (Wang & Yueh, 2014). For example, users are more satisfied with colored coded fields (Pauwels et al. , 
+2009). The current study also demonstrated that the participants preferred a design using striking features, such as coloring to display both the re- quired fields and error messages. Graphic symbols 
+such as an asterisk are amon g other common elements used in Web forms to capture the attention of users (Mockovak, 2007). Interface design is of central importance in human - computer interaction in 
+general and user experience in par- ticular (Tuch, Roth, Hornbaek, Opwis & Bargas -Avila, 2012). One of the challenges in establishing and maintain- ing this interaction is determining the 
+appropriate interface design (Girgensohn & Lee, 1997). The results of the cur- rent study provide valuable data for analysis of user behav- ior towards error messages in Web forms, which assists in 
+the process of creating an effective, efficient and satisfac- tory design. Future empirical studies conducted with larger series and different design guidelines will contribute to the further 
+optimization of these forms. Journal of Eye Movement Research Inal, Y. (2016) 9(5):1, 1-11 User-friendly locations of error messages in web forms: An eye tracking study 9 Threats to Validity The 
+present study has some validity threats that should be taken into account. When interpreting the study find- ings, these potential threats should be addressed carefully. In terms of internal validity,
+ first, the generalization of the study findings may b e problematic because the partici- pants were all young adults and left -to-right readers and writers. The results may be different with older 
+partici- pants and people from cultures in which reading/writing is performed right-to-left or top -to-bottom. Future s tudies must address this limitation by focusing on participants from different 
+cultures and age segments. Second, the par- ticipants had high levels of computer skills, thereby ob- structing to generalize the findings for those who have av- erage computer skills . For example, 
+it is likely that they spend less time to recognize the errors, to correct them, and to complete the whole form. It would be better to replicate the current study with those with average computer 
+skills. Thirdly, it is likely that statistica l tests performed in this study have low statistical power to detect the potential ef- fects due to small sample size. More robust findings could be 
+attained in larger samples because the small sample sizes may not allow obtaining adequate statistical power. In terms of construct validity, the following potential threats should be considered 
+before inferring conclusive results. First, in the current study, single Web form was used to evaluate impact of error message locations. How- ever single form designs may cause underrepresentation 
+of all Web forms. Thus, it would be better to implement mul- tiple Web form versions to capture impact of error mes- sage locations for user-friendly designs. Second, to calcu- late number of 
+saccades and fixations, the time period be- tween appearance of the message on the screen and the moment that the participants corrected the error and clicked the ‘Continue’ button was calculated. 
+Although the current study was designed on the basis of single version of error message, it is unclear wh ether all the time spend by participants was due to the time to enter the correct in- 
+formation. Future studies should be designed carefully to rule out this limitation. Despite these limitations, this study is the first to inves- tigate location of error messages focusing on users’ 
+behav- iors utilizing eye-tracking device. Despite its exploratory nature, this study offers some insight to locate effective, efficient, and satisfactory design of error messages in Web forms. 
+Acknowledgement The author thanks to Nesibe Özen-Çinar for her assis- tance to data collection process. The author declares that there is no conflict of interest regarding the publication of this 
+paper. References Alton, N. T., Rinn, C., Summers, K., & Straub, K. (2014, October). Using eye-tracking and form completion data to optimize form instructions. In 2014 IEEE Inter- national 
+Professional Communication Conference (IPCC) (pp. 1-7). IEEE. Bargas-Avila, J. A., Brenzikofer, O., Roth, S. P., Tuch, A. N., Orsini, S., & Opwis, K. (2010). Simple but crucial user interfaces in the 
+world wide web: Introducing 20 guidelines for usable web form design, User Interfaces, Rita Matrai (Ed.), INTECH Open Access Publisher. Bargas-Avila, J. A., Brenzikofer, O., Tuch, A. N., Roth, S. P., 
+& Opwis, K. (2011). Working towards usable forms on the world wide web: Optimizing date entry input fields. Advances in Human -Computer Interaction, 2011, 1-8. Bargas-Avila, J. A., Oberholzer, G., 
+Schmutz, P., de Vito, M., & Opwis, K. (2007). Usable error message presen- tation in the world wide web: Do not show errors right away. Interacting with Computers, 19, 330-341. Bargas-Avila, J. A., 
+Orsini, S., Piosczyk, H., Urwyler, D., & Opwis, K. (2011). Enhancing online forms: Use for- mat specifications for fields with format restrictions to help respondents. Interacting with Computers, 23, 
+33- 39. Brown, P. J. (1983). Error messages: The neglected area of the man/machine interface?. Communications of the ACM, 26(4), 246-249. Das, S., McEwan, T., & Douglas, D. (2008, October). Us- ing 
+eye-tracking to evaluate label alignment in online forms. In Proceedings of the 5th Nordic conference on Human-computer interaction: B uilding bridges (pp. 451-454). ACM. Duchowski, A. (2007). Eye 
+Tracking Methodology: The- ory and Practice. Springer-Verlag New York Inc. Journal of Eye Movement Research Inal, Y. (2016) 9(5):1, 1-11 User-friendly locations of error messages in web forms: An eye 
+tracking study 10 Fox, J. E., Mockovak, W., Fisher, S. K., & Rho, C. (2004). Usability issues associated with converting establish- ment surveys to web-based data collection. Statistical Policy 
+Working Paper 38, Federal Committee on Sta- tistical Methodology Workshop, 63-74. Girgensohn, A., & Lee, A. (1997). Seamless integration of interactive forms into the web. Computer Networks and ISDN 
+Systems, 29, 1531-1542. Griffin, E. K., & Holbert, H. C. (2001, August). A feasi- bility evaluation of a web-based demographic survey. In Proceedings of the American Association for Public Opinion 
+Research (AAPOR) 56th Annual Conference, Montreal, Canada. Harms, J. (2013). Research goals for evolving the ‘Form’ user interface metaphor towards more interactivity. In: Holzinger, A., Ziefle, M., 
+Hitz, M., Debevc, M. (eds.) Human Factors in Computing and Informatics, LNCS, vol. 7946, pp. 819–822. Springer Berlin Heidelberg. Jarrett, C., & Gaffney, G. (2008). Forms that work: De- signing web 
+forms for usability. Morgan Kaufmann. Karousos, N., Katsanos, C., Tselios, N., & Xenos, M. (2013, April). Effortless tool-based evaluation of web form filling tasks using keystroke level model and 
+fitts law. In CHI'13 Extended Abstracts on Human Factors in Computing Systems (pp. 1851-1856). ACM. Katsanos, C., Karousos, N., Tselios, N., Xenos, M., & Avouris, N. (2013, September). KLM Form 
+Analyzer: automated evaluation of web form filling tasks using human performance models. In IFIP Conference on Human-Computer Interaction (pp. 530-537). Springer Berlin Heidelberg. Lang. P.J. (1985). 
+The cognitive psychophysiology of emo- tion: anxiety and the anxiety disorders. Lawrence Erl- baum, Hillsdale, NJ. Linderman, M. & Fried, J. (2004). Defensive design for the web: How to improve error 
+messages, help, forms, and other crisis points. New Riders Publishing. Mockovak, W. (2007). Comparing the effectiveness of al- ternative approaches for displaying edit -error mes- sages in web forms. 
+ICES-III, 1446-1453, Montreal, Canada. Nielsen, J. (2001). Error message guidelines. Retrieved from https://www.nngroup.com/articles/error-mes- sage-guidelines/ Nielsen, J. (2005). Forms vs. 
+applications. Retrieved from http://www.nngroup.com/articles/forms-vs-applica- tions/ Pauwels, S. L., Hübscher, C., Leuthold, S., Bargas-Avila, J. A., & Opwis, K. (2009). Error prevention in online 
+forms: Use color instead of asterisks to mark required- fields. Interacting with Computers, 21, 257-262. Seckler, M., Heinz, S., Bargas-Avila, J. A., Opwis, K., & Tuch, A. N. (2013, April). Empirical 
+evaluation of 20 web form optimization guidelines. In CHI'13 Extended Abstracts on Human Factors in Computing Sys- tems (pp. 1893-1898). ACM. Seckler, M., Heinz, S., Bargas-Avila, J. A., Opwis, K., & 
+Tuch, A. N. (2014, April). Designing usable web forms: empirical evaluation of web form improvement guidelines. In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (pp. 
+1275- 1284). ACM. Seckler, M., Tuch, A. N., Opwis, K., & Bargas -Avila, J. A. (2012). User-friendly locations of error messages in web forms: Put them on the right side of the erroneous input fi eld. 
+Interacting with Computers, 24 (3), 107 - 118. Sharafi, Z., Soh, Z., & Gueheneuc, Y. G. (2015). A sys- tematic literature review on the usage of eye -tracking in software engineering. Information and 
+Software Technology, 67, 79-107. Strohl, J., Gonzalez, C. , Sauser, J., Montazeri, S., & Griepentrog, B. (2015, August). Creating Forms and Disclosures that Work: Using Eye Tracking to Improve the 
+User Experience. In International Conference on Universal Access in Human-Computer Interaction (pp. 121-131). Springer International Publishing. Tuch, A. N., Roth, S. P., Hornbaek, K., Opwis, K., & 
+Bar- gas-Avila, J. A. (2012). Is beautiful really usable? To- ward understanding the relation between usability, aes- thetics, and affect in HCI. Computers in Human Behav- ior, 28, 1596-1607. Tullis, 
+T. S. , & Pons, A. (1997, March). Designating re- quired vs. optional input fields. In CHI'97 Extended Abstracts on Human Factors in Computing Systems (pp. 259-260). ACM. Thompson, S., & Torabi, T. 
+(2007, September). A process improvement approach to improve web form design and usability. In 18th International Workshop on Da- tabase and Expert Systems Applications (DEXA 2007) (pp. 570-574). 
+IEEE. Journal of Eye Movement Research Inal, Y. (2016) 9(5):1, 1-11 User-friendly locations of error messages in web forms: An eye tracking study 11 Wang, Y. C., & Yueh, H. P. (2014). The effect of 
+length in employment sites’ web form design on u ser prefer- ences. Journal of Library and Information Studies, 12(1), 109-134. Wroblewski, L. (2008). Web form design: Filling in the blanks. 
+Rosenfeld Media.

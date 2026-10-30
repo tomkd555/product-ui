@@ -1,0 +1,73 @@
+# url: https://carbondesignsystem.com/elements/typography/type-sets/
+# accessed: 2026-10-30
+# chars: 13273
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Typography | Carbon Design System Carbon Design System Search Employee login Login Foundations IBM Brand Center IBM Design Language Implementation Carbon Design System Carbon for Cloud Carbon for IBM.
+com IBM Event Design IBM Workplace Design Practices Enterprise Design Thinking IBM Accessibility IBM Design for AI IBM Design Research IBM Experience Standards Community IBM Design Search Getting 
+started About Carbon Designing Overview Design resources Developing Overview Packages Carbon Core Tutorials React tutorial Web Components tutorial Additional resources Carbon MCP Overview Concepts 
+Onboarding and setup Prompts Token conservation Contributing Overview Product Development Lifecycle Component checklist Methods of contribution Enhancing components Carbon Labs Migrating Guide FAQs 
+Building blocks Foundations 2x Grid Accessibility Carbon for AI Color Content Icons Pictograms Motion Spacing Themes Typography Components Overview Accordion AI label Breadcrumb Button Checkbox Code 
+snippet Contained list Content switcher Data table Date picker Dropdown File uploader Form Inline loading Link List Loading Menu Menu buttons Modal Notification Number input Pagination Popover 
+Progress bar Progress indicator Radio button Search Select Slider Structured list Tabs Tag Text input Tile Toggle Toggletip Tooltip Tree view UI shell header UI shell left panel UI shell right panel 
+Patterns Overview Common actions Dialogs Disabled states Disclosures Empty states Filtering Fluid styles Forms Global header Loading Login Notifications Overflow content Read-only states Search 
+Status indicators Text toolbar Data visualization Overview Chart types Simple charts Flow charts Spatial charts Gantt charts Chart design Chart anatomy Axes and labels Color palettes Legends 
+Dashboards Building experiences Overview Discover Learn Try Buy Onboard Use Get help Expand End use Support Contact us FAQs Certificate of Originality Feedback Typography Last updated Sep 29, 2026 
+Carbon’s typography system uses IBM Plex with carefully designed scales, styles, and weights to create hierarchy, organize information, and guide users. Typography Overview Style strategies Type sets 
+Code On this page Overview Utility styles Body styles Fixed heading styles Fluid heading styles Fluid display styles Questions? Overview Utility styles Body styles Fixed heading styles Fluid heading 
+styles Fluid display styles Questions? Overview Carbon uses type tokens to manage typography, and these tokens sit within two type sets. The productive and expressive type sets support designers 
+creating for a full range of user needs and activities across product and web pages. To understand when to use styles from each set, see Style strategies . Base type sizes The productive type set 
+uses a base type size of 14px, while the expressive type set uses a base type size of 16px. Style naming conventions Within Body styles and Supporting styles , the same set of styles are offered, and 
+an easy way to spot which type set they belong to is to look at the suffix. Productive styles are named with a suffix of -01 and expressive style names have a suffix of -02 . Two heading sets There 
+are two heading sets, one for productive and one for expressive. The major difference between them is in how they are implemented in code because of the nature of the pages. The productive type set 
+uses fixed headings. Product pages have a higher density of information housed inside containers for space efficiency, and in these situations fixed type styles are a must. The expressive type set 
+has two fixed headings that are to be used where smaller headings are needed. The remaining headings are fluid . Web pages need to be able to flex and work at different breakpoints, and the fluid 
+heading styles change size at different breakpoints, and can extrapolate/stretch in between sizes for smooth transitions. Utility styles The utility styles are used with productive and expressive 
+moments and include styles for code snippets, labels for captions and helper text, as well as legal copy. Productive styles have a suffix of -01 and expressive styles have a suffix of -02 . This is 
+for inline code snippets and smaller code elements. code-01 Type: IBM Plex Mono Size: 12px / .75rem Line height: 16px / 1rem Weight: 400 / Regular Letter spacing: .32 px Type set: Productive $code-01 
+Copy to clipboard This is for large code snippets and larger code elements. code-02 Type: IBM Plex Mono Size: 14px / .875rem Line height: 20px / 1.25rem Weight: 400 / Regular Letter spacing: .32 px 
+Type set: Expressive $code-02 Copy to clipboard This is a multipurpose type style that can be used for field labels in components, error messages, and captions. It should not be used for body copy. 
+label-01 Type: IBM Plex Sans Size: 12px / .75rem Line height: 16px / 1rem Weight: 400 / Regular Letter spacing: .32 px Type set: Productive $label-01 Copy to clipboard This is a multipurpose type 
+style that can be used for field labels in components, error messages, and captions. It should not be used for body copy. label-02 Type: IBM Plex Sans Size: 14px / .875rem Line height: 18px / 1.
+125rem Weight: 400 / Regular Letter spacing: .16 px Type set: Expressive $label-02 Copy to clipboard This is for explanatory helper text that appears below a field title within a component. 
+helper-text-01 Type: IBM Plex Sans Size: 12px / .75rem Line height: 16px / 1rem Weight: 400 / Regular Letter spacing: .32 px Type set: Productive $helper-text-01 Copy to clipboard This is for 
+explanatory helper text that appears below a field title within a component. helper-text-02 Type: IBM Plex Sans Size: 14px / .875rem Line height: 18px / 1.125rem Weight: 400 / Regular Letter spacing: 
+.16 px Type set: Expressive $helper-text-02 Copy to clipboard This is for legal copy appearing in product pages. legal-01 Type: IBM Plex Sans Size: 12px / .75rem Line height: 16px / 1rem Weight: 400 
+/ Regular Letter spacing: .32 px Type set: Productive $legal-01 Copy to clipboard This is for legal copy appearing in web pages. legal-02 Type: IBM Plex Sans Size: 14px / .875rem Line height: 18px / 
+1.125rem Weight: 400 / Regular Letter spacing: .16 px Type set: Expressive $legal-02 Copy to clipboard Body styles There are two body styles for productive and expressive moments. Productive styles 
+have a suffix of -01 and expressive styles have a suffix of -02 . This is for short paragraphs with no more than four lines and is commonly used in components. body-compact-01 Type: IBM Plex Sans 
+Size: 14px / .875rem Line height: 18px / 1.125rem Weight: 400 / Regular Letter spacing: .16 px Type set: Productive $body-compact-01 Copy to clipboard This is for short paragraphs with no more than 
+four lines. Use in expressive components, such as button and link. body-compact-02 Type: IBM Plex Sans Size: 16px / 1rem Line height: 22px / 1.375rem Weight: 400 / Regular Letter spacing: 0 px Type 
+set: Expressive $body-compact-02 Copy to clipboard With a slightly taller line height than body-compact-01, this body style is used in productive layouts for long paragraphs with more than four lines.
+ Use also for longer body copy in components such as accordion or structured list. It is always left-aligned. Body-long-01 can also be used for productive moments within expressive experiences. 
+body-01 Type: IBM Plex Sans Size: 14px / .875rem Line height: 20px / 1.25rem Weight: 400 / Regular Letter spacing: .16 px Type set: Productive $body-01 Copy to clipboard With a slightly taller line 
+height than body-compact-02, this style is commonly used in expressive layouts for long paragraphs with four lines or more. It is always left-aligned. body-02 Type: IBM Plex Sans Size: 16px / 1rem 
+Line height: 24px / 1.5rem Weight: 400 / Regular Letter spacing: 0 px Type set: Expressive $body-02 Copy to clipboard Fixed heading styles The fixed heading styles are used for product pages where 
+multiple containers are used and space efficiency is key. Fixed means they are not responsive. The type size remains constant regardless of break point. Creators of web pages also use the fixed 
+headings -01 and -02 where smaller headings are needed. This is for component and layout headings. It pairs with $body-compact-01. heading-compact-01 Type: IBM Plex Sans Size: 14px / .875rem Line 
+height: 18px / 1.125rem Weight: 600 / Semi-Bold Letter spacing: .16 px Type set: Productive $heading-compact-01 Copy to clipboard This is for smaller layout headings. It pairs with $body-compact-02. 
+heading-compact-02 Type: IBM Plex Sans Size: 16px / 1rem Line height: 22px / 1.375rem Weight: 600 / Semi-Bold Letter spacing: 0 px Type set: Expressive $heading-compact-02 Copy to clipboard This is 
+for component and layout headings. It pairs with $body-01. heading-01 Type: IBM Plex Sans Size: 14px / .875rem Line height: 20px / 1.25rem Weight: 600 / Semi-Bold Letter spacing: .16 px Type set: 
+Productive $heading-01 Copy to clipboard This is for smaller layout headings. It pairs with $body-02. heading-02 Type: IBM Plex Sans Size: 16px / 1rem Line height: 24px / 1.5rem Weight: 600 / 
+Semi-Bold Letter spacing: 0 px Type set: Expressive $heading-02 Copy to clipboard This is for component and layout headings. heading-03 Type: IBM Plex Sans Size: 20px / 1.25rem Line height: 28px / 1.
+75rem Weight: 400 / Regular Letter spacing: 0 px Type set: Productive $heading-03 Copy to clipboard This is for layout headings. heading-04 Type: IBM Plex Sans Size: 28px / 1.75rem Line height: 36px 
+/ 2.25rem Weight: 400 / Regular Letter spacing: 0 px Type set: Productive $heading-04 Copy to clipboard This is for layout headings. heading-05 Type: IBM Plex Sans Size: 32px / 2rem Line height: 40px 
+/ 2.5rem Weight: 400 / Regular Letter spacing: 0 px Type set: Productive $heading-05 Copy to clipboard This is for layout headings. heading-06 Type: IBM Plex Sans Size: 42px / 2.625rem Line height: 
+50px / 3.125rem Weight: 300 / Light Letter spacing: 0 px Type set: Productive $heading-06 Copy to clipboard This is for layout headings. heading-07 Type: IBM Plex Sans Size: 54px / 3.375rem Line 
+height: 64px / 4rem Weight: 300 / Light Letter spacing: 0 px Type set: Productive $heading-07 Copy to clipboard Fluid heading styles The fluid heading styles are primarily used in web pages, and are 
+therefore part of the expressive set of type styles. These headings are responsive and the type styles actually change size incrementally (almost imperceptibly) between the different breakpoints — 
+hence the name “fluid.” Do not use these styles inside a container. They may be used in product pages where text sits outside of a container, and a blend of expressive and productive type styles is 
+desired for hierarchy and distinction. For more information, see Style strategies . Note: the slider below shows the type sizes jumping abruptly between breakpoints, which is not a good 
+representation of the actual behavior. Breakpoints sm md lg xlg max Screen width 1056 This is for component and layout headings. fluid-heading-03 Type: IBM Plex Sans Size: 20px / 1.25rem Line height: 
+28px / 1.75rem Weight: 400 / Regular Letter spacing: 0 px Type set: Expressive $fluid-heading-03 Copy to clipboard This is for layout headings. fluid-heading-04 Type: IBM Plex Sans Size: 28px / 1.
+75rem Line height: 36px / 2.25rem Weight: 400 / Regular Letter spacing: 0 px Type set: Expressive $fluid-heading-04 Copy to clipboard This is for layout headings. fluid-heading-05 Type: IBM Plex Sans 
+Size: 42px / 2.625rem Line height: 50px / 3.125rem Weight: 300 / Light Letter spacing: 0 px Type set: Expressive $fluid-heading-05 Copy to clipboard This is for layout headings. fluid-heading-06 
+Type: IBM Plex Sans Size: 42px / 2.625rem Line height: 50px / 3.125rem Weight: 600 / Semi-Bold Letter spacing: 0 px Type set: Expressive $fluid-heading-06 Copy to clipboard Fluid display styles The 
+callout and display styles are part of the expressive set and being fluid, they will adjust at different breakpoints. Do not use these styles inside a container. For guidance about using display 
+styles, see Style strategies . Breakpoints sm md lg xlg max Screen width 1056 Display fluid-display-01 Type: IBM Plex Sans Size: 54px / 3.375rem Line height: 64px / 4rem Weight: 300 / Light Letter 
+spacing: 0 px Type set: Expressive $fluid-display-01 Copy to clipboard Display fluid-display-02 Type: IBM Plex Sans Size: 54px / 3.375rem Line height: 64px / 4rem Weight: 600 / Semi-Bold Letter 
+spacing: 0 px Type set: Expressive $fluid-display-02 Copy to clipboard Display fluid-display-03 Type: IBM Plex Sans Size: 60px / 3.75rem Line height: 70px / 4.375rem Weight: 300 / Light Letter 
+spacing: -0.64 px Type set: Expressive $fluid-display-03 Copy to clipboard Display fluid-display-04 Type: IBM Plex Sans Size: 92px / 5.75rem Line height: 102px / 6.375rem Weight: 300 / Light Letter 
+spacing: -0.64 px Type set: Expressive $fluid-display-04 Copy to clipboard Questions? For IBMers only: If you have any questions about using either of these experiences, reach out to the teams on 
+Slack or sign up to share your work in a review. Carbon Design System Slack channel: #carbon-design-system Office Hours with Carbon Design System Contact us Privacy Terms of use Accessibility IBM.com 
+Medium X Have questions? Email us at carbon@us.ibm.com . Copyright © 2026 IBM IBM logo

@@ -18,8 +18,11 @@ Persistence (Master + Overrides pattern):
 import argparse
 import sys
 import io
+import os
 from core import CSV_CONFIG, AVAILABLE_STACKS, MAX_RESULTS, search, search_stack
-from design_system import generate_design_system, persist_design_system
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))  # colour.py and validate_tokens.py live in scripts/
+from design_system import generate_design_system, persist_design_system, mark_rejected_fonts  # noqa: E402
 
 # Force UTF-8 for stdout/stderr to handle emojis on Windows (cp1252 default)
 if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
@@ -110,6 +113,8 @@ if __name__ == "__main__":
     # Domain search
     else:
         result = search(args.query, args.domain, args.max_results)
+        if args.domain == "typography":
+            mark_rejected_fonts(result.get("results", []))
         if args.json:
             import json
             print(json.dumps(result, indent=2, ensure_ascii=False))

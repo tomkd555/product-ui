@@ -1,0 +1,22 @@
+[
+  {"cid": "C6", "verdict": "partial",
+   "reason": "The radius figures (shadcn 0.625rem, Primer default 6px, Fluent 4px) and the 1.43 ratio for text-sm (1.25rem/0.875rem) are all on the cited pages. DADS gives 1.5 as a recommendation for body text in reading content (読み物コンテンツ), not for Japanese body text in general. The same page allows 120-130% line heights for admin and business screens and lists Dense 14px styles at 1.2-1.3, so the sentence states the scope of the 1.5 minimum too broadly.",
+   "found": "読み物コンテンツにおける本文テキストの行ボックスの高さ(行高)はフォントサイズに対して少なくとも1.5倍を維持することを推奨します。 ... たとえば管理画面や業務用システムの画面など、限られた画面領域で表示する情報量を優先したい場合などは、行間をかなり狭めた表示にすることがあります。",
+   "source": "https://design.digital.go.jp/dads/foundations/typography/"},
+  {"cid": "C7", "verdict": "supported",
+   "reason": "SmartHR (Japanese) says a button label is the plain-form verb of the user's operation, and GOV.UK (English) says button text describes the action it performs. Apple's HIG, found in the opposing search, also tells writers to describe what the button does.",
+   "found": "ボタンは、ユーザーが押すことで特定の操作や処理を実行するものです。 そのためボタンのラベルは、ユーザーの操作を表す 動詞の終止形 で表記します。 / Write button text in sentence case, describing the action it performs.",
+   "source": "https://smarthr.design/products/contents/ui-text/app-writing/"},
+  {"cid": "C8", "verdict": "supported",
+   "reason": "SmartHR drops する from suru-verbs in button labels and gives 「追加」 as the OK example. SmartHR and DADS both tell writers not to use 「こちら」 as link text.",
+   "found": "ただし、名詞に「する」をつけたサ行変格活用動詞の場合の「する」は省略します。 ... OK例:「追加」「削除」 NG例:「追加する」「削除する」 / 「ここ」や「こちら」をリンクテキストにしない",
+   "source": "https://smarthr.design/products/contents/ui-text/app-writing/"},
+  {"cid": "C9", "verdict": "contradicted",
+   "reason": "GOV.UK and Microsoft use sentence case for labels, but Apple's HIG calls for title-style capitalization on button labels, so English guides do not agree on sentence case. The 'please' guidance applies to general GOV.UK content ('usually no need') and to Atlassian error messages, not to labels.",
+   "found": "Using title-style capitalization, consider starting the label with a verb to help convey the button's action — for example, a button that lets people add items to their shopping cart might use the label \"Add to Cart.\"",
+   "source": "https://developer.apple.com/design/human-interface-guidelines/buttons"},
+  {"cid": "C10", "verdict": "supported",
+   "reason": "The run's evidence records list every AI-tell item for UI values, layout and labels (E99-E109) as grade C blog commentary dated June-July 2026. The only grade B items in that sub-question (E110, E111, Wikipedia) concern prose wording, not UI values, layout or labels.",
+   "found": "\"id\": \"E99\" ... \"date\": \"2026-06-13\", \"grade\": \"C\" ... \"id\": \"E105\" ... \"date\": \"2026-07-13\", \"grade\": \"C\" ... \"id\": \"E108\" ... \"date\": \"2026-06-14\", \"grade\": \"C\"",
+   "source": "C:\\Mycode\\ClaudeCode\\product-ui\\research\\20261030-ui-defaults-labels-copy\\evidence.jsonl"}
+]

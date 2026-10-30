@@ -1,0 +1,40 @@
+# url: https://smarthr.design/products/contents/
+# accessed: 2026-10-30
+# chars: 6513
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+ライティング | プロダクト | SmartHR Design System さがす はじめに 基本原則 基本要素 アクセシビリティ プロダクト コミュニケーション はじめに 基本原則 基本要素 アクセシビリティ プロダクト コミュニケーション さがす 利用規約 お問い合わせ・フィードバック 運用ガイドライン 更新情報(X) 別タブで開く 運営会社 別タブで開く プロダクト デザイン原則 
+ユーザビリティ(使用性) UIデザイン使用性チェックリスト 情報設計レビュー UIレビュー ユーザビリティテスト ユーザビリティテストの計画をはじめる ユーザビリティテスト設計の観点 ファシリテーションの心得 ユーザビリティテストの被験者になったら 情報設計 情報設計のアウトプット ユーザーの業務の説明 概念モデル オブジェクトモデル ビューの呼び出し関係 メインナビゲーション デザイントークン 
+色 タイポグラフィ 余白 角丸 レイヤー順序 影 メディアクエリ 行送り 幅 コンポーネント AccordionPanel AppHeader AppNavi Badge Base(非推奨) BaseColumn(非推奨) BottomFixedArea(非推奨) Browser Button Calendar Checkbox Chip Combobox MultiCombobox 
+SingleCombobox DatePicker(非推奨) DefinitionList Dialog ActionDialog FormDialog MessageDialog ModelessDialog RemoteDialogTrigger StepFormDialog Disclosure DropZone Dropdown DropdownMenuButton 
+FilterDropdown SortDropdown ErrorScreen AuthErrorScreen ForbiddenErrorScreen NotFoundErrorScreen UnauthorizedErrorScreen UnexpectedErrorScreen Fieldset FileViewer FloatArea FormControl Formatter 
+DateFormatter TimeFormatter TimestampFormatter Groupbox Header AppLauncher(非推奨) LanguageSwitcher Heading PageHeading Icon InformationPanel Input CurrencyInput SearchInput InputFile Layout Center 
+Cluster Container Reel Sidebar Stack LineClamp(非推奨) Loader NotificationBar PageCounter Pagination Panel Picker DatetimeLocalPicker(非推奨) MonthPicker(非推奨) TimePicker(非推奨) RadioButton RadioButtonPanel 
+ResponseMessage Scroller SectioningContent SegmentedControl Select SideMenu SideNav SmartHRAILogo SmartHRLogo SpreadsheetTable StatusLabel RequiredLabel Stepper Switch TabBar Table Text TextLink 
+HelpLink UpwardLink Textarea Timeline Tooltip VisuallyHiddenText WarekiPicker デザインパターン 視線誘導 視覚的グルーピング ページレイアウト 余白の取り方 モバイルレイアウト フィードバック モーダルなUI ウィザード 権限による表示制御 よくあるテーブル よくあるリスト テーブル内の一括操作 デフォルト値 
+ワンクッション必要な操作 削除ダイアログ 値がない項目の表示 複数の入力要素を持つ入力フィールド 権限設定 バックグラウンド処理 ドラッグ&ドロップ 企業アカウント選択 選択コンポーネントの使い分け 「基本機能」の共通設定 「基本機能」の共通設定の操作権限項目 デザインデータ デザインデータ(Figma)の作り方 デザインデータ(Figma)の更新をライブラリに適用する手順 ライティング 
+ライティングガイドラインの使い方 基本的な考え方 用字用語 索引 漢字とひらがなの使い分け カタカナ語の表記 数字・数えの表記 記号(括弧、句点、スペースなど)の表記 SmartHRの用語 操作を表す用語 コンポーネントの呼び方 その他類似する用語の使い分け UIテキスト ヘルプページへの動線 通知メール ステータス ファイル名 アカウントや従業員の表記 CSVファイルの取り込みによる一括操作 
+その他のUIテキスト エラーメッセージ エラーメッセージの基本的な考え方 バックグラウンド処理のライティングパターン NotificationBarのライティングパターン ヘルプページ ヘルプセンターの構造設計 ヘルプページの構成 ヘルプページの書き方 概要の書き方 操作手順の書き方 仕様の一覧の書き方 エラーメッセージごとの対応方法の書き方 よくある質問の書き方 
+ヘルプセンターで使用する画像要素 コンテンツレビュー リリースノート リリースノートの基本的な考え方 リリースノートの書き方 「アクセシビリティの向上」に分類される文言の変更 AI アプリケーション・機能のネーミング ヘルプページ リソース プロダクト デザイン原則 ユーザビリティ(使用性) UIデザイン使用性チェックリスト 情報設計レビュー UIレビュー ユーザビリティテスト 
+ユーザビリティテストの計画をはじめる ユーザビリティテスト設計の観点 ファシリテーションの心得 ユーザビリティテストの被験者になったら 情報設計 情報設計のアウトプット ユーザーの業務の説明 概念モデル オブジェクトモデル ビューの呼び出し関係 メインナビゲーション デザイントークン 色 タイポグラフィ 余白 角丸 レイヤー順序 影 メディアクエリ 行送り 幅 コンポーネント 
+AccordionPanel AppHeader AppNavi Badge Base(非推奨) BaseColumn(非推奨) BottomFixedArea(非推奨) Browser Button Calendar Checkbox Chip Combobox MultiCombobox SingleCombobox DatePicker(非推奨) DefinitionList Dialog 
+ActionDialog FormDialog MessageDialog ModelessDialog RemoteDialogTrigger StepFormDialog Disclosure DropZone Dropdown DropdownMenuButton FilterDropdown SortDropdown ErrorScreen AuthErrorScreen 
+ForbiddenErrorScreen NotFoundErrorScreen UnauthorizedErrorScreen UnexpectedErrorScreen Fieldset FileViewer FloatArea FormControl Formatter DateFormatter TimeFormatter TimestampFormatter Groupbox 
+Header AppLauncher(非推奨) LanguageSwitcher Heading PageHeading Icon InformationPanel Input CurrencyInput SearchInput InputFile Layout Center Cluster Container Reel Sidebar Stack LineClamp(非推奨) Loader 
+NotificationBar PageCounter Pagination Panel Picker DatetimeLocalPicker(非推奨) MonthPicker(非推奨) TimePicker(非推奨) RadioButton RadioButtonPanel ResponseMessage Scroller SectioningContent SegmentedControl 
+Select SideMenu SideNav SmartHRAILogo SmartHRLogo SpreadsheetTable StatusLabel RequiredLabel Stepper Switch TabBar Table Text TextLink HelpLink UpwardLink Textarea Timeline Tooltip VisuallyHiddenText 
+WarekiPicker デザインパターン 視線誘導 視覚的グルーピング ページレイアウト 余白の取り方 モバイルレイアウト フィードバック モーダルなUI ウィザード 権限による表示制御 よくあるテーブル よくあるリスト テーブル内の一括操作 デフォルト値 ワンクッション必要な操作 削除ダイアログ 値がない項目の表示 複数の入力要素を持つ入力フィールド 権限設定 バックグラウンド処理 
+ドラッグ&ドロップ 企業アカウント選択 選択コンポーネントの使い分け 「基本機能」の共通設定 「基本機能」の共通設定の操作権限項目 デザインデータ デザインデータ(Figma)の作り方 デザインデータ(Figma)の更新をライブラリに適用する手順 ライティング ライティングガイドラインの使い方 基本的な考え方 用字用語 索引 漢字とひらがなの使い分け カタカナ語の表記 数字・数えの表記 
+記号(括弧、句点、スペースなど)の表記 SmartHRの用語 操作を表す用語 コンポーネントの呼び方 その他類似する用語の使い分け UIテキスト ヘルプページへの動線 通知メール ステータス ファイル名 アカウントや従業員の表記 CSVファイルの取り込みによる一括操作 その他のUIテキスト エラーメッセージ エラーメッセージの基本的な考え方 バックグラウンド処理のライティングパターン 
+NotificationBarのライティングパターン ヘルプページ ヘルプセンターの構造設計 ヘルプページの構成 ヘルプページの書き方 概要の書き方 操作手順の書き方 仕様の一覧の書き方 エラーメッセージごとの対応方法の書き方 よくある質問の書き方 ヘルプセンターで使用する画像要素 コンテンツレビュー リリースノート リリースノートの基本的な考え方 リリースノートの書き方 
+「アクセシビリティの向上」に分類される文言の変更 AI アプリケーション・機能のネーミング ヘルプページ リソース 適用範囲 ライティングガイドを通じて実現したいこと ライティングで重視する観点 フィードバック先 ページ内目次 適用範囲 ライティングガイドを通じて実現したいこと ライティングで重視する観点 フィードバック先 ライティング 
+ライティングガイドラインは、ユーザーがプロダクトを利用する際の助けとなる、わかりやすい言葉をデザインするための指針です。 デザイン原則 に即した、簡潔で統一感のある言葉を、誰でも迷わずに決定できる状態を目指します。「わかりやすい」の定義については、 UXライティング部とサポートコンテンツ部のビジョン 別タブで開く を参照してください。 
+ユーザーがプロダクトを操作する際に触れる情報は、UIテキストだけではありません。 そのためライティングガイドラインには、ヘルプページやリリースノートに関するガイドラインも含まれています。 適用範囲 SmartHRのプロダクトで表記する言葉すべてです。 プロダクトとは、アプリケーションだけでなく、ヘルプセンターなど、ユーザーがSmartHRを使うときに触れるものすべてを指します。 
+ライティングガイドを通じて実現したいこと ユーザーの読解の負荷を軽減する ユーザーは「年末調整を円滑に実施したい」など、ある目的を持ってプロダクトを操作します。 プロダクト上の言葉がわかりづらいと、その言葉そのものを読解することにユーザーは注意を払うことになり、本来の目的である「年末調整を円滑に実施する」ことに集中できなくなってしまいます。 
+読解の負荷を軽減する言葉を選ぶことで、ユーザーが本来の業務に集中できる体験を提供します。 日本語の曖昧さが生むズレを埋める 日本語は、一人称が「私」や「僕」など複数の表記があったり、同音異義語が多かったりと、言葉のばらつきが起きやすい曖昧な言語です。 また、人が無意識に使う言い回し、言葉の選び方にはクセがあり、意識しないと表記を統一できません。 
+一定のルールを設けることで日本語の曖昧さが生むズレを埋め、統一感のある言葉を使用したプロダクトを提供します。 ライティングで重視する観点 ライティングガイドは「日本語スタイルガイド 第3版」を参考に、下記の観点でプロダクトを操作するユーザーの読解の負荷を軽減する言葉を定義します。 一貫性 
+この画面では「hogehoge」と表記されているが、別の画面では「hogefuga」と表記されているといった、表現のばらつきをなくします。 統一感 プロダクト上で使用する言葉を統一し、画面ごとに雰囲気が違うといった違和感をユーザーに与えません。 検索性 ユーザーが必要な情報に辿り着きやすい構造にしたり、馴染みのある言葉を使います。 標準化 
+言葉を決める際の根拠を公開することで、プロダクトに関わる誰もが個人のスキルや好みなどに依らずに一定の品質で言葉を決められるようにします。 効率化 開発スピードが加速するように、必要な言葉をスムーズに決定できるライティングパターンや事例を公開します。 フィードバック先 記載内容に気になる点がある場合は、社内Slack #design_system_相談 
+チャンネル、または、お近くのUXライターまでお願いします。 前へ デザインデータ(Figma)の更新をライブラリに適用する手順 次へ ライティングガイドラインの使い方 SmartHR Design System さがす 利用規約 お問い合わせ・フィードバック 運用ガイドライン 更新情報(X) 別タブで開く 運営会社 別タブで開く はじめに 利用者のかたへ コンテンツ構成 運営理念 基本原則 
+基本要素 ロゴ 色 タイポグラフィ アイコン イラストレーション メタ情報 伝わる文章 アクセシビリティ アクセシビリティの品質基準とプロセス アクセシビリティガイドライン アクセシビリティインサイト 多言語化の品質基準とプロセス 多言語化のガイドライン プロダクト デザイン原則 ユーザビリティ(使用性) 情報設計 デザイントークン コンポーネント デザインパターン デザインデータ ライティング 
+リソース コミュニケーション 写真・動画 アイキャッチ スライド・資料 名刺 画面キャプチャ 端末モック サンプル集 © SmartHR, Inc.

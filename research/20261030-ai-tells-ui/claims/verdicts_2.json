@@ -1,0 +1,37 @@
+[
+  {
+    "cid": "C6",
+    "verdict": "partial",
+    "reason": "Read in context, the cited pages name most of the listed tells: gradients and indigo/slate colours, Inter, uniform radius and shadow, emoji icons, glass panels, uniform motion, stock copy and unsourced stats. Two pages tie these tells to code: one gives the Tailwind class names, the other describes deterministic scanners. None of the cited pages mentions negative parallelism or em-dashes, and one page says that \"no visual rule catches a fabricated stat\". The sentence's full list of source-file signals therefore goes beyond what the sources state.",
+    "found": "If you want the underlying class names, the recurring ones are indigo-600 and slate-900 for color, rounded-2xl and rounded-3xl for the corners, and shadow-lg with p-6 on the cards.",
+    "source": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same"
+  },
+  {
+    "cid": "C7",
+    "verdict": "partial",
+    "reason": "The note.com page says to settle the entry view, visible proof and navigation before touching colours and corner radius. That step comes before styling, while the sentence places it before markup. The NN/g passage only says that well-designed empty states help users. Neither source mentions an inventory of empty, loading and error states, or a step for it before markup.",
+    "found": "色や角丸を触る前に、読者が3秒で理解できる入口、実物が見える証拠、押した後が分かる導線を整える。",
+    "source": "https://note.com/nikki_r2d2/n/ndf9325b559c5"
+  },
+  {
+    "cid": "C8",
+    "verdict": "partial",
+    "reason": "The source names headline genericness and samey template structure as tells, and it says an outside read surfaces such gaps. However, it presents its checks as a no-tools self-audit the page owner runs, including a 'swap in a competitor's logo' test. It never says that these two judgements must stay with an independent reviewer, and it does not assign whole-page sameness to a reviewer at all.",
+    "found": "Run this on your v0, Lovable, or Framer page before you change a single pixel. Six passes, no tools, brutally honest. 1. The stranger test Read only the hero — headline, subhead, CTA. Hand it to someone who's never heard of you.",
+    "source": "https://landingdoctors.com/guides/why-ai-landing-pages-convert-worse"
+  },
+  {
+    "cid": "C9",
+    "verdict": "partial",
+    "reason": "The second-set fallback is supported by Capital & Compute and by the Anthropic cookbook's Space Grotesk note. The ACL paper reports a drop for several flagged words in arXiv abstracts and attributes it to authors adapting their LLM use, so the evidence concerns human-edited text and the models' own output is not shown to change. The same paper finds that other ChatGPT-favoured words such as \"significant\" kept rising, so the general claim that flagged words fade overstates it. 'So a ban list ages' is an inference no source states.",
+    "found": "we report a marked drop in the frequency of several words previously identified as overused by ChatGPT, such as “delve”, starting soon after they were pointed out in early 2024. The frequency of certain other words favored by ChatGPT, such as “significant”, has instead kept increasing. These phenomena suggest that some authors of academic papers have adapted their use of large language models (LLMs)",
+    "source": "https://doi.org/10.18653/v1/2025.findings-acl.657"
+  },
+  {
+    "cid": "C10",
+    "verdict": "partial",
+    "reason": "Secondary sources (FWF project summary, the companion Data in Brief dataset) support a positive effect of webpage prototypicality on perceived trustworthiness for banking, e-commerce and university homepages. They also note that the effect may diminish at very high prototypicality, and the article itself was paywalled and could not be read. The second half of the sentence, that the rules should target unchosen defaults and fabricated content and leave conventional structure in place, is a recommendation the study does not make.",
+    "found": "Notably, the direct effect of prototypicality on trustworthiness outweighed the indirect effects through aesthetics and usability.",
+    "source": "https://doi.org/10.1016/j.ijhcs.2023.103103"
+  }
+]

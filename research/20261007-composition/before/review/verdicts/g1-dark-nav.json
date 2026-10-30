@@ -1,0 +1,22 @@
+{
+  "verdicts": [
+    {
+      "id": "R-3",
+      "verdict": "reject",
+      "reason": "The dark-1280 dump entry for a.nav-item.active \"ホーム\" matches the evidence: color oklch(0.74 0.15 29), background oklch(0.531 0.218 29 / 0.22), 14.4px/600. That background is 22% alpha, though, and the ratio only reaches 1.62:1 if the tint is composited over white. Compositing it over white gives text Y about 0.378 against background Y about 0.66, which is about 1.66:1, close to the script's figure. The element actually sits on the dark sidebar: every sibling nav-item in the same dump reports background oklch(0.232 0.02 272), which is color_dark.surface in tokens.json. I converted the colours by hand, so these are estimates from my own arithmetic. Over that surface the tint composites to roughly sRGB(0.25, 0.09, 0.12), Y about 0.019, and the text's Y is about 0.378, which gives about 6.2:1. That passes 4.5:1. The dark-1280.png screenshot agrees: the coral 'ホーム' label is clearly legible on a dark maroon pill. Also, tokens.json meta.defaults_applied says the dark theme adds --primary-text precisely so that the brand red reaches 4.5:1 on the dark surface. The measured ratio comes from compositing the translucent background over the wrong base.",
+      "confidence": "high"
+    },
+    {
+      "id": "R-4",
+      "verdict": "reject",
+      "reason": "oklch(0.74 0.15 29) is the value of a named custom property. In dist/assets/index-Da_oL6iI.css it is declared as `.dark{--primary-text:oklch(74% .15 29)}`, and the nav item uses it through `.nav-item.active,.dark .nav-item[aria-current=page]{color:var(--primary-text)}`. The brief records this as a deliberate token decision: tokens.json meta.defaults_applied says 'the dark theme sets --primary-text and --tint-primary in src/app.css: the brand red falls under 4.5:1 as text on the dark surface, and color_dark has no slot for a text step of the brand colour'. So it is a named variable that the brief specifies outside tokens.json, and the suggested fix (replace the literal with a variable) is already in place. I read the built CSS beyond the cited theme.css because the variable is defined in app.css output. I did not open the span.badge '要対応' rule to see which variable it uses; the same colour value points to --primary-text.",
+      "confidence": "medium"
+    },
+    {
+      "id": "R-5",
+      "verdict": "reject",
+      "reason": "In the built CSS, nav-item colour is var(--shell-nav-fg), and one definition is `--shell-nav-fg:color-mix(in oklch, var(--color-foreground) 60%, var(--color-muted-foreground))`. Mixing color_dark.foreground oklch(95.7% 0.007 286) and color_dark.muted_foreground oklch(71.4% 0.019 261) at 60/40 in oklch gives L 0.8598 and C 0.0118, with hue about 276. That matches the dump value exactly. The same mix of the light tokens gives the light-mode value oklch(0.3488 0 0), which also confirms the derivation. The colour is therefore computed from two theme.css token variables, and no literal exists to replace. The 'off-token' result only means the script checks resolved values against the token list and does not count values derived with color-mix.",
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "perspective": "P2 Information design and consistency",
+  "viewport": "both",
+  "findings": [
+    {
+      "id": "P2-1",
+      "severity": "WARNING",
+      "location": "div.card.kpi (two tiles) dist/assets/index-DKXolRs7.js:1, at 1280 and 375, light and dark",
+      "evidence": "no dominant figure for the advisor: the two KPI tiles have identical rect size (1280: x292 y105 w468 h139 and x780 y105 w468 h139; 375: w343 h139 each), identical type (value 30px/700, label 14px/600, sub-line 14px/400) and identical chrome (card, arrow icon). The first tile read is the store penetration \"38.6%\" (the left tile and first in order), while the brief names the advisor's dominant element as \"マイ目標まで あと N件\" and says the store penetration moves into the comparison line and the tile row is \"none\". Cold-read answers: first landing is \"38.6%\" at both widths, which is not the dominant element for 営業スタッフ; emphasis levels that survive a squint are three (30px figures, 18px/16px bold headings and row labels, 14px grey text), with the two figures weighing the same.",
+      "fix": "For the advisor, render one hero figure \"マイ目標まで あと 2件\" (larger than 30px, no sibling tile) with \"目標 9件\" and the store penetration \"38.6% / 前年同月 41.5%\" as its comparison line; keep the penetration tile as the hero only for 店長 and エリアマネージャー."
+    },
+    {
+      "id": "P2-2",
+      "severity": "WARNING",
+      "location": "div.grid with div.card.kpi and section.card, dist/assets/index-DKXolRs7.js:1, at 1280",
+      "evidence": "generic shape: a 2 x 2 grid of four bordered cards of equal width (rects x292 w468 and x780 w468 in both rows; row 1 y105 h139, row 2 y264 h229 and h307). The brief calls for sections on the ground with hairline-divided rows, no panel borders, and a two-to-one supporting pane from 1024px; the capture shows equal columns and every region boxed (class \"card\"), so the 要対応 list and the notices carry the same weight as the figures and swapping the two columns would not change the reading. Group separation uses gap 20 between cards and 20 inside the grid, the same value between all four boxes, so no cue ranks the groups.",
+      "fix": "Drop the card borders on the two list sections, set the lists on the ground with a heading each, and use the 3fr/2fr columns from 1024px with the 要対応 list as the wide column; keep a larger gap between the figure and the lists than between the two lists."
+    },
+    {
+      "id": "P2-3",
+      "severity": "NOTE",
+      "location": "section.card (要対応) and section.card (未読のお知らせ) dist/assets/index-DKXolRs7.js:1, at 1280",
+      "evidence": "misaligned 78px: the left card ends at y493 (h229) and the right card at y571 (h307), so the \"ホンダファイナンスデータの最終更新\" line at y591 sits 98px below the left card and 20px below the right one, leaving an empty block under the left column. The heights follow the content (3 rows against 3 notices of 82px), so only the empty block under the left column is visible.",
+      "fix": "Align the update line to the page bottom of the content area or let the shorter section end flush with a shared row; no change to the content is needed."
+    },
+    {
+      "id": "P2-4",
+      "severity": "WARNING",
+      "location": "a rows in 要対応 and 未読のお知らせ (a[href^='#/inquiries?', a[href^='#/notices/']) dist/assets/index-DKXolRs7.js:1, at 1280 and 375",
+      "evidence": "state expression: the three 要対応 rows (w466 h56) and the three notice rows (w466 h82) are links in the dump's controls but show no trailing arrow or chevron, while the two KPI tiles carry an arrow icon at their top right and the section header carries an underlined blue link (\"未読のお知らせを開く\", colour oklch(0.546 0.215 263)). Three different cues mark \"this opens something\" on one screen, and the rows (the second element in the reading order) have none. The screenshot shows no hover or focus state at rest, so the capture alone does not tell whether a row hover exists.",
+      "fix": "Give list rows one trailing chevron (as the tiles use an arrow) or one shared hover background; use the same affordance for every row that opens a list or a single view."
+    },
+    {
+      "id": "P2-5",
+      "severity": "NOTE",
+      "location": "div.card.kpi (second tile) dist/assets/index-DKXolRs7.js:1, at 375",
+      "evidence": "inconsistent spacing between siblings: both tiles are h139 at 375, but the first tile's label wraps to two lines (label to value gap about 20px at the 2nd line) while the second tile's one-line label \"マイ目標到達までの残件\" sits above a value at the same offset from the card top, leaving about 40px between label and value; at 1280 the gap is 24px (label bottom y142, value top y166). The help icon appears in the first tile only, so the two tiles of the same role carry different header furniture.",
+      "fix": "Let each tile size to its content (drop the shared fixed height) or put the value on a shared baseline row in both tiles, and give both tiles the same set of icons."
+    },
+    {
+      "id": "P2-6",
+      "severity": "NOTE",
+      "location": "section.card h2 \"対応が必要な項目\" and \"未読のお知らせ\" dist/assets/index-DKXolRs7.js:1, at 1280 and 375",
+      "evidence": "inconsistent section header: the 未読のお知らせ section carries a header link \"未読のお知らせを開く\" (a.link, 16px underlined, rect x1067 y282 w160 h26) that repeats the heading it sits beside, while the 対応が必要な項目 section has no equivalent entry to a full list. The three 要対応 rows are each a filtered list, so the missing header link is consistent only if intended; the link wording repeats the heading.",
+      "fix": "Either give both sections the same header action (for example \"すべて見る\") or remove the link and make the heading the entry; keep one pattern for both."
+    }
+  ],
+  "out_of_scope_notes": [
+    "P3: tile label \"販売店の今月のホンダファイナンスペネトレーション\" carries the computation words the brief lists as omitted, and \"マイ目標到達までの残件\" differs from the brief's \"マイ目標まで あと N件\".",
+    "P3: the advisor's tile shows both the store figure and the personal figure although the brief moves the store figure into the comparison line (brief conformance).",
+    "P1/R3: footer note \"ホンダファイナンスデータの最終更新：2026年10月24日 6:00\" wraps at 375 to \"2026年10月 / 24日 6:00\", splitting the date at the month; a line break inside the date is a Japanese-text wrap issue (R-n not raised).",
+    "R-3 (measured): active nav item \"ホーム\" in dark theme is 1.62:1; the same item still reads as the current page by position and the red bar, so hierarchy holds."
+  ],
+  "checked_scope": "Light 1280 and 375, dark-1280 and dark-375, screenshots and the 1280 dump plus the 375 boxes; plan, measured file, tokens.json, and the built CSS (first 42k characters) read; JS read not needed because the dump holds classes and hrefs. Cold-read answers: (1) first landing is the store penetration \"38.6%\" at every width and theme, which does not match the brief's dominant element for an advisor (P2-1); (2) three emphasis levels survive; (3) first four stops are 38.6% -> 2件 -> 対応が必要な項目 -> 未読のお知らせ, which follows the brief's reading order except that the figure and comparison line are replaced by two equal tiles; (4) two equal-sized siblings in the top region, equality is not earned because the brief wants one dominant figure; (5) separation by boxes with a uniform 20px gap, the gap between groups is not larger than the gap within the grid; (6) yes, a run of equal tiles followed by equal panels, reordering would not change the meaning (P2-2); (7) labels such as \"回答ありの問い合わせ\", \"満期3か月以内で意向未確認の契約\" and the campaign names tie it to this product, but the 2 x 2 card grid layout is shared with any dashboard; (8) density fits the monitor job: content ends at y611 of 1200 at 1280, three rows per list. One primary action: none is needed for a monitor screen; no button competes. Dark theme: same hierarchy and structure as light, cards (surface oklch 23.2%) separate from the ground (17.8%), no new finding beyond measured R-3. State: current-page nav item has a fill and a red bar in both themes; no disabled controls on this screen. Headings: h1 ホーム, two h2 sections, mirror the content (R8 settled levels)."
+}

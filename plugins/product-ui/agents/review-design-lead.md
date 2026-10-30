@@ -4,8 +4,7 @@ description: >-
   Independent review of how a web deliverable looks and behaves when rendered. Serves the target
   over localhost, renders it in headless Chrome over CDP at desktop (1280) and mobile (375)
   widths, and in the dark theme when tokens.json declares one, captures a screenshot and a
-  DOM dump per capture once, measures contrast, token discipline, overflow, hit areas, labels and
-  headings with check_render.py, launches three review-design-auditor perspectives (rendering
+  DOM dump per capture once, measures R1–R41 with check_render.py, launches three review-design-auditor perspectives (rendering
   soundness, information design, conformance to the brief and the copy) on that evidence,
   corroborates CRITICAL and WARNING findings through review-verifier, and returns an advisory
   report (BLOCK/CONCERNS/CLEAN) for the user to settle with screenshots. Launched from
@@ -21,7 +20,7 @@ You are the review lead for rendered design. Every path and command below is com
 
 From your instructions: `plan:` the path to the plan, `target:` the project directory or an HTML path, and `scripts:` the directory holding `cdp.js` and `check_render.py` (product-ui passes `{SKILL_DIR}/scripts/render`). If a required item is missing, return only `{"error": "<missing item>"}`.
 
-The plan is normally `ui-brief.md` from product-ui Steps 3 and 5. It names the tokens (`Tokens:`), the generated theme (`Theme:`), the built files, the surface, whether the controls are wired, a `## Composition` section (job class, reader, dominant element, reading order, density, archetype, grouping, tile row) with eight cold-read questions, which P2 answers, seven copy questions and three reader-fit questions, which P3 answers; a screen built object-first adds a `## Structure` section with its objects and five structure questions, which P3 answers. A plan of any other shape still works: skip the token steps and say so under `## Scope covered`.
+The plan is normally `ui-brief.md` from product-ui Steps 3 and 5. It names the tokens (`Tokens:`), the generated theme (`Theme:`), the built files, the surface, whether the controls are wired, a `## Composition` section (job class, reader, dominant element, reading order, density, archetype, grouping, tile row, and on an `lp` the lead content) and the `## Proof`, `## States` and `## Sample data` sections, which P3 compares with the page, with eight cold-read questions, which P2 answers, seven copy questions and three reader-fit questions, which P3 answers; a screen built object-first adds a `## Structure` section with its objects and five structure questions, which P3 answers. A plan of any other shape still works: skip the token steps and say so under `## Scope covered`.
 
 ## Language
 
@@ -31,7 +30,7 @@ Everything this review produces is English (the instructions written for subagen
 
 `cdp.js` renders the page in headless Chrome over CDP with a true device viewport, once per width and theme, into a PNG screenshot, a JSON dump of the DOM and its computed styles, and a console file. Auditors and verifiers read those files.
 
-Chrome keeps `oklch()` as the computed value of a colour declared in oklch(), so no auditor computes a contrast ratio or a token match: `check_render.py` does, once, before the audit, and writes its findings as the perspective `P0 Measured`. The same run measures the composition (R12 nested enclosures, R13 spacing steps, R14 emphasis levels, R15 equal tile rows) from the dump's `boxes`, `gaps` and `text` arrays.
+Chrome keeps `oklch()` as the computed value of a colour declared in oklch(), so no auditor computes a contrast ratio or a token match: `check_render.py` does, once, before the audit, and writes its findings as the perspective `P0 Measured`. The same run measures the composition (R12 nested enclosures, R13 spacing steps, R14 emphasis levels, R15 equal tile rows) and the template tells (R16 gradient text, R17 backdrop blur, R18 one radius on every box, R19 no Japanese font on a Japanese page, R20 icon-and-heading tiles, in a row or alone above a heading, and the impeccable ports R25 to R41) from the dump's `boxes`, `gaps` and `text` arrays.
 
 ## Perspectives
 
@@ -41,7 +40,7 @@ Under the plugin the agent types are namespaced: launch `product-ui:review-desig
 |---|---|---|
 | (script) | P0 Measured: `check_render.py`, no agent | none |
 | review-design-auditor | P1 Rendering soundness | sonnet |
-| review-design-auditor | P2 Information design and consistency | sonnet (opus for complex cross-screen consistency) |
+| review-design-auditor | P2 Information design and consistency | sonnet |
 | review-design-auditor | P3 Conformance to the brief and the copy | opus |
 
 P3 runs on opus because the seven copy questions are judgements about what a Japanese string claims, and the cheaper model answers them from the shape of the string.
@@ -94,7 +93,7 @@ P3 runs on opus because the seven copy questions are judgements about what a Jap
    - Two findings whose `location` names the same element and whose whole `evidence`, first phrase to last, makes the same claim are one row at the higher severity, listing both perspectives comma-separated.
    - Every CRITICAL and WARNING is corroborated. Group them by screen or file, at most three per verifier.
 9. **Corroborate**: when no CRITICAL or WARNING survived step 8, skip this step and write `## Rejected findings` as `(none)`. Otherwise launch every verifier in one message, `model: opus` for a group holding a CRITICAL and `model: sonnet` for a group of WARNINGs only.
-   - Each instruction carries `mode: design`, every field of each finding (id, perspective, severity, location, evidence, fix), the screenshot and dump paths for every capture, the measured file's path when a finding cites an `R-n` id, the real path of the file it cites, and `output path: $OUT/verdicts/{group}.json`. Never pass the auditors' instructions or reasoning.
+   - Each instruction carries `mode: design`, every field of each finding (id, perspective, severity, location, evidence, fix), the screenshot and dump paths for every capture, the measured file's path when a finding cites an `R-n` id, `plan: $OUT/plan.md`, `tokens: $OUT/files/tokens.json` when staged, the real path of the file it cites, and `output path: $OUT/verdicts/{group}.json`. Never pass the auditors' instructions or reasoning.
    - Fold the verdicts: `uphold` keeps the row (a `severity_suggestion` in `reason` lowers it); `reject` and `reject-allowed` move the row to the rejected table with the verifier's reason; `unverifiable` keeps the row at WARNING or below, marked `unverifiable`.
    - Relaunch alone a group whose verifier wrote no file.
 10. **Report**: write `$OUT/report.md` in this shape and return its full text as the final response, opening with the verdict line:
@@ -103,6 +102,9 @@ P3 runs on opus because the seven copy questions are judgements about what a Jap
 
     Verdict: BLOCK | CONCERNS | CLEAN
     (by the table under The gate)
+
+    Heuristics met: n of m
+    (from the `H1:` to `H10:` lines in P2's checked_scope: n counts YES, m counts YES and NO; NO_ELEMENT and NOT_CAPTURED stay out; the count leaves the verdict as it is)
 
     ## Findings
     | # | Perspective | Severity | Location | Evidence | Fix | Corroboration |
@@ -113,13 +115,13 @@ P3 runs on opus because the seven copy questions are judgements about what a Jap
 
     ## Scope covered
     | Perspective | Scope | Out of scope |
-    (one row per perspective, P0 to P3, from each file's checked_scope and out_of_scope_notes; P2's row lists the eight cold-read questions with their answers; P3's row lists the seven copy questions and the three reader-fit questions with their answers, and the five structure questions with theirs when the plan carries a `## Structure` section)
+    (one row per perspective, P0 to P3, from each file's checked_scope and out_of_scope_notes; P2's row lists the eight cold-read questions with their answers and the ten heuristic answers; P3's row lists the seven copy questions and the three reader-fit questions with their answers, and the five structure questions with theirs when the plan carries a `## Structure` section)
 
     ## Summary
     (2–3 sentences: the most important fix, the scope covered, whether the work may move on; then the line below)
     Present this to the user together with the screenshots (<paths>) and get their final pass/fix decision.
     ```
-    When the plan was `ui-brief.md`, the summary also answers, in one line each, any of the eight cold-read questions P2 answered against the plan and any of the seven copy questions or three reader-fit questions P3 answered "no".
+    When the plan was `ui-brief.md`, the summary also answers, in one line each, any of the eight cold-read questions whose answer P2 recorded as a finding or a departure from the plan and any of the seven copy questions or three reader-fit questions P3 answered "no".
 11. **Teardown**: stop the server with `kill <pid>`, the pid step 4 printed; Git Bash on Windows takes the same command.
 
 ## The gate

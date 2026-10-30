@@ -1,0 +1,145 @@
+# url: https://www.atlantis-press.com/article/126026945.pdf
+# accessed: 2026-10-30
+# chars: 27409
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+The Effects of AI Disclosure and Explanatory Transparency on Consumer Trust and Purchase Intention in E-commerce AI Advertising: A 2×2 Scenario Experiment Simiao Wang School of Media and 
+Communication, University of Leeds, Leeds LS2 9JT, UK bngg8521@leeds.ac.uk Abstract. As generative AI becomes more common in advertising production, understanding how AI disclosure and explanatory 
+transparency shape consumer responses has become increasingly important. The study used a 2 × 2 between- subjects online scenario experiment to examine how AI disclosure and explanatory transparency 
+shaped trust and purchase intention in an e-commerce advertising context. A total of 122 responses were collected, with 90 valid cases retained for analysis. However, significant interaction effects 
+were found for both dependent variables, suggesting that consumers did not respond to these cues independently. Instead, disclosure appeared to be understood differently depending on the explanation 
+that accompanied it. The transparency manipulation check was not significant, so transparency-related findings should be interpreted with caution. Overall, the study suggests that consumers are more 
+likely to evaluate AI-related advertising by reading disclosure and explanation together rather than as separate pieces of information. Future research could test these relationships with stronger 
+transparency manipulations and more diverse samples. Keywords: Generative AI Advertising, AI disclosure, Explanatory Transparency, Consumer Trust, Online Purchase Intention 1 Introduction Generative 
+AI has become an increasingly visible part of advertising production. Brands now use it to create copy, images, and page content more quickly and at lower cost, especially in e-commerce. At the same 
+time, its growing use in advertising has raised a more difficult question. Once advertising content is no longer assumed to be fully human-made, concerns about authenticity, honesty, and credibility 
+become more difficult to ignore. Recent studies suggest that awareness of AI involvement in ad creation can reduce advertising value, weaken perceived credibility, and diminish brand authenticity 
+[1-3]. This matters especially in e commerce advertising. In online shopping, consumers cannot directly inspect products or immediately verify the claims presented on the page. © The Author(s) 2026 G.
+ E. Atalay and A. Wang (eds.), Proceedings of the 2026 3rd International Conference on Public Relations and Media Communication (PRMC 2026), Advances in Social Science, Education and Humanities 
+Research 1032, https://doi.org/10.2991/978-2-38476-609-3_46 420 S. Wang As a result, their judgments depend heavily on the cues available in the advertisement itself. Trust is central in this process 
+because it shapes whether the information on the page feels reliable enough to act on. Earlier research on online trust and consumer reviews has shown that, when direct verification is limited, 
+consumers rely on available cues to judge credibility and make decisions [4,5]. A closely related variable is explanatory transparency. In this study, transparency is not trea ted as a broad idea of 
+corporate openness, but as the extent to which the explanation on the advertising page appears clear, proactive, and objective. Recent research suggests that transparency should not be reduced to the 
+simple availability of more information. What matters more is whether that information is presented in a way that consumers recognise as meaningful and credible [6]. However, existing studies have 
+tended to examine AI disclosure, transparency, or online trust cues separately. Much less attention has been paid to how AI disclosure and explanatory transparency may work together in the same 
+e-commerce advertising context. To address this gap, the study uses a 2 × 2 between -subjects online scenario experiment to examine how AI disclosure and explanatory transparency shape consumer trust 
+and purchase intention. By focusing on both outcomes, it aims to capture not only immediate credibility judgment, but also whether that judgment extends to behavioural intention. 2 Literature Review 
+2.1 Generat ive AI in Advertising and the Emerging Trust Problem Generati ve AI has increasingly entered advertising and marketing practice and is now used to produce copy, images, and page content. 
+Its appeal lies not only in improving efficiency and reducing creative costs, but also in its potential to generate personalised content at scale, allowing brands to deploy content more flexibly 
+across channels. Bui notes that AI is becoming more deeply embedded in advertising production, while Brüns and Meißner show that brands’ use of generative AI has already become an issue that 
+consumers notice and respond to [1,2]. The issue, however, is not only one of efficiency. Once advertising content is no longer assumed to be entirely human -made, consumers’ concerns about 
+authenticity, honesty, and whether the content has been excessively processed or shaped by artificial intervention begin to rise. Existing studies suggest that as AI -generated advertising becomes 
+more common, concerns about content credibility and brand authenticity also increase [2,3]. This change is especially important in e- commerce settings. In online shopping, consumers cannot directly 
+examine products, so many judgements rely on page information and visual presentation. Under these conditions, whether advertising information appears trustworthy can shape later trust in the brand 
+and, in turn, influence purchase intention. For this reason, examining how consumers form trust and purchase intention in AI - involved e-commerce advertising is not only practically important, but 
+also provides the background for the later discussion of AI disclosure and explanatory transparency. 421The Effects of AI Disclosure and Explanatory Transparency on ... 2.2 AI disclosure as a Signal 
+of Honesty, Aut hentic ity, and Credibility In the context of e -commerce advertising, AI disclosure is not just a brief technical note. It is also a cue that shapes how consumers understand the 
+source of the advertisement and the credibility of its message. Once an advertisement clearly states that its content or visuals were generated with AI involvement, consumers no longer focus only on 
+the product claim itself. They may also begin to think more carefully about how the message was produced and whether that process is trustworthy. Grigsby et al. argue that, once AI use is disclosed, 
+consumers may no longer view the brand as the sole source of information [3]. Instead, they may treat AI as part of the wider communication process. This shift can weaken the perceived credibility of 
+the advertisement and lower consumers’ overall evaluation of it. Existing studies further suggest that the importance of AI disclosure lies not only in indicating the presence of technological 
+involvement, but also in triggering a new judgement of authenticity and credibility. Bui finds that disclosing AI involvement can reduce advertising value and purchase intention, partly because it 
+lowers perceived credibility [1]. Brüns and Meißner further show that when brands are seen as using generative AI in content creation, consumers may perceive them as less authentic, which can lead to 
+more negative attitudinal and behavioural responses [2]. 2.3 Explanatory Transparency as Evidence-based and Checkable Communication AI disclosure can draw consumers’ attention to the production 
+process behind an advertisement, while explanatory transparency further sha pes how they judge whether the message is credible. In this study, transparency does not refer to corporate transparency in 
+a broad sense, nor to CSR or supply-chain transparency. Rather, it refers more specifically to explanatory transparency in an advertising context. The focus here is not on whether the brand as a 
+whole is transparent, but on whether the advertisement itself provides a clear and well-supported explanation that helps consumers understand what the claims are based on and whether those claims can 
+be assessed. This understanding is consistent with recent research on transparency. Sansome et al. argue that perceived transparency should not be reduced to the mere presence or quantity of 
+information [6]. Although information availability is a necessary condition, it does not by itself produce a sense of transparency. What matters more is whether consumers perceive the information as 
+presented in a proactive, clear, and objective way. Montecchi et al. further suggest that consumers’ perceptions of brand transparency are shaped by judgements of observability, comprehensibility, 
+and intentionality [7]. I n this paper, explanatory transparency is understood as a c ommunicative cue that shapes consumers’ credibility judgements. Its value does not lie simply in adding more 
+information, b ut i n making a dvertising c laims s eem b etter s upported, e asier to understand, an d more o pen t o ev aluation. I t may al so i ncrease co nsumers’ l evel o f scrutiny, leading 
+them to examine more carefully whether brand claims a re sufficiently grounded. For this reason, the present study does not treat explanatory transparency as 422 S. Wang a uniformly positive 
+informational supplement, but as a context -dependent judgement cue. 2.4 Trust and Purchase Intention in Online Consumer Judgment One key difference between online and offline shopping is that 
+consumers cannot directly examine products or immediately verify whether page information is reliable. In this context, they often judge the credibility of the information first and then decide 
+whether to move towards purchase. Trust, therefore, is not a secondary outcome in e- commerce, but a core judgement that comes before further decision -making. Utz et al. likewise show that review 
+cues in online stores significantly shape consumers’ judgements of page credibility [5]. Purchase intention should also not be understood as a fully separate outcome. Kim and Song find that perceived 
+information credibility does not directly translate into purchase intention, but works indirectly through competence and authenticity [8]. This suggests that behavioural intention develops on the 
+basis of earlier credibility judgements rather than from a single cue alone. Li and Liang further support this point in their study of online reviews [9]. They find that identity cues can influence 
+purchase intention through mediating factors such as review credibility and social support. This suggests that in online settings, behavioural intention is formed gradually through cue interpretation.
+ Based on this logic, the present study tr eats both trust and purchase intention as outcome variables. Trust refers to consumers’ credibility judgement after encountering advertising information, 
+while purchase intention refers to whether that judgement is further translated into behavioural tendency. This relationship is progressive and reflects the decision process of online consumption 
+more closely. 2.5 Cue-based Judgment: Why Disclosure and Transparency May Work Together In online consumption settings, consumers often cannot directly verify the information presented on a page, and 
+therefore rely more heavily on different cues when judging whether an advertisement is credible. Utz et al. show that trust in online stores is not determined by a single factor, and that different 
+cues do not simply overl ap with one another [5]. In gen erative AI advertising, both AI disclosure and explanatory transparency enter into consumers’ judgement processes, but they do not work in the 
+same way. Grigsby et al. find that AI disclosure may weaken trust by prompting consumers to question the source of the information [3]. Explanatory transparency, by contrast, does not directly signal 
+technological involvement. Instead, it works by shaping how clear and well - supported the message appears, and thus affects consumers’ over all judgement of advertising claims. More specifically, 
+once AI involvement is already known, explanatory transparency may influence whether consumers still regard the advertisement as informative, supportable, and worthy of trust. Since these two cues 
+shape judgement through different routes, it is necessary to consider their joint effect. A s Sansome et al. argue, transparency is not defined simply by whether information is present, but by 
+whether it is perceived as clear, objective, and proactive [6]. For this 423The Effects of AI Disclosure and Explanatory Transparency on ... reason, the present study is more inclined to understand 
+disclosure and transparency as cues that may be read together, rather than as two isolated factors. 2.6 Research Gap and Hypotheses Existing evidence suggests that AI disclosure can influence 
+consumers’ trust, value judgement, and purchase intention in advertising, while the effect of transparency depends on whether the information is perceived as clear, proactive, and objective. In 
+online consumption settings, consumer judgement is often based on cues rather than direct verification [1,4,6]. However, most existing studies examine disclosure, transparency, or online cues 
+separately. Few have directly tested, within the same e- commerce advertising context, how AI disclosure and explanatory transparency jointly shape trust and purchase intention. In particular, there 
+is still limited experimental evidence on whether, once AI is disclosed, the accompanying explanation is clear, well- grounded, and open to judgement. To address this gap, this study adopts a 2×2 
+online scenario experiment to examine the main and interaction effects of AI disclosure and explanatory transparency on trust and purchase intention. The following hypotheses are proposed: H1 AI 
+disclosure will affect consumer trust and purchase intention. H2 Explanator y tran sparency will affect consumer trust and purchase intention. H3 AI disclosure and explanatory transparency will 
+interact in shaping consumer trust and purchase intention. 3 Method 3.1 Research De sign This study employs a 2 × 2 between -subjects online scenario experiment to examine how AI disclosure and 
+explanatory transparency influence consumer responses to e- commerce advertisements. The former identifies whether an advertisement explicitly discloses the use of AI in its production, while the 
+latter concerns the presence of high versus low levels of clear, evidence-based explanatory information. Consumer trust and purchase intention serve as the two dependent variables. 3.2 Participants 
+and Procedure Data were collected through an o nline survey on Wenjuanxing, with 122 responses in total. After data cleaning, 90 valid cases were retained. Participants who failed the attention check 
+or completed the survey in under 30 seconds were excluded. Participants were then randomly assigned to one of four conditions in a 2 × 2 between- subjects design. Participants viewed a product page 
+for a fictitious moisturizing cream brand. All four versions of the page were identical in product type, price, layout, and visual elements. The only differences across conditions were the two 
+experimental manipulations. After providing informed consent, participants viewed the assigned product page and then completed the manipulation check items, followed by scales measuring trust 424 S. 
+Wang and purchase intention. The surve y ended with questions on demographic information and basic background variables. 3.3 Experimental Manipulations Both independent variables were manipulated 
+through the textual information on the stimulus pages. In the disclosure condition, a brief statement w as included to indicate AI involvement. In the non- disclosure condition, this statement was 
+absent. Explanatory transparency was manipulated through the way the product claims were presented. In the high transparency condition, the page included more speci fic evidence, context, and 
+evaluative cues. In the low transparency condition, the claims were presented in a more general way without further support or verifiable detail. Across all four versions, the product name, price, 
+images, colour scheme, layout, button settings, and overall page structure remained consistent. 3.4 Measurement The two main outcome variables were trust and purchase intention, and each was measured 
+with a three item scale. Trust was measured with items relating to the credibility, trustworthiness, and honesty of the page. Purchase intention was measured with items on willingness to learn more 
+about the product and the likelihood of adding it to the cart or favourites. All core items used a seven point Likert scale. The survey also included two manipulation checks, one on whether 
+participants noticed the disclosure of AI involvement and the other on whether the explanations on the page were perceived as evidence based and verifiable. Basic background information, including 
+age, gender, and online shopping frequency, was collected in the final section. 3.5 Data Analysis The data analysis involved three steps. First, reliability analysis was conducted for trust and 
+purchase intention. Second, manipulation checks were used to test whether participants noticed AI disclosure and perceived the intended difference in transparency. Finally, two 2 × 2 ANOVAs were 
+conducted with trust and purchase intention as the dependent variables. 4 Results B oth dependent measures showed high internal consistency. The trust s cale yielded a Cronbach’s alpha of .923 and 
+the purchase intention scale yielded a Cronbach’s alpha of . 918. Both m easures showed g ood r eliability. Man ipulation c hecks were t hen conducted f or t he t wo independent variables. T he AI d 
+isclosure manipulation was successful and showed a significant difference between conditions, χ2 =13. 54, p =.001. In contrast, the manipulation check for explanatory transparency was not significant,
+ t = -0.11, p = .911. This suggests that participants did not clearly distinguish between the high a nd l ow t ransparency c onditions. T herefore, f indings r elated t o t ransparency should be 
+interpreted with caution. 2 No AI disclosure + 24 4.79 1.54 4.49 1.62 The Effects of AI Disclosure and Explanatory Transparency on ... 425 Table 1. Means and standard deviations of trust and purchase 
+intention across the four experimental conditions. Grou Condition n Trust Trust PI M PI SD p M SD 1 No AI disclosure + 16 5.46 1.38 5.52 1.58 Low transparency High transparency 3 AI disclosure +High 
+23 5.38 1.15 5.39 1.25 transparency 4 AI di s closure +Low transparency 27 4.78 1.35 4.64 1.46 Descriptive statistics for the f our experimental conditions are presented in Table 1. Trust and 
+purchase intention showed a similar pattern across conditions. Higher mean scores appeared in the no AI disclosure and low transparency condition and in the AI disclosure and high transparency 
+condition, while the other two conditions showed lower scores overall. This pattern suggests that participants did not respond to AI disclosure and explanatory transparency independently. Instead, 
+the descriptive results point to a possible interaction between the two variables. Table 2. Two way ANOVA results for trust and purchase intention. DV Effect F p Partial eta^2 Trust AI disclosure 0. 
+000 0.996 0.000 Trust Trans parency 0.027 0.871 0.0 00 426 S. Wang Trust Interaction 4.689 0.033 0.052 Purchase AI disclosure 0.068 0.794 0.001 intention Purchase Transparency 0.008 0. 928 0.000 
+intention Purchase Interaction 7.907 0.006 0.084 intention As shown in Table 2, no significant main effects were found for either AI disclosure or explanatory transparency on trust. However, their 
+interaction was significant, with F = 4.689 and p = .033. Neither variable showed a significant main effect, while the interaction between them was significant, with F = 7.907 and p = .006. This 
+indicates that participants responded to the combination of the two cues rather than to either cue alone. Given the non significant transparency manipulation check, these results should be 
+interpreted with caution. 5 Discussion 5.1 Interp reting the Finding s Cons u m ers did not seem to respond to AI disclosure and explanatory transparency separately. Instead, they appeared to 
+interpret them together when judging the credibility of the advertisement. This pattern is particularly understand able within online contexts, where consumers often have limited ability to verify 
+information directly and instead rely on several cues when forming trust judgments. Earlier work on online trust and cue based judgment points in the same direction, suggesting that trust in digital 
+environments is often shaped by multiple cues rather than by a single signal alone [4,5,10]. Disclosure did not seem to carry a fixed meaning on its own, but worked differently depending on the 
+explanation that accompanied it. The non- significant effect points to a more conditional pattern, in which the influence of disclosure and transparency depends on context and on the way the two cues 
+are interpreted together. This interpretation is also in line with earlier studies on AI disclosure, where disclosure has not produced a consistent effect. In some cases, disclosure has reduced trust,
+ while in others, it has supported trust when interpreted as a sign of honesty or openness [3,11]. A similar point applies to transparency. More information does not automatically make a message more 
+persuasive. What seems to 427The Effects of AI Disclosure and Explanatory Transparency on ... matter more is whether the information feels clear, proactive, and objective from the consumer’s point of 
+view, rather than simply being available in greater quantity [6]. 5.2 Limitations and Future Research A more cautious point concerns the transparency manipulation, since its manipulation check was 
+not significant. This means the high and low transparency conditions may not have been clearly distinguished by participants. For that reason, the findings should not be used to make causal claims 
+about transparency itself. It would be worth testing the same pattern again with a clearer difference between the two explanation conditions. 5.3 Theoretical and Practical Implications From a 
+theoretical perspective, disclosure and transparency make more sense as connected cues than as isolated variables. This fits earlier work showing that trust in digital settings is often built through 
+several cues at once rather than through a single piece of information [4,10]. It also suggests that, in AI advertising, a cue does not carry meaning entirely on its own, but is shaped by the 
+information around it. For brands, The mere disclosure of AI use is unlikely to be sufficient. The explanation around that disc losure also needs to feel clear and credible to consumers. This point 
+is consistent with recent work showing that trust remains central to purchase response in digital commerce, and that perceived credibility shapes consumers’ willingness to act [12,13]. B rands 
+therefore need to think not only about whether to disclose AI, but also about how that disclosure is explained. 6 Conclusion As generat ive AI becomes increasingly integrated into advertising, 
+attention has shifted from whet her brands use AI to how such use is presented and interpreted by consumers. The findings of this study suggest that consumer judgement in e-commerce advertising is 
+shaped less by single cues in isolation than by how different cues are interpreted together. AI disclosure does not carr y a fixed meaning on its own, and explanatory transparency is not simply an 
+added layer of information. Rather, trust in AI -related advertising depends in part on whether consumers feel that the message remains understandable, grounded, and worth relying on. Although the 
+transparency manipulation in this study was limited, the overall pattern still suggests that consumer responses to AI in advertising are context-dependent. More broadly, this implies that the future 
+of AI communication in commerce may depend not only on telling consumers that AI was involved, but also on whether that involvement is explained in a way that still feels credible. References 1 
+Schimmelpfennig R, Díaz M, Prabhakaran V, Davani A: Humanlike AI design increases a nthropomorphism but yields divergent outcomes on engagement and trust globally. arXiv (2025) . 2 Go E, Sundar S S: 
+Humanizing chatbots: The effects of visual, identity and conversational cues on humanness perceptions. Computers in Human Behavior, 97, 304–316 (2019) . 3 Davis F D: Perceived usefulness, perceived 
+ease of use, and user acceptance of information technology. MIS Quarterly, 13(3), 319–340 (1989) . 4 Lu B, Fan W, Zhou M: Social presence, trust, and social commerce purchase intention: An empirical 
+research. Computers in Human Behavior, 56, 225–237 (2016) . 5 Spatola N, Marchesi S, Wykowska A: Different models of anthropomorphism across cultures and ontological limits in current frameworks: The 
+integrative framework of anthropomorphism. Frontiers in Robotics and AI, 9, 863319 (2022) . 6 Unveiling the impact of AI -chatbot attributes and anthropomorphic cues in e -commerce: Pakistan Journal 
+of Commerce and Social Sciences, 19(3), 441–467 (2025) . 7 McCroskey J C: Scales f or the meas urement of ethos. Speech Monographs, 33(1), 65–72 (1966) . 8 Eliasson O, Engström O: Perceived humanness 
+and trust in AI chatbots given different communication styles. Lund University (2025) . 9 Al-Abdullatif A M: Mo deling st udents’ perceptions of chatbots in learning: Integrating technology 
+acceptance with the value-based adopti on model. Education Sciences, 13(11), 1151 (2023) . 10 Lopez-Lopez D, Ini est a M B: The impact of conversational AI on consumer decision- making: A systematic 
+review and cluster analysis. International Journal of Engineering Business Management, 17, 18479790251351889 (2025) . 11 Vasconcelos H, Jörke M, Grunde -McLaughlin M, Gerstenberg T, Bernstein M S, 
+Krishna R: Explanations can reduce overreliance on AI systems during decision-making. Proceedings of the ACM on Human-Computer Interaction, 7(CSCW1), Article 129 (2023) . 12 Waytz A, Cacioppo J, 
+Epley N: Who sees human? The stability and importance of individual differences in anthropomorphism. Perspectives on Psychological Science, 5 (3), 219 –232 (2010) . 13 Camilleri M A, Camilleri A C: 
+The acceptance and usage of ChatGPT: An information adoption model perspective. Proceedings of the International Conference on Communications and Future Internet, 61–66 (2024) . 428 S. Wang Open 
+Access This chapter is licensed under the terms of the Creative Commons Attribution- NonCommercial 4.0 International License ( http://creativecommons.org/licenses/by-nc/4.0/ ), which permits any 
+noncommercial use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the 
+Creative Commons license and indicate if changes were made. The images or other third party material in this chapter are included in the chapter's Creative Commons license, unless indicated otherwise 
+in a credit line to the material. If material is not included in the chapter's Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, 
+you will need to obtain permission directly from the copyright holder.

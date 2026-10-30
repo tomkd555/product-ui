@@ -1,0 +1,11 @@
+# url: https://ui.shadcn.com/r/styles/new-york-v4/card.json
+# accessed: 2026-10-30
+# chars: 1128
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+{ "$schema": "https://ui.shadcn.com/schema/registry-item.json", "name": "card", "dependencies": [ "cn" ], "files": [ { "path": "registry/new-york-v4/ui/card.tsx", "content": "import * as React from 
+\"react\"\nimport { cn } from \"cn\"\n\nfunction Card({ className, ...props }: React.ComponentProps < \"div\">) {\n return (\n \n )\n}\n\nfunction CardHeader({ className, ...props }: React.
+ComponentProps < \"div\">) {\n return (\n \n )\n}\n\nfunction CardTitle({ className, ...props }: React.ComponentProps < \"div\">) {\n return (\n \n )\n}\n\nfunction CardDescription({ className, ...
+props }: React.ComponentProps < \"div\">) {\n return (\n \n )\n}\n\nfunction CardAction({ className, ...props }: React.ComponentProps < \"div\">) {\n return (\n \n )\n}\n\nfunction CardContent({ 
+className, ...props }: React.ComponentProps < \"div\">) {\n return (\n \n )\n}\n\nfunction CardFooter({ className, ...props }: React.ComponentProps < \"div\">) {\n return (\n \n )\n}\n\nexport {\n 
+Card,\n CardHeader,\n CardFooter,\n CardTitle,\n CardAction,\n CardDescription,\n CardContent,\n}\n", "type": "registry:ui" } ], "type": "registry:ui" }

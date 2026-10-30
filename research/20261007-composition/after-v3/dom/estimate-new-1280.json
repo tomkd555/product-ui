@@ -1,0 +1,2861 @@
+{
+ "title": "新しい見積り | 販社ポータル",
+ "viewport": {
+  "width": 1280,
+  "height": 1200
+ },
+ "htmlClass": "",
+ "tokens": {
+  "--font-sans": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--font-mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--spacing": ".25rem",
+  "--container-md": "28rem",
+  "--container-3xl": "48rem",
+  "--font-weight-normal": "400",
+  "--font-weight-semibold": "600",
+  "--font-weight-bold": "700",
+  "--radius-sm": ".375rem",
+  "--radius-md": ".5rem",
+  "--radius-lg": ".75rem",
+  "--shadow-sm": "0 1px 2px 0 oklch(0% 0 0/.04)",
+  "--shadow-lg": "0 4px 16px 0 oklch(0% 0 0/.08)",
+  "--default-transition-duration": ".15s",
+  "--default-transition-timing-function": "cubic-bezier(.4, 0, .2, 1)",
+  "--default-font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--default-mono-font-family": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--color-background": "oklch(0.961 0 0)",
+  "--color-foreground": "oklch(0.218 0 0)",
+  "--color-surface": "oklch(1 0 0)",
+  "--color-primary": "oklch(0.531 0.218 29)",
+  "--color-primary-foreground": "oklch(1 0 0)",
+  "--color-muted": "oklch(0.976 0 0)",
+  "--color-muted-foreground": "oklch(0.52 0 0)",
+  "--color-border": "oklch(0.922 0 0)",
+  "--color-destructive": "oklch(0.429 0.176 29)",
+  "--color-accent": "oklch(0.546 0.215 263)",
+  "--font-display": "\"Inter\", ui-serif, serif",
+  "--font-body": "\"Inter\", ui-sans-serif, sans-serif",
+  "--radius-full": "9999px",
+  "--ease-standard": "cubic-bezier(.4, 0, .2, 1)",
+  "--brand-background": "oklch(0.961 0 0)",
+  "--brand-foreground": "oklch(0.218 0 0)",
+  "--brand-surface": "oklch(1 0 0)",
+  "--brand-primary": "oklch(0.531 0.218 29)",
+  "--brand-primary-foreground": "oklch(1 0 0)",
+  "--brand-muted": "oklch(0.976 0 0)",
+  "--brand-muted-foreground": "oklch(0.52 0 0)",
+  "--brand-border": "oklch(0.922 0 0)",
+  "--brand-destructive": "oklch(0.429 0.176 29)",
+  "--brand-accent": "oklch(0.546 0.215 263)",
+  "--duration-fast": ".15s",
+  "--duration-base": ".25s",
+  "--duration-slow": ".4s",
+  "--sidebar-width": "260px",
+  "--content-max-width": "1440px",
+  "--shell-nav-fg": "oklch(0.3388 0 0)",
+  "--shell-hover": "oklch(0.218 0 0 / 0.025)",
+  "--shell-active": "oklch(0.531 0.218 29 / 0.06)",
+  "--shell-ring": "oklch(0.531 0.218 29 / 0.08)",
+  "--shell-border-hover": "oklch(0.7612 0 0)",
+  "--chart-brand": "oklch(0.531 0.218 29)",
+  "--chart-1": "oklch(0.546 0.215 263)",
+  "--chart-2": "oklch(0.43696 0 0)",
+  "--chart-3": "oklch(0.71852 0.1333 299.86)",
+  "--chart-4": "oklch(0.62464 0 0)",
+  "--chart-band": "oklch(0.546 0.215 263 / 0.14)",
+  "--tint-primary": "color(srgb 0.983933 0.91983 0.92075)",
+  "--tint-accent": "oklch(0.9546 0.0215 350.3)",
+  "--primary-text": "oklch(0.531 0.218 29)",
+  "--accent-text": "oklch(0.4476 0.1505 292.1)",
+  "--lightningcss-light": "",
+  "--lightningcss-dark": ""
+ },
+ "horizontalOverflow": false,
+ "scrollWidth": 1265,
+ "pageHeight": 1861,
+ "headings": [
+  {
+   "level": 1,
+   "text": "新しい見積り"
+  },
+  {
+   "level": 2,
+   "text": "見積りの条件"
+  },
+  {
+   "level": 2,
+   "text": "選択中のプラン残クレ 5年"
+  },
+  {
+   "level": 2,
+   "text": "下取り"
+  },
+  {
+   "level": 2,
+   "text": "プランの比較"
+  }
+ ],
+ "landmarks": [
+  {
+   "sel": "header",
+   "count": 1
+  },
+  {
+   "sel": "nav",
+   "count": 2
+  },
+  {
+   "sel": "main",
+   "count": 1
+  },
+  {
+   "sel": "aside",
+   "count": 1
+  },
+  {
+   "sel": "footer",
+   "count": 0
+  },
+  {
+   "sel": "form",
+   "count": 2
+  },
+  {
+   "sel": "[role]",
+   "count": 2
+  }
+ ],
+ "controlsTotal": 44,
+ "controls": [
+  {
+   "tag": "a",
+   "text": "ホーム",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/"
+  },
+  {
+   "tag": "a",
+   "text": "販売店",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/stores"
+  },
+  {
+   "tag": "a",
+   "text": "マイ目標",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/staff/a1"
+  },
+  {
+   "tag": "a",
+   "text": "市場動向",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/market"
+  },
+  {
+   "tag": "a",
+   "text": "契約",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/contracts"
+  },
+  {
+   "tag": "a",
+   "text": "見積り",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/estimates"
+  },
+  {
+   "tag": "a",
+   "text": "車種",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/vehicles"
+  },
+  {
+   "tag": "a",
+   "text": "金利・キャンペーン",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/rates"
+  },
+  {
+   "tag": "a",
+   "text": "お知らせ2",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/notices"
+  },
+  {
+   "tag": "a",
+   "text": "問い合わせ1",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/inquiries"
+  },
+  {
+   "tag": "a",
+   "text": "よくあるご質問・資料",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/library"
+  },
+  {
+   "tag": "a",
+   "text": "使い方ガイド",
+   "w": 235,
+   "h": 41,
+   "labelled": true,
+   "href": "#/guide"
+  },
+  {
+   "tag": "button",
+   "text": "メニュー",
+   "w": 0,
+   "h": 0,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "a",
+   "text": "見積り",
+   "w": 42,
+   "h": 26,
+   "labelled": true,
+   "href": "#/estimates"
+  },
+  {
+   "tag": "input",
+   "text": "契約を検索",
+   "w": 230,
+   "h": 26,
+   "labelled": true,
+   "type": "search"
+  },
+  {
+   "tag": "button",
+   "text": "佐",
+   "w": 36,
+   "h": 36,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "a",
+   "text": "N-VAN",
+   "w": 55,
+   "h": 26,
+   "labelled": true,
+   "href": "#/vehicles/n-van"
+  },
+  {
+   "tag": "button",
+   "text": "お客様向けに表示",
+   "w": 162,
+   "h": 44,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "提案書を印刷",
+   "w": 130,
+   "h": 44,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "a",
+   "text": "ホンダファイナンスに問い合わせる",
+   "w": 289,
+   "h": 44,
+   "labelled": true,
+   "href": "#/inquiries/new?subject=N-VAN%20G%E3%81%AE%E8%A6%8B%E7%A9%8D%E3%82%8A"
+  },
+  {
+   "tag": "input",
+   "text": "",
+   "w": 352,
+   "h": 44,
+   "labelled": true
+  },
+  {
+   "tag": "select",
+   "text": "N-BOXN-WGNN-ONEN-ONE e:N-VANN-VAN e:FITS",
+   "w": 352,
+   "h": 44,
+   "labelled": true
+  },
+  {
+   "tag": "select",
+   "text": "GLFUNFUN・ターボFUN 特別仕様車 NATURE STYLEFUN・ター",
+   "w": 352,
+   "h": 44,
+   "labelled": true
+  },
+  {
+   "tag": "select",
+   "text": "FF（¥1,498,200）4WD（¥1,643,400）",
+   "w": 352,
+   "h": 44,
+   "labelled": true
+  },
+  {
+   "tag": "select",
+   "text": "楽まるクレジット残クレバリ保",
+   "w": 352,
+   "h": 44,
+   "labelled": true
+  },
+  {
+   "tag": "select",
+   "text": "2年3年4年5年",
+   "w": 352,
+   "h": 44,
+   "labelled": true
+  },
+  {
+   "tag": "input",
+   "text": "0",
+   "w": 352,
+   "h": 44,
+   "labelled": true,
+   "type": "number"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "checkbox"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "checkbox"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "checkbox"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "checkbox"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "checkbox"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "checkbox"
+  },
+  {
+   "tag": "button",
+   "text": "比較に追加",
+   "w": 114,
+   "h": 44,
+   "labelled": true,
+   "type": "button",
+   "disabled": true
+  },
+  {
+   "tag": "button",
+   "text": "残価の説明",
+   "w": 32,
+   "h": 32,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "見積りを保存",
+   "w": 130,
+   "h": 44,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "input",
+   "text": "on",
+   "w": 24,
+   "h": 24,
+   "labelled": true,
+   "type": "checkbox"
+  },
+  {
+   "tag": "button",
+   "text": "楽まる 4年を外す",
+   "w": 44,
+   "h": 44,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "クレジット 60回を外す",
+   "w": 44,
+   "h": 44,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "残クレ 5年を外す",
+   "w": 44,
+   "h": 44,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "バリ保 5年を外す",
+   "w": 44,
+   "h": 44,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "残価の説明",
+   "w": 32,
+   "h": 32,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "実質年率の説明",
+   "w": 32,
+   "h": 32,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "見積りを保存",
+   "w": 0,
+   "h": 0,
+   "labelled": true,
+   "type": "button"
+  }
+ ],
+ "elementsTotal": 374,
+ "textTruncated": false,
+ "scope": {
+  "tag": "main",
+  "rect": {
+   "x": 260,
+   "y": 0,
+   "w": 1005,
+   "h": 1861
+  }
+ },
+ "boxes": [
+  {
+   "tag": "header",
+   "cls": "content-header",
+   "rect": {
+    "x": 260,
+    "y": 0,
+    "w": 1005,
+    "h": 105
+   },
+   "depth": 0,
+   "parentBox": null,
+   "children": 2,
+   "hasDigit": false
+  }
+ ],
+ "boxesTotal": 1,
+ "gaps": [
+  {
+   "parent": "main.main-content",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.content-header__tools",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.content-body",
+   "values": [
+    20,
+    40
+   ]
+  },
+  {
+   "parent": "span.no-print",
+   "values": [
+    8,
+    8
+   ]
+  },
+  {
+   "parent": "div.estimate-grid",
+   "values": [
+    32
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "form.flex",
+   "values": [
+    16,
+    16
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.grid",
+   "values": [
+    16,
+    16,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "fieldset.flex",
+   "values": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ]
+  },
+  {
+   "parent": "label.flex",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "label.flex",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "label.flex",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "label.flex",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "label.flex",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "label.flex",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    16,
+    16
+   ]
+  },
+  {
+   "parent": "div.figure",
+   "values": [
+    4,
+    4
+   ]
+  },
+  {
+   "parent": "dl.grid",
+   "values": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "div.col-span-2",
+   "values": [
+    24
+   ]
+  },
+  {
+   "parent": "div.col-span-2",
+   "values": [
+    24
+   ]
+  },
+  {
+   "parent": "div.col-span-2",
+   "values": [
+    24
+   ]
+  },
+  {
+   "parent": "div.col-span-2",
+   "values": [
+    24
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12,
+    12
+   ]
+  },
+  {
+   "parent": "table.table",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tbody",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "gapsTotal": 43,
+ "text": [
+  {
+   "tag": "div",
+   "cls": "sidebar-logo",
+   "text": "H",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "16px",
+   "fontWeight": "800",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 24,
+    "y": 27,
+    "w": 36,
+    "h": 36
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "sidebar-title",
+   "text": "販社ポータル",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16.8px",
+   "fontWeight": "700",
+   "lineHeight": "26.88px",
+   "rect": {
+    "x": 72,
+    "y": 20,
+    "w": 100,
+    "h": 27
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "sidebar-subtitle",
+   "text": "世田谷店",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 72,
+    "y": 48,
+    "w": 100,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "ホーム",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 103,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "分析",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 148,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "販売店",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 195,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "マイ目標",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 238,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "市場動向",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 281,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "提案",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 325,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "契約",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 373,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item active",
+   "text": "見積り",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(0.531 0.218 29 / 0.06)",
+   "backgroundBase": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "600",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 415,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "車種",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 458,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "金利・キャンペーン",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 501,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "ホンダファイナンス",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 545,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "お知らせ",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 593,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "nav-badge",
+   "text": "2",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "12px",
+   "fontWeight": "700",
+   "lineHeight": "19.2px",
+   "rect": {
+    "x": 201,
+    "y": 602,
+    "w": 22,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "問い合わせ",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 635,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "nav-badge",
+   "text": "1",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "12px",
+   "fontWeight": "700",
+   "lineHeight": "19.2px",
+   "rect": {
+    "x": 201,
+    "y": 644,
+    "w": 22,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "よくあるご質問・資料",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 678,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "使い方ガイド",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 1081,
+    "w": 235,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-avatar",
+   "text": "佐",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.546 0.215 263)",
+   "fontSize": "14px",
+   "fontWeight": "700",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 20,
+    "y": 1137,
+    "w": 34,
+    "h": 34
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-name",
+   "text": "佐藤 健一",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 64,
+    "y": 1131,
+    "w": 84,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-role",
+   "text": "営業スタッフ",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 64,
+    "y": 1154,
+    "w": 84,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h1",
+   "cls": "content-title",
+   "text": "新しい見積り",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "21.6px",
+   "fontWeight": "700",
+   "lineHeight": "34.56px",
+   "rect": {
+    "x": 292,
+    "y": 20,
+    "w": 128,
+    "h": 35
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "text": "見積り",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 292,
+    "y": 58,
+    "w": 42,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-bold",
+   "text": "佐",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "700",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 1208,
+    "y": 42,
+    "w": 14,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "N-VAN",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 142,
+    "w": 55,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "cls": "btn",
+   "text": "お客様向けに表示",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 636,
+    "y": 133,
+    "w": 162,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "cls": "btn",
+   "text": "提案書を印刷",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 806,
+    "y": 133,
+    "w": 130,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "btn",
+   "text": "ホンダファイナンスに問い合わせる",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 944,
+    "y": 133,
+    "w": 289,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "_r_0_h-cond",
+   "text": "見積りの条件",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 197,
+    "w": 110,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "flex items-center gap-2 text-sm font-semibold",
+   "text": "お客様名",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 238,
+    "w": 352,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "flex items-center gap-2 text-sm font-semibold",
+   "text": "車種",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 322,
+    "w": 352,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-semibold text-[var(--primary-text)]",
+   "text": "必須",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 328,
+    "y": 322,
+    "w": 28,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "flex items-center gap-2 text-sm font-semibold",
+   "text": "タイプ",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 406,
+    "w": 352,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-semibold text-[var(--primary-text)]",
+   "text": "必須",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 342,
+    "y": 406,
+    "w": 28,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "flex items-center gap-2 text-sm font-semibold",
+   "text": "駆動方式",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 490,
+    "w": 352,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-semibold text-[var(--primary-text)]",
+   "text": "必須",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 356,
+    "y": 490,
+    "w": 28,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "flex items-center gap-2 text-sm font-semibold",
+   "text": "商品",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 574,
+    "w": 352,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-semibold text-[var(--primary-text)]",
+   "text": "必須",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 328,
+    "y": 574,
+    "w": 28,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "flex items-center gap-2 text-sm font-semibold",
+   "text": "契約期間",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 658,
+    "w": 352,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-semibold text-[var(--primary-text)]",
+   "text": "必須",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 356,
+    "y": 658,
+    "w": 28,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "flex items-center gap-2 text-sm font-semibold",
+   "text": "頭金（円）",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 742,
+    "w": 352,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "legend",
+   "cls": "mb-1 text-sm font-semibold",
+   "text": "オプション",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 292,
+    "y": 826,
+    "w": 70,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "min-w-0 flex-1 [overflow-wrap:anywhere]",
+   "text": "ナビ装着用スペシャルパッケージ",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 328,
+    "y": 850,
+    "w": 229,
+    "h": 51
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "shrink-0 tabular-nums",
+   "text": "¥132,000",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 569,
+    "y": 863,
+    "w": 75,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "min-w-0 flex-1 [overflow-wrap:anywhere]",
+   "text": "ETC2.0車載器",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 328,
+    "y": 915,
+    "w": 239,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "shrink-0 tabular-nums",
+   "text": "¥30,800",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 579,
+    "y": 915,
+    "w": 65,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "min-w-0 flex-1 [overflow-wrap:anywhere]",
+   "text": "ドライブレコーダー（前後）",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 328,
+    "y": 963,
+    "w": 239,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "shrink-0 tabular-nums",
+   "text": "¥49,500",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 579,
+    "y": 963,
+    "w": 65,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "min-w-0 flex-1 [overflow-wrap:anywhere]",
+   "text": "フロアカーペットマット",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 328,
+    "y": 1011,
+    "w": 239,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "shrink-0 tabular-nums",
+   "text": "¥22,000",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 579,
+    "y": 1011,
+    "w": 65,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "min-w-0 flex-1 [overflow-wrap:anywhere]",
+   "text": "ボディコーティング",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 328,
+    "y": 1059,
+    "w": 239,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "shrink-0 tabular-nums",
+   "text": "¥66,000",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 579,
+    "y": 1059,
+    "w": 65,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "min-w-0 flex-1 [overflow-wrap:anywhere]",
+   "text": "定期点検パック まかせチャオ",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 328,
+    "y": 1107,
+    "w": 239,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "shrink-0 tabular-nums",
+   "text": "¥60,000",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 579,
+    "y": 1107,
+    "w": 65,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "_r_0_h-plan",
+   "text": "選択中のプラン",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 676,
+    "y": 204,
+    "w": 219,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "count",
+   "text": "残クレ 5年",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 817,
+    "y": 206,
+    "w": 79,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "cls": "btn no-print",
+   "text": "比較に追加",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "opacity": "0.5",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 1119,
+    "y": 197,
+    "w": 114,
+    "h": 44
+   },
+   "clipped": false,
+   "disabled": true
+  },
+  {
+   "tag": "span",
+   "cls": "figure-label",
+   "text": "月々のお支払い額",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 676,
+    "y": 253,
+    "w": 128,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "figure-value",
+   "text": "¥22,100",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "56px",
+   "fontWeight": "700",
+   "lineHeight": "58.8px",
+   "rect": {
+    "x": 676,
+    "y": 283,
+    "w": 557,
+    "h": 59
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "figure-compare",
+   "text": "実質年率 5.6%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 676,
+    "y": 345,
+    "w": 557,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "text-[var(--shell-nav-fg)]",
+   "text": "車両価格",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 676,
+    "y": 395,
+    "w": 68,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "cls": "text-right font-semibold tabular-nums ",
+   "text": "¥1,498,200",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 768,
+    "y": 395,
+    "w": 465,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1",
+   "text": "残価",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 676,
+    "y": 438,
+    "w": 68,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "cls": "text-right font-semibold tabular-nums ",
+   "text": "¥476,700",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 768,
+    "y": 438,
+    "w": 465,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "text-[var(--shell-nav-fg)]",
+   "text": "頭金",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 676,
+    "y": 480,
+    "w": 68,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "cls": "text-right font-semibold tabular-nums ",
+   "text": "¥0",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 768,
+    "y": 480,
+    "w": 465,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dt",
+   "cls": "text-[var(--shell-nav-fg)]",
+   "text": "契約期間",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 676,
+    "y": 523,
+    "w": 68,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "dd",
+   "cls": "text-right font-semibold tabular-nums ",
+   "text": "60回",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 768,
+    "y": 523,
+    "w": 465,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "cls": "btn btn-primary no-print",
+   "text": "見積りを保存",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 676,
+    "y": 572,
+    "w": 130,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "_r_0_h-trade",
+   "text": "下取り",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 1189,
+    "w": 55,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "label",
+   "cls": "flex min-h-11 items-center gap-2 font-semibold",
+   "text": "下取りを含める",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 500,
+    "y": 1182,
+    "w": 144,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "_r_0_h-compare",
+   "text": "プランの比較",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 1278,
+    "w": 110,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "sr-only",
+   "text": "項目",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 301,
+    "y": 1350,
+    "w": 1,
+    "h": 1
+   },
+   "clipped": true
+  },
+  {
+   "tag": "span",
+   "cls": "whitespace-nowrap",
+   "text": "楽まる 4年",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 537,
+    "y": 1340,
+    "w": 69,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "whitespace-nowrap",
+   "text": "クレジット 60回",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 721,
+    "y": 1340,
+    "w": 106,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "whitespace-nowrap",
+   "text": "残クレ 5年",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 932,
+    "y": 1340,
+    "w": 69,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "whitespace-nowrap",
+   "text": "バリ保 5年",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 1106,
+    "y": 1340,
+    "w": 69,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "font-semibold",
+   "text": "契約期間",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 292,
+    "y": 1384,
+    "w": 197,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "4年",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 489,
+    "y": 1384,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "60回",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 663,
+    "y": 1384,
+    "w": 221,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "5年",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 885,
+    "y": 1384,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "5年",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1059,
+    "y": 1384,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "font-semibold",
+   "text": "頭金",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 292,
+    "y": 1433,
+    "w": 197,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 489,
+    "y": 1433,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "¥0",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 663,
+    "y": 1433,
+    "w": 221,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "¥0",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 885,
+    "y": 1433,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1059,
+    "y": 1433,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "font-semibold",
+   "text": "月々のお支払い額",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 292,
+    "y": 1482,
+    "w": 197,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "¥33,317",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 489,
+    "y": 1482,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "¥29,100",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 663,
+    "y": 1482,
+    "w": 221,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "¥22,100",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 885,
+    "y": 1482,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1059,
+    "y": 1482,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1",
+   "text": "残価",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 302,
+    "y": 1543,
+    "w": 66,
+    "h": 24
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 489,
+    "y": 1531,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 663,
+    "y": 1531,
+    "w": 221,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "¥476,700",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 885,
+    "y": 1531,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1059,
+    "y": 1531,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "font-semibold",
+   "text": "購入時のお支払い額",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 292,
+    "y": 1580,
+    "w": 197,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 489,
+    "y": 1580,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 663,
+    "y": 1580,
+    "w": 221,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 885,
+    "y": 1580,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "¥1,157,201",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1059,
+    "y": 1580,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "font-semibold",
+   "text": "最終回のお支払い額",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 292,
+    "y": 1629,
+    "w": 197,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 489,
+    "y": 1629,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 663,
+    "y": 1629,
+    "w": 221,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 885,
+    "y": 1629,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "¥476,700",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1059,
+    "y": 1629,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1",
+   "text": "実質年率",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 302,
+    "y": 1690,
+    "w": 96,
+    "h": 24
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 489,
+    "y": 1678,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "6.2%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 663,
+    "y": 1678,
+    "w": 221,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "5.6%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 885,
+    "y": 1678,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num ",
+   "text": "5.6%",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1059,
+    "y": 1678,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "th",
+   "cls": "font-semibold",
+   "text": "キャンペーン",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "600",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 292,
+    "y": 1727,
+    "w": 197,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num whitespace-normal",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 489,
+    "y": 1727,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num whitespace-normal",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 663,
+    "y": 1727,
+    "w": 221,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num whitespace-normal",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 885,
+    "y": 1727,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "td",
+   "cls": "num whitespace-normal",
+   "text": "—",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "15px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "rect": {
+    "x": 1059,
+    "y": 1727,
+    "w": 174,
+    "h": 49
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "cls": "mt-3",
+   "text": "審査前の概算です。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1787,
+    "w": 941,
+    "h": 26
+   },
+   "clipped": false
+  }
+ ]
+}

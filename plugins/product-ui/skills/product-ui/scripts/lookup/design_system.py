@@ -17,17 +17,114 @@ Usage:
 import csv
 import json
 import os
+import re
 import sys
 import io
 from datetime import datetime
 from pathlib import Path
-from core import search, DATA_DIR
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # colour.py and validate_tokens.py live in scripts/
+
+import colour  # noqa: E402
+import validate_tokens  # noqa: E402
+from core import search, DATA_DIR  # noqa: E402
 
 # Force UTF-8 for stdout/stderr to handle emojis/box-drawing chars on Windows (cp1252 default)
 if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 if sys.stderr.encoding and sys.stderr.encoding.lower() != 'utf-8':
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+
+
+# ============ ADAPTATION TO THIS SKILL ============
+NEUTRAL_MAX_CHROMA = 0.012  # rule 1 of references/tokens-format.md
+EFFECT_PATTERNS = [
+    ("S13", r"glass|backdrop[- ]?(blur|filter)|frosted"),
+    ("S12", r"gradient text|text gradient|bg-clip-text|background-clip:\s*text"),
+    ("S14", r"transition(:|-)\s*all"),
+    ("S3", r"(purple|violet)[^.;]*gradient|gradient[^.;]*(purple|violet)"),
+]
+
+
+def _oklch_text(light: float, chroma: float, hue: float) -> str:
+    return f"oklch({round(light * 100, 1):g}% {round(chroma, 3):g} {round(hue, 1):g})"
+
+
+def _default_note(value: str) -> str:
+    name = colour.match_default(value)
+    if not name:
+        return ""
+    kind = f"Tailwind {name}" if "-" in name else f"the default {name}"
+    return (f"equals {kind}; T20 rejects it unless the provenance starts with brand:, reference: or user:. "
+            "Keep the hue and move lightness or chroma until the match clears")
+
+
+def palette_rows(colors: dict) -> list:
+    """Return the colour rows in this skill's vocabulary: oklch value and tokens.json key.
+
+    Each row is a dict with label, key, shown_key, value, swatch (a hex value for the
+    terminal swatch) and note (the default colour the value equals, or ""). Secondary
+    and Ring have no slot in tokens.json and are dropped. The neutrals keep the CSV
+    lightness, take the primary hue and cap chroma at 0.012.
+    """
+    def parse(key):
+        return colour.hex_to_oklch(colors[key]) if colors.get(key, "").startswith("#") else None
+
+    primary = parse("primary")
+    hue = primary[2] if primary else 0.0
+
+    def neutral(source, lightness=None):
+        light, chroma, _ = source
+        return _oklch_text(light if lightness is None else lightness, min(chroma, NEUTRAL_MAX_CHROMA), hue)
+
+    spec = [("Primary", "primary", "color.primary"), ("On Primary", "on_primary", "color.primary_foreground"),
+            ("Accent/CTA", "accent", "color.accent"), ("Background", "background", "color.background"),
+            ("Foreground", "foreground", "color.foreground"), ("Muted", "muted", "color.muted"),
+            ("Muted Foreground", "foreground", "color.muted_foreground"), ("Border", "border", "color.border"),
+            ("Destructive", "destructive", "color.destructive")]
+    rows = []
+    for label, source_key, key in spec:
+        source = parse(source_key)
+        if source is None:
+            continue
+        if key in ("color.primary", "color.primary_foreground", "color.accent", "color.destructive"):
+            value = _oklch_text(*source)
+        elif key == "color.muted_foreground":
+            value = neutral(source, 0.52)
+        else:
+            value = neutral(source)
+        note = _default_note(value) if key in ("color.primary", "color.accent") else ""
+        shown_key = key + " (brand-accent)" if key == "color.accent" else key
+        rows.append({"label": label, "key": key, "shown_key": shown_key, "value": value,
+                     "swatch": colors.get(source_key, ""), "note": note})
+    return rows
+
+
+def effect_checks(effects: str) -> list:
+    """Return the Step 4 checks (S13, S12, S14, S3) that warn on a pattern the effects text names."""
+    lowered = (effects or "").lower()
+    return [check for check, pattern in EFFECT_PATTERNS if re.search(pattern, lowered)]
+
+
+def font_rejected(row: dict) -> str:
+    """Return the T5 reason when a pairing row names a forbidden family, else ''."""
+    named = [row.get(col, "") for col in ("Heading Font", "Body Font")]
+    bad = [font for font in named if font.strip().lower() in validate_tokens.FORBIDDEN_FAMILIES]
+    return f"T5: {', '.join(bad)} is on the forbidden list" if bad else ""
+
+
+def mark_rejected_fonts(rows: list) -> list:
+    """Add a Rejected field to each pairing row that names a forbidden family; return the rows."""
+    for row in rows:
+        reason = font_rejected(row)
+        if reason:
+            row["Rejected"] = reason
+    return rows
+
+
+def _checks_line(effects: str) -> str:
+    checks = effect_checks(effects)
+    return f"Step 4 checks that warn on these effects: {', '.join(checks)}" if checks else ""
 
 
 # ============ CONFIGURATION ============
@@ -38,7 +135,7 @@ SEARCH_CONFIG = {
     "style": {"max_results": 3},
     "color": {"max_results": 2},
     "landing": {"max_results": 2},
-    "typography": {"max_results": 2}
+    "typography": {"max_results": 10}  # the first pairing that passes T5 is chosen
 }
 
 
@@ -194,7 +291,7 @@ class DesignSystemGenerator:
 
         best_style = self._select_best_match(style_results, reasoning.get("style_priority", []))
         best_color = color_results[0] if color_results else {}
-        best_typography = typography_results[0] if typography_results else {}
+        best_typography = next((row for row in typography_results if not font_rejected(row)), {})
         best_landing = landing_results[0] if landing_results else {}
 
         # Step 5: Build final recommendation
@@ -360,25 +457,12 @@ def format_ascii_box(design_system: dict) -> str:
 
     # Colors section (extended palette with ANSI swatches)
     lines.append(section_header("COLORS", BOX_WIDTH + 1))
-    color_entries = [
-        ("Primary",      "primary",      "--color-primary"),
-        ("On Primary",   "on_primary",   "--color-on-primary"),
-        ("Secondary",    "secondary",    "--color-secondary"),
-        ("Accent/CTA",   "accent",       "--color-accent"),
-        ("Background",   "background",   "--color-background"),
-        ("Foreground",   "foreground",   "--color-foreground"),
-        ("Muted",        "muted",        "--color-muted"),
-        ("Border",       "border",       "--color-border"),
-        ("Destructive",  "destructive",  "--color-destructive"),
-        ("Ring",         "ring",         "--color-ring"),
-    ]
-    for label, key, css_var in color_entries:
-        hex_val = colors.get(key, "")
-        if not hex_val:
-            continue
-        swatch = hex_to_ansi(hex_val)
-        content = f"│     {swatch}{label + ':':14s} {hex_val:10s} ({css_var})"
+    for row in palette_rows(colors):
+        swatch = hex_to_ansi(row["swatch"])
+        content = f"│     {swatch}{row['label'] + ':':18s} {row['value']:26s} ({row['shown_key']})"
         lines.append(ansi_ljust(content, BOX_WIDTH) + "│")
+        for line in wrap_text(row["note"], "│       ", BOX_WIDTH) if row["note"] else []:
+            lines.append(line.ljust(BOX_WIDTH) + "│")
     if colors.get("notes"):
         for line in wrap_text(f"Notes: {colors.get('notes', '')}", "│     ", BOX_WIDTH):
             lines.append(line.ljust(BOX_WIDTH) + "│")
@@ -400,7 +484,7 @@ def format_ascii_box(design_system: dict) -> str:
     # Key Effects section
     if effects:
         lines.append(section_header("KEY EFFECTS", BOX_WIDTH + 1))
-        for line in wrap_text(effects, "│     ", BOX_WIDTH):
+        for line in wrap_text(effects, "│     ", BOX_WIDTH) + wrap_text(_checks_line(effects), "│     ", BOX_WIDTH):
             lines.append(line.ljust(BOX_WIDTH) + "│")
 
     # Anti-patterns section
@@ -471,24 +555,10 @@ def format_markdown(design_system: dict) -> str:
 
     # Colors section (extended palette)
     lines.append("### Colors")
-    lines.append("| Role | Hex | CSS Variable |")
-    lines.append("|------|-----|--------------|")
-    md_color_entries = [
-        ("Primary",      "primary",      "--color-primary"),
-        ("On Primary",   "on_primary",   "--color-on-primary"),
-        ("Secondary",    "secondary",    "--color-secondary"),
-        ("Accent/CTA",   "accent",       "--color-accent"),
-        ("Background",   "background",   "--color-background"),
-        ("Foreground",   "foreground",   "--color-foreground"),
-        ("Muted",        "muted",        "--color-muted"),
-        ("Border",       "border",       "--color-border"),
-        ("Destructive",  "destructive",  "--color-destructive"),
-        ("Ring",         "ring",         "--color-ring"),
-    ]
-    for label, key, css_var in md_color_entries:
-        hex_val = colors.get(key, "")
-        if hex_val:
-            lines.append(f"| {label} | `{hex_val}` | `{css_var}` |")
+    lines.append("| Role | Value | tokens.json key |")
+    lines.append("|------|-------|-----------------|")
+    for row in palette_rows(colors):
+        lines.append(f"| {row['label']} | `{row['value']}` | `{row['shown_key']}`{(' — ' + row['note']) if row['note'] else ''} |")
     if colors.get("notes"):
         lines.append(f"\n*Notes: {colors.get('notes', '')}*")
     lines.append("")
@@ -514,6 +584,9 @@ def format_markdown(design_system: dict) -> str:
     if effects:
         lines.append("### Key Effects")
         lines.append(f"{effects}")
+        if _checks_line(effects):
+            lines.append("")
+            lines.append(_checks_line(effects))
         lines.append("")
 
     # Anti-patterns section
@@ -657,24 +730,10 @@ def format_master_md(design_system: dict) -> str:
     # Color Palette
     lines.append("### Color Palette")
     lines.append("")
-    lines.append("| Role | Hex | CSS Variable |")
-    lines.append("|------|-----|--------------|")
-    master_color_entries = [
-        ("Primary",      "primary",      "--color-primary"),
-        ("On Primary",   "on_primary",   "--color-on-primary"),
-        ("Secondary",    "secondary",    "--color-secondary"),
-        ("Accent/CTA",   "accent",       "--color-accent"),
-        ("Background",   "background",   "--color-background"),
-        ("Foreground",   "foreground",   "--color-foreground"),
-        ("Muted",        "muted",        "--color-muted"),
-        ("Border",       "border",       "--color-border"),
-        ("Destructive",  "destructive",  "--color-destructive"),
-        ("Ring",         "ring",         "--color-ring"),
-    ]
-    for label, key, css_var in master_color_entries:
-        hex_val = colors.get(key, "")
-        if hex_val:
-            lines.append(f"| {label} | `{hex_val}` | `{css_var}` |")
+    lines.append("| Role | Value | tokens.json key |")
+    lines.append("|------|-------|-----------------|")
+    for row in palette_rows(colors):
+        lines.append(f"| {row['label']} | `{row['value']}` | `{row['shown_key']}`{(' — ' + row['note']) if row['note'] else ''} |")
     lines.append("")
     if colors.get("notes"):
         lines.append(f"**Color Notes:** {colors.get('notes', '')}")
@@ -697,29 +756,7 @@ def format_master_md(design_system: dict) -> str:
         lines.append("```")
         lines.append("")
     
-    # Spacing Variables
-    lines.append("### Spacing Variables")
-    lines.append("")
-    lines.append("| Token | Value | Usage |")
-    lines.append("|-------|-------|-------|")
-    lines.append("| `--space-xs` | `4px` / `0.25rem` | Tight gaps |")
-    lines.append("| `--space-sm` | `8px` / `0.5rem` | Icon gaps, inline spacing |")
-    lines.append("| `--space-md` | `16px` / `1rem` | Standard padding |")
-    lines.append("| `--space-lg` | `24px` / `1.5rem` | Section padding |")
-    lines.append("| `--space-xl` | `32px` / `2rem` | Large gaps |")
-    lines.append("| `--space-2xl` | `48px` / `3rem` | Section margins |")
-    lines.append("| `--space-3xl` | `64px` / `4rem` | Hero padding |")
-    lines.append("")
-    
-    # Shadow Depths
-    lines.append("### Shadow Depths")
-    lines.append("")
-    lines.append("| Level | Value | Usage |")
-    lines.append("|-------|-------|-------|")
-    lines.append("| `--shadow-sm` | `0 1px 2px oklch(0% 0 0 / 0.05)` | Subtle lift |")
-    lines.append("| `--shadow-md` | `0 4px 6px oklch(0% 0 0 / 0.08)` | Cards, buttons |")
-    lines.append("| `--shadow-lg` | `0 10px 15px oklch(0% 0 0 / 0.12)` | Modals, dropdowns |")
-    lines.append("| `--shadow-xl` | `0 20px 25px oklch(0% 0 0 / 0.16)` | Hero images, featured cards |")
+    lines.append("Spacing, radius, shadow and motion values come from `theme.css`, generated from `tokens.json`; the component CSS below refers to its variables.")
     lines.append("")
     
     # Component Specs section
@@ -735,11 +772,11 @@ def format_master_md(design_system: dict) -> str:
     lines.append("/* Primary Button */")
     lines.append(".btn-primary {")
     lines.append("  background: var(--color-primary);")
-    lines.append("  color: var(--color-on-primary);")
-    lines.append("  padding: 12px 24px;")
-    lines.append("  border-radius: 8px;")
+    lines.append("  color: var(--color-primary-foreground);")
+    lines.append("  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 6);")
+    lines.append("  border-radius: var(--radius-sm);")
     lines.append("  font-weight: 600;")
-    lines.append("  transition: all 200ms ease;")
+    lines.append("  transition: opacity var(--duration-base) var(--ease-standard), transform var(--duration-base) var(--ease-standard);")
     lines.append("  cursor: pointer;")
     lines.append("}")
     lines.append("")
@@ -753,10 +790,10 @@ def format_master_md(design_system: dict) -> str:
     lines.append(f"  background: transparent;")
     lines.append("  color: var(--color-primary);")
     lines.append("  border: 2px solid var(--color-primary);")
-    lines.append("  padding: 12px 24px;")
-    lines.append("  border-radius: 8px;")
+    lines.append("  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 6);")
+    lines.append("  border-radius: var(--radius-sm);")
     lines.append("  font-weight: 600;")
-    lines.append("  transition: all 200ms ease;")
+    lines.append("  transition: background-color var(--duration-base) var(--ease-standard), color var(--duration-base) var(--ease-standard);")
     lines.append("  cursor: pointer;")
     lines.append("}")
     lines.append("```")
@@ -768,10 +805,10 @@ def format_master_md(design_system: dict) -> str:
     lines.append("```css")
     lines.append(".card {")
     lines.append("  background: var(--color-background);")
-    lines.append("  border-radius: 12px;")
-    lines.append("  padding: 24px;")
+    lines.append("  border-radius: var(--radius-md);")
+    lines.append("  padding: calc(var(--spacing) * 6);")
     lines.append("  box-shadow: var(--shadow-md);")
-    lines.append("  transition: all 200ms ease;")
+    lines.append("  transition: box-shadow var(--duration-base) var(--ease-standard), transform var(--duration-base) var(--ease-standard);")
     lines.append("  cursor: pointer;")
     lines.append("}")
     lines.append("")
@@ -787,11 +824,11 @@ def format_master_md(design_system: dict) -> str:
     lines.append("")
     lines.append("```css")
     lines.append(".input {")
-    lines.append("  padding: 12px 16px;")
+    lines.append("  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);")
     lines.append("  border: 1px solid var(--color-border);")
-    lines.append("  border-radius: 8px;")
+    lines.append("  border-radius: var(--radius-sm);")
     lines.append("  font-size: 16px;")
-    lines.append("  transition: border-color 200ms ease;")
+    lines.append("  transition: border-color var(--duration-base) var(--ease-standard);")
     lines.append("}")
     lines.append("")
     lines.append(".input:focus {")
@@ -813,9 +850,9 @@ def format_master_md(design_system: dict) -> str:
     lines.append("")
     lines.append(".modal {")
     lines.append("  background: var(--color-background);")
-    lines.append("  border-radius: 16px;")
-    lines.append("  padding: 32px;")
-    lines.append("  box-shadow: var(--shadow-xl);")
+    lines.append("  border-radius: var(--radius-lg);")
+    lines.append("  padding: calc(var(--spacing) * 8);")
+    lines.append("  box-shadow: var(--shadow-lg);")
     lines.append("  max-width: 500px;")
     lines.append("  width: 90%;")
     lines.append("}")
@@ -837,6 +874,8 @@ def format_master_md(design_system: dict) -> str:
         lines.append("")
     if effects:
         lines.append(f"**Key Effects:** {effects}")
+        if _checks_line(effects):
+            lines.append(f"**Checks:** {_checks_line(effects)}")
         lines.append("")
     
     # Layout Pattern

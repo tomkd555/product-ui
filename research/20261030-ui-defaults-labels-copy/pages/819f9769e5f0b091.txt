@@ -1,0 +1,8 @@
+# url: https://ui.shadcn.com/r/styles/new-york-v4/input.json
+# accessed: 2026-10-30
+# chars: 418
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+{ "$schema": "https://ui.shadcn.com/schema/registry-item.json", "name": "input", "dependencies": [ "cn" ], "files": [ { "path": "registry/new-york-v4/ui/input.tsx", "content": "import * as React from 
+\"react\"\nimport { cn } from \"cn\"\n\nfunction Input({ className, type, ...props }: React.ComponentProps < \"input\">) {\n return (\n \n )\n}\n\nexport { Input }\n", "type": "registry:ui" } ], 
+"type": "registry:ui" }

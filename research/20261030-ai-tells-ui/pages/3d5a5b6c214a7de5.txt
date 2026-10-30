@@ -1,0 +1,127 @@
+# url: https://capitalandcompute.net/blog/fix-ai-slop-design/
+# accessed: 2026-10-30
+# chars: 23932
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+How to Fix AI Slop in Web Design, Tell by Tell Skip to content Capital & Compute Home Latest analysis Our Claude Code harness How our harness works Our dashboard mods Agent harness checklist Topics 
+01 AI costs 152 02 Coding agents 95 03 Models & benchmarks 100 04 Local AI & hardware 37 05 Compute infrastructure 29 06 AI markets 58 Resources Tools & trackers AI model tracker Free AI models RAM & 
+DRAM prices Model releases by month AI by country About Capital & Compute A field guide to AI economics Home Latest analysis Our Claude Code harness How our harness works Our dashboard mods Agent 
+harness checklist Topic worlds 01 AI costs 152 02 Coding agents 95 03 Models & benchmarks 100 04 Local AI & hardware 37 05 Compute infrastructure 29 06 AI markets 58 Resources Tools & trackers AI 
+model tracker Free AI models RAM & DRAM prices Model releases by month AI by country About the project 220 published analyses RSS ↗ Home / Blog / Coding agents / How to Fix AI Slop in Web Design, 
+Tell by Tell Google gives more room to the sources you choose. Add Capital & Compute so these breakdowns show up in your Search and AI results. How to Fix AI Slop in Web Design, Tell by Tell AI-built 
+frontends fall into two waves of defaults: purple gradients, then cream and terracotta. Each tell, mapped to the free skill or rule that fixes it. September 25, 2026 · ai · coding-agents · tools · 
+design · By Capital & Compute Coding agents Also in AI markets Photo: Timeless-skin-mockup-frwiki-1 by framawiki, CC BY-SA 4.0 , via Wikimedia Commons. Cropped. To fix AI slop in a web design, name 
+the specific default you are looking at, replace it with a choice drawn from what the product actually is, and then put a check in front of the next edit so the default cannot come back. Swapping one 
+font or one colour does not work on its own, because coding agents fall back to a second set of defaults the moment the first set is banned. That second set is the part most guides miss. Ask an agent 
+for a landing page and you get the purple gradient, Inter everywhere and three rounded cards. Ask it to make that look less AI and you get warm cream with a terracotta accent, or near-black with one 
+acid-green highlight. On 3 September 2026 Anthropic updated its own frontend-design skill to name those looks as tells, including the terracotta near #D97757 , which its documentation describes as 
+“Anthropic’s own Claude-interaction accent, so on a user’s brief it reads as a tell.” This guide lists both waves, maps each tell to the rule or free tool that removes it, and shows where each tool 
+fires in a build. Key takeaways → AI design converges twice: first on purple gradients, Inter and card grids, then, once those are banned, on cream and terracotta, near-black with one neon accent, 
+broadsheet hairlines and all-caps eyebrow labels. → Anthropic's frontend-design skill now lists the second-wave looks as tells, including its own Claude accent colour. Install it first; it is free 
+and official. → Filters and direction are separate jobs. A rule list removes defaults but cannot invent a look; a DESIGN.md or a brief supplies the look but does not remove the defaults. You need 
+both. → The tools that stop slop coming back are the deterministic ones: avoid-ai-design exits with code 2 in CI, Impeccable and avoid-ai-design run as edit hooks, and Gesso checks rendered HTML with 
+73 rules. → Check the last commit before trusting a star count. Hallmark, at 29,140 stars, had not been pushed to since 6 August 2026 when checked. Why AI frontends all look the same A model trained 
+on millions of pages produces the most probable page. For interfaces, that means the defaults of the most copied stack of the last few years: Tailwind colour scales, shadcn components, a centred hero 
+and a feature grid. Paul Bakaus, who maintains Impeccable , puts it bluntly in the project README: “Every model trained on the same SaaS templates.” None of these choices is wrong on its own. A 
+purple gradient can be the right call for a brand that owns purple. The problem is that nobody chose it. The avoid-ai-design documentation (2026, by the GitHub user funboy322) states the principle 
+well: a tell “is evidence of a default nobody chose, never proof that a model made the page.” That framing matters for the fix. The goal is not to remove every gradient. It is to make every visible 
+decision one somebody made for this product. The first wave: the tells everyone knows These are the defaults an agent reaches for with no design guidance at all. Most readers can spot them without 
+being able to name them, which is exactly why they cost trust. Tell What it looks like The fix Tool that catches it Default typeface Inter, Roboto or the system stack for every word, no display face 
+Pick one or two families for this product and set a type scale Impeccable (bans Inter and system defaults), avoid-ai-design Unchosen gradient Purple or indigo fading to blue, often on the headline 
+text itself Build the palette from 4 to 6 named colours with roles; drop gradient text avoid-ai-design (P0), Gesso, no-slop-ui Stock page order Centred hero, pill badge, two buttons, logo row, three 
+feature cards, pricing, CTA Lead with the most characteristic thing in the product’s world frontend-design, Hallmark The card kit Everything in rounded-2xl with the same soft shadow; cards nested in 
+cards Vary radius and elevation by hierarchy; use rows or tables where content is tabular Impeccable, no-slop-ui Reflexive glass backdrop-blur panels and glow with no reason Remove, or keep one where 
+depth carries meaning no-slop-ui, avoid-ai-design Motion on everything The same fade-and-slide-up on every section, bounce easing, count-up stats One orchestrated moment; motion only in response to a 
+user action frontend-design, Impeccable Filler copy “Elevate your workflow”, “Get Started”, invented metrics Name what the button does; delete numbers you cannot source antislop, frontend-design The 
+last row is not a visual problem, and it is one of the most damaging. The antislop README (2026, by miqdadbadjuber) shows the same landing page built four ways. The version given only a design 
+direction still carried stat cards reading “10,000% ROI” and a rating from “500,000 founders.” A look fixes the look. It does not fix invented numbers. The second wave: what you get when you ask for 
+“less AI” Ban the purple gradient and the agent does not become original. It moves to the next most probable look for a page that is trying not to look generated. Anthropic’s frontend-design skill , 
+as updated in September 2026, lists five clusters that AI design “right now clusters around”: Second-wave cluster Signature Why it reads as AI Warm editorial Cream background near #F4F1EA , 
+high-contrast serif display, terracotta or clay accent near #D97757 It is the Claude interface palette; on anyone else’s brief it signals the tool, not the brand Dark signal Near-black background 
+with one bright acid-green or vermilion accent The standard answer to “make it look technical” Broadsheet cosplay Hairline rules, zero border radius, dense newspaper columns Editorial styling applied 
+to content that is not editorial SaaS card kit Identical rounded cards, one radius on everything, the same rgba(0,0,0,.1) shadow, decorative gradient washes Structure chosen before content Template 
+chrome Tracked all-caps eyebrow over every heading, A · B · C meta strings, a monospace face for small labels, → welded to every link Decoration that appears whatever the subject is The skill is 
+careful about this list, and the care is worth copying: “All traits are legitimate for some briefs, but they are defaults rather than choices.” If a brief asks for broadsheet styling, follow the 
+brief. If it leaves an axis open, do not spend that freedom on one of the five. The same skill also flags three typographic moves as “the commonest tells of a generated page”: accenting a single word 
+in a headline with italic, bold or colour; all-caps labels; and unnecessary labels above content. It adds that numbered markers such as 01 / 02 / 03 belong only on content that really is a sequence. 
+The avoid-ai-design project learned the second wave the hard way. Its README says the skill’s own first demo “landed in them, which is how v0.4 came to check for them by name.” Its catalogue now 
+holds 67 tells, each ranked by who notices it: P0 for a layperson, P1 for a designer or developer, P2 for craft and polish. The fix that works: direction first, then a filter Every serious tool in 
+this space separates two jobs, and the separation explains why single-rule fixes fail. The filter removes defaults. It is a list: no Inter, no gradient text, no nested cards, no eyebrow labels. 
+Filters are good at saying no and useless at saying what to do instead. The antislop README says it directly: the rule set “prevents slop but cannot invent direction,” and “a sterile result means the 
+direction was missing, not that the filter failed.” The direction supplies the look. Anthropic’s skill asks for it as a short token plan before any code: four to six named hex colours, the typefaces 
+and their roles, a layout concept, and the principles that make this page unlike others. Then it asks the agent to review that plan against the brief and revise any part that “reads like the generic 
+default you would produce for any similar page.” avoid-ai-design adds a useful source for the direction: derive it “from what the product is made of (its materials, its artifacts, its vernacular).” 
+Its demo rebuilds a generic SaaS page around the product’s own retention cohort table, which becomes the hero, the layout and the only colour ramp. For anything with more than one page, write the 
+direction down once. avoid-ai-design, Impeccable and antislop all read a DESIGN.md file for this, so page two is built from the same tokens as page one. Without it, the avoid-ai-design demo shows 
+what happens: an FAQ page regenerated from scratch drifts straight back to an indigo gradient and Inter. The order matters Write the direction before you install a filter. A filter on its own 
+produces the plain, correct, forgettable page that antislop’s own comparison shows. A direction on its own produces a distinctive page that still carries the defaults the filter would have caught. 
+Where each tool fires The tools differ less in taste than in when they act. Some shape the plan, some run on every edit, and some sit in CI where nothing merges past them. The figure maps them by 
+stage. Anti-slop design tools by stage, agent session versus git and CI Five stages from brief to merge. In the agent session: frontend-design and Hallmark shape the plan, Taste Skill and antislop 
+constrain the build, Impeccable and avoid-ai-design run as edit hooks, and Hallmark audit and Vercel web-design-guidelines review. In git and CI: a committed DESIGN.md at the plan stage, and the 
+avoid-ai-design scanner and Gesso CLI as merge gates. Stage In the agent session In git and CI Plan the direction frontend-design token plan Hallmark study DESIGN.md committed Build Taste Skill 
+antislop 38 rules - Each UI edit Impeccable hook avoid-ai-design hook - Review Hallmark audit Vercel web-design-guidelines - Before merge - avoid-ai-design scan, exit 2 Gesso CLI, 73 rules Anti-slop 
+design tools by stage, agent session versus git and CI Stage In the agent session In git and CI Plan the direction frontend-design token plan; Hallmark study DESIGN.md committed Build Taste Skill; 
+antislop 38 rules None Each UI edit Impeccable hook; avoid-ai-design hook None Review Hallmark audit; Vercel web-design-guidelines None Before merge None avoid-ai-design scan, exit 2; Gesso CLI, 73 
+rules Where the main anti-slop design tools act, from brief to merge. Agent-side tools run inside the coding session; git and CI checks are the backstop for anything the session missed. Source: 
+Project READMEs and skill files for each tool, checked 25 September 2026 The right-hand lane is the one most people skip, and it is the one that holds. A rule that lives only in the agent’s 
+instructions can be ignored on a busy turn. A scanner that fails the build cannot. avoid-ai-design’s scripts/detect.mjs runs with no model call and no dependencies on Node 18 or later, and its 
+documentation says it exits with code 2 “when any P0 or P1 is found, 0 when clean, so it works as a CI gate.” It also honours ignore comments for choices a brief asked for, which keeps a deliberate 
+gradient from failing the build forever. The tools, by the job you need done Star counts and last-push dates below were read from the GitHub API on 25 September 2026. In this category the push date 
+is the better signal: the whole field is under a year old, and a star count often records one good week of distribution. Tool Stars Last push What it does Pick it when Anthropic frontend-design 178,
+121 (whole anthropics/skills repo) 24 Sep 2026 Official skill: two-pass token plan, names both waves of tells You install one thing Taste Skill 90,036 23 Sep 2026 Infers a design direction from the 
+brief, with dials for variance, motion and density The risk is blandness Impeccable 70,983 25 Sep 2026 24 commands and 61 deterministic detector rules; installs edit hooks in Claude Code, Codex, 
+Cursor, Copilot and Grok Build A design system exists and the risk is drift diagram-design 42,387 19 Sep 2026 Editorial diagrams as self-contained HTML and SVG, as an alternative to default Mermaid 
+The slop is a generated diagram Vercel web-design-guidelines 31,528 (whole repo) 28 Aug 2026 Reviews UI code against Vercel’s live Web Interface Guidelines, output as file:line findings You want an 
+accessibility and UX review, not a restyle Hallmark 29,140 6 Aug 2026 21 themes, 57 slop-test gates, and audit , redesign and study verbs You want a strong opinion and a finished page antislop 3,718 
+24 Sep 2026 38 rules in three tiers plus a pass/fail delivery report; no prescribed look You have a direction and need a filter avoid-ai-design 81 24 Sep 2026 67-tell catalogue, zero-dependency 
+scanner, edit hook, rewrite and detect modes You want a CI gate for both waves Gesso anti-slop 90 10 Sep 2026 73 deterministic rules on rendered HTML, most with an auto-fix Your build emits static 
+HTML no-slop-ui 8 31 Aug 2026 A short banned-pattern list and reviewer checklist for internal tools and dashboards The page is a work surface, not a landing page Three notes that the table cannot 
+hold. Gesso’s documentation says its detector “does not parse JSX/TSX source,” so a React project has to render or export to HTML before checking. The Superdesign skill (601 stars) also targets this 
+problem, but it drives a CLI that requires a superdesign login to the company’s hosted product, so it is not free and local in the way the rest of this list is. And Impeccable recorded 444,030 npm 
+downloads between 26 August and 24 September 2026 according to the npm registry , which is a better measure of use than its stars. Disclosure: this site runs Impeccable, with no commercial 
+relationship and nothing sponsored. The wider roster, including the prose, code and non-English tools, is in the anti-slop tools guide and as a sortable table in this site’s directory of Claude and 
+agent skills . Fixing a page that already shipped Most readers of a guide like this already have the page. The order below fixes it without starting over. Scan before you touch anything. Run 
+avoid-ai-design in detect mode, Impeccable’s audit , or hallmark audit on the page. You want a list of named tells with locations, not an impression. Sort by who notices. Fix every P0 first: the 
+gradient headline, the stock hero, the invented number. A layperson sees these. P2 polish can wait. Write the direction down. Four to six colours with roles, one or two typefaces, and one sentence on 
+what the page leads with. Take it from the product: its data, its materials, the place it gets used. Check the plan against the second wave. If the new palette is cream and clay, or black and one 
+neon, you have swapped one default for another. Revise before writing code. Rewrite, then re-scan. Keep the copy’s meaning, the components’ props and the accessibility intact. The scan should come 
+back with no P0 and no second-wave look the brief did not ask for. Gate it. Add the scanner to CI or an edit hook so the next generated page is checked before it merges. If the same site also carries 
+generated prose or code, those are different problems with different tools: see the Humanizer skill explainer for writing and AI slop in code for source files. What none of these tools fix Every tool 
+here makes a page look chosen. None of them makes the page useful. A scanner can confirm that the hero is no longer centred over three cards; it cannot tell you whether the thing in the hero is what 
+a visitor came for. Anthropic’s skill gets closest by asking the agent to open with “the most characteristic thing in the subject’s world,” but deciding what that is still takes someone who knows the 
+product. The same limit applies to copy. The antislop comparison shows that a well-directed page can still carry invented numbers, and no visual rule catches a fabricated stat. Treat the design tools 
+as the floor, and keep the claims on the page to ones you can source. Frequently asked questions What does AI slop look like in web design? The first wave is Inter for every word, a purple-to-blue 
+gradient, a centred hero with a pill badge and two buttons, three rounded feature cards, glass panels and the same fade-up animation on every section. The second wave appears once those are banned: 
+cream with a terracotta accent, near-black with one acid-green or vermilion highlight, broadsheet hairlines, identical cards with one shadow, and tracked all-caps eyebrow labels over every heading. 
+Why does asking for a less AI-looking design not work? Because the model moves to the next most probable look rather than an original one. Anthropic's frontend-design skill, updated on 3 September 
+2026, lists the looks AI design falls into after avoiding the purple gradient, including a cream and terracotta palette near #D97757, which the skill identifies as Anthropic's own Claude accent. A 
+direction drawn from the product, reviewed against those defaults before any code is written, is what breaks the pattern. Can an anti-slop design check run in CI? Yes. The avoid-ai-design scanner 
+runs with no model call and no dependencies on Node 18 or later, and exits with code 2 when it finds any P0 or P1 tell, so a CI job fails on it. Gesso runs 73 deterministic rules from the command 
+line against rendered HTML. Impeccable and avoid-ai-design can also run as edit hooks inside Claude Code so tells are caught in the same turn they are introduced. Do I need a DESIGN.md file to fix AI 
+slop? For a single page, a short written direction in the prompt is enough. For anything with more than one page, yes: avoid-ai-design, Impeccable and antislop all read a DESIGN.md so every page is 
+built from the same colours, type and layout rules. Without one, each new page is generated from scratch and drifts back toward the defaults. Is it bad to use a gradient or a serif if AI tools 
+overuse them? No. The tools themselves say a tell is a default nobody chose, not a banned technique. A gradient that belongs to the brand, or a broadsheet layout for a publication, is a legitimate 
+choice. The fix is to make each visible decision deliberately and to mark it as intended, for example with an avoid-ai-design ignore comment, so the scanner does not flag it. Sources Anthropic (2026).
+ frontend-design skill, SKILL.md, updated 3 September 2026. GitHub, anthropics/skills (documentation). https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md funboy322 (2026). 
+avoid-ai-design , README and ai-tells-catalog.md. GitHub (documentation). https://github.com/funboy322/avoid-ai-design miqdadbadjuber (2026). antislop: Rules for AI Coding Agents , README. GitHub 
+(documentation). https://github.com/miqdadbadjuber/anti-slop Bakaus, P. (2026). Impeccable , README. GitHub (documentation). https://github.com/pbakaus/impeccable npm registry (2026). Download counts 
+for the impeccable package, 26 August to 24 September 2026. https://www.npmjs.com/package/impeccable Together AI (2026). Hallmark , README. GitHub (documentation). https://github.com/Nutlope/hallmark 
+Leonxlnx (2026). Taste Skill , README. GitHub (documentation). https://github.com/Leonxlnx/taste-skill Vercel (2026). web-design-guidelines skill, SKILL.md. GitHub, vercel-labs/agent-skills 
+(documentation). https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines Gesso (2026). @gessobuild/anti-slop , README. GitHub (documentation). https://github.
+com/Gesso-Build/skills Lavery, C. (2026). diagram-design , README. GitHub (documentation). https://github.com/cathrynlavery/diagram-design Stehlik, L. (2026). no-slop-ui , README. GitHub 
+(documentation). https://github.com/LeoStehlik/no-slop-ui Superdesign (2026). Superdesign skill , README. GitHub (documentation). https://github.com/superdesigndev/superdesign-skill Getting value 
+from this? Get the next one by email. One email per new source-backed breakdown on what AI compute really costs. Email address Send it to me Related reading How to Unslop AI Output: Tools for Every 
+Fix Your AI output reads generic. Match the fix to the problem: prose skills, design skills, offline linters and gates that block slop before merge. Stop Slop vs Humanizer: Which Claude Skill to 
+Install stop-slop bans passive voice, adverbs and triads outright. Humanizer weighs 25 tells and guards your facts. Which one fits drafting and which fits editing. Humanizer Skill: The 25 AI Tells It 
+Removes Humanizer has 49,188 stars and 25 numbered rules in five groups. Five of them justify an edit on one sighting. Where the rules come from, and when not to act. Tools for this topic Map the 
+agent landscape The 2026 landscape of coding harnesses: maker, interface, pricing model, and what each is best for. Compare open agent harnesses Pi, OpenCode, Aider, Goose, DeepSeek Harness, Hermes 
+and more, compared by license, local-model support and what happens when context fills. Rank agents by cost per task Every AI model ranked by what one real coding task costs to finish, computed from 
+verified per-token prices, cheapest first. Get each breakdown before it makes the rounds You get one email when a new source-backed analysis goes live: what AI agents actually cost, which models are 
+worth running, and what the benchmarks really mean. No hype. Email address Send me the analysis No spam. Unsubscribe anytime. How this was made Researched, fact-checked, and reviewed by the Capital & 
+Compute editorial team against our editorial standards , including how we use AI. Spotted an error? Tell us . ← Back to Coding agents Get the next breakdown by email One email per new source-backed 
+post. Email address Send it to me Get the analysis by email One email per new post on AI infrastructure economics. Source-backed, no hype, unsubscribe anytime. Email address Send it to me Tools Can I 
+Run This LLM? Cost-Per-Task Calculator Cost Per Task Ranking Model Comparison Subscription vs API Value Leaderboard Non-China AI Models AI Benchmarks Benchmark Trust Ranking Free AI Models Model 
+Release Tracker Releases by Month Inference Providers Coding Plan Pricing AI Coding Agents Claude Skills & Agent Directory Best Open Agent Harnesses Memory Price Tracker Should You Buy RAM Now? DDR5 
+Price Tracker DDR4 Price Tracker HBM Price Tracker Server RAM Price Tracker RAM Price Chart GPU Price Tracker Nvidia GPU Price Tracker AMD GPU Price Tracker Why VRAM Costs So Much SSD Price Tracker 
+Hosting Price Hike Tracker PC Build Cost Calculator AI Usage by Country AI Pricing Keyword Trends All tools Site Blog About Contact Start Here Submit a Tool Advertise Editorial Standards Disclaimer 
+Privacy Terms © 2026 Capital & Compute. All rights reserved. RSS Sitemap WebMCP tools

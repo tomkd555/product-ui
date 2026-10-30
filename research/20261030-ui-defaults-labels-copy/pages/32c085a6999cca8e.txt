@@ -1,0 +1,59 @@
+# url: https://primer.style/product/primitives/typography/
+# accessed: 2026-10-30
+# chars: 10480
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Typography | Primer Skip to main content Skip to filter input Primer / Product UI Product UI Brand UI Octicons Accessibility Brand Toolkit Switch to dark mode Give feedback Navigation Product UI 
+Search Product UI Product UI navigation Getting Started Component status Figma libraries Foundations Overview MCP server Color usage Content Icons Layout Responsive Typography Rails Overview 
+Migration guides Component list React Overview Migration guides Linting Primer React Philosophy Recommended practices Extending components Theming Theme Reference GitHub shared components Primitives 
+Color Size Typography Token Names Migrating to CSS Variables UI Patterns Data visualization Degraded experiences Empty states Feature onboarding Forms Loading Navigation Notification messaging 
+Progressive disclosure Saving Scenario Patterns Copy Create Customize Delegate Delete Edit Filter Search View Components ActionBar ActionList ActionMenu AnchoredOverlay Autocomplete Avatar 
+AvatarStack Banner Blankslate BranchName Breadcrumbs Button ButtonGroup Card Checkbox CheckboxGroup CircleBadge ConfirmationDialog CounterLabel DataTable Details Dialog FormControl Heading IconButton 
+InlineMessage KeybindingHint Label LabelGroup Link NavList Overlay PageHeader PageLayout Pagination Popover ProgressBar Radio RadioGroup RelativeTime SegmentedControl Select SelectPanel 
+SkeletonAvatar SkeletonBox SkeletonText Spinner SplitPageLayout Stack StateLabel Text TextInput TextInputWithTokens Textarea Timeline ToggleSwitch Token Tooltip TreeView Truncate UnderlineNav 
+UnderlinePanels Internal Components ActionListItems BannerStack ChartCard CommandPalette ControlGroup CopilotAnimation CopyToClipboard DatePicker DragAndDrop EmojiAutocomplete Filter FilterCore 
+GitHubAvatar InlineAutocomplete LifecycleLabels ListFilterButton ListItemActionMenu ListView MarkdownEditor MarkdownEditorViewSwitch NestedListView QuickSearch SimpleListView SimpleSelect UiCommands 
+React Hooks useColorSchemeVar useConfirm useDetails useFocusTrap useFocusZone useFormControlForwardedProps useOnEscapePress useOnOutsideClick useOpenAndCloseFocus useOverlay useProvidedRefOrCreate 
+useRefObjectAsForwardedRef useResizeObserver useResponsiveValue useRovingTabIndex useSafeTimeout useSlots useTheme CSS Utilities Animations Borders Box shadow Colors Details Flexbox Grid Layout 
+Margin Padding Typography Contribute Adding new components Contributing to Figma Design Documentation Handling new patterns How to contribute Product UI Primitives Typography Typography An overview 
+of all available typography CSS variables Font family Sample CSS variable Output value monospace --fontStack-monospace Copy to clipboard ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, 
+Liberation Mono, monospace sansSerif --fontStack-sansSerif Copy to clipboard 'Mona Sans VF', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans Backtick Fix', 'Noto Sans', Helvetica, Arial, 
+sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' sansSerifDisplay --fontStack-sansSerifDisplay Copy to clipboard 'Mona Sans VF', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans Backtick 
+Fix', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' system --fontStack-system Copy to clipboard 'Mona Sans VF', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto 
+Sans Backtick Fix', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' Font shorthand Use the font declaration to set all font properties at once ( font-weight , 
+font-size , line-height , and font-family ). font: var(--text-display-shorthand); Sample CSS variable Source value body --text-body-shorthand-large Copy to clipboard font-weight: {text.body.weight} 
+font-size: {text.body.size.large} font-family: {fontStack.sansSerif} line-height: {text.body.lineHeight.large} body --text-body-shorthand-medium Copy to clipboard font-weight: {text.body.weight} 
+font-size: {text.body.size.medium} font-family: {fontStack.sansSerif} line-height: {text.body.lineHeight.medium} body --text-body-shorthand-small Copy to clipboard font-weight: {text.body.weight} 
+font-size: {text.body.size.small} font-family: {fontStack.sansSerif} line-height: {text.body.lineHeight.small} caption --text-caption-shorthand Copy to clipboard font-weight: {text.caption.weight} 
+font-size: {text.caption.size} font-family: {fontStack.sansSerif} line-height: {text.caption.lineHeight} codeBlock --text-codeBlock-shorthand Copy to clipboard font-weight: {text.codeBlock.weight} 
+font-size: {text.codeBlock.size} font-family: {fontStack.monospace} line-height: {text.codeBlock.lineHeight} codeInline --text-codeInline-shorthand Copy to clipboard font-weight: {text.codeInline.
+weight} font-size: {text.codeInline.size} font-family: {fontStack.monospace} display --text-display-shorthand Copy to clipboard font-weight: {text.display.weight} font-size: {text.display.size} 
+font-family: {fontStack.sansSerifDisplay} line-height: {text.display.lineHeight} subtitle --text-subtitle-shorthand Copy to clipboard font-weight: {text.subtitle.weight} font-size: {text.subtitle.
+size} font-family: {fontStack.sansSerifDisplay} line-height: {text.subtitle.lineHeight} title --text-title-shorthand-large Copy to clipboard font-weight: {text.title.weight.large} font-size: {text.
+title.size.large} font-family: {fontStack.sansSerifDisplay} line-height: {text.title.lineHeight.large} title --text-title-shorthand-medium Copy to clipboard font-weight: {text.title.weight.medium} 
+font-size: {text.title.size.medium} font-family: {fontStack.sansSerifDisplay} line-height: {text.title.lineHeight.medium} title --text-title-shorthand-small Copy to clipboard font-weight: {text.title.
+weight.small} font-size: {text.title.size.small} font-family: {fontStack.sansSerif} line-height: {text.title.lineHeight.small} Display Display Property CSS variable Output value Source value 
+line-height --text-display-lineHeight Copy to clipboard 1.375 {base.text.lineHeight.snug} font-size --text-display-size Copy to clipboard 2.5rem {base.text.size.2xl} font-weight --text-display-weight 
+Copy to clipboard 500 {base.text.weight.medium} Title large Title large Property CSS variable Output value Source value line-height --text-title-lineHeight-large Copy to clipboard 1.5 {base.text.
+lineHeight.normal} font-size --text-title-size-large Copy to clipboard 2rem {base.text.size.xl} font-weight --text-title-weight-large Copy to clipboard 600 {base.text.weight.semibold} Title medium 
+Title medium Property CSS variable Output value Source value line-height --text-title-lineHeight-medium Copy to clipboard 1.625 {base.text.lineHeight.relaxed} font-size --text-title-size-medium Copy 
+to clipboard 1.25rem {base.text.size.lg} font-weight --text-title-weight-medium Copy to clipboard 600 {base.text.weight.semibold} Title small Title small Property CSS variable Output value Source 
+value line-height --text-title-lineHeight-small Copy to clipboard 1.5 {base.text.lineHeight.normal} font-size --text-title-size-small Copy to clipboard 1rem {base.text.size.md} font-weight 
+--text-title-weight-small Copy to clipboard 600 {base.text.weight.semibold} Subtitle Subtitle Property CSS variable Output value Source value line-height --text-subtitle-lineHeight Copy to clipboard 
+1.625 {base.text.lineHeight.relaxed} font-size --text-subtitle-size Copy to clipboard 1.25rem {base.text.size.lg} font-weight --text-subtitle-weight Copy to clipboard 400 {base.text.weight.normal} 
+Body large Body large Property CSS variable Output value Source value line-height --text-body-lineHeight-large Copy to clipboard 1.5 {base.text.lineHeight.normal} font-size --text-body-size-large 
+Copy to clipboard 1rem {base.text.size.md} Body medium Body medium Property CSS variable Output value Source value line-height --text-body-lineHeight-medium Copy to clipboard 1.5 {base.text.
+lineHeight.normal} font-size --text-body-size-medium Copy to clipboard 0.875rem {base.text.size.sm} Body small Body small Property CSS variable Output value Source value line-height 
+--text-body-lineHeight-small Copy to clipboard 1.625 {base.text.lineHeight.relaxed} font-size --text-body-size-small Copy to clipboard 0.75rem {base.text.size.xs} Caption Caption Property CSS 
+variable Output value Source value line-height --text-caption-lineHeight Copy to clipboard 1.25 {base.text.lineHeight.tight} font-size --text-caption-size Copy to clipboard 0.75rem {base.text.size.
+xs} font-weight --text-caption-weight Copy to clipboard 400 {base.text.weight.normal} Code block Code block Property CSS variable Output value Source value line-height --text-codeBlock-lineHeight 
+Copy to clipboard 1.5 {base.text.lineHeight.normal} font-size --text-codeBlock-size Copy to clipboard 0.8125rem 13px font-weight --text-codeBlock-weight Copy to clipboard 400 {base.text.weight.
+normal} Inline code block Inline code block Property CSS variable Output value Source value font-size --text-codeInline-size Copy to clipboard 0.9285em 0.9285em font-weight --text-codeInline-weight 
+Copy to clipboard 400 {base.text.weight.normal} Weight Prefer font shorthand tokens or use the individual tokens from the text styles when possible. Sample CSS variable Output value Source value 
+light --base-text-weight-light Copy to clipboard 300 300 normal --base-text-weight-normal Copy to clipboard 400 400 medium --base-text-weight-medium Copy to clipboard 500 500 semibold 
+--base-text-weight-semibold Copy to clipboard 600 600 Font size Prefer font shorthand tokens or use the individual tokens from the text styles when possible. CSS variable Output value Source value 
+--base-text-size-xs Copy to clipboard 0.75rem 0.75rem --base-text-size-sm Copy to clipboard 0.875rem 0.875rem --base-text-size-md Copy to clipboard 1rem 1rem --base-text-size-lg Copy to clipboard 1.
+25rem 1.25rem --base-text-size-xl Copy to clipboard 2rem 2rem --base-text-size-2xl Copy to clipboard 2.5rem 2.5rem Line height Prefer font shorthand tokens or use the individual tokens from the text 
+styles when possible. CSS variable Output value Source value --base-text-lineHeight-tight Copy to clipboard 1.25 1.25 --base-text-lineHeight-snug Copy to clipboard 1.375 1.375 
+--base-text-lineHeight-normal Copy to clipboard 1.5 1.5 --base-text-lineHeight-relaxed Copy to clipboard 1.625 1.625 --base-text-lineHeight-loose Copy to clipboard 1.75 1.75 On this page Font 
+shorthand Display Title large Title medium Title small Subtitle Body large Body medium Body small Caption Code block Inline code block Weight Font size Line height

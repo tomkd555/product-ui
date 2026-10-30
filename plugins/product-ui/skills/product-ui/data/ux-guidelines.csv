@@ -72,7 +72,7 @@ No,Category,Issue,Platform,Description,Do,Don't,Code Example Good,Code Example B
 71,Responsive,Table Handling,Web,Tables can overflow on mobile,Use horizontal scroll or card layout,Wide tables breaking layout,overflow-x-auto wrapper,Table overflows viewport,Medium
 72,Typography,Line Height,All,Adequate line height improves readability,Use 1.5-1.75 for body text,Cramped or excessive line height,leading-relaxed (1.625),leading-none (1),Medium
 73,Typography,Line Length,Web,Long lines are hard to read,Limit to 65-75 characters per line,Full-width text on large screens,max-w-prose,Full viewport width text,Medium
-74,Typography,Font Size Scale,All,Consistent type hierarchy aids scanning,Use consistent modular scale,Random font sizes,Type scale (12 14 16 18 24 32),Arbitrary sizes,Medium
+74,Typography,Font Size Scale,All,Consistent type hierarchy aids scanning,Use consistent modular scale,Random font sizes,Type scale from typography.scale in tokens.json; nothing under 14px (12px for a short Latin-only run),Arbitrary sizes,Medium
 75,Typography,Font Loading,Web,Fonts should load without layout shift,Reserve space with fallback font,Layout shift when fonts load,font-display: swap + similar fallback,No fallback font,Medium
 76,Typography,Contrast Readability,All,Body text needs good contrast,Use darker text on light backgrounds,Gray text on gray background,text-gray-900 on white,text-gray-400 on gray-100,High
 77,Typography,Heading Clarity,All,Headings should stand out from body,Clear size/weight difference,Headings similar to body text,Bold + larger size,Same size as body,Medium

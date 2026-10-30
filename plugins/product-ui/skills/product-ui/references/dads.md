@@ -64,7 +64,7 @@ T2 requires `oklch()`; these nine keys are converted from the plugin's hex with 
 | `accent` | `--color-yellow-300` | `#ffd43d` | `oklch(88.3% 0.164 92)` |
 
 - `solid-gray-536` and `solid-gray-420` are the greys DADS itself uses for secondary text and for borders on white; the numbers are the contrast ratios they were chosen for.
-- `yellow-300` is the focus ring DADS components paint (`focus-visible:ring-yellow-300`), the one non-blue hue the system shows; DADS has no separate brand accent. It is a light colour, so text on it must be `foreground`.
+- `yellow-300` is the focus ring DADS components paint (`focus-visible:ring-yellow-300`), the one non-blue hue the system shows; DADS has no separate brand accent. The key `accent` fills the `brand-accent` utility (`bg-brand-accent`); shadcn's `bg-accent` stays the hover and selected surface. It is a light colour, so text on it must be `foreground`.
 - The full palette stays in the plugin's `@theme`, where the utilities pick it up: every scale at every step would breach T9's ceiling of twelve keys.
 
 Everything else:

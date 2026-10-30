@@ -1,0 +1,56 @@
+# url: https://zenn.dev/kenimo49/articles/ai-slop-escape-frontend-design
+# accessed: 2026-10-30
+# chars: 9501
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+AIスロップから脱出する——なぜAI生成UIは全部同じに見えるのか 井本 賢 | WebRTC×音声AI / LLMO 🎨 AIスロップから脱出する——なぜAI生成UIは全部同じに見えるのか 2026/03/24 に公開 2026/08/24 AI CSS デザイン frontend Vibe Coding tech 🔥 あなたのサイト、「AIが作りました」と言われていませんか? 
+2025年、あるスタートアップのCEOが困惑していました。自社のAI生成ランディングページを見た投資家から「これ、(某有名AIツール)で作ったでしょう?」と指摘されたからです。実際、その通りでした。 同じ頃、GitHub上では興味深い現象が起きていました。数百のAI生成プロジェクトが、まるでクローンのように似通った見た目で溢れかえっていたのです。 これが AIスロップ (AI Slop) 
+の正体です。 そしてこの現象は、Webサイトだけにとどまりません。いま、営業スライドにも同じことが起きています。AIに少し詳しい人が見れば、「これはGeminiで作ったな」「Claudeっぽいな」と、使ったツールまで当てられてしまう時代です。 もしあなたのサイトやスライドが「AIっぽい」と言われたことがあるなら、この記事はそこからの脱出マップになるでしょう。 
+AIスロップとは何か——distributional convergenceの正体 AIスロップ とは、AI生成コンテンツが似通ってしまう現象を指す俗語です。その背景には distributional convergence (分布収束)という現象があります。 
+LLMは訓練データの最頻パターンに収束する性質があります。デザインにおいても、「プロフェッショナルなWebサイト」という指示に対して、最も確率の高いパターンを出力してしまうのです。 その結果、世界中のAI生成サイトが驚くほど似通った見た目になってしまいます。 Reddit r/vibecoding での開発者の証言をご紹介します: 
+「POCやアイデア探索でAIに頼ると、必ず2パターンに収束する。パターンA:Revolut風のクリーンなバンキングサイト(白背景、紫〜青のグラデーション)。パターンB:ダークなサイバーパンク風(黒背景、ネオングロー効果)。毎回同じで、もうウンザリ」 ここに AIデザインのパラドックス 
+が潜んでいます。誰もが「anti-slopプロンプト」を使うようになれば、それ自体が次のスロップパターンを生み出してしまうのです。 実際に同じ要件「アナリティクスプラットフォームのLP」をSkillなし/ありで生成すると、違いは一目瞭然です。 では、Beforeの何が問題なのか。具体的に見ていきましょう。 AIが必ず出す3大パターン 1. 紫グラデーション症候群 
+最も典型的なパターンです。AIは「モダン」「プロフェッショナル」という指示に対して、高確率で紫〜青のグラデーションを提案します。 /* AI典型パターン(避けるべき) */ .hero { background : linear-gradient ( 135 deg , #667eea 0 % , #764ba2 100 % ); } 2. Inter/Roboto/Arial の三種の神器 
+フォント選択でも同様です。「読みやすい」「プロフェッショナル」という指示により、この3つのフォントばかりが選ばれます。 /* AI典型パターン(避けるべき) */ body { font-family : 'Inter' , 'Roboto' , Arial , sans-serif ; } 3. 角丸カード乱用パターン カードベースのレイアウトを多用し、すべてに同じ角丸を適用するパターンです( 
+border-radius: 8px または 12px が圧倒的)。 /* AI典型パターン(避けるべき) */ .card { border-radius : 8 px ; box-shadow : 0 4 px 6 px rgba ( 0 , 0 , 0 , 0.1 ); } AIスロップの中でも特に深刻なのが色の問題です。以前の記事 「AI生成UIが全部同じに見える問題を解決する」 
+では、AIが紫〜青に偏る「AI Blue」現象を詳しく検証しました。 脱却の4軸——Before/Afterコード例付き 1. Typography(タイポグラフィ) Before: AIスロップ body { font-family : 'Inter' , sans-serif ; font-weight : 400 ; line-height : 1.5 ; } h1 { font-size 
+: 3 rem ; font-weight : 700 ; } After: 個性的選択 /* 個性的フォント組み合わせ */ @import url ( 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap' 
+); body { font-family : 'JetBrains Mono' , monospace ; font-weight : 400 ; line-height : 1.6 ; letter-spacing : 0.5 px ; } h1 { font-family : 'Playfair Display' , serif ; font-size : clamp ( 2 rem , 
+5 vw , 4 rem ); font-weight : 700 ; font-style : italic ; } 2. Color & Theme(色とテーマ) Before: AIスロップ :root { --primary : #667eea ; --secondary : #764ba2 ; --bg : #ffffff ; --text : #333333 ; } .hero { 
+background : linear-gradient ( 135 deg , var ( --primary ) 0 % , var ( --secondary ) 100 % ); } After: 独自配色 /* 土と植物をモチーフにした配色 */ :root { --clay : #c77f47 ; --moss : #4a5d23 ; --stone : #e8e5d0 ; 
+--charcoal : #2c2c2c ; } .hero { background : radial-gradient ( circle at top right , var ( --clay ) 0 % , transparent 50 % ), radial-gradient ( circle at bottom left , var ( --moss ) 0 % , 
+transparent 50 % ), var ( --stone ); } 3. Motion(アニメーション) Before: AIスロップ .card:hover { transform : translateY ( -4 px ); transition : transform 0.3 s ease ; box-shadow : 0 8 px 25 px rgba ( 0 , 0 , 0 
+, 0.15 ); } After: 個性的モーション /* 有機的な動き */ .card { transition : all 0.4 s cubic-bezier ( 0.4 , 0 , 0.2 , 1 ); transform-origin : center bottom ; } .card:hover { transform : rotate ( -1 deg ) scale ( 1.
+02 ); box-shadow : -3 px 10 px 20 px rgba ( 76 , 93 , 35 , 0.2 ), 3 px -5 px 15 px rgba ( 199 , 127 , 71 , 0.1 ); } 4. Backgrounds(背景) Before: AIスロップ .section { background : linear-gradient ( 135 deg 
+, #f5f7fa 0 % , #c3cfe2 100 % ); } After: テクスチャと深み /* 手描き風テクスチャ */ .section { background : url ( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 
+100 100'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 
+3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 
+3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 
+4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.
+24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 
+.895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234a5d23' fill-opacity='0.03'%3E%3C/path%3E%3C/svg%3E" ), var ( --stone ); background-size : 100 px 100 px ; } 
+お分かりでしょうか?つまり、デザインが「手作業で考え抜かれた感」を醸し出すための工夫が随所に盛り込まれているのです。 Anthropic公式 frontend-design Skill の解剖 AnthropicのClaude Codeには、AIスロップを回避するための公式Skillが存在します。 https://github.
+com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md その核心部分を解剖してみましょう。 # Core Rule: NEVER use generic AI-generated aesthetics - No purple gradients, no 
+Inter/Roboto/Arial fonts - No generic "modern" or "professional" aesthetics - Every design must have a specific theme or concept # Design Thinking Process: 1. PURPOSE: What is this for? (e.g., "vinyl 
+record store") 2. TONE: What feeling? (e.g., "warm nostalgia") 3. CONSTRAINTS: What limits? (e.g., "mobile-first, accessible") 4. DIFFERENTIATION: How is this unique? (e.g., "feels handcrafted") 
+このSkillの優れた点は 強制的な差別化 にあります。毎回異なるテーマ・フォント・配色を選ぶことを開発者に強制し、AIの distributional convergence を意図的に回避するのです。 さらに興味深いのは、デザインシステムの逆説的アプローチです: # Anti-Pattern Detection: - If color palette contains ANY shade 
+of purple → REJECT - If fonts include Inter/Roboto/Arial → REJECT - If animation is basic hover/translateY → REJECT これは「やってはいけないこと」を明文化することで、AIの創造性を制約つき最適化に変えているのです。 2026年、デザイナーはAIスロップにどう応答しているか 
+デザイン理論家 Ioana Teleanu の2026年の論文「Aesthetics in the AI Era」によると、AIスロップへの文化的反発として、3つの新しいデザイン潮流が登場しています。 1. Technical Mono(テクニカル・モノ) 特徴 : 単色(主にグレースケール)、等幅フォントオンリー、ASCII アートの多用 /* Technical Mono スタイル例 */ 
+:root { --mono-1 : #0a0a0a ; --mono-2 : #1a1a1a ; --mono-3 : #8a8a8a ; --mono-4 : #dadada ; } body { font-family : 'Courier Prime' , 'Consolas' , monospace ; background : var ( --mono-1 ); color : 
+var ( --mono-4 ); } .ascii-header::before { content : "╔══════════════════════════════╗ \A ║ WELCOME TO OUR SYSTEM ║ \A ╚══════════════════════════════╝" ; white-space : pre ; } 2. Surveillance 
+Aesthetic(監視の美学) 特徴 : セキュリティカメラのUI、CRT モニターグリッチ、緑色ターミナル風 /* Surveillance Aesthetic 例 */ .crt-screen { background : #001100 ; color : #00ff00 ; font-family : 'Share Tech Mono' , monospace ; 
+text-shadow : 0 0 5 px #00ff00 ; animation : scanlines 0.1 s linear infinite ; } @keyframes scanlines { 0% { background-position : 0 0 ; filter : brightness ( 1.1 ) contrast ( 1.2 ); } 100% { 
+background-position : 0 100 % ; filter : brightness ( 0.9 ) contrast ( 1.5 ); } } 3. Tech-Organic Fusion(テクノ・オーガニック融合) 特徴 : 自然のパターンとデジタル要素の混在、非対称グリッド、手描き要素 /* Tech-Organic Fusion 例 */ .organic-grid { 
+display : grid ; grid-template-columns : minmax ( 100 px , 0.8 fr ) minmax ( 150 px , 1.3 fr ) minmax ( 80 px , 0.9 fr ); grid-gap : clamp ( 1 rem , 3 vw , 3 rem ); transform : rotate ( -1.2 deg ); } 
+.natural-shadow { box-shadow : 0 2.8 px 2.2 px rgba ( 139 , 69 , 19 , 0.034 ), 0 6.7 px 5.3 px rgba ( 139 , 69 , 19 , 0.048 ), 0 12.5 px 10 px rgba ( 139 , 69 , 19 , 0.06 ); } Teleanu 
+によると、これらは「人間らしさを取り戻そうとする文化のシグナル」なのです。AIが完璧なグリッドや整然とした配置を好むのに対し、人間は意図的な破綻や不完全さに美を見出すようになったのです。 まとめ——AIに「何を」伝えるべきか AIスロップから脱出する鍵は、AIに 「何を作るか」 ではなく 「何のために、誰のために、どんな体験を」 作るかを伝えることです。 ❌ ダメなプロンプト例 
+モダンでプロフェッショナルなWebサイトを作ってください ✅ 良いプロンプト例 50代のクラフトビール愛好家向けの醸造所サイトを作ってください。 目的:小ロット生産の個性を伝える トーン:職人の手仕事感、温かみ 制約:読みやすさ最優先、ダークモード対応 差別化:大手ビールメーカーとは真逆の親しみやすさ 具体的なコンテキストを与えることで、AIの distributional 
+convergence を回避し、本当にユニークなデザインを生成できるのです。 2026年現在、優れたデザイナーは「AI を使わない」のではなく「AI に適切な制約と文脈を与える」ことでスロップを回避しています。ツールは中立です。使い手の思考の深さが、結果の質を決めるのです。 あなたの次のプロジェクトも、きっと「AIが作りました感」から脱却できるはずです。 
+本書の要点を11枚のスライドにまとめたデッキも公開しています。 ! この記事の内容を全17章に拡張しました。 distributional convergenceの技術的メカニズムから、4モデル×40色の実験データによるAI Blueの実証、Typography・Color・Motion・Spatial 
+Composition・Backgroundsの5軸での脱出方法、5ケースのBefore/After実験まで網羅しています。 → AIスロップから脱出する技術 井本 賢 | WebRTC×音声AI / LLMO WebRTC×音声AIエンジニア / 
+合同会社Propel-Lab代表。AIコードレビューの仕組み化・ハーネスエンジニアリング・コンテキストエンジニアリングの実践知見を発信中。記事122本・本13冊。著書『実践Claude Code』『ハーネス・エンジニアリング』ほか バッジを贈って著者を応援しよう バッジを受け取った著者にはZennから現金やAmazonギフトカードが還元されます。 バッジを贈る Discussion 井本 賢 | 
+WebRTC×音声AI / LLMO WebRTC×音声AIエンジニア / 合同会社Propel-Lab代表。AIコードレビューの仕組み化・ハーネスエンジニアリング・コンテキストエンジニアリングの実践知見を発信中。記事122本・本13冊。著書『実践Claude Code』『ハーネス・エンジニアリング』ほか バッジを贈る バッジを贈るとは 目次 🔥 
+あなたのサイト、「AIが作りました」と言われていませんか? AIスロップとは何か——distributional convergenceの正体 AIが必ず出す3大パターン 1. 紫グラデーション症候群 2. Inter/Roboto/Arial の三種の神器 3. 角丸カード乱用パターン 脱却の4軸——Before/Afterコード例付き 1. Typography(タイポグラフィ) 2. 
+Color & Theme(色とテーマ) 3. Motion(アニメーション) 4. Backgrounds(背景) Anthropic公式 frontend-design Skill の解剖 2026年、デザイナーはAIスロップにどう応答しているか 1. Technical Mono(テクニカル・モノ) 2. Surveillance Aesthetic(監視の美学) 3. 
+Tech-Organic Fusion(テクノ・オーガニック融合) まとめ——AIに「何を」伝えるべきか ❌ ダメなプロンプト例 ✅ 良いプロンプト例 エンジニアのための 情報共有コミュニティ About Zennについて 法人向けメニュー New ハッカソンの開催 New 運営会社 Guides 使い方 Publication / Pro よくある質問 メディアキット Links 
+お知らせ・リリース X(Twitter) connpass GitHub Legal 利用規約 プライバシーポリシー 特商法表記

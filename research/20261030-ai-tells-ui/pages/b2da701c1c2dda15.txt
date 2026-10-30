@@ -1,0 +1,25 @@
+# url: https://aismells.pages.dev/bento-box-sprawl.html
+# accessed: 2026-10-30
+# chars: 3887
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Bento Box Sprawl — aismells All smells Design Bento Box Sprawl Everything becomes a dashboard. Even simple marketing pages get chopped into evenly weighted rounded rectangles with eyebrow labels, 
+micro-icons, and one stat per tile. The Pattern The bento layout can be great when the content actually wants modular chunks. The smell starts when the chunking itself becomes the idea. A story 
+becomes six cards. A product explanation becomes nine tiles. A one-message landing page becomes a miniature operating system. AI loves the pattern because it offers an easy answer to the hardest 
+design question: what deserves emphasis? In Bento Box Sprawl, the answer is “everything, equally.” No hard hierarchy. No real pacing. Just a neat field of cards all asking for the same amount of 
+attention. The result looks competent from a thumbnail and exhausting at reading distance. Visual Example Original illustration of the smell: a marketing page that has been turned into a dashboard of 
+tiles, with nearly every block carrying the same visual weight. Examples Marketing page as dashboard Hero, benefits, testimonials, pricing cues, and company values all reduced to matching rounded 
+rectangles with matching padding and matching visual weight. The universal tile recipe Tiny eyebrow. Small icon. One sentence. Maybe a stat. Repeat until the page feels “rich,” even though the 
+content has stopped progressing. Narrative flattened Instead of building a case, the page presents a tray of facts. Useful for scanning. Terrible for persuasion when overused. Why AI Reaches for It 
+Cards are compositional training wheels. They solve spacing, grouping, and responsiveness in one move. Models trained on modern product sites have seen this layout thousands of times, so once “clean 
+SaaS design” is in the prompt, the grid is already halfway onto the canvas. The pattern also plays nicely with auto-generated copy. If every section is one short chunk with one short headline, the 
+model never has to make a bold editorial decision about rhythm or flow. It can just keep adding modules. That is why Bento Box Sprawl often arrives with a suspiciously complete feeling. Not finished. 
+Complete. Everything has been placed somewhere. Nothing has been prioritized. Research Notes Bento grids are a real design trend, not an invented AI hallucination. Both Obergine and Senorit describe 
+the layout as a mainstream 2024-2026 pattern, usually tied to Apple-style feature storytelling, modularity, and CSS grid flexibility. That is precisely why AI reaches for it so often: the pattern is 
+common, legible, and easy to reproduce from examples. The smell begins when the trend mutates into a universal answer. The 2026 UW / Microsoft Research paper on web vibe-coding warns that AI site 
+generation nudges creators toward dominant conventions and makes it cognitively expensive to push back. A bento layout is a perfect high-probability default because it solves many compositional 
+problems at once. So the argument here is narrow: bento grids are often good, but AI over-applies them. When every idea becomes a card, the page stops having argument structure and starts having 
+inventory. Where It Shows Up Landing Page Generators Product descriptions get atomized into feature tiles because that is easier for the model than deciding which claim should dominate above the fold.
+ AI Rebrands of Existing Sites Feed in a magazine site or editorial product and the redesign often returns as a product dashboard in disguise, with every article benefit packed into tidy boxes. 
+Portfolio Builders Personal work, biography, services, and testimonials all receive the same tile treatment, which is how a person ends up looking like a software widget. Sources UW / Microsoft 
+Research: Interrogating Design Homogenization in Web Vibe Coding Obergine: A design trend, bento grids Senorit: Bento Grid Design trend overview aismells

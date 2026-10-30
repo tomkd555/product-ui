@@ -1,0 +1,2581 @@
+{
+ "title": "よくあるご質問・資料 | 販社ポータル",
+ "viewport": {
+  "width": 1280,
+  "height": 1200
+ },
+ "htmlClass": "",
+ "tokens": {
+  "--font-sans": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--font-mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--spacing": ".25rem",
+  "--container-md": "28rem",
+  "--container-3xl": "48rem",
+  "--font-weight-normal": "400",
+  "--font-weight-semibold": "600",
+  "--font-weight-bold": "700",
+  "--radius-sm": ".375rem",
+  "--radius-md": ".5rem",
+  "--radius-lg": ".75rem",
+  "--shadow-sm": "0 1px 2px 0 oklch(0% 0 0/.04)",
+  "--shadow-lg": "0 4px 16px 0 oklch(0% 0 0/.08)",
+  "--default-transition-duration": ".15s",
+  "--default-transition-timing-function": "cubic-bezier(.4, 0, .2, 1)",
+  "--default-font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--default-mono-font-family": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--color-background": "oklch(0.961 0 0)",
+  "--color-foreground": "oklch(0.218 0 0)",
+  "--color-surface": "oklch(1 0 0)",
+  "--color-primary": "oklch(0.531 0.218 29)",
+  "--color-primary-foreground": "oklch(1 0 0)",
+  "--color-muted": "oklch(0.976 0 0)",
+  "--color-muted-foreground": "oklch(0.52 0 0)",
+  "--color-border": "oklch(0.922 0 0)",
+  "--color-destructive": "oklch(0.429 0.176 29)",
+  "--color-accent": "oklch(0.546 0.215 263)",
+  "--font-display": "\"Inter\", ui-serif, serif",
+  "--font-body": "\"Inter\", ui-sans-serif, sans-serif",
+  "--radius-full": "9999px",
+  "--ease-standard": "cubic-bezier(.4, 0, .2, 1)",
+  "--brand-background": "oklch(0.961 0 0)",
+  "--brand-foreground": "oklch(0.218 0 0)",
+  "--brand-surface": "oklch(1 0 0)",
+  "--brand-primary": "oklch(0.531 0.218 29)",
+  "--brand-primary-foreground": "oklch(1 0 0)",
+  "--brand-muted": "oklch(0.976 0 0)",
+  "--brand-muted-foreground": "oklch(0.52 0 0)",
+  "--brand-border": "oklch(0.922 0 0)",
+  "--brand-destructive": "oklch(0.429 0.176 29)",
+  "--brand-accent": "oklch(0.546 0.215 263)",
+  "--duration-fast": ".15s",
+  "--duration-base": ".25s",
+  "--duration-slow": ".4s",
+  "--sidebar-width": "260px",
+  "--content-max-width": "1440px",
+  "--shell-nav-fg": "oklch(0.3388 0 0)",
+  "--shell-hover": "oklch(0.218 0 0 / 0.025)",
+  "--shell-active": "oklch(0.531 0.218 29 / 0.06)",
+  "--shell-ring": "oklch(0.531 0.218 29 / 0.08)",
+  "--shell-border-hover": "oklch(0.7612 0 0)",
+  "--chart-brand": "oklch(0.531 0.218 29)",
+  "--chart-1": "oklch(0.546 0.215 263)",
+  "--chart-2": "oklch(0.43696 0 0)",
+  "--chart-3": "oklch(0.71852 0.1333 299.86)",
+  "--chart-4": "oklch(0.62464 0 0)",
+  "--chart-band": "oklch(0.546 0.215 263 / 0.14)",
+  "--tint-primary": "color(srgb 0.983933 0.91983 0.92075)",
+  "--tint-accent": "oklch(0.9546 0.0215 350.3)",
+  "--primary-text": "oklch(0.531 0.218 29)",
+  "--accent-text": "oklch(0.4476 0.1505 292.1)",
+  "--lightningcss-light": "",
+  "--lightningcss-dark": ""
+ },
+ "horizontalOverflow": false,
+ "scrollWidth": 1265,
+ "pageHeight": 1926,
+ "headings": [
+  {
+   "level": 1,
+   "text": "よくあるご質問・資料"
+  },
+  {
+   "level": 2,
+   "text": "残価設定4件"
+  },
+  {
+   "level": 2,
+   "text": "申込みに必要な書類4件"
+  },
+  {
+   "level": 2,
+   "text": "中途解約3件"
+  },
+  {
+   "level": 2,
+   "text": "名義変更3件"
+  },
+  {
+   "level": 2,
+   "text": "保険3件"
+  },
+  {
+   "level": 2,
+   "text": "満期時の選択4件"
+  }
+ ],
+ "landmarks": [
+  {
+   "sel": "header",
+   "count": 1
+  },
+  {
+   "sel": "nav",
+   "count": 1
+  },
+  {
+   "sel": "main",
+   "count": 1
+  },
+  {
+   "sel": "aside",
+   "count": 1
+  },
+  {
+   "sel": "footer",
+   "count": 0
+  },
+  {
+   "sel": "form",
+   "count": 1
+  },
+  {
+   "sel": "[role]",
+   "count": 6
+  }
+ ],
+ "controlsTotal": 39,
+ "controls": [
+  {
+   "tag": "a",
+   "text": "ホーム",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/"
+  },
+  {
+   "tag": "a",
+   "text": "販売店",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/stores"
+  },
+  {
+   "tag": "a",
+   "text": "スタッフ",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/staff"
+  },
+  {
+   "tag": "a",
+   "text": "市場動向",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/market"
+  },
+  {
+   "tag": "a",
+   "text": "契約",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/contracts"
+  },
+  {
+   "tag": "a",
+   "text": "見積り",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/estimates"
+  },
+  {
+   "tag": "a",
+   "text": "車種",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/vehicles"
+  },
+  {
+   "tag": "a",
+   "text": "金利・キャンペーン",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/rates"
+  },
+  {
+   "tag": "a",
+   "text": "お知らせ2",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/notices"
+  },
+  {
+   "tag": "a",
+   "text": "問い合わせ1",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/inquiries"
+  },
+  {
+   "tag": "a",
+   "text": "よくあるご質問・資料",
+   "w": 225,
+   "h": 41,
+   "labelled": true,
+   "href": "#/library"
+  },
+  {
+   "tag": "a",
+   "text": "使い方ガイド",
+   "w": 235,
+   "h": 41,
+   "labelled": true,
+   "href": "#/guide"
+  },
+  {
+   "tag": "button",
+   "text": "メニュー",
+   "w": 0,
+   "h": 0,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "input",
+   "text": "契約を検索",
+   "w": 230,
+   "h": 26,
+   "labelled": true,
+   "type": "search"
+  },
+  {
+   "tag": "button",
+   "text": "高",
+   "w": 36,
+   "h": 36,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "input",
+   "text": "質問と資料を検索",
+   "w": 941,
+   "h": 44,
+   "labelled": true,
+   "type": "search"
+  },
+  {
+   "tag": "button",
+   "text": "よくあるご質問（21件）",
+   "w": 213,
+   "h": 44,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "資料（14件）",
+   "w": 133,
+   "h": 44,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "すべて",
+   "w": 68,
+   "h": 36,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "残価設定",
+   "w": 84,
+   "h": 36,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "申込みに必要な書類",
+   "w": 154,
+   "h": 36,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "中途解約",
+   "w": 84,
+   "h": 36,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "名義変更",
+   "w": 84,
+   "h": 36,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "保険",
+   "w": 56,
+   "h": 36,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "button",
+   "text": "満期時の選択",
+   "w": 112,
+   "h": 36,
+   "labelled": true,
+   "type": "button"
+  },
+  {
+   "tag": "a",
+   "text": "問い合わせを追加",
+   "w": 188,
+   "h": 44,
+   "labelled": true,
+   "href": "#/inquiries/new"
+  },
+  {
+   "tag": "a",
+   "text": "見積りを作る",
+   "w": 96,
+   "h": 26,
+   "labelled": true,
+   "href": "#/estimates/new"
+  },
+  {
+   "tag": "a",
+   "text": "見積りを作る",
+   "w": 96,
+   "h": 26,
+   "labelled": true,
+   "href": "#/estimates/new"
+  },
+  {
+   "tag": "a",
+   "text": "クレジット申込書",
+   "w": 128,
+   "h": 26,
+   "labelled": true,
+   "href": "#/library?tab=docs&topic=%E7%94%B3%E8%BE%BC%E3%81%BF%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%9B%B8%E9%A1%9E"
+  },
+  {
+   "tag": "a",
+   "text": "問い合わせ",
+   "w": 80,
+   "h": 26,
+   "labelled": true,
+   "href": "#/inquiries"
+  },
+  {
+   "tag": "a",
+   "text": "契約",
+   "w": 32,
+   "h": 26,
+   "labelled": true,
+   "href": "#/contracts"
+  },
+  {
+   "tag": "a",
+   "text": "契約",
+   "w": 32,
+   "h": 26,
+   "labelled": true,
+   "href": "#/contracts"
+  },
+  {
+   "tag": "a",
+   "text": "契約",
+   "w": 32,
+   "h": 26,
+   "labelled": true,
+   "href": "#/contracts"
+  },
+  {
+   "tag": "a",
+   "text": "所有権解除の委任状（普通車）",
+   "w": 224,
+   "h": 26,
+   "labelled": true,
+   "href": "#/library?tab=docs&topic=%E5%90%8D%E7%BE%A9%E5%A4%89%E6%9B%B4"
+  },
+  {
+   "tag": "a",
+   "text": "契約",
+   "w": 32,
+   "h": 26,
+   "labelled": true,
+   "href": "#/contracts"
+  },
+  {
+   "tag": "a",
+   "text": "問い合わせを追加",
+   "w": 128,
+   "h": 26,
+   "labelled": true,
+   "href": "#/inquiries/new"
+  },
+  {
+   "tag": "a",
+   "text": "事故・全損時の精算の手引き",
+   "w": 208,
+   "h": 26,
+   "labelled": true,
+   "href": "#/library?tab=docs&topic=%E4%BF%9D%E9%99%BA"
+  },
+  {
+   "tag": "a",
+   "text": "口座振替依頼書",
+   "w": 112,
+   "h": 26,
+   "labelled": true,
+   "href": "#/library?tab=docs&topic=%E6%BA%80%E6%9C%9F%E6%99%82%E3%81%AE%E9%81%B8%E6%8A%9E"
+  },
+  {
+   "tag": "a",
+   "text": "契約",
+   "w": 32,
+   "h": 26,
+   "labelled": true,
+   "href": "#/contracts"
+  }
+ ],
+ "elementsTotal": 293,
+ "textTruncated": false,
+ "scope": {
+  "tag": "main",
+  "rect": {
+   "x": 260,
+   "y": 0,
+   "w": 1005,
+   "h": 1926
+  }
+ },
+ "boxes": [
+  {
+   "tag": "header",
+   "cls": "content-header",
+   "rect": {
+    "x": 260,
+    "y": 0,
+    "w": 1005,
+    "h": 77
+   },
+   "depth": 0,
+   "parentBox": null,
+   "children": 2,
+   "hasDigit": false
+  },
+  {
+   "tag": "div",
+   "cls": "faq-list",
+   "rect": {
+    "x": 292,
+    "y": 351,
+    "w": 941,
+    "h": 213
+   },
+   "depth": 0,
+   "parentBox": null,
+   "children": 4,
+   "hasDigit": true
+  },
+  {
+   "tag": "div",
+   "cls": "faq-list",
+   "rect": {
+    "x": 292,
+    "y": 646,
+    "w": 941,
+    "h": 213
+   },
+   "depth": 0,
+   "parentBox": null,
+   "children": 4,
+   "hasDigit": true
+  },
+  {
+   "tag": "div",
+   "cls": "faq-list",
+   "rect": {
+    "x": 292,
+    "y": 940,
+    "w": 941,
+    "h": 160
+   },
+   "depth": 0,
+   "parentBox": null,
+   "children": 3,
+   "hasDigit": true
+  },
+  {
+   "tag": "div",
+   "cls": "faq-list",
+   "rect": {
+    "x": 292,
+    "y": 1182,
+    "w": 941,
+    "h": 160
+   },
+   "depth": 0,
+   "parentBox": null,
+   "children": 3,
+   "hasDigit": true
+  },
+  {
+   "tag": "div",
+   "cls": "faq-list",
+   "rect": {
+    "x": 292,
+    "y": 1423,
+    "w": 941,
+    "h": 160
+   },
+   "depth": 0,
+   "parentBox": null,
+   "children": 3,
+   "hasDigit": true
+  },
+  {
+   "tag": "div",
+   "cls": "faq-list",
+   "rect": {
+    "x": 292,
+    "y": 1665,
+    "w": 941,
+    "h": 213
+   },
+   "depth": 0,
+   "parentBox": null,
+   "children": 4,
+   "hasDigit": true
+  }
+ ],
+ "boxesTotal": 7,
+ "gaps": [
+  {
+   "parent": "main.main-content",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.content-header__tools",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    40,
+    40,
+    40,
+    40,
+    40,
+    40
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    16,
+    16
+   ]
+  },
+  {
+   "parent": "div.tabs",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div.segment",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.faq-list",
+   "values": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.faq-answer",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.faq-answer",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.faq-list",
+   "values": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.faq-answer",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.faq-answer",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.faq-list",
+   "values": [
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.faq-answer",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.faq-answer",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.faq-list",
+   "values": [
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.faq-answer",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.faq-answer",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.faq-list",
+   "values": [
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.faq-answer",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "div.mt-2",
+   "values": [
+    16,
+    16
+   ]
+  },
+  {
+   "parent": "section.section",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.faq-list",
+   "values": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.faq-answer",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "div.faq-answer",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "details",
+   "values": [
+    0
+   ]
+  }
+ ],
+ "gapsTotal": 51,
+ "text": [
+  {
+   "tag": "div",
+   "cls": "sidebar-logo",
+   "text": "H",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "16px",
+   "fontWeight": "800",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 24,
+    "y": 27,
+    "w": 36,
+    "h": 36
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "sidebar-title",
+   "text": "販社ポータル",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16.8px",
+   "fontWeight": "700",
+   "lineHeight": "26.88px",
+   "rect": {
+    "x": 72,
+    "y": 20,
+    "w": 100,
+    "h": 27
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "sidebar-subtitle",
+   "text": "世田谷店",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 72,
+    "y": 48,
+    "w": 100,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "ホーム",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 103,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "分析",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 148,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "販売店",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 195,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "スタッフ",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 238,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "市場動向",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 281,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "提案",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 325,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "契約",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 373,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "見積り",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 415,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "車種",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 458,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "金利・キャンペーン",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 501,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "nav-section-label",
+   "text": "ホンダファイナンス",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 12,
+    "y": 545,
+    "w": 225,
+    "h": 47
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "お知らせ",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 593,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "nav-badge",
+   "text": "2",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "12px",
+   "fontWeight": "700",
+   "lineHeight": "19.2px",
+   "rect": {
+    "x": 201,
+    "y": 602,
+    "w": 22,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "問い合わせ",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 635,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "nav-badge",
+   "text": "1",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.531 0.218 29)",
+   "fontSize": "12px",
+   "fontWeight": "700",
+   "lineHeight": "19.2px",
+   "rect": {
+    "x": 201,
+    "y": 644,
+    "w": 22,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item active",
+   "text": "よくあるご質問・資料",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(0.531 0.218 29 / 0.06)",
+   "backgroundBase": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "600",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 678,
+    "w": 225,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "nav-item",
+   "text": "使い方ガイド",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14.4px",
+   "fontWeight": "500",
+   "lineHeight": "23.04px",
+   "rect": {
+    "x": 12,
+    "y": 1081,
+    "w": 235,
+    "h": 41
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-avatar",
+   "text": "高",
+   "color": "oklch(1 0 0)",
+   "background": "oklch(0.546 0.215 263)",
+   "fontSize": "14px",
+   "fontWeight": "700",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 20,
+    "y": 1137,
+    "w": 34,
+    "h": 34
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-name",
+   "text": "高橋 美咲",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 64,
+    "y": 1131,
+    "w": 60,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "div",
+   "cls": "user-role",
+   "text": "店長",
+   "color": "oklch(0.52 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 64,
+    "y": 1154,
+    "w": 60,
+    "h": 22
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h1",
+   "cls": "content-title",
+   "text": "よくあるご質問・資料",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "21.6px",
+   "fontWeight": "700",
+   "lineHeight": "34.56px",
+   "rect": {
+    "x": 292,
+    "y": 21,
+    "w": 214,
+    "h": 35
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "text-sm font-bold",
+   "text": "高",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "700",
+   "lineHeight": "20px",
+   "rect": {
+    "x": 1208,
+    "y": 28,
+    "w": 14,
+    "h": 20
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "cls": "tab",
+   "text": "よくあるご質問（21件）",
+   "color": "oklch(0.531 0.218 29)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 165,
+    "w": 213,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "cls": "tab",
+   "text": "資料（14件）",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 509,
+    "y": 165,
+    "w": 133,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "text": "すべて",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 295,
+    "y": 230,
+    "w": 68,
+    "h": 36
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "text": "残価設定",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 363,
+    "y": 230,
+    "w": 84,
+    "h": 36
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "text": "申込みに必要な書類",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 447,
+    "y": 230,
+    "w": 154,
+    "h": 36
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "text": "中途解約",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 601,
+    "y": 230,
+    "w": 84,
+    "h": 36
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "text": "名義変更",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 685,
+    "y": 230,
+    "w": 84,
+    "h": 36
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "text": "保険",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 769,
+    "y": 230,
+    "w": 56,
+    "h": 36
+   },
+   "clipped": false
+  },
+  {
+   "tag": "button",
+   "text": "満期時の選択",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.976 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "600",
+   "lineHeight": "22.4px",
+   "rect": {
+    "x": 825,
+    "y": 230,
+    "w": 112,
+    "h": 36
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "btn",
+   "text": "問い合わせを追加",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 1045,
+    "y": 226,
+    "w": 188,
+    "h": 44
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "faq-残価設定",
+   "text": "残価設定",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 310,
+    "w": 112,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "count",
+   "text": "4件",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 378,
+    "y": 312,
+    "w": 26,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "残価はどのように決まりますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 352,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "残価（最終回のお支払い額）は、車種、タイプ、契約期間、月間走行距離で決まります。お客様が金額を決めることはできません。見積りで車種とタイプを選ぶと、残価が表示さ",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 404,
+    "w": 768,
+    "h": 51
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "見積りを作る",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 464,
+    "w": 96,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "満期時に残価を分けて支払えますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 405,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "支払えます。再クレジットで分割します。支払回数は元の契約と合わせて84回までで、頭金は入れられません。ホンダファイナンスの審査があり、再クレジットを申し込むとき",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 457,
+    "w": 768,
+    "h": 77
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "車両を返却するとき、残価との差を精算しますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 458,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "返却の条件を満たせば、精算金は発生しません。車両を返却するときに、日本自動車査定協会の基準で内外装を査定します。残クレの返却の条件は、内外装の減点が100点以内",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 510,
+    "w": 768,
+    "h": 102
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "バリ保の買取保証額はいくらですか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 511,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "買取保証額（最終回のお支払い額）は、車種、タイプ、契約期間、月間走行距離で決まります。見積りで車種とタイプを選ぶと、最終回のお支払い額に表示されます。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 563,
+    "w": 768,
+    "h": 51
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "見積りを作る",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 623,
+    "w": 96,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "faq-申込みに必要な書類",
+   "text": "申込みに必要な書類",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 604,
+    "w": 204,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "count",
+   "text": "4件",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 470,
+    "y": 606,
+    "w": 26,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "申込みに必要な書類を教えてください。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 647,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "申込書と本人確認資料（免許証など）です。収入証明、源泉徴収票、印鑑証明書は原則として要りません。法人のお客様は、法人印と代表者の本人確認書類が必要です。本人確認",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 699,
+    "w": 768,
+    "h": 77
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "クレジット申込書",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 784,
+    "w": 128,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "本人確認資料の紙の写しを郵送できますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 700,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "紙の写しの郵送は11月末で終わります。12月からは画像の取り込みで受け付けます。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 752,
+    "w": 768,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "審査中にホンダファイナンスが追加の書類を求めたときは、どうしますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 753,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "ホンダファイナンスが問い合わせの返信で書類を依頼します。その書類をホンダファイナンスの契約システムから送ってください。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 805,
+    "w": 768,
+    "h": 51
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "問い合わせ",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 864,
+    "w": 80,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "年末年始に送った申込みは、ホンダファイナンスがいつ審査しますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 806,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "ホンダファイナンスは12月30日から1月3日まで休業します。この間の申込みは、1月4日から順に審査します。年内に納車する申込みは12月22日までに送ってください",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 858,
+    "w": 768,
+    "h": 51
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "faq-中途解約",
+   "text": "中途解約",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 899,
+    "w": 112,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "count",
+   "text": "3件",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 378,
+    "y": 901,
+    "w": 26,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "契約の途中で早期一括返済できますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 941,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "できます。早期一括返済に手数料はかかりません。振込で支払うときの振込手数料は、お客様の負担です。お客様はHonda Finance PORTALから申し込めるほ",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 993,
+    "w": 768,
+    "h": 77
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "契約",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1078,
+    "w": 32,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "楽まるを途中で解約できますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 994,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "できます。中途解約金の精算が必要で、手続きは販売会社で受け付けます。中途解約金は、残りの月額料金と残価の合計から、かからなくなる費用を差し引いた額です。中途解約",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1046,
+    "w": 768,
+    "h": 77
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "契約",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1131,
+    "w": 32,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "支払いの一部を繰り上げて返済できますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1047,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "できます。一部繰上返済は、お客様がHonda Finance PORTALから申し込みます。電話では受け付けません。10万円以上、1万円単位で、口座振替で支払い",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1099,
+    "w": 768,
+    "h": 102
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "faq-名義変更",
+   "text": "名義変更",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 1140,
+    "w": 112,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "count",
+   "text": "3件",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 378,
+    "y": 1142,
+    "w": 26,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "契約者を変えられますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1183,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "変えられません。クレジットも楽まるも、契約中に契約者は変更できません。法人名義から代表者の個人名義への変更も同じです。車両を譲るときは、先にクレジットを完済しま",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1235,
+    "w": 768,
+    "h": 77
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "契約",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1320,
+    "w": 32,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "完済後の名義変更（所有権解除）は、どう手続きしますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1236,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "車検証の所有者がホンダファイナンスの車両は、支払いを終えたあとに名義変更（所有権解除）ができます。普通車は、委任状を添えてホンダファイナンスに書類を依頼します。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1288,
+    "w": 768,
+    "h": 128
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "所有権解除の委任状（普通車）",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1424,
+    "w": 224,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "転居や改姓をしたときは、どうしますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1289,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "お客様が、Honda Finance PORTALで登録情報を変更するか、ホンダファイナンス カスタマーセンターへ問い合わせます。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1341,
+    "w": 768,
+    "h": 51
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "faq-保険",
+   "text": "保険",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 1382,
+    "w": 75,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "count",
+   "text": "3件",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 341,
+    "y": 1384,
+    "w": 26,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "楽まるの月額料金に自動車保険は含まれますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1424,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "自賠責保険料は月額料金に含みます。任意保険は、販売会社で扱うHonda自動車保険あんしんプランを契約すると月額料金に含められ、保険の等級も引き継げます。楽まるで",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1476,
+    "w": 768,
+    "h": 102
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "楽まるの契約中、自賠責保険の手続きは誰がしますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1477,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "車検のときに販売会社が更新します。保険料は楽まるの月額料金に含みます。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1529,
+    "w": 768,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "契約中の車両が事故で全損になったときは、どうしますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1530,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "楽まるは中途解約となり、中途解約金を精算します。お客様からホンダファイナンス カスタマーセンターへ連絡します。クレジットは、廃車の前に完済が必要です。契約の画面",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1582,
+    "w": 768,
+    "h": 77
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "契約",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1667,
+    "w": 32,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "問い合わせを追加",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 340,
+    "y": 1667,
+    "w": 128,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "事故・全損時の精算の手引き",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 484,
+    "y": 1667,
+    "w": 208,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "h2",
+   "id": "faq-満期時の選択",
+   "text": "満期時の選択",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "18.4px",
+   "fontWeight": "700",
+   "lineHeight": "29.44px",
+   "rect": {
+    "x": 292,
+    "y": 1623,
+    "w": 149,
+    "h": 29
+   },
+   "clipped": false
+  },
+  {
+   "tag": "span",
+   "cls": "count",
+   "text": "4件",
+   "color": "oklch(0.3388 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 414,
+    "y": 1625,
+    "w": 26,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "満期時に選べる方法を教えてください。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1666,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "選べる方法は商品ごとに決まっています。残クレは、新車に乗り換える、そのまま乗り続ける（全額を口座引落か再クレジット）、車両を返却して終了の3つです。バリ保は、新",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1718,
+    "w": 768,
+    "h": 128
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "最終回支払金を全額支払うときは、どう手続きしますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1719,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "お客様が、ホンダファイナンスの案内かHonda Finance PORTALで支払方法を回答します。案内は、残クレがSMS、バリ保が書面です。最終回お支払日に、",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1771,
+    "w": 768,
+    "h": 77
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "口座振替依頼書",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1855,
+    "w": 112,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "満期時の意向は、いつまでに確かめればよいですか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1772,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "お客様が支払方法を決める期限は、最終回の2か月前です。ホンダファイナンスは最終回の8か月前と4か月前に、お客様へ案内を送ります。意向を確かめたら契約に記録します",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1824,
+    "w": 768,
+    "h": 77
+   },
+   "clipped": false
+  },
+  {
+   "tag": "a",
+   "cls": "link",
+   "text": "契約",
+   "color": "oklch(0.546 0.215 263)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1908,
+    "w": 32,
+    "h": 26
+   },
+   "clipped": false
+  },
+  {
+   "tag": "summary",
+   "text": "楽まるで走行距離が基準を超えたときは、どう精算しますか。",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "600",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1825,
+    "w": 941,
+    "h": 52
+   },
+   "clipped": false
+  },
+  {
+   "tag": "p",
+   "text": "契約時に選んだ月間走行距離（1,000kmか1,500km）が基準です。車両を返却するときに、超えた距離を車種ごとに1kmあたり5〜10円で精算します。3年と5",
+   "color": "oklch(0.218 0 0)",
+   "background": "oklch(0.961 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "25.6px",
+   "rect": {
+    "x": 292,
+    "y": 1877,
+    "w": 768,
+    "h": 102
+   },
+   "clipped": false
+  }
+ ]
+}

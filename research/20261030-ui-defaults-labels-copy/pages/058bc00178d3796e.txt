@@ -1,0 +1,40 @@
+# url: https://www.jstage.jst.go.jp/article/tjsai/32/2/32_A-AI30/_article/-char/en
+# accessed: 2026-10-30
+# chars: 6691
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Readability of Japanese Electronic Text with Bunsetsu-based Layouts Toggle navigation J-STAGE home Browse All titles All subject areas All publishers Search articles Search J-STAGE Data About J-STAGE 
+Overview Services and features Public data Terms and Policy News and PR News Maintenance information Special contents Media resources Support User manuals Browser compatibility FAQ Contact Sitemap 
+Sign in Cart EN English 日本語 Browse All titles All subject areas All publishers Search articles Search J-STAGE Data About J-STAGE Overview Services and features Public data Terms and Policy News and 
+PR News Maintenance information Special contents Media resources Support User manuals Browser compatibility FAQ Contact Sitemap Sign in Cart EN English 日本語 Advanced search Transactions of the 
+Japanese Society for Artificial Intelligence Online ISSN : 1346-8030 Print ISSN : 1346-0714 ISSN-L : 1346-0714 Journal home Advance online publication All issues About the journal J-STAGE home / 
+Transactions of the Japanese S ... / Volume 32 (2017) Issue 2 / Article overview Original Paper Readability of Japanese Electronic Text with Bunsetsu-based Layouts Jumpei Kobayashi , Takashi 
+Sekiguchi , Eiji Shinbori , Toshio Kawashima Author information Jumpei Kobayashi Dai Nippon Printing Co., Ltd. / Future University Hakodate Takashi Sekiguchi Dai Nippon Printing Co., Ltd. Eiji 
+Shinbori Dai Nippon Printing Co., Ltd. Toshio Kawashima Future University Hakodate Corresponding author Keywords: reading , Japanese text layout , line breaking , phrase segmentation , eye movements 
+JOURNAL FREE ACCESS 2017 Volume 32 Issue 2 Pages A-AI30_1-24 DOI https://doi.org/10.1527/tjsai.A-AI30 Details Published: March 01, 2017 Received: November 06, 2015 Released on J-STAGE: March 01, 2017 
+Accepted: - Advance online publication: - Revised: - Download PDF (2981K) Download citation RIS (compatible with EndNote, Reference Manager, ProCite, RefWorks) BIB TEX (compatible with BibDesk, 
+LaTeX) Text How to download citation Contact us Article overview Abstract References (61) Content from these authors Cited by (3) Share Abstract We propose bunsetsu-based layouts to improve the 
+efficiency of eye movements in reading Japanese text. When reading text, people tend to direct their gaze toward the center of a word. This is called the optimal viewing position. The optimal viewing 
+position results in the shortest gaze durations and fewest re-fixations. In the case of Japanese text, the eyes tend to fixate on each characteristic Japanese linguistic unit (bunsetsu). An 
+electronic Japanese text reader that facilitates accurate control of eye movements to bunsetsu segments could increase the reading rateand result in more efficient eye movements. In this study, we 
+develop new techniques to decrease inefficient eye movements when reading Japanese text. In Experiment I, we investigate the effectiveness of the layout with bunsetsu-based line breaking. A 
+bunsetsubased linefeed layout breaks a line between bunsetsu segments, i.e., splitting a bunsetsu segment is prohibited. The reading speed for the bunsetsu-based linefeed layout was faster compared 
+to the conventional text layout with line lengths of 5–40 characters per line. The improvements in reading speed were likely due to the optimization of eye movements near the edge of a line. In the 
+case of 5–11 characters per line, the improvements in reading speed were likely due to an increase in the number of lines that can be recognized by a single fixation. These results indicate that the 
+bunsetsu-based linefeed layout is an effective technique to improve reading efficiency. In Experiment II, we develop a new micro-vibration text reader with bunsetsu-based segmentation. The new reader 
+vibrates each bunsetsu segment in a different phase to enhance boundary information for eye guidance. The reading speed for the micro-vibration text was approximately 7%–12% faster compared to the 
+stable text with line lengths of approximately 11–29 characters per line. The improvements in reading speed were likely due to a reduction in re-fixations within a bunsetsu segment and an increase in 
+the number of lines that can be recognized by a single fixation without horizontal saccades. Moreover, 76% of the participants did not experience illegibility or incongruousness with the 
+micro-vibration text reader. These results indicate that micro-vibration is an effective technique to improve the efficiency of reading text with line lengths of 11–29 characters per line without an 
+increase in cognitive load or a decrease in comprehension. In Experiment III, we develop a new stepwise incremental indent layout with bunsetsu-based segmentation and a vertical scrolling operation. 
+The reading speed obtained by the proposed layout of 4.4 characters per line was comparable to the fixed-line length layout of 29 characters per line. This improvement is primarily achieved by a 
+reduction in the number of fixations. Moreover, 85% of the participants did not experience illegibility or incongruousness with the stepwise incremental indent layout reading. These results indicate 
+that this layout is an effective technique to improve the efficiency of reading text with line lengths of 5 characters per line without an increase in cognitive load or a decrease in comprehension. 
+These experimental results indicate that the Japanese electronic text reader with these proposed techniques can improve the reading speed of text with line lengths of 5–40 characters per line without 
+an increase in cognitive load or decrease in comprehension. References (61) Related articles (0) Figures (0) Content from these authors Supplementary material (0) Result List () Cited by (3) © The 
+Japanese Society for Artificial Intelligence 2016 Next article Favorites & Alerts Add to favorites Additional info alert Citation alert Authentication alert Related articles Recently viewed articles 
+Related journals Journal of the Japanese Society for Artificial Intelligence Proceedings of the Annual Conference of JSAI SIG-SLUD Technical report SIG-KBS Technical report SIG-FPAI Technical report 
+SIG-ALST Technical report Type 2 SIG Technical report Share this page Edited and published by Japanese Society for Artificial Intelligence Production services Japanese Society for Artificial 
+Intelligence Top Browse All titles All subject areas All publishers Search articles Search J-STAGE Data About J-STAGE Overview Services and features Public data Terms and Policy News and PR News 
+Maintenance information Special contents Media resources Support User manuals Browser compatibility FAQ Contact Sitemap feedback Top Register with J-STAGE for free! Register Already have an account? 
+Sign in here

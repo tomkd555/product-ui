@@ -1,0 +1,22 @@
+{
+  "verdicts": [
+    {
+      "id": "P2-1 / P3-1",
+      "verdict": "uphold",
+      "reason": "plan.md lines 19, 27 and 28 name 「マイ目標まで あと N件」 as the advisor's dominant element, omit the second KPI tile and set 'Tile row: none'; the brief names no exception for an advisor. In dom/1280.json, boxes[1] and boxes[2] are two div.card.kpi with the same w468 h139 at y105, and the store tile sits first at x292. span#_r_5_v \"38.6%\" and span#_r_8_v \"2\" are both 30px/700 with the same colour oklch(0.218 0 0). Both labels are 14px/600. shots/1280.png shows the two equal tiles with the store penetration on the left. shots/dark-375.png stacks the store tile first and the personal tile second at the same size, so the first stop is 38.6% in every capture I opened. I opened 1280 light and 375 dark; the 375 light and 1280 dark captures were not opened. No accepted pattern applies: the brief requires one dominant figure, so the equal pair is a departure from the brief. CRITICAL stands because the screen's stated purpose figure is not dominant.",
+      "confidence": "high"
+    },
+    {
+      "id": "P3-2",
+      "verdict": "uphold",
+      "reason": "dom/1280.json span#_r_8_l text is \"マイ目標到達までの残件\". The figure is span#_r_8_v \"2\" with a separate 16px \"件\" span. shots/1280.png shows 「目標 9件」 on the line below. plan.md line 19 sets the label 「マイ目標まで あと N件」, and line 27 omits 'the computation words in the figure's label'. 到達までの残件 is exactly that computation wording, so the label departs from the brief's copy as stated. WARNING is appropriate.",
+      "confidence": "high"
+    },
+    {
+      "id": "P2-2",
+      "verdict": "uphold",
+      "reason": "dom/1280.json boxes: two div.card.kpi at x292/x780 w468, then two section.card at the same x and w468 at y264 (h229, h307). Every region carries class card, and shots/1280.png shows a border and white panel on all four. The gaps array gives div.content-body 20,20 and div.grid 20, and the rects agree: the KPI row ends at y244 and the lists start at y264, the same 20px as the gap between columns. So no larger distance separates the figure from the lists. plan.md line 24 asks for sections on the ground with hairline rows and 'no region', line 23 for a supporting pane from 1024px, and line 26 for a two-to-one pane. The equal 468/468 columns at 1280 contradict that. The 'consistent spacing rule' pattern does not excuse this, because the brief itself asks for distance to separate the groups. WARNING is appropriate.",
+      "confidence": "high"
+    }
+  ]
+}

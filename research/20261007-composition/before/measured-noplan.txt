@@ -1,0 +1,1 @@
+{"out": "C:/Mycode/ClaudeCode/product-ui/research/20261007-composition/before/measured-noplan.json", "findings": 6, "by_severity": {"WARNING": 4, "NOTE": 2}, "unparsed_colours": 0}

@@ -1,0 +1,66 @@
+# url: https://primer.style/components/button
+# accessed: 2026-10-30
+# chars: 11801
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+Button | Primer Skip to main content Skip to filter input Primer / Product UI Product UI Brand UI Octicons Accessibility Brand Toolkit Switch to dark mode Give feedback Navigation Product UI Search 
+Product UI Product UI navigation Getting Started Component status Figma libraries Foundations Overview MCP server Color usage Content Icons Layout Responsive Typography Rails Overview Migration 
+guides Component list React Overview Migration guides Linting Primer React Philosophy Recommended practices Extending components Theming Theme Reference GitHub shared components Primitives Color Size 
+Typography Token Names Migrating to CSS Variables UI Patterns Data visualization Degraded experiences Empty states Feature onboarding Forms Loading Navigation Notification messaging Progressive 
+disclosure Saving Scenario Patterns Copy Create Customize Delegate Delete Edit Filter Search View Components ActionBar ActionList ActionMenu AnchoredOverlay Autocomplete Avatar AvatarStack Banner 
+Blankslate BranchName Breadcrumbs Button ButtonGroup Card Checkbox CheckboxGroup CircleBadge ConfirmationDialog CounterLabel DataTable Details Dialog FormControl Heading IconButton InlineMessage 
+KeybindingHint Label LabelGroup Link NavList Overlay PageHeader PageLayout Pagination Popover ProgressBar Radio RadioGroup RelativeTime SegmentedControl Select SelectPanel SkeletonAvatar SkeletonBox 
+SkeletonText Spinner SplitPageLayout Stack StateLabel Text TextInput TextInputWithTokens Textarea Timeline ToggleSwitch Token Tooltip TreeView Truncate UnderlineNav UnderlinePanels Internal 
+Components ActionListItems BannerStack ChartCard CommandPalette ControlGroup CopilotAnimation CopyToClipboard DatePicker DragAndDrop EmojiAutocomplete Filter FilterCore GitHubAvatar 
+InlineAutocomplete LifecycleLabels ListFilterButton ListItemActionMenu ListView MarkdownEditor MarkdownEditorViewSwitch NestedListView QuickSearch SimpleListView SimpleSelect UiCommands React Hooks 
+useColorSchemeVar useConfirm useDetails useFocusTrap useFocusZone useFormControlForwardedProps useOnEscapePress useOnOutsideClick useOpenAndCloseFocus useOverlay useProvidedRefOrCreate 
+useRefObjectAsForwardedRef useResizeObserver useResponsiveValue useRovingTabIndex useSafeTimeout useSlots useTheme CSS Utilities Animations Borders Box shadow Colors Details Flexbox Grid Layout 
+Margin Padding Typography Contribute Adding new components Contributing to Figma Design Documentation Handling new patterns How to contribute Product UI Components Button Button Button is used to 
+initiate actions on a page or form. Page navigation navigation Overview Guidelines Accessibility More items React ready Storybook | Source | Usage Rails ready Docs | Lookbook | Source Figma View in 
+Figma React examples Default Activate Copy Reset Open in StackBlitz code editor < Button > Activate </ Button > <Button>Activate</Button> Show full code Style variants Primary: Highest-priority 
+action; use sparingly. Never put more than one in a group of buttons, and rarely use more than one per page. Default: Default style for general actions. They can be paired with a primary Button to 
+perform a secondary action. Invisible: Transparent for minimal UI or compound components like ActionList . Danger: Used sparingly for destructive actions, typically prompt a confirmation dialog. 
+Primary Default Invisible Danger Copy Reset Open in StackBlitz code editor < Stack direction = " horizontal " align = " center " wrap = " wrap " > < Button variant = " primary " > Primary </ Button > 
+< Button variant = " default " > Default </ Button > < Button variant = " invisible " > Invisible </ Button > < Button variant = " danger " > Danger </ Button > </ Stack > <Stack 
+direction="horizontal" align="center" wrap="wrap"> <Button variant="primary">Primary</Button> <Button variant="default">Default</Button> <Button variant="invisible">Invisible</Button> <Button 
+variant="danger">Danger</Button> </Stack> Show full code Full-width Activate Copy Reset Open in StackBlitz code editor < Button block > Activate </ Button > <Button block>Activate</Button> Show full 
+code Size variants Medium (default): Best for most interfaces. Small: For compact spaces or less prominent actions. Large: Use sparingly to emphasize an action. More often than not a medium sized 
+Button will be more appropriate. Small Medium (default) Large Copy Reset Open in StackBlitz code editor < Stack direction = " horizontal " align = " center " > < Button size = " small " > Small </ 
+Button > < Button > Medium (default) </ Button > < Button size = " large " > Large </ Button > </ Stack > <Stack direction="horizontal" align="center"> <Button size="small">Small</Button> 
+<Button>Medium (default)</Button> <Button size="large">Large</Button> </Stack> Show full code With a leading visual Leading visuals add context to Button labels. For example, a “search” icon next to 
+the label for a search field submit. Activate Copy Reset Open in StackBlitz code editor < Button leadingVisual = { RocketIcon } > Activate </ Button > <Button 
+leadingVisual={RocketIcon}>Activate</Button> Show full code With a trailing visual Trailing visuals such as counters display additional information about the action or task at hand. Download Copy 
+Reset Open in StackBlitz code editor < Button trailingVisual = { DownloadIcon } > Download </ Button > <Button trailingVisual={DownloadIcon}>Download</Button> Show full code With a trailing action 
+Trailing actions (for example: a triangle icon to indicate a dropdown) are fixed at the Button's end. The Button label and leading visual is center-aligned for calls-to-action and left-aligned for 
+buttons that toggle a selection UI (for example: Weeks ▾, Iteration ▾, Sort ▾, etc). Activate Copy Reset Open in StackBlitz code editor < Button trailingAction = { TriangleDownIcon } > Activate </ 
+Button > <Button trailingAction={TriangleDownIcon}>Activate</Button> Show full code May be activated by a keyboard shortcut Undo control ⌃ z Z Submit control ⌃ enter ⏎ Copy Reset Open in StackBlitz 
+code editor < Stack direction = " horizontal " align = " center " > < Button trailingVisual = { ( ) => < KeybindingHint keys = " Mod+Z " /> } > Undo </ Button > < Button variant = " primary " 
+trailingVisual = { ( ) => < KeybindingHint variant = " onPrimary " keys = " Mod+Enter " /> } > Submit </ Button > </ Stack > <Stack direction="horizontal" align="center"> <Button trailingVisual={() 
+=> <KeybindingHint keys="Mod+Z" />}>Undo</Button> <Button variant="primary" trailingVisual={() => <KeybindingHint variant="onPrimary" keys="Mod+Enter" />}> Submit </Button> </Stack> Show full code 
+Loading Use the loading prop to show a spinner inside the Button while an action is in progress. It also sets aria-disabled and preserves focus automatically. See Button loading state for 
+accessibility details. Loading Activate Loading Copy Reset Open in StackBlitz code editor < Button loading = { true } > Activate </ Button > <Button loading={true}>Activate</Button> Show full code 
+Loading with visuals When a Button has a leading visual, trailing visual, or trailing action, the spinner replaces only that visual slot , and the button label remains visible. With a leading visual 
+The spinner replaces the leading icon. Upload Loading Upload Loading Copy Reset Open in StackBlitz code editor < Stack direction = " horizontal " align = " center " > < Button leadingVisual = { 
+UploadIcon } > Upload </ Button > < Button loading = { true } leadingVisual = { UploadIcon } > Upload </ Button > </ Stack > <Stack direction="horizontal" align="center"> <Button 
+leadingVisual={UploadIcon}>Upload</Button> <Button loading={true} leadingVisual={UploadIcon}> Upload </Button> </Stack> Show full code With a trailing visual The spinner replaces the trailing icon. 
+Export Export Loading Loading Copy Reset Open in StackBlitz code editor < Stack direction = " horizontal " align = " center " > < Button trailingVisual = { DownloadIcon } > Export </ Button > < 
+Button loading = { true } trailingVisual = { DownloadIcon } > Export </ Button > </ Stack > <Stack direction="horizontal" align="center"> <Button trailingVisual={DownloadIcon}>Export</Button> <Button 
+loading={true} trailingVisual={DownloadIcon}> Export </Button> </Stack> Show full code With a trailing action The spinner replaces the trailing action (e.g. a dropdown indicator). Export Export 
+Loading Loading Copy Reset Open in StackBlitz code editor < Stack direction = " horizontal " align = " center " > < Button aria-haspopup = " menu " aria-expanded = { false } trailingAction = { 
+TriangleDownIcon } > Export </ Button > < Button loading = { true } aria-haspopup = " menu " aria-expanded = { false } trailingAction = { TriangleDownIcon } > Export </ Button > </ Stack > <Stack 
+direction="horizontal" align="center"> <Button aria-haspopup="menu" aria-expanded={false} trailingAction={TriangleDownIcon}> Export </Button> <Button loading={true} aria-haspopup="menu" 
+aria-expanded={false} trailingAction={TriangleDownIcon}> Export </Button> </Stack> Show full code Inactive Inactive state guidelines Activate Copy Reset Open in StackBlitz code editor < Button 
+inactive > Activate </ Button > <Button inactive>Activate</Button> Show full code More code examples The previous examples are a curated subset of the full capabilities of the Button component. For 
+more examples, see the Button Storybook stories . Props Button Name Default Description alignContent 'start' | 'center' Content alignment for when visuals are present. as 'button' React.ElementType 
+href string May only be used when as is set to 'a' . The URL the button links to. If as is set to 'a', this prop is required. block boolean Allow button width to fill its container. children Required 
+React.ReactNode The content of the button. count number For counter buttons, the number to display. inactive boolean Whether the button looks visually disabled, but can still accept all the same 
+interactions as an enabled button. This is intended to be used when a system error such as an outage prevents the button from performing its usual action. Inactive styles are slightly different from 
+disabled styles because inactive buttons need to have an accessible color contrast ratio. This is because inactive buttons can have tooltips or perform an action such as opening a dialog explaining 
+why it's inactive. If both disabled and inactive are true, disabled takes precedence. leadingIcon Deprecated React.ComponentType<OcticonProps> An icon to display before the button text. leadingVisual 
+React.ElementType A visual to display before the button text. loading boolean When true, the button is in a loading state. loadingAnnouncement string The content to announce to screen readers when 
+loading. This requires loading prop to be true ref React.RefObject<HTMLButtonElement> size 'medium' 'small' | 'medium' | 'large' trailingIcon Deprecated React.ComponentType<OcticonProps> An icon to 
+display after the button text. trailingVisual React.ElementType A visual to display after the button text. trailingAction React.ElementType Trailing action appears to the right of the trailing visual 
+and is always locked to the end variant 'default' 'default' | 'primary' | 'danger' | 'invisible' | 'link' Change the visual style of the button. labelWrap false boolean Whether the button label 
+should wrap to multiple lines of it is longer than the button width. disabled boolean Avoid disabling buttons because it will make them inaccessible to users who rely on keyboard navigation. Buttons 
+that are disabled can not be clicked, selected, or navigated through. See button for more prop options On this page React examples Default Style variants Full-width Size variants With a leading 
+visual With a trailing visual With a trailing action May be activated by a keyboard shortcut Loading Inactive More code examples Props

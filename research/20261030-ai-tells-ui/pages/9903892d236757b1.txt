@@ -1,0 +1,40 @@
+# url: https://github.com/Vinayak-Shukla-03/anti-ai-slop
+# accessed: 2026-10-30
+# chars: 6776
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+GitHub - Vinayak-Shukla-03/anti-ai-slop: Portable Claude Code skill that stops UI & presentation output from reading as AI-generated. · GitHub Skip to content Navigation Menu Sign in Products 
+Platform GitHub Repository hosting, code review, and collaboration Copilot AI coding agent for tasks, projects and automated work Build & Ship Actions CI/CD and automation Code Quality Quality 
+analysis, fixes, and enforcement Codespaces Cloud development environments Secure Code Security Vulnerability detection and remediation Secret Protection Secret scanning and leak prevention All 
+Features Developers Learn Documentation Training Certifications Build Build with Copilot Customize Copilot Integrations Explore Trending repos GitHub Sponsors Events Changelog Changelog Your source 
+for the latest features, improvements, and fixes across GitHub products, all in one place. Businesses By Stage Enterprises Team Startups Nonprofits By Industry Healthcare Financial services 
+Manufacturing Government See all industries Evaluate GitHub Why GitHub Customer Stories Business insights Trust Center Add-ons GitHub Advanced Security Enterprise-grade code security Copilot for 
+business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Resources Learn & Connect Documentation Resource center Blog Events & webinars Community Forum Customer Stories 
+Integrations Support Customer support Training GitHub Status Company About Partners Changelog GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s 
+next for GitHub. Pricing Search / Sign in Sign up Appearance settings You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to 
+refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert {{ message }} Vinayak-Shukla-03 anti-ai-slop Repository navigation Code Issues Pull 
+requests Actions Projects Security and quality Insights More items anti-ai-slop Public Notifications You must be signed in to change notification settings Fork 1 ( 1 ) Star 10 ( 10 ) You must be 
+signed in to star a repository About Portable Claude Code skill that stops UI & presentation output from reading as AI-generated. Resources Readme MIT license Activity Stars 10 stars Watchers 0 
+watching Forks 1 fork Report repository main Branches Tags Go to file Code Open more actions menu Latest commit History 1 Commit 1 Commit Folders and files Name Name Last commit message Last commit 
+date references references LICENSE LICENSE README.md README.md SKILL.md SKILL.md View all files Repository files navigation README MIT license More items anti-ai-slop A portable Claude Code skill 
+that stops Claude's UI and presentation output from defaulting to the recognizable "AI-generated" house style — the purple gradients, Inter-flat type, uniform rounded cards, 3-icon feature grids, 
+emoji icons, kicker-on-every-slide, and benefit-speak copy that make generated work read as machine-made. It loads automatically whenever you ask Claude to build or restyle any visual output — a 
+website, landing page, web app, component, dashboard, or a slide deck / pitch deck — in any medium (HTML, React, Tailwind, slides). Why An LLM emits the most probable token. For an unconstrained 
+visual choice, "most probable" is the statistical average of every tutorial it was trained on — so with no constraint it deterministically produces the same purple-gradient, Inter-font, rounded-card 
+page every time. This skill forces a specific, intentional decision wherever the model would otherwise reach for that average, and it names the second-order traps too (the "tasteful AI" monoculture 
+of warm cream paper + a serif display + a terracotta accent that the first fix tends to converge on). Install Per-project — drop it into a project's skills directory: git clone https://github.
+com/Vinayak-Shukla-03/anti-ai-slop.git mkdir -p your-project/.claude/skills cp -R anti-ai-slop your-project/.claude/skills/anti-ai-slop Global — make it available in every project: git clone 
+https://github.com/Vinayak-Shukla-03/anti-ai-slop.git ~ /.claude/skills/anti-ai-slop That's it. The skill's description triggers it on any UI/deck request; no configuration needed. (Keep the 
+references/ folder next to SKILL.md — the skill links to it by relative path.) What's inside File Role SKILL.md The core: 9 hard rules, a method (brief → distinctive foundation → real content → 
+audit), a pre-ship self-audit, and a render-it-and-look ship-blocker . references/web-ui.md App / dashboard / landing-page tells + fixes, plus a reliability section (a blank page can't be un-slopped).
+ references/presentations.md Deck / slide tells + fixes (kicker-every-slide, bullet-rhythm, thank-you-slide, the "deck chrome" kit). references/toolkit.md Concrete swap-ins: palettes, font pairings, 
+scales — and a divergence matrix so a set of artifacts doesn't re-converge. The nine hard rules (the short version) No unbranded purple/indigo and no reflexive gradient. Never the system font or 
+Inter/Geist flat — a real display + body pairing. No uniform-everything — a radius/padding hierarchy; size and space signal priority. No emoji as icons — a real, consistent icon set. No transition: 
+all and no blanket fade-in — purposeful motion only. No benefit-speak ("Elevate", "Unlock", "Seamlessly", "not X — it's Y"). No fabricated precision — real numbers with a source, or none. Break the 
+template skeleton — content and audience drive structure. No second-order monoculture — if you make a set , force it to diverge (ground, display face, accent, stance). Plus a ship-blocker: render it 
+and look before calling any UI done — beautiful code that doesn't mount is worth zero. How it was built Empirically, not from vibes. A baseline corpus of 10 artifacts (5 apps + 5 decks) was generated 
+with no design guidance to capture Claude's unprompted defaults, dissected for recurring tells, cross-checked against how designers and dev communities describe "AI slop," distilled into these rules, 
+then used to rebuild the same 10 — and the rebuilds were rendered and scored. A second pass caught a second-order monoculture (the fix's own overused escape hatch) and hardened the skill with the 
+anti-monoculture + divergence rules it now carries. License MIT — see LICENSE . About Portable Claude Code skill that stops UI & presentation output from reading as AI-generated. Resources Readme MIT 
+license Activity Stars 10 stars Watchers 0 watching Forks 1 fork Report repository Releases Packages Contributors Footer © 2026 GitHub, Inc. Footer navigation Terms Privacy Security Status Community 
+Docs Contact Manage cookies Do not share my personal information You can’t perform that action at this time.

@@ -1,0 +1,98 @@
+[
+  {
+    "cid": "C6",
+    "sentence": "Colour and gradient values, typefaces, radius and shadow uniformity, emoji icons, glass and motion utilities, stock vocabulary, negative parallelism, em-dashes and unsourced figures have signals in the source files [E5, E13, E15, E33].",
+    "evidence": [
+      {
+        "id": "E5",
+        "quote": "Unchosen gradient Purple or indigo fading to blue, often on the headline",
+        "url": "https://capitalandcompute.net/blog/fix-ai-slop-design/",
+        "page": "pages/3d5a5b6c214a7de5.txt"
+      },
+      {
+        "id": "E13",
+        "quote": "A centered hero in Inter , with a small pill-shaped badge sitting directly above the headline.",
+        "url": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same",
+        "page": "pages/0a288eefefa7f07d.txt"
+      },
+      {
+        "id": "E15",
+        "quote": "the recurring ones are indigo-600 and slate-900 for color,",
+        "url": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same",
+        "page": "pages/0a288eefefa7f07d.txt"
+      },
+      {
+        "id": "E33",
+        "quote": "invented testimonials, placeholder logos still sitting in the bar, or a precise stat with no source",
+        "url": "https://landingdoctors.com/guides/why-ai-landing-pages-convert-worse",
+        "page": "pages/5c80bfda5d1d3c7d.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C7",
+    "sentence": "The page's lead content, its real proof and the inventory of empty, loading and error states belong to a step before markup [E88, E114].",
+    "evidence": [
+      {
+        "id": "E88",
+        "quote": "Well-designed empty states in applications can help increase user confidence, improve system learnability, and help users get started with key tasks quickly.",
+        "url": "https://www.nngroup.com/videos/empty-states-in-application-design-guidelines/",
+        "page": "pages/a1ce46baa1506d2c.txt"
+      },
+      {
+        "id": "E114",
+        "quote": "AIっぽさの正体は、見た目の粗さではなく、意思決定の跡がないことだ。",
+        "url": "https://note.com/nikki_r2d2/n/ndf9325b559c5",
+        "page": "pages/595698fc52649946.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C8",
+    "sentence": "Headline genericness and whole-page sameness stay with an independent reviewer [E34].",
+    "evidence": [
+      {
+        "id": "E34",
+        "quote": "the headline could belong to any company in the category — \"The modern platform for teams,\" \"Streamline your workflow,\" \"Built for the way you work.\"",
+        "url": "https://landingdoctors.com/guides/why-ai-landing-pages-convert-worse",
+        "page": "pages/5c80bfda5d1d3c7d.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C9",
+    "sentence": "Once the first defaults are banned, models fall back to a second set, and flagged words fade once they are publicised, so a ban list ages [E10, E42, E96].",
+    "evidence": [
+      {
+        "id": "E10",
+        "quote": "Ask it to make that look less AI and you get warm cream with a terracotta accent",
+        "url": "https://capitalandcompute.net/blog/fix-ai-slop-design/",
+        "page": "pages/3d5a5b6c214a7de5.txt"
+      },
+      {
+        "id": "E42",
+        "quote": "we report a marked drop in the frequency of several words previously identified as overused by ChatGPT, such as \"delve\", starting soon after they were pointed out in early 2024.",
+        "url": "https://doi.org/10.18653/v1/2025.findings-acl.657",
+        "page": null
+      },
+      {
+        "id": "E96",
+        "quote": "You still tend to converge on common choices (Space Grotesk, for example) across generations.",
+        "url": "https://raw.githubusercontent.com/anthropics/claude-cookbooks/main/coding/prompting_for_frontend_aesthetics.ipynb",
+        "page": "pages/68c39097fd687e83.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C10",
+    "sentence": "A typical page layout raises perceived trustworthiness [E68], so the rules should target unchosen defaults and fabricated content and leave conventional structure in place.",
+    "evidence": [
+      {
+        "id": "E68",
+        "quote": "Notably, the direct effect of prototypicality on trustworthiness outweighed the indirect effects through aesthetics and usability.",
+        "url": "https://doi.org/10.1016/j.ijhcs.2023.103103",
+        "page": null
+      }
+    ]
+  }
+]

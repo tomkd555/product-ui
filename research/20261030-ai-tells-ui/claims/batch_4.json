@@ -1,0 +1,176 @@
+[
+  {
+    "cid": "C16",
+    "sentence": "7 publishers name Inter, Roboto, Arial or the system stack used for every word [E1, E3, E5, E13, E95, E104, E108].",
+    "evidence": [
+      {
+        "id": "E1",
+        "quote": "Purple gradients. Inter font. Three boxes with icons arranged in a grid.",
+        "url": "https://prg.sh/ramblings/Why-Your-AI-Keeps-Building-the-Same-Purple-Gradient-Website",
+        "page": "pages/428ebb47df1ba5d9.txt"
+      },
+      {
+        "id": "E3",
+        "quote": "a fingerprint: the Inter typeface, an indigo-to-purple gradient, three rounded cards in a row, and a hero section that could belong to any of ten thousand other products.",
+        "url": "https://www.925studios.co/blog/ai-slop-design-tells",
+        "page": "pages/c9fe85fcf9260f65.txt"
+      },
+      {
+        "id": "E5",
+        "quote": "Unchosen gradient Purple or indigo fading to blue, often on the headline",
+        "url": "https://capitalandcompute.net/blog/fix-ai-slop-design/",
+        "page": "pages/3d5a5b6c214a7de5.txt"
+      },
+      {
+        "id": "E13",
+        "quote": "A centered hero in Inter , with a small pill-shaped badge sitting directly above the headline.",
+        "url": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same",
+        "page": "pages/0a288eefefa7f07d.txt"
+      },
+      {
+        "id": "E95",
+        "quote": "Clichéd color schemes (particularly purple gradients on white backgrounds)",
+        "url": "https://raw.githubusercontent.com/anthropics/claude-cookbooks/main/coding/prompting_for_frontend_aesthetics.ipynb",
+        "page": "pages/68c39097fd687e83.txt"
+      },
+      {
+        "id": "E104",
+        "quote": "Why Inter for everything. Purple-to-blue gradients. Cards nested in cards, gray",
+        "url": "https://github.com/pbakaus/impeccable",
+        "page": "pages/fa4361846156ed46.txt"
+      },
+      {
+        "id": "E108",
+        "quote": "Inter/Geist flat — a real display + body pairing. No uniform-everything — a radius/padding hierarchy; size and space signal priority. No emoji as icons — a real, consistent icon set.",
+        "url": "https://github.com/Vinayak-Shukla-03/anti-ai-slop",
+        "page": "pages/9903892d236757b1.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C17",
+    "sentence": "925studios states the reason: \"Inter unchosen signals nobody made a typography decision\" [E4].",
+    "evidence": [
+      {
+        "id": "E4",
+        "quote": "the single loudest AI tell in 2026.",
+        "url": "https://www.925studios.co/blog/ai-slop-design-tells",
+        "page": "pages/c9fe85fcf9260f65.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C18",
+    "sentence": "6 publishers describe one radius on every element and one soft shadow under every card [E7, E11, E13, E100, E108, E116].",
+    "evidence": [
+      {
+        "id": "E7",
+        "quote": "Everything in rounded-2xl with the same soft shadow; cards nested in",
+        "url": "https://capitalandcompute.net/blog/fix-ai-slop-design/",
+        "page": "pages/3d5a5b6c214a7de5.txt"
+      },
+      {
+        "id": "E11",
+        "quote": "Oversized border radius everywhere. Cards,",
+        "url": "https://noqta.tn/blog/ai-design-slop-overused-ui-patterns-fix-2026",
+        "page": "pages/68ee034d8d1fd348.txt"
+      },
+      {
+        "id": "E13",
+        "quote": "A centered hero in Inter , with a small pill-shaped badge sitting directly above the headline.",
+        "url": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same",
+        "page": "pages/0a288eefefa7f07d.txt"
+      },
+      {
+        "id": "E100",
+        "quote": "regardless of hierarchy, the same soft grey shadow (rgba(0,0,0,.1)) under each, and gradient washes as decoration;",
+        "url": "https://raw.githubusercontent.com/anthropics/skills/main/skills/frontend-design/SKILL.md",
+        "page": "pages/d2b65577e08bd817.txt"
+      },
+      {
+        "id": "E108",
+        "quote": "Inter/Geist flat — a real display + body pairing. No uniform-everything — a radius/padding hierarchy; size and space signal priority. No emoji as icons — a real, consistent icon set.",
+        "url": "https://github.com/Vinayak-Shukla-03/anti-ai-slop",
+        "page": "pages/9903892d236757b1.txt"
+      },
+      {
+        "id": "E116",
+        "quote": "横に3つ並んだ角丸カード。それぞれにアイコン(だいたい絵文字)、太字の見出し、2〜3行の説明文。",
+        "url": "https://note.com/chitosedev/n/n0f2f2daaf0c6",
+        "page": "pages/cbcf58928860da43.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C19",
+    "sentence": "The named signals are `rounded-2xl` and `rounded-3xl`, `shadow-lg` and `p-6` [E15], a shadow of `rgba(0,0,0,.1)` [E100], and a radius near 16px with a faint shadow [E116].",
+    "evidence": [
+      {
+        "id": "E15",
+        "quote": "the recurring ones are indigo-600 and slate-900 for color,",
+        "url": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same",
+        "page": "pages/0a288eefefa7f07d.txt"
+      },
+      {
+        "id": "E100",
+        "quote": "regardless of hierarchy, the same soft grey shadow (rgba(0,0,0,.1)) under each, and gradient washes as decoration;",
+        "url": "https://raw.githubusercontent.com/anthropics/skills/main/skills/frontend-design/SKILL.md",
+        "page": "pages/d2b65577e08bd817.txt"
+      },
+      {
+        "id": "E116",
+        "quote": "横に3つ並んだ角丸カード。それぞれにアイコン(だいたい絵文字)、太字の見出し、2〜3行の説明文。",
+        "url": "https://note.com/chitosedev/n/n0f2f2daaf0c6",
+        "page": "pages/cbcf58928860da43.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C20",
+    "sentence": "A row of 3 equal feature cards is named by 7 publishers [E1, E3, E6, E13, E35, E115, E116].",
+    "evidence": [
+      {
+        "id": "E1",
+        "quote": "Purple gradients. Inter font. Three boxes with icons arranged in a grid.",
+        "url": "https://prg.sh/ramblings/Why-Your-AI-Keeps-Building-the-Same-Purple-Gradient-Website",
+        "page": "pages/428ebb47df1ba5d9.txt"
+      },
+      {
+        "id": "E3",
+        "quote": "a fingerprint: the Inter typeface, an indigo-to-purple gradient, three rounded cards in a row, and a hero section that could belong to any of ten thousand other products.",
+        "url": "https://www.925studios.co/blog/ai-slop-design-tells",
+        "page": "pages/c9fe85fcf9260f65.txt"
+      },
+      {
+        "id": "E6",
+        "quote": "Stock page order Centred hero, pill badge, two buttons, logo row, three",
+        "url": "https://capitalandcompute.net/blog/fix-ai-slop-design/",
+        "page": "pages/3d5a5b6c214a7de5.txt"
+      },
+      {
+        "id": "E13",
+        "quote": "A centered hero in Inter , with a small pill-shaped badge sitting directly above the headline.",
+        "url": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same",
+        "page": "pages/0a288eefefa7f07d.txt"
+      },
+      {
+        "id": "E35",
+        "quote": "The mad-lib headline. \"The AI-powered [X] for modern [Y].\" It describes a category, not a promise.",
+        "url": "https://superdesign.dev/blog/fix-generic-ai-landing-page",
+        "page": "pages/10f6646335a49bfb.txt"
+      },
+      {
+        "id": "E115",
+        "quote": "「未来の働き方を変える」 「あなたの可能性を解き放つ」",
+        "url": "https://note.com/nikki_r2d2/n/ndf9325b559c5",
+        "page": "pages/595698fc52649946.txt"
+      },
+      {
+        "id": "E116",
+        "quote": "横に3つ並んだ角丸カード。それぞれにアイコン(だいたい絵文字)、太字の見出し、2〜3行の説明文。",
+        "url": "https://note.com/chitosedev/n/n0f2f2daaf0c6",
+        "page": "pages/cbcf58928860da43.txt"
+      }
+    ]
+  }
+]

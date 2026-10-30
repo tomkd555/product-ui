@@ -41,7 +41,7 @@ A note about the method (what was left undone, what a number does not measure, t
 | The definition of a metric: what the number is | An info icon beside the label, opening a tooltip of one sentence in the present tense | A `<dl>` of definitions under the chart | Power BI: [Help tooltips](https://learn.microsoft.com/power-bi/visuals/power-bi-visualization-help-tooltips) "appear when a consumer selects the **Help tooltip** icon in the visual header" ([Tooltips overview](https://learn.microsoft.com/power-bi/visuals/power-bi-visualization-tooltips-overview)) |
 | The state of the data: sampled, thresholded, estimated, awaiting more data | A status indicator, icon or badge, with a fixed noun-phrase label and a link for the mechanism | A sentence narrating what the pipeline did or did not do | GA4: the [data quality indicator](https://support.google.com/analytics/answer/12856703) at the top of a report, with the status "Thresholding applied"; Optimizely: the [Results page](https://support.optimizely.com/hc/en-us/articles/4410284017421-Optimizely-Experiment-Results-page) "displays that more visitors are needed" |
 | Statistical uncertainty | The interval drawn on the chart, or a status: winning, losing, inconclusive | Prose about the hypothesis, the p-value or the false-positive rate | Optimizely: on the [Results page](https://support.optimizely.com/hc/en-us/articles/4410284017421-Optimizely-Experiment-Results-page), "statistical significance" is a link to the help centre |
-| How the method works | A help-centre page reached by 「詳しく見る」 or a link naming the page, such as "How significance is calculated" (C15 reports a bare "Learn more") | Inline | Optimizely and GA4 link out |
+| How the method works | A help-centre page reached by a link naming the page, such as 「有意差の計算方法」 or "How significance is calculated" (C15 reports a bare "Learn more"; a bare 「詳しく見る」 fails for the same reason) | Inline | Optimizely and GA4 link out |
 | A fact about the data: the source, the period, an exclusion, a break in the series, an axis that does not start at zero | One line under the chart, stated as a fact: 「出典：アクセス解析ログ、2026年1月〜8月」 | A paragraph; a note attached to the title | [Datawrapper Academy](https://www.datawrapper.de/academy/annotate-tab): notes "clarify any abnormalities about your data" and "appear below the chart"; [Eurostat](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Tutorial:Guidelines_for_notes_and_footnotes): notes are "restricted to the maximum extent", and "Footnotes should not be attached to the chart or table title" |
 | A legal disclaimer | Fixed wording, in the footer or directly under each result card | The author's own paraphrase | Any product whose statute or regulator fixes the wording, quoted verbatim |
 
@@ -106,6 +106,12 @@ Every screen names one dominant element in its composition plan and gives it the
 
 **Why.** "If everything is contrasted, then nothing stands out" (Nielsen Norman Group); when every panel weighs the same, the reader has to read the whole screen to find what it is for.
 
+### Proof comes from the brief
+
+A figure, a testimonial, a customer logo or a claim of rank on a screen appears only where the `## Proof` section of `ui-brief.md` lists it with its source. The rest is deleted, and no placeholder stands in for it (C27 in `check_copy.py` owns the check).
+
+**Why.** An invented proof harms the reader whether or not they suspect that a generator wrote the page (research T19, `research/20261030-ai-tells-ui/report.md`).
+
 ### A label names the object or the reader's task
 
 A heading, a navigation item or a KPI label names the object it governs or the outcome the reader gets, in the reader's words. A label that names the feature (「ユーザー管理機能」), the computation (「掲載車種内シェアが最大のセグメント」), the product, or only a generic noun (「概要」「詳細」「情報」「管理」) is rewritten (C18 to C21 in `check_copy.py`; the reader-fit questions in the brief for the rest).
@@ -121,6 +127,10 @@ An **error** means a pattern settles it mechanically: the string describes the i
 ### Scope
 
 Files matching `.html`, `.htm`, `.jsx`, `.tsx`, `.vue`, `.svelte`, `.astro`; `.css` and `.scss` for ST10 only, read as plain CSS.
+
+ST1 to ST6, ST8 and ST9 also read the string literals of `.ts`, `.js` and `.mjs` files and the catalog files (`.json` and `.ts` under `locales`, `locale`, `i18n`, `messages` or `lang`), so guide and FAQ prose kept in data files is judged. `scripts/ts_strings.py` holds the one extraction rule, shared with `check_copy.py`. Each string becomes a segment whose source is the last segment of its key, lower-cased, where that is `label`, `aria-label`, a helper prop (`helpertext`, `helptext`, `hint`, `description`, `caption`, `subtitle`) or a tooltip source (`title`, `tooltip`); any other key gives the string's kind. ST6 runs on the file's strings joined in order. ST7 and ST10 judge rendered and declared sizes, so they skip script and catalog files. A script file with no user-visible string is not counted as scanned. `*.d.ts`, `*.config.*`, `*.min.*`, `*.test.*` and `*.spec.*` are excluded.
+
+The PostToolUse hook (`hooks/ui_text_lint.py`) keeps its markup and stylesheet extensions. It runs in every project after every write, and the strings of a data file are judged at Step 4.
 
 Excluded: `node_modules/`, `dist/`, `build/`, `.next/`, `out/`, `.svelte-kit/`, `.git/`, `coverage/`, `fixtures/`, `*.min.*`, `*.test.*`, `*.spec.*`.
 
@@ -151,7 +161,7 @@ ST3 asks whether the file sits on a promotional surface. In order of precedence:
 
 ### ST2: an instruction that points at the layout (error)
 
-**Check.** A Japanese positional phrase, `(下記|上記|以下|左記|右記|下|上|右|左)の(フォーム|入力欄|ボタン|欄|メニュー|タブ|カード|リンク|チェックボックス|プルダウン)`, in a string that also carries an instruction (`ください`, `入力`, `選択`, `押`, `クリック`, `タップ`, `参照`, `ご覧`). In English, an instruction verb followed by a UI noun and then `below` or `above`, or the bare form `the <noun> below/above`.
+**Check.** A Japanese positional phrase, `(下記|上記|以下|左記|右記|下|上|右|左)の(フォーム|入力欄|ボタン|欄|メニュー|タブ|カード|リンク|チェックボックス|プルダウン)`, in a string that also carries an instruction (`ください`, `入力`, `選択`, `押`, `クリック`, `タップ`, `参照`, `ご覧`). In English, an instruction verb followed by a UI noun and then `below` or `above`, the bare form `the <noun> below/above`, or an instruction verb whose sentence ends on `below` or `above` ("Enter your email below").
 
 **Allowed.** The positional word without a UI noun: 「以下の条件」「上記の合計金額」 point at content and pass. The nouns that name content as readily as chrome (項目, 一覧, 表, リスト) are left off the list, so 「以下の項目をご確認のうえ、送信してください」 and 「下記の一覧に誤りがあれば修正してください」 pass; a confirmation screen says these about its own data.
 
@@ -164,7 +174,7 @@ ST3 asks whether the file sits on a promotional surface. In order of precedence:
 **Allowed.**
 
 - Empty-state text, recognised by `empty`, `EmptyState`, `no-data`, `nodata`, `空`, `ありません`, `ございません` or `0件` within 200 characters of the string; it legitimately says what becomes possible.
-- Hero copy on a landing-page surface, as settled under The surface.
+- Any string in a file on a landing-page surface, as settled under The surface; the script cannot tell the hero from the rest of the page.
 - A `title` or `tooltip` attribute or prop, whose whole job is stating what a control does: 「Ctrl+S でも保存できます」 passes.
 - A string that already raised ST1: ST1 reports it and ST3 stays silent.
 
@@ -190,7 +200,7 @@ ST3 asks whether the file sits on a promotional surface. In order of precedence:
 
 **Check.** Per file. The visible text carries `まず`, `最初に` or `はじめに` together with `してください` or `して下さい`, and also carries `次に`, `その後`, `続いて` or `最後に`. In English, `First,` together with `Then`.
 
-**Allowed.** A file carrying a recognisable wizard or stepper, where the steps are the interface. The signals are read from markup only: `stepper`, `wizard`, `role="tablist"`, `aria-current="step"`, an `<ol>`, a `<Step>` or `<Steps>` component, or `steps` as a whole quoted value. Onboarding prose is where the word "steps" appears in visible text, so counting it would switch the check off on the files it exists for.
+**Allowed.** A file carrying a recognisable wizard or stepper, where the steps are the interface. The signals are read from markup only: `stepper`, `wizard`, `role="tablist"`, `aria-current="step"`, an `<ol>`, a `<Step>` or `<Steps>` component, or `step` or `steps` as a whole quoted value. Onboarding prose is where the word "steps" appears in visible text, so counting it would switch the check off on the files it exists for.
 
 **Why.** File-level, because the defect is a sequence of instructions spread across the layout, which no single string reveals.
 
@@ -262,7 +272,7 @@ Also, with no negation at all, a string longer than ten visible characters carry
 
 ## Out of reach for this script
 
-ST7 in source mode misses a size set from JavaScript, a `transform: scale()` or a `zoom` on an ancestor, and a rule behind a selector the resolver skips (`:nth-child`, `:not()`, attribute selectors, and the `>`, `+` and `~` combinators). ST10 still reports such a declaration at its own line when it is under the minimum; the element it lands on is seen only by ST7's `--dom` mode, which `review-design-lead`'s `check_render.py` R7 also covers at review time.
+ST7 in source mode misses a size set from JavaScript, a `transform: scale()` or a `zoom` on an ancestor, and a rule behind a selector the resolver skips (any selector outside the forms under Selectors: a pseudo-class such as `:hover`, `:first-child` or `:nth-child`, a pseudo-element, `*`, an attribute selector, and the `>`, `+` and `~` combinators). ST10 still reports such a declaration at its own line when it is under the minimum; the element it lands on is seen only by ST7's `--dom` mode, which `review-design-lead`'s `check_render.py` R7 also covers at review time.
 
 The `shippable-text-auditor` agent judges the following on the built screen, since each needs a reader who can tell what a sentence means:
 
@@ -271,5 +281,5 @@ The `shippable-text-auditor` agent judges the following on the built screen, sin
 - Helper text that restates its label in meaning through different words, which ST4's bigram overlap cannot see.
 - A caption stating what is already visible on the chart, the table or the card above it.
 - Whether a legend's encoding is ambiguous, which is the only question that decides ST5.
-- Whether an empty state's sentence names a next action or merely reports the emptiness.
+- Whether an empty state's next-action sentence repeats what its button already says; a sentence reporting the emptiness alone stands.
 - A definitions legend under a chart written without a negation. 「購入まで進んだセッションの、全セッションに対する割合」 is a tooltip's sentence sitting in a `<dl>`, and only a reader can tell it from a data-fact note.

@@ -1,0 +1,134 @@
+[
+  {
+    "cid": "C1",
+    "sentence": "Spacing steps sit on a 4px base in Tailwind, Carbon and Primer, on 8px in Atlassian and on 5px in GOV.UK [E1, E13, E15, E16, E10].",
+    "evidence": [
+      {
+        "id": "E1",
+        "quote": "--spacing : 0.25 rem ;",
+        "url": "https://tailwindcss.com/docs/theme",
+        "page": "pages/2c29428720911e44.txt"
+      },
+      {
+        "id": "E13",
+        "quote": "Token rem px Example $spacing-01 0.125 2 $spacing-02 0.25 4 $spacing-03 0.5 8 $spacing-04 0.75 12 $spacing-05 1 16",
+        "url": "https://carbondesignsystem.com/elements/spacing/overview/",
+        "page": "pages/4a7825e6787719d4.txt"
+      },
+      {
+        "id": "E15",
+        "quote": "--base-size-2 Copy to clipboard 0.125rem 2px --base-size-4 Copy to clipboard 0.25rem 4px",
+        "url": "https://primer.style/foundations/primitives/size",
+        "page": "pages/50d6301c93fe94db.txt"
+      },
+      {
+        "id": "E16",
+        "quote": "Building off of the 8px base unit",
+        "url": "https://atlassian.design/foundations/spacing",
+        "page": "pages/d70488b60c1acc28.txt"
+      },
+      {
+        "id": "E10",
+        "quote": "The static spacing scale Spacing unit All screens 0 0 1 5px 2 10px 3 15px 4 20px 5 25px 6 30px 7 40px 8 50px 9 60px",
+        "url": "https://design-system.service.gov.uk/styles/spacing/",
+        "page": "pages/cc0e05eef9da12e0.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C2",
+    "sentence": "Body text is 16px in DADS and SmartHR, the two Japanese systems, and 14px in the dense product sets of Carbon and Atlassian [E21, E62, E67, E71].",
+    "evidence": [
+      {
+        "id": "E21",
+        "quote": "本文やUIにおいては16 CSS px以上が基準値となります。",
+        "url": "https://design.digital.go.jp/dads/foundations/typography/",
+        "page": "pages/bceea5dac0042dba.txt"
+      },
+      {
+        "id": "E62",
+        "quote": "基準値は 16px です。",
+        "url": "https://smarthr.design/products/design-tokens/typography/",
+        "page": "pages/3efbb80252fb807f.txt"
+      },
+      {
+        "id": "E67",
+        "quote": "uses a base type size of 14px, while the expressive type set uses a base type size of 16px.",
+        "url": "https://carbondesignsystem.com/elements/typography/type-sets/",
+        "page": "pages/a2a068820d124ac1.txt"
+      },
+      {
+        "id": "E71",
+        "quote": "Regular 0.875 rem / 14 px 1.25 rem / 20 px 0.75 rem / 12 px",
+        "url": "https://atlassian.design/foundations/typography/",
+        "page": "pages/8850695aa7cac278.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C3",
+    "sentence": "DADS allows 14px only as an exception and in principle permits nothing smaller [E47].",
+    "evidence": [
+      {
+        "id": "E47",
+        "quote": "px未満の大きさの使用は原則として許容されません。",
+        "url": "https://design.digital.go.jp/dads/foundations/typography/",
+        "page": "pages/bceea5dac0042dba.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C4",
+    "sentence": "Japanese body text takes a line height of 1.5 or more and letter spacing of 0 to 2% [E48, E64, E50], and WCAG sets the line length at 80 characters, or 40 for CJK text [E73].",
+    "evidence": [
+      {
+        "id": "E48",
+        "quote": "読み物コンテンツにおける本文テキストの行ボックスの高さ(行高)はフォントサイズに対して少なくとも1.5倍を維持することを推奨します。",
+        "url": "https://design.digital.go.jp/dads/foundations/typography/",
+        "page": "pages/bceea5dac0042dba.txt"
+      },
+      {
+        "id": "E64",
+        "quote": "行送りは、基本的にフォントサイズの1.5倍( NORMAL )です。",
+        "url": "https://smarthr.design/products/design-tokens/typography/",
+        "page": "pages/3efbb80252fb807f.txt"
+      },
+      {
+        "id": "E50",
+        "quote": "文字間隔( letter-spacing )はフォントサイズの大小に応じて、 0 、 1% ( 0.01em )、 2%",
+        "url": "https://design.digital.go.jp/dads/foundations/typography/",
+        "page": "pages/bceea5dac0042dba.txt"
+      },
+      {
+        "id": "E73",
+        "quote": "Lines should not exceed 80 characters or glyphs (40 if CJK)",
+        "url": "https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html",
+        "page": "pages/7ba7541424d6be37.txt"
+      }
+    ]
+  },
+  {
+    "cid": "C5",
+    "sentence": "Tailwind and shadcn/ui defaults sit inside most of these ranges: a 4px spacing unit, `text-base` at 16px on a 24px line, and a 36px default button [E1, E54, E34].",
+    "evidence": [
+      {
+        "id": "E1",
+        "quote": "--spacing : 0.25 rem ;",
+        "url": "https://tailwindcss.com/docs/theme",
+        "page": "pages/2c29428720911e44.txt"
+      },
+      {
+        "id": "E54",
+        "quote": "var(--text-base); /* 1rem (16px) */ line-height: var(--text-base--line-height); /* calc(1.5 / 1) */",
+        "url": "https://tailwindcss.com/docs/font-size",
+        "page": "pages/2dddcd46442b8e42.txt"
+      },
+      {
+        "id": "E34",
+        "quote": "size: { default: \"h-9 px-4 py-2 has-[>svg]:px-3",
+        "url": "https://raw.githubusercontent.com/shadcn-ui/ui/main/apps/v4/registry/new-york-v4/ui/button.tsx",
+        "page": "pages/30682d9a48c3b9bb.txt"
+      }
+    ]
+  }
+]

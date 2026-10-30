@@ -6,7 +6,7 @@ This file is the source of record for what this skill builds with when the reque
 
 | Layer | Default | Why this one |
 |---|---|---|
-| Tokens | Tailwind CSS v4 `@theme`, with context-dependent tokens in a two-tier `@theme inline` plus `:root`/`.dark` arrangement | The tokens decide which utility classes exist, so a value outside the token set has no class to write (`references/tokens-format.md`) |
+| Tokens | Tailwind CSS v4 `@theme`, with context-dependent tokens in a two-tier `@theme inline` plus `:root`/`.dark` arrangement | The tokens decide which utility classes exist, so a value outside the token set has no class to write (`references/tokens-format.md`). Tailwind's default palette stays defined, and `check_slop.py` S1 rejects its classes (`bg-blue-600`) unless `theme.css` defines that colour name |
 | Components | shadcn/ui on **Base UI** | Focus management and keyboard behaviour need a base that supplies them, and React is the only ecosystem where three such bases are first-class options in shadcn |
 | SaaS renderer | Vite + React | An application screen is mostly interaction (state, events, focus), and that is where an application framework earns its cost |
 | Landing-page renderer | Astro, using the same React components as islands | Astro renders every UI component to HTML and CSS by default, stripping client JavaScript, and the component layer stays shared with the SaaS side |

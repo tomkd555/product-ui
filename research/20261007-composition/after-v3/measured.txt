@@ -1,0 +1,1 @@
+{"out": "C:/Mycode/ClaudeCode/product-ui/research/20261007-composition/after-v3/measured.json", "findings": 1, "by_severity": {"WARNING": 1}, "unparsed_colours": 0}

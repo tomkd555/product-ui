@@ -3,6 +3,13 @@
     "name": "Preset using DADS token values",
     "surface": "saas",
     "reference": "digital-agency-design-system",
+    "logo": null,
+    "provenance": {
+      "color.primary": "reference:DADS blue-900 (references/dads.md)",
+      "color.accent": "reference:DADS yellow-300 (references/dads.md)",
+      "typography.display": "reference:DADS Noto Sans JP",
+      "typography.body": "reference:DADS Noto Sans JP"
+    },
     "users": [
       { "role": "Resident applicant", "frequency": "occasional", "expertise": "novice",
         "job": "Submit one application and learn whether it was accepted", "basis": "assumed" }

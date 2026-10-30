@@ -7,10 +7,11 @@ Written at product-ui Step 3, before any markup, and completed at Step 5: the pl
 - Purpose, one sentence: {{purpose}}
 - Surface: {{meta.surface}}   (saas = a product screen behind a login; lp = a public landing page)
 - Structure: {{meta.structure}}   (ooui = objects first, `references/ooui.md`; task = the order of a procedure; unset = `tokens.json` carries no `meta.structure`)
+- Brand area: {{none | the elements the user asked for}}   (`none` by default: no logo, letter tile, product name or company name is drawn unless the user specified it)
 - Tokens: {{tokens_path}}
 - Theme: {{theme_path}}
 - Built files: {{built_files}}   (Step 5)
-- Controls: {{wired|mock}} (wired: every control reaches its destination; mock: links and buttons are placeholders) (Step 5)
+- Controls: {{wired|mock}} (wired: every control reaches its destination; mock: a control that does nothing is shown disabled or left out, and never reports success) (Step 5)
 
 ## Composition
 
@@ -28,10 +29,32 @@ One block per screen, from `references/composition.md`. With two or more screens
 - Decided for this screen: {{dominant element, archetype, density, group sizes}}
 - Omitted: {{what was cut, and why the rest is more visible for it}}
 - Tile row: {{none | the tiles, the monitored quantity and comparison of each, and the dominant tile}}
+- Lead content (`lp` only): {{what the reader sees first: the product itself, named}}
+
+## Proof
+
+Every figure, testimonial, customer logo and claim the screen shows, with its source. `check_copy.py` (C27) reads this section; a proof-shaped string whose figure or name is not here fails. Empty means the screen shows none.
+
+| Item | Text as shown | Source |
+|---|---|---|
+| {{figure, testimonial, customer logo or claim}} | {{text}} | {{where it comes from}} |
+
+## States
+
+Per screen, the state each part falls back to. A collection, a fetch or a form without its entry here has no designed state.
+
+- Collection `{{name}}`: empty state {{what the reader sees and the next action}}
+- Fetch `{{name}}`: loading {{state}}; error {{state, with the cause the reader can act on}}
+- Form `{{name}}`: validation {{when it runs, where the message sits}}
+
+## Sample data
+
+- Supplied by: {{the user | the project's fixtures | invented for this mock}}
+- Mock data varies names, dates and amounts, and carries no statistic the reader did not ask for.
 
 ## What the reviewer judges
 
-`check_render.py` measures contrast, token discipline, overflow, hit areas, input labels, heading levels, nested enclosures, spacing steps, emphasis levels and equal tile rows before any auditor starts. The reviewer judges the rest:
+`check_render.py` measures contrast, token discipline, overflow, clipped text, hit areas, input labels, text under the minimum size, heading levels, console errors, links without a destination, the viewport width, nested enclosures, spacing steps, emphasis levels and equal tile rows before any auditor starts. The reviewer judges the rest:
 
 - the cold-read questions below, from the screenshot, before the dump is read
 - overlap and alignment

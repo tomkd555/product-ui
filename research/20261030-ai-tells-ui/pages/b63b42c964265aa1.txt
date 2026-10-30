@@ -1,0 +1,39 @@
+# url: https://credibility.stanford.edu/guidelines/index.html
+# accessed: 2026-10-30
+# chars: 6685
+# Line breaks belong to this cache alone; the source has its own. Quote from inside one line.
+
+The Web Credibility Project: Guidelines - Stanford University www.webcredibility.org Stanford Guidelines for Web Credibility How can you boost your web site's credibility? We have compiled 10 
+guidelines for building the credibility of a web site. These guidelines are based on three years of research that included over 4,500 people. Guideline Additional Comments Supporting Research from 
+our lab 1. Make it easy to verify the accuracy of the information on your site. You can build web site credibility by providing third-party support (citations, references, source material) for 
+information you present, especially if you link to this evidence. Even if people don't follow these links, you've shown confidence in your material. chi00 , chi01a , ptl02 , unp 2. Show that there's 
+a real organization behind your site. Showing that your web site is for a legitimate organization will boost the site's credibility. The easiest way to do this is by listing a physical address. Other 
+features can also help, such as posting a photo of your offices or listing a membership with the chamber of commerce. chi00 , chi01a , chi01b , ptl02 3. Highlight the expertise in your organization 
+and in the content and services you provide. Do you have experts on your team? Are your contributors or service providers authorities? Be sure to give their credentials. Are you affiliated with a 
+respected organization? Make that clear. Conversely, don't link to outside sites that are not credible. Your site becomes less credible by association. acm99 , chi99 , chi00 , chi01a , chi01b , ptl02 
+, unp 4. Show that honest and trustworthy people stand behind your site. The first part of this guideline is to show there are real people behind the site and in the organization. Next, find a way to 
+convey their trustworthiness through images or text. For example, some sites post employee bios that tell about family or hobbies. chi99 , chi01b , unp 5. Make it easy to contact you. A simple way to 
+boost your site's credibility is by making your contact information clear: phone number, physical address, and email address. chi00 , chi01a , ptl02 , unp 6. Design your site so it looks professional 
+(or is appropriate for your purpose). We find that people quickly evaluate a site by visual design alone. When designing your site, pay attention to layout, typography, images, consistency issues, 
+and more. Of course, not all sites gain credibility by looking like IBM.com. The visual design should match the site's purpose. chi99 , chi00 , chi01a , ptl02 , unp 7. Make your site easy to use -- 
+and useful. We're squeezing two guidelines into one here. Our research shows that sites win credibility points by being both easy to use and useful. Some site operators forget about users when they 
+cater to their own company's ego or try to show the dazzling things they can do with web technology. acm99 , chi99 , chi00 , chi01a , ptl02 , unp 8. Update your site's content often (at least show 
+it's been reviewed recently). People assign more credibility to sites that show they have been recently updated or reviewed. chi00 , chi01a , ptl02 , unp 9. Use restraint with any promotional content 
+(e.g., ads, offers). If possible, avoid having ads on your site. If you must have ads, clearly distinguish the sponsored content from your own. Avoid pop-up ads, unless you don't mind annoying users 
+and losing credibility. As for writing style, try to be clear, direct, and sincere. chi00 , chi01a , chi01b , ptl02 , unp 10. Avoid errors of all types, no matter how small they seem. Typographical 
+errors and broken links hurt a site's credibility more than most people imagine. It's also important to keep your site up and running. acm99 , chi99 , chi00 , chi01a , chi01b , ptl02 , unp For more 
+information, contact bjfogg@stanford.edu Suggested Citation Fogg, B.J. (May 2002). "Stanford Guidelines for Web Credibility." A Research Summary from the Stanford Persuasive Technology Lab. Stanford 
+University. www.webcredibility.org/guidelines Research Details acm99 Title "Credibility and Computing Technology" Authors Shawn Tseng & B.J. Fogg Source Communications of the ACM , vol. 42, issue 5 
+(May 1999), pp. 39-44. Online http://captology.stanford.edu/pdf/p39-tseng.pdf chi99 Title "The Elements of Computer Credibility" Authors B.J. Fogg & Shawn Tseng Source Proceedings of ACM CHI 99 
+Conference on Human Factors in Computing Systems , v.1, pp. 80-87. New York: ACM Press. Online http://captology.stanford.edu/pdf/p80-fogg.pdf chi00 Title "Elements that Affect Web Credibility: Early 
+Results from a Self-Report Study" Authors B.J. Fogg, Jonathan Marshall, Othman Laraki, Alex Osipovich, Chris Varma, Nicholas Fang, Jyoti Paul, Akshay Rangnekar, John Shon, Preeti Swani, & Marissa 
+Treinen Source Proceedings of ACM CHI 2000 Conference on Human Factors in Computing Systems , v.2, New York: ACM Press. Online No online source yet chi01a Title "What Makes A Web Site Credible? A 
+Report on a Large Quantitative Study" Authors B.J. Fogg, Jonathan Marshall, Othman Laraki, Alex Osipovich, Chris Varma, Nicholas Fang, Jyoti Paul, Akshay Rangnekar, John Shon, Preeti Swani, & Marissa 
+Treinen Source Proceedings of ACM CHI 2001 Conference on Human Factors in Computing Systems , v. 1, 61-68. New York: ACM Press. Online http://captology.stanford.edu/pdf/p61-fogg.pdf chi01b Title "Web 
+Credibility Research: A Method for Online Experiments and Some Early Study Results" Authors B.J. Fogg, Jonathan Marshall, Tami Kameda, Joshua Solomon, Akshay Rangnekar, John Boyd, & Bonny Brown 
+Source Proceedings of ACM CHI 2001 Conference on Human Factors in Computing Systems , v.2. New York: ACM Press. Online http://captology.stanford.edu/pdf/WebCred%20Fogg%20CHI%202001%20short%20paper.
+PDF ptl02 Title "Stanford-Makovsy Web Credibility Study 2002: Investigating What Makes Web Sites Credible Today" Authors B.J. Fogg, Tami Kameda, John Boyd, Jonathan Marshall, Ramit Sethi, & Mike 
+Sockol Source Report from the Persuasive Technology Lab (not peer reviewed) Online http://captology.stanford.edu/pdf/Stanford-MakovskyWebCredStudy2002-prelim.pdf unp Unpublished research Our lab has 
+done research that is not published, such as student honors theses, class projects, and pilot studies. If we make this work public in the future, you'll find it at webcredibility.org . Updated June, 
+2002 Contact Information: Stanford Persuasive Technology Lab Cordura Hall 226 Stanford University Stanford, CA 94305 (650) 723-0695 www.captology.org e-mail: bjfogg@stanford.edu Research on Web 
+Credibility: Click here to visit the Stanford Web Credibility Research Site by the Stanford Persuasive Tech Lab. Copyright © Stanford Persuasive Technology Lab, 2004

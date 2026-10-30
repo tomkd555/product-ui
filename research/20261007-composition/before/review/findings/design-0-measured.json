@@ -1,0 +1,56 @@
+{
+ "perspective": "P0 Measured",
+ "viewport": "both",
+ "findings": [
+  {
+   "id": "R-1",
+   "check": "R2",
+   "severity": "WARNING",
+   "location": "a.nav-item \"販売店\" at 1280, 375; a.nav-item \"マイ目標\" at 1280, 375; a.nav-item \"市場動向\" at 1280, 375",
+   "evidence": "off-token colour oklch(0.3488 0 0) at 1280, 375 (18 elements); no entry in tokens.json color or color_dark matches it",
+   "fix": "Replace the literal with the theme.css variable that carries the intended token."
+  },
+  {
+   "id": "R-2",
+   "check": "R2",
+   "severity": "WARNING",
+   "location": "span.badge \"要対応\" at 1280, 375",
+   "evidence": "off-token background color(srgb 0.983933 0.91983 0.92075) at 1280, 375 (1 element); no entry in tokens.json color or color_dark matches it",
+   "fix": "Replace the literal with the theme.css variable that carries the intended token."
+  },
+  {
+   "id": "R-3",
+   "check": "R1",
+   "severity": "CRITICAL",
+   "location": "a.nav-item \"ホーム\" at dark-1280, dark-375",
+   "evidence": "contrast 1.62:1 oklch(0.74 0.15 29) on oklch(0.531 0.218 29 / 0.22) at 14.4px (needs 4.5:1; 1 element)",
+   "fix": "Darken the text or lighten the background until the pair reaches 4.5:1."
+  },
+  {
+   "id": "R-4",
+   "check": "R2",
+   "severity": "WARNING",
+   "location": "a.nav-item \"ホーム\" at dark-1280, dark-375; span.badge \"要対応\" at dark-1280, dark-375",
+   "evidence": "off-token colour oklch(0.74 0.15 29) at dark-1280, dark-375 (2 elements); no entry in tokens.json color or color_dark matches it",
+   "fix": "Replace the literal with the theme.css variable that carries the intended token."
+  },
+  {
+   "id": "R-5",
+   "check": "R2",
+   "severity": "WARNING",
+   "location": "a.nav-item \"販売店\" at dark-1280, dark-375; a.nav-item \"マイ目標\" at dark-1280, dark-375; a.nav-item \"市場動向\" at dark-1280, dark-375",
+   "evidence": "off-token colour oklch(0.8598 0.0118 276) at dark-1280, dark-375 (18 elements); no entry in tokens.json color or color_dark matches it",
+   "fix": "Replace the literal with the theme.css variable that carries the intended token."
+  },
+  {
+   "id": "R-6",
+   "check": "R2",
+   "severity": "WARNING",
+   "location": "span.badge \"要対応\" at dark-1280, dark-375",
+   "evidence": "off-token background color(srgb 0.283469 0.0831975 0.115355) at dark-1280, dark-375 (1 element); no entry in tokens.json color or color_dark matches it",
+   "fix": "Replace the literal with the theme.css variable that carries the intended token."
+  }
+ ],
+ "out_of_scope_notes": [],
+ "checked_scope": "1280: 55 text elements (0 skipped for an unpainted background), 25 controls, 3 headings, viewport 1280; 375: 55 text elements (0 skipped for an unpainted background), 25 controls, 3 headings, viewport 375; dark-1280: 55 text elements (0 skipped for an unpainted background), 25 controls, 3 headings, viewport 1280; dark-375: 55 text elements (0 skipped for an unpainted background), 25 controls, 3 headings, viewport 375; tokens: 17 colours from C:/Users/karid/AppData/Local/Temp/design-review-lrmykv/files/tokens.json; plan job class: monitor"
+}

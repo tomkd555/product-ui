@@ -1,0 +1,37 @@
+[
+  {
+    "cid": "C11",
+    "verdict": "partial",
+    "reason": "Each pattern is named by at least one cited source, but the sentence puts the 0.1-opacity shadow 'on everything' and drops 'roughly'. devtake applies 'on everything' only to the half-rem radius and gives the shadow opacity as approximate; the other sources describe soft shadows on the feature cards.",
+    "found": "Border radius around half a rem on everything. Box shadows at roughly 0.1 opacity. A three-column feature grid with an icon per card. Oversized hero text over vague copy.",
+    "source": "https://devtake.pages.dev/article/ai-generated-frontend-slop"
+  },
+  {
+    "cid": "C12",
+    "verdict": "partial",
+    "reason": "None of the four cached pages reports a measurement. The 'measurable' in devtake refers to WebAIM accessibility data. However, E99 does name a size value as an AI marker (a radius 'around half a rem'), and noqta implies a 24px radius default, both stated by observation. So the sentence holds only on the word 'measured', and the cited passages do not themselves state the absence.",
+    "found": "The signature is consistent enough to be a meme. Inter or system-ui for type. A gradient running from indigo to purple. Border radius around half a rem on everything. Box shadows at roughly 0.1 opacity.",
+    "source": "https://devtake.pages.dev/article/ai-generated-frontend-slop"
+  },
+  {
+    "cid": "C13",
+    "verdict": "partial",
+    "reason": "The abstract supports 403 Japanese participants and limited overall detection ability. The surface-cue part rests on free-text survey comments, which the authors say 'suggested' that participants 'primarily relied on' superficial impressions. The sentence states this as an established finding.",
+    "found": "403 participants tackled “AI or Human” judgment task and estimated their own confidence, revealing that overall human AI-detection ability was limited. ... Furthermore, an additional comment from the survey suggested that participants primarily relied on superficial impressions based on phraseology, expression, the ends of words, conjunctions, and punctuation marks in judgments.",
+    "source": "https://ideas.repec.org/a/plo/pone00/0335369.html"
+  },
+  {
+    "cid": "C14",
+    "verdict": "supported",
+    "reason": "Fyve names the thesis as a Hiroshima University 文学部 bachelor's thesis (令和7年度). It reports that 1 of 148 collected online 「AIらしさ」 claims, 読点使用の多さ, matched measurement. A search confirmed that the thesis exists on a Hiroshima University site. The thesis PDF itself could not be fetched, so the figure 148 was checked only as reported by Fyve.",
+    "found": "広島大学文学部の令和7年度卒業論文(大西夢「AI生成文からみた『自然な日本語』についての研究」) ... 人が挙げた148件の「AIらしさ」のうち、実測と一致したのはわずか1件でした。",
+    "source": "https://fyve.co.jp/ai-advisor/articles/ai-text-detection-myths-japan"
+  },
+  {
+    "cid": "C15",
+    "verdict": "supported",
+    "reason": "The cached page is headed 'Tailwind CSS v4.3', and its default theme sets --spacing to 0.25rem, which is 4px at the browser's default 16px root size. The same page's full-theme example writes the value as --spacing: 4px.",
+    "found": "--color-black : #000 ; --color-white : #fff ; --spacing : 0.25 rem ; --breakpoint-sm : 40 rem ;",
+    "source": "https://tailwindcss.com/docs/theme"
+  }
+]

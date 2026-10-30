@@ -70,7 +70,7 @@ T2 requires `oklch()`; these are the nine required keys and the optional `surfac
 
 - **`background` and `surface`**: SmartHR puts the screen on `BACKGROUND` `#f8f7f6` and panels drawn with `Base` on `WHITE`. Both enter `tokens.json`, so a panel the product builds lands on the same white as the library's own. Text on either is `foreground`. SmartHR's own guidance agrees with the container rule in `references/composition.md`: distance groups first, a `Base` second, a rule last, and a `Base` is never placed on a `Base` (`BaseColumn` groups inside one).
 - **`muted` takes `HEAD`**, the table-header ground. `OVER_BACKGROUND` `#f2f1f0` sits 1.8% in lightness from `BACKGROUND`, too close to read as a distinct surface.
-- **`accent` takes `BRAND` `#00c4cc`**, the SmartHR blue: the only non-`MAIN` identity hue, exposed by the Tailwind preset as `bg-brand`. It is light, so text on it must be `foreground`.
+- **`accent` takes `BRAND` `#00c4cc`**, the SmartHR blue: the only non-`MAIN` identity hue, exposed by the Tailwind preset as `bg-brand`. In `theme.css` the key `accent` fills the `brand-accent` utility; shadcn's `bg-accent` stays the hover and selected surface. It is light, so text on it must be `foreground`.
 - **`WARNING_YELLOW` `#ffcc17` has no slot.** It stays in the library, where the components that need it paint it.
 
 Everything else:

@@ -3,6 +3,14 @@
     "name": "Preset using smarthr-ui token values",
     "surface": "saas",
     "reference": "smarthr",
+    "logo": null,
+    "provenance": {
+      "color.background": "reference:SmartHR page ground (references/smarthr.md)",
+      "color.primary": "reference:SmartHR MAIN (references/smarthr.md)",
+      "color.accent": "reference:SmartHR BRAND (references/smarthr.md)",
+      "typography.display": "reference:smarthr-ui ships system-ui",
+      "typography.body": "reference:smarthr-ui ships system-ui"
+    },
     "users": [
       { "role": "HR administrator", "frequency": "daily", "expertise": "intermediate",
         "job": "Keep employee records current and complete the monthly paperwork", "basis": "assumed" }
@@ -16,6 +24,8 @@
       "color_dark omitted — SmartHR publishes no dark theme",
       "motion left at the product-ui default — SmartHR publishes no motion tokens",
       "T5 warning accepted — system-ui is the font family smarthr-ui ships",
+      "T22 warning accepted — no family_ja; smarthr-ui ships system-ui and the route reproduces it, so Japanese glyphs come from the OS face",
+      "T21 warning accepted — SmartHR's warm neutrals (HEAD, TEXT_GREY, BORDER) are the library's own values and carry their own hue",
       "T10 warning accepted — SmartHR LAYER1/2/3 all use alpha 0.3, and only the offset and blur differ"
     ]
   },
