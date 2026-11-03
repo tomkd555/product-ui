@@ -1,0 +1,297 @@
+{
+  "bench": "staff",
+  "screen": "list",
+  "url": "http://localhost:4604/",
+  "kind": "collection",
+  "records": 15,
+  "found": 15,
+  "mean_fields_per_item": 5.0,
+  "fields_available": 7,
+  "job_coverage": 1.0,
+  "items_with_all_job_fields": 15,
+  "items_linked": 0,
+  "mean_item_height": 49.0,
+  "never_shown": [
+    "employee_no",
+    "location"
+  ],
+  "items": [
+    {
+      "id": "相川 直人",
+      "found": true,
+      "locator": "相川 直人",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "井上 千尋",
+      "found": true,
+      "locator": "井上 千尋",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "上田 亮",
+      "found": true,
+      "locator": "上田 亮",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "江口 美穂",
+      "found": true,
+      "locator": "江口 美穂",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "大西 拓海",
+      "found": true,
+      "locator": "大西 拓海",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "加藤 沙織",
+      "found": true,
+      "locator": "加藤 沙織",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "菊地 隆",
+      "found": true,
+      "locator": "菊地 隆",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "久保 遥",
+      "found": true,
+      "locator": "久保 遥",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "小林 修",
+      "found": true,
+      "locator": "小林 修",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "斎藤 奈々",
+      "found": true,
+      "locator": "斎藤 奈々",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "杉山 達也",
+      "found": true,
+      "locator": "杉山 達也",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "高木 優子",
+      "found": true,
+      "locator": "高木 優子",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "土屋 健",
+      "found": true,
+      "locator": "土屋 健",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "中島 舞",
+      "found": true,
+      "locator": "中島 舞",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "原田 慎吾",
+      "found": true,
+      "locator": "原田 慎吾",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 49,
+      "fields_shown": [
+        "dept",
+        "email",
+        "ext",
+        "name",
+        "title"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    }
+  ],
+  "enclosures": 1,
+  "labels": {
+    "C18": 0,
+    "C19": 0,
+    "C20": 0,
+    "C21": 0
+  }
+}

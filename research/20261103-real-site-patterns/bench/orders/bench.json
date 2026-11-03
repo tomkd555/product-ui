@@ -1,0 +1,64 @@
+{
+  "id": "orders",
+  "request": "通販サイトのマイページに、注文履歴の画面を作ってください。購入者がときどき開いて、注文した商品がいつ届くか、届いたかを確かめます。今日は 2026年11月3日 として、サンプルデータは data.json を使ってください。",
+  "today": "2026-11-03",
+  "surface": "saas",
+  "users": [
+    {
+      "role": "購入者",
+      "frequency": "occasional",
+      "expertise": "novice",
+      "job": "注文した商品がいつ届くか、届いたかを確かめる",
+      "basis": "reported"
+    }
+  ],
+  "object": {
+    "name": "注文",
+    "locators": [
+      "number",
+      "product"
+    ],
+    "fields": {
+      "number": [
+        "注文番号",
+        "text"
+      ],
+      "ordered": [
+        "注文日",
+        "date"
+      ],
+      "product": [
+        "商品",
+        "text"
+      ],
+      "qty": [
+        "数量",
+        "count"
+      ],
+      "total": [
+        "合計金額",
+        "money"
+      ],
+      "status": [
+        "配送状況",
+        "text"
+      ],
+      "eta": [
+        "お届け予定日",
+        "date"
+      ]
+    }
+  },
+  "screens": [
+    {
+      "id": "list",
+      "kind": "collection",
+      "job_fields": [
+        "product",
+        "ordered",
+        "status",
+        "eta"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "bench": "inbox",
+  "screen": "list",
+  "url": "http://localhost:4606/",
+  "kind": "collection",
+  "records": 12,
+  "found": 6,
+  "mean_fields_per_item": 4.17,
+  "fields_available": 7,
+  "job_coverage": 1.0,
+  "items_with_all_job_fields": 6,
+  "items_linked": 0,
+  "mean_item_height": 65.0,
+  "never_shown": [
+    "assignee",
+    "number"
+  ],
+  "items": [
+    {
+      "id": "請求書の宛名を変更したい",
+      "found": false
+    },
+    {
+      "id": "ログインできなくなりました",
+      "found": false
+    },
+    {
+      "id": "CSV の取り込みで文字化けする",
+      "found": true,
+      "locator": "CSV の取り込みで文字化けする",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "received",
+        "status",
+        "subject"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "契約プランの変更について",
+      "found": false
+    },
+    {
+      "id": "二段階認証の端末を変えたい",
+      "found": true,
+      "locator": "二段階認証の端末を変えたい",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "received",
+        "status",
+        "subject"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "領収書を再発行してほしい",
+      "found": false
+    },
+    {
+      "id": "API の利用上限を知りたい",
+      "found": false
+    },
+    {
+      "id": "退会の手続きについて",
+      "found": true,
+      "locator": "退会の手続きについて",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "received",
+        "status",
+        "subject"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "通知メールが届かない",
+      "found": true,
+      "locator": "通知メールが届かない",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 65,
+      "fields_shown": [
+        "category",
+        "customer",
+        "received",
+        "status",
+        "subject"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "ユーザーの一括登録方法",
+      "found": false
+    },
+    {
+      "id": "支払い方法をカードに変えたい",
+      "found": true,
+      "locator": "支払い方法をカードに変えたい",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "received",
+        "status",
+        "subject"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "画面が真っ白になる",
+      "found": true,
+      "locator": "画面が真っ白になる",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "received",
+        "status",
+        "subject"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    }
+  ],
+  "enclosures": 1,
+  "labels": {
+    "C18": 0,
+    "C19": 0,
+    "C20": 0,
+    "C21": 0
+  }
+}

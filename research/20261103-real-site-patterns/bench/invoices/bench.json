@@ -1,0 +1,86 @@
+{
+  "id": "invoices",
+  "request": "B2B の請求書発行サービスに、請求書の一覧画面と、1件の請求書の詳細画面を作ってください。経理担当者が毎日使い、入金状況を確認して、支払期日を過ぎた請求書の取引先に連絡します。サンプルデータは data.json を使ってください。",
+  "today": "2026-11-03",
+  "surface": "saas",
+  "users": [
+    {
+      "role": "経理担当者",
+      "frequency": "daily",
+      "expertise": "intermediate",
+      "job": "入金状況を確認し、支払期日を過ぎた請求書の取引先に連絡する",
+      "basis": "reported"
+    }
+  ],
+  "object": {
+    "name": "請求書",
+    "locators": [
+      "number",
+      "client"
+    ],
+    "fields": {
+      "number": [
+        "請求書番号",
+        "text"
+      ],
+      "client": [
+        "取引先",
+        "text"
+      ],
+      "amount": [
+        "請求金額",
+        "money"
+      ],
+      "issued": [
+        "発行日",
+        "date"
+      ],
+      "due": [
+        "支払期日",
+        "date"
+      ],
+      "status": [
+        "ステータス",
+        "text"
+      ],
+      "owner": [
+        "担当者",
+        "text"
+      ]
+    }
+  },
+  "screens": [
+    {
+      "id": "list",
+      "kind": "collection",
+      "job_fields": [
+        "client",
+        "amount",
+        "due",
+        "status"
+      ]
+    },
+    {
+      "id": "detail",
+      "kind": "single",
+      "record": "INV-2026-0403",
+      "job_fields": [
+        "client",
+        "amount",
+        "due",
+        "status",
+        "lines"
+      ],
+      "extra_fields": {
+        "lines": [
+          "明細",
+          "lines"
+        ],
+        "contact": [
+          "請求先",
+          "text"
+        ]
+      }
+    }
+  ]
+}

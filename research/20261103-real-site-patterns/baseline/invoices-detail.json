@@ -1,0 +1,21 @@
+{
+  "bench": "invoices",
+  "screen": "detail",
+  "url": "http://localhost:4603/invoices/INV-2026-0403",
+  "kind": "single",
+  "record": "INV-2026-0403",
+  "fields_shown": [
+    "amount",
+    "client",
+    "contact",
+    "due",
+    "issued",
+    "lines",
+    "number",
+    "owner",
+    "status"
+  ],
+  "fields_missing": [],
+  "job_fields_missing": [],
+  "enclosures": 1
+}

@@ -1,0 +1,139 @@
+{
+  "records": [
+    {
+      "name": "相川 直人",
+      "dept": "営業部",
+      "title": "課長",
+      "ext": "3101",
+      "email": "user101@example.co.jp",
+      "location": "東京本社",
+      "employee_no": "E20150"
+    },
+    {
+      "name": "井上 千尋",
+      "dept": "人事部",
+      "title": "主任",
+      "ext": "3108",
+      "email": "user102@example.co.jp",
+      "location": "東京本社",
+      "employee_no": "E20163"
+    },
+    {
+      "name": "上田 亮",
+      "dept": "開発部",
+      "title": "エンジニア",
+      "ext": "3115",
+      "email": "user103@example.co.jp",
+      "location": "大阪支社",
+      "employee_no": "E20176"
+    },
+    {
+      "name": "江口 美穂",
+      "dept": "経理部",
+      "title": "主任",
+      "ext": "3122",
+      "email": "user104@example.co.jp",
+      "location": "東京本社",
+      "employee_no": "E20189"
+    },
+    {
+      "name": "大西 拓海",
+      "dept": "開発部",
+      "title": "リードエンジニア",
+      "ext": "3129",
+      "email": "user105@example.co.jp",
+      "location": "福岡オフィス",
+      "employee_no": "E20202"
+    },
+    {
+      "name": "加藤 沙織",
+      "dept": "営業部",
+      "title": "担当",
+      "ext": "3136",
+      "email": "user106@example.co.jp",
+      "location": "大阪支社",
+      "employee_no": "E20215"
+    },
+    {
+      "name": "菊地 隆",
+      "dept": "総務部",
+      "title": "部長",
+      "ext": "3143",
+      "email": "user107@example.co.jp",
+      "location": "東京本社",
+      "employee_no": "E20228"
+    },
+    {
+      "name": "久保 遥",
+      "dept": "開発部",
+      "title": "デザイナー",
+      "ext": "3150",
+      "email": "user108@example.co.jp",
+      "location": "東京本社",
+      "employee_no": "E20241"
+    },
+    {
+      "name": "小林 修",
+      "dept": "営業部",
+      "title": "担当",
+      "ext": "3157",
+      "email": "user109@example.co.jp",
+      "location": "名古屋支店",
+      "employee_no": "E20254"
+    },
+    {
+      "name": "斎藤 奈々",
+      "dept": "人事部",
+      "title": "課長",
+      "ext": "3164",
+      "email": "user110@example.co.jp",
+      "location": "東京本社",
+      "employee_no": "E20267"
+    },
+    {
+      "name": "杉山 達也",
+      "dept": "開発部",
+      "title": "エンジニア",
+      "ext": "3171",
+      "email": "user111@example.co.jp",
+      "location": "大阪支社",
+      "employee_no": "E20280"
+    },
+    {
+      "name": "高木 優子",
+      "dept": "経理部",
+      "title": "担当",
+      "ext": "3178",
+      "email": "user112@example.co.jp",
+      "location": "東京本社",
+      "employee_no": "E20293"
+    },
+    {
+      "name": "土屋 健",
+      "dept": "総務部",
+      "title": "主任",
+      "ext": "3185",
+      "email": "user113@example.co.jp",
+      "location": "東京本社",
+      "employee_no": "E20306"
+    },
+    {
+      "name": "中島 舞",
+      "dept": "営業部",
+      "title": "担当",
+      "ext": "3192",
+      "email": "user114@example.co.jp",
+      "location": "福岡オフィス",
+      "employee_no": "E20319"
+    },
+    {
+      "name": "原田 慎吾",
+      "dept": "開発部",
+      "title": "マネージャー",
+      "ext": "3199",
+      "email": "user115@example.co.jp",
+      "location": "東京本社",
+      "employee_no": "E20332"
+    }
+  ]
+}

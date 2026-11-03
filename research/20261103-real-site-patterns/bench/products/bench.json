@@ -1,0 +1,60 @@
+{
+  "id": "products",
+  "request": "家電の通販サイトに、電気ケトルの商品一覧の画面を作ってください。購入者がときどき訪れ、予算 1 万円以内で、容量と評価を比べて 1 台を選びます。商品画像はまだないので、画像の場所は空けておいてください。サンプルデータは data.json を使ってください。",
+  "today": "2026-11-03",
+  "surface": "saas",
+  "users": [
+    {
+      "role": "購入者",
+      "frequency": "occasional",
+      "expertise": "novice",
+      "job": "予算 1 万円以内で、容量と評価を比べて電気ケトルを 1 台選ぶ",
+      "basis": "reported"
+    }
+  ],
+  "object": {
+    "name": "商品",
+    "locators": [
+      "name"
+    ],
+    "fields": {
+      "name": [
+        "商品名",
+        "text"
+      ],
+      "price": [
+        "価格",
+        "money"
+      ],
+      "rating": [
+        "評価",
+        "number"
+      ],
+      "reviews": [
+        "レビュー件数",
+        "count"
+      ],
+      "capacity": [
+        "容量",
+        "text"
+      ],
+      "colors": [
+        "カラー",
+        "list"
+      ]
+    }
+  },
+  "screens": [
+    {
+      "id": "list",
+      "kind": "collection",
+      "job_fields": [
+        "name",
+        "price",
+        "rating",
+        "reviews",
+        "capacity"
+      ]
+    }
+  ]
+}

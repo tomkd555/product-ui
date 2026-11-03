@@ -1,0 +1,131 @@
+{
+  "records": [
+    {
+      "name": "ケトル ミニマル 0.8L",
+      "price": 3980,
+      "rating": 4.2,
+      "reviews": 312,
+      "capacity": "0.8L",
+      "colors": [
+        "ホワイト",
+        "ブラック"
+      ]
+    },
+    {
+      "name": "温度調節ケトル プロ 1.0L",
+      "price": 12800,
+      "rating": 4.6,
+      "reviews": 1288,
+      "capacity": "1.0L",
+      "colors": [
+        "ブラック"
+      ]
+    },
+    {
+      "name": "ガラスケトル クリア 1.5L",
+      "price": 6480,
+      "rating": 3.9,
+      "reviews": 96,
+      "capacity": "1.5L",
+      "colors": [
+        "クリア"
+      ]
+    },
+    {
+      "name": "ステンレスケトル ベーシック 1.2L",
+      "price": 2980,
+      "rating": 4.0,
+      "reviews": 540,
+      "capacity": "1.2L",
+      "colors": [
+        "シルバー"
+      ]
+    },
+    {
+      "name": "細口ドリップケトル 0.6L",
+      "price": 8980,
+      "rating": 4.7,
+      "reviews": 873,
+      "capacity": "0.6L",
+      "colors": [
+        "マットブラック",
+        "ホワイト"
+      ]
+    },
+    {
+      "name": "レトロケトル 1.0L",
+      "price": 7480,
+      "rating": 4.1,
+      "reviews": 205,
+      "capacity": "1.0L",
+      "colors": [
+        "レッド",
+        "クリーム",
+        "グリーン"
+      ]
+    },
+    {
+      "name": "ケトル コンパクト 0.5L",
+      "price": 2480,
+      "rating": 3.6,
+      "reviews": 64,
+      "capacity": "0.5L",
+      "colors": [
+        "ホワイト"
+      ]
+    },
+    {
+      "name": "保温ケトル ウォーム 1.2L",
+      "price": 9800,
+      "rating": 4.4,
+      "reviews": 431,
+      "capacity": "1.2L",
+      "colors": [
+        "ホワイト",
+        "グレー"
+      ]
+    },
+    {
+      "name": "ファミリーケトル 1.7L",
+      "price": 4980,
+      "rating": 4.3,
+      "reviews": 702,
+      "capacity": "1.7L",
+      "colors": [
+        "ホワイト"
+      ]
+    },
+    {
+      "name": "静音ケトル サイレント 1.0L",
+      "price": 5980,
+      "rating": 4.5,
+      "reviews": 389,
+      "capacity": "1.0L",
+      "colors": [
+        "ネイビー",
+        "ホワイト"
+      ]
+    },
+    {
+      "name": "トラベルケトル 0.4L",
+      "price": 3480,
+      "rating": 3.8,
+      "reviews": 51,
+      "capacity": "0.4L",
+      "colors": [
+        "ホワイト"
+      ]
+    },
+    {
+      "name": "デザインケトル アーチ 0.9L",
+      "price": 14800,
+      "rating": 4.0,
+      "reviews": 118,
+      "capacity": "0.9L",
+      "colors": [
+        "ブラック",
+        "ベージュ"
+      ]
+    }
+  ]
+}

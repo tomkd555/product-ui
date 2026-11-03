@@ -1,0 +1,3299 @@
+{
+ "title": "電気ケトル",
+ "lang": "ja",
+ "viewport": {
+  "width": 1280,
+  "height": 1200
+ },
+ "htmlClass": "",
+ "tokens": {
+  "--font-sans": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--font-mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--container-6xl": "72rem",
+  "--font-weight-medium": "500",
+  "--font-weight-bold": "700",
+  "--default-transition-duration": ".15s",
+  "--default-transition-timing-function": "cubic-bezier(.4, 0, .2, 1)",
+  "--default-font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--default-mono-font-family": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--color-background": "oklch(0.979 0.012 163.2)",
+  "--color-foreground": "oklch(0.378 0.012 163.2)",
+  "--font-display": "\"Rubik\", \"Noto Sans JP\", ui-serif, serif",
+  "--font-body": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+  "--radius-sm": ".25rem",
+  "--radius-lg": ".75rem",
+  "--shadow-sm": "0 1px 2px 0 oklch(0% 0 0/.04)",
+  "--shadow-lg": "0 16px 40px -8px oklch(0% 0 0/.14)",
+  "--brand-background": "oklch(0.979 0.012 163.2)",
+  "--brand-foreground": "oklch(0.378 0.012 163.2)",
+  "--brand-primary": "oklch(0.48 0.127 163.2)",
+  "--brand-primary-foreground": "oklch(1 0 0)",
+  "--brand-muted": "oklch(0.952 0.01 163.2)",
+  "--brand-muted-foreground": "oklch(0.52 0.012 163.2)",
+  "--brand-border": "oklch(0.905 0.012 163.2)",
+  "--brand-destructive": "oklch(0.577 0.215 27.3)",
+  "--brand-accent": "oklch(0.7 0.194 41.1)",
+  "--duration-fast": ".12s",
+  "--duration-base": ".2s",
+  "--duration-slow": ".32s"
+ },
+ "horizontalOverflow": false,
+ "scrollWidth": 1265,
+ "pageHeight": 1507,
+ "headings": [
+  {
+   "level": 1,
+   "text": "電気ケトル"
+  },
+  {
+   "level": 2,
+   "text": "細口ドリップケトル 0.6L"
+  },
+  {
+   "level": 2,
+   "text": "温度調節ケトル プロ 1.0L"
+  },
+  {
+   "level": 2,
+   "text": "静音ケトル サイレント 1.0L"
+  },
+  {
+   "level": 2,
+   "text": "保温ケトル ウォーム 1.2L"
+  },
+  {
+   "level": 2,
+   "text": "ファミリーケトル 1.7L"
+  },
+  {
+   "level": 2,
+   "text": "ケトル ミニマル 0.8L"
+  },
+  {
+   "level": 2,
+   "text": "レトロケトル 1.0L"
+  },
+  {
+   "level": 2,
+   "text": "ステンレスケトル ベーシック 1.2L"
+  },
+  {
+   "level": 2,
+   "text": "デザインケトル アーチ 0.9L"
+  },
+  {
+   "level": 2,
+   "text": "ガラスケトル クリア 1.5L"
+  },
+  {
+   "level": 2,
+   "text": "トラベルケトル 0.4L"
+  },
+  {
+   "level": 2,
+   "text": "ケトル コンパクト 0.5L"
+  }
+ ],
+ "landmarks": [
+  {
+   "sel": "header",
+   "count": 0
+  },
+  {
+   "sel": "nav",
+   "count": 0
+  },
+  {
+   "sel": "main",
+   "count": 1
+  },
+  {
+   "sel": "aside",
+   "count": 0
+  },
+  {
+   "sel": "footer",
+   "count": 0
+  },
+  {
+   "sel": "form",
+   "count": 0
+  },
+  {
+   "sel": "[role]",
+   "count": 0
+  }
+ ],
+ "controlsTotal": 2,
+ "controls": [
+  {
+   "tag": "select",
+   "text": "すべての価格5,000円以内10,000円以内",
+   "w": 208,
+   "h": 44,
+   "labelled": true
+  },
+  {
+   "tag": "select",
+   "text": "評価の高い順価格の安い順容量の大きい順レビュー件数の多い順",
+   "w": 208,
+   "h": 44,
+   "labelled": true
+  }
+ ],
+ "elementsTotal": 373,
+ "textTruncated": false,
+ "scope": {
+  "tag": "main",
+  "rect": {
+   "x": 57,
+   "y": 0,
+   "w": 1152,
+   "h": 1507
+  }
+ },
+ "boxes": [
+  {
+   "tag": "div",
+   "cls": "shrink-0 rounded-md bg-muted size-16",
+   "rect": {
+    "x": 101,
+    "y": 296,
+    "w": 64,
+    "h": 64
+   },
+   "depth": 0,
+   "parentBox": null,
+   "domParent": 0,
+   "children": 0,
+   "hasDigit": false,
+   "borderRadius": "8px",
+   "backdropFilter": "none",
+   "borderW": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "borderA": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "boxShadow": "none",
+   "hasMedia": false,
+   "hasHeading": false
+  },
+  {
+   "tag": "div",
+   "cls": "shrink-0 rounded-md bg-muted size-16",
+   "rect": {
+    "x": 101,
+    "y": 393,
+    "w": 64,
+    "h": 64
+   },
+   "depth": 0,
+   "parentBox": null,
+   "domParent": 1,
+   "children": 0,
+   "hasDigit": false,
+   "borderRadius": "8px",
+   "backdropFilter": "none",
+   "borderW": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "borderA": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "boxShadow": "none",
+   "hasMedia": false,
+   "hasHeading": false
+  },
+  {
+   "tag": "div",
+   "cls": "shrink-0 rounded-md bg-muted size-16",
+   "rect": {
+    "x": 101,
+    "y": 490,
+    "w": 64,
+    "h": 64
+   },
+   "depth": 0,
+   "parentBox": null,
+   "domParent": 2,
+   "children": 0,
+   "hasDigit": false,
+   "borderRadius": "8px",
+   "backdropFilter": "none",
+   "borderW": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "borderA": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "boxShadow": "none",
+   "hasMedia": false,
+   "hasHeading": false
+  },
+  {
+   "tag": "div",
+   "cls": "shrink-0 rounded-md bg-muted size-16",
+   "rect": {
+    "x": 101,
+    "y": 587,
+    "w": 64,
+    "h": 64
+   },
+   "depth": 0,
+   "parentBox": null,
+   "domParent": 3,
+   "children": 0,
+   "hasDigit": false,
+   "borderRadius": "8px",
+   "backdropFilter": "none",
+   "borderW": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "borderA": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "boxShadow": "none",
+   "hasMedia": false,
+   "hasHeading": false
+  },
+  {
+   "tag": "div",
+   "cls": "shrink-0 rounded-md bg-muted size-16",
+   "rect": {
+    "x": 101,
+    "y": 684,
+    "w": 64,
+    "h": 64
+   },
+   "depth": 0,
+   "parentBox": null,
+   "domParent": 4,
+   "children": 0,
+   "hasDigit": false,
+   "borderRadius": "8px",
+   "backdropFilter": "none",
+   "borderW": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "borderA": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "boxShadow": "none",
+   "hasMedia": false,
+   "hasHeading": false
+  },
+  {
+   "tag": "div",
+   "cls": "shrink-0 rounded-md bg-muted size-16",
+   "rect": {
+    "x": 101,
+    "y": 781,
+    "w": 64,
+    "h": 64
+   },
+   "depth": 0,
+   "parentBox": null,
+   "domParent": 5,
+   "children": 0,
+   "hasDigit": false,
+   "borderRadius": "8px",
+   "backdropFilter": "none",
+   "borderW": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "borderA": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "boxShadow": "none",
+   "hasMedia": false,
+   "hasHeading": false
+  },
+  {
+   "tag": "div",
+   "cls": "shrink-0 rounded-md bg-muted size-16",
+   "rect": {
+    "x": 101,
+    "y": 878,
+    "w": 64,
+    "h": 64
+   },
+   "depth": 0,
+   "parentBox": null,
+   "domParent": 6,
+   "children": 0,
+   "hasDigit": false,
+   "borderRadius": "8px",
+   "backdropFilter": "none",
+   "borderW": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "borderA": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "boxShadow": "none",
+   "hasMedia": false,
+   "hasHeading": false
+  },
+  {
+   "tag": "div",
+   "cls": "shrink-0 rounded-md bg-muted size-16",
+   "rect": {
+    "x": 101,
+    "y": 975,
+    "w": 64,
+    "h": 64
+   },
+   "depth": 0,
+   "parentBox": null,
+   "domParent": 7,
+   "children": 0,
+   "hasDigit": false,
+   "borderRadius": "8px",
+   "backdropFilter": "none",
+   "borderW": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "borderA": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "boxShadow": "none",
+   "hasMedia": false,
+   "hasHeading": false
+  },
+  {
+   "tag": "div",
+   "cls": "shrink-0 rounded-md bg-muted size-16",
+   "rect": {
+    "x": 101,
+    "y": 1072,
+    "w": 64,
+    "h": 64
+   },
+   "depth": 0,
+   "parentBox": null,
+   "domParent": 8,
+   "children": 0,
+   "hasDigit": false,
+   "borderRadius": "8px",
+   "backdropFilter": "none",
+   "borderW": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "borderA": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "boxShadow": "none",
+   "hasMedia": false,
+   "hasHeading": false
+  },
+  {
+   "tag": "div",
+   "cls": "shrink-0 rounded-md bg-muted size-16",
+   "rect": {
+    "x": 101,
+    "y": 1169,
+    "w": 64,
+    "h": 64
+   },
+   "depth": 0,
+   "parentBox": null,
+   "domParent": 9,
+   "children": 0,
+   "hasDigit": false,
+   "borderRadius": "8px",
+   "backdropFilter": "none",
+   "borderW": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "borderA": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "boxShadow": "none",
+   "hasMedia": false,
+   "hasHeading": false
+  },
+  {
+   "tag": "div",
+   "cls": "shrink-0 rounded-md bg-muted size-16",
+   "rect": {
+    "x": 101,
+    "y": 1266,
+    "w": 64,
+    "h": 64
+   },
+   "depth": 0,
+   "parentBox": null,
+   "domParent": 10,
+   "children": 0,
+   "hasDigit": false,
+   "borderRadius": "8px",
+   "backdropFilter": "none",
+   "borderW": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "borderA": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "boxShadow": "none",
+   "hasMedia": false,
+   "hasHeading": false
+  },
+  {
+   "tag": "div",
+   "cls": "shrink-0 rounded-md bg-muted size-16",
+   "rect": {
+    "x": 101,
+    "y": 1363,
+    "w": 64,
+    "h": 64
+   },
+   "depth": 0,
+   "parentBox": null,
+   "domParent": 11,
+   "children": 0,
+   "hasDigit": false,
+   "borderRadius": "8px",
+   "backdropFilter": "none",
+   "borderW": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "borderA": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "boxShadow": "none",
+   "hasMedia": false,
+   "hasHeading": false
+  }
+ ],
+ "boxesTotal": 12,
+ "gaps": [
+  {
+   "parent": "main.mx-auto",
+   "values": [
+    24,
+    0
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "div.mt-6",
+   "values": [
+    16
+   ]
+  },
+  {
+   "parent": "div.grid",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "div.grid",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "table.w-full",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tbody.[&_tr:last-child]:border-0",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "gapsTotal": 20,
+ "h1s": [
+  {
+   "text": "電気ケトル",
+   "fontSize": "33.12px",
+   "rect": {
+    "x": 89,
+    "y": 56,
+    "w": 166,
+    "h": 50
+   }
+  }
+ ],
+ "labels": [],
+ "edgeText": [],
+ "headingGaps": [],
+ "hiddenText": {
+  "total": 492,
+  "hidden": 0,
+  "samples": []
+ },
+ "occlusions": [],
+ "repeatGroups": [],
+ "iconTiles": [],
+ "textOverflow": [],
+ "portErrors": [],
+ "text": [
+  {
+   "tag": "h1",
+   "id": "_r_0_",
+   "cls": "text-3xl font-bold",
+   "text": "電気ケトル",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "33.12px",
+   "fontWeight": "700",
+   "lineHeight": "49.68px",
+   "fontFamily": "Rubik, \"Noto Sans JP\", ui-serif, serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 56,
+    "w": 166,
+    "h": 50
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "hTag": "h1",
+   "inHeading": true,
+   "inControl": false,
+   "ownH": 39,
+   "fullLen": 5
+  },
+  {
+   "tag": "p",
+   "cls": "text-base text-muted-foreground tabular-nums",
+   "text": "12件",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 75,
+    "w": 35,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "label",
+   "cls": "flex items-center gap-2 text-sm leading-none font-medium sel",
+   "text": "価格",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "14px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 130,
+    "w": 208,
+    "h": 14
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 2
+  },
+  {
+   "tag": "label",
+   "cls": "flex items-center gap-2 text-sm leading-none font-medium sel",
+   "text": "並び順",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "14px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 320,
+    "y": 130,
+    "w": 208,
+    "h": 14
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 3
+  },
+  {
+   "tag": "th",
+   "cls": "h-11 px-3 text-left align-middle text-sm font-medium whitesp",
+   "text": "商品名",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 236,
+    "w": 429,
+    "h": 44
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 3
+  },
+  {
+   "tag": "th",
+   "cls": "h-11 px-3 align-middle text-sm font-medium whitespace-nowrap",
+   "text": "価格",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 525,
+    "y": 236,
+    "w": 129,
+    "h": 44
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 2
+  },
+  {
+   "tag": "th",
+   "cls": "h-11 px-3 align-middle text-sm font-medium whitespace-nowrap",
+   "text": "容量",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 654,
+    "y": 236,
+    "w": 68,
+    "h": 44
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 2
+  },
+  {
+   "tag": "th",
+   "cls": "h-11 px-3 align-middle text-sm font-medium whitespace-nowrap",
+   "text": "評価",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 721,
+    "y": 236,
+    "w": 82,
+    "h": 44
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 2
+  },
+  {
+   "tag": "th",
+   "cls": "h-11 px-3 align-middle text-sm font-medium whitespace-nowrap",
+   "text": "レビュー件数",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 803,
+    "y": 236,
+    "w": 132,
+    "h": 44
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 6
+  },
+  {
+   "tag": "th",
+   "cls": "h-11 px-3 text-left align-middle text-sm font-medium whitesp",
+   "text": "カラー",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 935,
+    "y": 236,
+    "w": 249,
+    "h": 44
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 3
+  },
+  {
+   "tag": "span",
+   "cls": "flex items-center gap-4",
+   "text": "細口ドリップケトル 0.6L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 108,
+    "y": 296,
+    "w": 405,
+    "h": 64
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 14
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right text-lg font-bold whitespa",
+   "text": "8,980円",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "19.2px",
+   "fontWeight": "700",
+   "lineHeight": "30.72px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 525,
+    "y": 280,
+    "w": 129,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 26,
+   "fullLen": 6
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right tabular-nums",
+   "text": "0.6L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 654,
+    "y": 280,
+    "w": 68,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1 tabular-nums",
+   "text": "4.7",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 748,
+    "y": 315,
+    "w": 43,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right whitespace-nowrap tabular-",
+   "text": "873件",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 803,
+    "y": 280,
+    "w": 132,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-sm text-muted-foreground",
+   "text": "マットブラック、ホワイト",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 935,
+    "y": 280,
+    "w": 249,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 12
+  },
+  {
+   "tag": "span",
+   "cls": "flex items-center gap-4",
+   "text": "温度調節ケトル プロ 1.0L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 108,
+    "y": 393,
+    "w": 405,
+    "h": 64
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 15
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right text-lg font-bold whitespa",
+   "text": "12,800円",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "19.2px",
+   "fontWeight": "700",
+   "lineHeight": "30.72px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 525,
+    "y": 377,
+    "w": 129,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 26,
+   "fullLen": 7
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right tabular-nums",
+   "text": "1.0L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 654,
+    "y": 377,
+    "w": 68,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1 tabular-nums",
+   "text": "4.6",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 748,
+    "y": 412,
+    "w": 43,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right whitespace-nowrap tabular-",
+   "text": "1,288件",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 803,
+    "y": 377,
+    "w": 132,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 6
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-sm text-muted-foreground",
+   "text": "ブラック",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 935,
+    "y": 377,
+    "w": 249,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "flex items-center gap-4",
+   "text": "静音ケトル サイレント 1.0L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 108,
+    "y": 490,
+    "w": 405,
+    "h": 64
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 16
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right text-lg font-bold whitespa",
+   "text": "5,980円",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "19.2px",
+   "fontWeight": "700",
+   "lineHeight": "30.72px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 525,
+    "y": 474,
+    "w": 129,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 26,
+   "fullLen": 6
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right tabular-nums",
+   "text": "1.0L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 654,
+    "y": 474,
+    "w": 68,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1 tabular-nums",
+   "text": "4.5",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 748,
+    "y": 509,
+    "w": 43,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right whitespace-nowrap tabular-",
+   "text": "389件",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 803,
+    "y": 474,
+    "w": 132,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-sm text-muted-foreground",
+   "text": "ネイビー、ホワイト",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 935,
+    "y": 474,
+    "w": 249,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 9
+  },
+  {
+   "tag": "span",
+   "cls": "flex items-center gap-4",
+   "text": "保温ケトル ウォーム 1.2L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 108,
+    "y": 587,
+    "w": 405,
+    "h": 64
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 15
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right text-lg font-bold whitespa",
+   "text": "9,800円",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "19.2px",
+   "fontWeight": "700",
+   "lineHeight": "30.72px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 525,
+    "y": 571,
+    "w": 129,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 26,
+   "fullLen": 6
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right tabular-nums",
+   "text": "1.2L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 654,
+    "y": 571,
+    "w": 68,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1 tabular-nums",
+   "text": "4.4",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 748,
+    "y": 606,
+    "w": 43,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right whitespace-nowrap tabular-",
+   "text": "431件",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 803,
+    "y": 571,
+    "w": 132,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-sm text-muted-foreground",
+   "text": "ホワイト、グレー",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 935,
+    "y": 571,
+    "w": 249,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 8
+  },
+  {
+   "tag": "span",
+   "cls": "flex items-center gap-4",
+   "text": "ファミリーケトル 1.7L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 108,
+    "y": 684,
+    "w": 405,
+    "h": 64
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 13
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right text-lg font-bold whitespa",
+   "text": "4,980円",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "19.2px",
+   "fontWeight": "700",
+   "lineHeight": "30.72px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 525,
+    "y": 668,
+    "w": 129,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 26,
+   "fullLen": 6
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right tabular-nums",
+   "text": "1.7L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 654,
+    "y": 668,
+    "w": 68,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1 tabular-nums",
+   "text": "4.3",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 748,
+    "y": 703,
+    "w": 43,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right whitespace-nowrap tabular-",
+   "text": "702件",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 803,
+    "y": 668,
+    "w": 132,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-sm text-muted-foreground",
+   "text": "ホワイト",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 935,
+    "y": 668,
+    "w": 249,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "flex items-center gap-4",
+   "text": "ケトル ミニマル 0.8L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 108,
+    "y": 781,
+    "w": 405,
+    "h": 64
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 13
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right text-lg font-bold whitespa",
+   "text": "3,980円",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "19.2px",
+   "fontWeight": "700",
+   "lineHeight": "30.72px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 525,
+    "y": 765,
+    "w": 129,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 26,
+   "fullLen": 6
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right tabular-nums",
+   "text": "0.8L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 654,
+    "y": 765,
+    "w": 68,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1 tabular-nums",
+   "text": "4.2",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 748,
+    "y": 800,
+    "w": 43,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right whitespace-nowrap tabular-",
+   "text": "312件",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 803,
+    "y": 765,
+    "w": 132,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-sm text-muted-foreground",
+   "text": "ホワイト、ブラック",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 935,
+    "y": 765,
+    "w": 249,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 9
+  },
+  {
+   "tag": "span",
+   "cls": "flex items-center gap-4",
+   "text": "レトロケトル 1.0L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 108,
+    "y": 878,
+    "w": 405,
+    "h": 64
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 11
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right text-lg font-bold whitespa",
+   "text": "7,480円",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "19.2px",
+   "fontWeight": "700",
+   "lineHeight": "30.72px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 525,
+    "y": 862,
+    "w": 129,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 26,
+   "fullLen": 6
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right tabular-nums",
+   "text": "1.0L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 654,
+    "y": 862,
+    "w": 68,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1 tabular-nums",
+   "text": "4.1",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 748,
+    "y": 897,
+    "w": 43,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right whitespace-nowrap tabular-",
+   "text": "205件",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 803,
+    "y": 862,
+    "w": 132,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-sm text-muted-foreground",
+   "text": "レッド、クリーム、グリーン",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 935,
+    "y": 862,
+    "w": 249,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 13
+  },
+  {
+   "tag": "span",
+   "cls": "flex items-center gap-4",
+   "text": "ステンレスケトル ベーシック 1.2L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 108,
+    "y": 975,
+    "w": 405,
+    "h": 64
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 19
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right text-lg font-bold whitespa",
+   "text": "2,980円",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "19.2px",
+   "fontWeight": "700",
+   "lineHeight": "30.72px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 525,
+    "y": 959,
+    "w": 129,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 26,
+   "fullLen": 6
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right tabular-nums",
+   "text": "1.2L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 654,
+    "y": 959,
+    "w": 68,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1 tabular-nums",
+   "text": "4.0",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 748,
+    "y": 994,
+    "w": 43,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right whitespace-nowrap tabular-",
+   "text": "540件",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 803,
+    "y": 959,
+    "w": 132,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-sm text-muted-foreground",
+   "text": "シルバー",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 935,
+    "y": 959,
+    "w": 249,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "flex items-center gap-4",
+   "text": "デザインケトル アーチ 0.9L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 108,
+    "y": 1072,
+    "w": 405,
+    "h": 64
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 16
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right text-lg font-bold whitespa",
+   "text": "14,800円",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "19.2px",
+   "fontWeight": "700",
+   "lineHeight": "30.72px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 525,
+    "y": 1056,
+    "w": 129,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 26,
+   "fullLen": 7
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right tabular-nums",
+   "text": "0.9L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 654,
+    "y": 1056,
+    "w": 68,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1 tabular-nums",
+   "text": "4.0",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 748,
+    "y": 1091,
+    "w": 43,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right whitespace-nowrap tabular-",
+   "text": "118件",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 803,
+    "y": 1056,
+    "w": 132,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-sm text-muted-foreground",
+   "text": "ブラック、ベージュ",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 935,
+    "y": 1056,
+    "w": 249,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 9
+  },
+  {
+   "tag": "span",
+   "cls": "flex items-center gap-4",
+   "text": "ガラスケトル クリア 1.5L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 108,
+    "y": 1169,
+    "w": 405,
+    "h": 64
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 15
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right text-lg font-bold whitespa",
+   "text": "6,480円",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "19.2px",
+   "fontWeight": "700",
+   "lineHeight": "30.72px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 525,
+    "y": 1153,
+    "w": 129,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 26,
+   "fullLen": 6
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right tabular-nums",
+   "text": "1.5L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 654,
+    "y": 1153,
+    "w": 68,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1 tabular-nums",
+   "text": "3.9",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 748,
+    "y": 1188,
+    "w": 43,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right whitespace-nowrap tabular-",
+   "text": "96件",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 803,
+    "y": 1153,
+    "w": 132,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-sm text-muted-foreground",
+   "text": "クリア",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 935,
+    "y": 1153,
+    "w": 249,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 3
+  },
+  {
+   "tag": "span",
+   "cls": "flex items-center gap-4",
+   "text": "トラベルケトル 0.4L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 108,
+    "y": 1266,
+    "w": 405,
+    "h": 64
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 12
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right text-lg font-bold whitespa",
+   "text": "3,480円",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "19.2px",
+   "fontWeight": "700",
+   "lineHeight": "30.72px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 525,
+    "y": 1250,
+    "w": 129,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 26,
+   "fullLen": 6
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right tabular-nums",
+   "text": "0.4L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 654,
+    "y": 1250,
+    "w": 68,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1 tabular-nums",
+   "text": "3.8",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 748,
+    "y": 1285,
+    "w": 43,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right whitespace-nowrap tabular-",
+   "text": "51件",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 803,
+    "y": 1250,
+    "w": 132,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-sm text-muted-foreground",
+   "text": "ホワイト",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 935,
+    "y": 1250,
+    "w": 249,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "flex items-center gap-4",
+   "text": "ケトル コンパクト 0.5L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 108,
+    "y": 1363,
+    "w": 405,
+    "h": 64
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 14
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right text-lg font-bold whitespa",
+   "text": "2,480円",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "19.2px",
+   "fontWeight": "700",
+   "lineHeight": "30.72px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 525,
+    "y": 1347,
+    "w": 129,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 26,
+   "fullLen": 6
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right tabular-nums",
+   "text": "0.5L",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 654,
+    "y": 1347,
+    "w": 68,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 4
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex items-center gap-1 tabular-nums",
+   "text": "3.6",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 748,
+    "y": 1382,
+    "w": 43,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-right whitespace-nowrap tabular-",
+   "text": "64件",
+   "color": "oklch(0.378 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 803,
+    "y": 1347,
+    "w": 132,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 22,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-4 align-middle text-sm text-muted-foreground",
+   "text": "ホワイト",
+   "color": "oklch(0.52 0.012 163.2)",
+   "background": "oklch(0.979 0.012 163.2)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Nunito Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 935,
+    "y": 1347,
+    "w": 249,
+    "h": 97
+   },
+   "pad": {
+    "x": 24,
+    "y": 32
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 19,
+   "fullLen": 4
+  }
+ ]
+}

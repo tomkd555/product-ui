@@ -1,0 +1,98 @@
+{
+  "id": "measure.tile.kpi",
+  "version": 1,
+  "kind": "tile",
+  "summary": "A monitored quantity with its comparison, in a row whose first or largest tile dominates.",
+  "not_for": "A category, a name, a date, or a figure on an enter or lookup screen (put it in the heading or the filter bar).",
+  "slots": [
+    {
+      "id": "label",
+      "takes": "label",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "value",
+      "takes": "measure",
+      "required": true,
+      "max": 1,
+      "emphasis": 1
+    },
+    {
+      "id": "unit",
+      "takes": "text",
+      "required": false,
+      "max": 1
+    },
+    {
+      "id": "comparison",
+      "takes": "comparison",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "link",
+      "takes": "link",
+      "required": false,
+      "max": 1,
+      "when": "Opens the records the figure counts."
+    }
+  ],
+  "rules": [
+    {
+      "rule": "The value is a quantity the reader monitors: a count, a rate, an amount.",
+      "from": [
+        "few-pitfalls"
+      ]
+    },
+    {
+      "rule": "One comparison: a target, the previous period or a rank.",
+      "from": [
+        "few-pitfalls"
+      ]
+    },
+    {
+      "rule": "The row has a dominant tile, by size or by position.",
+      "from": [
+        "few-pitfalls"
+      ]
+    },
+    {
+      "rule": "The tiles of a row share one layout.",
+      "from": [
+        "baymard-cards-dashboard"
+      ]
+    },
+    {
+      "rule": "A tile row belongs to a monitor screen.",
+      "from": [
+        "product-ui"
+      ]
+    }
+  ],
+  "labels": {
+    "label": "names the quantity, in the reader's words"
+  },
+  "uses": [],
+  "maps_to": {
+    "shadcn": "Card",
+    "html": "div",
+    "dads": null,
+    "smarthr": null
+  },
+  "evidence": [
+    {
+      "id": "few-pitfalls",
+      "source": "S. Few, Common Pitfalls in Dashboard Design (2006)",
+      "url": "https://www.perceptualedge.com/articles/Whitepapers/Common_Pitfalls.pdf",
+      "says": "A figure without context means little; not all data are equally important; equal prominence is failure."
+    },
+    {
+      "id": "baymard-cards-dashboard",
+      "source": "Baymard Institute, Cards dashboard layout (2018)",
+      "url": "https://baymard.com/blog/cards-dashboard-layout",
+      "says": "Card dashboards tested well only with high consistency across the cards."
+    }
+  ],
+  "evidence_status": "documented"
+}

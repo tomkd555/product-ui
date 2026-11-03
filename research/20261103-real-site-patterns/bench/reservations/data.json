@@ -1,0 +1,112 @@
+{
+  "records": [
+    {
+      "number": "R-2611040",
+      "customer": "森本 さやか",
+      "datetime": "2026-11-04T10:00",
+      "menu": "カット",
+      "staff": "西田",
+      "status": "来店済み",
+      "phone": "090-1200-5600"
+    },
+    {
+      "number": "R-2611041",
+      "customer": "高橋 健太",
+      "datetime": "2026-11-04T10:30",
+      "menu": "カット＋カラー",
+      "staff": "上野",
+      "status": "来店済み",
+      "phone": "090-1237-5691"
+    },
+    {
+      "number": "R-2611042",
+      "customer": "石井 由美",
+      "datetime": "2026-11-04T11:00",
+      "menu": "パーマ",
+      "staff": "西田",
+      "status": "確定",
+      "phone": "090-1274-5782"
+    },
+    {
+      "number": "R-2611043",
+      "customer": "中村 翔",
+      "datetime": "2026-11-04T13:00",
+      "menu": "カット",
+      "staff": "大塚",
+      "status": "確定",
+      "phone": "090-1311-5873"
+    },
+    {
+      "number": "R-2611044",
+      "customer": "岡田 真理",
+      "datetime": "2026-11-04T14:30",
+      "menu": "縮毛矯正",
+      "staff": "上野",
+      "status": "確定",
+      "phone": "090-1348-5964"
+    },
+    {
+      "number": "R-2611045",
+      "customer": "藤井 大輔",
+      "datetime": "2026-11-04T16:00",
+      "menu": "カット＋トリートメント",
+      "staff": "大塚",
+      "status": "キャンセル",
+      "phone": "090-1385-6055"
+    },
+    {
+      "number": "R-2611046",
+      "customer": "吉川 彩",
+      "datetime": "2026-11-05T10:00",
+      "menu": "カラー",
+      "staff": "西田",
+      "status": "確定",
+      "phone": "090-1422-6146"
+    },
+    {
+      "number": "R-2611047",
+      "customer": "松本 和也",
+      "datetime": "2026-11-05T11:30",
+      "menu": "カット",
+      "staff": "上野",
+      "status": "確定",
+      "phone": "090-1459-6237"
+    },
+    {
+      "number": "R-2611048",
+      "customer": "清水 綾香",
+      "datetime": "2026-11-05T13:00",
+      "menu": "ヘッドスパ",
+      "staff": "大塚",
+      "status": "確定",
+      "phone": "090-1496-6328"
+    },
+    {
+      "number": "R-2611049",
+      "customer": "木下 誠",
+      "datetime": "2026-11-05T15:00",
+      "menu": "カット＋カラー",
+      "staff": "西田",
+      "status": "確定",
+      "phone": "090-1533-6419"
+    },
+    {
+      "number": "R-2611050",
+      "customer": "山口 香織",
+      "datetime": "2026-11-05T17:00",
+      "menu": "カット",
+      "staff": "上野",
+      "status": "確定",
+      "phone": "090-1570-6510"
+    },
+    {
+      "number": "R-2611051",
+      "customer": "池田 涼",
+      "datetime": "2026-11-06T10:30",
+      "menu": "パーマ",
+      "staff": "大塚",
+      "status": "確定",
+      "phone": "090-1607-6601"
+    }
+  ]
+}

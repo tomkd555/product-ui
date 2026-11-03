@@ -1,0 +1,65 @@
+{
+  "id": "reservations",
+  "request": "美容室の予約管理アプリに、予約の一覧画面を作ってください。受付スタッフが毎日使い、今日と明日の予約を確認して、来店の準備と当日の受付をします。今日は 2026年11月4日 として、サンプルデータは data.json を使ってください。",
+  "today": "2026-11-04",
+  "surface": "saas",
+  "users": [
+    {
+      "role": "受付スタッフ",
+      "frequency": "daily",
+      "expertise": "intermediate",
+      "job": "今日と明日の予約を確認し、来店の準備と当日の受付をする",
+      "basis": "reported"
+    }
+  ],
+  "object": {
+    "name": "予約",
+    "locators": [
+      "customer",
+      "number"
+    ],
+    "fields": {
+      "number": [
+        "予約番号",
+        "text"
+      ],
+      "customer": [
+        "お客様名",
+        "text"
+      ],
+      "datetime": [
+        "日時",
+        "datetime"
+      ],
+      "menu": [
+        "メニュー",
+        "text"
+      ],
+      "staff": [
+        "担当スタッフ",
+        "text"
+      ],
+      "status": [
+        "ステータス",
+        "text"
+      ],
+      "phone": [
+        "電話番号",
+        "text"
+      ]
+    }
+  },
+  "screens": [
+    {
+      "id": "list",
+      "kind": "collection",
+      "job_fields": [
+        "customer",
+        "datetime",
+        "menu",
+        "staff",
+        "status"
+      ]
+    }
+  ]
+}

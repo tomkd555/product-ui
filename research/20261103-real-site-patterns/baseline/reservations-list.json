@@ -1,0 +1,243 @@
+{
+  "bench": "reservations",
+  "screen": "list",
+  "url": "http://localhost:4605/",
+  "kind": "collection",
+  "records": 12,
+  "found": 12,
+  "mean_fields_per_item": 5.0,
+  "fields_available": 7,
+  "job_coverage": 1.0,
+  "items_with_all_job_fields": 12,
+  "items_linked": 0,
+  "mean_item_height": 72.3,
+  "never_shown": [
+    "number",
+    "phone"
+  ],
+  "items": [
+    {
+      "id": "森本 さやか",
+      "found": true,
+      "locator": "森本 さやか",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "datetime",
+        "menu",
+        "staff",
+        "status"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "高橋 健太",
+      "found": true,
+      "locator": "高橋 健太",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "datetime",
+        "menu",
+        "staff",
+        "status"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "石井 由美",
+      "found": true,
+      "locator": "石井 由美",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "datetime",
+        "menu",
+        "staff",
+        "status"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "中村 翔",
+      "found": true,
+      "locator": "中村 翔",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "datetime",
+        "menu",
+        "staff",
+        "status"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "岡田 真理",
+      "found": true,
+      "locator": "岡田 真理",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 2,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "datetime",
+        "menu",
+        "staff",
+        "status"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "藤井 大輔",
+      "found": true,
+      "locator": "藤井 大輔",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "datetime",
+        "menu",
+        "staff",
+        "status"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "吉川 彩",
+      "found": true,
+      "locator": "吉川 彩",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "datetime",
+        "menu",
+        "staff",
+        "status"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "松本 和也",
+      "found": true,
+      "locator": "松本 和也",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "datetime",
+        "menu",
+        "staff",
+        "status"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "清水 綾香",
+      "found": true,
+      "locator": "清水 綾香",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "datetime",
+        "menu",
+        "staff",
+        "status"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "木下 誠",
+      "found": true,
+      "locator": "木下 誠",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "datetime",
+        "menu",
+        "staff",
+        "status"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "山口 香織",
+      "found": true,
+      "locator": "山口 香織",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 65,
+      "fields_shown": [
+        "customer",
+        "datetime",
+        "menu",
+        "staff",
+        "status"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "池田 涼",
+      "found": true,
+      "locator": "池田 涼",
+      "tag": "section",
+      "link": false,
+      "inner_controls": 1,
+      "height": 153,
+      "fields_shown": [
+        "customer",
+        "datetime",
+        "menu",
+        "staff",
+        "status"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    }
+  ],
+  "enclosures": 3,
+  "labels": {
+    "C18": 0,
+    "C19": 0,
+    "C20": 0,
+    "C21": 0
+  }
+}

@@ -89,6 +89,19 @@ dump field an older dump lacks is skipped. Severity: impeccable error is CRITICA
   R40 the same text at 3 or more distinct spots inside one card (repeated-container-text)
   R41 a hairline border on two or more sides plus a 32px halo on 3 or more cards of a row — NOTE
       (gpt-thin-border-wide-shadow)
+Pattern conformance, from the dump's `patterns` (elements with data-pattern) and the library under
+patterns/ (references/patterns.md). All are WARNINGs until the calibration in research/20261103-real-site-patterns
+settles which become errors. A dump with no `patterns` field, or a page with no data-pattern element, skips them.
+
+  R42 in an item, the slot the pattern marks `emphasis: 1` (the name, the title, the value) is not the strongest
+      text: another slot has a larger size, or the same size at a heavier weight
+  R43 items of one pattern under one parent show different sets of fields (data-pattern-field)
+  R44 a table pattern's cell slot holding a number is not aligned to the end, or lacks tabular-nums
+  R45 a table pattern's cell holding only a placeholder (-, —, x, ×, N/A) where the cell should stay blank
+  R46 an item whose required slot renders empty, or is missing from the rendered item
+  R47 an enclosure (a box) inside <main> that sits in no data-pattern element and holds no form control,
+      on a page that carries patterns
+
   Extensions: R4 also fires on text that overflows its box by 16px or more and meets another box, probed after
   scrolling to it (text-overflow); R20 also fires once per page on single icon tiles of 32 to 128px above a heading
   (icon-tile-stack); R21 also fires on multi-line text under 1.3 times its size (tight-leading; 24px and up, lead
@@ -107,6 +120,12 @@ import math
 import re
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "patterns"))
+try:
+    import library as pattern_library  # noqa: E402
+except ImportError:  # the render scripts copied without the pattern library
+    pattern_library = None
 
 MIN_HIT = 24
 # The text-size minimum from product-ui's references/ban-list.md.
@@ -1494,10 +1513,113 @@ def check_dump(label, dump, tokens, report, job=None, brand=None):
     if brand:
         check_brand(label, texts, brand, report)
     check_impeccable(label, dump, texts, reading_hits, report)
+    check_patterns(label, dump, report)
 
     report.scope.append("%s: %d text elements (%d skipped for an unpainted background), %d controls, %d headings, viewport %s"
                         % (label, len(texts), skipped_fallback, dump.get("controlsTotal", len(controls)),
                            len(headings), viewport))
+
+
+NUMBER_CELL = re.compile(r"^[-+]?[¥$€£]?\s*[-+]?\d[\d,]*(?:\.\d+)?\s*(?:円|%|％|件|個|人|名|点|pt)?$")
+PLACEHOLDER_CELL = {"-", "—", "–", "－", "ー", "x", "×", "✕", "N/A", "n/a", "NA"}
+
+
+def check_patterns(label, dump, report):
+    """R42 to R47: whether each rendered element that names its pattern carries it."""
+    patterns = dump.get("patterns")
+    if not patterns or pattern_library is None:
+        return
+    library = pattern_library.load_library()
+    by_id = {}
+    for p in patterns:
+        by_id.setdefault(p.get("id"), []).append(p)
+    for pid, items in by_id.items():
+        spec = library.get(pid)
+        if not spec:
+            continue
+        emphasis = [s["id"] for s in spec["slots"] if s.get("emphasis") == 1]
+        # R42 compares the emphasis slot with the slots that carry the item's data, not with a heading or a control
+        peers = {s["id"] for s in spec["slots"] if s["takes"] in pattern_library.OBJECT_TAKES + ("measure", "comparison", "text")}
+        required = [s["id"] for s in spec["slots"] if s.get("required")]
+        weak, empty, missing = [], {}, {}
+        for p in items:
+            slots = [s for s in p.get("slots", []) if not s.get("hidden")]
+            # R42 the emphasis slot is the strongest text of the item
+            for sid in emphasis:
+                top = [s for s in slots if s.get("slot") == sid and not s.get("empty")]
+                rest = [s for s in slots if s.get("slot") != sid and s.get("slot") in peers and not s.get("empty")]
+                if top and rest:
+                    t = max((s["fontSize"], s["fontWeight"]) for s in top)
+                    over = [s for s in rest if (s["fontSize"], s["fontWeight"]) > t]
+                    if over:
+                        weak.append((p, sid, over[0], t))
+            # R46 a required slot empty or missing
+            for sid in required:
+                found = [s for s in p.get("slots", []) if s.get("slot") == sid]
+                if not found:
+                    missing.setdefault(sid, []).append(p)
+                elif all(s.get("empty") or s.get("hidden") for s in found):
+                    empty.setdefault(sid, []).append(p)
+        if weak:
+            p, sid, other, t = weak[0]
+            report.add(("R42", pid), "WARNING", "%s at %s" % (pid, LABEL),
+                       "in %d of %d `%s` items the `%s` slot (%.0fpx/%s) is outweighed by `%s` (%.0fpx/%s) at %s"
+                       % (len(weak), len(items), pid, sid, t[0], t[1], other.get("slot"), other["fontSize"], other["fontWeight"], LABEL),
+                       "Make the %s the strongest text of the item: the larger size, or the same size at the heavier weight." % sid, label)
+        for sid, ps in sorted(missing.items()):
+            report.add(("R46", pid, sid, "missing"), "WARNING", "%s at %s" % (pid, LABEL),
+                       "%d of %d `%s` items render no `%s` slot at %s" % (len(ps), len(items), pid, sid, LABEL),
+                       "Render the slot the pattern requires, or change the section in the brief and run resolve.py.", label)
+        for sid, ps in sorted(empty.items()):
+            report.add(("R46", pid, sid), "WARNING", "%s at %s" % (pid, LABEL),
+                       "%d of %d `%s` items render the required `%s` slot empty at %s" % (len(ps), len(items), pid, sid, LABEL),
+                       "Fill the slot from the record, or leave the item out until the record holds it.", label)
+        # R43 same fields across the items of one collection
+        if spec.get("kind") in pattern_library.ITEM_KINDS:
+            groups = {}
+            for p in items:
+                groups.setdefault(p.get("group"), []).append(p)
+            for group, members in groups.items():
+                if len(members) < 2:
+                    continue
+                sets = [frozenset(s["field"] for s in m.get("slots", []) if s.get("field") and not s.get("hidden")) for m in members]
+                common = max(set(sets), key=sets.count)
+                odd = [m for m, fs in zip(members, sets) if fs != common]
+                if odd:
+                    diff = sorted(set().union(*sets) - set.intersection(*[set(x) for x in sets]))
+                    report.add(("R43", pid, group), "WARNING", "%s at %s" % (pid, LABEL),
+                               "%d of %d `%s` items under one parent show a different set of fields (%s) at %s"
+                               % (len(odd), len(members), pid, ", ".join(diff[:4]) or "order", LABEL),
+                               "Show the same fields on every item; an item without a value keeps the slot, blank.", label)
+        if spec.get("kind") == "collection-table":
+            # R44 numbers aligned to the end with tabular figures; R45 placeholder cells
+            bad = []
+            for p in items:
+                for s in p.get("slots", []):
+                    if s.get("slot") in ("property", "price", "count") and NUMBER_CELL.match(s.get("text") or ""):
+                        aligned = s.get("textAlign") in ("right", "end")
+                        tabular = "tabular-nums" in (s.get("numeric") or "")
+                        if not (aligned and tabular):
+                            bad.append((s, aligned, tabular))
+            if bad:
+                fields = sorted({b[0].get("field") or b[0].get("slot") for b in bad})
+                report.add(("R44", pid), "WARNING", "%s at %s" % (pid, LABEL),
+                           "%d number cells (%s) %s at %s" % (len(bad), ", ".join(fields[:4]),
+                           "not aligned to the end" if not all(b[1] for b in bad) else "without tabular-nums", LABEL),
+                           "Align number columns to the end and set font-variant-numeric: tabular-nums (text-right tabular-nums).", label)
+            cells = [c for p in items for c in p.get("shortCells", []) if c in PLACEHOLDER_CELL]
+            if cells:
+                report.add(("R45", pid), "WARNING", "%s at %s" % (pid, LABEL),
+                           "%d cells hold only %s at %s" % (len(cells), " ".join(sorted(set(cells))), LABEL),
+                           "Leave a cell without a value blank; keep a dash only for a field that cannot take a value.", label)
+    # R47 an enclosure outside every pattern
+    stray = [b for b in dump.get("boxes", []) if not b.get("inPattern") and not b.get("hasField")
+             and (b.get("rect") or {}).get("w", 0) >= 120 and (b.get("rect") or {}).get("h", 0) >= 48]
+    if stray:
+        report.add(("R47",), "WARNING", "; ".join(box_location(b) for b in stray[:MAX_LOCATIONS]),
+                   "%d enclosures carry no pattern at %s" % (len(stray), LABEL),
+                   "Give each container the pattern its section resolves to (data-pattern), or drop the enclosure "
+                   "and group by distance (references/composition.md).", label)
 
 
 def check_console(label, lines, report):

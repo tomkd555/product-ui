@@ -1,0 +1,135 @@
+{
+  "id": "record.header",
+  "version": 1,
+  "kind": "record-header",
+  "summary": "The top of one record's single view: what it is, its state, its key fields and what can be done with it.",
+  "not_for": "A section heading inside the record (a heading on the page ground).",
+  "slots": [
+    {
+      "id": "back",
+      "takes": "link",
+      "required": false,
+      "max": 1
+    },
+    {
+      "id": "title",
+      "takes": "identifier",
+      "required": true,
+      "max": 1,
+      "emphasis": 1
+    },
+    {
+      "id": "status",
+      "takes": "status",
+      "required": false,
+      "max": 1
+    },
+    {
+      "id": "key-fields",
+      "takes": "property",
+      "required": false,
+      "min": 0,
+      "max": 7
+    },
+    {
+      "id": "primary-action",
+      "takes": "action",
+      "required": false,
+      "max": 1
+    },
+    {
+      "id": "secondary-actions",
+      "takes": "action",
+      "required": false,
+      "max": null
+    },
+    {
+      "id": "pagination",
+      "takes": "control",
+      "required": false,
+      "max": 1
+    }
+  ],
+  "rules": [
+    {
+      "rule": "The title is the record's own name, as the collection shows it.",
+      "from": [
+        "polaris-page",
+        "primer-page-header",
+        "stripe-full-page"
+      ]
+    },
+    {
+      "rule": "The back link's text is the title of the page it returns to.",
+      "from": [
+        "polaris-page"
+      ]
+    },
+    {
+      "rule": "The status sits beside the title.",
+      "from": [
+        "polaris-page",
+        "primer-page-header"
+      ]
+    },
+    {
+      "rule": "Key fields: the few the reader decides by, four to seven at most.",
+      "from": [
+        "hubspot-cards",
+        "salesforce-compact"
+      ]
+    },
+    {
+      "rule": "One primary action, a verb and a noun. Actions unique to this record come first; generic ones (duplicate, archive, delete) last.",
+      "from": [
+        "polaris-page"
+      ]
+    }
+  ],
+  "labels": {
+    "back": "{parent page title}",
+    "primary_action": "verb + noun"
+  },
+  "uses": [
+    "status.badge"
+  ],
+  "maps_to": {
+    "shadcn": null,
+    "html": "header",
+    "dads": "Breadcrumbs + Heading",
+    "smarthr": null
+  },
+  "evidence": [
+    {
+      "id": "polaris-page",
+      "source": "Shopify Polaris, Page",
+      "url": "https://github.com/Shopify/polaris/blob/main/polaris.shopify.com/content/components/layout-and-structure/page.mdx",
+      "says": "A page carries a title, title metadata such as a status badge, a back action labelled with the parent page title, one primary action, then secondary actions."
+    },
+    {
+      "id": "primer-page-header",
+      "source": "Primer, PageHeader guidelines",
+      "url": "https://primer.style/product/components/page-header/guidelines",
+      "says": "The page header holds the title, a trailing visual for status, and the actions; a large variant serves user-generated titles."
+    },
+    {
+      "id": "salesforce-compact",
+      "source": "Salesforce Trailhead, Compact layouts",
+      "url": "https://trailhead.salesforce.com/content/learn/modules/lex_customization/lex_customization_compact_layouts",
+      "says": "The first field of a compact layout shows at the top in bold; the highlights panel shows up to seven fields."
+    },
+    {
+      "id": "hubspot-cards",
+      "source": "HubSpot, Create cards on records",
+      "url": "https://knowledge.hubspot.com/object-settings/create-cards-on-records",
+      "says": "Data highlights show four properties of the record."
+    },
+    {
+      "id": "stripe-full-page",
+      "source": "Stripe Apps, Full-page apps",
+      "url": "https://docs.stripe.com/stripe-apps/patterns/full-page-apps.md",
+      "says": "A full-page app opens with the object's name and its key details."
+    }
+  ],
+  "evidence_status": "documented"
+}

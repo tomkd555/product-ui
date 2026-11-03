@@ -1,0 +1,67 @@
+{
+  "id": "status.badge",
+  "version": 1,
+  "kind": "badge",
+  "summary": "A record's state as one word.",
+  "not_for": "A category, a count or a call to action.",
+  "slots": [
+    {
+      "id": "label",
+      "takes": "status",
+      "required": true,
+      "max": 1
+    }
+  ],
+  "rules": [
+    {
+      "rule": "One word; two only for a compound state.",
+      "from": [
+        "polaris-badge"
+      ]
+    },
+    {
+      "rule": "An adjective or a completed form (返金済み), from a fixed vocabulary per object.",
+      "from": [
+        "polaris-badge",
+        "govuk-tag"
+      ]
+    },
+    {
+      "rule": "One colour per state, the same on every screen.",
+      "from": [
+        "polaris-badge"
+      ]
+    },
+    {
+      "rule": "Not a link.",
+      "from": [
+        "govuk-tag"
+      ]
+    }
+  ],
+  "labels": {
+    "label": "from voice.status"
+  },
+  "uses": [],
+  "maps_to": {
+    "shadcn": "Badge",
+    "html": "span",
+    "dads": "StatusBadge",
+    "smarthr": "StatusLabel"
+  },
+  "evidence": [
+    {
+      "id": "polaris-badge",
+      "source": "Shopify Polaris, Badge",
+      "url": "https://github.com/Shopify/polaris/blob/main/polaris.shopify.com/content/components/feedback-indicators/badge.mdx",
+      "says": "Badge text is one word, two for complex states, in the past tense or as an adjective (Refunded, not Refund); one tone per status."
+    },
+    {
+      "id": "govuk-tag",
+      "source": "GOV.UK Design System, Tag",
+      "url": "https://design-system.service.gov.uk/components/tag/",
+      "says": "A tag shows a status in sentence case and is not interactive."
+    }
+  ],
+  "evidence_status": "documented"
+}

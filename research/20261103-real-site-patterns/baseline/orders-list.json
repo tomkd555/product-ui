@@ -1,0 +1,183 @@
+{
+  "bench": "orders",
+  "screen": "list",
+  "url": "http://localhost:4601/",
+  "kind": "collection",
+  "records": 8,
+  "found": 8,
+  "mean_fields_per_item": 6.88,
+  "fields_available": 7,
+  "job_coverage": 1.0,
+  "items_with_all_job_fields": 8,
+  "items_linked": 0,
+  "mean_item_height": 163.8,
+  "never_shown": [],
+  "items": [
+    {
+      "id": "250-7731020",
+      "found": true,
+      "locator": "250-7731020",
+      "tag": "li",
+      "link": false,
+      "inner_controls": 0,
+      "height": 165,
+      "fields_shown": [
+        "eta",
+        "number",
+        "ordered",
+        "product",
+        "qty",
+        "status",
+        "total"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "250-7734137",
+      "found": true,
+      "locator": "250-7734137",
+      "tag": "li",
+      "link": false,
+      "inner_controls": 0,
+      "height": 166,
+      "fields_shown": [
+        "eta",
+        "number",
+        "ordered",
+        "product",
+        "qty",
+        "status",
+        "total"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "250-7737254",
+      "found": true,
+      "locator": "250-7737254",
+      "tag": "li",
+      "link": false,
+      "inner_controls": 0,
+      "height": 166,
+      "fields_shown": [
+        "eta",
+        "number",
+        "ordered",
+        "product",
+        "qty",
+        "status",
+        "total"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "250-7740371",
+      "found": true,
+      "locator": "250-7740371",
+      "tag": "li",
+      "link": false,
+      "inner_controls": 0,
+      "height": 149,
+      "fields_shown": [
+        "number",
+        "ordered",
+        "product",
+        "qty",
+        "status",
+        "total"
+      ],
+      "job_shown": 3,
+      "job_scored": 3
+    },
+    {
+      "id": "250-7743488",
+      "found": true,
+      "locator": "250-7743488",
+      "tag": "li",
+      "link": false,
+      "inner_controls": 0,
+      "height": 166,
+      "fields_shown": [
+        "eta",
+        "number",
+        "ordered",
+        "product",
+        "qty",
+        "status",
+        "total"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "250-7746605",
+      "found": true,
+      "locator": "250-7746605",
+      "tag": "li",
+      "link": false,
+      "inner_controls": 0,
+      "height": 166,
+      "fields_shown": [
+        "eta",
+        "number",
+        "ordered",
+        "product",
+        "qty",
+        "status",
+        "total"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "250-7749722",
+      "found": true,
+      "locator": "250-7749722",
+      "tag": "li",
+      "link": false,
+      "inner_controls": 0,
+      "height": 166,
+      "fields_shown": [
+        "eta",
+        "number",
+        "ordered",
+        "product",
+        "qty",
+        "status",
+        "total"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "250-7752839",
+      "found": true,
+      "locator": "250-7752839",
+      "tag": "li",
+      "link": false,
+      "inner_controls": 0,
+      "height": 166,
+      "fields_shown": [
+        "eta",
+        "number",
+        "ordered",
+        "product",
+        "qty",
+        "status",
+        "total"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    }
+  ],
+  "enclosures": 1,
+  "labels": {
+    "C18": 0,
+    "C19": 0,
+    "C20": 0,
+    "C21": 0
+  }
+}

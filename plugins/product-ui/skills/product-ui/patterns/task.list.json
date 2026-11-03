@@ -1,0 +1,76 @@
+{
+  "id": "task.list",
+  "version": 1,
+  "kind": "task-list",
+  "summary": "The tasks a procedure needs, each with its state, in the order to do them.",
+  "not_for": "Records the reader browses: collection.row.resource.",
+  "slots": [
+    {
+      "id": "task",
+      "takes": "identifier",
+      "required": true,
+      "max": 1,
+      "link": "task"
+    },
+    {
+      "id": "hint",
+      "takes": "text",
+      "required": false,
+      "max": 1
+    },
+    {
+      "id": "status",
+      "takes": "status",
+      "required": true,
+      "max": 1
+    }
+  ],
+  "rules": [
+    {
+      "rule": "A task name is short and starts with the verb.",
+      "from": [
+        "govuk-task-list"
+      ]
+    },
+    {
+      "rule": "Statuses start from 完了 and 未完了; add 対応中, 未着手, 開始できません or 問題があります only when the procedure needs them.",
+      "from": [
+        "govuk-task-list",
+        "govuk-multiple-tasks"
+      ]
+    },
+    {
+      "rule": "A task that cannot start yet has no link.",
+      "from": [
+        "govuk-task-list"
+      ]
+    }
+  ],
+  "labels": {
+    "status": "adjective or completed form, from voice.status"
+  },
+  "uses": [
+    "status.badge"
+  ],
+  "maps_to": {
+    "shadcn": "ul",
+    "html": "ul",
+    "dads": "StepNavigation",
+    "smarthr": null
+  },
+  "evidence": [
+    {
+      "id": "govuk-task-list",
+      "source": "GOV.UK Design System, Task list",
+      "url": "https://design-system.service.gov.uk/components/task-list/",
+      "says": "Each task is a link named with a short, verb-first phrase, with an optional hint and a status; a task that cannot start has no link."
+    },
+    {
+      "id": "govuk-multiple-tasks",
+      "source": "GOV.UK Design System, Complete multiple tasks",
+      "url": "https://design-system.service.gov.uk/patterns/complete-multiple-tasks/",
+      "says": "Start with Completed and Incomplete; add In progress, Not yet started, Cannot start yet and There is a problem as needed."
+    }
+  ],
+  "evidence_status": "documented"
+}

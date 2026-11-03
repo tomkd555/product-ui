@@ -1,0 +1,112 @@
+{
+  "records": [
+    {
+      "number": "#30412",
+      "subject": "請求書の宛名を変更したい",
+      "customer": "株式会社青葉商事 小松様",
+      "received": "2026-11-01T09:12",
+      "status": "完了",
+      "assignee": "石田",
+      "category": "請求"
+    },
+    {
+      "number": "#30413",
+      "subject": "ログインできなくなりました",
+      "customer": "大川 聡様",
+      "received": "2026-11-01T11:40",
+      "status": "対応中",
+      "assignee": "前川",
+      "category": "ログイン"
+    },
+    {
+      "number": "#30414",
+      "subject": "CSV の取り込みで文字化けする",
+      "customer": "株式会社ミナト印刷 原様",
+      "received": "2026-11-01T15:05",
+      "status": "未対応",
+      "assignee": "",
+      "category": "データ連携"
+    },
+    {
+      "number": "#30415",
+      "subject": "契約プランの変更について",
+      "customer": "北斗システム株式会社 井上様",
+      "received": "2026-11-02T08:47",
+      "status": "返信待ち",
+      "assignee": "石田",
+      "category": "契約"
+    },
+    {
+      "number": "#30416",
+      "subject": "二段階認証の端末を変えたい",
+      "customer": "坂本 由香様",
+      "received": "2026-11-02T10:20",
+      "status": "未対応",
+      "assignee": "",
+      "category": "ログイン"
+    },
+    {
+      "number": "#30417",
+      "subject": "領収書を再発行してほしい",
+      "customer": "株式会社ツバメ出版 永井様",
+      "received": "2026-11-02T13:55",
+      "status": "完了",
+      "assignee": "前川",
+      "category": "請求"
+    },
+    {
+      "number": "#30418",
+      "subject": "API の利用上限を知りたい",
+      "customer": "東和ロジスティクス株式会社 浜田様",
+      "received": "2026-11-02T16:30",
+      "status": "対応中",
+      "assignee": "石田",
+      "category": "API"
+    },
+    {
+      "number": "#30419",
+      "subject": "退会の手続きについて",
+      "customer": "野村 健一様",
+      "received": "2026-11-03T08:05",
+      "status": "未対応",
+      "assignee": "",
+      "category": "契約"
+    },
+    {
+      "number": "#30420",
+      "subject": "通知メールが届かない",
+      "customer": "丸井メディカル株式会社 小島様",
+      "received": "2026-11-03T09:18",
+      "status": "未対応",
+      "assignee": "",
+      "category": "通知"
+    },
+    {
+      "number": "#30421",
+      "subject": "ユーザーの一括登録方法",
+      "customer": "合同会社ハルカデザイン 宮本様",
+      "received": "2026-11-03T09:52",
+      "status": "返信待ち",
+      "assignee": "前川",
+      "category": "ユーザー管理"
+    },
+    {
+      "number": "#30422",
+      "subject": "支払い方法をカードに変えたい",
+      "customer": "西原歯科クリニック 西原様",
+      "received": "2026-11-03T10:41",
+      "status": "未対応",
+      "assignee": "",
+      "category": "請求"
+    },
+    {
+      "number": "#30423",
+      "subject": "画面が真っ白になる",
+      "customer": "株式会社川口精機 村田様",
+      "received": "2026-11-03T11:07",
+      "status": "未対応",
+      "assignee": "",
+      "category": "不具合"
+    }
+  ]
+}

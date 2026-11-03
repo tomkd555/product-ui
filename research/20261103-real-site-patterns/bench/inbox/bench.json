@@ -1,0 +1,65 @@
+{
+  "id": "inbox",
+  "request": "業務 SaaS のサポート窓口ツールに、問い合わせの受信箱の画面を作ってください。サポート担当者が毎日使い、未対応の問い合わせを受付の古い順に開いて返信します。今日は 2026年11月3日 として、サンプルデータは data.json を使ってください。",
+  "today": "2026-11-03",
+  "surface": "saas",
+  "users": [
+    {
+      "role": "サポート担当者",
+      "frequency": "daily",
+      "expertise": "expert",
+      "job": "未対応の問い合わせを受付の古い順に開いて返信する",
+      "basis": "reported"
+    }
+  ],
+  "object": {
+    "name": "問い合わせ",
+    "locators": [
+      "subject",
+      "number"
+    ],
+    "fields": {
+      "number": [
+        "問い合わせ番号",
+        "text"
+      ],
+      "subject": [
+        "件名",
+        "text"
+      ],
+      "customer": [
+        "お客様",
+        "text"
+      ],
+      "received": [
+        "受付日時",
+        "datetime"
+      ],
+      "status": [
+        "ステータス",
+        "text"
+      ],
+      "assignee": [
+        "担当者",
+        "text"
+      ],
+      "category": [
+        "カテゴリ",
+        "text"
+      ]
+    }
+  },
+  "screens": [
+    {
+      "id": "list",
+      "kind": "collection",
+      "job_fields": [
+        "subject",
+        "customer",
+        "received",
+        "status",
+        "assignee"
+      ]
+    }
+  ]
+}

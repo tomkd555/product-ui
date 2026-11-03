@@ -1,0 +1,264 @@
+{
+  "bench": "invoices",
+  "screen": "list",
+  "url": "http://localhost:4603/",
+  "kind": "collection",
+  "records": 12,
+  "found": 12,
+  "mean_fields_per_item": 7.0,
+  "fields_available": 7,
+  "job_coverage": 1.0,
+  "items_with_all_job_fields": 12,
+  "items_linked": 0,
+  "mean_item_height": 51.0,
+  "never_shown": [],
+  "items": [
+    {
+      "id": "INV-2026-0401",
+      "found": true,
+      "locator": "INV-2026-0401",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 51,
+      "fields_shown": [
+        "amount",
+        "client",
+        "due",
+        "issued",
+        "number",
+        "owner",
+        "status"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "INV-2026-0402",
+      "found": true,
+      "locator": "INV-2026-0402",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 51,
+      "fields_shown": [
+        "amount",
+        "client",
+        "due",
+        "issued",
+        "number",
+        "owner",
+        "status"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "INV-2026-0403",
+      "found": true,
+      "locator": "INV-2026-0403",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 51,
+      "fields_shown": [
+        "amount",
+        "client",
+        "due",
+        "issued",
+        "number",
+        "owner",
+        "status"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "INV-2026-0404",
+      "found": true,
+      "locator": "INV-2026-0404",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 51,
+      "fields_shown": [
+        "amount",
+        "client",
+        "due",
+        "issued",
+        "number",
+        "owner",
+        "status"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "INV-2026-0405",
+      "found": true,
+      "locator": "INV-2026-0405",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 51,
+      "fields_shown": [
+        "amount",
+        "client",
+        "due",
+        "issued",
+        "number",
+        "owner",
+        "status"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "INV-2026-0406",
+      "found": true,
+      "locator": "INV-2026-0406",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 51,
+      "fields_shown": [
+        "amount",
+        "client",
+        "due",
+        "issued",
+        "number",
+        "owner",
+        "status"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "INV-2026-0407",
+      "found": true,
+      "locator": "INV-2026-0407",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 51,
+      "fields_shown": [
+        "amount",
+        "client",
+        "due",
+        "issued",
+        "number",
+        "owner",
+        "status"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "INV-2026-0408",
+      "found": true,
+      "locator": "INV-2026-0408",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 51,
+      "fields_shown": [
+        "amount",
+        "client",
+        "due",
+        "issued",
+        "number",
+        "owner",
+        "status"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "INV-2026-0409",
+      "found": true,
+      "locator": "INV-2026-0409",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 51,
+      "fields_shown": [
+        "amount",
+        "client",
+        "due",
+        "issued",
+        "number",
+        "owner",
+        "status"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "INV-2026-0410",
+      "found": true,
+      "locator": "INV-2026-0410",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 51,
+      "fields_shown": [
+        "amount",
+        "client",
+        "due",
+        "issued",
+        "number",
+        "owner",
+        "status"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "INV-2026-0411",
+      "found": true,
+      "locator": "INV-2026-0411",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 51,
+      "fields_shown": [
+        "amount",
+        "client",
+        "due",
+        "issued",
+        "number",
+        "owner",
+        "status"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    },
+    {
+      "id": "INV-2026-0412",
+      "found": true,
+      "locator": "INV-2026-0412",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 1,
+      "height": 51,
+      "fields_shown": [
+        "amount",
+        "client",
+        "due",
+        "issued",
+        "number",
+        "owner",
+        "status"
+      ],
+      "job_shown": 4,
+      "job_scored": 4
+    }
+  ],
+  "enclosures": 2,
+  "labels": {
+    "C18": 0,
+    "C19": 0,
+    "C20": 0,
+    "C21": 0
+  }
+}

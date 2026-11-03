@@ -1,6 +1,6 @@
 # Composition
 
-Source of record for the composition plan a screen gets before any markup, for the container rule, for the KPI tile rule, and for the measured checks in `scripts/render/check_render.py` listed under "Measured type and spacing" and "What the checks cover". Read it at Step 3 of `SKILL.md` before the first element is placed, and when one of these, S11 or C18 to C21 fires.
+Source of record for the composition plan a screen gets before any markup, for the container rule, for the KPI tile rule (its slots are the pattern `measure.tile.kpi`, `references/patterns.md`), and for the measured checks in `scripts/render/check_render.py` listed under "Measured type and spacing" and "What the checks cover". Read it at Step 3 of `SKILL.md` before the first element is placed, and when one of these, S11 or C18 to C21 fires.
 
 ## What it settles
 
@@ -50,9 +50,11 @@ One enclosure level. The page ground is the outer level, and a panel on it is th
 
 A card that stands in for a table row, a panel around a single paragraph, or a border drawn where a larger gap would have grouped the same content compensates for a hierarchy the layout has not made.
 
+This table settles which container a section gets. What the container carries (the slots of a row, a table, a card, a record's header, and their order and limits) is settled by a pattern from the library in `references/patterns.md`, chosen from the section's content by `scripts/patterns/resolve.py`.
+
 ## KPI tiles
 
-A tile exists when all three hold:
+The tile is the pattern `measure.tile.kpi` (`patterns/measure.tile.kpi.json`): a label, the value, one comparison, and an optional link to the records the figure counts. A tile exists when all three hold:
 
 1. its value is a quantity the reader monitors (a count, a rate, an amount); a category, a name or a date is a line in a list or a cell in a table;
 2. it carries one comparison (a target, the previous period, a rank), because "quarter-to-date sales total $736,502 without any context means little" (Few);

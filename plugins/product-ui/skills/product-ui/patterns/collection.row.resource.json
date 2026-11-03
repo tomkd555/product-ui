@@ -1,0 +1,133 @@
+{
+  "id": "collection.row.resource",
+  "version": 1,
+  "kind": "collection-row",
+  "summary": "One row of a list the reader scans by name and opens to act on.",
+  "not_for": "A list the reader compares by property: that is collection.table.index.",
+  "slots": [
+    {
+      "id": "media",
+      "takes": "image",
+      "required": false,
+      "max": 1,
+      "when": "The image helps the reader pick the one record; leave it out otherwise."
+    },
+    {
+      "id": "name",
+      "takes": "identifier",
+      "required": true,
+      "max": 1,
+      "emphasis": 1,
+      "link": "single-view"
+    },
+    {
+      "id": "info",
+      "takes": "property",
+      "required": true,
+      "min": 1,
+      "max": 3,
+      "same_across_items": true,
+      "label_form": "{label}：{value} when the value alone is ambiguous"
+    },
+    {
+      "id": "trailing",
+      "takes": "status",
+      "required": false,
+      "max": 1
+    },
+    {
+      "id": "action",
+      "takes": "action",
+      "required": false,
+      "max": 1,
+      "when": "Only when the row has no single view to open."
+    }
+  ],
+  "rules": [
+    {
+      "rule": "The whole row is a link to the record's single view, and holds no other link or button.",
+      "from": [
+        "smarthr-list",
+        "dads-resource-list"
+      ]
+    },
+    {
+      "rule": "Every row shows the same kinds of property, in the same order.",
+      "from": [
+        "smarthr-list"
+      ]
+    },
+    {
+      "rule": "The property the reader sorted or filtered by is shown in the row.",
+      "from": [
+        "baymard-contextual"
+      ]
+    },
+    {
+      "rule": "The properties are ranked by what the reader identifies or decides by, highest first.",
+      "from": [
+        "nng-list-entries"
+      ]
+    },
+    {
+      "rule": "The first words of the name carry the information.",
+      "from": [
+        "nng-first-words"
+      ]
+    }
+  ],
+  "labels": {
+    "collection_heading": "object",
+    "empty": "{object}はありません。",
+    "empty_filtered": "該当する{object}はありません。"
+  },
+  "uses": [
+    "status.badge",
+    "state.empty"
+  ],
+  "maps_to": {
+    "shadcn": "ul > li > a",
+    "html": "ul > li > a",
+    "dads": "ResourceList",
+    "smarthr": null
+  },
+  "evidence": [
+    {
+      "id": "smarthr-list",
+      "source": "SmartHR Design System, よくあるリスト",
+      "url": "https://smarthr.design/products/design-patterns/smarthr-list/",
+      "says": "The object name is required to identify each object; every item shows the same kinds and number of fields; a row without a detail page takes one icon button or one menu."
+    },
+    {
+      "id": "polaris-resource-item",
+      "source": "Shopify Polaris, Resource item",
+      "url": "https://github.com/Shopify/polaris/blob/main/polaris.shopify.com/content/components/lists/resource-item.mdx",
+      "says": "A resource item is the object's name with its key details, and the whole item opens the object."
+    },
+    {
+      "id": "dads-resource-list",
+      "source": "デジタル庁デザインシステム, リソースリスト",
+      "url": "https://design.digital.go.jp/dads/components/resource-list/",
+      "says": "A resource list item links to its detail and holds no other control when the whole item is the link."
+    },
+    {
+      "id": "nng-list-entries",
+      "source": "Nielsen Norman Group, List Entries",
+      "url": "https://www.nngroup.com/articles/list-entries/",
+      "says": "Order a list entry's attributes by the user's priority; the top and left carry the highest."
+    },
+    {
+      "id": "baymard-contextual",
+      "source": "Baymard Institute, Contextual list item information (2015)",
+      "url": "https://baymard.com/blog/contextual-list-item-information",
+      "says": "Show the attribute the user sorted or filtered by; leave out an attribute every result shares."
+    },
+    {
+      "id": "nng-first-words",
+      "source": "Nielsen Norman Group, First 2 Words",
+      "url": "https://www.nngroup.com/articles/first-2-words-a-signal-for-scanning/",
+      "says": "Users see about the first two words of a list item, so those words carry the information."
+    }
+  ],
+  "evidence_status": "documented"
+}

@@ -34,6 +34,7 @@ One entry point for building and reworking web interfaces. Every design decision
 5. **Review happens elsewhere.** Step 5 hands the rendered result to a reviewer who holds none of the context that produced it.
 6. **The screen is composed before it is built.** `tokens.json` records who uses the product (`meta.users`), and `ui-brief.md` records, before any markup, what each screen is for, who reads it, what dominates, in what order it is read and which container each section gets (`references/composition.md`). The reviewer judges the whole screen against that plan before judging its parts.
 7. **Every visible choice has a source.** Colours, type and the logo record where they came from (`meta.provenance`, `meta.logo`), because a value equal to a known default with no recorded source shows that nobody chose it. A brand element (logo, product name, company name) appears only where the brief's `Brand area` lists it. Proof on a screen (figures, testimonials, customer logos) comes from the brief's Proof section or stays off the screen. Each collection, fetch and form has its empty, loading and error state in the brief, and a mock control is shown disabled or left out, never reporting an effect it does not have.
+8. **Each container carries what its pattern names.** What a row, a table, a card, a record's header or an empty state shows comes from a pattern in `patterns/`, drawn from what production design systems publish about that component and naming its sources (`references/patterns.md`). The brief ranks each object's properties by the reader's job, `scripts/patterns/resolve.py` picks the pattern and fills its slots from that ranking, and the same brief gives the same patterns and the same skeletons on every run.
 
 ## Out of scope
 
@@ -64,6 +65,7 @@ STANDARD escalates to DEEP once the surface spans more than one screen, and the 
 | The words on an English screen | `interfaces:better-writing`, with `references/ui-copy.md` for what the checks enforce |
 | Which objects a product shows, their collection and single views, what the navigation lists, where an action sits | `references/ooui.md` |
 | What a screen is for and who reads it; what goes first and what dominates; whether a section is a panel, a table, a list or a heading on the ground; whether a KPI row exists | `references/composition.md` |
+| What a row, a table, a card, a record's header, a task list, a status or an empty state carries, and which of an object's properties each shows | `references/patterns.md`, `scripts/patterns/resolve.py` and `scaffold.py` |
 | A shadcn component; dark mode; an accessible dialog, dropdown, form or table; a responsive layout in utility classes | `references/components.md` and the official documentation it links |
 | Palettes, font pairings, visual styles, chart types, UX rules, per-stack rules | `references/lookup.md` and `scripts/lookup/search.py` |
 | Building on the Digital Agency Design System | `references/dads.md` for the tokens, `references/dads-components.md` for the components |
@@ -81,7 +83,7 @@ The external skills are published separately: `hallmark` at https://github.com/N
 
 ## Pipeline
 
-When resuming interrupted work, decide the next step from which files exist, and from those alone: `tokens.json`, `theme.css`, `ui-brief.md`, the built output.
+When resuming interrupted work, decide the next step from which files exist, and from those alone: `tokens.json`, `theme.css`, `ui-brief.md` (with its `## Slots` table once `resolve.py` has run), `scaffold/`, the built output.
 
 ### Step 0: Intake
 
@@ -122,9 +124,18 @@ An error from `validate_tokens.py` sends this back to Step 1 before the generato
 
 Before any markup, write `ui-brief.md` beside `tokens.json` from `assets/brief.template.md`: the screen's purpose in one sentence and the Composition section from `references/composition.md`, one block per screen (job class, reader, dominant element, reading order, density, archetype, grouping cue per section, what is constant and what is decided here, omissions, the tile row or `none`). When `meta.structure` is `ooui`, work through the three steps in `references/ooui.md` first and fill the brief's Structure section with the object table. The brief is the plan the Step 5 reviewer conforms the screen to, so a decision the markup departs from is changed in the brief first.
 
+Then fill the brief's `## Objects` table and each block's `- Sections:` list (`references/patterns.md`): one row per object, its properties ranked by the reader's job, and one line per section saying what it holds. Run
+
+```bash
+python {SKILL_DIR}/scripts/patterns/resolve.py ui-brief.md
+python {SKILL_DIR}/scripts/patterns/scaffold.py ui-brief.md
+```
+
+`resolve.py` picks each section's pattern from `patterns/index.json` and writes the `## Slots` table; when it stops, it names the one question the brief has to answer (whether the reader compares the records, which property is the identifier), and that question goes to the user when the request does not answer it. `scaffold.py` writes one skeleton per section under `scaffold/`, in the stack `tokens.json` names. Build each section from its skeleton: keep its slots, their order and the `data-pattern`, `data-pattern-slot` and `data-pattern-field` attributes, bind the record's keys and write the words. A slot added or dropped on the screen is changed in the brief first, and both scripts run again.
+
 The brief also carries the sections the checks and the reviewer read: `## Proof` (each figure, testimonial, customer logo and claim the screen shows, with its source; empty means the screen shows none), `## States` (per screen: each collection's empty state, each fetch's loading and error state, each form's validation), `## Sample data` (who supplied it; mock data varies names, dates and amounts and carries no statistic the reader did not ask for) and, on `lp`, the lead content (what the reader sees first: the product itself, named). A mock control is shown disabled or left out.
 
-Then follow the routing table. Colours, type, spacing, radius, shadow and motion come from `theme.css` variables only; components follow `references/components.md` or the preset's component reference; containers follow the table in `references/composition.md`.
+Then follow the routing table. Colours, type, spacing, radius, shadow and motion come from `theme.css` variables only; components follow `references/components.md` or the preset's component reference; containers follow the table in `references/composition.md`, and what each container carries follows its pattern.
 
 Read `references/ban-list.md` and `references/ui-copy.md` before writing any string a user will see. The ban list settles whether a string exists and how small text may be; ui-copy.md settles how a string that exists is worded. When the brief gives no real content for a slot, leave `[TODO: …]` in a source comment and ask the user one question; prose invented to fill a slot is a defect.
 
@@ -134,16 +145,17 @@ Read `references/ban-list.md` and `references/ui-copy.md` before writing any str
 python {SKILL_DIR}/scripts/check_slop.py <path> --json
 python {SKILL_DIR}/scripts/check_copy.py <path> --emit-prose copy-prose.md --json
 python {SKILL_DIR}/scripts/check_shippable_text.py <path> --json
+python {SKILL_DIR}/scripts/check_pattern.py <path> --json
 ```
 
 ```bash
 npx textlint --config {SKILL_DIR}/assets/textlintrc.ui.json copy-prose.md
 ```
 
-- **Errors**: an error from any of the three scripts sends this back to Step 3.
-- **Warnings**: every warning from `check_slop.py`, `check_copy.py` and `check_shippable_text.py` gets a ruling in the hand-over: fixed, or kept with its reason. For a `check_shippable_text.py` warning, delete the annotation, or keep it and name its allowance. Delete text that explains the design or the way through the screen at either severity.
+- **Errors**: an error from any of the four scripts sends this back to Step 3. `check_pattern.py` reads the brief beside `tokens.json` (`--brief` names another) and resolves it as `resolve.py` does; a brief that cannot be resolved leaves its plan checks (PT2's plan half, PT6, PT7) unread, and the output says why.
+- **Warnings**: every warning from `check_slop.py`, `check_copy.py`, `check_shippable_text.py` and `check_pattern.py` gets a ruling in the hand-over: fixed, or kept with its reason. For a `check_shippable_text.py` warning, delete the annotation, or keep it and name its allowance. Delete text that explains the design or the way through the screen at either severity.
 - **textlint**: it covers the prose-shaped strings `check_copy.py` writes to `copy-prose.md`. Fix each finding; deleting the string counts as a fix, and a string under the carve-out in `references/ui-copy.md` stays. textlint is optional: the plugin leaves its install to the user, and the README names the npm packages. When `npx textlint` is unavailable, skip it and write `textlint skipped: not installed` in the hand-over; the three Python scripts still gate.
-- **Misfires**: silence a misfire of `check_slop.py` or `check_copy.py` in the file itself, as `product-ui: ignore <ID> <reason>` or `product-ui: ignore-file <ID> <reason>` (forms in `references/slop-checklist.md` and `references/ui-copy.md`). Suppress only a misfire; fix a string the check read correctly. Fix every `check_shippable_text.py` error, because that script reads no suppression form.
+- **Misfires**: silence a misfire of `check_slop.py`, `check_copy.py` or `check_pattern.py` in the file itself, as `product-ui: ignore <ID> <reason>` or `product-ui: ignore-file <ID> <reason>` (forms in `references/slop-checklist.md` and `references/ui-copy.md`). Suppress only a misfire; fix a string the check read correctly. Fix every `check_shippable_text.py` error, because that script reads no suppression form.
 
 Step 5 starts once no error remains and every warning has its ruling.
 
@@ -157,17 +169,19 @@ When a check fails, read the reference that owns its ID:
 | S1–S37 | `check_slop.py` | `references/slop-checklist.md`; `references/composition.md` for S11 |
 | C1–C32 | `check_copy.py` | `references/ui-copy.md`; `references/ooui.md` for C17; `references/composition.md` for C18–C21 |
 | ST1–ST10 | `check_shippable_text.py` | `references/ban-list.md` |
-| R1–R41 | `check_render.py` (Step 5) | `references/composition.md` for R4's collision form, R12–R15, R21–R22, R30, R32, R34–R37 and R39; `references/slop-checklist.md` for R16–R20, R25–R29, R31, R33 and R41; `references/ui-copy.md` for R23, R24, R38 and R40 |
+| PV1–PV8 | `scripts/patterns/validate.py` | `references/patterns.md` |
+| PT0–PT7 | `check_pattern.py` | `references/patterns.md` |
+| R1–R47 | `check_render.py` (Step 5) | `references/composition.md` for R4's collision form, R12–R15, R21–R22, R30, R32, R34–R37 and R39; `references/slop-checklist.md` for R16–R20, R25–R29, R31, R33 and R41; `references/ui-copy.md` for R23, R24, R38 and R40 |; `references/patterns.md` for R42–R47
 
 ### Step 5: Independent review
 
 The step needs a renderable entry point, Node 22 or later, a Chrome install and the Agent tool.
 
-Complete the `ui-brief.md` written in Step 3: the built file paths and whether the controls are wired. The Proof, States and Sample data sections stay; P3 compares the rendered screen with them. The template's Composition section, the eight cold-read questions, the seven copy questions and the three reader-fit questions stay; the Structure section stays when `meta.structure` is `ooui` and is deleted otherwise.
+Complete the `ui-brief.md` written in Step 3: the built file paths and whether the controls are wired. The Proof, States and Sample data sections stay; P3 compares the rendered screen with them. The template's Objects, Composition and Slots sections, the eight cold-read questions, the seven copy questions, the three reader-fit questions and the three content questions stay; the Structure section stays when `meta.structure` is `ooui` and is deleted otherwise.
 
 Then launch both agents in one message, each with `model: opus`:
 
-- `review-design-lead`, with `plan: ui-brief.md`, `target:` the project directory, and `scripts: {SKILL_DIR}/scripts/render`; it requires all three and returns `{"error": …}` when one is missing. It renders through headless Chrome at 1280px and 375px and measures the page with `check_render.py` (R1–R41, with `--plan` reading the brief's job class for R15). R7 measures the computed text size, which covers a size set from JavaScript or a transform; R12 to R15 measure nested enclosures, spacing steps, emphasis levels and equal tile rows; R16 to R20 flag gradient text, backdrop blur, one radius on every box, a missing Japanese font and icon tiles above headings; R25 to R41 are the impeccable ports listed in the reference files. P2 answers the cold-read questions from the screenshot before reading the dump.
+- `review-design-lead`, with `plan: ui-brief.md`, `target:` the project directory, and `scripts: {SKILL_DIR}/scripts/render`; it requires all three and returns `{"error": …}` when one is missing. It renders through headless Chrome at 1280px and 375px and measures the page with `check_render.py` (R1–R47, with `--plan` reading the brief's job class for R15). R7 measures the computed text size, which covers a size set from JavaScript or a transform; R12 to R15 measure nested enclosures, spacing steps, emphasis levels and equal tile rows; R16 to R20 flag gradient text, backdrop blur, one radius on every box, a missing Japanese font and icon tiles above headings; R25 to R41 are the impeccable ports listed in the reference files; R42 to R47 measure whether each element that names its pattern carries its slots (`references/patterns.md`). P2 answers the cold-read questions from the screenshot before reading the dump.
 - `shippable-text-auditor`, with the built file paths and the `meta.surface` value (`saas` or `lp`) only; the brief and the reasoning stay with you. It returns `remove` and `rewrite` findings.
 
 Rule on each finding individually: delete the string where the finding is that it should go, rewrite it where the finding is about wording, and keep it only under the carve-out in `references/ui-copy.md`, naming the clause in the hand-over.

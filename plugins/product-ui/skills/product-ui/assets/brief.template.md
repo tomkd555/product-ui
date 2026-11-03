@@ -13,6 +13,14 @@ Written at product-ui Step 3, before any markup, and completed at Step 5: the pl
 - Built files: {{built_files}}   (Step 5)
 - Controls: {{wired|mock}} (wired: every control reaches its destination; mock: a control that does nothing is shown disabled or left out, and never reports success) (Step 5)
 
+## Objects
+
+One row per object the screens show, from `references/patterns.md`. `scripts/patterns/resolve.py` fills each section's slots from it. Rank the Key properties by the reader's job, highest first: the rank decides which ones a row, a card or a header shows. Tag a property `[price]`, `[rating]` or `[variations]` where a pattern asks for one.
+
+| Object | Identifier | Status | Image | Key properties, ranked | Job they serve |
+|---|---|---|---|---|---|
+| {{object}} | {{the property a reader knows one record by}} | {{status property, or none}} | {{image property, placeholder, or none}} | {{property 1, property 2, …}} | {{role from meta.users}}: {{the job the ranking serves}} |
+
 ## Composition
 
 One block per screen, from `references/composition.md`. With two or more screens, head each block `### {{screen}} \`{{route}}\`` (a parameter as `:id`, a tab as `?tab=…`); `check_render.py --plan` reads the Job class of the block whose route matches the Built files line.
@@ -29,7 +37,13 @@ One block per screen, from `references/composition.md`. With two or more screens
 - Decided for this screen: {{dominant element, archetype, density, group sizes}}
 - Omitted: {{what was cut, and why the rest is more visible for it}}
 - Tile row: {{none | the tiles, the monitored quantity and comparison of each, and the dominant tile}}
+- Sections: one line per section, in reading order; `resolve.py` adds `pattern <id>` (`references/patterns.md`)
+  - {{section}}: content {{records|record-header|record-detail|record-fields|items|products|measures|tasks|form|prose}}; object {{a row of ## Objects}}; compare {{yes|no, for records and products}}
 - Lead content (`lp` only): {{what the reader sees first: the product itself, named}}
+
+## Slots
+
+Written by `scripts/patterns/resolve.py` from the `- Sections:` lines and the `## Objects` table. Change those and run it again; an edit here is overwritten.
 
 ## Proof
 
@@ -90,13 +104,21 @@ Per screen, the state each part falls back to. A collection, a fetch or a form w
 2. For each structural choice (the density, the guidance text, the actions one click away), which recorded fact in `meta.users` justifies it? A choice with no recorded fact behind it is a finding.
 3. Does each label predict what lies behind it, in words the recorded group uses (`meta.users[].job` and `voice.terms` are the evidence)? A label that names the feature, the computation or the product where the object or the reader's task belongs is a finding.
 
+## Content questions, answered against the running page and `## Slots`
+
+1. Take one item of each collection. Can the reader recorded in `## Objects` tell the record they want from it without opening it?
+2. Does each slot show the property the Slots table assigns it? A property shown with no row there, or a row with nothing on the screen, is a finding.
+3. Which pattern and which of its sources does each component follow? Where the screen departs from its pattern, does the brief say why?
+
 ## Structure
 
 Keep this section when Structure is ooui; delete it for task and unset.
 
-| Object | Key properties | Actions | Related objects | Collection view | Single view |
-|---|---|---|---|---|---|
-| {{object}} | {{properties}} | {{actions}} | {{related objects}} | {{path or screen}} | {{path or screen}} |
+Each object is a row of `## Objects`, which holds its properties.
+
+| Object | Actions | Related objects | Collection view | Single view |
+|---|---|---|---|---|
+| {{object}} | {{actions}} | {{related objects}} | {{path or screen}} | {{path or screen}} |
 
 Task flows kept as a sequence, each with the condition that admits it: {{flows, or none}}
 
@@ -105,5 +127,5 @@ Structure questions, answered against the running page:
 1. Does each root navigation item name an object from the table, as a noun?
 2. Does each object in the table have its collection view and its single view, and does choosing an item in the collection open its single view?
 3. Does each action sit on the object it acts on (in the row or in the single view, after the object is chosen), with creation at the collection?
-4. Does one object carry the same name and the same key properties in every view that shows it?
+4. Does one object carry the same name, and the key properties `## Objects` ranks for it, in every view that shows it?
 5. Is every flow that runs as a fixed sequence one of the task flows named above?

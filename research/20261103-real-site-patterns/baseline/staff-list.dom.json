@@ -1,0 +1,3282 @@
+{
+ "title": "社員名簿",
+ "lang": "ja",
+ "viewport": {
+  "width": 1280,
+  "height": 1200
+ },
+ "htmlClass": "",
+ "tokens": {
+  "--font-sans": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--font-mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--container-6xl": "72rem",
+  "--font-weight-medium": "500",
+  "--font-weight-bold": "700",
+  "--default-transition-duration": ".15s",
+  "--default-transition-timing-function": "cubic-bezier(.4, 0, .2, 1)",
+  "--default-font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--default-mono-font-family": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--color-background": "oklch(0.984 0.008 184.7)",
+  "--color-foreground": "oklch(0.24 0.012 184.7)",
+  "--color-border": "oklch(0.91 0.01 184.7)",
+  "--font-display": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-serif, serif",
+  "--font-body": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+  "--radius-sm": ".25rem",
+  "--radius-lg": ".75rem",
+  "--shadow-sm": "0 1px 2px 0 oklch(0% 0 0/.04)",
+  "--shadow-lg": "0 16px 40px -8px oklch(0% 0 0/.14)",
+  "--brand-background": "oklch(0.984 0.008 184.7)",
+  "--brand-foreground": "oklch(0.24 0.012 184.7)",
+  "--brand-surface": "oklch(1 0 0)",
+  "--brand-primary": "oklch(0.47 0.1 185)",
+  "--brand-primary-foreground": "oklch(1 0 0)",
+  "--brand-muted": "oklch(0.956 0.008 184.7)",
+  "--brand-muted-foreground": "oklch(0.5 0.012 184.7)",
+  "--brand-border": "oklch(0.91 0.01 184.7)",
+  "--brand-destructive": "oklch(0.55 0.215 27.3)",
+  "--brand-accent": "oklch(0.7 0.15 45)",
+  "--duration-fast": ".12s",
+  "--duration-base": ".2s",
+  "--duration-slow": ".32s"
+ },
+ "horizontalOverflow": false,
+ "scrollWidth": 1280,
+ "pageHeight": 1200,
+ "headings": [
+  {
+   "level": 1,
+   "text": "社員名簿"
+  }
+ ],
+ "landmarks": [
+  {
+   "sel": "header",
+   "count": 1
+  },
+  {
+   "sel": "nav",
+   "count": 1
+  },
+  {
+   "sel": "main",
+   "count": 1
+  },
+  {
+   "sel": "aside",
+   "count": 0
+  },
+  {
+   "sel": "footer",
+   "count": 0
+  },
+  {
+   "sel": "form",
+   "count": 0
+  },
+  {
+   "sel": "[role]",
+   "count": 1
+  }
+ ],
+ "controlsTotal": 33,
+ "controls": [
+  {
+   "tag": "a",
+   "text": "社員名簿",
+   "w": 72,
+   "h": 56,
+   "labelled": true,
+   "href": "/"
+  },
+  {
+   "tag": "input",
+   "text": "",
+   "w": 384,
+   "h": 44,
+   "labelled": true,
+   "type": "search"
+  },
+  {
+   "tag": "select",
+   "text": "すべて営業部人事部開発部経理部総務部",
+   "w": 176,
+   "h": 44,
+   "labelled": true
+  },
+  {
+   "tag": "a",
+   "text": "相川 直人",
+   "w": 67,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20150",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user101@example.co.jp",
+   "w": 157,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user101@example.co.jp",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "井上 千尋",
+   "w": 67,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20163",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user102@example.co.jp",
+   "w": 160,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user102@example.co.jp",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "上田 亮",
+   "w": 51,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20176",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user103@example.co.jp",
+   "w": 161,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user103@example.co.jp",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "江口 美穂",
+   "w": 67,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20189",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user104@example.co.jp",
+   "w": 161,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user104@example.co.jp",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "大西 拓海",
+   "w": 67,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20202",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user105@example.co.jp",
+   "w": 161,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user105@example.co.jp",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "加藤 沙織",
+   "w": 67,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20215",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user106@example.co.jp",
+   "w": 160,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user106@example.co.jp",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "菊地 隆",
+   "w": 51,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20228",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user107@example.co.jp",
+   "w": 160,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user107@example.co.jp",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "久保 遥",
+   "w": 51,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20241",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user108@example.co.jp",
+   "w": 161,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user108@example.co.jp",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "小林 修",
+   "w": 51,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20254",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user109@example.co.jp",
+   "w": 160,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user109@example.co.jp",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "斎藤 奈々",
+   "w": 67,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20267",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user110@example.co.jp",
+   "w": 157,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user110@example.co.jp",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "杉山 達也",
+   "w": 67,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20280",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user111@example.co.jp",
+   "w": 152,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user111@example.co.jp",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "高木 優子",
+   "w": 67,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20293",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user112@example.co.jp",
+   "w": 155,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user112@example.co.jp",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "土屋 健",
+   "w": 51,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20306",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user113@example.co.jp",
+   "w": 156,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user113@example.co.jp",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "中島 舞",
+   "w": 51,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20319",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user114@example.co.jp",
+   "w": 156,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user114@example.co.jp",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "原田 慎吾",
+   "w": 67,
+   "h": 21,
+   "labelled": true,
+   "href": "/?employee=E20332",
+   "inline": true
+  },
+  {
+   "tag": "a",
+   "text": "user115@example.co.jp",
+   "w": 156,
+   "h": 18,
+   "labelled": true,
+   "href": "mailto:user115@example.co.jp",
+   "inline": true
+  }
+ ],
+ "elementsTotal": 163,
+ "textTruncated": false,
+ "scope": {
+  "tag": "main",
+  "rect": {
+   "x": 64,
+   "y": 57,
+   "w": 1152,
+   "h": 1024
+  }
+ },
+ "boxes": [
+  {
+   "tag": "div",
+   "cls": "mt-6 rounded-lg border bg-surface",
+   "rect": {
+    "x": 96,
+    "y": 240,
+    "w": 1088,
+    "h": 777
+   },
+   "depth": 0,
+   "parentBox": null,
+   "domParent": 0,
+   "children": 1,
+   "hasDigit": true,
+   "borderRadius": "12px",
+   "backdropFilter": "none",
+   "borderW": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "borderA": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "boxShadow": "none",
+   "hasMedia": false,
+   "hasHeading": false
+  }
+ ],
+ "boxesTotal": 1,
+ "gaps": [
+  {
+   "parent": "div",
+   "values": [
+    24
+   ]
+  },
+  {
+   "parent": "div",
+   "values": [
+    24
+   ]
+  },
+  {
+   "parent": "div.flex",
+   "values": [
+    16
+   ]
+  },
+  {
+   "parent": "div.md:w-96",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "div.md:w-44",
+   "values": [
+    8
+   ]
+  },
+  {
+   "parent": "table.w-full",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tbody.[&_tr:last-child]:border-0",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "gapsTotal": 23,
+ "h1s": [
+  {
+   "text": "社員名簿",
+   "fontSize": "24.96px",
+   "rect": {
+    "x": 96,
+    "y": 89,
+    "w": 1088,
+    "h": 37
+   }
+  }
+ ],
+ "labels": [
+  {
+   "hTag": "h1",
+   "hLevel": 1,
+   "hText": "社員名簿",
+   "hSize": "24.96px",
+   "lTag": "header",
+   "lText": "社員名簿",
+   "lFull": "社員名簿",
+   "lSize": "16px",
+   "lSpacing": "0px",
+   "lTransform": "none",
+   "lVariant": "normal normal",
+   "lWeight": "500",
+   "lColor": "oklch(0.24 0.012 184.7)",
+   "lFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "levels": 2,
+   "near": true,
+   "beside": false,
+   "skip": false,
+   "app": false,
+   "inCard": false,
+   "media": false,
+   "hasTime": false
+  }
+ ],
+ "edgeText": [],
+ "headingGaps": [],
+ "hiddenText": {
+  "total": 567,
+  "hidden": 0,
+  "samples": []
+ },
+ "occlusions": [],
+ "repeatGroups": [],
+ "iconTiles": [],
+ "textOverflow": [],
+ "portErrors": [],
+ "text": [
+  {
+   "tag": "a",
+   "cls": "inline-flex h-14 items-center border-b-2 px-1 text-base font",
+   "text": "社員名簿",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 0,
+    "w": 72,
+    "h": 56
+   },
+   "pad": {
+    "x": 8,
+    "y": 2
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 4
+  },
+  {
+   "tag": "h1",
+   "cls": "text-xl font-bold",
+   "text": "社員名簿",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(0.984 0.008 184.7)",
+   "fontSize": "24.96px",
+   "fontWeight": "700",
+   "lineHeight": "37.44px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-serif, serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 89,
+    "w": 1088,
+    "h": 37
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "hTag": "h1",
+   "inHeading": true,
+   "inControl": false,
+   "ownH": 32,
+   "fullLen": 4
+  },
+  {
+   "tag": "label",
+   "cls": "flex items-center gap-2 text-sm leading-none font-medium sel",
+   "text": "検索",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(0.984 0.008 184.7)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "14px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 150,
+    "w": 384,
+    "h": 14
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "label",
+   "cls": "flex items-center gap-2 text-sm leading-none font-medium sel",
+   "text": "部署",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(0.984 0.008 184.7)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "14px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 496,
+    "y": 150,
+    "w": 176,
+    "h": 14
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "th",
+   "cls": "h-10 px-3 text-left align-middle font-medium whitespace-nowr",
+   "text": "氏名",
+   "color": "oklch(0.5 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 97,
+    "y": 241,
+    "w": 177,
+    "h": 40
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "th",
+   "cls": "h-10 px-3 text-left align-middle font-medium whitespace-nowr",
+   "text": "部署",
+   "color": "oklch(0.5 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 241,
+    "w": 129,
+    "h": 40
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "th",
+   "cls": "h-10 px-3 text-left align-middle font-medium whitespace-nowr",
+   "text": "役職",
+   "color": "oklch(0.5 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 241,
+    "w": 265,
+    "h": 40
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "th",
+   "cls": "h-10 px-3 text-left align-middle font-medium whitespace-nowr",
+   "text": "内線番号",
+   "color": "oklch(0.5 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 241,
+    "w": 156,
+    "h": 40
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "th",
+   "cls": "h-10 px-3 text-left align-middle font-medium whitespace-nowr",
+   "text": "メールアドレス",
+   "color": "oklch(0.5 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 823,
+    "y": 241,
+    "w": 360,
+    "h": 40
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 7
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "相川 直人",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 295,
+    "w": 67,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 5
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "営業部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 281,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "課長",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 281,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3101",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 281,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user101@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 297,
+    "w": 157,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "井上 千尋",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 344,
+    "w": 67,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 5
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "人事部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 330,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "主任",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 330,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3108",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 330,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user102@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 346,
+    "w": 160,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "上田 亮",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 393,
+    "w": 51,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 4
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "開発部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 379,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "エンジニア",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 379,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 5
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3115",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 379,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user103@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 395,
+    "w": 161,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "江口 美穂",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 442,
+    "w": 67,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 5
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "経理部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 428,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "主任",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 428,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3122",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 428,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user104@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 444,
+    "w": 161,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "大西 拓海",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 491,
+    "w": 67,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 5
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "開発部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 477,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "リードエンジニア",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 477,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 8
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3129",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 477,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user105@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 493,
+    "w": 161,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "加藤 沙織",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 540,
+    "w": 67,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 5
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "営業部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 526,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "担当",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 526,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3136",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 526,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user106@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 542,
+    "w": 160,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "菊地 隆",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 589,
+    "w": 51,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 4
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "総務部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 575,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "部長",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 575,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3143",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 575,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user107@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 591,
+    "w": 160,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "久保 遥",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 638,
+    "w": 51,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 4
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "開発部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 624,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "デザイナー",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 624,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 5
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3150",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 624,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user108@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 640,
+    "w": 161,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "小林 修",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 687,
+    "w": 51,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 4
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "営業部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 673,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "担当",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 673,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3157",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 673,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user109@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 689,
+    "w": 160,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "斎藤 奈々",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 736,
+    "w": 67,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 5
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "人事部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 722,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "課長",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 722,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3164",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 722,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user110@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 738,
+    "w": 157,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "杉山 達也",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 785,
+    "w": 67,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 5
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "開発部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 771,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "エンジニア",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 771,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 5
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3171",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 771,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user111@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 787,
+    "w": 152,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "高木 優子",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 834,
+    "w": 67,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 5
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "経理部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 820,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "担当",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 820,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3178",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 820,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user112@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 836,
+    "w": 155,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "土屋 健",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 883,
+    "w": 51,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 4
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "総務部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 869,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "主任",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 869,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3185",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 869,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user113@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 885,
+    "w": 156,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "中島 舞",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 932,
+    "w": 51,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 4
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "営業部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 918,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "担当",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 918,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3192",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 918,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user114@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 934,
+    "w": 156,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  },
+  {
+   "tag": "a",
+   "cls": "text-base font-medium text-primary underline-offset-4 hover:",
+   "text": "原田 慎吾",
+   "color": "oklch(0.47 0.1 185)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 109,
+    "y": 981,
+    "w": 67,
+    "h": 21
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 5
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap",
+   "text": "開発部",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 274,
+    "y": 967,
+    "w": 129,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden md:table-cel",
+   "text": "マネージャー",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 402,
+    "y": 967,
+    "w": 265,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 6
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap hidden tabular-nums",
+   "text": "3199",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 667,
+    "y": 967,
+    "w": 156,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "a",
+   "cls": "underline-offset-4 hover:underline",
+   "text": "user115@example.co.jp",
+   "color": "oklch(0.24 0.012 184.7)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 835,
+    "y": 983,
+    "w": 156,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 21
+  }
+ ]
+}

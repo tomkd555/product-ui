@@ -1,0 +1,1690 @@
+{
+ "title": "請求書",
+ "lang": "ja",
+ "viewport": {
+  "width": 1280,
+  "height": 1200
+ },
+ "htmlClass": "",
+ "tokens": {
+  "--font-sans": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--font-mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--container-6xl": "72rem",
+  "--font-weight-normal": "400",
+  "--font-weight-medium": "500",
+  "--font-weight-bold": "700",
+  "--default-transition-duration": ".15s",
+  "--default-transition-timing-function": "cubic-bezier(.4, 0, .2, 1)",
+  "--default-font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "--default-mono-font-family": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  "--color-background": "oklch(0.984 0.003 256)",
+  "--color-foreground": "oklch(0.208 0.012 256)",
+  "--color-border": "oklch(0.915 0.006 256)",
+  "--font-display": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-serif, serif",
+  "--font-body": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+  "--radius-sm": ".25rem",
+  "--radius-lg": ".625rem",
+  "--shadow-sm": "0 1px 2px 0 oklch(0% 0 0/.04)",
+  "--shadow-lg": "0 16px 40px -8px oklch(0% 0 0/.14)",
+  "--brand-background": "oklch(0.984 0.003 256)",
+  "--brand-foreground": "oklch(0.208 0.012 256)",
+  "--brand-surface": "oklch(1 0 0)",
+  "--brand-primary": "oklch(0.346 0.074 256)",
+  "--brand-primary-foreground": "oklch(1 0 0)",
+  "--brand-muted": "oklch(0.963 0.003 256)",
+  "--brand-muted-foreground": "oklch(0.5 0.012 256)",
+  "--brand-border": "oklch(0.915 0.006 256)",
+  "--brand-destructive": "oklch(0.55 0.215 27.3)",
+  "--brand-accent": "oklch(0.53 0.12 163)",
+  "--duration-fast": ".12s",
+  "--duration-base": ".2s",
+  "--duration-slow": ".32s"
+ },
+ "horizontalOverflow": false,
+ "scrollWidth": 1280,
+ "pageHeight": 1200,
+ "headings": [
+  {
+   "level": 1,
+   "text": "請求書 INV-2026-0403"
+  },
+  {
+   "level": 2,
+   "text": "明細"
+  }
+ ],
+ "landmarks": [
+  {
+   "sel": "header",
+   "count": 1
+  },
+  {
+   "sel": "nav",
+   "count": 2
+  },
+  {
+   "sel": "main",
+   "count": 1
+  },
+  {
+   "sel": "aside",
+   "count": 0
+  },
+  {
+   "sel": "footer",
+   "count": 0
+  },
+  {
+   "sel": "form",
+   "count": 0
+  },
+  {
+   "sel": "[role]",
+   "count": 0
+  }
+ ],
+ "controlsTotal": 2,
+ "controls": [
+  {
+   "tag": "a",
+   "text": "請求書",
+   "w": 56,
+   "h": 56,
+   "labelled": true,
+   "href": "/"
+  },
+  {
+   "tag": "a",
+   "text": "請求書",
+   "w": 42,
+   "h": 18,
+   "labelled": true,
+   "href": "/",
+   "inline": true
+  }
+ ],
+ "elementsTotal": 75,
+ "textTruncated": false,
+ "scope": {
+  "tag": "main",
+  "rect": {
+   "x": 64,
+   "y": 57,
+   "w": 1152,
+   "h": 861
+  }
+ },
+ "boxes": [
+  {
+   "tag": "div",
+   "cls": "mt-4 rounded-lg border bg-surface",
+   "rect": {
+    "x": 96,
+    "y": 514,
+    "w": 1088,
+    "h": 340
+   },
+   "depth": 0,
+   "parentBox": null,
+   "domParent": 0,
+   "children": 1,
+   "hasDigit": true,
+   "borderRadius": "10px",
+   "backdropFilter": "none",
+   "borderW": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "borderA": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "boxShadow": "none",
+   "hasMedia": false,
+   "hasHeading": false
+  }
+ ],
+ "boxesTotal": 1,
+ "gaps": [
+  {
+   "parent": "div",
+   "values": [
+    16,
+    24,
+    40,
+    48
+   ]
+  },
+  {
+   "parent": "ol.flex",
+   "values": [
+    8,
+    8
+   ]
+  },
+  {
+   "parent": "div.mt-4",
+   "values": [
+    12
+   ]
+  },
+  {
+   "parent": "dl.mt-6",
+   "values": [
+    48
+   ]
+  },
+  {
+   "parent": "div",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "dl.mt-10",
+   "values": [
+    48,
+    20,
+    48
+   ]
+  },
+  {
+   "parent": "div",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "div",
+   "values": [
+    4
+   ]
+  },
+  {
+   "parent": "section.mt-12",
+   "values": [
+    16
+   ]
+  },
+  {
+   "parent": "table.w-full",
+   "values": [
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tbody.[&_tr:last-child]:border-0",
+   "values": [
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tfoot.border-t",
+   "values": [
+    0,
+    0
+   ]
+  },
+  {
+   "parent": "tr.transition-colors",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "tr.transition-colors",
+   "values": [
+    0
+   ]
+  },
+  {
+   "parent": "tr.border-b",
+   "values": [
+    0
+   ]
+  }
+ ],
+ "gapsTotal": 22,
+ "h1s": [
+  {
+   "text": "請求書 INV-2026-0403",
+   "fontSize": "23.04px",
+   "rect": {
+    "x": 96,
+    "y": 125,
+    "w": 251,
+    "h": 35
+   }
+  }
+ ],
+ "labels": [
+  {
+   "hTag": "h1",
+   "hLevel": 1,
+   "hText": "請求書 INV-2026-0403",
+   "hSize": "23.04px",
+   "lTag": "nav",
+   "lText": "請求書/INV-2026-0403",
+   "lFull": "請求書/INV-2026-0403",
+   "lSize": "14px",
+   "lSpacing": "0px",
+   "lTransform": "none",
+   "lVariant": "normal normal",
+   "lWeight": "400",
+   "lColor": "oklch(0.5 0.012 256)",
+   "lFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "levels": 1,
+   "near": true,
+   "beside": false,
+   "skip": true,
+   "app": false,
+   "inCard": false,
+   "media": false,
+   "hasTime": false
+  },
+  {
+   "hTag": "h2",
+   "hLevel": 2,
+   "hText": "明細",
+   "hSize": "19.2px",
+   "lTag": "dl",
+   "lText": "取引先北斗システム株式会社請求先北斗システム株式会社 経理部 井上 様発行日2026/10/05担当者佐々木 恵",
+   "lFull": "取引先北斗システム株式会社請求先北斗システム株式会社 経理部 井上 様発行日2026/10/05担当者佐々木 恵",
+   "lSize": "16px",
+   "lSpacing": "0px",
+   "lTransform": "none",
+   "lVariant": "normal normal",
+   "lWeight": "400",
+   "lColor": "oklch(0.208 0.012 256)",
+   "lFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "levels": 1,
+   "near": true,
+   "beside": false,
+   "skip": false,
+   "app": false,
+   "inCard": false,
+   "media": false,
+   "hasTime": false
+  }
+ ],
+ "edgeText": [],
+ "headingGaps": [],
+ "hiddenText": {
+  "total": 264,
+  "hidden": 0,
+  "samples": []
+ },
+ "occlusions": [],
+ "repeatGroups": [],
+ "iconTiles": [],
+ "textOverflow": [],
+ "portErrors": [],
+ "text": [
+  {
+   "tag": "a",
+   "cls": "inline-flex h-14 items-center border-b-2 px-1 text-base font",
+   "text": "請求書",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 0,
+    "w": 56,
+    "h": 56
+   },
+   "pad": {
+    "x": 8,
+    "y": 2
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 21,
+   "fullLen": 3
+  },
+  {
+   "tag": "a",
+   "cls": "text-primary underline-offset-4 hover:underline",
+   "text": "請求書",
+   "color": "oklch(0.346 0.074 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 90,
+    "w": 42,
+    "h": 18
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": true,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "li",
+   "text": "/",
+   "color": "oklch(0.5 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 146,
+    "y": 89,
+    "w": 6,
+    "h": 20
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 1
+  },
+  {
+   "tag": "li",
+   "cls": "tabular-nums",
+   "text": "INV-2026-0403",
+   "color": "oklch(0.5 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 160,
+    "y": 89,
+    "w": 104,
+    "h": 20
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 13
+  },
+  {
+   "tag": "h1",
+   "cls": "text-xl font-bold",
+   "text": "請求書",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "23.04px",
+   "fontWeight": "700",
+   "lineHeight": "34.56px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-serif, serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 125,
+    "w": 251,
+    "h": 35
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "hTag": "h1",
+   "inHeading": true,
+   "inControl": false,
+   "ownH": 29,
+   "fullLen": 17
+  },
+  {
+   "tag": "span",
+   "cls": "tabular-nums",
+   "text": "INV-2026-0403",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "23.04px",
+   "fontWeight": "700",
+   "lineHeight": "34.56px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-serif, serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 169,
+    "y": 127,
+    "w": 178,
+    "h": 29
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "hTag": "h1",
+   "inHeading": true,
+   "inControl": false,
+   "ownH": 29,
+   "fullLen": 13
+  },
+  {
+   "tag": "span",
+   "cls": "inline-flex w-fit shrink-0 items-center justify-center gap-1",
+   "text": "未入金",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 359,
+    "y": 129,
+    "w": 60,
+    "h": 26
+   },
+   "pad": {
+    "x": 18,
+    "y": 6
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "dt",
+   "cls": "text-sm text-muted-foreground",
+   "text": "請求金額",
+   "color": "oklch(0.5 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 184,
+    "w": 236,
+    "h": 20
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "dd",
+   "cls": "mt-1 text-4xl font-bold tabular-nums",
+   "text": "4,950,000円",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "39.84px",
+   "fontWeight": "700",
+   "lineHeight": "55.776px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 208,
+    "w": 236,
+    "h": 56
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 50,
+   "fullLen": 10
+  },
+  {
+   "tag": "dt",
+   "cls": "text-sm text-muted-foreground",
+   "text": "支払期日",
+   "color": "oklch(0.5 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 380,
+    "y": 205,
+    "w": 132,
+    "h": 20
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 4
+  },
+  {
+   "tag": "dd",
+   "cls": "mt-1 text-xl font-medium tabular-nums",
+   "text": "2026/11/05",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "23.04px",
+   "fontWeight": "500",
+   "lineHeight": "34.56px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 380,
+    "y": 229,
+    "w": 132,
+    "h": 35
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 29,
+   "fullLen": 10
+  },
+  {
+   "tag": "dt",
+   "cls": "text-sm text-muted-foreground",
+   "text": "取引先",
+   "color": "oklch(0.5 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 303,
+    "w": 520,
+    "h": 20
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "dd",
+   "cls": "mt-1 font-medium",
+   "text": "北斗システム株式会社",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "16px",
+   "fontWeight": "500",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 327,
+    "w": 520,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 21,
+   "fullLen": 10
+  },
+  {
+   "tag": "dt",
+   "cls": "text-sm text-muted-foreground",
+   "text": "請求先",
+   "color": "oklch(0.5 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 664,
+    "y": 303,
+    "w": 520,
+    "h": 20
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "dd",
+   "cls": "mt-1",
+   "text": "北斗システム株式会社 経理部 井上 様",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 664,
+    "y": 327,
+    "w": 520,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 21,
+   "fullLen": 19
+  },
+  {
+   "tag": "dt",
+   "cls": "text-sm text-muted-foreground",
+   "text": "発行日",
+   "color": "oklch(0.5 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 371,
+    "w": 520,
+    "h": 20
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "dd",
+   "cls": "mt-1 tabular-nums",
+   "text": "2026/10/05",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 395,
+    "w": 520,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 21,
+   "fullLen": 10
+  },
+  {
+   "tag": "dt",
+   "cls": "text-sm text-muted-foreground",
+   "text": "担当者",
+   "color": "oklch(0.5 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 664,
+    "y": 371,
+    "w": 520,
+    "h": 20
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "dd",
+   "cls": "mt-1",
+   "text": "佐々木 恵",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 664,
+    "y": 395,
+    "w": 520,
+    "h": 24
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 21,
+   "fullLen": 5
+  },
+  {
+   "tag": "h2",
+   "cls": "text-lg font-bold",
+   "text": "明細",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(0.984 0.003 256)",
+   "fontSize": "19.2px",
+   "fontWeight": "700",
+   "lineHeight": "30.72px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-serif, serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 96,
+    "y": 467,
+    "w": 1088,
+    "h": 31
+   },
+   "pad": {
+    "x": 0,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "hTag": "h2",
+   "inHeading": true,
+   "inControl": false,
+   "ownH": 24,
+   "fullLen": 2
+  },
+  {
+   "tag": "th",
+   "cls": "h-10 px-3 text-left align-middle font-medium whitespace-nowr",
+   "text": "品目",
+   "color": "oklch(0.5 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 97,
+    "y": 515,
+    "w": 480,
+    "h": 40
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "left",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "th",
+   "cls": "h-10 px-3 align-middle font-medium whitespace-nowrap text-mu",
+   "text": "数量",
+   "color": "oklch(0.5 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 577,
+    "y": 515,
+    "w": 107,
+    "h": 40
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "th",
+   "cls": "h-10 px-3 align-middle font-medium whitespace-nowrap text-mu",
+   "text": "単価",
+   "color": "oklch(0.5 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 685,
+    "y": 515,
+    "w": 215,
+    "h": 40
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "th",
+   "cls": "h-10 px-3 align-middle font-medium whitespace-nowrap text-mu",
+   "text": "金額",
+   "color": "oklch(0.5 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 900,
+    "y": 515,
+    "w": 283,
+    "h": 40
+   },
+   "pad": {
+    "x": 24,
+    "y": 0
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-base",
+   "text": "業務システム保守（10月分）",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 97,
+    "y": 555,
+    "w": 480,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 21,
+   "fullLen": 14
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right tabular-",
+   "text": "1",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 577,
+    "y": 555,
+    "w": 107,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 1
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right tabular-",
+   "text": "1,500,000円",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 685,
+    "y": 555,
+    "w": 215,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 10
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right text-bas",
+   "text": "1,500,000円",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 900,
+    "y": 555,
+    "w": 283,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 21,
+   "fullLen": 10
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-base",
+   "text": "追加開発：帳票出力機能",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 97,
+    "y": 604,
+    "w": 480,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 21,
+   "fullLen": 11
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right tabular-",
+   "text": "1",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 577,
+    "y": 604,
+    "w": 107,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 1
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right tabular-",
+   "text": "2,800,000円",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 685,
+    "y": 604,
+    "w": 215,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 10
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right text-bas",
+   "text": "2,800,000円",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 900,
+    "y": 604,
+    "w": 283,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 21,
+   "fullLen": 10
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-base",
+   "text": "サーバー利用料（10月分）",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 97,
+    "y": 653,
+    "w": 480,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "start",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 21,
+   "fullLen": 13
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right tabular-",
+   "text": "1",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 577,
+    "y": 653,
+    "w": 107,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 1
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right tabular-",
+   "text": "200,000円",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 685,
+    "y": 653,
+    "w": 215,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 8
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right text-bas",
+   "text": "200,000円",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 900,
+    "y": 653,
+    "w": 283,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 21,
+   "fullLen": 8
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right font-nor",
+   "text": "小計",
+   "color": "oklch(0.5 0.012 256)",
+   "background": "oklab(0.963 -0.000725766 -0.00291089 / 0.4)",
+   "backgroundBase": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 97,
+    "y": 702,
+    "w": 803,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right text-bas",
+   "text": "4,500,000円",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklab(0.963 -0.000725766 -0.00291089 / 0.4)",
+   "backgroundBase": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 900,
+    "y": 702,
+    "w": 283,
+    "h": 49
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 21,
+   "fullLen": 10
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right font-nor",
+   "text": "消費税",
+   "color": "oklch(0.5 0.012 256)",
+   "background": "oklab(0.963 -0.000725766 -0.00291089 / 0.4)",
+   "backgroundBase": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 97,
+    "y": 751,
+    "w": 803,
+    "h": 48
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 3
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right text-bas",
+   "text": "450,000円",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklab(0.963 -0.000725766 -0.00291089 / 0.4)",
+   "backgroundBase": "oklch(1 0 0)",
+   "fontSize": "16px",
+   "fontWeight": "400",
+   "lineHeight": "24px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 900,
+    "y": 751,
+    "w": 283,
+    "h": 48
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 21,
+   "fullLen": 8
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right",
+   "text": "合計",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklab(0.963 -0.000725766 -0.00291089 / 0.4)",
+   "backgroundBase": "oklch(1 0 0)",
+   "fontSize": "14px",
+   "fontWeight": "500",
+   "lineHeight": "20px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 97,
+    "y": 799,
+    "w": 803,
+    "h": 55
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 18,
+   "fullLen": 2
+  },
+  {
+   "tag": "td",
+   "cls": "px-3 py-3 align-middle whitespace-nowrap text-right text-lg ",
+   "text": "4,950,000円",
+   "color": "oklch(0.208 0.012 256)",
+   "background": "oklab(0.963 -0.000725766 -0.00291089 / 0.4)",
+   "backgroundBase": "oklch(1 0 0)",
+   "fontSize": "19.2px",
+   "fontWeight": "700",
+   "lineHeight": "30.72px",
+   "fontFamily": "\"Plus Jakarta Sans\", \"Noto Sans JP\", ui-sans-serif, sans-serif",
+   "backgroundClip": "border-box",
+   "webkitBackgroundClip": "border-box",
+   "backgroundImage": false,
+   "rect": {
+    "x": 900,
+    "y": 799,
+    "w": 283,
+    "h": 55
+   },
+   "pad": {
+    "x": 24,
+    "y": 24
+   },
+   "clipped": false,
+   "fontStyle": "normal",
+   "textAlign": "right",
+   "inHeading": false,
+   "inControl": false,
+   "ownH": 24,
+   "fullLen": 10
+  }
+ ]
+}

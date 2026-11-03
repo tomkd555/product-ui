@@ -1,0 +1,252 @@
+{
+  "bench": "products",
+  "screen": "list",
+  "url": "http://localhost:4602/",
+  "kind": "collection",
+  "records": 12,
+  "found": 12,
+  "mean_fields_per_item": 6.0,
+  "fields_available": 6,
+  "job_coverage": 1.0,
+  "items_with_all_job_fields": 12,
+  "items_linked": 0,
+  "mean_item_height": 97.0,
+  "never_shown": [],
+  "items": [
+    {
+      "id": "ケトル ミニマル 0.8L",
+      "found": true,
+      "locator": "ケトル ミニマル 0.8L",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 0,
+      "height": 97,
+      "fields_shown": [
+        "capacity",
+        "colors",
+        "name",
+        "price",
+        "rating",
+        "reviews"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "温度調節ケトル プロ 1.0L",
+      "found": true,
+      "locator": "温度調節ケトル プロ 1.0L",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 0,
+      "height": 97,
+      "fields_shown": [
+        "capacity",
+        "colors",
+        "name",
+        "price",
+        "rating",
+        "reviews"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "ガラスケトル クリア 1.5L",
+      "found": true,
+      "locator": "ガラスケトル クリア 1.5L",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 0,
+      "height": 97,
+      "fields_shown": [
+        "capacity",
+        "colors",
+        "name",
+        "price",
+        "rating",
+        "reviews"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "ステンレスケトル ベーシック 1.2L",
+      "found": true,
+      "locator": "ステンレスケトル ベーシック 1.2L",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 0,
+      "height": 97,
+      "fields_shown": [
+        "capacity",
+        "colors",
+        "name",
+        "price",
+        "rating",
+        "reviews"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "細口ドリップケトル 0.6L",
+      "found": true,
+      "locator": "細口ドリップケトル 0.6L",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 0,
+      "height": 97,
+      "fields_shown": [
+        "capacity",
+        "colors",
+        "name",
+        "price",
+        "rating",
+        "reviews"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "レトロケトル 1.0L",
+      "found": true,
+      "locator": "レトロケトル 1.0L",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 0,
+      "height": 97,
+      "fields_shown": [
+        "capacity",
+        "colors",
+        "name",
+        "price",
+        "rating",
+        "reviews"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "ケトル コンパクト 0.5L",
+      "found": true,
+      "locator": "ケトル コンパクト 0.5L",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 0,
+      "height": 97,
+      "fields_shown": [
+        "capacity",
+        "colors",
+        "name",
+        "price",
+        "rating",
+        "reviews"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "保温ケトル ウォーム 1.2L",
+      "found": true,
+      "locator": "保温ケトル ウォーム 1.2L",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 0,
+      "height": 97,
+      "fields_shown": [
+        "capacity",
+        "colors",
+        "name",
+        "price",
+        "rating",
+        "reviews"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "ファミリーケトル 1.7L",
+      "found": true,
+      "locator": "ファミリーケトル 1.7L",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 0,
+      "height": 97,
+      "fields_shown": [
+        "capacity",
+        "colors",
+        "name",
+        "price",
+        "rating",
+        "reviews"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "静音ケトル サイレント 1.0L",
+      "found": true,
+      "locator": "静音ケトル サイレント 1.0L",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 0,
+      "height": 97,
+      "fields_shown": [
+        "capacity",
+        "colors",
+        "name",
+        "price",
+        "rating",
+        "reviews"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "トラベルケトル 0.4L",
+      "found": true,
+      "locator": "トラベルケトル 0.4L",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 0,
+      "height": 97,
+      "fields_shown": [
+        "capacity",
+        "colors",
+        "name",
+        "price",
+        "rating",
+        "reviews"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    },
+    {
+      "id": "デザインケトル アーチ 0.9L",
+      "found": true,
+      "locator": "デザインケトル アーチ 0.9L",
+      "tag": "tr",
+      "link": false,
+      "inner_controls": 0,
+      "height": 97,
+      "fields_shown": [
+        "capacity",
+        "colors",
+        "name",
+        "price",
+        "rating",
+        "reviews"
+      ],
+      "job_shown": 5,
+      "job_scored": 5
+    }
+  ],
+  "enclosures": 12,
+  "labels": {
+    "C18": 0,
+    "C19": 0,
+    "C20": 0,
+    "C21": 0
+  }
+}

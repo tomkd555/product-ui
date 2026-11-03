@@ -28,6 +28,11 @@
 //                 first viewport), repeatGroups, iconTiles, textOverflow (probed after scrolling to each candidate, 12
 //                 at most) and portErrors (the sections of this group that threw, each caught on its own). The page's
 //                 scroll position is restored after the probes; SHOT is taken before DUMP runs.
+//                 For R42 to R47: per box inPattern (inside a data-pattern element) and hasField (holds a form
+//                 control); and `patterns`, each data-pattern element with its id, rect, group (index of its
+//                 parent among the pattern parents), outer (the pattern it sits in), shortCells (td texts of 3
+//                 characters or fewer) and slots (slot, field, text, empty, hidden, root, the strongest
+//                 fontSize and fontWeight inside it, textAlign, fontVariantNumeric, rect).
 //   CLASS=<name>  add this class to <html> after load and before capture (`dark` renders a
 //                 theme.css dark block)
 //   CHROME=<exe>  Chrome binary (default: the first of the install paths below that exists)
@@ -172,6 +177,7 @@ const DUMP_EXPR = `(async () => {
             boxes.push({ tag: el.tagName.toLowerCase(), id: el.id || undefined, cls: (el.className && typeof el.className === 'string') ? el.className.slice(0, 60) : undefined,
               rect: rr(r), depth: up ? up.depth + 1 : 0, parentBox: up ? up.i : null, domParent: domId(el.parentElement), children: el.childElementCount,
               hasDigit: /[0-9\\uFF10-\\uFF19]/.test(el.textContent),
+              inPattern: !!el.closest('[data-pattern]') || undefined, hasField: !!el.querySelector('input,select,textarea') || undefined,
               borderRadius: s.borderRadius, backdropFilter: s.backdropFilter || s.webkitBackdropFilter || 'none',
               borderW: SIDES.map(k => s['border' + k + 'Style'] === 'none' ? 0 : parseFloat(s['border' + k + 'Width']) || 0),
               borderA: SIDES.map(k => alphaOf(s['border' + k + 'Color'])), boxShadow: s.boxShadow,
@@ -798,6 +804,42 @@ const DUMP_EXPR = `(async () => {
     hiddenText = { total, hidden: Math.max(0, hidden), samples: hiddenEls.filter(x => !shown.has(x.e)).slice(0, 3).map(x => clip(x.e.textContent, 40)) };
   });
 
+  // R42 to R47: each element that names its pattern (data-pattern), with the slots it owns. A slot belongs to the
+  // nearest data-pattern element above it; an element with both attributes is a slot of the pattern above it.
+  const patterns = [];
+  guard('patterns', () => {
+    const MAX_PATTERNS = 300, MAX_SLOTS = 40, MAX_CELLS = 400;
+    const roots = Array.from(d.querySelectorAll('[data-pattern]')).slice(0, MAX_PATTERNS);
+    const index = new Map(roots.map((el, i) => [el, i]));
+    const ownerOf = el => { let a = el.parentElement; while (a && !index.has(a)) a = a.parentElement; return a; };
+    const parents = new Map(), byIndex = new Map();
+    for (const el of roots) {
+      const r = el.getBoundingClientRect(), s = v.getComputedStyle(el);
+      if ((!r.width && !r.height) || s.visibility === 'hidden') continue;
+      if (!parents.has(el.parentElement)) parents.set(el.parentElement, parents.size);
+      const own = ownerOf(el);
+      const p = { i: index.get(el), id: el.getAttribute('data-pattern'), tag: el.tagName.toLowerCase(), rect: rr(r),
+        group: parents.get(el.parentElement), outer: own ? index.get(own) : null, slots: [] };
+      const cells = Array.from(el.querySelectorAll('td')).slice(0, MAX_CELLS).map(td => (td.innerText || '').trim()).filter(t => t.length <= 3);
+      if (cells.length) p.shortCells = cells;
+      patterns.push(p); byIndex.set(p.i, p);
+    }
+    for (const el of d.querySelectorAll('[data-pattern-slot]')) {
+      const own = ownerOf(el); if (!own) continue;
+      const p = byIndex.get(index.get(own)); if (!p || p.slots.length >= MAX_SLOTS) continue;
+      const s = v.getComputedStyle(el), r = el.getBoundingClientRect();
+      const txt = (el.innerText || '').replace(/\\s+/g, ' ').trim();
+      let size = parseFloat(s.fontSize), weight = +s.fontWeight || 400;
+      for (const t of el.querySelectorAll('*')) { if (!ownText(t)) continue; const ts = v.getComputedStyle(t); if (ts.display === 'none') continue;
+        const ps = parseFloat(ts.fontSize), pw = +ts.fontWeight || 400; if (ps > size || (ps === size && pw > weight)) { size = ps; weight = pw; } }
+      p.slots.push({ slot: el.getAttribute('data-pattern-slot'), field: el.getAttribute('data-pattern-field') || undefined,
+        text: txt.slice(0, TEXT_CAP), empty: !txt && !el.querySelector('img,svg,picture,video,canvas') && !(el.getAttribute('aria-label') || '').trim(),
+        hidden: s.display === 'none' || s.visibility === 'hidden' || (!r.width && !r.height) || undefined,
+        root: index.has(el) || undefined, fontSize: size, fontWeight: weight, textAlign: s.textAlign,
+        numeric: s.fontVariantNumeric !== 'normal' ? s.fontVariantNumeric : undefined, rect: rr(r) });
+    }
+  });
+
   return { title: d.title, lang: d.documentElement.lang || '', viewport: { width: v.innerWidth, height: v.innerHeight }, htmlClass: d.documentElement.className || '',
     tokens,
     horizontalOverflow: d.documentElement.scrollWidth > d.documentElement.clientWidth,
@@ -814,7 +856,7 @@ const DUMP_EXPR = `(async () => {
     elementsTotal: all.length, textTruncated: text.length >= MAX_ELS,
     scope: { tag: root.tagName.toLowerCase(), rect: rr(root.getBoundingClientRect()) },
     boxes, boxesTotal, gaps, gapsTotal,
-    h1s, labels, edgeText, headingGaps, hiddenText, occlusions, repeatGroups, iconTiles, textOverflow, portErrors,
+    h1s, labels, edgeText, headingGaps, hiddenText, occlusions, repeatGroups, iconTiles, textOverflow, patterns, portErrors,
     text };
 })()`;
 

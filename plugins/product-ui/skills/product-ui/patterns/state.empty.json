@@ -1,0 +1,98 @@
+{
+  "id": "state.empty",
+  "version": 1,
+  "kind": "empty-state",
+  "summary": "What a collection shows when it holds nothing: before first use, or after a filter matched nothing.",
+  "not_for": "A loading or error state.",
+  "slots": [
+    {
+      "id": "title",
+      "takes": "text",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "description",
+      "takes": "text",
+      "required": false,
+      "max": 1,
+      "when": "Only when it says when data appears; under 14 words."
+    },
+    {
+      "id": "action",
+      "takes": "action",
+      "required": false,
+      "max": 1,
+      "when": "First use only; the action the title points to."
+    }
+  ],
+  "rules": [
+    {
+      "rule": "Before first use: 「{object}はありません。」 and the action that adds one, named for it (not 'Get started').",
+      "from": [
+        "smarthr-empty",
+        "stripe-empty"
+      ]
+    },
+    {
+      "rule": "After a filter: 「該当する{object}はありません。」, no create button, the filters kept visible.",
+      "from": [
+        "smarthr-empty",
+        "stripe-empty"
+      ]
+    },
+    {
+      "rule": "The description does not repeat the title.",
+      "from": [
+        "atlassian-empty",
+        "primer-blankslate"
+      ]
+    },
+    {
+      "rule": "Order of states: loading, error, empty, content. A section's empty state is compact.",
+      "from": [
+        "stripe-empty",
+        "primer-blankslate"
+      ]
+    }
+  ],
+  "labels": {
+    "empty": "{object}はありません。",
+    "empty_filtered": "該当する{object}はありません。",
+    "filtered_hint": "別の条件を試してください。"
+  },
+  "uses": [],
+  "maps_to": {
+    "shadcn": "Empty",
+    "html": "div",
+    "dads": null,
+    "smarthr": null
+  },
+  "evidence": [
+    {
+      "id": "smarthr-empty",
+      "source": "SmartHR Design System, 空データ",
+      "url": "https://smarthr.design/products/design-patterns/empty-data/",
+      "says": "An empty list reads {オブジェクト名}はありません。; a filtered one 該当する{オブジェクト名}はありません。 with 別の条件を試してください。"
+    },
+    {
+      "id": "stripe-empty",
+      "source": "Stripe Apps, Empty state",
+      "url": "https://docs.stripe.com/stripe-apps/patterns/empty-state.md",
+      "says": "A first-use empty state has a title and an action matching it; a filtered one says no items match and shows no create button."
+    },
+    {
+      "id": "atlassian-empty",
+      "source": "Atlassian Design System, Empty state",
+      "url": "https://atlassian.design/foundations/content/designing-messages/empty-state",
+      "says": "An empty state's description does not repeat its heading."
+    },
+    {
+      "id": "primer-blankslate",
+      "source": "Primer, Blankslate guidelines",
+      "url": "https://primer.style/product/components/blankslate/guidelines",
+      "says": "A blankslate in a section is compact."
+    }
+  ],
+  "evidence_status": "documented"
+}

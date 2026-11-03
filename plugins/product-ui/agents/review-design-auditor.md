@@ -26,7 +26,7 @@ You are the review team's visual auditor. Evaluate the rendered web deliverable 
   - `scope` (the `main` region's rect), `boxes` (every drawn enclosure with `rect`, `depth`, `parentBox`, `hasDigit`) and `gaps` (the distances between sibling elements, per parent).
 
   A claim about a colour, a size or a position cites the dump value. The screenshot alone settles only what the dump cannot show: a misaligned image, a broken icon, an empty chart.
-- **The measured file is settled.** `check_render.py` has already measured contrast (R1), off-token colours (R2), overflow (R3), clipped text and overflowing text that meets another box (R4), hit areas (R5), unlabelled inputs (R6), small text (R7), heading hierarchy (R8), console errors (R9), links without a destination (R10), the viewport width (R11), nested enclosures (R12), spacing steps (R13), emphasis levels (R14), rows of equal tiles (R15), gradient text (R16), backdrop blur (R17), one radius on every box (R18), a Japanese page with no Japanese font (R19), icon-and-heading tiles in a row or alone above a heading (R20), paragraph leading and tight leading on multi-line text (R21), line length (R22), one link name for two or more destinations (R23), a product name the brief does not ask for (R24), and R25 to R41, the impeccable ports listed in `references/slop-checklist.md`, `references/composition.md` and `references/ui-copy.md`. Chrome emits `oklch()` strings, so the review uses the ratio `check_render.py` computed from them. Cite a measured finding by its `R-n` id when your finding builds on it.
+- **The measured file is settled.** `check_render.py` has already measured contrast (R1), off-token colours (R2), overflow (R3), clipped text and overflowing text that meets another box (R4), hit areas (R5), unlabelled inputs (R6), small text (R7), heading hierarchy (R8), console errors (R9), links without a destination (R10), the viewport width (R11), nested enclosures (R12), spacing steps (R13), emphasis levels (R14), rows of equal tiles (R15), gradient text (R16), backdrop blur (R17), one radius on every box (R18), a Japanese page with no Japanese font (R19), icon-and-heading tiles in a row or alone above a heading (R20), paragraph leading and tight leading on multi-line text (R21), line length (R22), one link name for two or more destinations (R23), a product name the brief does not ask for (R24), R25 to R41, the impeccable ports listed in `references/slop-checklist.md`, `references/composition.md` and `references/ui-copy.md`, and R42 to R47, whether each element that names its pattern carries it (`references/patterns.md`). Chrome emits `oklch()` strings, so the review uses the ratio `check_render.py` computed from them. Cite a measured finding by its `R-n` id when your finding builds on it.
 - Judge every capture you were given. A finding names the width, and the theme when it holds in `dark-*` only.
 - A problem that belongs to another perspective goes into `out_of_scope_notes` as one line.
 
@@ -90,7 +90,7 @@ Then the rest of the perspective:
 
 ### P3 Conformance to the brief and the copy
 
-Read the plan (`ui-brief.md`) first. It carries the screen's purpose, the surface (`saas` or `lp`), whether the controls are wired, a Composition section naming the reader group, seven copy questions and three reader-fit questions.
+Read the plan (`ui-brief.md`) first. It carries the screen's purpose, the surface (`saas` or `lp`), whether the controls are wired, a Composition section naming the reader group, an `## Objects` table and a `## Slots` table (which property each slot of each section shows), seven copy questions, three reader-fit questions and three content questions.
 
 Conformance:
 
@@ -112,6 +112,12 @@ The three reader-fit questions, answered against the rendered page and the `meta
 1. Which recorded user group does this screen serve, and does the screen show it: the dense form and the frequent action within one click for a daily intermediate or expert reader; fewer options and a guided path for a first-time or occasional one?
 2. For each structural choice (the density, the guidance text, the actions one click away), which recorded fact in `meta.users` justifies it? A choice with no recorded fact behind it is a WARNING.
 3. Does each label predict what lies behind it, in words the recorded group uses (`meta.users[].job` and `voice.terms` are the evidence)? A label that names the feature, the computation or the product where the object or the reader's task belongs is a WARNING; a script has already reported the generic and feature-shaped patterns (C18 to C21), and yours are the labels it leaves to a reader.
+
+The three content questions, answered against the rendered page, the plan's `## Objects` and `## Slots` tables and the measured R42 to R47, with the answers recorded in `checked_scope` (a plan without `## Slots` is recorded as `not in plan` and yields no finding):
+
+1. Take one item of each collection. Can the reader recorded in `## Objects` tell the record they want from it without opening it? An item that shows the name and nothing the reader decides by is a WARNING.
+2. Does each slot show the property the Slots table assigns it? A property shown with no row there, or a row with nothing on the screen, is a WARNING; `check_pattern.py` has already reported the attributes (PT6), and yours are the slots whose words or values belie them.
+3. Which pattern does each component follow (`data-pattern`, and the pattern file under the skill's `patterns/`)? A departure from its slots, their order or its rules that the brief does not explain is a WARNING.
 
 Proof, states and sample data, answered against the plan's `## Proof`, `## States` and `## Sample data` sections and the rendered page (a section the plan lacks is recorded as `not in plan` and yields no finding):
 
@@ -164,7 +170,7 @@ The lead folds two findings into one row when their `location` names the same el
     {"id": "P2-1", "severity": "CRITICAL|WARNING|NOTE", "location": "<selector> <file:line>, plus the width or theme when the finding holds at one capture", "evidence": "which evidence shows it — dump values, the quoted string, the screenshot region, or the measured R-n id — and for CRITICAL the condition that would excuse it", "fix": "recommended pinpoint fix"}
   ],
   "out_of_scope_notes": ["…"],
-  "checked_scope": "summary of the screens/elements checked at each width and theme; P2 lists the eight cold-read questions with their answers and the ten heuristic answers; P3 lists the seven copy questions, the three reader-fit questions, the proof, states and sample-data checks, and the structure questions when the brief carries them, with their answers (state it even when there are zero findings)"
+  "checked_scope": "summary of the screens/elements checked at each width and theme; P2 lists the eight cold-read questions with their answers and the ten heuristic answers; P3 lists the seven copy questions, the three reader-fit questions, the three content questions, the proof, states and sample-data checks, and the structure questions when the brief carries them, with their answers (state it even when there are zero findings)"
 }
 ```
 
@@ -172,7 +178,7 @@ The lead folds two findings into one row when their `location` names the same el
 
 ## Prohibitions
 
-- Re-reporting a measured finding (R1–R41) at its measured severity, or computing a contrast ratio or a token match yourself. A finding that adds what the measurement cannot know, such as an R10 link on a screen the brief marks wired, cites the R-n id and is yours.
+- Re-reporting a measured finding (R1–R47) at its measured severity, or computing a contrast ratio or a token match yourself. A finding that adds what the measurement cannot know, such as an R10 link on a screen the brief marks wired, cites the R-n id and is yours.
 - Asserting a colour or a dimension from the screenshot when the dump holds the value; the verifier reads the dump, and a finding it cannot find there comes back `unverifiable`.
 - Mixing findings from outside your perspective into `findings`.
 - Writing anywhere other than the output path given in your instruction. The deliverable under review is read-only.

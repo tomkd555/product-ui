@@ -1,0 +1,65 @@
+{
+  "id": "staff",
+  "request": "社内ポータルに、社員名簿の画面を作ってください。全社員がときどき使い、同僚を探して所属と連絡先を確かめます。顔写真はありません。サンプルデータは data.json を使ってください。",
+  "today": "2026-11-03",
+  "surface": "saas",
+  "users": [
+    {
+      "role": "社員",
+      "frequency": "occasional",
+      "expertise": "intermediate",
+      "job": "同僚を探して、所属と連絡先を確かめる",
+      "basis": "reported"
+    }
+  ],
+  "object": {
+    "name": "社員",
+    "locators": [
+      "name",
+      "email"
+    ],
+    "fields": {
+      "name": [
+        "氏名",
+        "text"
+      ],
+      "dept": [
+        "部署",
+        "text"
+      ],
+      "title": [
+        "役職",
+        "text"
+      ],
+      "ext": [
+        "内線番号",
+        "text"
+      ],
+      "email": [
+        "メールアドレス",
+        "text"
+      ],
+      "location": [
+        "勤務地",
+        "text"
+      ],
+      "employee_no": [
+        "社員番号",
+        "text"
+      ]
+    }
+  },
+  "screens": [
+    {
+      "id": "list",
+      "kind": "collection",
+      "job_fields": [
+        "name",
+        "dept",
+        "title",
+        "ext",
+        "email"
+      ]
+    }
+  ]
+}
