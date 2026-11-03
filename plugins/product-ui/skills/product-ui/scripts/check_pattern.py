@@ -8,17 +8,19 @@ data-pattern element around it; an element carrying both attributes is a slot of
 around it and the root of its own. The source of record for these rules is
 references/patterns.md; change that file first when a check or a threshold changes.
 
-Errors mean a container cannot be the pattern it names: a required slot is missing, a limit
-is passed, the id is unknown or unplanned, a whole-item link holds another control. Warnings
-mean it departs from the plan: slots out of order, a field the Slots table does not hold, a
-planned pattern with no element on the screen.
+PT1, PT2, PT4 and PT5 mean a container cannot be the pattern it names: a required slot is
+missing, a limit is passed, the id is unknown or unplanned, a whole-item link holds another
+control. They are warnings until the calibration in research/20261103-real-site-patterns
+settles which become errors (decision D3 of its plan); --strict reports them as errors now.
+PT3, PT6 and PT7 mean the screen departs from the plan: slots out of order, a field the
+Slots table does not hold, a planned pattern with no element on the screen.
 
 The brief is ui-brief.md beside the nearest tokens.json above the paths (up to three
 directories), unless --brief names it. Without a brief, PT2's plan half, PT6 and PT7 are
 skipped. The scaffold/ directory beside the brief is skipped: it is the input.
 
 CLI:
-    python check_pattern.py <path>... [--brief ui-brief.md] [--json]
+    python check_pattern.py <path>... [--brief ui-brief.md] [--strict] [--json]
 
 A finding ruled on and kept is silenced from the markup itself:
     product-ui: ignore PT3 <reason>        the line before, or the same line
@@ -207,8 +209,9 @@ def files_in(paths):
     return out
 
 
-def check_file(path, text, patterns, planned, plan_fields, used_ids, seen_fields, rep):
+def check_file(path, text, patterns, planned, plan_fields, used_ids, seen_fields, rep, strict=False):
     lines_ok, file_ok = suppressions(text, path, rep)
+    hard = "ERROR" if strict else "WARN"
 
     def report(severity, cid, index, message):
         line = line_of(text, index)
@@ -223,10 +226,10 @@ def check_file(path, text, patterns, planned, plan_fields, used_ids, seen_fields
         pid = root["pattern"]
         used_ids.add(pid)
         if pid not in patterns:
-            report("ERROR", "PT2", root["start"], f"data-pattern `{pid}` is not in the library (patterns/)")
+            report(hard, "PT2", root["start"], f"data-pattern `{pid}` is not in the library (patterns/)")
             continue
         if planned is not None and pid not in planned and pid not in allowed_inner:
-            report("ERROR", "PT2", root["start"], f"`{pid}` is not the pattern of any section in the brief; "
+            report(hard, "PT2", root["start"], f"`{pid}` is not the pattern of any section in the brief; "
                    "add the section, or run resolve.py after changing it")
         pattern = patterns[pid]
         slots = [e for e in els if e["slot"] and owner(e, roots) is root]
@@ -235,7 +238,7 @@ def check_file(path, text, patterns, planned, plan_fields, used_ids, seen_fields
         for s in slots:
             counts[s["slot"]] = counts.get(s["slot"], 0) + 1
             if s["slot"] not in order:
-                report("ERROR", "PT1", s["start"], f"`{pid}` has no slot `{s['slot']}`; its slots are {', '.join(order)}")
+                report(hard, "PT1", s["start"], f"`{pid}` has no slot `{s['slot']}`; its slots are {', '.join(order)}")
             if s["field"]:
                 seen_fields.setdefault(pid, set()).add(s["field"])
                 if plan_fields is not None and pid in plan_fields and s["field"] not in plan_fields[pid]:
@@ -245,12 +248,12 @@ def check_file(path, text, patterns, planned, plan_fields, used_ids, seen_fields
             n = counts.get(spec["id"], 0)
             low = spec.get("min", 1 if spec.get("required") else 0)
             if spec.get("required") and n == 0:
-                report("ERROR", "PT1", root["start"], f"`{pid}` is missing its required slot `{spec['id']}` ({spec['takes']})")
+                report(hard, "PT1", root["start"], f"`{pid}` is missing its required slot `{spec['id']}` ({spec['takes']})")
             elif n and n < low:
-                report("ERROR", "PT1", root["start"], f"`{pid}` slot `{spec['id']}` appears {n} time(s); it needs {low}")
+                report(hard, "PT1", root["start"], f"`{pid}` slot `{spec['id']}` appears {n} time(s); it needs {low}")
             high = spec.get("max", 1)
             if high is not None and n > high:
-                report("ERROR", "PT4", root["start"], f"`{pid}` slot `{spec['id']}` appears {n} times; the pattern allows {high}")
+                report(hard, "PT4", root["start"], f"`{pid}` slot `{spec['id']}` appears {n} times; the pattern allows {high}")
         seen, last = [], -1
         for s in sorted(slots, key=lambda e: e["start"]):
             if s["slot"] in seen or s["slot"] not in order:
@@ -270,7 +273,7 @@ def check_file(path, text, patterns, planned, plan_fields, used_ids, seen_fields
                     inner = [e for e in els if e["name"] in CONTROL_TAGS and e is not link
                              and link["open_end"] <= e["start"] < link["end"]]
                     if inner:
-                        report("ERROR", "PT5", inner[0]["start"], f"`{pid}` is a link as a whole and holds another "
+                        report(hard, "PT5", inner[0]["start"], f"`{pid}` is a link as a whole and holds another "
                                f"`<{inner[0]['name']}>`; move the control to the single view, or drop the whole-item link")
                     break
 
@@ -279,6 +282,7 @@ def main():
     parser = argparse.ArgumentParser(description="Check that each built container follows its pattern.")
     parser.add_argument("paths", nargs="+")
     parser.add_argument("--brief", help="path to ui-brief.md")
+    parser.add_argument("--strict", action="store_true", help="report PT1, PT2, PT4 and PT5 as errors")
     parser.add_argument("--json", action="store_true", help="emit machine-readable output")
     args = parser.parse_args()
 
@@ -294,7 +298,7 @@ def main():
     for path in files:
         with open(path, encoding="utf-8", errors="replace") as handle:
             text = handle.read()
-        check_file(path, text, patterns, planned, plan_fields, used_ids, seen_fields, rep)
+        check_file(path, text, patterns, planned, plan_fields, used_ids, seen_fields, rep, args.strict)
     if planned is not None:
         for pid in sorted(planned - used_ids):
             rep.add("WARN", "PT7", brief, 0, f"the brief plans `{pid}`, and no element carries data-pattern=\"{pid}\"; "

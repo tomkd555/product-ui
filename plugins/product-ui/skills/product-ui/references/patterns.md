@@ -163,15 +163,15 @@ It reads the markup files (`.html`, `.htm`, `.jsx`, `.tsx`, `.vue`, `.svelte`, `
 | ID | Severity | Check |
 |---|---|---|
 | PT0 | warning | a suppression with no reason; it silences nothing |
-| PT1 | error | an element missing a required slot of its pattern, a slot appearing fewer times than its `min`, or a slot name the pattern does not have |
-| PT2 | error | a `data-pattern` id with no file under `patterns/`, or one no section of the brief resolves to (a pattern another resolved pattern `uses` passes) |
+| PT1 | warning; error with `--strict` | an element missing a required slot of its pattern, a slot appearing fewer times than its `min`, or a slot name the pattern does not have |
+| PT2 | warning; error with `--strict` | a `data-pattern` id with no file under `patterns/`, or one no section of the brief resolves to (a pattern another resolved pattern `uses` passes) |
 | PT3 | warning | slots out of the pattern's order: the first slot that comes after one the pattern puts later |
-| PT4 | error | a slot appearing more times than its `max`: more than three properties in a row, a fourth table action, a third function button on a card |
-| PT5 | error | a link that wraps every slot of its item holds another link or button |
+| PT4 | warning; error with `--strict` | a slot appearing more times than its `max`: more than three properties in a row, a fourth table action, a third function button on a card |
+| PT5 | warning; error with `--strict` | a link that wraps every slot of its item holds another link or button |
 | PT6 | warning | a slot shows a property (`data-pattern-field`) that no Slots row of its pattern assigns, or a Slots row's property no slot shows |
 | PT7 | warning | a pattern the brief resolves that no element carries: the section was built without its skeleton |
 
-Silence a misfire in the file, as `product-ui: ignore PT3 <reason>` on the line before or the same line, or `product-ui: ignore-file PT6 <reason>`; name the reason in the hand-over. A PT1, PT2, PT4 or PT5 the check read rightly is fixed, not silenced.
+PT1, PT2, PT4 and PT5 stay warnings until the calibration in `research/20261103-real-site-patterns` (decision D3 of its plan) settles which become errors; `--strict` reports them as errors now, and a build that passes `--strict` carries every pattern it names. Silence a misfire in the file, as `product-ui: ignore PT3 <reason>` on the line before or the same line, or `product-ui: ignore-file PT6 <reason>`; name the reason in the hand-over. A PT1, PT2, PT4 or PT5 the check read rightly is fixed, not silenced.
 
 ### R42 to R48, on the rendered page (Step 5)
 
@@ -212,3 +212,43 @@ A dump without `patterns` (an older capture) and a page with no `data-pattern` e
 4. Run `validate.py`; then `resolve.py` and `scaffold.py` on a brief that reaches it.
 
 A source whose terms forbid automated use or AI training stays out of `evidence`, even when its content is quoted elsewhere.
+
+## Adding a pattern from specimens
+
+A pattern documented by design systems starts as `documented`. Specimens captured from live pages show whether real screens carry it, and a pattern two or more specimens from different sources share becomes `cross-specimen`.
+
+### specimen.py
+
+```bash
+python {SKILL_DIR}/scripts/harvest/specimen.py <url> --selector "<css of one item>" --source design-system --id govuk.task-list
+```
+
+It renders the page through `cdp.js`, takes the elements the selector names as items (up to 20), and records for each its parts in reading order: the role (heading, text, link, button, image, input), the type of the value (date, time, money, percent, count, number, id, status, free), the emphasis rank inside the item and the length. The anatomy most items share is the specimen; the others are listed as variants. It writes `patterns/specimens/<id>.json` (`--out` names another directory).
+
+| A specimen keeps | A specimen leaves out |
+|---|---|
+| the structure, the value types, the emphasis ranks, the item count, the URL, the selector and the date | every text, colour, font, image and brand element |
+| the SHA-256 of the screenshot | the screenshot itself, which stays in `--cache` (a temporary directory by default) |
+
+Where it may run is the `--source`:
+
+| `--source` | Allowed when |
+|---|---|
+| `design-system` | a design system's public documentation or demo page |
+| `own-product` | the user's own product |
+| `oss-app` | a demo of an open-source application |
+| `public-site` | any other site, with `--terms-checked`, after reading its terms and finding that they allow automated access |
+
+It also refuses a URL that the site's `robots.txt` disallows, and a host on its `BLOCKED_HOSTS` list, whose terms forbid automated or AI use (Mobbin). It reproduces nothing: a specimen is evidence for a pattern, and the pattern, not the specimen, is what a build reads.
+
+### compare.py
+
+```bash
+python {SKILL_DIR}/scripts/harvest/compare.py task.list patterns/specimens/*.json
+```
+
+It maps each specimen's parts onto the pattern's slots (a heading, or a first link before any value, is the identifier; a status word is the status; an image is the image; another link or a button is an action; a typed value is a property) and reports, per specimen, the required slots it misses and whether its parts follow the pattern's order. The mapping is a heuristic; read each verdict against the captured page.
+
+- Two or more specimens from different sources that fit: add them to the pattern's `evidence` (`"says"` naming what the page shows), and set `evidence_status` to `cross-specimen` when the pattern had no documented source.
+- Specimens that repeatedly miss a slot the pattern requires: revise the pattern before its checks become errors.
+- A structure several specimens share and no pattern covers: draft a pattern from it, with its specimens as `evidence`, and run `validate.py`.
