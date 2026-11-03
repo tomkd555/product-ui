@@ -3,12 +3,14 @@ name: product-ui
 description: >-
   Builds web screens that read as a real product: tokens and wording settled before markup,
   shadcn/ui on Tailwind v4 or DADS or SmartHR, an OOUI or task-oriented structure chosen at intake, the users recorded
-  and each screen composed (its job, its dominant element, its reading order, its containers) before markup, a test for whether each
+  and each screen composed (its job, its dominant element, its reading order, its containers) before markup, each container
+  built from a pattern drawn from production design systems and chosen from the brief by a script, a test for whether each
   user-visible string should exist, text at 14px or more (12px for a short Latin-only run), checks and an independent review. REMOVE mode strips annotations and small text from an existing screen;
   lookup data answers palette, pairing, style, chart and stack questions.
   Use for any screen, component or UI wording, and when an interface reads as AI-made.
   trigger words: 画面, ページ, ランディングページ, ダッシュボード, デザイントークン, AIっぽい,
   構成, レイアウト, カードだらけ, 全部カード, 同じ画面, テンプレ感, 誰向け,
+  カードに情報がない, 欲しい情報がない, 一覧に何を出すか, 項目の選び方, ラベリング, 空状態, ステータス,
   ダサい, 文字が小さい, 文言, ラベル, エラーメッセージ, UIライティング, マイクロコピー,
   説明っぽい, 説明文が入る, 注釈だらけ, 注記だらけ, キャプション, ヘルプテキスト, 補足テキスト,
   小さい文字の説明, 注釈を消して, 但し書き, 手法の説明, サブテキストを削除, 説明文を消して,
@@ -154,7 +156,8 @@ npx textlint --config {SKILL_DIR}/assets/textlintrc.ui.json copy-prose.md
 
 - **Errors**: an error from any of the four scripts sends this back to Step 3. `check_pattern.py` reads the brief beside `tokens.json` (`--brief` names another) and resolves it as `resolve.py` does; a brief that cannot be resolved leaves its plan checks (PT2's plan half, PT6, PT7) unread, and the output says why.
 - **Warnings**: every warning from `check_slop.py`, `check_copy.py`, `check_shippable_text.py` and `check_pattern.py` gets a ruling in the hand-over: fixed, or kept with its reason. For a `check_shippable_text.py` warning, delete the annotation, or keep it and name its allowance. Delete text that explains the design or the way through the screen at either severity.
-- **textlint**: it covers the prose-shaped strings `check_copy.py` writes to `copy-prose.md`. Fix each finding; deleting the string counts as a fix, and a string under the carve-out in `references/ui-copy.md` stays. textlint is optional: the plugin leaves its install to the user, and the README names the npm packages. When `npx textlint` is unavailable, skip it and write `textlint skipped: not installed` in the hand-over; the three Python scripts still gate.
+- **textlint**: it covers the prose-shaped strings `check_copy.py` writes to `copy-prose.md`. Fix each finding; deleting the string counts as a fix, and a string under the carve-out in `references/ui-copy.md` stays. textlint is optional: the plugin leaves its install to the user, and the README names the npm packages. When `npx textlint` is unavailable, skip it and write `textlint skipped: not installed` in the hand-over; the Python scripts still gate.
+- **prose-lint**: when the `prose-lint` skill is installed (https://github.com/tomkd555/prose-lint), invoke it on `copy-prose.md` with `style=business` as well, and rule on each of its findings as on a textlint finding: fix the string, delete it, or keep it under the carve-out. It reads the prose-shaped strings only; the labels stay with `check_copy.py` and the label register. When it is not installed, write `prose-lint skipped: not installed` in the hand-over.
 - **Misfires**: silence a misfire of `check_slop.py`, `check_copy.py` or `check_pattern.py` in the file itself, as `product-ui: ignore <ID> <reason>` or `product-ui: ignore-file <ID> <reason>` (forms in `references/slop-checklist.md` and `references/ui-copy.md`). Suppress only a misfire; fix a string the check read correctly. Fix every `check_shippable_text.py` error, because that script reads no suppression form.
 
 Step 5 starts once no error remains and every warning has its ruling.
@@ -165,13 +168,13 @@ When a check fails, read the reference that owns its ID:
 
 | IDs | Script | Reference |
 |---|---|---|
-| T1–T22 | `validate_tokens.py` | `references/tokens-format.md` (T19 provenance, T20 default colour, T21 tinted neutrals, T22 Japanese family) |
+| T1–T23 | `validate_tokens.py` | `references/tokens-format.md` (T19 provenance, T20 default colour, T21 tinted neutrals, T22 Japanese family, T23 status words) |
 | S1–S37 | `check_slop.py` | `references/slop-checklist.md`; `references/composition.md` for S11 |
-| C1–C32 | `check_copy.py` | `references/ui-copy.md`; `references/ooui.md` for C17; `references/composition.md` for C18–C21 |
+| C1–C36 | `check_copy.py` | `references/ui-copy.md`; `references/ooui.md` for C17; `references/composition.md` for C18–C21; `references/patterns.md` for the label forms C33–C36 read |
 | ST1–ST10 | `check_shippable_text.py` | `references/ban-list.md` |
 | PV1–PV8 | `scripts/patterns/validate.py` | `references/patterns.md` |
 | PT0–PT7 | `check_pattern.py` | `references/patterns.md` |
-| R1–R47 | `check_render.py` (Step 5) | `references/composition.md` for R4's collision form, R12–R15, R21–R22, R30, R32, R34–R37 and R39; `references/slop-checklist.md` for R16–R20, R25–R29, R31, R33 and R41; `references/ui-copy.md` for R23, R24, R38 and R40 |; `references/patterns.md` for R42–R47
+| R1–R48 | `check_render.py` (Step 5) | `references/composition.md` for R4's collision form, R12–R15, R21–R22, R30, R32, R34–R37 and R39; `references/slop-checklist.md` for R16–R20, R25–R29, R31, R33 and R41; `references/ui-copy.md` for R23, R24, R38 and R40 |; `references/patterns.md` for R42–R47
 
 ### Step 5: Independent review
 
@@ -181,7 +184,7 @@ Complete the `ui-brief.md` written in Step 3: the built file paths and whether t
 
 Then launch both agents in one message, each with `model: opus`:
 
-- `review-design-lead`, with `plan: ui-brief.md`, `target:` the project directory, and `scripts: {SKILL_DIR}/scripts/render`; it requires all three and returns `{"error": …}` when one is missing. It renders through headless Chrome at 1280px and 375px and measures the page with `check_render.py` (R1–R47, with `--plan` reading the brief's job class for R15). R7 measures the computed text size, which covers a size set from JavaScript or a transform; R12 to R15 measure nested enclosures, spacing steps, emphasis levels and equal tile rows; R16 to R20 flag gradient text, backdrop blur, one radius on every box, a missing Japanese font and icon tiles above headings; R25 to R41 are the impeccable ports listed in the reference files; R42 to R47 measure whether each element that names its pattern carries its slots (`references/patterns.md`). P2 answers the cold-read questions from the screenshot before reading the dump.
+- `review-design-lead`, with `plan: ui-brief.md`, `target:` the project directory, and `scripts: {SKILL_DIR}/scripts/render`; it requires all three and returns `{"error": …}` when one is missing. It renders through headless Chrome at 1280px and 375px and measures the page with `check_render.py` (R1–R48, with `--plan` reading the brief's job class for R15). R7 measures the computed text size, which covers a size set from JavaScript or a transform; R12 to R15 measure nested enclosures, spacing steps, emphasis levels and equal tile rows; R16 to R20 flag gradient text, backdrop blur, one radius on every box, a missing Japanese font and icon tiles above headings; R25 to R41 are the impeccable ports listed in the reference files; R42 to R48 measure whether each element that names its pattern carries its slots, and its status words (`references/patterns.md`). P2 answers the cold-read questions from the screenshot before reading the dump.
 - `shippable-text-auditor`, with the built file paths and the `meta.surface` value (`saas` or `lp`) only; the brief and the reasoning stay with you. It returns `remove` and `rewrite` findings.
 
 Rule on each finding individually: delete the string where the finding is that it should go, rewrite it where the finding is about wording, and keep it only under the carve-out in `references/ui-copy.md`, naming the clause in the hand-over.

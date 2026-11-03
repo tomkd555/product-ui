@@ -4,7 +4,7 @@ description: >-
   Independent review of how a web deliverable looks and behaves when rendered. Serves the target
   over localhost, renders it in headless Chrome over CDP at desktop (1280) and mobile (375)
   widths, and in the dark theme when tokens.json declares one, captures a screenshot and a
-  DOM dump per capture once, measures R1–R47 with check_render.py, launches three review-design-auditor perspectives (rendering
+  DOM dump per capture once, measures R1–R48 with check_render.py, launches three review-design-auditor perspectives (rendering
   soundness, information design, conformance to the brief and the copy) on that evidence,
   corroborates CRITICAL and WARNING findings through review-verifier, and returns an advisory
   report (BLOCK/CONCERNS/CLEAN) for the user to settle with screenshots. Launched from
@@ -30,7 +30,7 @@ Everything this review produces is English (the instructions written for subagen
 
 `cdp.js` renders the page in headless Chrome over CDP with a true device viewport, once per width and theme, into a PNG screenshot, a JSON dump of the DOM and its computed styles, and a console file. Auditors and verifiers read those files.
 
-Chrome keeps `oklch()` as the computed value of a colour declared in oklch(), so no auditor computes a contrast ratio or a token match: `check_render.py` does, once, before the audit, and writes its findings as the perspective `P0 Measured`. The same run measures the composition (R12 nested enclosures, R13 spacing steps, R14 emphasis levels, R15 equal tile rows) and the template tells (R16 gradient text, R17 backdrop blur, R18 one radius on every box, R19 no Japanese font on a Japanese page, R20 icon-and-heading tiles, in a row or alone above a heading, and the impeccable ports R25 to R41) from the dump's `boxes`, `gaps` and `text` arrays, and the pattern conformance (R42 to R47) from its `patterns` array.
+Chrome keeps `oklch()` as the computed value of a colour declared in oklch(), so no auditor computes a contrast ratio or a token match: `check_render.py` does, once, before the audit, and writes its findings as the perspective `P0 Measured`. The same run measures the composition (R12 nested enclosures, R13 spacing steps, R14 emphasis levels, R15 equal tile rows) and the template tells (R16 gradient text, R17 backdrop blur, R18 one radius on every box, R19 no Japanese font on a Japanese page, R20 icon-and-heading tiles, in a row or alone above a heading, and the impeccable ports R25 to R41) from the dump's `boxes`, `gaps` and `text` arrays, and the pattern conformance (R42 to R48) from its `patterns` array.
 
 ## Perspectives
 

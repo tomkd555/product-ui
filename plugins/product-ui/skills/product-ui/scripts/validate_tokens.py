@@ -26,6 +26,7 @@ import colour  # noqa: E402
 
 OKLCH = re.compile(r"^oklch\(\s*[^)]+\)$", re.IGNORECASE)
 MS = re.compile(r"^(\d+(?:\.\d+)?)ms$")
+JAPANESE_TEXT = re.compile(r"[\u3040-\u30ff\u4e00-\u9fff]")
 
 # Families a model reaches for when no choice has been made. See S2 in
 # references/slop-checklist.md for the same list applied to generated markup.
@@ -539,6 +540,30 @@ def check_voice(doc, rep):
     allow = voice.get("allow")
     if allow is not None and not isinstance(allow, list):
         rep.error("T13", "voice.allow", "must be an array of strings")
+
+    check_status(voice, rep)
+
+
+def check_status(voice, rep):
+    """T23 - voice.status: the fixed words for each object's states (references/patterns.md, status.badge)."""
+    status = voice.get("status")
+    if status is None:
+        return
+    if not isinstance(status, dict):
+        rep.error("T23", "voice.status", "must be an object mapping an object's name to the list of its state words")
+        return
+    for obj, words in status.items():
+        where = f"voice.status.{obj}"
+        if not isinstance(words, list) or not words or not all(isinstance(w, str) and w.strip() for w in words):
+            rep.error("T23", where, "must be a non-empty array of state words")
+            continue
+        if len(set(words)) != len(words):
+            rep.error("T23", where, "names one state twice")
+        for word in words:
+            latin = not JAPANESE_TEXT.search(word)
+            if (latin and len(word.split()) > 2) or (not latin and len(word) > 8):
+                rep.warn("T23", where, f"{word!r} is long for a status; one word, two for a compound state "
+                         "(Polaris, Badge), 8 characters at most in Japanese")
 
 
 def validate(doc):

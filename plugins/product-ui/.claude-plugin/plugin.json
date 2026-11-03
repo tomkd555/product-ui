@@ -1,8 +1,8 @@
 {
   "name": "product-ui",
   "displayName": "Product UI",
-  "version": "1.2.0",
-  "description": "Builds web interfaces that read as a real product: design tokens, UI wording and the user groups settled in tokens.json before any markup, each screen composed (its job, its dominant element, its reading order, its containers) before it is built, a test for whether each user-visible string should exist, a text-size minimum of 14px or more (12px for a short Latin-only run) that a PostToolUse hook checks after every write and reports back to Claude, deterministic checks on the output, and an independent rendered review. Carries the rules for Japanese UI copy and a lookup of palettes, font pairings, styles, charts and per-stack rules.",
+  "version": "1.3.0",
+  "description": "Builds web interfaces that read as a real product: design tokens, UI wording and the user groups settled in tokens.json before any markup, each screen composed (its job, its dominant element, its reading order, its containers) before it is built, each container built from a pattern drawn from production design systems and chosen deterministically from the brief, a test for whether each user-visible string should exist, a text-size minimum of 14px or more (12px for a short Latin-only run) that a PostToolUse hook checks after every write and reports back to Claude, deterministic checks on the output, and an independent rendered review. Carries the rules for Japanese UI copy and a lookup of palettes, font pairings, styles, charts and per-stack rules.",
   "author": {
     "name": "tomkd555",
     "url": "https://github.com/tomkd555"

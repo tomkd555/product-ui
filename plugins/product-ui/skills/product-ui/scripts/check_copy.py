@@ -25,6 +25,11 @@ voice.lang is "ja"; C27 is an error: a testimonial, a customer count, a "No.1" o
 an lp surface) a figure or rating passes only when the brief's `## Proof` section holds
 it. The brief is ui-brief.md beside tokens.json unless --brief names another file.
 
+C33 to C36 read the label forms the pattern library fixes (references/patterns.md): C33 a
+collection heading ending in 一覧, C34 a column header of 状況 or 状態 alone, C35 an empty
+state's title in another form than the pattern's, and C36 a label the label register lists
+(assets/label_register.ja.md, then label-register.md beside tokens.json, which the project grows).
+
 CLI:
     python check_copy.py <path>... [--tokens tokens.json] [--brief ui-brief.md]
                          [--emit-prose out.md] [--json]
@@ -406,6 +411,13 @@ C18 = {"概要", "詳細", "情報", "管理", "各種", "その他",
 # C19: a label shaped like a feature. The class is kanji, hiragana, katakana and the 長音 mark.
 C19_JA = re.compile(r"^[一-鿿ぁ-んァ-ヶー]{1,8}管理$")
 C19_EN = re.compile(r"\b\w+ management$", re.IGNORECASE)
+C33_JA = re.compile(r"一覧(画面)?$")
+C33_EN = re.compile(r"\s+list$", re.IGNORECASE)
+C34_HEADER = re.compile(r"<(?P<tag>th|TableHead)\b[^<>]*>\s*(?P<text>状況|状態)\s*</(?P=tag)>")
+C35_JA = re.compile(r"^(該当する)?\S.*はありません。$")
+C35_EN = re.compile(r"^No\s.+(\syet)?\.$|^No\s.+\smatch(es)?\s.+\.$")
+REGISTER_FILE = "label_register.ja.md"
+PROJECT_REGISTER = "label-register.md"
 
 BUDGET = {"button": 8, "label": 12, "tooltip": 80}
 
@@ -459,6 +471,11 @@ def check_string(item, voice, structure, rep, name=None):
         rep.add("WARN", "C21", item.path, item.line,
                 f"product name {name!r} inside {item.kind} {text!r}; the name appears only where "
                 "the brief's `Brand area` lists it, so name the object or the task here")
+
+    if item.kind == "heading" and text not in allow and (C33_JA.search(text) or C33_EN.search(text)):
+        rep.add("WARN", "C33", item.path, item.line,
+                f"collection heading {text!r} names the view; name the object, or the subset shown "
+                "(references/patterns.md, labels)")
 
     if C1.search(text):
         rep.add("ERROR", "C1", item.path, item.line,
@@ -895,6 +912,83 @@ def load_choon_pairs():
         return []
 
 
+def check_column_headers(files, rep):
+    """C34 - a column header of 状況 or 状態 alone."""
+    for path in files:
+        if os.path.splitext(path)[1].lower() not in MARKUP_EXT:
+            continue
+        with open(path, encoding="utf-8", errors="replace") as handle:
+            body = handle.read()
+        for m in C34_HEADER.finditer(body):
+            rep.add("WARN", "C34", path, line_of(body, m.start()),
+                    f"column header {m.group('text')!r} alone; head a status column ステータス, "
+                    "or 〇〇状況 when the table has several (SmartHR, よくあるテーブル)")
+
+
+def check_empty_states(files, rep):
+    """C35 - an empty state's title in another form than the pattern's."""
+    import check_pattern  # the element scanner the pattern checks share
+    for path in files:
+        if os.path.splitext(path)[1].lower() not in MARKUP_EXT:
+            continue
+        with open(path, encoding="utf-8", errors="replace") as handle:
+            body = handle.read()
+        if "state.empty" not in body:
+            continue
+        els = check_pattern.scan(body)
+        roots = [e for e in els if e["pattern"]]
+        for el in els:
+            own = check_pattern.owner(el, roots) if el["slot"] == "title" else None
+            if not own or own["pattern"] != "state.empty":
+                continue
+            inner = body[el["open_end"]:el["end"]]
+            inner = re.sub(r"</?[A-Za-z][^<>]*>", "", inner)
+            if "{" in inner or not inner.strip():
+                continue
+            text = inner.strip()
+            if not (C35_JA.match(text) or C35_EN.match(text)):
+                rep.add("WARN", "C35", path, line_of(body, el["start"]),
+                        f"empty state {text!r}; before first use 「{{object}}はありません。」, "
+                        "after a filter 「該当する{object}はありません。」 (references/patterns.md, state.empty)")
+
+
+def load_register(tokens_used):
+    """Rows (pattern, instead, why, source) of the shipped label register and the project's own."""
+    paths = [os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", REGISTER_FILE)]
+    if tokens_used:
+        paths.append(os.path.join(os.path.dirname(os.path.abspath(tokens_used)), PROJECT_REGISTER))
+    rows = []
+    for path in paths:
+        if not os.path.isfile(path):
+            continue
+        with open(path, encoding="utf-8") as handle:
+            for line in handle:
+                line = line.strip()
+                if not line.startswith("|") or re.match(r"^\|\s*-{3,}", line):
+                    continue
+                cells = [c.strip().replace("\\|", "|") for c in re.split(r"(?<!\\)\|", line.strip("|"))]
+                if len(cells) < 3 or cells[0] in ("Pattern", ""):
+                    continue
+                try:
+                    rows.append((re.compile(cells[0]), cells[1], cells[2], os.path.basename(path)))
+                except re.error:
+                    continue
+    return rows
+
+
+def check_label_register(strings, register, voice, rep):
+    """C36 - a label the label register lists."""
+    allow = set(voice.get("allow") or [])
+    for item in strings:
+        if item.kind not in LABEL_KINDS or item.text in allow:
+            continue
+        for pattern, instead, why, source in register:
+            if pattern.search(item.text):
+                rep.add("WARN", "C36", item.path, item.line,
+                        f"{item.text!r} is in the label register ({source}): {instead} {why}")
+                break
+
+
 def run(roots, tokens_path, brief_path=None):
     if isinstance(roots, str):
         roots = [roots]
@@ -924,6 +1018,9 @@ def run(roots, tokens_path, brief_path=None):
     check_headings(strings, rep)
     check_register([s for s in strings if s.japanese], rep)
     check_choon(strings, load_choon_pairs(), voice.get("katakana_choon", "jtf"), rep)
+    check_column_headers(files, rep)
+    check_empty_states(files, rep)
+    check_label_register(strings, load_register(tokens_used), voice, rep)
 
     if not stock():
         rep.add("WARN", "C22", roots[0], 0,

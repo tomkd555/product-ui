@@ -95,6 +95,8 @@ A confirmation dialog repeats the verb of the action that opened it: 「削除�
 
 A status badge is a noun phrase that names the progress of the task or the action asked of the reader (SmartHR, research E82 (ui-defaults)). A state in progress takes 「○○中」: 「依頼準備中」「入力中」「回答中」 (research E83 (ui-defaults)). A badge that only announces novelty or liveness (`New`, `Live`, 「新着」) names neither; S18 reports it when it pulses.
 
+The words are fixed per object in `voice.status` of `tokens.json`, one word per state, the same on every screen; a finished state takes the completed form (「入金済み」, not 「入金」) (Polaris, Badge). R48 reports a rendered badge whose word is outside the lists, and T23 checks their shape.
+
 ### Form labels
 
 A label is the name of the item; an instruction goes into help text, or nowhere (C7).
@@ -142,6 +144,22 @@ The error states what the product accepts. 「間違っています」「失敗�
 - Write katakana in full width
 
 A heading, a label and a button name something, so they end without 「。」 (C8). A sentence ends with 「。」 wherever it appears, a one-sentence tooltip included. 「！」 is kept for a toast that reports success (C11).
+
+### Labels the patterns fix
+
+What a container carries comes from its pattern (`references/patterns.md`), and the pattern fixes the words around it too. These hold on every screen, and C33 to C36 check what a script can settle:
+
+| Label | Form | Source |
+|---|---|---|
+| A collection's heading | the object's name (「請求書」), or the subset shown (「支払期日を過ぎた請求書」); never the view (「請求書一覧」) | Polaris, Resource list; SmartHR, よくあるリスト |
+| A column header | the property's name from `## Objects`, one kind of value per column; a status column 「ステータス」, 「〇〇状況」 when there are several, never 「状況」 or 「状態」 alone | Primer, DataTable; SmartHR, よくあるテーブル |
+| A status | a word from `voice.status` | Polaris, Badge; SmartHR, ステータス |
+| An empty state | before first use 「{object}はありません。」 and the action that adds one, named for it; after a filter 「該当する{object}はありません。」 with no create button | SmartHR, 空データ; Stripe Apps, Empty state |
+| A back link or breadcrumb | the heading of the page it returns to | Polaris, Page |
+| A page's primary action | a verb and a noun (「請求書を作成」); the noun may drop when it is the page's own object | Polaris, Page |
+| An item's link | the item itself, opening its single view; no second 「詳細を見る」 inside it | SmartHR, よくあるリスト; DADS, リソースリスト |
+
+A label rejected in review goes into the project's `label-register.md` beside `tokens.json` as a row (Pattern, Instead, Why); C36 reports it from the next run. `assets/label_register.ja.md` carries the rows this skill ships and the rules for writing one.
 
 ### The operation vocabulary
 
@@ -435,13 +453,45 @@ On an `lp` surface also:
 
 **Why.** Calling a practice "theater" is a recurring tic of generated copy; say plainly what the thing does or does not do (impeccable's rule text).
 
+### C33: collection heading names the view (warning)
+
+**Check.** A `heading` string that ends in 一覧 or 一覧画面, or, in English, in ` list`.
+
+**Allowed.** Anything in `voice.allow`.
+
+**Why.** A collection's heading names the object, or the subset the screen shows: Polaris titles a resource list "Orders", or "Popular products this week" for a subset, and SmartHR heads a list with the object's name alone. 「一覧」 describes the view the reader is already looking at.
+
+### C34: status column headed 状況 or 状態 alone (warning)
+
+**Check.** A table header cell (`<th>` or `<TableHead>`) whose text is exactly 状況 or 状態.
+
+**Allowed.** `ignore C34` with the reason.
+
+**Why.** SmartHR's よくあるテーブル heads a status column 「ステータス」, and 「〇〇状況」 when a table has several, because 「状況」 alone does not say whose state it is.
+
+### C35: empty state in another form (warning)
+
+**Check.** The static text of the `title` slot of an element carrying `data-pattern="state.empty"` that matches neither 「{object}はありません。」 (with or without a leading 「該当する」) nor, in English, "No {objects} yet." or "No {objects} match …". A title written as an expression is skipped.
+
+**Allowed.** `ignore C35` with the reason.
+
+**Why.** SmartHR's 空データ pattern names the object that is empty, and the filtered form says that nothing matched; 「データがありません」 names neither the object nor which of the two cases the reader is in.
+
+### C36: label in the label register (warning)
+
+**Check.** A `button`, `label`, `heading`, `error`, `tooltip`, `placeholder` or `link` string that a row of `assets/label_register.ja.md` or of `label-register.md` beside `tokens.json` matches. The message carries the row's Instead and Why.
+
+**Allowed.** Anything in `voice.allow`, or `ignore C36` with the reason.
+
+**Why.** A label rejected once stays rejected: the register makes the next build fail where the last one was corrected, as prose-lint's vocabulary register does for prose.
+
 ## Suppressing a misfire
 
 The same two forms as `slop-checklist.md`, read by `check_copy.py`:
 
 | Form | Where | Silences |
 |---|---|---|
-| `product-ui: ignore C13 <reason>` | the line before the string, or the same line | that ID on that line. For the per-string checks: C1–C8, C10, C11, C13–C19, C21–C27, C29, C30, C32 |
+| `product-ui: ignore C13 <reason>` | the line before the string, or the same line | that ID on that line. For the per-string checks: C1–C8, C10, C11, C13–C19, C21–C27, C29, C30, C32, C33–C36 |
 | `product-ui: ignore-file C12 <reason>` | anywhere in a scanned file | that ID for the whole file. For the per-file checks C9, C12, C20, C28 and C31, and for any per-string check the file legitimately repeats |
 
 A form with no reason is reported as **C0 (warning)** and suppresses nothing. Message catalogs (`.json`) carry no comments; there `voice.allow` covers C10 (a listed term), C13 (a listed label), C17 (a listed navigation item) and C18, C19, C21 and C26 (a listed string), and a catalog string any other check reports is rewritten.
@@ -475,3 +525,4 @@ Step 5, through `review-design-lead`, judges these against the rendered page:
 
 - **R38: all-caps body.** A WARNING for `text-transform: uppercase` on 80 or more characters of an element's own text outside headings and their descendants. Keep uppercase for short labels. Source: impeccable `all-caps-body`. Not ported: nothing known.
 - **R40: the same text repeated in one container.** A WARNING when the same text (4 to 48 characters, with a Latin letter) is rendered at 3 or more structurally different spots inside one card. Japanese-only text is outside this check. Say it once, where it matters most. Source: impeccable `repeated-container-text`. Not ported: the full paint test (`is_visible` is simplified).
+- **R48: a status outside `voice.status`.** A WARNING for each word a rendered `status.badge` shows that no list of `voice.status` holds. Needs `--tokens`, and skips a project without `voice.status`.

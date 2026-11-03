@@ -77,7 +77,8 @@ Telling a model to avoid a colour does not hold: Anthropic's cookbook [Prompting
     "katakana_choon": "jtf",
     "case": null,
     "terms": { "サインイン": "ログイン", "消去": "削除" },
-    "allow": []
+    "allow": [],
+    "status": { "請求書": ["下書き", "未入金", "期日超過", "入金済み"] }
   }
 }
 ```
@@ -186,9 +187,11 @@ The interface's wording, settled before any string is written, for the same reas
 | `katakana_choon` | no | `jtf` or `wordrabbit`. Defaults to `jtf` |
 | `terms` | yes | an object mapping a word to stop using to the word this product uses. May be empty |
 | `allow` | no | words and labels that the checks skip |
+| `status` | no | an object mapping each object's name (a row of the brief's `## Objects`) to the list of its state words: `{"請求書": ["下書き", "未入金", "期日超過", "入金済み"]}`. `status.badge` shows only these; R48 reports a rendered badge outside the lists |
 
 - **`terms`** is the copy equivalent of the colour set: the project settles the word, and check C10 asks whether the implementation used it. Settle one entry for each operation the screens offer that has competing words (`references/ui-copy.md`, The operation vocabulary). A product whose business says 「サインイン」 leaves that word out of `terms`.
 - **`katakana_choon`** is a project setting because the authorities disagree. The JTF style guide keeps the 長音 on every word. wordrabbit drops it from a word of five characters or more, counted with the 長音, so 「ブラウザー」 becomes 「ブラウザ」 and 「ユーザー」 keeps its 長音. Check C9 asks whether the project is consistent with itself, and its message names the form the setting implies.
+- **`status`** fixes the vocabulary of states the way `terms` fixes the operations: one word per state, an adjective or a completed form (「返金済み」, not 「返金」), the same word on every screen. A status is one word, two for a compound state (Polaris, Badge); T23 checks the shape.
 - **`case`** is a field for the same reason: product style guides differ, and the check asks only that the project is consistent with its setting.
 
 ## Validation rules
@@ -219,5 +222,6 @@ An error means the token set does not hold together; a warning means it holds bu
 | T20 | error | `color.primary` or `color.accent` lies within ΔE_OK 0.02 of an entry in `assets/default_colours.json`, `color.background` lies within 0.02 of the cream entry, or acid green sits beside a ground at lightness ≤ 20%, or cyan sits beside a ground of relative luminance under 0.1 with a purple in the palette (the numbers are under Defaults), and the provenance of that key does not start with `brand:`, `reference:` or `user:`. A key raises one T20 however many of these it matches. The message names the default matched (research T1, T12) |
 | T21 | warning | a neutral (`background`, `muted`, `muted_foreground`, `border`, in `color` or `color_dark`) has chroma above 0.012, or above 0.004 at a hue more than 15° from the primary hue (rule 1 of "Deriving the colours") |
 | T22 | error | `voice.lang` is `ja` and neither `typography.<slot>.family` nor `typography.<slot>.family_ja` matches an entry of `assets/ja_families.json`. A warning when `meta.reference` is set (research E21, E118 (ui-defaults)) |
+| T23 | error | `voice.status` is not an object of non-empty arrays of state words, or names one state twice in a list. A warning for a state word over 8 characters in Japanese or over two words in Latin script (references/patterns.md, `status.badge`) |
 
 Contrast ratio is deliberately absent. OKLCH lightness only approximates it, and what a pairing looks like depends on the rendered result, so Step 5 (`review-design-lead`) judges it against the running page.

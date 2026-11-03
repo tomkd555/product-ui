@@ -1,6 +1,6 @@
 # Patterns
 
-Source of record for the pattern library under `patterns/`, its decision table `patterns/index.json`, the `## Objects`, `- Sections:` and `## Slots` parts of `ui-brief.md`, the scripts under `scripts/patterns/`, check_pattern.py (PT1 to PT6), and R42 to R47 in `scripts/render/check_render.py`. Read it at Step 3 of `SKILL.md`, after the composition plan has settled each section's container and before any markup, and when one of these checks fires.
+Source of record for the pattern library under `patterns/`, its decision table `patterns/index.json`, the `## Objects`, `- Sections:` and `## Slots` parts of `ui-brief.md`, the scripts under `scripts/patterns/`, check_pattern.py (PT0 to PT7), and R42 to R48 in `scripts/render/check_render.py`; `references/ui-copy.md` holds the label checks C33 to C36 that read the patterns' label forms. Read it at Step 3 of `SKILL.md`, after the composition plan has settled each section's container and before any markup, and when one of these checks fires.
 
 ## What it settles
 
@@ -150,7 +150,7 @@ An element that is a slot of one pattern and the root of another (a status badge
 
 A slot is added or removed in the brief first: change the Objects ranking or the section, and run `resolve.py` again.
 
-## Conformance: PT0 to PT7 and R42 to R47
+## Conformance: PT0 to PT7 and R42 to R48
 
 ### check_pattern.py, on the source (Step 4)
 
@@ -173,9 +173,9 @@ It reads the markup files (`.html`, `.htm`, `.jsx`, `.tsx`, `.vue`, `.svelte`, `
 
 Silence a misfire in the file, as `product-ui: ignore PT3 <reason>` on the line before or the same line, or `product-ui: ignore-file PT6 <reason>`; name the reason in the hand-over. A PT1, PT2, PT4 or PT5 the check read rightly is fixed, not silenced.
 
-### R42 to R47, on the rendered page (Step 5)
+### R42 to R48, on the rendered page (Step 5)
 
-`cdp.js` writes each `data-pattern` element with the slots it owns into the dump (`patterns`), and each enclosure's `inPattern` and `hasField`. `check_render.py` reads the library to know each pattern's slots. All six are WARNINGs until the calibration (`research/20261103-real-site-patterns`) shows which hold on real sites well enough to be errors.
+`cdp.js` writes each `data-pattern` element with the slots it owns into the dump (`patterns`), and each enclosure's `inPattern` and `hasField`. `check_render.py` reads the library to know each pattern's slots. All seven are WARNINGs until the calibration (`research/20261103-real-site-patterns`) shows which hold on real sites well enough to be errors.
 
 | ID | Check |
 |---|---|
@@ -185,8 +185,9 @@ Silence a misfire in the file, as `product-ui: ignore PT3 <reason>` on the line 
 | R45 | in a table pattern, a cell holds only a placeholder (`-`, `—`, `x`, `×`, `N/A`) |
 | R46 | an item renders a required slot empty, or does not render it at all |
 | R47 | an enclosure inside `<main>`, 120 by 48px or larger, that sits in no `data-pattern` element and holds no form control, on a page that carries patterns |
+| R48 | a `status.badge` whose word is outside `voice.status` of `tokens.json` (`--tokens`); skipped without it |
 
-A dump without `patterns` (an older capture) and a page with no `data-pattern` element skip all six.
+A dump without `patterns` (an older capture) and a page with no `data-pattern` element skip all seven.
 
 ## Validation: PV1 to PV8
 

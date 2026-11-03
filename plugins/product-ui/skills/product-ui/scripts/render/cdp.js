@@ -28,7 +28,7 @@
 //                 first viewport), repeatGroups, iconTiles, textOverflow (probed after scrolling to each candidate, 12
 //                 at most) and portErrors (the sections of this group that threw, each caught on its own). The page's
 //                 scroll position is restored after the probes; SHOT is taken before DUMP runs.
-//                 For R42 to R47: per box inPattern (inside a data-pattern element) and hasField (holds a form
+//                 For R42 to R48: per box inPattern (inside a data-pattern element) and hasField (holds a form
 //                 control); and `patterns`, each data-pattern element with its id, rect, group (index of its
 //                 parent among the pattern parents), outer (the pattern it sits in), shortCells (td texts of 3
 //                 characters or fewer) and slots (slot, field, text, empty, hidden, root, the strongest
@@ -804,7 +804,7 @@ const DUMP_EXPR = `(async () => {
     hiddenText = { total, hidden: Math.max(0, hidden), samples: hiddenEls.filter(x => !shown.has(x.e)).slice(0, 3).map(x => clip(x.e.textContent, 40)) };
   });
 
-  // R42 to R47: each element that names its pattern (data-pattern), with the slots it owns. A slot belongs to the
+  // R42 to R48: each element that names its pattern (data-pattern), with the slots it owns. A slot belongs to the
   // nearest data-pattern element above it; an element with both attributes is a slot of the pattern above it.
   const patterns = [];
   guard('patterns', () => {

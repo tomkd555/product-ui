@@ -101,6 +101,7 @@ settles which become errors. A dump with no `patterns` field, or a page with no 
   R46 an item whose required slot renders empty, or is missing from the rendered item
   R47 an enclosure (a box) inside <main> that sits in no data-pattern element and holds no form control,
       on a page that carries patterns
+  R48 a status badge whose word is outside voice.status of --tokens; skipped without --tokens or voice.status
 
   Extensions: R4 also fires on text that overflows its box by 16px or more and meets another box, probed after
   scrolling to it (text-overflow); R20 also fires once per page on single icon tiles of 32 to 128px above a heading
@@ -1376,7 +1377,7 @@ def asked_width(label):
         return None
 
 
-def check_dump(label, dump, tokens, report, job=None, brand=None):
+def check_dump(label, dump, tokens, report, job=None, brand=None, status_words=None):
     texts = dump.get("text", [])
     controls = dump.get("controls", [])
     viewport = (dump.get("viewport") or {}).get("width")
@@ -1513,7 +1514,7 @@ def check_dump(label, dump, tokens, report, job=None, brand=None):
     if brand:
         check_brand(label, texts, brand, report)
     check_impeccable(label, dump, texts, reading_hits, report)
-    check_patterns(label, dump, report)
+    check_patterns(label, dump, report, status_words)
 
     report.scope.append("%s: %d text elements (%d skipped for an unpainted background), %d controls, %d headings, viewport %s"
                         % (label, len(texts), skipped_fallback, dump.get("controlsTotal", len(controls)),
@@ -1524,8 +1525,8 @@ NUMBER_CELL = re.compile(r"^[-+]?[¥$€£]?\s*[-+]?\d[\d,]*(?:\.\d+)?\s*(?:円|
 PLACEHOLDER_CELL = {"-", "—", "–", "－", "ー", "x", "×", "✕", "N/A", "n/a", "NA"}
 
 
-def check_patterns(label, dump, report):
-    """R42 to R47: whether each rendered element that names its pattern carries it."""
+def check_patterns(label, dump, report, status_words=None):
+    """R42 to R48: whether each rendered element that names its pattern carries it."""
     patterns = dump.get("patterns")
     if not patterns or pattern_library is None:
         return
@@ -1612,6 +1613,14 @@ def check_patterns(label, dump, report):
                 report.add(("R45", pid), "WARNING", "%s at %s" % (pid, LABEL),
                            "%d cells hold only %s at %s" % (len(cells), " ".join(sorted(set(cells))), LABEL),
                            "Leave a cell without a value blank; keep a dash only for a field that cannot take a value.", label)
+    # R48 a status badge outside voice.status
+    if status_words:
+        off = sorted({s.get("text") for p in by_id.get("status.badge", []) for s in p.get("slots", [])
+                      if s.get("slot") == "label" and s.get("text") and s["text"] not in status_words})
+        if off:
+            report.add(("R48",), "WARNING", "status.badge at %s" % LABEL,
+                       "%d status words outside voice.status (%s) at %s" % (len(off), ", ".join(snippet(t) for t in off[:4]), LABEL),
+                       "Show the state with a word from voice.status, or add the word to the object's list there.", label)
     # R47 an enclosure outside every pattern
     stray = [b for b in dump.get("boxes", []) if not b.get("inPattern") and not b.get("hasField")
              and (b.get("rect") or {}).get("w", 0) >= 120 and (b.get("rect") or {}).get("h", 0) >= 48]
@@ -1650,6 +1659,13 @@ def load_brand_name(path):
     return str(meta.get("name") or "").strip()
 
 
+def load_status_words(path):
+    """The state words of voice.status in tokens.json, as one set (R48)."""
+    voice = json.loads(Path(path).read_text(encoding="utf-8")).get("voice") or {}
+    status = voice.get("status") or {}
+    return {w.strip() for words in status.values() if isinstance(words, list) for w in words if isinstance(w, str)}
+
+
 def label_of(path, prefix=""):
     stem = Path(path).stem
     if prefix and stem.startswith(prefix):
@@ -1662,11 +1678,12 @@ def run(dump_paths, console_paths, tokens_path, plan_path=None):
     job = read_plan_job(plan_path) if plan_path else None
     tokens = load_tokens(tokens_path) if tokens_path else {}
     brand = load_brand_name(tokens_path) if tokens_path else ""
+    status_words = load_status_words(tokens_path) if tokens_path else set()
     if plan_path and read_plan_brand_area(plan_path):
         brand = ""
     for p in dump_paths:
         dump = json.loads(Path(p).read_text(encoding="utf-8"))
-        check_dump(label_of(p), dump, tokens, report, job, brand)
+        check_dump(label_of(p), dump, tokens, report, job, brand, status_words)
     for p in console_paths:
         lines = Path(p).read_text(encoding="utf-8", errors="replace").splitlines()
         check_console(label_of(p, "console-"), lines, report)
@@ -1686,7 +1703,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description="Measure the DOM dumps cdp.js wrote and emit findings in the auditors' shape")
     parser.add_argument("dumps", nargs="+", help="DOM dump JSON files from cdp.js; the file stem names the width or theme")
     parser.add_argument("--console", action="append", default=[], help="console text file from cdp.js (repeatable)")
-    parser.add_argument("--tokens", help="tokens.json; enables R2 and R24")
+    parser.add_argument("--tokens", help="tokens.json; enables R2, R24 and R48")
     parser.add_argument("--plan", help="ui-brief.md; its `- Job class:` line settles R15 and its `- Brand area:` line R24")
     parser.add_argument("--out", required=True, help="findings JSON to write")
     parser.add_argument("--text", action="store_true", help="print a readable list as well")
