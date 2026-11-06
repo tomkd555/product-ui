@@ -1,0 +1,70 @@
+{
+  "id": "record.summary-list",
+  "version": 1,
+  "kind": "record-fields",
+  "summary": "One record's fields as pairs of a key and a value.",
+  "not_for": "Tabular data across records, or a plain list.",
+  "slots": [
+    {
+      "id": "key",
+      "takes": "label",
+      "required": true,
+      "max": null,
+      "label_of": "value"
+    },
+    {
+      "id": "value",
+      "takes": "property",
+      "required": true,
+      "min": 1,
+      "max": null
+    },
+    {
+      "id": "action",
+      "takes": "action",
+      "required": false,
+      "max": null,
+      "when": "One change link per row, where the field can be changed."
+    }
+  ],
+  "rules": [
+    {
+      "rule": "A key is a short noun.",
+      "from": [
+        "govuk-summary-list"
+      ]
+    },
+    {
+      "rule": "A row without a value links to entering it, in place of a change link.",
+      "from": [
+        "govuk-summary-list"
+      ]
+    }
+  ],
+  "labels": {
+    "key": "property label",
+    "action": "変更"
+  },
+  "uses": [],
+  "maps_to": {
+    "shadcn": "dl",
+    "html": "dl",
+    "dads": "Dl",
+    "smarthr": "DefinitionList"
+  },
+  "evidence": [
+    {
+      "id": "govuk-summary-list",
+      "source": "GOV.UK Design System, Summary list",
+      "url": "https://design-system.service.gov.uk/components/summary-list/",
+      "says": "A summary list shows key and value pairs with an optional change action; a missing value shows a link to enter it; not for tabular data."
+    },
+    {
+      "id": "stripe-full-page",
+      "source": "Stripe Apps, Full-page apps",
+      "url": "https://docs.stripe.com/stripe-apps/patterns/full-page-apps.md",
+      "says": "Details are shown as a property list of labels and values."
+    }
+  ],
+  "evidence_status": "documented"
+}

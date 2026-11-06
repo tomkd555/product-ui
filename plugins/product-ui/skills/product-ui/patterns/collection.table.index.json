@@ -1,0 +1,173 @@
+{
+  "id": "collection.table.index",
+  "version": 1,
+  "kind": "collection-table",
+  "summary": "A table of records the reader compares by property and opens one of.",
+  "not_for": "Records the reader finds by name alone (collection.row.resource), or one record's fields (record.summary-list).",
+  "slots": [
+    {
+      "id": "heading",
+      "takes": "label",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "actions",
+      "takes": "action",
+      "required": false,
+      "max": 3
+    },
+    {
+      "id": "filter",
+      "takes": "control",
+      "required": false,
+      "max": null
+    },
+    {
+      "id": "count",
+      "takes": "count",
+      "required": false,
+      "max": 1
+    },
+    {
+      "id": "name",
+      "takes": "identifier",
+      "required": true,
+      "max": 1,
+      "emphasis": 1,
+      "link": "single-view",
+      "column": "first"
+    },
+    {
+      "id": "status",
+      "takes": "status",
+      "required": false,
+      "max": 1,
+      "column": "any"
+    },
+    {
+      "id": "property",
+      "takes": "property",
+      "required": true,
+      "min": 1,
+      "max": null,
+      "column": "any",
+      "align_numbers": "end"
+    },
+    {
+      "id": "row-action",
+      "takes": "action",
+      "required": false,
+      "max": 3
+    },
+    {
+      "id": "pagination",
+      "takes": "control",
+      "required": false,
+      "max": 1
+    }
+  ],
+  "rules": [
+    {
+      "rule": "The first column is the record's human-readable name, a link to its single view when one exists.",
+      "from": [
+        "nng-data-tables",
+        "smarthr-table"
+      ]
+    },
+    {
+      "rule": "One kind of value per column, and the header names exactly that.",
+      "from": [
+        "primer-data-table"
+      ]
+    },
+    {
+      "rule": "Numbers align to the end and use tabular figures.",
+      "from": [
+        "primer-data-table",
+        "polaris-index-table"
+      ]
+    },
+    {
+      "rule": "An empty cell stays blank: no dash, cross or emoji. A field that cannot take a value is the exception.",
+      "from": [
+        "primer-data-table",
+        "smarthr-table"
+      ]
+    },
+    {
+      "rule": "At most three row actions as buttons; the rest go in a menu.",
+      "from": [
+        "smarthr-table",
+        "carbon-data-table"
+      ]
+    },
+    {
+      "rule": "The table's title does not repeat the page heading.",
+      "from": [
+        "primer-data-table"
+      ]
+    },
+    {
+      "rule": "Past fifty rows the table pages.",
+      "from": [
+        "polaris-index-table"
+      ]
+    },
+    {
+      "rule": "The status column is headed ステータス, or 〇〇状況 when there are several; never 状況 or 状態 alone.",
+      "from": [
+        "smarthr-table"
+      ]
+    }
+  ],
+  "labels": {
+    "collection_heading": "object",
+    "status_header": "ステータス",
+    "empty": "{object}はありません。",
+    "empty_filtered": "該当する{object}はありません。"
+  },
+  "uses": [
+    "status.badge",
+    "state.empty"
+  ],
+  "maps_to": {
+    "shadcn": "Table",
+    "html": "table",
+    "dads": "Table",
+    "smarthr": "Table"
+  },
+  "evidence": [
+    {
+      "id": "polaris-index-table",
+      "source": "Shopify Polaris, Index table",
+      "url": "https://github.com/Shopify/polaris/blob/main/polaris.shopify.com/content/components/tables/index-table.mdx",
+      "says": "An index table lists objects with their properties in columns; numbers align right; past 50 rows it paginates."
+    },
+    {
+      "id": "primer-data-table",
+      "source": "Primer, DataTable guidelines",
+      "url": "https://primer.style/product/components/data-table/guidelines",
+      "says": "Each column holds one data type; the header describes exactly that; empty cells stay blank; the table title does not repeat the page title."
+    },
+    {
+      "id": "smarthr-table",
+      "source": "SmartHR Design System, よくあるテーブル",
+      "url": "https://smarthr.design/products/design-patterns/smarthr-table/",
+      "says": "The object name comes first; table actions number three at most; status is headed ステータス, 〇〇状況 when several, never 状況 or 状態 alone."
+    },
+    {
+      "id": "carbon-data-table",
+      "source": "IBM Carbon, Data table usage",
+      "url": "https://carbondesignsystem.com/components/data-table/usage/",
+      "says": "Headers are one or two words in sentence case; under three row actions sit inline as icons."
+    },
+    {
+      "id": "nng-data-tables",
+      "source": "Nielsen Norman Group, Data Tables",
+      "url": "https://www.nngroup.com/articles/data-tables/",
+      "says": "The first column is a human-readable record identifier; related columns sit next to each other."
+    }
+  ],
+  "evidence_status": "documented"
+}

@@ -1,0 +1,114 @@
+{
+  "id": "browse.card",
+  "version": 1,
+  "kind": "card",
+  "summary": "One unit in a set of unlike items the reader browses, or an object recognised by its image.",
+  "not_for": "A record of a homogeneous set (a row or a table), or a section of the page (a heading on the ground).",
+  "slots": [
+    {
+      "id": "image",
+      "takes": "image",
+      "required": false,
+      "max": 1
+    },
+    {
+      "id": "title",
+      "takes": "identifier",
+      "required": true,
+      "max": 1,
+      "emphasis": 1
+    },
+    {
+      "id": "label",
+      "takes": "status",
+      "required": false,
+      "max": 1
+    },
+    {
+      "id": "content",
+      "takes": "property",
+      "required": true,
+      "min": 1,
+      "max": 3
+    },
+    {
+      "id": "sub",
+      "takes": "action",
+      "required": false,
+      "max": 2
+    }
+  ],
+  "rules": [
+    {
+      "rule": "One card, one subject.",
+      "from": [
+        "dads-card",
+        "nng-cards"
+      ]
+    },
+    {
+      "rule": "At most two function buttons on a card.",
+      "from": [
+        "dads-card"
+      ]
+    },
+    {
+      "rule": "A card that is a link as a whole holds no other link or control.",
+      "from": [
+        "dads-card",
+        "carbon-tile"
+      ]
+    },
+    {
+      "rule": "The content is what the reader needs to know first, short.",
+      "from": [
+        "fluent-card"
+      ]
+    },
+    {
+      "rule": "A card carries at least one property beside its title; a card of a title alone is a link.",
+      "from": [
+        "product-ui"
+      ]
+    }
+  ],
+  "labels": {
+    "collection_heading": "object"
+  },
+  "uses": [
+    "status.badge"
+  ],
+  "maps_to": {
+    "shadcn": "Card",
+    "html": "article",
+    "dads": "Card",
+    "smarthr": "Base"
+  },
+  "evidence": [
+    {
+      "id": "dads-card",
+      "source": "デジタル庁デザインシステム, カード",
+      "url": "https://design.digital.go.jp/dads/components/card/usage/",
+      "says": "A card is a container for one subject: an image area, a main area with the title, a label and content, and a sub area with links or up to two function buttons."
+    },
+    {
+      "id": "nng-cards",
+      "source": "Nielsen Norman Group, Cards: UI-Component Definition",
+      "url": "https://www.nngroup.com/articles/cards-component/",
+      "says": "Cards suit heterogeneous browsed items and summarise content that links to its details; lists and tables suit scanning and comparison."
+    },
+    {
+      "id": "fluent-card",
+      "source": "Fluent 2, Card usage",
+      "url": "https://fluent2.microsoft.design/components/web/react/core/card/usage",
+      "says": "A card shows bite-sized content, what people need to know first."
+    },
+    {
+      "id": "carbon-tile",
+      "source": "IBM Carbon, Tile usage",
+      "url": "https://carbondesignsystem.com/components/tile/usage/",
+      "says": "A clickable tile has a single action and no other interactive elements."
+    }
+  ],
+  "evidence_status": "documented"
+}

@@ -1,0 +1,74 @@
+{
+  "id": "record.body.two-column",
+  "version": 1,
+  "kind": "record-body",
+  "summary": "The body of one record's single view: what defines the object on the main column, its state and metadata on the side.",
+  "not_for": "A record of a handful of fields: record.summary-list alone.",
+  "slots": [
+    {
+      "id": "primary",
+      "takes": "section",
+      "required": true,
+      "min": 1,
+      "max": null,
+      "width": "2/3"
+    },
+    {
+      "id": "secondary",
+      "takes": "section",
+      "required": false,
+      "min": 0,
+      "max": null,
+      "width": "1/3"
+    }
+  ],
+  "rules": [
+    {
+      "rule": "The main column holds what defines the object; the side column its status, metadata and summaries.",
+      "from": [
+        "polaris-details",
+        "stripe-full-page"
+      ]
+    },
+    {
+      "rule": "Sections are ordered by importance, and like content sits in one section.",
+      "from": [
+        "polaris-details"
+      ]
+    },
+    {
+      "rule": "At 375px the side column follows the main column.",
+      "from": [
+        "product-ui"
+      ]
+    }
+  ],
+  "labels": {
+    "section_heading": "names what the section holds"
+  },
+  "uses": [
+    "record.summary-list",
+    "collection.table.index"
+  ],
+  "maps_to": {
+    "shadcn": null,
+    "html": "div.grid",
+    "dads": null,
+    "smarthr": null
+  },
+  "evidence": [
+    {
+      "id": "polaris-details",
+      "source": "Shopify Polaris, Resource details layout",
+      "url": "https://github.com/Shopify/polaris/tree/main/polaris.shopify.com/content/patterns/resource-details-layout",
+      "says": "The details layout puts the information that defines the object in the primary column and status, metadata and summaries in the secondary column."
+    },
+    {
+      "id": "stripe-full-page",
+      "source": "Stripe Apps, Full-page apps",
+      "url": "https://docs.stripe.com/stripe-apps/patterns/full-page-apps.md",
+      "says": "A full-page app places an overview and its details beside each other."
+    }
+  ],
+  "evidence_status": "documented"
+}

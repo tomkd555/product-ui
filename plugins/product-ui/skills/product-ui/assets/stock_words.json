@@ -1,0 +1,101 @@
+{
+  "compiled": "2026-10-30",
+  "source": "research/20261030-ai-tells-ui/report.md section 6 (research T13, T14, T15, T16, T17, T19, T20) and the evidence lines it cites. Lists age: once the first words are banned, models move to a second set. Update this file when the words change; the checks read it at run time.",
+  "english_stock": {
+    "check": "C22",
+    "research": "T13",
+    "words": [
+      "seamless", "elevate", "unlock", "empower", "transform",
+      "powerful", "robust", "intuitive", "end-to-end", "AI-driven",
+      "streamline your", "supercharge your", "unleash your", "unleash the power",
+      "leverage the power", "best-in-class",
+      "industry-leading", "world-class", "enterprise-grade", "next-generation",
+      "cutting-edge", "revolutionize", "game-changer", "game changing", "mission-critical",
+      "best of breed", "future-proof", "future proof", "harness the power",
+      "trusted by leading", "trusted by the world", "drive engagement", "drive growth",
+      "drive results"
+    ],
+    "bare_stem": ["unlock", "transform"],
+    "min_distinct_per_file": 3,
+    "min_distinct_per_string": 2,
+    "impeccable": "Phrases from the marketing-buzzword list of pbakaus/impeccable (Apache-2.0, crates/detect/src/regex_matchers.rs BUZZWORDS at df3a4abe) that the first list lacked. Its other phrases are covered by empower, transform, seamless and the headline templates."
+  },
+  "japanese_stock": {
+    "check": "C23",
+    "research": "T14",
+    "words": ["革新的", "最先端", "ワンストップ", "シームレス", "最適なソリューション"],
+    "exempt_before": {"ワンストップ": ["特例", "電子申請", "窓口"]},
+    "min_distinct_per_file_outside_headings": 2
+  },
+  "headline_templates": {
+    "check": "C23",
+    "research": "T15",
+    "patterns": [
+      "\\bfor (?:the )?modern\\b",
+      "\\bthe modern platform for\\b",
+      "\\bstreamline your workflow\\b",
+      "次世代",
+      "未来の働き方を変える",
+      "あなたの可能性を解き放つ",
+      "あなたの課題を解決",
+      "手間なく.{1,12}を実現"
+    ]
+  },
+  "negative_parallelism": {
+    "check": "C24",
+    "research": "T17",
+    "english": [
+      "\\bnot (?:just|only|merely)\\b.{0,80}\\bbut\\b",
+      "\\bit['’]s not\\b[^.!?]{0,80}[,;—–-]\\s*it['’]s\\b",
+      "\\bisn['’]t (?:just|only|merely)\\b"
+    ],
+    "japanese": ["ではなく"]
+  },
+  "triad": {
+    "check": "C25",
+    "research": "T16",
+    "max_chars": 60,
+    "max_part_chars": 24
+  },
+  "proof": {
+    "check": "C27",
+    "research": "T19",
+    "assertions": [
+      "\\b(?:trusted|loved|used|relied on) by\\b[^.]{0,40}?(?P<figure>\\d[\\d,.]*)",
+      "\\bNo\\.?\\s?1\\b",
+      "ナンバーワン",
+      "業界初",
+      "導入社数",
+      "導入実績"
+    ],
+    "figure": "\\d[\\d,.]*\\s*(?:\\+|%|％|[x×]\\b|倍|社|名以上)",
+    "rating": "\\d(?:\\.\\d)?\\s*/\\s*5\\b|\\bout of 5\\b|★{3,}|5段階",
+    "marketing_words": [
+      "増加", "向上", "削減", "短縮", "改善", "成長", "満足", "利用", "導入", "実績", "効率", "売上", "コスト",
+      "increase", "reduce", "faster", "save", "boost", "growth", "customers", "users", "companies",
+      "teams", "satisfaction", "conversion", "revenue"
+    ],
+    "job_titles": [
+      "部長", "課長", "代表", "取締役", "マネージャー", "マネジャー", "責任者", "担当", "エンジニア", "ディレクター",
+      "CEO", "CTO", "CFO", "manager", "director", "engineer", "founder", "head of"
+    ]
+  },
+  "aphoristic_cadence": {
+    "check": "C31",
+    "impeccable": "aphoristic-cadence, crates/detect/src/regex_matchers.rs NOT_A_RE and SHORT_REBUTTAL_RE at df3a4abe",
+    "min_per_file": 3,
+    "not_a": "\\bNot an? [a-z][^.!?]{1,40}[.!]\\s+[A-Z][^.!?]{1,60}[.!]",
+    "short_rebuttal": "\\b[A-Z][^.!?]{4,80}[.!]\\s+(?:No|Just)\\s+[a-z][^.!?]{2,60}[.!]"
+  },
+  "theater": {
+    "check": "C32",
+    "impeccable": "theater-slop-phrase, crates/core/src/checks/html_patterns.rs THEATER_DISMISSIVE_HEADS at df3a4abe",
+    "dismissive_heads": [
+      "accessibility", "accountability", "agile", "alignment", "compliance", "diversity",
+      "engagement", "governance", "growth", "hiring", "hygiene", "innovation", "inclusion",
+      "kindness", "leadership", "metrics", "privacy", "process", "productivity", "quality",
+      "safety", "security", "strategy", "sustainability", "transparency", "trust",
+      "wellness"
+    ]
+  }
+}

@@ -1,0 +1,184 @@
+/* theme.css — generated from tokens.json. Edit tokens.json and regenerate.
+ *
+ * Two tiers, because @theme inline emits no global variable and so cannot be
+ * overridden later. Tier 1 holds the raw palette and swaps under .dark; tier 2
+ * binds semantic names to it and generates the utility classes.
+ *
+ * Placeholders below read {{ token.path }} (no spaces) and are filled from tokens.json by
+ * scripts/generate_theme.py. The lines of the optional colours (surface, input, success,
+ * warning, info) are dropped when tokens.json declares none of that colour;
+ * {{color_dark}} expands to one line per key color_dark carries, or to nothing;
+ * the type ramp and the spacing unit expand from typography.scale and
+ * spacing.base_px.
+ *
+ * accent follows shadcn: a hover and selected surface. The brand accent colour
+ * is the brand-accent utility (bg-brand-accent, text-brand-accent).
+ */
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---- Tier 1: raw values, overridable ---- */
+
+:root {
+  --brand-background: {{color.background}};
+  --brand-foreground: {{color.foreground}};
+  --brand-surface: {{color.surface}};
+  --brand-primary: {{color.primary}};
+  --brand-primary-foreground: {{color.primary_foreground}};
+  --brand-muted: {{color.muted}};
+  --brand-muted-foreground: {{color.muted_foreground}};
+  --brand-border: {{color.border}};
+  --brand-destructive: {{color.destructive}};
+  --brand-accent: {{color.accent}};
+  --brand-input: {{color.input}};
+  --brand-success: {{color.success}};
+  --brand-warning: {{color.warning}};
+  --brand-info: {{color.info}};
+}
+
+{{color_dark}}
+
+/* The raw names shadcn/ui components read inside arbitrary values, such as var(--secondary). */
+:root, .dark {
+  --background: var(--brand-background);
+  --foreground: var(--brand-foreground);
+  --card: {{surface_ref}};
+  --card-foreground: var(--brand-foreground);
+  --popover: {{surface_ref}};
+  --popover-foreground: var(--brand-foreground);
+  --primary: var(--brand-primary);
+  --primary-foreground: var(--brand-primary-foreground);
+  --secondary: var(--brand-muted);
+  --secondary-foreground: var(--brand-foreground);
+  --muted: var(--brand-muted);
+  --muted-foreground: var(--brand-muted-foreground);
+  --accent: var(--brand-muted);
+  --accent-foreground: var(--brand-foreground);
+  --destructive: var(--brand-destructive);
+  --border: var(--brand-border);
+  --input: {{input_ref}};
+  --ring: var(--brand-primary);
+  --chart-1: var(--brand-primary);
+  --chart-2: var(--brand-accent);
+  --chart-3: var(--brand-muted-foreground);
+  --chart-4: var(--brand-foreground);
+  --chart-5: var(--brand-border);
+}
+
+/* ---- Tier 2: semantic names and the utilities they generate ---- */
+
+@theme inline {
+  --color-background: var(--brand-background);
+  --color-foreground: var(--brand-foreground);
+  --color-surface: var(--brand-surface);
+  --color-primary: var(--brand-primary);
+  --color-primary-foreground: var(--brand-primary-foreground);
+  --color-muted: var(--brand-muted);
+  --color-muted-foreground: var(--brand-muted-foreground);
+  --color-border: var(--brand-border);
+  --color-destructive: var(--brand-destructive);
+  --color-accent: var(--brand-muted);
+  --color-accent-foreground: var(--brand-foreground);
+  --color-brand-accent: var(--brand-accent);
+  --color-success: var(--brand-success);
+  --color-warning: var(--brand-warning);
+  --color-info: var(--brand-info);
+
+  /* The names shadcn/ui components read. */
+  --color-card: {{surface_ref}};
+  --color-card-foreground: var(--brand-foreground);
+  --color-popover: {{surface_ref}};
+  --color-popover-foreground: var(--brand-foreground);
+  --color-secondary: var(--brand-muted);
+  --color-secondary-foreground: var(--brand-foreground);
+  --color-input: {{input_ref}};
+  --color-ring: var(--brand-primary);
+  --color-chart-1: var(--brand-primary);
+  --color-chart-2: var(--brand-accent);
+  --color-chart-3: var(--brand-muted-foreground);
+  --color-chart-4: var(--brand-foreground);
+  --color-chart-5: var(--brand-border);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+
+  --font-display: "{{typography.display.family}}", {{family_ja.display}}{{generic.display}};
+  --font-body: "{{typography.body.family}}", {{family_ja.body}}{{generic.body}};
+
+  /* Type scale. Reset so the checker reads the project's own steps; text-xs (12px) is
+   * for a Latin-only run of 24 characters or fewer, and Japanese text starts at
+   * text-sm (14px). See references/ban-list.md. text-base and up come from
+   * typography.scale (base_px times ratio^n). */
+  --text-*: initial;
+  --text-xs: 0.75rem;    --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;   --text-sm--line-height: 1.25rem;
+  {{type_ramp}}
+
+  /* Radius and shadow are closed to the token steps: Tailwind's own steps are reset,
+   * then the extra ones point at the nearest token step, so rounded-2xl and shadow-xl
+   * cannot reach a default value. The DADS preset keeps its plugin's steps: the
+   * generator leaves the two reset lines out there. */
+  --radius-*: initial;
+  --radius-sm: {{radius.sm}};
+  --radius-md: {{radius.md}};
+  --radius-lg: {{radius.lg}};
+  --radius-full: {{radius.full}};
+  --radius-xs: var(--radius-sm);
+  --radius-xl: var(--radius-lg);
+  --radius-2xl: var(--radius-lg);
+  --radius-3xl: var(--radius-lg);
+  --radius-4xl: var(--radius-lg);
+
+  {{spacing_unit}}
+  --breakpoint-desktop: 48em;
+
+  --shadow-*: initial;
+  --shadow-sm: {{shadow.sm}};
+  --shadow-md: {{shadow.md}};
+  --shadow-lg: {{shadow.lg}};
+  --shadow-2xs: var(--shadow-sm);
+  --shadow-xs: var(--shadow-sm);
+  --shadow-xl: var(--shadow-lg);
+  --shadow-2xl: var(--shadow-lg);
+
+  --ease-standard: {{motion.easing.standard}};
+  --ease-spring: {{motion.easing.spring}};
+}
+
+/* ---- Motion durations and the reduced-motion escape ---- */
+
+:root {
+  --duration-fast: {{motion.duration.fast}};
+  --duration-base: {{motion.duration.base}};
+  --duration-slow: {{motion.duration.slow}};
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 1ms;
+    --duration-base: 1ms;
+    --duration-slow: 1ms;
+  }
+}
+
+/* ---- Base layer ---- */
+
+@layer base {
+  /* Tailwind v4 draws a bare border in currentColor; the token is the default here. */
+  *, ::before, ::after, ::backdrop, ::file-selector-button {
+    border-color: var(--color-border);
+    outline-color: color-mix(in oklab, var(--color-ring) 50%, transparent);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    {{body_text}}
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+}

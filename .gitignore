@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local harness settings
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+
+# The repository publishes the plugin alone: everything else at the root stays local
+/*
+!/.gitignore
+!/.claude-plugin/
+!/plugins/
+!/README.md
+!/LICENSE

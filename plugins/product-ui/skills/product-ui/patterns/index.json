@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "about": "Decision table for scripts/patterns/resolve.py. A section takes the one row whose keys all match it; a key a row leaves out matches anything. pattern null with say: the section takes no pattern, for the reason given.",
+  "rows": [
+    {
+      "content": "records",
+      "compare": true,
+      "pattern": "collection.table.index"
+    },
+    {
+      "content": "records",
+      "compare": false,
+      "pattern": "collection.row.resource"
+    },
+    {
+      "content": "record-header",
+      "pattern": "record.header"
+    },
+    {
+      "content": "record-detail",
+      "pattern": "record.body.two-column"
+    },
+    {
+      "content": "record-fields",
+      "pattern": "record.summary-list"
+    },
+    {
+      "content": "items",
+      "pattern": "browse.card"
+    },
+    {
+      "content": "products",
+      "compare": true,
+      "pattern": "collection.table.index"
+    },
+    {
+      "content": "products",
+      "compare": false,
+      "pattern": "commerce.product-item"
+    },
+    {
+      "content": "measures",
+      "job": [
+        "monitor"
+      ],
+      "pattern": "measure.tile.kpi"
+    },
+    {
+      "content": "measures",
+      "job": [
+        "enter",
+        "lookup",
+        "decide"
+      ],
+      "pattern": null,
+      "say": "A figure on a screen whose job class is not monitor sits in the heading or the filter bar (references/composition.md, KPI tiles)."
+    },
+    {
+      "content": "tasks",
+      "pattern": "task.list"
+    },
+    {
+      "content": "form",
+      "pattern": null,
+      "say": "A form follows references/components.md and the States section of the brief."
+    },
+    {
+      "content": "prose",
+      "pattern": null,
+      "say": "Running text sits on the page ground under its heading."
+    }
+  ]
+}
