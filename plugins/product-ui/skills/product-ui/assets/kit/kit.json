@@ -1,0 +1,396 @@
+{
+  "stack": "shadcn",
+  "parts": [
+    {
+      "name": "format",
+      "file": "lib/format.ts",
+      "gives": "formatDate, formatDateTime, formatNumber, formatYen, formatCount, formatWhen: the one format of each kind of value",
+      "customise": "the counter of the object in formatCount; a format the domain prints differently (万円 on a rental site)"
+    },
+    {
+      "name": "collection",
+      "file": "lib/collection.ts",
+      "gives": "useCollection: search, filters, views with their counts, sort and pages, kept in the URL; useSelection: the ticked rows of a bulk action",
+      "customise": "the config passed to useCollection: the texts the search reads, one function per filter, view and sortable column",
+      "npm": [
+        "react-router-dom"
+      ]
+    },
+    {
+      "name": "record-store",
+      "file": "lib/record-store.ts",
+      "gives": "createRecordStore: the sample records with the reader's changes, kept in sessionStorage, each change returning its undo",
+      "customise": "the storage key and the seed; a wired build replaces the file with its API client"
+    },
+    {
+      "name": "form",
+      "file": "lib/form.ts",
+      "gives": "validate and focusFirstInvalid: every field checked on submit, the focus on the first field in error",
+      "customise": "the rules and their messages, per form"
+    },
+    {
+      "name": "app-shell",
+      "file": "components/app-shell.tsx",
+      "gives": "AppShell: the header with the product name, the navigation, the signed-in name, the content column and the toaster, which shows maxToasts at a time and stands above a row of function keys under keysAtFoot; usePageTitle",
+      "customise": "the product name, the navigation items the build holds, the width of the content column",
+      "ui": [
+        "sonner"
+      ],
+      "npm": [
+        "react-router-dom"
+      ]
+    },
+    {
+      "name": "not-found",
+      "file": "components/not-found.tsx",
+      "gives": "NotFound: the screen of an address the product does not have, with a link to a collection",
+      "customise": "the collection the link leads to",
+      "needs": [
+        "app-shell"
+      ],
+      "npm": [
+        "react-router-dom"
+      ]
+    },
+    {
+      "name": "status-badge",
+      "file": "components/status-badge.tsx",
+      "gives": "StatusBadge: the pattern status.badge, one tone per state",
+      "customise": "the TONE map, from the states of the object table; the classes of a tone where the product fills its badges"
+    },
+    {
+      "name": "empty-state",
+      "file": "components/empty-state.tsx",
+      "gives": "EmptyState: the pattern state.empty, before first use and after a search or filter",
+      "customise": "the object's name and the action that adds the first record"
+    },
+    {
+      "name": "list-controls",
+      "file": "components/list-controls.tsx",
+      "gives": "SearchField, FilterSelect, SortSelect, ViewTabs, SortHead, RecordCount, Pagination: the controls of a collection, fed by useCollection",
+      "customise": "the labels, the options and the widths; the slot attribute each control takes where it is placed",
+      "needs": [
+        "format",
+        "collection"
+      ],
+      "ui": [
+        "button",
+        "input",
+        "table"
+      ],
+      "npm": [
+        "react-router-dom",
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "bulk-bar",
+      "file": "components/bulk-bar.tsx",
+      "gives": "BulkBar: the bar that appears with a selection, with its count, the extension to every record of the filter and the actions",
+      "customise": "the actions and the counter of the object",
+      "needs": [
+        "format"
+      ],
+      "ui": [
+        "button"
+      ]
+    },
+    {
+      "name": "confirm-dialog",
+      "file": "components/confirm-dialog.tsx",
+      "gives": "ConfirmDialog: the pattern feedback.confirm, the step before an action that cannot be undone or that changes many records, and before a registration where the Conventions section asks for it; its confirming button runs the operation once (lib/submit-guard)",
+      "customise": "the title, the sentence and the two words, per action; the scaffold writes the ones the Conventions section gives",
+      "ui": [
+        "alert-dialog",
+        "button"
+      ]
+    },
+    {
+      "name": "form-field",
+      "file": "components/form-field.tsx",
+      "gives": "FormField: the label, the required mark (必須, or an asterisk where the Conventions section says so), the control and its message, tied by id, aria-invalid and aria-describedby",
+      "customise": "the label, the hint and the control of each field"
+    },
+    {
+      "name": "keys",
+      "file": "lib/keys.ts",
+      "gives": "useEnterKeys: Enter moves from field to field in an entry form; useKeyButtons: a function key or a shortcut runs the button that carries it in data-key",
+      "customise": "nothing: the values come from the Conventions section, through the scaffold"
+    },
+    {
+      "name": "submit-guard",
+      "file": "lib/submit-guard.ts",
+      "gives": "useSubmitGuard: one run at a time for an operation that sends data, with busy for the control that started it",
+      "customise": "the operation passed to it; a wired build returns the promise of its request"
+    },
+    {
+      "name": "function-keys",
+      "file": "components/function-keys.tsx",
+      "gives": "FunctionKeys and FunctionKey: the pattern action.function-keys, a row of buttons that each show a key and the word of its operation",
+      "customise": "the keys and the words, which the scaffold writes from the Conventions section; className static for a toolbar",
+      "needs": [
+        "keys"
+      ],
+      "ui": [
+        "button"
+      ]
+    },
+    {
+      "name": "message-bar",
+      "file": "components/message-bar.tsx",
+      "gives": "useMessages, Messages and MessageBar: the pattern feedback.message, the result of an operation as a toast, a bar or a line beside the control, for the time and the number the Conventions section gives",
+      "customise": "where the bar or the line sits on the screen; the sentence of each message",
+      "needs": [
+        "app-shell"
+      ],
+      "ui": [
+        "button",
+        "sonner"
+      ],
+      "npm": [
+        "sonner"
+      ]
+    },
+    {
+      "name": "line-grid",
+      "file": "components/line-grid.tsx",
+      "gives": "LineGrid: the lines of the pattern entry.slip, a row per line with a line added at the foot and inserted or removed in its row",
+      "customise": "the columns and the cells, which the scaffold writes; the control of each cell",
+      "ui": [
+        "button",
+        "table"
+      ]
+    },
+    {
+      "name": "table-fold",
+      "file": "kit.css",
+      "gives": "the class table-fold: a table whose rows fold into list items under 768px, each cell printing its data-label",
+      "customise": "the width at which the rows fold; which cells carry data-label or data-fold=\"hide\"",
+      "import": "@import \"./kit.css\";"
+    },
+    {
+      "name": "desktop-window-types",
+      "file": "desktop/shared/window-types.ts",
+      "target": "shared/window-types.ts",
+      "layout": "electron",
+      "gives": "WindowSpec: the type of WINDOW_SPEC, which scaffold.py writes from the brief's Window section",
+      "customise": "nothing"
+    },
+    {
+      "name": "desktop-document-api",
+      "file": "desktop/shared/document-api.ts",
+      "target": "shared/document-api.ts",
+      "layout": "electron",
+      "gives": "DocumentApi and EDIT_ACTIONS: the functions the preload script exposes (open, save, save as, export, edit, the dirty flag, the close request and answer)",
+      "customise": "nothing"
+    },
+    {
+      "name": "desktop-main",
+      "file": "desktop/main/document-window.ts",
+      "target": "main/document-window.ts",
+      "layout": "electron",
+      "gives": "runDocumentApp and createDocumentWindow: the hidden title bar with Electron's caption buttons at the title row's height, the minimum size from WINDOW_SPEC, the restored position and size, the safe webPreferences, one instance, the renderer on app://renderer/, IPC that answers the app's page alone, every permission refused except clipboard-read and clipboard-sanitized-write, the edit actions of the focused element (undo, redo, cut, copy, paste, select all, delete) behind a checked name, links opened outside, the context menu of text fields, no default menu, the close flow that waits for the renderer's save prompt, the file operations, DevTools on Ctrl+Shift+I in development only",
+      "customise": "the hex colours of the title row, the file filters, the export filters; the project's main entry calls runDocumentApp with WINDOW_SPEC, the app id and the paths of the preload script and the renderer folder",
+      "needs": [
+        "desktop-window-types",
+        "desktop-document-api"
+      ]
+    },
+    {
+      "name": "desktop-preload",
+      "file": "desktop/preload/document-api.ts",
+      "target": "preload/document-api.ts",
+      "layout": "electron",
+      "gives": "contextBridge.exposeInMainWorld(\"documentApi\"): one function per operation (the file operations and edit) and the close request and answer",
+      "customise": "nothing; the project's preload entry imports it",
+      "needs": [
+        "desktop-document-api"
+      ]
+    },
+    {
+      "name": "desktop-host",
+      "file": "desktop/renderer/lib/host.ts",
+      "target": "renderer/src/lib/host.ts",
+      "layout": "electron",
+      "gives": "getHost: the preload API, or an in-memory stand-in where it is absent so that the renderer runs in a plain browser",
+      "customise": "the sample document setSampleDocument returns",
+      "needs": [
+        "desktop-document-api"
+      ]
+    },
+    {
+      "name": "desktop-document-state",
+      "file": "desktop/renderer/lib/document-state.ts",
+      "target": "renderer/src/lib/document-state.ts",
+      "layout": "electron",
+      "gives": "documentStore, useDocument, useDocumentTitle: the name, the unsaved-changes flag, the history depths, the selection and the zoom; the title `<file> - <product>` with * while changed and 無題 for a new document, kept equal to document.title",
+      "customise": "what the application writes: edit, setHistory, setSelection",
+      "npm": [
+        "react"
+      ]
+    },
+    {
+      "name": "desktop-commands",
+      "file": "desktop/renderer/lib/commands.ts",
+      "target": "renderer/src/lib/commands.ts",
+      "layout": "electron",
+      "gives": "CommandSpec, runCommand, useCommandKeys, tooltipText: the command table's keys with the text-field rule, the tooltip 「上書き保存 (Ctrl+S)」 and the product-ui:command event",
+      "customise": "nothing: the values come from scaffold/command-set.ts"
+    },
+    {
+      "name": "desktop-document-commands",
+      "file": "desktop/renderer/lib/document-commands.ts",
+      "target": "renderer/src/lib/document-commands.ts",
+      "layout": "electron",
+      "gives": "documentHandlers: what the document operations run (new, open, save, save as, export, close, print, zoom) and the edit commands (undo, redo, cut, copy, paste, select all, delete, through the host's edit function) through the host and the document store; zoom-fit sets the zoom at which the element marked data-document-page fits the document region (fitZoom), 100 where none carries the mark",
+      "customise": "the handlers an application replaces, by command id (find and replace are the application's own); the file extension; the element it marks with data-document-page",
+      "needs": [
+        "desktop-commands",
+        "desktop-document-state",
+        "desktop-host"
+      ]
+    },
+    {
+      "name": "desktop-ribbon-layout",
+      "file": "desktop/renderer/lib/ribbon-layout.ts",
+      "target": "renderer/src/lib/ribbon-layout.ts",
+      "layout": "electron",
+      "gives": "collapseOrder and planCollapse: which groups collapse as the window narrows",
+      "customise": "nothing"
+    },
+    {
+      "name": "desktop-floating",
+      "file": "desktop/renderer/components/floating.tsx",
+      "target": "renderer/src/components/floating.tsx",
+      "layout": "electron",
+      "gives": "Tip (the tooltip after 500ms) and FloatingPanel (a menu or a collapsed group under its control)",
+      "customise": "nothing"
+    },
+    {
+      "name": "desktop-key-tip",
+      "file": "desktop/renderer/components/key-tip.tsx",
+      "target": "renderer/src/components/key-tip.tsx",
+      "layout": "electron",
+      "gives": "KeyTip and KeyTipContext: the letters Alt shows, as elements with data-keytip",
+      "customise": "nothing"
+    },
+    {
+      "name": "desktop-command-button",
+      "file": "desktop/renderer/components/command-button.tsx",
+      "target": "renderer/src/components/command-button.tsx",
+      "layout": "electron",
+      "gives": "CommandButton: a large, small, menu, check, quick access or file view control with data-command, data-key, the tooltip and the key tip",
+      "customise": "the icons of the application's own commands, passed as icons",
+      "needs": [
+        "desktop-commands",
+        "desktop-floating",
+        "desktop-key-tip"
+      ],
+      "ui": [
+        "button"
+      ],
+      "npm": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "desktop-title-row",
+      "file": "desktop/renderer/components/title-row.tsx",
+      "target": "renderer/src/components/title-row.tsx",
+      "layout": "electron",
+      "gives": "TitleRow: the quick access toolbar and the centred document title in the free width, as a drag region with no-drag controls",
+      "customise": "nothing",
+      "needs": [
+        "desktop-command-button"
+      ]
+    },
+    {
+      "name": "desktop-ribbon",
+      "file": "desktop/renderer/components/ribbon.tsx",
+      "target": "renderer/src/components/ribbon.tsx",
+      "layout": "electron",
+      "gives": "Ribbon: the tab row and the command area, with groups, dialog box launchers, collapsing groups in the order of the brief and the tab-only state",
+      "customise": "the group icons and the launchers, passed as props",
+      "needs": [
+        "desktop-command-button",
+        "desktop-ribbon-layout",
+        "desktop-window-types"
+      ],
+      "npm": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "desktop-file-view",
+      "file": "desktop/renderer/components/file-view.tsx",
+      "target": "renderer/src/components/file-view.tsx",
+      "layout": "electron",
+      "gives": "FileView: the navigation column 160px wide with 戻る first, and the page of the selected item",
+      "customise": "the pages of the items that open one",
+      "needs": [
+        "desktop-command-button"
+      ]
+    },
+    {
+      "name": "desktop-task-pane",
+      "file": "desktop/renderer/components/task-pane.tsx",
+      "target": "renderer/src/components/task-pane.tsx",
+      "layout": "electron",
+      "gives": "TaskPane: a 36px header with a close button, and a splitter that drags in 1px steps, moves by 16px with the arrow keys and resets on a double click",
+      "customise": "the content of the pane",
+      "ui": [
+        "button"
+      ],
+      "npm": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "desktop-status-bar",
+      "file": "desktop/renderer/components/status-bar.tsx",
+      "target": "renderer/src/components/status-bar.tsx",
+      "layout": "electron",
+      "gives": "StatusBar: the state items at the left (a result message from notify takes their place for a while) and the zoom controls and the fit button (labelled by the zoom-fit command) at the right",
+      "customise": "the text of the items",
+      "needs": [
+        "desktop-commands",
+        "desktop-document-state"
+      ],
+      "ui": [
+        "button"
+      ],
+      "npm": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "desktop-save-prompt",
+      "file": "desktop/renderer/components/save-prompt.tsx",
+      "target": "renderer/src/components/save-prompt.tsx",
+      "layout": "electron",
+      "gives": "SavePrompt (data-confirm=\"close\", the profile's sentence and three buttons, 保存 the default) and ErrorNotice; both keep one row of buttons and the width min(28rem, 100vw - 2rem) at every window width",
+      "customise": "the title of ErrorNotice (the title prop, else FAILURE_TITLES for the failed command id, else 「エラー」); the words of SavePrompt come from WINDOW_SPEC",
+      "ui": [
+        "alert-dialog",
+        "button"
+      ]
+    },
+    {
+      "name": "desktop-shell",
+      "file": "desktop/renderer/components/document-shell.tsx",
+      "target": "renderer/src/components/document-shell.tsx",
+      "layout": "electron",
+      "gives": "DocumentShell: the regions laid out, the window's keys (Alt and F10 key tips, F6, Ctrl+F1, Shift+F10, Esc), the save prompt flow, notify (a result message in the status bar for 5 seconds), and the start state read from the URL query",
+      "customise": "the application's handlers, panes, file view pages and status texts, passed as props",
+      "needs": [
+        "desktop-title-row",
+        "desktop-ribbon",
+        "desktop-file-view",
+        "desktop-task-pane",
+        "desktop-status-bar",
+        "desktop-save-prompt",
+        "desktop-document-commands"
+      ]
+    }
+  ]
+}

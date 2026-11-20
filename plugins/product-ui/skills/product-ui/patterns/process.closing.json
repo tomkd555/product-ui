@@ -1,0 +1,162 @@
+{
+  "id": "process.closing",
+  "version": 1,
+  "kind": "closing",
+  "summary": "The screen that closes a period (請求締切, 支払締切, 月次の締め処理): the period, the targets with their state, and the closing with its release.",
+  "not_for": "A list of records with no closing run (collection.table.index), or the entry of one document (entry.slip).",
+  "slots": [
+    {
+      "id": "heading",
+      "takes": "label",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "period",
+      "takes": "control",
+      "required": true,
+      "max": 2
+    },
+    {
+      "id": "blocker",
+      "takes": "text",
+      "required": false,
+      "max": 1,
+      "when": "Records in the period stand in the way of the closing."
+    },
+    {
+      "id": "name",
+      "takes": "identifier",
+      "required": true,
+      "max": 1,
+      "column": "first"
+    },
+    {
+      "id": "status",
+      "takes": "status",
+      "required": false,
+      "max": 1,
+      "column": "any"
+    },
+    {
+      "id": "property",
+      "takes": "property",
+      "required": true,
+      "min": 1,
+      "max": 8,
+      "column": "any",
+      "align_numbers": "end"
+    },
+    {
+      "id": "run",
+      "takes": "action",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "release",
+      "takes": "action",
+      "required": false,
+      "max": 1,
+      "when": "A closed period can be opened again, by the roles that may do it."
+    }
+  ],
+  "rules": [
+    {
+      "rule": "The screen states the period it closes, and lists what the closing covers with the state of each target.",
+      "from": [
+        "yayoi-hanbai-closing",
+        "freee-closing",
+        "obc-akikura-claim"
+      ]
+    },
+    {
+      "rule": "Where records in the period stand in the way (an unapproved slip, a document still being written), the screen says how many and links to them, and the closing waits.",
+      "from": [
+        "freee-closing",
+        "yayoi-hanbai-payment-closing"
+      ]
+    },
+    {
+      "rule": "A message asks before the closing runs, and states what the closing covers.",
+      "from": [
+        "yayoi-hanbai-closing",
+        "freee-closing",
+        "bc-close-year"
+      ]
+    },
+    {
+      "rule": "A closed period takes no edit and no deletion of its records, and the screen shows the period as closed.",
+      "from": [
+        "yayoi-hanbai-payment-closing",
+        "freee-closing",
+        "obc-akikura-claim",
+        "bc-close-year"
+      ]
+    },
+    {
+      "rule": "Where a closing can be released, the release sits on the closed period; where it cannot, the confirmation says so before the run.",
+      "from": [
+        "yayoi-hanbai-payment-closing",
+        "freee-closing",
+        "bc-close-year"
+      ]
+    },
+    {
+      "rule": "Amounts are aligned to the end, in tabular figures.",
+      "from": [
+        "product-ui"
+      ]
+    }
+  ],
+  "labels": {
+    "heading": "section",
+    "status_header": "ステータス",
+    "empty": "{object}はありません。"
+  },
+  "uses": [
+    "status.badge",
+    "state.empty",
+    "feedback.confirm"
+  ],
+  "maps_to": {
+    "shadcn": "Table with a form of conditions",
+    "html": "table",
+    "dads": null,
+    "smarthr": null,
+    "astryx": null
+  },
+  "evidence": [
+    {
+      "id": "yayoi-hanbai-closing",
+      "source": "弥生販売 サポート情報, 請求締切の操作手順",
+      "url": "https://support.yayoi-kk.co.jp/faq_Subcontents.html?page_id=20329",
+      "says": "Before the closing runs, a message states what it covers and ends with よろしいですか."
+    },
+    {
+      "id": "yayoi-hanbai-payment-closing",
+      "source": "弥生販売 サポート情報, 支払締切(支払額の確定)",
+      "url": "https://support.yayoi-kk.co.jp/subcontents.html?page_id=22859",
+      "says": "After a closing, the slips of the closed period can be neither edited nor deleted until the closing is cancelled; unapproved slips in the period block the closing; a toolbar action gathers the suppliers that meet the conditions."
+    },
+    {
+      "id": "freee-closing",
+      "source": "freee ヘルプセンター, 【企業ユーザー】締め処理機能を利用する",
+      "url": "https://support.freee.co.jp/hc/ja/articles/37523395299865--%E4%BC%81%E6%A5%AD%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC-%E7%B7%A0%E3%82%81%E5%87%A6%E7%90%86%E6%A9%9F%E8%83%BD%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B",
+      "says": "The closing runs per period from the 締め処理 screen. Where invoices do not meet the closing condition, the screen shows their count with a way to their list. 仮締め locks the period for most users and can be released with [仮締め解除] by two roles; 本締め follows an OK click and cannot be released."
+    },
+    {
+      "id": "obc-akikura-claim",
+      "source": "OBC 商蔵奉行iクラウド, 請求管理",
+      "url": "https://www.obc.co.jp/bugyo-cloud/akikura/function/claim",
+      "says": "The billing closing totals the sales and the receipts of a billing period, warns of overlapping or unbilled periods, and guards the slips of a closed period against edits and deletions."
+    },
+    {
+      "id": "bc-close-year",
+      "source": "Microsoft Learn, Business Central, Close accounting periods",
+      "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/year-close-account-periods",
+      "says": "The Close Year action shows a message that names the year and what the closing does, and closes on Yes; afterwards the periods are marked closed and locked, and the year cannot be opened again."
+    }
+  ],
+  "evidence_status": "documented"
+}

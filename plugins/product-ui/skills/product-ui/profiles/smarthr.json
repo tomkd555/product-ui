@@ -1,0 +1,93 @@
+{
+  "id": "smarthr",
+  "version": 1,
+  "name": "SmartHR",
+  "summary": "SmartHR and products that follow its design system: creating is 追加 and saving an edit is 更新, the result of an operation shows beside the control that ran it and stays, and a progress indicator waits one second.",
+  "keys": {
+    "enter": "none",
+    "enter_last": "none",
+    "display": "none",
+    "function": [],
+    "shortcuts": []
+  },
+  "words": {
+    "create": "追加",
+    "save": "更新",
+    "delete": "inherit",
+    "new": "inherit",
+    "lookup": "inherit",
+    "search": "inherit",
+    "clear": "inherit",
+    "cancel": "inherit"
+  },
+  "required_mark": "text",
+  "confirm": {
+    "register": "inherit",
+    "sentence": "inherit",
+    "buttons": "inherit"
+  },
+  "messages": {
+    "error": "inherit",
+    "result": "near-control",
+    "duration_ms": "until-closed",
+    "max": "inherit"
+  },
+  "waiting": {
+    "block": "inherit",
+    "delay_ms": 1000
+  },
+  "motion": "inherit",
+  "products": {},
+  "evidence": [
+    {
+      "id": "smarthr-action-words",
+      "source": "SmartHR Design System, 操作を表す用語",
+      "url": "https://smarthr.design/products/contents/idiomatic-usage/action/",
+      "says": "The creating operation is 追加 by default; saving edited data is 更新; キャンセル stops an operation that has not run yet, and 取り消し one that has."
+    },
+    {
+      "id": "smarthr-feedback",
+      "source": "SmartHR Design System, フィードバック",
+      "url": "https://smarthr.design/products/design-patterns/feedback/",
+      "says": "The result of a synchronous process shows near the button the user operated last, as a ResponseMessage in the success or the error state; an input error shows on the input when the focus leaves it."
+    },
+    {
+      "id": "smarthr-notification-bar",
+      "source": "SmartHR Design System, NotificationBar",
+      "url": "https://smarthr.design/products/components/notification-bar/",
+      "says": "A notification bar is hidden by an explicit action of the user; closing it after a time is discouraged."
+    },
+    {
+      "id": "smarthr-loader",
+      "source": "SmartHR Design System, Loader",
+      "url": "https://smarthr.design/products/components/loader/",
+      "says": "The loader is left out where loading ends in under one second, since the flicker harms the experience."
+    },
+    {
+      "id": "smarthr-form-control",
+      "source": "SmartHR Design System, FormControl",
+      "url": "https://smarthr.design/products/components/form-control/",
+      "says": "A required input carries the label 必須, and an optional one may carry 任意."
+    }
+  ],
+  "from": {
+    "words.create": [
+      "smarthr-action-words"
+    ],
+    "words.save": [
+      "smarthr-action-words"
+    ],
+    "messages.result": [
+      "smarthr-feedback"
+    ],
+    "messages.duration_ms": [
+      "smarthr-notification-bar"
+    ],
+    "waiting.delay_ms": [
+      "smarthr-loader"
+    ],
+    "required_mark": [
+      "smarthr-form-control"
+    ]
+  }
+}

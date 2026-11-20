@@ -13,7 +13,7 @@ S1, S3, S4, S10 and S17 have a correct answer, or name a trait that harms the re
 
 ## Scope
 
-Files matching `.html`, `.jsx`, `.tsx`, `.vue`, `.svelte`, `.astro`, `.css`.
+Files matching `.html`, `.htm`, `.jsx`, `.tsx`, `.vue`, `.svelte`, `.astro`, `.css`.
 
 Excluded: `theme.css` and `tokens.css` (the token definitions themselves), `node_modules/`, `vendor/`, `dist/`, `build/`, `.next/`, `out/`, `.svelte-kit/`, `.git/`, `*.min.css`, `*.test.*`, `*.spec.*`.
 
@@ -176,7 +176,7 @@ The finding is reported at the line of a card element that opens while another c
 
 The words match as whole identifiers in code. Comments, `import` statements, string contents (a CSS class `"error"`, `loading="lazy"`) and CSS-module members (`styles.error`) do not count.
 
-**Allowed.** A `.map(` whose receiver is an identifier bound in the same file to an array literal with `const` (`const KINDS = [...]`): a fixed list of options, kinds or channels is never empty. A file that renders its state in a sibling component: silence it with `ignore-file S16` and name that component. A collection that is never empty (the items of an order, rows passed in as a fixed list) takes `ignore S16` with that reason, as the brief's States section records it.
+**Allowed.** A `.map(` whose receiver is an array literal written in place (`[1, 2, 3, 4, 5].map`), a name in capitals, alone or through `filter`, `slice` or `sort` (`STATUSES.filter(…).map`), or an identifier bound in the same file to an array literal with `const` (`const KINDS = [...]`): a fixed list of options, kinds or channels is never empty. A file that renders its state in a sibling component: silence it with `ignore-file S16` and name that component. A collection that is never empty (the items of an order, rows passed in as a fixed list) takes `ignore S16` with that reason, as the brief's States section records it.
 
 **Why.** A screen with no empty, loading or error state fails the reader the first time the data is late or absent, whatever made it (research T26). The brief's States section lists them; this check finds the files that skipped it.
 
@@ -408,7 +408,7 @@ Step 5, the independent review through `review-design-lead`, judges these agains
 - The reused shape of centred hero, then three equal-width cards
 - Whether anything guides the eye
 - Measured contrast ratios
-- Links and controls that look interactive and lead nowhere, on a screen the brief marks `wired` (R10 measures links without a destination; a mock's placeholders are accepted)
+- Links and controls that look interactive and lead nowhere, on a screen the brief marks `wired` (R10 measures links without a destination, and on every screen the links whose route the plan's screens lack: a view outside the build gets no link)
 - A handler that reports success through a named function (S17 reads inline handlers only)
 - A feature row with no enclosure (R20 needs boxes to count)
 - Gradient text, glass, one large radius on every container, a missing Japanese typeface and icon-and-heading tile rows as they render: `scripts/render/check_render.py` measures them on the live page as R16 to R20
@@ -417,6 +417,8 @@ Step 5, the independent review through `review-design-lead`, judges these agains
 
 `scripts/render/check_render.py` measures these on the live page at Step 5. They are ported from impeccable 4.8.0 (Apache-2.0; see `THIRD_PARTY_NOTICES.md`), and each entry names the impeccable rule it follows.
 
+- **R16: gradient text.** A WARNING for text whose computed background clip is `text` over a gradient. S12 reads the same form in the source.
+- **R17: glass.** A WARNING for a box with a `backdrop-filter` other than `none`; a box that covers the viewport, such as a dialog's scrim, passes. S13 reads the same form in the source.
 - **R20: a row of icon-and-heading tiles.** Three or more equal tiles on screen on one line (the same size within 2px), each with an svg or img of 24px or more whose bottom lies at or above the tile's first heading top plus 8px, and no drawn box of 64x64 or more inside. A WARNING when every tile carries a painted icon tile (the criteria of the next entry). A NOTE for a row of image or screenshot cards, which real landing pages ship. Calibrated on `research/20261106-real-screens`.
 - **R20 also** reports, once per page and capture, rounded icon containers of 32 to 128px (ratio 0.7 to 1.4, tinted at alpha 0.05 or more, with a background image or bordered, radius under half the width, the icon under 95% of the width) that end at most 4px below the top of the heading that follows them, and lists the headings in the evidence. Source: impeccable `icon-tile-stack`. Not ported: an icon given as `<img>` or as a CSS background (svg, `i` icon classes and a leading emoji count).
 - **R18: one radius on every container.** A WARNING when 5 or more containers (boxes on screen, 64x64 or more, holding text, with a px radius under half their shorter side) share one radius of 16px or more and no container has another non-zero radius. A single small radius is what established design systems ship. Calibrated on `research/20261106-real-screens`.

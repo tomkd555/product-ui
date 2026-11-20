@@ -1,0 +1,57 @@
+{
+  "id": "salesforce-lightning",
+  "version": 1,
+  "name": "Salesforce Lightning",
+  "summary": "Applications on the Lightning platform: the result of an operation is a toast, and up to three show at once.",
+  "keys": {
+    "enter": "none",
+    "enter_last": "none",
+    "display": "none",
+    "function": [],
+    "shortcuts": []
+  },
+  "words": {
+    "create": "inherit",
+    "save": "inherit",
+    "delete": "inherit",
+    "new": "inherit",
+    "lookup": "inherit",
+    "search": "inherit",
+    "clear": "inherit",
+    "cancel": "inherit"
+  },
+  "required_mark": "inherit",
+  "confirm": {
+    "register": "inherit",
+    "sentence": "inherit",
+    "buttons": "inherit"
+  },
+  "messages": {
+    "error": "inherit",
+    "result": "toast",
+    "duration_ms": "inherit",
+    "max": 3
+  },
+  "waiting": {
+    "block": "inherit",
+    "delay_ms": "inherit"
+  },
+  "motion": "inherit",
+  "products": {},
+  "evidence": [
+    {
+      "id": "lwc-toast",
+      "source": "Salesforce Lightning Web Components Developer Guide, Toast Notifications (archived copy of 2025)",
+      "url": "https://web.archive.org/web/2025/https://developer.salesforce.com/docs/platform/lwc/guide/use-toast.html",
+      "says": "lightning/toast is the preferred way to show a toast, and the toast container shows three toasts at most by default."
+    }
+  ],
+  "from": {
+    "messages.result": [
+      "lwc-toast"
+    ],
+    "messages.max": [
+      "lwc-toast"
+    ]
+  }
+}

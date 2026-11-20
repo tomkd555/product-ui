@@ -56,7 +56,8 @@
     "shadcn": "ul",
     "html": "ul",
     "dads": "StepNavigation",
-    "smarthr": null
+    "smarthr": null,
+    "astryx": "List + ListItem"
   },
   "evidence": [
     {

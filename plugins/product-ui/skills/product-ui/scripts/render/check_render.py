@@ -41,8 +41,11 @@ Checks:
   R7  rendered text under the minimum size (CRITICAL): 14px, or 12px for a Latin-only run of at
       most 24 characters — the rule in product-ui's references/ban-list.md
   R8  heading hierarchy over rendered headings: WARNING when no h1 and no h2 is rendered; NOTE when
-      the count of h1 is not 1 or a heading skips two or more levels
-  R9  console: an uncaught exception (CRITICAL), an error (WARNING), a warning (NOTE)
+      the count of h1 is not 1 or a heading skips two or more levels. On a desktop surface (the plan's
+      `- Surface:` line or tokens.json meta.surface is `desktop`) the window carries no heading: R8 is a
+      WARNING when `document.title` (the dump's `title`) does not match the `title` row of the plan's
+      `## Window` table, where `{file}` stands for any file name with an optional `*`
+  R9 console: an uncaught exception (CRITICAL), an error (WARNING), a warning (NOTE)
   R10 a rendered link with no destination (no href, `#`, or `javascript:`) — NOTE, one per capture,
       because a mock has them by design; the brief says whether the screen is wired
   R11 the viewport the page reported differs from the width the file name asks for —
@@ -53,12 +56,12 @@ Checks:
   R13 fewer than 3 distinct spacing steps among the gaps between siblings, from 6 measured
       gaps up (dump `gaps`; gaps of 4px and more)
   R14 fewer than 3 distinct (font size, weight) pairs among the text inside the first
-      <main>, from 8 text entries up
+      <main>, from 8 text entries up; on a desktop window the text outside the document area counts, in the whole window
   R15 a row of 3 or more equal tiles (same size within 2px, on one line with y within 2px, each on
       screen, at most 160px tall, with at most 6 text entries and no img, its largest text a figure)
       in the top 40% of the viewport. A WARNING unless the plan's `- Job class:` line is
       `monitor`, which suppresses it; a NOTE when --plan is absent or names no job class.
-      R12, R13 and R15 skip a dump that carries no `boxes` / `gaps` (an older dump).
+      R12, R13 and R15 skip a dump that carries no `boxes` / `gaps`.
   R16 text whose computed background clip is `text` over a gradient (gradient text) — WARNING
       (research T2)
   R17 a box with a `backdrop-filter` other than `none`, except a box that covers the viewport
@@ -74,7 +77,7 @@ Checks:
       more inside: WARNING when every tile carries a painted icon tile (the criteria of the single
       icon-tile form), NOTE for a row of image or screenshot cards (research T5). A feature row with
       no enclosure is no box, and the P2 reviewer judges it.
-      R16 to R20 skip a dump that lacks the fields they read (an older dump).
+      R16 to R20 skip a dump that lacks the fields they read.
   R21 body text of 16 to 18px (p, li, dd, blockquote; 2 or more lines and 50 characters or more,
       weight under 600, outside controls, headings, navigation and fixed layers, inside the first
       <main>) with a line height under 1.4 times its size — WARNING (WCAG 1.4.8, DADS)
@@ -91,7 +94,7 @@ type, not screen-reader-only, not outside the page, not transparent, not in a co
 `research/20261106-real-screens`, the 192 screens real products ship.
 
 Ported from pbakaus/impeccable (Apache-2.0, commit df3a4ab; thresholds from its Rust checks). A check that reads a
-dump field an older dump lacks is skipped. Severity: impeccable error is CRITICAL, warning WARNING, advisory NOTE.
+dump field the dump lacks is skipped. Severity: impeccable error is CRITICAL, warning WARNING, advisory NOTE.
 
   R25 an italic serif h1, or h2 of 48px and up (italic-serif-display)
   R26 a tracked uppercase label directly above an h1 to h4; nav, list, form, table, figure and breadcrumb exempt
@@ -124,10 +127,27 @@ settles which become errors. A dump with no `patterns` field, or a page with no 
   R43 items of one pattern under one parent show different sets of fields (data-pattern-field)
   R44 a table pattern's cell slot holding a number is not aligned to the end, or lacks tabular-nums
   R45 a table pattern's cell holding only a placeholder (-, —, x, ×, N/A) where the cell should stay blank
-  R46 an item whose required slot renders empty, or is missing from the rendered item
+  R46 an item whose required slot renders empty, or is missing from the rendered item; a collection that
+      shows its `state.empty` holds no item, and only its heading stays required
   R47 an enclosure (a box) inside <main> that sits in no data-pattern element and holds no form control,
       on a page that carries patterns
   R48 a status badge whose word is outside voice.status of --tokens; skipped without --tokens or voice.status
+  R49 to R51 compare the key and message probes of a dump (cdp.js with PROBE) with the `## Conventions` section
+      of --plan (references/profiles.md); all three are WARNINGs, skipped for a dump without `probes`, without
+      --plan, and for a plan whose section is missing or holds `none`
+  R49 keys.enter is next-field, and Enter in the first field of the entry form left the focus where it was,
+      moved it elsewhere than the next field, or submitted the form
+  R50 a function key or a shortcut of the section that no control on the page carries, or whose control did not
+      run when the key was pressed
+  R51 a result message that stayed for a time other than messages.duration_ms (500 ms of tolerance), that closed
+      by itself under until-closed, or whose form differs from messages.result
+  R52 to R55 read a desktop window (references/desktop.md); CRITICALs, run only on a desktop surface
+  R52 the document element scrolls (dump `rootScrolls`): the window scrolls as a whole
+  R53 a region (dump `regions`) whose height differs from the plan's `## Window` rows by more than 1px (title row 48,
+      tab row 36, command area 112, status bar 28 by default; a command area of height 0 is the tab-only state and
+      passes), or a document region narrower than its minimum width in the capture whose viewport equals `minimum`
+  R54 a key of `probes.commands.keys` whose command id did not run when the key was pressed
+  R55 Alt showed no `[data-keytip]` element, a tab's key tip showed none of its commands', or Escape left them showing (`probes.commands.keytips`)
 
   Extensions: R4 also fires on text that overflows its box by 16px or more and meets another box, probed after
   scrolling to it (text-overflow); R20 also fires once per page on single icon tiles of 32 to 128px above a heading
@@ -158,6 +178,12 @@ try:
     import library as pattern_library  # noqa: E402
 except ImportError:  # the render scripts copied without the pattern library
     pattern_library = None
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "profiles"))
+try:
+    import conventions as profile_conventions  # noqa: E402
+except ImportError:  # the render scripts copied without the profiles
+    profile_conventions = None
 
 MIN_HIT = 24
 # The text-size minimum from product-ui's references/ban-list.md.
@@ -491,13 +517,33 @@ def _route_matches(pattern, path, tab):
     return re.match(regex, path) is not None
 
 
-def read_plan_job(path):
-    """The `- Job class:` value of the block whose route matches the plan's Built files line, else the
-    first Job class in the plan, else "". A brief that holds one block per screen names each block's
-    route in its heading (### 契約 `/contracts`), and the Built files line names the screen captured."""
+def _route_of_url(url):
+    """The route of a captured URL: its hash route when it has one (`…/index.html#/stores/s1`), else its path."""
+    parts = urlsplit(url or "")
+    if parts.fragment.startswith("/"):
+        return _route_of("#" + parts.fragment)
+    tab = re.search(r"(?:^|&)tab=([^&\s]+)", parts.query)
+    return parts.path or "", (tab.group(1) if tab else "")
+
+
+def read_plan_routes(path):
+    """The routes of the plan's screen blocks (### 契約 `/contracts`), without their query; [] when no heading names one."""
+    text = Path(path).read_text(encoding="utf-8", errors="replace")
+    routes = []
+    for heading in re.findall(r"^### .*$", text, flags=re.M):
+        routes += [r.partition("?")[0] for r in BLOCK_ROUTE.findall(heading)]
+    return routes
+
+
+def read_plan_job(path, url=None):
+    """The `- Job class:` value of the block whose route matches the captured URL (the dump's `url`),
+    else the plan's Built files line, else the first Job class in the plan, else "". A brief that holds
+    one block per screen names each block's route in its heading (### 契約 `/contracts`)."""
     text = Path(path).read_text(encoding="utf-8", errors="replace")
     built = BUILT_FILES.search(text)
-    route, tab = _route_of(built.group(1)) if built else ("", "")
+    route, tab = _route_of_url(url) if url else ("", "")
+    if not route or not BLOCK_ROUTE.search(text):
+        route, tab = _route_of(built.group(1)) if built else ("", "")
     if route:
         blocks = re.split(r"^(?=### )", text, flags=re.M)
         best, best_len = None, -1
@@ -506,7 +552,8 @@ def read_plan_job(path):
             for pattern in BLOCK_ROUTE.findall(heading):
                 if _route_matches(pattern, route, tab):
                     want_tab = "tab=" in pattern
-                    score = len(pattern) + (100 if want_tab and tab else 0)
+                    # A literal route (`/claims/new`) wins over a parameter route (`/claims/:id`) of the same length.
+                    score = 1000 * len(re.sub(r":[A-Za-z_]+", "", pattern)) + len(pattern) + (100000 if want_tab and tab else 0)
                     if score > best_len:
                         best, best_len = block, score
         if best is not None:
@@ -615,8 +662,11 @@ def is_figure_tile(b, texts, width):
     return bool(FIGURE.match((largest.get("text") or "").strip()))
 
 
-def check_composition(label, dump, texts, job, report):
-    """R12 to R15: how the screen is composed, from the dump's boxes, gaps and text."""
+def check_composition(label, dump, texts, job, report, desktop=False):
+    """R12 to R15: how the screen is composed, from the dump's boxes, gaps and text.
+
+    A desktop window gets no R14: its chrome sets every label at one size, and the reading levels belong to the document.
+    """
     boxes, gaps = dump.get("boxes"), dump.get("gaps")
 
     # R12 nested enclosures
@@ -662,7 +712,7 @@ def check_composition(label, dump, texts, job, report):
             continue
         counted += 1
         pairs.add((size, weight_of(el.get("fontWeight"))))
-    if counted >= EMPHASIS_MIN_TEXTS and len(pairs) < EMPHASIS_MIN_LEVELS:
+    if not desktop and counted >= EMPHASIS_MIN_TEXTS and len(pairs) < EMPHASIS_MIN_LEVELS:
         report.add(("R14",), "WARNING", "text at " + LABEL,
                    "%d emphasis level%s among %d text entries at %s: %s; a hierarchy needs at least %d"
                    % (len(pairs), plural(len(pairs)), counted, LABEL,
@@ -794,7 +844,7 @@ def check_japanese_face(label, dump, texts, report):
 
 def multiline_text(el, scope):
     """(font px, line height px, content width px) of a text element inside `scope` that holds
-    2 or more lines, else None. Lines are counted on the rect of the element's own text (`ownH`); an older
+    2 or more lines, else None. Lines are counted on the rect of the element's own text (`ownH`); a
     dump without it falls back to the element box less its padding and borders (`pad`)."""
     r = el.get("rect") or {}
     pad = el.get("pad") or {}
@@ -992,7 +1042,7 @@ def is_cjk_text(text):
 
 def has_text_run(e, text, subtree_min):
     """impeccable's gate: more than 10 characters of the element's own text and more than `subtree_min` in its subtree
-    (`fullLen`; an older dump without it counts the own text)."""
+    (`fullLen`; a dump without it counts the own text)."""
     own = u16(text)
     return own > OWN_TEXT_MIN and (e.get("fullLen") if e.get("fullLen") is not None else own) > subtree_min
 
@@ -1004,7 +1054,7 @@ def typed_caps(text):
 
 def has_context_flags(texts):
     """True when the dump's text entries carry `inHeading` / `inControl` (cdp.js writes both as booleans);
-    R38, R39 and the R21 tight form read them and skip an older dump."""
+    R38, R39 and the R21 tight form read them and skip a dump without them."""
     return any("inHeading" in e or "inControl" in e for e in texts)
 
 
@@ -1437,7 +1487,7 @@ def check_shadow_rows(label, dump, report):
         return max(x, y) > 0 and abs(x - y) / max(x, y) <= SHADOW_SIZE_TOL
 
     def row_of(b):
-        """The siblings of one DOM parent (`domParent`) form a row; an older dump falls back to the parent box."""
+        """The siblings of one DOM parent (`domParent`) form a row; a dump without it falls back to the parent box."""
         return b["domParent"] if b.get("domParent") is not None else b.get("parentBox")
     for b, thin, blur in pairs:
         mates = [m for m, _, _ in pairs if row_of(m) == row_of(b)
@@ -1579,10 +1629,9 @@ class Report:
 
 
 def asked_width(label):
-    try:
-        return int(label.split("-")[-1])
-    except ValueError:
-        return None
+    """The width a capture asked for, from its label: `1280`, `dark-375`, or a desktop window's `1280x720`."""
+    m = re.fullmatch(r"(\d+)(?:x\d+)?", label.split("-")[-1])
+    return int(m.group(1)) if m else None
 
 
 def device_width(dump):
@@ -1623,16 +1672,29 @@ def is_rendered_control(c):
     return c.get("vis", True) and (c.get("w") or 0) > 0 and (c.get("h") or 0) > 0
 
 
+def check_window_title(label, dump, window, report):
+    """R8 on a desktop surface: `document.title` against the `title` row of `## Window`; no row, no finding."""
+    pattern = window.get("title")
+    if not pattern:
+        return
+    title = str(dump.get("title") or "")
+    if not re.fullmatch(window_title_regex(pattern), title):
+        report.add(("R8", "title"), "WARNING", "document.title at " + LABEL,
+                   "document.title %s at %s; the title row of ## Window gives %s" % (snippet(title, 60), LABEL, snippet(pattern, 60)),
+                   "Set document.title to the title row's text: the file name, then the product name.", label)
+
+
 def check_headings(label, dump, report):
     """R8: the dump lists rendered headings only. WARNING when the screen has no h1 and no h2; NOTE for a count of h1
-    other than 1 (a screen-reader-only h1 counts) or a heading that skips two levels."""
+    other than 1 (a screen-reader-only h1 counts) or a heading that skips two levels. Under an open modal dialog
+    (`modal` in the dump) the page's h1 is hidden from the accessibility tree, and the count of 0 passes."""
     headings = dump.get("headings") or []
     h1 = [h for h in headings if h.get("level") == 1]
     if not any(h.get("level") in (1, 2) for h in headings):
         report.add(("R8", "none"), "WARNING", "headings at " + LABEL,
                    "heading hierarchy: no h1 and no h2 rendered among %d heading%s at %s" % (len(headings), plural(len(headings)), LABEL),
                    "Render a heading that names the screen: one h1.", label)
-    elif len(h1) != 1:
+    elif len(h1) != 1 and not (dump.get("modal") and not h1):
         report.add(("R8", "h1", len(h1)), "NOTE", "headings at " + LABEL,
                    "heading hierarchy: %d h1 at %s" % (len(h1), LABEL),
                    "Keep one h1 naming the screen.", label)
@@ -1726,14 +1788,15 @@ def is_search_field(c):
     return c.get("type") == "search" or bool(c.get("inSearch")) or (c.get("name") or "").lower() in SEARCH_NAMES
 
 
-def check_controls(label, controls, report):
-    """R5 hit area, R6 labels and R10 links without a destination, over the controls a reader sees.
+def check_controls(label, controls, report, routes=None, page_url=None):
+    """R5 hit area, R6 labels and R10 links without a destination or to a view outside the plan, over the controls a reader sees.
     A control that is not rendered, is a visually hidden native input that a visible label or component stands for (`proxy`),
     or sits in a consent banner (`consent`) is no control of its own. One finding per capture for R5 and R10, one per (type, name) for R6."""
     seen = [c for c in controls if is_rendered_control(c) and not c.get("proxy") and not c.get("consent") and not c.get("disabled")]
     shown = [c for c in seen if c.get("interactive", True)]
-    # `inText` (cdp.js: inline inside a sentence) replaces the display test; an older dump carries `inline` alone.
-    small = [c for c in shown if not (c.get("inText") if "interactive" in c else c.get("inline"))
+    # `inText` (cdp.js: inline inside a sentence) replaces the display test; a dump without `interactive` carries `inline` alone.
+    # `ariaHidden`: a focus guard of a dialog, or a control of the page under an open modal, takes no pointer.
+    small = [c for c in shown if not (c.get("inText") if "interactive" in c else c.get("inline")) and not c.get("ariaHidden")
              and c.get("appearance") in (None, "none") and 0 < min(own_box(c)) < MIN_HIT]
     if small:
         # WCAG 2.5.8 spacing exception: an undersized control passes when the 24px circle at its centre meets no other control's box
@@ -1779,9 +1842,26 @@ def check_controls(label, controls, report):
                    "%d link%s without a destination at %s, for example %s"
                    % (len(dead), plural(len(dead)), LABEL, ", ".join("%s (href=%r)" % (snippet(t), h) for t, h in dead[:MAX_LOCATIONS])),
                    "Point the link at its page, or make it a <button> if it acts in place.", label)
+    if routes and page_url:
+        # A link of the same origin whose route no screen block of the plan names opens a view the build lacks.
+        origin = urlsplit(page_url)[:2]
+        stray = {}
+        for c in seen:
+            if c.get("tag") != "a" or not c.get("url") or urlsplit(c["url"])[:2] != origin:
+                continue
+            route = _route_of_url(c["url"])[0]
+            if not any(_route_matches(r, route, "") for r in routes):
+                stray.setdefault(route, c.get("text") or c.get("ariaLabel") or "")
+        if stray:
+            report.add(("R10", "outside"), "WARNING", "links at " + LABEL,
+                       "%d link destination%s outside the plan's screens at %s, for example %s"
+                       % (len(stray), plural(len(stray)), LABEL,
+                          ", ".join("%s (%s)" % (snippet(t), r) for r, t in list(stray.items())[:MAX_LOCATIONS])),
+                       "Leave the link off the screen until its view is built, or name the object as plain text; "
+                       "list it in the hand-over (references/interaction.md, Controls that work).", label)
 
 
-def check_dump(label, dump, tokens, report, job=None, brand=None, status_words=None):
+def check_dump(label, dump, tokens, report, job=None, brand=None, status_words=None, routes=None, window=None):
     texts = dump.get("text", [])
     controls = dump.get("controls", [])
     viewport = (dump.get("viewport") or {}).get("width")
@@ -1884,10 +1964,13 @@ def check_dump(label, dump, tokens, report, job=None, brand=None, status_words=N
                    "font size %s at %s (%d element%s)" % (raw, LABEL, n, plural(n)),
                    "Raise the size to 14px (12px only for a Latin-only run of at most 24 characters), or delete the run.", label)
 
-    check_controls(label, controls, report)
+    check_controls(label, controls, report, routes, dump.get("url"))
 
-    check_headings(label, dump, report)
-    check_composition(label, dump, texts, job, report)
+    if window is None:
+        check_headings(label, dump, report)
+    else:
+        check_window_title(label, dump, window, report)
+    check_composition(label, dump, texts, job, report, window is not None)
     check_tells(label, dump, texts, report)
     check_japanese_face(label, dump, texts, report)
     reading_hits = check_reading(label, dump, texts, report)
@@ -1906,6 +1989,11 @@ NUMBER_CELL = re.compile(r"^[-+]?[¥$€£]?\s*[-+]?\d[\d,]*(?:\.\d+)?\s*(?:円|
 PLACEHOLDER_CELL = {"-", "—", "–", "－", "ー", "x", "×", "✕", "N/A", "n/a", "NA"}
 
 
+def has_text(slot):
+    """False for a slot that holds an icon or a picture and no text; a dump that records no text for a slot counts it as text."""
+    return slot.get("text") is None or bool(str(slot["text"]).strip())
+
+
 def check_patterns(label, dump, report, status_words=None):
     """R42 to R48: whether each rendered element that names its pattern carries it."""
     patterns = dump.get("patterns")
@@ -1915,21 +2003,26 @@ def check_patterns(label, dump, report, status_words=None):
     by_id = {}
     for p in patterns:
         by_id.setdefault(p.get("id"), []).append(p)
+    index_of = {id(p): i for i, p in enumerate(patterns)}
+    # A collection that shows its empty state holds no item, so only its heading stays required (R46).
+    showing_empty = {p.get("outer") for p in patterns if p.get("id") == "state.empty" and p.get("outer") is not None}
     for pid, items in by_id.items():
         spec = library.get(pid)
         if not spec:
             continue
         emphasis = [s["id"] for s in spec["slots"] if s.get("emphasis") == 1]
         # R42 compares the emphasis slot with the slots that carry the item's data, not with a heading or a control
-        peers = {s["id"] for s in spec["slots"] if s["takes"] in pattern_library.OBJECT_TAKES + ("measure", "comparison", "text")}
+        # a price may outweigh a title (a product's header): it is compared only where it is the emphasis slot itself
+        peers = {s["id"] for s in spec["slots"]
+                 if s["takes"] in pattern_library.OBJECT_TAKES + ("measure", "comparison", "text") and s["takes"] != "price"}
         required = [s["id"] for s in spec["slots"] if s.get("required")]
         weak, empty, missing = [], {}, {}
         for p in items:
             slots = [s for s in p.get("slots", []) if not s.get("hidden")]
             # R42 the emphasis slot is the strongest text of the item
             for sid in emphasis:
-                top = [s for s in slots if s.get("slot") == sid and not s.get("empty")]
-                rest = [s for s in slots if s.get("slot") != sid and s.get("slot") in peers and not s.get("empty")]
+                top = [s for s in slots if s.get("slot") == sid and not s.get("empty") and has_text(s)]
+                rest = [s for s in slots if s.get("slot") != sid and s.get("slot") in peers and not s.get("empty") and has_text(s)]
                 if top and rest:
                     t = max((s["fontSize"], s["fontWeight"]) for s in top)
                     over = [s for s in rest if (s["fontSize"], s["fontWeight"]) > t]
@@ -1937,6 +2030,8 @@ def check_patterns(label, dump, report, status_words=None):
                         weak.append((p, sid, over[0], t))
             # R46 a required slot empty or missing
             for sid in required:
+                if index_of[id(p)] in showing_empty and sid != "heading":
+                    continue
                 found = [s for s in p.get("slots", []) if s.get("slot") == sid]
                 if not found:
                     missing.setdefault(sid, []).append(p)
@@ -1978,7 +2073,7 @@ def check_patterns(label, dump, report, status_words=None):
             bad = []
             for p in items:
                 for s in p.get("slots", []):
-                    if s.get("slot") in ("property", "price", "count") and NUMBER_CELL.match(s.get("text") or ""):
+                    if s.get("slot") in ("property", "price") and NUMBER_CELL.match(s.get("text") or ""):
                         aligned = s.get("textAlign") in ("right", "end")
                         tabular = "tabular-nums" in (s.get("numeric") or "")
                         if not (aligned and tabular):
@@ -2003,13 +2098,189 @@ def check_patterns(label, dump, report, status_words=None):
                        "%d status words outside voice.status (%s) at %s" % (len(off), ", ".join(snippet(t) for t in off[:4]), LABEL),
                        "Show the state with a word from voice.status, or add the word to the object's list there.", label)
     # R47 an enclosure outside every pattern
-    stray = [b for b in dump.get("boxes", []) if not b.get("inPattern") and not b.get("hasField")
+    stray = [b for b in dump.get("boxes", []) if not b.get("inPattern") and not b.get("hasField") and not b.get("hasChart") and not b.get("hasPattern")
              and (b.get("rect") or {}).get("w", 0) >= 120 and (b.get("rect") or {}).get("h", 0) >= 48]
     if stray:
         report.add(("R47",), "WARNING", "; ".join(box_location(b) for b in stray[:MAX_LOCATIONS]),
                    "%d enclosures carry no pattern at %s" % (len(stray), LABEL),
                    "Give each container the pattern its section resolves to (data-pattern), or drop the enclosure "
                    "and group by distance (references/composition.md).", label)
+
+
+MESSAGE_TOLERANCE_MS = 500   # R51: a toast library takes a moment to unmount after its time
+
+
+def read_plan_conventions(path):
+    """{item: value text} of the plan's `## Conventions` section; None when it is missing or holds `none`."""
+    if not profile_conventions:
+        return None
+    lines, inside = [], False
+    for line in Path(path).read_text(encoding="utf-8", errors="replace").split("\n"):
+        if line.startswith("## "):
+            inside = line.strip().lower() == "## conventions"
+        elif inside:
+            lines.append(line)
+    return profile_conventions.parse_table(lines)
+
+
+def check_conventions(label, dump, conv, report):
+    """R49 to R51: whether the keys and the messages of the rendered screen follow the plan's Conventions section."""
+    probes = dump.get("probes")
+    if not probes or not conv:
+        return
+    enter = probes.get("enter")
+    if conv.get("keys.enter") == "next-field" and enter and enter.get("fields", 0) >= 2:
+        if enter.get("submitted") or enter.get("to") != 1 or enter.get("back") != 0:
+            did = ("submitted the form" if enter.get("submitted") else "left the focus on the first field" if enter.get("to") == 0
+                   else "moved the focus to field %s" % enter.get("to") if enter.get("to") != 1
+                   else "moved on, and Shift+Enter did not move back")
+            report.add(("R49",), "WARNING", "the entry form at %s" % LABEL,
+                       "Enter in the first of %d fields %s at %s; the Conventions section gives keys.enter next-field"
+                       % (enter["fields"], did, LABEL),
+                       "Move the focus with useEnterKeys of the kit's lib/keys (references/profiles.md), and keep data-enter on the form.", label)
+    if "keys" in probes:
+        wanted = profile_conventions.parse_keys(conv.get("keys.function")) + profile_conventions.parse_keys(conv.get("keys.shortcuts"))
+        if conv.get("keys.display") == "none":
+            wanted = profile_conventions.parse_keys(conv.get("keys.shortcuts"))
+        found = {k.get("key"): k for k in probes["keys"]}
+        # The registering key on a page that holds an entry form. A key whose operation the screen lacks is left out of the build.
+        missing = [k for k, _, action in wanted if k not in found and action == "register" and enter and enter.get("fields", 0) >= 1]
+        idle = [k for k, _, _ in wanted if k in found and not found[k].get("ran") and not found[k].get("disabled")]
+        if missing or idle:
+            parts = (["no control carries %s" % ", ".join(missing)] if missing else []) + \
+                    (["%s did not run its control" % ", ".join(idle)] if idle else [])
+            report.add(("R50",), "WARNING", "the keys at %s" % LABEL,
+                       "%s at %s; the Conventions section lists %s" % ("; ".join(parts), LABEL, ", ".join(k for k, _, _ in wanted)),
+                       "Give each key its button with data-key (FunctionKey of the kit) and call useKeyButtons once in the screen.", label)
+    expected = conv.get("messages.duration_ms")
+    for m in probes.get("messages") or []:
+        if m.get("type", "result") != "result":   # an error summary follows messages.error, which no probe times
+            continue
+        problem = None
+        if conv.get("messages.result") == "new-entry":
+            problem = "is shown, and messages.result is new-entry: the form empties and no message shows"
+        elif conv.get("messages.result") in ("toast", "bar", "near-control") and m.get("kind") != conv["messages.result"]:
+            problem = "is shown as %s, and messages.result is %s" % (m.get("kind") or "an unnamed form", conv["messages.result"])
+        elif expected == profile_conventions.UNTIL_CLOSED:
+            if m.get("shownMs") is not None:
+                problem = "closed by itself after %d ms, and messages.duration_ms is until-closed" % m["shownMs"]
+        elif expected and expected.isdigit():
+            if m.get("shownMs") is None:
+                if m.get("waitedMs", 0) > int(expected) + MESSAGE_TOLERANCE_MS:
+                    problem = "was still shown after %d ms, and messages.duration_ms is %s" % (m["waitedMs"], expected)
+            elif abs(m["shownMs"] - int(expected)) > MESSAGE_TOLERANCE_MS:
+                problem = "stayed %d ms, and messages.duration_ms is %s" % (m["shownMs"], expected)
+        if problem:
+            report.add(("R51", m.get("text")), "WARNING", "the message %s at %s" % (snippet(m.get("text") or ""), LABEL),
+                       "the message %s at %s" % (problem, LABEL),
+                       "Show the result through useMessages of the kit's components/message-bar with the values of the Conventions section.", label)
+
+
+# R52 to R55: the desktop window (references/desktop.md)
+WINDOW_HEIGHT_ROWS = {"title row height": "title-row", "tab row height": "tab-row", "command area height": "command-area",
+                      "status bar height": "status-bar"}
+WINDOW_HEIGHT_DEFAULT = {"title-row": 48, "tab-row": 36, "command-area": 112, "status-bar": 28}
+WINDOW_HEIGHT_TOLERANCE = 1   # R53, px
+WINDOW_DOC_MIN_DEFAULT = 200  # R53: the document area's minimum width
+SURFACE = re.compile(r"^\s*-\s*(?i:Surface):\s*(\w+)", re.M)
+KEY_PROBE_CAP = 8             # R54: keys named in one finding
+
+
+def read_plan_surface(path):
+    m = SURFACE.search(Path(path).read_text(encoding="utf-8", errors="replace"))
+    return m.group(1).lower() if m else ""
+
+
+def load_surface(path):
+    return str((json.loads(Path(path).read_text(encoding="utf-8")).get("meta") or {}).get("surface") or "").lower()
+
+
+def window_title_regex(pattern):
+    """A `## Window` title row as a regular expression: `{file}` matches any file name, with an optional `*` after it."""
+    return r".+?\*?".join(re.escape(part) for part in pattern.split("{file}"))
+
+
+def read_plan_window(path):
+    """The `## Window` table of the plan: {"minimum": (w, h) or None, "title": text or None, "doc_min": px, "heights": {region: px}}.
+    A row the plan leaves out takes the value of references/desktop.md."""
+    window = {"minimum": None, "title": None, "doc_min": WINDOW_DOC_MIN_DEFAULT, "heights": dict(WINDOW_HEIGHT_DEFAULT)}
+    if not path:
+        return window
+    inside = False
+    for line in Path(path).read_text(encoding="utf-8", errors="replace").split("\n"):
+        if line.startswith("## "):
+            inside = line.strip().lower() == "## window"
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if not inside or not line.strip().startswith("|") or len(cells) < 2:
+            continue
+        item, value = " ".join(cells[0].lower().split()), cells[1]
+        if item == "minimum":
+            m = re.fullmatch(r"(\d+)\s*[x×]\s*(\d+)", value)
+            window["minimum"] = (int(m.group(1)), int(m.group(2))) if m else None
+        elif item == "title":
+            window["title"] = value or None
+        elif item == "document":
+            m = re.search(r"minimum width\s*(\d+)", value)
+            if m:
+                window["doc_min"] = int(m.group(1))
+        elif item in WINDOW_HEIGHT_ROWS:
+            m = re.fullmatch(r"(\d+)\s*(?:px)?", value)
+            if m:
+                window["heights"][WINDOW_HEIGHT_ROWS[item]] = int(m.group(1))
+    return window
+
+
+def check_window(label, dump, window, report):
+    """R52 to R55: the rendered desktop window against `## Window`, and its probes of the commands and the key tips."""
+    if dump.get("rootScrolls"):
+        report.add(("R52",), "CRITICAL", "document element at " + LABEL,
+                   "the document element scrolls at %s: the window scrolls as a whole" % LABEL,
+                   "Give the window height: 100% with overflow hidden, and let the document area, the panes and the file view scroll inside themselves.", label)
+    regions = {}
+    for r in dump.get("regions") or []:
+        regions.setdefault(r.get("region"), r.get("rect") or {})
+    for region, wanted in window["heights"].items():
+        rect = regions.get(region)
+        if rect is None or (region == "command-area" and not rect.get("h")):
+            continue
+        if abs((rect.get("h") or 0) - wanted) > WINDOW_HEIGHT_TOLERANCE:
+            report.add(("R53", region), "CRITICAL", "region %s at %s" % (region, LABEL),
+                       "the %s is %dpx high at %s; ## Window gives %dpx" % (region, rect.get("h") or 0, LABEL, wanted),
+                       "Set the region to %dpx, the height ## Window gives it." % wanted, label)
+    viewport = dump.get("viewport") or {}
+    size = (viewport.get("width", viewport.get("w")), viewport.get("height", viewport.get("h")))
+    document = regions.get("document")
+    if window["minimum"] and size == window["minimum"] and document is not None and (document.get("w") or 0) < window["doc_min"]:
+        report.add(("R53", "document"), "CRITICAL", "region document at " + LABEL,
+                   "the document area is %dpx wide at the minimum size %dx%d; ## Window gives it a minimum of %dpx"
+                   % (document.get("w") or 0, size[0], size[1], window["doc_min"]),
+                   "Stop the pane's drag, or close the right pane first and then the left, before the document gets narrower than %dpx." % window["doc_min"], label)
+    commands = (dump.get("probes") or {}).get("commands")
+    if not commands:
+        return
+    idle = [k for k in commands.get("keys") or [] if k.get("id") not in (k.get("ran") or [])]
+    if idle:
+        names = ", ".join("%s (%s)" % (k.get("key"), k.get("id")) for k in idle[:KEY_PROBE_CAP]) + (" and more" if len(idle) > KEY_PROBE_CAP else "")
+        report.add(("R54",), "CRITICAL", "the keys at " + LABEL,
+                   "%d key%s did not run the command of its control at %s: %s" % (len(idle), plural(len(idle)), LABEL, names),
+                   "Handle the key in the command table's keydown handler, and dispatch product-ui:command with the command's id when it runs.", label)
+    tips = commands.get("keytips")
+    if tips is None:
+        return
+    if not tips.get("shown"):
+        report.add(("R55", "none"), "CRITICAL", "key tips at " + LABEL,
+                   "Alt showed no element with data-keytip at %s" % LABEL,
+                   "Show the key tips on Alt (or F10), each as an element with data-keytip holding its letters.", label)
+    elif tips.get("tab") and tips.get("tabShown") == 0:
+        report.add(("R55", "tab"), "CRITICAL", "key tips at " + LABEL,
+                   "the key tip %s of a tab showed no key tip of the tab's commands at %s" % (tips["tab"], LABEL),
+                   "Show the key tips of the selected tab's commands, each as an element with data-keytip, when its tab's letter is pressed.", label)
+    elif tips.get("remaining"):
+        report.add(("R55", "left"), "CRITICAL", "key tips at " + LABEL,
+                   "%d key tip%s still showed after %d Esc press%s at %s" % (tips["remaining"], plural(tips["remaining"]), tips.get("escapes") or 0,
+                                                                            "" if tips.get("escapes") == 1 else "es", LABEL),
+                   "Hide the key tips on Esc and return the focus to the document.", label)
 
 
 def check_console(label, lines, report):
@@ -2057,20 +2328,32 @@ def label_of(path, prefix=""):
 def run(dump_paths, console_paths, tokens_path, plan_path=None):
     report = Report()
     job = read_plan_job(plan_path) if plan_path else None
+    jobs = {}
     tokens = load_tokens(tokens_path) if tokens_path else {}
     brand = load_brand_name(tokens_path) if tokens_path else ""
     status_words = load_status_words(tokens_path) if tokens_path else set()
     if plan_path and read_plan_brand_area(plan_path):
         brand = ""
+    routes = read_plan_routes(plan_path) if plan_path else []
+    conv = read_plan_conventions(plan_path) if plan_path else None
+    desktop = "desktop" in ((read_plan_surface(plan_path) if plan_path else ""), load_surface(tokens_path) if tokens_path else "")
+    window = read_plan_window(plan_path) if desktop else None
     for p in dump_paths:
         dump = json.loads(Path(p).read_text(encoding="utf-8"))
-        check_dump(label_of(p), dump, tokens, report, job, brand, status_words)
+        jobs[label_of(p)] = read_plan_job(plan_path, dump.get("url")) if plan_path else None
+        check_dump(label_of(p), dump, tokens, report, jobs[label_of(p)], brand, status_words, routes, window)
+        check_conventions(label_of(p), dump, conv, report)
+        if window is not None:
+            check_window(label_of(p), dump, window, report)
     for p in console_paths:
         lines = Path(p).read_text(encoding="utf-8", errors="replace").splitlines()
         check_console(label_of(p, "console-"), lines, report)
     scope = "; ".join(report.scope)
     scope += ("; tokens: %d colours from %s" % (len(tokens), tokens_path)) if tokens else "; no tokens.json given, R2 skipped, R24 skipped"
-    scope += "; plan job class: %s" % (job or "unknown" if plan_path else "no --plan given")
+    if plan_path and len(set(jobs.values())) > 1:
+        scope += "; plan job class: " + ", ".join("%s %s" % (k, v or "unknown") for k, v in jobs.items())
+    else:
+        scope += "; plan job class: %s" % ((next(iter(jobs.values()), None) or job or "unknown") if plan_path else "no --plan given")
     return {
         "perspective": "P0 Measured",
         "viewport": "both",
@@ -2085,7 +2368,8 @@ def main(argv=None):
     parser.add_argument("dumps", nargs="+", help="DOM dump JSON files from cdp.js; the file stem names the width or theme")
     parser.add_argument("--console", action="append", default=[], help="console text file from cdp.js (repeatable)")
     parser.add_argument("--tokens", help="tokens.json; enables R2, R24 and R48")
-    parser.add_argument("--plan", help="ui-brief.md; its `- Job class:` line settles R15 and its `- Brand area:` line R24")
+    parser.add_argument("--plan", help="ui-brief.md; its `- Job class:` line settles R15, its `- Brand area:` line R24 "
+                                       "and its `## Conventions` section R49 to R51")
     parser.add_argument("--out", required=True, help="findings JSON to write")
     parser.add_argument("--text", action="store_true", help="print a readable list as well")
     args = parser.parse_args(argv)

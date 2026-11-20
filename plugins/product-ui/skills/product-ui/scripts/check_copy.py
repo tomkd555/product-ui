@@ -14,7 +14,7 @@ recommends and a reason may exist.
 Prose-shaped strings get C1 (as a warning), C2, C9, C10, C12 and C15's click here /
 lorem ipsum pattern here, and belong to textlint for the rest. C11 reads buttons,
 labels, errors, placeholders, tooltips and navigation items. --emit-prose writes the Japanese
-ones out one per line for that run. C17 reads the element text inside a navigation
+ones out as one paragraph each, with the command table's labels (command-set.ts) left out, for that run. C17 reads the element text inside a navigation
 block, and runs only where tokens.json sets meta.structure to "ooui"; C18 and C19
 read the same mark. C21 runs only where tokens.json carries a meta.name.
 
@@ -59,7 +59,7 @@ import unicodedata
 from ts_strings import (catalog_entries, component_entries, kind_from_key, line_of,
                         looks_like_copy, script_entries)
 
-MARKUP_EXT = {".html", ".jsx", ".tsx", ".vue", ".svelte", ".astro"}
+MARKUP_EXT = {".html", ".htm", ".jsx", ".tsx", ".vue", ".svelte", ".astro"}
 COMPONENT_EXT = {".jsx", ".tsx", ".vue", ".svelte", ".astro"}
 CATALOG_EXT = {".json", ".ts"}
 SCRIPT_EXT = {".ts", ".js", ".mjs"}
@@ -90,7 +90,7 @@ TAG_KIND = {
     "button": "button", "a": "link", "label": "label",
     "h1": "heading", "h2": "heading", "h3": "heading",
     "h4": "heading", "h5": "heading", "h6": "heading",
-    "th": "label",
+    "th": "label", "dt": "label",
 }
 
 COMPONENT_KIND = {
@@ -103,6 +103,7 @@ COMPONENT_KIND = {
     "TooltipContent": "tooltip",
     "Link": "link", "NavLink": "link",
     "TableHead": "label",
+    "Heading": "heading", "TableHeaderCell": "label",
 }
 
 LABEL_KINDS = {"button", "label", "heading", "error", "tooltip", "placeholder", "link"}
@@ -152,6 +153,8 @@ PROP = re.compile(
     r"|emptyText|helperText)\s*=\s*"
     r"(?:\"(?P<d>[^\"]*)\"|'(?P<s>[^']*)'|\{\s*(?:\"(?P<jd>[^\"]*)\"|'(?P<js>[^']*)')\s*\})")
 PROP_KIND = {"title": "heading", "heading": "heading", "label": "label"}
+# Components whose `label` prop is the button's visible text, as Astryx's Button has it.
+BUTTON_LABEL = {"Button"}
 TOAST = re.compile(r"\btoast(?:\.(?:success|error))?\(\s*(?:\"(?P<d>[^\"]*)\"|'(?P<s>[^']*)'|`(?P<t>[^`$]*)`)")
 
 # C27 reads the text inside these blocks as a testimonial.
@@ -314,8 +317,10 @@ def component_props(body, path):
             seen.add(at)
             if prop.group("name") == "title":
                 titles.add(at)
-            found.append(Str(text, PROP_KIND.get(prop.group("name"), "prose"), path,
-                             line_of(body, at), offset=at))
+            kind = PROP_KIND.get(prop.group("name"), "prose")
+            if prop.group("name") == "label" and tag.group(0)[1:] in BUTTON_LABEL:
+                kind = "button"
+            found.append(Str(text, kind, path, line_of(body, at), offset=at))
     return found, titles
 
 
@@ -481,7 +486,7 @@ def extract_markup(body, path):
             else:
                 kind = "prose"
         hidden, in_button = flags.get(match.start(), (False, False))
-        option = tag.lower() in ("th", "tablehead")
+        option = tag.lower() in ("th", "tablehead", "tableheadercell")
         if kind == "label":
             if in_button:
                 kind = "button"
@@ -649,7 +654,7 @@ C19_JA = re.compile(r"^[一-鿿ぁ-んァ-ヶー]{1,8}管理$")
 C19_EN = re.compile(r"\b\w+ management$", re.IGNORECASE)
 C33_JA = re.compile(r"一覧(画面)?$")
 C33_EN = re.compile(r"\s+list$", re.IGNORECASE)
-C34_HEADER = re.compile(r"<(?P<tag>th|TableHead)\b[^<>]*>\s*(?P<text>状況|状態)\s*</(?P=tag)>")
+C34_HEADER = re.compile(r"<(?P<tag>th|TableHead|TableHeaderCell)\b[^<>]*>\s*(?P<text>状況|状態)\s*</(?P=tag)>")
 C35_JA = re.compile(r"^(該当する)?\S.*はありません。$")
 C35_EN = re.compile(r"^No\s.+(\syet)?\.$|^No\s.+\smatch(es)?\s.+\.$")
 REGISTER_FILE = "label_register.ja.md"
@@ -729,10 +734,14 @@ def check_string(item, voice, structure, rep, name=None, lp=False):
         rep.add("ERROR", "C2", item.path, item.line,
                 f"敬語が過剰: {text!r}. 「確認してください」の形まで下げる")
 
+    # A longer allowed word that holds a term (取引先注文番号 holds 注文) is read as that word.
+    probe = text
+    for word in sorted(allow, key=len, reverse=True):
+        probe = probe.replace(word, " ")
     for term, replacement in (voice.get("terms") or {}).items():
         if term in allow or item.sample:
             continue
-        if term in text:
+        if term in probe:
             rep.add("ERROR", "C10", item.path, item.line,
                     f"用語辞書にない語 {term!r} が {text!r} に出る。この製品では {replacement!r} を使う")
 
@@ -784,7 +793,9 @@ def check_string(item, voice, structure, rep, name=None, lp=False):
         rep.add("ERROR", "C7", item.path, item.line,
                 f"ラベルが文になっている: {text!r}. 項目名だけを書く")
 
-    if item.kind in ("button", "label", "heading") and C8.search(text):
+    # 「店舗はありません。」 under a `title` key is the empty state's sentence (patterns/state.empty.json), which keeps its 句点.
+    if item.kind in ("button", "label", "heading") and C8.search(text) and not (
+            item.kind == "heading" and re.search(r"(?:ありません|ございません|ませんでした)。$", text)):
         rep.add("WARN" if item.kind == "heading" else "ERROR", "C8", item.path, item.line,
                 f"{item.kind} の末尾に句読点: {text!r}")
 
@@ -858,9 +869,10 @@ def check_register(strings, rep):
 
 
 def check_headings(strings, rep):
-    """C20 - the same heading text twice in one file, outside the containers that stay out of sight."""
+    """C20 - the same heading text twice in one file, outside the containers that stay out of sight and
+    the sample-data files, where two records may share a title."""
     first = {}
-    for item in sorted((i for i in strings if i.kind == "heading" and not i.hidden), key=lambda i: i.line):
+    for item in sorted((i for i in strings if i.kind == "heading" and not i.hidden and not i.sample), key=lambda i: i.line):
         key = (item.path, item.text)
         if key not in first:
             first[key] = item.line
@@ -894,7 +906,7 @@ def check_choon(strings, pairs, preferred, rep):
                     f"katakana_choon={preferred!r} なら {pick!r} に揃える")
 
 
-# --- C22 to C28 --------------------------------------------------------------
+# --- C22 to C27 --------------------------------------------------------------
 
 _STOCK = {}
 
@@ -1331,6 +1343,12 @@ def run(roots, tokens_path, brief_path=None):
     return rep, files, strings, tokens_used
 
 
+def sentence_shaped(text):
+    """True for a string that ends in 。, ？, ！, ? or !, or has 20 characters or more."""
+    text = rendered_length_text(text).strip()
+    return text.endswith(("。", "？", "！", "?", "!")) or len(text) >= 20
+
+
 def main():
     parser = argparse.ArgumentParser(description="Check the words in a product-ui interface.")
     parser.add_argument("path", nargs="+", help="files or directories to check")
@@ -1348,13 +1366,18 @@ def main():
     rep, files, strings, tokens_used = run(args.path, args.tokens, args.brief)
 
     # Sentences reach textlint: prose and error messages, with the strings of sample-data files left out.
-    prose = [s for s in strings if s.kind in ("prose", "error") and s.japanese and not s.sample]
+    # The command table's labels (command-set.ts) are words of the brief's `## Command set`, not sentences.
+    # A blank line follows each string, so that a prose linter reads one paragraph for each.
+    # A placeholder of a template literal reads as 〇〇. An error message goes out whatever its shape; a `prose` string
+    # goes out when it ends in 。, ？, ！, ? or !, or runs to 20 characters or more, which leaves the labels out.
+    prose = [s for s in strings if s.kind in ("prose", "error") and s.japanese and not s.sample
+             and os.path.basename(s.path) != "command-set.ts" and (s.kind == "error" or sentence_shaped(s.text))]
     prose_lines = []
     if args.emit_prose:
         with open(args.emit_prose, "w", encoding="utf-8", newline="\n") as handle:
             for number, item in enumerate(prose, start=1):
-                handle.write(rendered_length_text(item.text).replace("\n", " ") + "\n")
-                prose_lines.append({"line": number, "file": item.path,
+                handle.write(rendered_length_text(item.text).replace("\n", " ") + "\n\n")
+                prose_lines.append({"line": 2 * number - 1, "file": item.path,
                                     "key": item.key, "source_line": item.line})
 
     status = "FAIL" if rep.errors else "PASS"

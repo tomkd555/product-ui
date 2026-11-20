@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "name": "Preset using Astryx neutral theme values",
+    "surface": "saas",
+    "reference": "astryx",
+    "logo": null,
+    "provenance": {
+      "color.background": "reference:Astryx neutral --color-background-body (references/astryx.md)",
+      "color.primary": "reference:Astryx neutral --color-accent (references/astryx.md)",
+      "color.accent": "reference:Astryx neutral --color-info (references/astryx.md)",
+      "typography.display": "reference:Astryx neutral ships Figtree",
+      "typography.body": "reference:Astryx neutral ships Figtree"
+    },
+    "users": [
+      { "role": "Operations staff", "frequency": "daily", "expertise": "intermediate",
+        "job": "Find a record, check its state and act on it", "basis": "assumed" }
+    ],
+    "stack": {
+      "renderer": "vite-react",
+      "tailwind": "4",
+      "base": "astryx"
+    },
+    "defaults_applied": [
+      "Astryx theme product extends neutral at typography.scale base 16, ratio 1.1736 — the neutral theme's own touch scale, so supporting text draws at 14px",
+      "color.border is the opaque equivalent of Astryx --color-border (black at 8%, white at 10% in dark) on the surface — the contrast check reads no alpha",
+      "color.muted equals color.background — Astryx neutral paints --color-background-muted and --color-background-body alike",
+      "motion copied from Astryx neutral (fast 125ms, medium 300ms, slow 700ms) — theme.css and Astryx both declare --duration-fast"
+    ]
+  },
+  "color": {
+    "background": "oklch(95.8% 0 0)",
+    "foreground": "oklch(0% 0 0)",
+    "surface": "oklch(100% 0 0)",
+    "primary": "oklch(22.2% 0 0)",
+    "primary_foreground": "oklch(100% 0 0)",
+    "muted": "oklch(95.8% 0 0)",
+    "muted_foreground": "oklch(39.8% 0 0)",
+    "border": "oklch(94% 0 0)",
+    "destructive": "oklch(55.3% 0.189 23)",
+    "accent": "oklch(56.9% 0.189 255)",
+    "success": "oklch(52.6% 0.174 141)",
+    "warning": "oklch(87% 0.167 90)",
+    "info": "oklch(56.9% 0.189 255)"
+  },
+  "color_dark": {
+    "background": "oklch(22.2% 0 0)",
+    "foreground": "oklch(100% 0 0)",
+    "surface": "oklch(26.9% 0 0)",
+    "primary": "oklch(95.8% 0 0)",
+    "primary_foreground": "oklch(17.8% 0 0)",
+    "muted": "oklch(22.2% 0 0)",
+    "muted_foreground": "oklch(69.9% 0 0)",
+    "border": "oklch(35.6% 0 0)",
+    "destructive": "oklch(71.6% 0.178 30)",
+    "accent": "oklch(70.3% 0.153 264)",
+    "success": "oklch(68.3% 0.154 139)",
+    "info": "oklch(70.3% 0.153 264)"
+  },
+  "typography": {
+    "display": {
+      "family": "Figtree",
+      "family_ja": "Noto Sans JP",
+      "source": "Google Fonts (@astryxdesign/theme-neutral/fonts.css)",
+      "weights": [400, 500, 600, 700]
+    },
+    "body": {
+      "family": "Figtree",
+      "family_ja": "Noto Sans JP",
+      "source": "Google Fonts (@astryxdesign/theme-neutral/fonts.css)",
+      "weights": [400, 500, 600, 700]
+    },
+    "scale": {
+      "ratio": 1.1736,
+      "base_px": 16
+    }
+  },
+  "spacing": {
+    "base_px": 4,
+    "steps": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  },
+  "radius": {
+    "sm": "0.375rem",
+    "md": "0.625rem",
+    "lg": "0.75rem",
+    "full": "9999px"
+  },
+  "shadow": {
+    "sm": "0 2px 4px oklch(0% 0 0 / 0.05), 0 4px 8px oklch(0% 0 0 / 0.1)",
+    "md": "0 2px 4px oklch(0% 0 0 / 0.05), 0 4px 12px oklch(0% 0 0 / 0.1)",
+    "lg": "0 4px 6px oklch(0% 0 0 / 0.1), 0 12px 24px oklch(0% 0 0 / 0.15)"
+  },
+  "motion": {
+    "duration": {
+      "fast": "125ms",
+      "base": "300ms",
+      "slow": "700ms"
+    },
+    "easing": {
+      "standard": "cubic-bezier(0.24, 1, 0.4, 1)"
+    }
+  },
+  "voice": {
+    "lang": "ja",
+    "register": "敬体",
+    "button_form": "終止形。サ変は「する」を省く",
+    "katakana_choon": "jtf",
+    "case": null,
+    "terms": {
+      "サインイン": "ログイン",
+      "消去": "削除"
+    },
+    "allow": []
+  }
+}

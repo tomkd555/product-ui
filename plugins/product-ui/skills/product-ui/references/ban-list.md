@@ -132,7 +132,7 @@ An **error** means a pattern settles it mechanically: the string describes the i
 
 ### Scope
 
-The script takes one or more paths, each a file or a directory (`check_shippable_text.py src index.html`). It exits 2 when no path holds a file in scope. `tokens.json` and the theme stylesheet are looked up from the first path.
+The script takes one or more paths, each a file or a directory (`check_shippable_text.py src index.html`). It exits 2 when a directory it was given holds no file in scope; a file given by its path is read whatever its suffix. `tokens.json` and the theme stylesheet are looked up from the first path.
 
 Files matching `.html`, `.htm`, `.jsx`, `.tsx`, `.vue`, `.svelte`, `.astro`; `.css` and `.scss` for ST10 only, read as plain CSS.
 
@@ -140,7 +140,7 @@ ST1 to ST6, ST8 and ST9 also read the string literals of `.ts`, `.js` and `.mjs`
 
 The PostToolUse hook (`hooks/ui_text_lint.py`) keeps its markup and stylesheet extensions. It runs in every project after every write, and the strings of a data file are judged at Step 4.
 
-Excluded: `node_modules/`, `dist/`, `build/`, `.next/`, `out/`, `.svelte-kit/`, `.git/`, `coverage/`, `fixtures/`, `*.min.*`, `*.test.*`, `*.spec.*`.
+Excluded: `node_modules/`, `vendor/`, `dist/`, `build/`, `.next/`, `out/`, `.svelte-kit/`, `.git/`, `coverage/`, `fixtures/`, `*.min.*`, `*.test.*`, `*.spec.*`.
 
 Inside a file, these are out of scope:
 
@@ -155,8 +155,8 @@ Two kinds of string are read: text between tags, and the value of a text-carryin
 
 ST3 asks whether the file sits on a promotional surface. In order of precedence:
 
-1. `--surface lp|saas` on the command line.
-2. `meta.surface` in the nearest `tokens.json`, looked for in the first path's directory (a file's own directory) and then up to three directories above it. `lp` means a landing page and `saas` an application, the two values `validate_tokens.py` accepts; the auditor agent takes the same two values.
+1. `--surface lp|saas|desktop` on the command line.
+2. `meta.surface` in the nearest `tokens.json`, looked for in the first path's directory (a file's own directory) and then up to three directories above it. `lp` means a landing page, `saas` an application and `desktop` an application in its own window, the three values `validate_tokens.py` accepts; the auditor agent takes the same three values. ST3 treats `desktop` as it treats `saas`.
 3. The path, the weakest signal: a segment named `marketing`, `landing` or `lp`, or a file name containing `landing` or `hero`.
 
 ### ST1: the screen describing itself (error)

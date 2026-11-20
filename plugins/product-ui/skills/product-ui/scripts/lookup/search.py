@@ -11,7 +11,7 @@ Domains: product, style, typography, color, landing, chart, ux, web, icons
 Stacks: react, nextjs, vue, svelte, astro, swiftui, react-native, flutter, nuxtjs, nuxt-ui, html-tailwind, shadcn, jetpack-compose, threejs, angular, laravel, javafx, wpf, winui, avalonia, uno, uwp
 
 Surface and language (design system):
-  --surface    saas (default) leaves out the landing-page pattern, style and key effects; lp keeps them
+  --surface    saas (default) and desktop leave out the landing-page pattern, style and key effects; lp keeps them
   --lang       "ja" limits the font pairing to rows with a Japanese family; also filters --domain typography
 
 Persistence (Master + Overrides pattern):
@@ -74,7 +74,7 @@ if __name__ == "__main__":
     parser.add_argument("--design-system", "-ds", action="store_true", help="Generate complete design system recommendation")
     parser.add_argument("--project-name", "-p", type=str, default=None, help="Project name for design system output")
     parser.add_argument("--format", "-f", choices=["ascii", "markdown"], default="ascii", help="Output format for design system")
-    parser.add_argument("--surface", choices=["saas", "lp"], default="saas", help="Design system surface: saas (application screen, default) or lp (landing page)")
+    parser.add_argument("--surface", choices=["saas", "lp", "desktop"], default="saas", help="Design system surface: saas (application screen, default), lp (landing page) or desktop (an application in its own window, which takes the saas data)")
     parser.add_argument("--lang", type=str, default=None, help="Interface language, e.g. ja: limits font pairings to rows with a Japanese family")
     # Persistence (Master + Overrides pattern)
     parser.add_argument("--persist", action="store_true", help="Save design system to design-system/<project-slug>/MASTER.md (creates hierarchical structure)")

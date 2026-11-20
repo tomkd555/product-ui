@@ -89,18 +89,19 @@ Everything else:
 - **`scale.ratio` is an approximation.** SmartHR's font sizes come from `6 / (6 + d)`: 0.667, 0.75, 0.857, 1, 1.2, 1.5 and 2rem, a harmonic series whose neighbouring ratios differ (1.2, 1.25, 1.333 above the base). `1.2` is the closest single geometric ratio; the `Text` component's `size` prop sets the real sizes.
 - **Spacing is char-relative**: one unit is one character at the 16px base. The published tokens run 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3, 3.5, 4 and 8 characters, which in multiples of 4px is the `steps` array above.
 
-Four entries belong in `meta.defaults_applied` on this route:
+These entries belong in `meta.defaults_applied` on this route:
 
 - `"color_dark omitted — SmartHR publishes no dark theme"`
 - `"motion left at the product-ui default — SmartHR publishes no motion tokens"`
-- `"T5 warning accepted — system-ui is the font family smarthr-ui ships"`
+- `"T22 warning accepted — no family_ja; smarthr-ui ships system-ui and the route reproduces it, so Japanese glyphs come from the OS face"`
+- `"T21 warning accepted — SmartHR's warm neutrals (HEAD, TEXT_GREY, BORDER) are the library's own values and carry their own hue"`
 - `"T10 warning accepted — SmartHR LAYER1/2/3 all use alpha 0.3, and only the offset and blur differ"`
 
 `assets/tokens_example.smarthr.json` is this mapping written out in full.
 
 ## The font is a deliberate decision
 
-`system-ui` is copied from the reference: `smarthr-ui` ships `font-family: system-ui, sans-serif` in its base layer, and the OS renders each language in its own UI font. T5 and S2 both treat `system-ui` as the mark of a font nobody chose. T5 drops to a warning because `meta.reference` is set (`references/tokens-format.md`). S2 reads the built output alone, so keep the family out of the markup and let `smarthr-ui.css` set the body font. The family is recorded in `tokens.json` only; the `theme.css` below leaves it out.
+`system-ui` is copied from the reference: `smarthr-ui` ships `font-family: system-ui, sans-serif` in its base layer, and the OS renders each language in its own UI font. T5 and S2 pass `system-ui` (`references/tokens-format.md`). T22 warns, because the type slots name no `family_ja`, and the entry above accepts it: the OS draws the Japanese glyphs in its own UI face. Keep the family out of the markup and let `smarthr-ui.css` set the body font. The family is recorded in `tokens.json` only; the `theme.css` below leaves it out.
 
 ## Wording
 
@@ -108,7 +109,7 @@ The `voice` block and `references/ui-copy.md` apply as written; the project sett
 
 ## theme.css
 
-The standard template quotes the family (`"system-ui", ui-serif, serif` for `h1`–`h3`) and a quoted `"system-ui"` is read as a font name, so headings would fall through to a serif. Generate from a project copy of the template through `--template`:
+The standard template quotes the family (`"system-ui", ui-sans-serif, sans-serif` for `h1`–`h3`) and a quoted `"system-ui"` is read as the name of an installed font, so the fallback face would render in place of the OS UI font. Generate from a project copy of the template through `--template`:
 
 1. Copy `assets/theme.template.css` beside `tokens.json` as `theme.template.css`.
 2. In the copy, delete the `--font-display` and `--font-body` lines from the `@theme inline` block, and the two `font-family` declarations from the base layer.

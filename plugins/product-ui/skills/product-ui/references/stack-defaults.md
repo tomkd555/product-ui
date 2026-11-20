@@ -13,7 +13,7 @@ This file is the source of record for what this skill builds with when the reque
 
 ## Permitted pairings
 
-`validate_tokens.py` check T8 enforces this table.
+`validate_tokens.py` check T8 enforces this table. On the Astryx route it also requires `saas` on `vite-react` (`references/astryx.md`).
 
 | `meta.surface` | `stack.renderer` | Note |
 |---|---|---|
@@ -23,6 +23,8 @@ This file is the source of record for what this skill builds with when the reque
 | `lp` | `next-react` | when the landing page lives inside an existing Next.js app |
 | `lp` | `html` | a single self-contained file, no build step. `stack.base` is `null`, and `stack.tailwind` may be `null`. The page links `theme.css`, or inlines it in a `<style>` element; `generate_theme.py` writes plain CSS for this renderer, and the page reads its variables with `var(--color-primary)`. Tailwind utilities (`bg-primary`) have no stylesheet behind them here |
 | `saas` | `server-templates` | **tolerated with a warning.** An existing application that renders its screens from server templates (Flask, Django, Rails, htmx) with no bundler. `stack.base` is `null`. T8 raises a warning for it, and `defaults_applied` records that dialogs and menus have no component base, so focus management and keyboard behaviour follow the APG dialog pattern linked below, written by hand |
+| `desktop` | `electron-vite` | an application in its own window: Electron, built with electron-vite, its renderer in React with shadcn/ui on Tailwind v4 (`references/desktop.md`). `scaffold.py` writes the renderer's skeletons as on `vite-react`, and `kit.py` copies the window's parts into `src/main`, `src/preload` and `src/renderer/src` |
+| `lp` | `vite-react` | **tolerated with a warning.** A landing page added to an existing Vite and React project, which keeps its stack. T8 raises a warning for it, and `defaults_applied` records the stack as the project's own |
 
 `saas` with `html` is rejected: a single HTML file has no component base, so every dialog would rewrite focus management and keyboard behaviour by hand. `server-templates` admits the same gap only for an existing project that cannot be moved.
 
@@ -79,7 +81,7 @@ shadcn/ui defaults new projects to Base UI ([changelog, July 2026](https://ui.sh
 
 Pick a different base with `shadcn init -b radix` or `-b aria` ([CLI reference](https://ui.shadcn.com/docs/cli)), and record the choice in `tokens.json` under `stack.base`.
 
-`stack.base` takes a fourth value, `smarthr-ui`: a component library carrying its own styling, which replaces both layers at once. `references/smarthr.md` holds that route.
+`stack.base` takes two more values, `smarthr-ui` and `astryx`: component libraries carrying their own styling, which replace the component layer and sit beside the token layer. `references/smarthr.md` and `references/astryx.md` hold those routes.
 
 ### The "every shadcn app looks the same" objection
 

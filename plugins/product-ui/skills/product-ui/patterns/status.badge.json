@@ -48,7 +48,8 @@
     "shadcn": "Badge",
     "html": "span",
     "dads": "StatusBadge",
-    "smarthr": "StatusLabel"
+    "smarthr": "StatusLabel",
+    "astryx": "Badge"
   },
   "evidence": [
     {

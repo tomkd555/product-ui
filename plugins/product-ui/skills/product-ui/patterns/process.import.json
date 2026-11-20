@@ -1,0 +1,194 @@
+{
+  "id": "process.import",
+  "version": 1,
+  "kind": "import",
+  "summary": "The import of records from a file: the file and how it is read, the mapping of its columns to the fields, what happens to a record that already exists, and the result.",
+  "not_for": "The entry of one record by hand (master.form, entry.slip), or an upload that keeps the file as an attachment.",
+  "slots": [
+    {
+      "id": "heading",
+      "takes": "label",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "step",
+      "takes": "label",
+      "required": false,
+      "max": 6,
+      "order": "any",
+      "when": "The import spans screens: the steps as an indicator."
+    },
+    {
+      "id": "file",
+      "takes": "control",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "setting",
+      "takes": "control",
+      "required": false,
+      "max": 4,
+      "when": "The first row as column names, the row where the data starts, the character code, the delimiter."
+    },
+    {
+      "id": "preview",
+      "takes": "section",
+      "required": false,
+      "max": 1
+    },
+    {
+      "id": "key",
+      "takes": "identifier",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "mapping",
+      "takes": "property",
+      "required": true,
+      "min": 1,
+      "max": null
+    },
+    {
+      "id": "existing",
+      "takes": "control",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "on-error",
+      "takes": "control",
+      "required": false,
+      "max": 1,
+      "when": "The reader chooses whether a row in error is skipped or stops the import."
+    },
+    {
+      "id": "run",
+      "takes": "action",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "result",
+      "takes": "text",
+      "required": false,
+      "max": 1,
+      "order": "any",
+      "when": "After the run: the rows read, added, updated and in error."
+    },
+    {
+      "id": "error",
+      "takes": "text",
+      "required": false,
+      "max": null,
+      "order": "any",
+      "when": "After the run: one entry per row in error."
+    }
+  ],
+  "rules": [
+    {
+      "rule": "The import goes in a fixed order: the file, how it is read, the mapping, the handling of existing records, the run, the result.",
+      "from": [
+        "yayoi-hanbai-import",
+        "kintone-import",
+        "d365-import"
+      ]
+    },
+    {
+      "rule": "The screen asks how the file is read (the row where the data starts or whether the first row names the columns, the character code, the delimiter).",
+      "from": [
+        "yayoi-hanbai-import",
+        "kintone-import",
+        "d365-import"
+      ]
+    },
+    {
+      "rule": "Each column of the file is mapped to a field of the object, and a column that matches a field by name is mapped for the reader.",
+      "from": [
+        "yayoi-hanbai-import",
+        "kintone-import",
+        "d365-import"
+      ]
+    },
+    {
+      "rule": "One field is the key. The reader chooses what happens to a record whose key is already stored: left as it is, or updated.",
+      "from": [
+        "yayoi-hanbai-import",
+        "kintone-import",
+        "freee-kintai-import",
+        "d365-import"
+      ]
+    },
+    {
+      "rule": "The reader sees what will be imported before it is: a preview of the rows, or a confirmation screen.",
+      "from": [
+        "kintone-import",
+        "freee-kintai-import"
+      ]
+    },
+    {
+      "rule": "After the run the screen gives the number of rows in error and, for each, the field and the reason.",
+      "from": [
+        "kintone-import",
+        "bc-config-package"
+      ]
+    },
+    {
+      "rule": "Whether a row in error stops the import or is skipped is stated before the run.",
+      "from": [
+        "kintone-import",
+        "yayoi-hanbai-import"
+      ]
+    }
+  ],
+  "labels": {
+    "heading": "section",
+    "file_column": "ファイルの列",
+    "field": "{object}の項目"
+  },
+  "uses": [
+    "feedback.message"
+  ],
+  "maps_to": {
+    "shadcn": "form with a Table of the mapping",
+    "html": "form with a table",
+    "dads": null,
+    "smarthr": null,
+    "astryx": null
+  },
+  "evidence": [
+    {
+      "id": "yayoi-hanbai-import",
+      "source": "弥生販売 サポート情報, 台帳や伝票のデータをインポート（取り込み）したい",
+      "url": "https://support.yayoi-kk.co.jp/faq_Subcontents.html?page_id=20348",
+      "says": "The import asks the row where the data starts, then maps the file's columns to item names. For a code that already exists it offers to overwrite that record, to leave it, to overwrite all or to leave all; a slip whose number exists stops the import with a message."
+    },
+    {
+      "id": "kintone-import",
+      "source": "kintone ヘルプ, ファイルからレコードのデータをアプリに読み込む",
+      "url": "https://jp.cybozu.help/k/ja/user/using_app/import_records/import_csv.html",
+      "says": "The import takes a file, whether its first row holds the column names, the character code and the delimiter, and shows a preview. Columns map to fields by name. The user chooses to add records only or to update and add by a key field, and whether a row in error is skipped or stops the import. Afterwards a message on the list leads to a screen with the progress and the errors."
+    },
+    {
+      "id": "freee-kintai-import",
+      "source": "freee ヘルプセンター, 【インポート】従業員データの一括登録方法",
+      "url": "https://support.freee.co.jp/hc/ja/articles/4412799761945--%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88-%E5%BE%93%E6%A5%AD%E5%93%A1%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B2%E6%96%B9%E6%B3%95-%E5%BE%93%E6%A5%AD%E5%93%A1%E3%83%87%E3%83%BC%E3%82%BF-CSV",
+      "says": "The import follows a template file; after the upload a confirmation screen shows the data, and the import starts on 登録. The employee code is the key: a new code adds a record and an existing one updates it."
+    },
+    {
+      "id": "bc-config-package",
+      "source": "Microsoft Learn, Business Central, Apply Company Configuration Packages",
+      "url": "https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/apply-company-configuration-packages",
+      "says": "After an import the number of errors is shown, and each record in error carries the reason and the field it concerns."
+    },
+    {
+      "id": "d365-import",
+      "source": "Microsoft Learn, Dynamics 365 Customer Insights - Journeys, Import data",
+      "url": "https://learn.microsoft.com/en-us/dynamics365/customer-insights/journeys/import-data",
+      "says": "The import runs in steps: the file, the delimiter, a page that reviews the mapping and marks each unmatched column, then the import itself; with a key chosen, a record with the same key is updated and the others are created."
+    }
+  ],
+  "evidence_status": "documented"
+}

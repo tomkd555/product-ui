@@ -50,7 +50,7 @@
       "takes": "property",
       "required": true,
       "min": 1,
-      "max": null,
+      "max": 8,
       "column": "any",
       "align_numbers": "end"
     },
@@ -115,9 +115,15 @@
       ]
     },
     {
-      "rule": "The status column is headed ステータス, or 〇〇状況 when there are several; never 状況 or 状態 alone.",
+      "rule": "The status column is headed ステータス, or 〇〇状況 where there are several or the property carries that name (達成状況); never 状況 or 状態 alone.",
       "from": [
         "smarthr-table"
+      ]
+    },
+    {
+      "rule": "The table shows the first eight key properties at most, beside the name and the status; the record's single view shows every property.",
+      "from": [
+        "business-collections"
       ]
     }
   ],
@@ -135,7 +141,8 @@
     "shadcn": "Table",
     "html": "table",
     "dads": "Table",
-    "smarthr": "Table"
+    "smarthr": "Table",
+    "astryx": "Table"
   },
   "evidence": [
     {
@@ -167,6 +174,12 @@
       "source": "Nielsen Norman Group, Data Tables",
       "url": "https://www.nngroup.com/articles/data-tables/",
       "says": "The first column is a human-readable record identifier; related columns sit next to each other."
+    },
+    {
+      "id": "business-collections",
+      "source": "Collection pages of business tools (references/real-screens.md, Table and list screens)",
+      "url": "https://www.redmine.org/projects/redmine/issues",
+      "says": "Tables hold 5 columns at the median and 5 to 10 across the captured screens."
     }
   ],
   "evidence_status": "documented"

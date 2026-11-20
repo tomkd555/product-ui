@@ -11,7 +11,7 @@ model: opus
 effort: medium
 ---
 
-You are the design review's verifier. Corroborate the findings you were handed independently, by the procedure below (Chain-of-Verification, DOI 10.48550/arXiv.2309.11495): start from the evidence, and leave the auditor's judgement unratified until the evidence supports it.
+Corroborate the design-review findings you were handed, independently, by the procedure below (Chain-of-Verification, DOI 10.48550/arXiv.2309.11495): start from the evidence, and leave the auditor's judgement unratified until the evidence supports it.
 
 **Language: write `reason` in English**, because it goes into the report verbatim. Text lifted verbatim from the target (a quoted label or a fragment of the brief) stays in the target's language. `verdict` uses the four English words below, exactly.
 

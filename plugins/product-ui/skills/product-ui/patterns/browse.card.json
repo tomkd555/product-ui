@@ -25,11 +25,19 @@
       "max": 1
     },
     {
+      "id": "price",
+      "takes": "price",
+      "required": false,
+      "max": 1,
+      "when": "A plan on a pricing section: its price with the unit, which may be larger than the plan's name."
+    },
+    {
       "id": "content",
       "takes": "property",
-      "required": true,
-      "min": 1,
-      "max": 3
+      "required": false,
+      "min": 0,
+      "max": 3,
+      "when": "One to three properties of the object. A plan card that holds a price may leave them out where the request gives no plan contents."
     },
     {
       "id": "sub",
@@ -70,6 +78,12 @@
       "from": [
         "product-ui"
       ]
+    },
+    {
+      "rule": "On a plan card the price numeral may outweigh the plan's name.",
+      "from": [
+        "pricing-pages"
+      ]
     }
   ],
   "labels": {
@@ -82,7 +96,8 @@
     "shadcn": "Card",
     "html": "article",
     "dads": "Card",
-    "smarthr": "Base"
+    "smarthr": "Base",
+    "astryx": "Card (ClickableCard when the card is a link as a whole)"
   },
   "evidence": [
     {
@@ -108,6 +123,12 @@
       "source": "IBM Carbon, Tile usage",
       "url": "https://carbondesignsystem.com/components/tile/usage/",
       "says": "A clickable tile has a single action and no other interactive elements."
+    },
+    {
+      "id": "pricing-pages",
+      "source": "Captured pricing pages (references/real-screens.md, Pricing page, Values)",
+      "url": "https://stripe.com/pricing",
+      "says": "The price numeral is 29px at the median and larger than the plan name on 13 of 22 pages."
     }
   ],
   "evidence_status": "documented"

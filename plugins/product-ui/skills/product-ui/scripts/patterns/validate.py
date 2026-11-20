@@ -23,9 +23,12 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "profiles"))
+import conventions  # noqa: E402
 import library  # noqa: E402
 
 ID = re.compile(r"^[a-z]+(\.[a-z0-9-]+)+$")
+CONVENTION_REF = re.compile(r"^(?P<item>[a-z_.]+)(\[\d+\])?$")
 
 
 class Report:
@@ -79,6 +82,15 @@ def check_pattern(name, doc, rep):
             rep.error("PV3", where, "`min` is a whole number from 0 to `max`")
         if slot.get("required") and lo == 0:
             rep.error("PV3", where, "a required slot cannot take `min: 0`")
+        if "of" in slot and (slot["of"] not in library.OF_KEYS or slot.get("takes") not in library.OBJECT_TAKES):
+            rep.error("PV3", where, f"`of` is one of {', '.join(library.OF_KEYS)}, on a slot that takes from an object")
+        if "from_key" in slot and (slot["from_key"] not in library.FROM_KEYS or slot.get("takes") in library.OBJECT_TAKES):
+            rep.error("PV3", where, f"`from_key` is one of {', '.join(library.FROM_KEYS)}, on a slot written on the screen")
+        if "from_convention" in slot:
+            ref = CONVENTION_REF.match(str(slot["from_convention"]))
+            if not ref or ref.group("item") not in conventions.ITEMS or slot.get("takes") in library.OBJECT_TAKES:
+                rep.error("PV3", where, "`from_convention` names an item of references/profiles.md "
+                          "(`keys.function`, `confirm.buttons[0]`), on a slot written on the screen")
     if not doc.get("slots"):
         rep.error("PV3", name, "a pattern has at least one slot")
     elif not any(s.get("required") for s in doc["slots"] if isinstance(s, dict)):
@@ -138,6 +150,19 @@ def check_index(index, patterns, rep):
             rep.error("PV6", where, f"pattern `{pid}` has no file")
         else:
             reached.add(pid)
+    for i, row in enumerate(index.get("attach") or []):
+        where = f"{library.INDEX_FILE} attach[{i}]"
+        if not isinstance(row.get("content"), list) or not row["content"] or not set(row["content"]) <= set(library.CONTENT):
+            rep.error("PV6", where, f"content is a list drawn from {', '.join(library.CONTENT)}")
+        if "key" in row and row["key"] not in library.FROM_KEYS:
+            rep.error("PV6", where, f"key is one of {', '.join(library.FROM_KEYS)}")
+        for item, values in (row.get("when") or {}).items():
+            if item not in conventions.ITEMS or not isinstance(values, list) or not values:
+                rep.error("PV6", where, f"`when` maps an item of references/profiles.md to a list of values, found `{item}`")
+        if row.get("pattern") not in patterns:
+            rep.error("PV6", where, f"pattern `{row.get('pattern')}` has no file")
+        else:
+            reached.add(row["pattern"])
     for content, job, compare in itertools.product(library.CONTENT, library.JOBS, (True, False)):
         hits = [r for r in rows if library.row_matches(r, content, job, compare)]
         case = f"content {content}, job {job}, compare {'yes' if compare else 'no'}"

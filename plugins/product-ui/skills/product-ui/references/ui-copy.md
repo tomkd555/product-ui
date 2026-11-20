@@ -1,6 +1,6 @@
 # UI copy
 
-Source of record for checks C1 through C32, implemented by `scripts/check_copy.py`; change this file first when a check or a threshold changes. Read the rules at Step 3 before writing any string a user will see, and again when a check fails.
+Source of record for checks C1 through C36, implemented by `scripts/check_copy.py`; change this file first when a check or a threshold changes. Read the rules at Step 3 before writing any string a user will see, and again when a check fails.
 
 ## What is actually being judged
 
@@ -29,7 +29,7 @@ The button and label forms, the operation vocabulary, the punctuation and the er
 
 `scripts/check_copy.py` reads:
 
-- Markup: `.html`, `.jsx`, `.tsx`, `.vue`, `.svelte`, `.astro`. The document `<head>`, `<title>`, `<script>`, `<style>`, `<noscript>` and `<template>` (a `.vue` file's own `<template>` is its markup) are blanked before extraction, as `check_shippable_text.py` blanks them. A heading's text is its whole text content, inline children included, so `<h2><span>表示</span><span>設定</span></h2>` is one heading. An attribute name matches as a whole attribute: `data-alt=` and `data-title=` are not `alt=` and `title=`
+- Markup: `.html`, `.htm`, `.jsx`, `.tsx`, `.vue`, `.svelte`, `.astro`. The document `<head>`, `<title>`, `<script>`, `<style>`, `<noscript>` and `<template>` (a `.vue` file's own `<template>` is its markup) are blanked before extraction, as `check_shippable_text.py` blanks them. A heading's text is its whole text content, inline children included, so `<h2><span>表示</span><span>設定</span></h2>` is one heading. An attribute name matches as a whole attribute: `data-alt=` and `data-title=` are not `alt=` and `title=`
 - Component script: the string literals of a `.tsx` or `.jsx` file, and of the `<script>` blocks of a `.vue`, `.svelte` or `.astro` file, are read through `scripts/ts_strings.py`, so a validation message returned from a function, an array of option labels and a ternary are judged. A literal takes the kind of its key or variable name (`nameError: "…"`, `const title = "…"`) where one of the key rules below applies, and is `prose` otherwise. A literal with Japanese characters is read; one without is read when it has a key, or when it has a space and starts with a capital or ends in `.`, `!` or `?`, so an identifier, a class list and a route stay out. A literal in the value position of a markup attribute (`name="…"`) belongs to the markup rules, and a literal the markup rules already read on the same line is read once
 - Markup props: the `title`, `heading`, `subtitle`, `description`, `label`, `text`, `message`, `caption`, `emptyText` and `helperText` attributes of a capitalised component (`title` and `heading` read as a heading, `label` as a label, the rest as prose), and the first string argument of `toast(`, `toast.success(` and `toast.error(` (prose)
 - Message catalogs: `.json` and `.ts` files under a directory named `locales`, `locale`, `i18n`, `messages` or `lang`
@@ -37,7 +37,7 @@ The button and label forms, the operation vocabulary, the punctuation and the er
 
 `scripts/ts_strings.py` holds this extraction for script and catalog files, and `check_shippable_text.py` reads them through it as well.
 
-Excluded: `node_modules/`, `dist/`, `build/`, `.next/`, `.git/`, `.svelte-kit/`, `coverage/`, `*.test.*`, `*.spec.*`, `*.min.*`, and any path segment named `legal`, `terms`, `privacy` or `policy` (the carve-out).
+Excluded: `node_modules/`, `vendor/`, `dist/`, `build/`, `.next/`, `.git/`, `.svelte-kit/`, `coverage/`, `*.test.*`, `*.spec.*`, `*.min.*`, and any path segment named `legal`, `terms`, `privacy` or `policy` (the carve-out).
 
 Sample data: a script or catalog file (`.ts`, `.js`, `.mjs`, `.json`) with a directory segment, relative to the scanned root, or a file stem named `mock`, `mocks`, `sample`, `samples`, `fixture`, `fixtures`, `seed` or `data` holds sample data, and C10 skips it: a realistic issue title may contain 「フィルター」.
 
@@ -47,11 +47,11 @@ A rule that fits a button ruins a paragraph, so each string is sorted into one o
 
 | Kind | Recognised by |
 |---|---|
-| `button` | `<button>`, `<Button>`, `<AlertDialogAction>`, `<AlertDialogCancel>`, `<MenuItem>`, `<DropdownMenuItem>`, `role="button"`, a `<label>` inside a `<button>`, a catalog key segment `button` / `btn` / `action` / `cta` |
-| `label` | `<label>`, `<Label>`, `<FormLabel>`, `<th>`, `<TableHead>`, a key segment `label` / `field` |
+| `button` | `<button>`, `<Button>`, the `label` prop of `<Button>` (Astryx), `<AlertDialogAction>`, `<AlertDialogCancel>`, `<MenuItem>`, `<DropdownMenuItem>`, `role="button"`, a `<label>` inside a `<button>`, a catalog key segment `button` / `btn` / `action` / `cta` |
+| `label` | `<label>`, `<Label>`, `<FormLabel>`, `<th>`, `<TableHead>`, `<TableHeaderCell>` (Astryx), a key segment `label` / `field` |
 | `aria` | `aria-label=`: an accessible name, checked by the rules that run on every kind |
 | `alt` | `alt=`: an image description, checked by the rules that run on every kind |
-| `heading` | `<h1>`–`<h6>`, `<CardTitle>`, `<DialogTitle>`, `<AlertDialogTitle>`, `<SheetTitle>`, `<DrawerTitle>`, a key segment `title` / `heading` |
+| `heading` | `<h1>`–`<h6>`, `<CardTitle>`, `<DialogTitle>`, `<AlertDialogTitle>`, `<SheetTitle>`, `<DrawerTitle>`, `<Heading>` (Astryx), a key segment `title` / `heading` |
 | `link` | `<a>`, `<Link>`, `<NavLink>`, a key segment `link` |
 | `error` | `<FormMessage>`, `<AlertTitle>`, `role="alert"`, a key segment `error` / `err` / `invalid` / `failed` |
 | `tooltip` | `title=` on an element, `<TooltipContent>`, a key segment `tooltip` / `hint` |
@@ -60,7 +60,7 @@ A rule that fits a button ruins a paragraph, so each string is sorted into one o
 
 A catalog key is split on `.`, `_`, `-` and `/`, and the first segment equal to one of the words above decides the kind; where no segment is equal to one, a key containing one of the words decides it. Both passes try the words in this order: `error`, `err`, `invalid`, `failed`, `button`, `btn`, `action`, `cta`, `label`, `field`, `title`, `heading`, `tooltip`, `hint`, `placeholder`, `link`.
 
-`prose` runs C1 (as a warning), C2, C9, C10, C12, C15's `click here` / `lorem ipsum` pattern, C22, C23 (a Japanese stock word where the file holds two), C24, C25 and C27. textlint takes the remaining checks of Japanese prose; `--emit-prose` writes the Japanese `prose` and `error` strings out for it, with each `${…}` of a template literal as 〇〇 and the strings of sample-data files left out. English prose gets no further check: the English rules below apply while writing and at the Step 5 review.
+`prose` runs C1 (as a warning), C2, C9, C10, C12, C15's `click here` / `lorem ipsum` pattern, C22, C23 (a Japanese stock word where the file holds two), C24, C25 and C27. textlint takes the remaining checks of Japanese prose; `--emit-prose` writes the Japanese `prose` and `error` strings out for it, one paragraph each (a blank line follows each string) and without the command table's labels (`command-set.ts`), with the strings of sample-data files left out; a placeholder `${...}` of a template literal reads as 〇〇; every `error` string goes out, and a `prose` string goes out when it is of sentence shape, one that ends in 。, ？, ！, ? or ! or runs to 20 characters or more, so the labels stay out. English prose gets no further check: the English rules below apply while writing and at the Step 5 review.
 
 C11, C17 and C19 read a navigation mark:
 
@@ -76,12 +76,13 @@ C15 judges the accessible name of a `button`, `link` or `heading`: the `aria-lab
 
 ## The carve-out
 
-Do not rewrite, and do not report against, four kinds of string:
+Do not rewrite, and do not report against, five kinds of string:
 
 - Legal, regulated and consent copy: 利用規約, プライバシーポリシー, 特定商取引法に基づく表記, 金融商品の説明
 - A verbatim quotation or a phrase a statute fixes
 - An established product term, even a clumsy one, and a proper noun
 - A term the business defines, where a translation would hide which word the specification names
+- On `desktop`, the condition in the tooltip of a disabled ribbon, quick access or file view command (「文書内で範囲を選択していると実行できます」), which `references/desktop.md` requires
 
 Flag a concern about one of these and leave the decision to the user: an automated copy pass that edits a consent screen causes a larger problem than the one it fixes.
 
@@ -100,7 +101,7 @@ Real Japanese screens use the bare noun (「検索」「保存」) on 36 of 63 s
 
 A destructive action takes the same plain form: 「削除」, as SmartHR writes the execute button (research E79 (ui-defaults)). C4 reports 「削除する」 like any other サ変 + する label.
 
-A confirmation dialog repeats the verb of the action that opened it: 「削除」 opens a dialog whose primary action is 「削除」. Its title is 「{対象}の削除」 (research E79 (ui-defaults)), as in 「report.pdf の削除」, so the reader confirms the right file. A permanent deletion gets one sentence: 「削除したファイルは復元できません」.
+A confirmation dialog repeats the verb of the action that opened it: 「削除」 opens a dialog whose primary action is 「削除」. Its title is 「{対象}の削除」 (research E79 (ui-defaults)), as in 「report.pdf の削除」, so the reader confirms the right file. A permanent deletion gets one sentence: 「削除したファイルは復元できません」. Under a profile that gives a sentence for the question (`confirm.sentence`), the dialog's body opens with it (「登録します。よろしいですか？」, 「削除します。よろしいですか？」) and the title keeps its form (「受注伝票の登録」).
 
 ### Status labels
 
@@ -177,6 +178,8 @@ A label rejected in review goes into the project's `label-register.md` beside `t
 One word per operation, across the whole product. Step 1 settles the words in `voice.terms`: each key is a word the product stops using, its value the word the product uses. Read the words on the existing screens, then settle one entry for every operation where two words compete.
 
 C10 reports the keys, so a project whose business itself says 「サインイン」 leaves it out of `voice.terms`.
+
+Under a profile (`meta.profile` of `tokens.json`, `references/profiles.md`) the words of eight operations come from the product family: creating, saving, deleting, starting a new record, looking up, searching, clearing and cancelling. SmartHR names the creating operation 追加 where 弥生販売, 奉行Jシリーズ and intra-mart name it 登録, and a screen proposed to readers of one of them keeps their word. The brief's Conventions section lists the words (`words.save 登録`), the skeletons print them on the controls marked `data-action`, and Step 1 writes into `voice.terms` an entry for each word that differs from this skill's own and does not contain it (`{"保存": "登録"}`; no entry for 上書き保存 under `ms-office`, whose word contains 保存), so that C10 reports the other word wherever it appears. A profile's word keeps the button form: the noun or the plain form, without する.
 
 ## English rules
 
@@ -264,7 +267,7 @@ An error means the string contradicts something the project settled or carries n
 
 **Check.** Every kind: any key of `voice.terms` in a string. The message carries the key's value as the replacement. With no `tokens.json` found, C10 is skipped and reported once as a warning saying so.
 
-**Allowed.** A term in `voice.allow`. A project where 「消去」 names an operation distinct from 「削除」 lists it there, or removes the row from `voice.terms`. A script or catalog file that holds sample data (a directory segment or file stem `mock`, `mocks`, `sample`, `samples`, `fixture`, `fixtures`, `seed` or `data`, see Scope) is skipped.
+**Allowed.** A term in `voice.allow`, and a longer word listed there that holds a term (`取引先注文番号` beside the term `注文`), which is read as that word. A project where 「消去」 names an operation distinct from 「削除」 lists it there, or removes the row from `voice.terms`. A script or catalog file that holds sample data (a directory segment or file stem `mock`, `mocks`, `sample`, `samples`, `fixture`, `fixtures`, `seed` or `data`, see Scope) is skipped.
 
 **Why.** The copy equivalent of S1: the project settled the word, and the check asks whether the implementation used it.
 
@@ -292,7 +295,7 @@ An error means the string contradicts something the project settled or carries n
 
 ### C14: 文字数超過 (warning)
 
-**Check.** Counted in 全角 characters, a wide, full-width or ambiguous-width character counting 1 and a narrow one 0.5: a `button` past 16, a `label` past 12, a `tooltip` past 80. White space in the string is collapsed first. A `label` counts when it names a text input or select; the label of a checkbox or radio option and a table header (`<th>`, `<TableHead>`) are not measured. A `button` with `aria-expanded` or `aria-controls` (a disclosure trigger, such as a question in an FAQ list) is not measured. `aria` and `alt` strings are not measured.
+**Check.** Counted in 全角 characters, a wide, full-width or ambiguous-width character counting 1 and a narrow one 0.5: a `button` past 16, a `label` past 12, a `tooltip` past 80. White space in the string is collapsed first. A `label` counts when it names a text input or select; the label of a checkbox or radio option and a table header (`<th>`, `<TableHead>`, `<TableHeaderCell>`) are not measured. A `button` with `aria-expanded` or `aria-controls` (a disclosure trigger, such as a question in an FAQ list) is not measured. `aria` and `alt` strings are not measured.
 
 **Why.** The figures are a starting point with no design system behind them, hence warnings. A domain noun such as 「適格請求書発行事業者登録番号」 exceeds them legitimately. Visible Japanese button labels have a median of 6 全角, a 90th percentile of 11.5, and 34% of them are wider than 8 (ordinary verb and object actions such as 「この検索条件を保存する」); wider than 16 on 4 of 86 screens. Field labels have a median of 4. Calibrated on `research/20261106-real-screens`.
 
@@ -382,7 +385,7 @@ A string C18 already reports is reported once. The message names the pattern mat
 
 **Allowed.** Nothing mechanical; `ignore C23` with the reason.
 
-**Why.** Two Japanese publishers list the buzzwords (research T14), and four name the headline that fits any company (research T15). The competitor-swap test (would the line still read true under a competitor's logo?) stays with the reviewer. The style-guide rules beneath it: Microsoft on unnecessary words (research E95 (ui-defaults)) and GOV.UK on filler such as "please note" (research E92 (ui-defaults)). Japanese tell lists carry weak evidence: a practitioner test confirmed 1 of 148 popular claims and 403 readers detected AI text poorly (research E112, E119 (ui-defaults)). So 「を実現」 left the list as a plain product verb phrase. Real screens write 「シームレス」 and 「ワンストップ」 in feature and case-study copy on 4 of 30 Japanese landing pages, a headline template in a heading on 2 of 192 screens, and 「次世代」 mostly in proper names (「次世代デジタルライブラリー」) and 「ワンストップ」 in the statutory term 「ワンストップ特例」. Calibrated on `research/20261106-real-screens`.
+**Why.** Two Japanese publishers list the buzzwords (research T14), and four name the headline that fits any company (research T15). The competitor-swap test (would the line still read true under a competitor's logo?) stays with the reviewer. The style-guide rules beneath it: Microsoft on unnecessary words (research E95 (ui-defaults)) and GOV.UK on filler such as "please note" (research E92 (ui-defaults)). Japanese tell lists carry weak evidence: a practitioner test confirmed 1 of 148 popular claims and 403 readers detected AI text poorly (research E112, E119 (ui-defaults)). 「を実現」 is a plain product verb phrase and passes. Real screens write 「シームレス」 and 「ワンストップ」 in feature and case-study copy on 4 of 30 Japanese landing pages, a headline template in a heading on 2 of 192 screens, and 「次世代」 mostly in proper names (「次世代デジタルライブラリー」) and 「ワンストップ」 in the statutory term 「ワンストップ特例」. Calibrated on `research/20261106-real-screens`.
 
 ### C24: negative parallelism (warning)
 
@@ -427,9 +430,7 @@ On an `lp` surface also:
 
 **Why.** Fake testimonials, placeholder customer logos and precise figures with no source harm the reader whether or not anyone suspects generation: fake-review cues lower trust and purchase intent (research T19). The brief is where the person who owns the product states what is true.
 
-### C28: retired
-
-C28 reported a button or link text that occurred three times on an `lp` surface. Production landing and pricing pages repeat their call to action: on 54 of the 59 captured, one link or button text occurs three times or more, and on 34 five times or more (`research/20261106-real-screens/report.md`). The check no longer runs.
+A call to action repeated down a landing page is ordinary practice and has no check: of 59 production landing and pricing pages, 54 print one link or button text three times or more (`research/20261106-real-screens/report.md`). The id C28 is unused.
 
 **The `lp` surface** in C24 and C27 is `meta.surface` of the `tokens.json` the script finds; with no surface there, a path segment named `marketing`, `landing` or `lp` (the order `check_shippable_text.py` uses).
 
@@ -477,7 +478,7 @@ C28 reported a button or link text that occurred three times on an `lp` surface.
 
 ### C34: status column headed 状況 or 状態 alone (warning)
 
-**Check.** A table header cell (`<th>` or `<TableHead>`) whose text is exactly 状況 or 状態.
+**Check.** A table header cell (`<th>`, `<TableHead>` or `<TableHeaderCell>`) whose text is exactly 状況 or 状態.
 
 **Allowed.** `ignore C34` with the reason.
 

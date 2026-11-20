@@ -12,6 +12,14 @@
       "max": 1
     },
     {
+      "id": "image",
+      "takes": "image",
+      "required": false,
+      "max": 1,
+      "order": "any",
+      "when": "A media-led record, such as a product: the main image beside the title block."
+    },
+    {
       "id": "title",
       "takes": "identifier",
       "required": true,
@@ -22,7 +30,29 @@
       "id": "status",
       "takes": "status",
       "required": false,
-      "max": 1
+      "max": 1,
+      "order": "any"
+    },
+    {
+      "id": "rating",
+      "takes": "rating",
+      "required": false,
+      "max": 2,
+      "when": "The record is a product buyers rate: the average and the number of ratings."
+    },
+    {
+      "id": "price",
+      "takes": "price",
+      "required": false,
+      "max": 1,
+      "when": "The record is a product on sale: the price, the largest text of the buy area."
+    },
+    {
+      "id": "offer",
+      "takes": "offer",
+      "required": false,
+      "max": 4,
+      "when": "A product on sale: a line each under the price for shipping, points, the delivery date and the seller, tagged [offer]."
     },
     {
       "id": "key-fields",
@@ -35,13 +65,15 @@
       "id": "primary-action",
       "takes": "action",
       "required": false,
-      "max": 1
+      "max": 1,
+      "order": "any"
     },
     {
       "id": "secondary-actions",
       "takes": "action",
       "required": false,
-      "max": null
+      "max": null,
+      "order": "any"
     },
     {
       "id": "pagination",
@@ -80,9 +112,15 @@
       ]
     },
     {
-      "rule": "One primary action, a verb and a noun. Actions unique to this record come first; generic ones (duplicate, archive, delete) last.",
+      "rule": "One primary action, a verb and a noun, beside the title on a record of a work tool and under the price on a product page. Actions unique to this record come first; generic ones (duplicate, archive, delete) last.",
       "from": [
         "polaris-page"
+      ]
+    },
+    {
+      "rule": "On a product page the price is the largest text of the buy area, the rating and its count sit by the title, and the count links to the reviews.",
+      "from": [
+        "ja-shop-product"
       ]
     }
   ],
@@ -97,7 +135,8 @@
     "shadcn": null,
     "html": "header",
     "dads": "Breadcrumbs + Heading",
-    "smarthr": null
+    "smarthr": null,
+    "astryx": "Breadcrumbs + Heading"
   },
   "evidence": [
     {
@@ -129,6 +168,12 @@
       "source": "Stripe Apps, Full-page apps",
       "url": "https://docs.stripe.com/stripe-apps/patterns/full-page-apps.md",
       "says": "A full-page app opens with the object's name and its key details."
+    },
+    {
+      "id": "ja-shop-product",
+      "source": "Product pages of Amazon.co.jp, 楽天市場, Yahoo!ショッピング, メルカリ, アスクル and 価格.com, captured 2026-11 (research/20261113-production-ui-ooui/corpus/anatomy_shop_product.json)",
+      "url": "https://www.askul.co.jp/p/9714177/",
+      "says": "The price is 28px and the largest text of the buy area on 6 of 6 pages; the rating sits beside the title on 3 of 6 and the review count is a link on 4 of 6; a specification table shows on 6 of 6."
     }
   ],
   "evidence_status": "documented"

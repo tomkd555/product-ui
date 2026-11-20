@@ -1,0 +1,102 @@
+{
+  "id": "collection.conditions",
+  "version": 1,
+  "kind": "conditions",
+  "summary": "The search conditions above a list of records: labelled inputs, a search button and a clear.",
+  "not_for": "One search field that narrows the rows as the reader types (the filter slot of collection.table.index), or a search form on a page of its own (references/real-screens.md, Form).",
+  "slots": [
+    {
+      "id": "condition",
+      "takes": "control",
+      "required": true,
+      "min": 1,
+      "max": 8,
+      "from_key": "conditions"
+    },
+    {
+      "id": "search",
+      "takes": "action",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "clear",
+      "takes": "action",
+      "required": false,
+      "max": 1
+    }
+  ],
+  "rules": [
+    {
+      "rule": "The conditions sit above the list they narrow, each an input under or beside its label.",
+      "from": [
+        "im-list",
+        "yayoi-hanbai-keys"
+      ]
+    },
+    {
+      "rule": "The search button follows the last condition, with the clear beside it.",
+      "from": [
+        "im-button",
+        "im-list"
+      ]
+    },
+    {
+      "rule": "The first condition takes the focus when the screen opens.",
+      "from": [
+        "im-input-form"
+      ]
+    },
+    {
+      "rule": "After a search the conditions keep their values, the list shows the count of what matched, and a search that matches nothing shows the no-results state under them.",
+      "from": [
+        "product-ui"
+      ]
+    },
+    {
+      "rule": "Eight conditions at most sit above a list; a search with more belongs to a screen of its own.",
+      "from": [
+        "product-ui"
+      ]
+    }
+  ],
+  "labels": {
+    "search": "検索",
+    "clear": "クリア"
+  },
+  "uses": [],
+  "maps_to": {
+    "shadcn": "form of Input and Button",
+    "html": "form",
+    "dads": null,
+    "smarthr": null,
+    "astryx": null
+  },
+  "evidence": [
+    {
+      "id": "im-list",
+      "source": "intra-mart Accel Platform UIデザインガイドライン(PC版), 一覧画面",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_ui/im_design_guideline_pc/texts/programing_guide/sa/list.html",
+      "says": "The list screen puts a 検索 and a クリア button beside the search box above the list table, and deletes the checked rows after a confirmation that reads 選択したデータを削除します。よろしいですか."
+    },
+    {
+      "id": "im-button",
+      "source": "intra-mart Accel Platform UIデザインガイドライン(PC版), ボタン",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_ui/im_design_guideline_pc/texts/contents_area/button.html",
+      "says": "On a register or an edit screen the action buttons sit together at the foot, 登録 before 連続登録 and 更新 before 削除; the search button sits to the right of the input in the search-condition area."
+    },
+    {
+      "id": "im-input-form",
+      "source": "intra-mart Accel Platform UIデザインガイドライン(PC版), 入力フォーム",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_ui/im_design_guideline_pc/texts/contents_area/input_form.html",
+      "says": "Numbers are right-aligned and strings and dates left-aligned in text inputs; the first input the user fills takes the focus, the search box of a search screen included."
+    },
+    {
+      "id": "yayoi-hanbai-keys",
+      "source": "弥生販売 サポート情報, 弥生販売のショートカットキー一覧",
+      "url": "https://support.yayoi-kk.co.jp/subcontents.html?page_id=22523",
+      "says": "F12 登録 registers a slip or a ledger record, F9 削除 deletes it, F2 新規作成 clears the screen for a new one, F8 参照 opens the lookup of the field under the cursor, and Ctrl+F 検索 opens a screen where conditions are set to find slips."
+    }
+  ],
+  "evidence_status": "documented"
+}

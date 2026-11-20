@@ -1,0 +1,110 @@
+{
+  "id": "feedback.message",
+  "version": 1,
+  "kind": "message",
+  "summary": "The result of an operation, or an error the reader has to act on, as one message: a toast, a bar at the top of the content, or a line beside the control.",
+  "not_for": "An input error, which sits beside its field (references/interaction.md, Feedback), or a question before an operation (feedback.confirm).",
+  "slots": [
+    {
+      "id": "text",
+      "takes": "text",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "action",
+      "takes": "action",
+      "required": false,
+      "max": 1,
+      "when": "The operation can be undone: 元に戻す."
+    },
+    {
+      "id": "close",
+      "takes": "action",
+      "required": false,
+      "max": 1,
+      "when": "The message stays until it is closed."
+    }
+  ],
+  "rules": [
+    {
+      "rule": "A message is one sentence that names what happened.",
+      "from": [
+        "product-ui"
+      ]
+    },
+    {
+      "rule": "A message that stays until it is closed carries a control that closes it, and a timed one closes by itself after the time the conventions give.",
+      "from": [
+        "kintone-notification",
+        "smarthr-notification-bar",
+        "dynamics-form-notification",
+        "openui5-message-toast"
+      ]
+    },
+    {
+      "rule": "The screen shows the number of messages the conventions give, and a new one takes the place of the oldest.",
+      "from": [
+        "kintone-notification"
+      ]
+    },
+    {
+      "rule": "A message that must not interrupt the work is a toast, and one the reader has to act on stays where it happened.",
+      "from": [
+        "sapui5-message-handling"
+      ]
+    },
+    {
+      "rule": "The types are few and fixed: success, error, information.",
+      "from": [
+        "kintone-notification",
+        "sapui5-message-handling"
+      ]
+    }
+  ],
+  "labels": {
+    "close": "閉じる",
+    "undo": "元に戻す"
+  },
+  "uses": [],
+  "maps_to": {
+    "shadcn": "MessageBar of the kit, or a Sonner toast",
+    "html": "div with role status",
+    "dads": null,
+    "smarthr": "NotificationBar",
+    "astryx": null
+  },
+  "evidence": [
+    {
+      "id": "kintone-notification",
+      "source": "cybozu developer network, kintone JavaScript API, 通知を表示する",
+      "url": "https://cybozu.dev/ja/kintone/docs/js-api/kintone/show-notification/",
+      "says": "A notification at the top of the screen is one of three types (error, success, information), stays until it is closed, and shows one at a time: the last one called replaces the others."
+    },
+    {
+      "id": "smarthr-notification-bar",
+      "source": "SmartHR Design System, NotificationBar",
+      "url": "https://smarthr.design/products/components/notification-bar/",
+      "says": "A notification bar is hidden by an explicit action of the user; closing it after a time is discouraged."
+    },
+    {
+      "id": "dynamics-form-notification",
+      "source": "Microsoft Learn, Power Apps client API, setFormNotification",
+      "url": "https://learn.microsoft.com/en-us/power-apps/developer/model-driven-apps/clientapi/reference/formcontext-ui/setformnotification",
+      "says": "A form notification stays visible until the code removes it."
+    },
+    {
+      "id": "openui5-message-toast",
+      "source": "OpenUI5 source, sap.m.MessageToast",
+      "url": "https://github.com/UI5/openui5/blob/master/src/sap.m/src/sap/m/MessageToast.js",
+      "says": "A message toast closes by itself; its duration, 3000 ms by default, is the time before the close animation starts."
+    },
+    {
+      "id": "sapui5-message-handling",
+      "source": "SAPUI5 documentation, Message Handling",
+      "url": "https://github.com/SAP-docs/sapui5/blob/main/docs/10_More_About_Controls/message-handling-f5df293.md",
+      "says": "A message dialog interrupts the work by blocking the page until the user closes it; a message toast is for a less important message that must not block; messages have four types, each with its colour and icon."
+    }
+  ],
+  "evidence_status": "documented"
+}

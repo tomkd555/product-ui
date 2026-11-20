@@ -4,7 +4,7 @@ check_render.py (R1, R4, R7, R19, R21, R22, R35) and check_shippable_text.py --d
 two scripts never disagree on which text exists. Import it as `from render.visibility import rendered` from
 `scripts/`, or as `from visibility import rendered` from `scripts/render/`.
 
-A field an older dump lacks reads as "drawn": `effOpacity` falls back to the element's own `opacity`, `consent`
+A field a dump lacks reads as "drawn": `effOpacity` falls back to the element's own `opacity`, `consent`
 to false, and a missing rect or font size skips the test that needs it.
 """
 

@@ -1,6 +1,7 @@
 // Headless-Chrome driver over CDP for review-design-lead. Requires Node 22+ (global WebSocket).
 //
-//   node cdp.js <url> <width> [js-expression]
+//   node cdp.js <url> <width>[x<height>] [js-expression]
+//   <width> alone keeps the viewport 1200px high; <width>x<height> sets both (a desktop window, references/desktop.md).
 //
 // Environment:
 //   SHOT=<png>    write a full-page screenshot
@@ -31,7 +32,8 @@
 //                 What is rendered (scrollbars are hidden for the capture, so the layout width is the requested width):
 //                 the dump root carries `viewportMeta` (the content of <meta name="viewport">, else null), `rootOverflowX`
 //                 (overflow-x of html, or of body when html's is visible) and `innerWidth`; `headings` holds the rendered
-//                 headings only (visible, outside [hidden], [aria-hidden="true"], [inert] and a closed dialog), and a 1px
+//                 headings only (visible, outside [hidden], [aria-hidden="true"], [inert] and a closed dialog), `modal` is true while
+//                 a dialog is open, and a 1px
 //                 screen-reader-only heading carries `srOnly: true`. Per text entry: effOpacity (the product of the computed
 //                 opacity over the element and its ancestors), colorAlpha (alpha of the text colour), inNav (inside nav,
 //                 [role=navigation] or a breadcrumb), inFixed (the element or an ancestor is fixed or sticky), consent (inside
@@ -53,16 +55,35 @@
 //                 shadow that draws an edge or a fill that differs from the ground, with a fill alone of 90% of the scope width
 //                 or half the page height left out as page ground. `hiddenText` leaves out hidden boxes in closed interface
 //                 (header, nav, menus, tooltips, dialogs, popovers, closed disclosures, sliders) and out-of-flow layers.
-//                 `occlusions` probes only rendered text, cut by its own and its ancestors' overflow, with elementsFromPoint.
+//                 `occlusions` probes only rendered text, cut by its own and its ancestors' overflow, with elementsFromPoint;
+//                 an open popup (a dialog, a listbox, a menu, a popover) covers the page by design and is left out.
 //                 `edgeText` leaves out clipped and screen-reader-only text, takes `listItem` true only when a marker is drawn,
 //                 and measures the right edge against the client width; `textOverflow` needs 16px of the spill to show.
-//                 For R42 to R48: per box inPattern (inside a data-pattern element) and hasField (holds a form
+//                 For R42 to R48: per box inPattern (inside a data-pattern element), hasPattern (holds one), hasChart (holds a chart) and hasField (holds a form
 //                 control); and `patterns`, each data-pattern element with its id, rect, group (index of its
 //                 parent among the pattern parents), outer (the pattern it sits in), shortCells (td texts of 3
 //                 characters or fewer) and slots (slot, field, text, empty, hidden, root, the strongest
 //                 fontSize and fontWeight inside it, textAlign, fontVariantNumeric, rect).
 //   CLASS=<name>  add this class to <html> after load and before capture (`dark` renders a
 //                 theme.css dark block)
+//   PROBE=<list>  `keys`, `messages`, `commands` or a mix, comma-separated; needs DUMP. The probes run after the screenshot and the
+//                 dump, and their results go into the dump as `probes` (for R49 to R51, references/profiles.md).
+//                 `keys`: Enter is pressed in the first field of the entry form (the element with
+//                 data-pattern="entry.slip" or "master.form"), then Shift+Enter; `probes.enter` holds the number of
+//                 fields, the index of the field that held the focus after each key (`to`, `back`) and whether the
+//                 form was submitted. Then every key a visible control carries in data-key is pressed, and
+//                 `probes.keys` lists each with its action, its text and whether the key ran its control (`ran`).
+//                 The submit and the clicks are stopped before the page's own handlers, so no operation runs.
+//                 `messages`: each element with data-message is recorded from the start of the document with its
+//                 type (the attribute's value: `result`, `error`), its kind, its data-duration and the time it stayed (`shownMs`, null while it is still shown); the run
+//                 waits for the ones on screen to leave, PROBE_MESSAGE_MS at most (default 8000).
+//                 `commands` (a desktop window, references/desktop.md): the `product-ui:command` events on window are recorded; with the
+//                 focus on the document body, the key of each enabled element that carries data-command and data-key is pressed (Ctrl+W,
+//                 Ctrl+Q and Alt+F4 are skipped), and `probes.commands.keys` lists each with its command id (`id`), its `key` and the ids
+//                 that ran (`ran`). Then Alt is pressed, the rendered [data-keytip] elements are counted, and Escape is pressed until none
+//                 show, 3 presses at most: `probes.commands.keytips` holds `shown`, `escapes` and `remaining`.
+//                 Every dump also carries `regions` (the id and rect of each [data-region] element) and `rootScrolls` (the document
+//                 element's scrollHeight or scrollWidth exceeds its client size).
 //   CHROME=<exe>  Chrome binary (default: the first of the install paths below that exists)
 //   CDP_PORT      debugging port (default: a free port that Chrome picks for this run)
 //   CDP_TIMEOUT_MS  wall clock for the whole run (default: 60000); raise it on a loaded machine or a heavy page.
@@ -86,8 +107,10 @@
 const { spawn, spawnSync } = require('child_process');
 const http = require('http');
 const fs = require('fs');
-const [,, url, width, expr] = process.argv;
-if (!url || !width) { console.error('usage: node cdp.js <url> <width> [js-expression]'); process.exit(1); }
+const [,, url, size, expr] = process.argv;
+const sizeMatch = /^(\d+)(?:x(\d+))?$/.exec(size || '');
+if (!url || !sizeMatch) { console.error('usage: node cdp.js <url> <width>[x<height>] [js-expression]'); process.exit(1); }
+const width = sizeMatch[1];
 const CHROME_PATHS = [
   'C:/Program Files/Google/Chrome/Application/chrome.exe',
   'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe',
@@ -100,12 +123,14 @@ if (!CH) { console.error('no Chrome found in ' + CHROME_PATHS.join(', ') + '; se
 // reaches the browser another run left on a shared port.
 const fixedPort = Number(process.env.CDP_PORT || 0);
 let port = fixedPort;
-const HEIGHT = 1200;            // viewport height for both the window and the emulated device
+const HEIGHT = Number(sizeMatch[2]) || 1200;   // viewport height for both the window and the emulated device; 1200 for a bare width
 const STARTUP_TRIES = Math.max(40, Math.floor((Number(process.env.CDP_TIMEOUT_MS) || 0) / 600));   // x 300 ms: how long Chrome gets to answer /json; half of a raised wall clock
 const LOAD_TRIES = 40;          // x 250 ms: how long the page gets to reach readyState complete
 const SETTLE_MS = 700;          // fonts and late layout after readyState complete
 const WALL_CLOCK_MS = Number(process.env.CDP_TIMEOUT_MS) || 60000;    // a dead socket ends the run with code 2
 const MAX_ELS = 1500, MAX_CONTROLS = 300, TEXT_CAP = 80, LABEL_CAP = 40, MAX_BOXES = 400, MAX_GAP_PARENTS = 300;
+const PROBE = new Set((process.env.PROBE || '').split(',').map(s => s.trim()).filter(Boolean));
+const PROBE_MESSAGE_MS = Number(process.env.PROBE_MESSAGE_MS) || 8000;   // how long a message on screen gets to leave
 const profile = (process.env.TEMP || process.env.TMPDIR || '/tmp') + '/cdp-profile-' + fixedPort + '-' + process.pid;
 
 // Chrome refuses to start as root on Linux unless its sandbox is off; everywhere else it keeps the sandbox.
@@ -137,6 +162,91 @@ process.on('unhandledRejection', e => fail('REJ ' + (e && e.stack || e)));
 // A dump or a screenshot left by an earlier run would pass for this run's when this run fails.
 for (const stale of [process.env.SHOT, process.env.DUMP]) if (stale) fs.rmSync(stale, { force: true });
 setTimeout(() => fail('timed out after ' + WALL_CLOCK_MS + ' ms'), WALL_CLOCK_MS).unref();
+
+// Runs at the start of every document when PROBE holds `messages`: the time each data-message element stays.
+const MESSAGE_WATCH = `(() => {
+  const seen = new Map(), log = [];
+  window.__productUiMessages = log;
+  const scan = () => {
+    const now = performance.now();
+    const live = new Set(document.querySelectorAll('[data-message]'));
+    for (const el of live) if (!seen.has(el)) {
+      const entry = { type: el.getAttribute('data-message'), kind: el.getAttribute('data-message-kind'), duration: el.getAttribute('data-duration'),
+        text: (el.innerText || '').replace(/\\s+/g, ' ').trim().slice(0, 80), shown: now, gone: null };
+      seen.set(el, entry); log.push(entry);
+    }
+    for (const [el, entry] of seen) if (entry.gone === null && !live.has(el)) entry.gone = now;
+  };
+  new MutationObserver(scan).observe(document, { childList: true, subtree: true });
+  document.addEventListener('DOMContentLoaded', scan);
+})()`;
+// The entry form's fields, in the order lib/keys.ts moves through them; the submit is stopped at the document.
+const ENTER_SETUP = `(() => {
+  const form = document.querySelector('[data-pattern="entry.slip"], [data-pattern="master.form"]');
+  if (!form) return null;
+  const own = ['submit', 'button', 'reset', 'image', 'file', 'hidden'];
+  const fields = Array.from(form.querySelectorAll('input, select, textarea, [role="combobox"], [role="checkbox"], [role="radio"], [role="switch"]')).filter(el => !el.disabled && !el.readOnly && !own.includes(el.type) && el.tabIndex !== -1 && el.getClientRects().length);
+  const state = window.__productUiEnter = { fields, submitted: false };
+  document.addEventListener('submit', e => { state.submitted = true; e.stopImmediatePropagation(); e.preventDefault(); }, true);
+  if (fields.length) fields[0].focus();
+  return { fields: fields.length, marked: form.getAttribute('data-enter') };
+})()`;
+const ENTER_READ = `(() => { const s = window.__productUiEnter; return { at: s.fields.indexOf(document.activeElement), submitted: s.submitted }; })()`;
+// Every key a visible control carries; a click on such a control is recorded and stopped at the document.
+const KEYS_SETUP = `(() => {
+  const first = new Map();
+  for (const el of document.querySelectorAll('[data-key]')) if (el.getClientRects().length && !first.has(el.getAttribute('data-key'))) first.set(el.getAttribute('data-key'), el);
+  const ran = window.__productUiKeys = [];
+  document.addEventListener('click', e => { const b = e.target && e.target.closest && e.target.closest('[data-key]'); if (!b) return; ran.push(b.getAttribute('data-key')); e.stopImmediatePropagation(); e.preventDefault(); }, true);
+  if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+  return Array.from(first, ([key, el]) => ({ key, action: el.getAttribute('data-action'), text: (el.innerText || '').replace(/\\s+/g, ' ').trim().slice(0, 40), disabled: !!el.disabled }));
+})()`;
+
+// The keys a desktop window's commands carry: one entry per key and command id among the rendered controls. The probe
+// reads them once with the window at rest and once with the file view open (`data-file-tab`), whose items hold keys too.
+// A disabled control and a key that closes or reloads the window are left out. The ids that run are logged from the start.
+const COMMANDS_SKIP = ['Ctrl+W', 'Ctrl+Q', 'Alt+F4'];
+const COMMANDS_INIT = `(() => {
+  const ran = window.__productUiRan = [];
+  window.addEventListener('product-ui:command', e => ran.push(e.detail && e.detail.id));
+  return true;
+})()`;
+const FILE_TAB_OPEN = `(() => { const tab = document.querySelector('[data-file-tab]'); if (!tab) return false; tab.click(); return true; })()`;
+const COMMANDS_SETUP = `(() => {
+  const skip = ${JSON.stringify(COMMANDS_SKIP)}, seen = new Set(), out = [];
+  for (const el of document.querySelectorAll('[data-command][data-key]')) {
+    const id = el.getAttribute('data-command'), key = el.getAttribute('data-key');
+    if (!key || key === 'none' || skip.includes(key) || el.disabled || el.getAttribute('aria-disabled') === 'true' || seen.has(id + ' ' + key)) continue;
+    seen.add(id + ' ' + key); out.push({ id, key });
+  }
+  return out;
+})()`;
+// A text field would take Ctrl+X and the like, so the focus goes to the document body first.
+const COMMANDS_BLUR = `(() => { if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); window.__productUiRan.length = 0; return true; })()`;
+const COMMANDS_TAKE = `window.__productUiRan.splice(0)`;
+const COMMANDS_DIALOG = `Array.from(document.querySelectorAll('[role="dialog"],[role="alertdialog"],dialog[open],[data-region="file-view"]')).some(e => e.getClientRects().length > 0)`;
+// Chrome keeps some keys for itself before the page sees them (the clipboard's Ctrl+X, Ctrl+C and Ctrl+V; Ctrl+N and
+// Ctrl+T, which open a window or a tab), while Electron hands them to the page. The probe sends these as a keydown
+// event on window, and the page's handler is what it measures.
+const CLIPBOARD_KEYS = new Set(['Ctrl+X', 'Ctrl+C', 'Ctrl+V', 'Ctrl+N', 'Ctrl+T', 'Ctrl+Shift+N', 'Ctrl+Shift+T']);
+const clipboardKeydown = keys => {
+  const letter = keys.split('+').pop();
+  const shift = keys.includes('Shift+');
+  return `window.dispatchEvent(new KeyboardEvent('keydown', { key: '${shift ? letter : letter.toLowerCase()}', code: 'Key${letter}', ctrlKey: true, shiftKey: ${shift}, bubbles: true, cancelable: true }))`;
+};
+const KEYTIPS_COUNT = `Array.from(document.querySelectorAll('[data-keytip]')).filter(e => e.getClientRects().length > 0).length`;
+// The key tip of the first tab after ファイル, among the tips Alt shows in the tab row.
+const TAB_KEYTIP = `(() => { const tip = Array.from(document.querySelectorAll('[data-region="tab-row"] [data-keytip]')).find(e => e.getClientRects().length > 0 && e.getAttribute('data-keytip') !== 'F'); return tip ? tip.getAttribute('data-keytip') : null; })()`;
+const COMMAND_TIPS_COUNT = `Array.from(document.querySelectorAll('[data-region="command-area"] [data-keytip]')).filter(e => e.getClientRects().length > 0).length`;
+
+// Before a key is pressed: a key that a table row carries (the lines of a slip) runs for the row that holds the focus.
+const keysFocus = key => `(() => {
+  const el = Array.from(document.querySelectorAll('[data-key]')).find(e => e.getAttribute('data-key') === ${JSON.stringify(key)} && e.getClientRects().length);
+  const row = el && el.closest('tbody tr');
+  const field = row && row.querySelector('input:not([type="hidden"]):not([disabled]), select:not([disabled])');
+  if (field) field.focus(); else if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+  return !!field;
+})()`;
 
 // Runs inside the page. Returns plain data only.
 const DUMP_EXPR = `(async () => {
@@ -284,7 +394,7 @@ const DUMP_EXPR = `(async () => {
             boxes.push({ tag: el.tagName.toLowerCase(), id: el.id || undefined, cls: (el.className && typeof el.className === 'string') ? el.className.slice(0, 60) : undefined,
               rect: rr(r), depth: up ? up.depth + 1 : 0, parentBox: up ? up.i : null, domParent: domId(el.parentElement), children: el.childElementCount,
               hasDigit: /[0-9\\uFF10-\\uFF19]/.test(el.textContent),
-              inPattern: !!el.closest('[data-pattern]') || undefined, hasField: !!el.querySelector('input,select,textarea') || undefined,
+              inPattern: !!el.closest('[data-pattern]') || undefined, hasField: !!el.querySelector('input,select,textarea') || undefined, hasChart: !!el.querySelector('[data-chart],[data-slot="chart"],svg.recharts-surface,canvas') || undefined, hasPattern: !!el.querySelector('[data-pattern]') || undefined,
               borderRadius: s.borderRadius, backdropFilter: s.backdropFilter || s.webkitBackdropFilter || 'none',
               borderW: SIDES.map(k => s['border' + k + 'Style'] === 'none' ? 0 : parseFloat(s['border' + k + 'Width']) || 0),
               borderA: SIDES.map(k => alphaOf(s['border' + k + 'Color'])), boxShadow: s.boxShadow,
@@ -693,7 +803,8 @@ const DUMP_EXPR = `(async () => {
 
   // R32: elementsFromPoint probe over the lines of every rendered text element in the first viewport. A point counts when an element
   // painted above the text (outside its ancestor chain and descendants) has an opaque fill or a background image, or holds text under the
-  // point; a point where the text itself is not in the stack is skipped.
+  // point; a point where the text itself is not in the stack is skipped, and so is text inside an [inert] subtree (the desktop window's
+  // regions under the file view).
   const occlusions = [];
   guard('occlusions', () => {
     const opaque = (e, s) => alphaOf(s.backgroundColor) > 0.6 || s.backgroundImage !== 'none';
@@ -703,7 +814,7 @@ const DUMP_EXPR = `(async () => {
     for (let i = 0; i < textEls.length && occlusions.length < 30; i++) {
       const el = textEls[i], ent = text[i];
       if (ownText(el).length < 2) continue;
-      if (parseFloat(ent.fontSize) <= 1 || ent.consent || (ent.effOpacity !== undefined && ent.effOpacity <= 0.05) || !drawn(el)) continue;
+      if (parseFloat(ent.fontSize) <= 1 || ent.consent || (ent.effOpacity !== undefined && ent.effOpacity <= 0.05) || el.closest('[inert]') || !drawn(el)) continue;
       const t0 = textRect(el, false, { unseen: true }); if (!t0) continue;
       const c = clipRect(el, t0, true); if (!c) continue;
       const L = c.l, T = c.t, R = c.r, B = c.b;
@@ -720,7 +831,7 @@ const DUMP_EXPR = `(async () => {
           for (let j = 0; j < k; j++) {
             const top = stack[j]; if (el.contains(top) || top.contains(el)) continue;
             const ts = cs1(top);
-            if (ts.float !== 'none' || ts.pointerEvents === 'none' || +ts.opacity <= 0.02 || /^(img|video|canvas|picture|svg)$/i.test(top.tagName) || pinned(top)) continue;
+            if (ts.float !== 'none' || ts.pointerEvents === 'none' || +ts.opacity <= 0.02 || /^(img|video|canvas|picture|svg)$/i.test(top.tagName) || pinned(top) || top.closest('[role="dialog"],[role="alertdialog"],[role="listbox"],[role="menu"],[popover],dialog[open]')) continue;
             let kk = '';
             if (opaque(top, ts)) kk = 'box';
             else if (ownText(top)) { const tt = textRect(top, false); if (tt && x >= tt.l && x <= tt.r && y >= tt.t && y <= tt.b) kk = 'text'; }
@@ -1058,7 +1169,7 @@ const DUMP_EXPR = `(async () => {
   // nearest data-pattern element above it; an element with both attributes is a slot of the pattern above it.
   const patterns = [];
   guard('patterns', () => {
-    const MAX_PATTERNS = 300, MAX_SLOTS = 40, MAX_CELLS = 400;
+    const MAX_PATTERNS = 300, MAX_SLOTS = 400, MAX_CELLS = 400;
     const roots = Array.from(d.querySelectorAll('[data-pattern]')).slice(0, MAX_PATTERNS);
     const index = new Map(roots.map((el, i) => [el, i]));
     const ownerOf = el => { let a = el.parentElement; while (a && !index.has(a)) a = a.parentElement; return a; };
@@ -1083,21 +1194,24 @@ const DUMP_EXPR = `(async () => {
       for (const t of el.querySelectorAll('*')) { if (!ownText(t)) continue; const ts = v.getComputedStyle(t); if (ts.display === 'none') continue;
         const ps = parseFloat(ts.fontSize), pw = +ts.fontWeight || 400; if (ps > size || (ps === size && pw > weight)) { size = ps; weight = pw; } }
       p.slots.push({ slot: el.getAttribute('data-pattern-slot'), field: el.getAttribute('data-pattern-field') || undefined,
-        text: txt.slice(0, TEXT_CAP), empty: !txt && !el.querySelector('img,svg,picture,video,canvas') && !(el.getAttribute('aria-label') || '').trim(),
+        text: txt.slice(0, TEXT_CAP), empty: !txt && !el.querySelector('img,svg,picture,video,canvas,[role="img"],[aria-label]') && !(el.getAttribute('aria-label') || '').trim(),
         hidden: s.display === 'none' || s.visibility === 'hidden' || (!r.width && !r.height) || undefined,
         root: index.has(el) || undefined, fontSize: size, fontWeight: weight, textAlign: s.textAlign,
         numeric: s.fontVariantNumeric !== 'normal' ? s.fontVariantNumeric : undefined, rect: rr(r) });
     }
   });
 
-  return { title: d.title, lang: d.documentElement.lang || '', viewport: { width: v.innerWidth, height: v.innerHeight }, htmlClass: d.documentElement.className || '',
+  return { title: d.title, url: location.href, lang: d.documentElement.lang || '', viewport: { width: v.innerWidth, height: v.innerHeight }, htmlClass: d.documentElement.className || '',
     tokens,
     horizontalOverflow: d.documentElement.scrollWidth > d.documentElement.clientWidth,
     scrollWidth: d.documentElement.scrollWidth, pageHeight: d.documentElement.scrollHeight,
     viewportMeta: vpMeta ? vpMeta.getAttribute('content') : null,
     rootOverflowX: htmlOx !== 'visible' ? htmlOx : cs1(d.body).overflowX,
     innerWidth: v.innerWidth,
+    regions: Array.from(d.querySelectorAll('[data-region]')).map(el => ({ region: el.getAttribute('data-region'), rect: rr(el.getBoundingClientRect()) })),
+    rootScrolls: d.documentElement.scrollHeight > d.documentElement.clientHeight || d.documentElement.scrollWidth > d.documentElement.clientWidth,
     headings,
+    modal: Array.from(d.querySelectorAll('[role="dialog"],[role="alertdialog"],dialog[open]')).some(visible),
     landmarks: ['header','nav','main','aside','footer','form','[role]'].map(sel => ({ sel, count: d.querySelectorAll(sel).length })),
     controlsTotal: controlEls.length,
     controls,
@@ -1144,6 +1258,7 @@ const DUMP_EXPR = `(async () => {
   await call('Emulation.setDeviceMetricsOverride', { width: Number(width), height: HEIGHT, deviceScaleFactor: 1, mobile: false });
   // Scrollbars take no width, so the layout width equals the requested width.
   await call('Emulation.setScrollbarsHidden', { hidden: true });
+  if (PROBE.has('messages')) await call('Page.addScriptToEvaluateOnNewDocument', { source: MESSAGE_WATCH });
   let nav = await call('Page.navigate', { url });
   // Chrome sometimes aborts the first navigation while it is still starting; one more try settles it.
   if (nav.errorText === 'net::ERR_ABORTED') nav = await call('Page.navigate', { url });
@@ -1169,7 +1284,80 @@ const DUMP_EXPR = `(async () => {
     const sc = await call('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true });
     fs.writeFileSync(process.env.SHOT, Buffer.from(sc.data, 'base64'));
   }
-  if (process.env.DUMP) fs.writeFileSync(process.env.DUMP, JSON.stringify(await evaluate(DUMP_EXPR), null, 1));
+  if (process.env.DUMP) {
+    const dump = await evaluate(DUMP_EXPR);
+    if (PROBE.size) dump.probes = {};
+    // A key as the Conventions section writes it (F12, Ctrl+F, Shift+Enter), sent as a trusted key event.
+    const press = async keys => {
+      const parts = keys.split('+'), key = parts.pop();
+      const modifiers = (parts.includes('Alt') ? 1 : 0) | (parts.includes('Ctrl') ? 2 : 0) | (parts.includes('Shift') ? 8 : 0);
+      const fn = /^F(\d{1,2})$/.exec(key);
+      const vk = fn ? 111 + Number(fn[1]) : ({ Enter: 13, Insert: 45, Delete: 46, Alt: 18, Escape: 27, Esc: 27, Tab: 9, Space: 32, Backspace: 8 })[key] || key.toUpperCase().charCodeAt(0);
+      const code = ({ Alt: 'AltLeft', Esc: 'Escape' })[key] || (fn || key.length > 1 ? key : (/\d/.test(key) ? 'Digit' : 'Key') + key.toUpperCase());
+      // The modifier key itself carries its own flag; Esc is sent as Escape.
+      const base = { modifiers: key === 'Alt' ? modifiers | 1 : modifiers, key: key === 'Esc' ? 'Escape' : key.length === 1 && !(modifiers & 8) ? key.toLowerCase() : key, code, windowsVirtualKeyCode: vk, nativeVirtualKeyCode: vk };
+      await call('Input.dispatchKeyEvent', key === 'Enter' ? { type: 'keyDown', text: '\r', ...base } : { type: 'rawKeyDown', ...base });
+      await call('Input.dispatchKeyEvent', { type: 'keyUp', ...base });
+      await sleep(60);
+    };
+    if (PROBE.has('keys')) {
+      const enter = await evaluate(ENTER_SETUP);
+      if (enter && enter.fields >= 2) {
+        await press('Enter');
+        const after = await evaluate(ENTER_READ);
+        await press('Shift+Enter');
+        const back = await evaluate(ENTER_READ);
+        Object.assign(enter, { to: after.at, back: back.at, submitted: after.submitted || back.submitted });
+      }
+      dump.probes.enter = enter;
+      const keys = await evaluate(KEYS_SETUP);
+      for (const k of keys) if (!k.disabled) { await evaluate(keysFocus(k.key)); await press(k.key); }
+      const ran = await evaluate('window.__productUiKeys');
+      dump.probes.keys = keys.map(k => ({ ...k, ran: ran.includes(k.key) }));
+    }
+    if (PROBE.has('commands')) {
+      // A key can open a dialog after its command awaits something (a save asking for a file name), so each key
+      // waits for its effects, and Escape closes whatever dialog shows before the next key, so that key reaches the window.
+      const closeDialogs = async () => { for (let i = 0; i < 3 && await evaluate(COMMANDS_DIALOG); i++) { await press('Escape'); await sleep(150); } };
+      await evaluate(COMMANDS_INIT);
+      const commands = await evaluate(COMMANDS_SETUP);
+      if (await evaluate(FILE_TAB_OPEN)) {
+        await sleep(300);
+        const seen = new Set(commands.map(c => c.id + ' ' + c.key));
+        for (const c of await evaluate(COMMANDS_SETUP)) if (!seen.has(c.id + ' ' + c.key)) { seen.add(c.id + ' ' + c.key); commands.push(c); }
+        await closeDialogs();
+      }
+      const keys = [];
+      for (const c of commands) {
+        await closeDialogs();
+        await evaluate(COMMANDS_BLUR);
+        const synthetic = CLIPBOARD_KEYS.has(c.key);
+        if (synthetic) await evaluate(clipboardKeydown(c.key)); else await press(c.key);
+        await sleep(300);
+        keys.push({ ...c, ran: await evaluate(COMMANDS_TAKE), ...(synthetic ? { synthetic: true } : {}) });
+      }
+      await closeDialogs();
+      await evaluate(COMMANDS_BLUR);
+      await press('Alt');
+      await sleep(150);
+      const shown = await evaluate(KEYTIPS_COUNT);
+      // A tab's key tip shows the key tips of that tab's commands.
+      const tab = shown > 0 ? await evaluate(TAB_KEYTIP) : null;
+      let tabShown = null;
+      if (tab) { await press(tab); await sleep(150); tabShown = await evaluate(COMMAND_TIPS_COUNT); }
+      let escapes = 0, remaining = await evaluate(KEYTIPS_COUNT);
+      while (remaining > 0 && escapes < 3) { await press('Escape'); escapes++; await sleep(100); remaining = await evaluate(KEYTIPS_COUNT); }
+      dump.probes.commands = { keys, keytips: { shown, tab, tabShown, escapes, remaining } };
+    }
+    if (PROBE.has('messages')) {
+      const read = '(window.__productUiMessages || []).map(m => ({ type: m.type, kind: m.kind, duration: m.duration, text: m.text, shownMs: m.gone === null ? null : Math.round(m.gone - m.shown), waitedMs: Math.round(performance.now() - m.shown) }))';
+      const until = Date.now() + PROBE_MESSAGE_MS;
+      let messages = await evaluate(read);
+      while (messages.some(m => m.shownMs === null) && Date.now() < until) { await sleep(200); messages = await evaluate(read); }
+      dump.probes.messages = messages;
+    }
+    fs.writeFileSync(process.env.DUMP, JSON.stringify(dump, null, 1));
+  }
   if (logs.length) console.log('CONSOLE_ERRORS', JSON.stringify(logs));
   ws.close(); quit(0);
 })();

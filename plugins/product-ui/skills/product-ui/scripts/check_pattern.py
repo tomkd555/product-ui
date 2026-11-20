@@ -13,7 +13,9 @@ missing, a limit is passed, the id is unknown or unplanned, a whole-item link ho
 control. They are warnings until the calibration in research/20261103-real-site-patterns
 settles which become errors (decision D3 of its plan); --strict reports them as errors now.
 PT3, PT6 and PT7 mean the screen departs from the plan: slots out of order, a field the
-Slots table does not hold, a planned pattern with no element on the screen.
+Slots table does not hold, a planned pattern with no element on the screen. The feedback patterns
+the decision table attaches to an entry screen (feedback.confirm, feedback.message) pass PT2 on
+any screen.
 
 The brief is ui-brief.md beside the nearest tokens.json above the paths (up to three
 directories), unless --brief names it. Without a brief, PT2's plan half, PT6 and PT7 are
@@ -48,10 +50,15 @@ EXCLUDE_FILE = re.compile(r"\.(test|spec|min|stories)\.", re.IGNORECASE)
 
 OPEN_TAG = re.compile(r"<(?P<name>[A-Za-z][\w.]*)(?=[\s/>])")
 ATTR = re.compile(r"""(?<![\w:@-])(?P<name>data-pattern(?:-slot|-field)?)\s*=\s*(?:"(?P<d>[^"]*)"|'(?P<s>[^']*)'|\{\s*["'](?P<j>[^"']*)["']\s*\})""")
+# data-pattern-field={column.label}: the field is known only when the page runs.
+DYNAMIC_FIELD = re.compile(r"""(?<![\w:@-])data-pattern-field\s*=\s*\{(?!\s*["'])""")
 LINK_TAGS = {"a", "Link", "NavLink", "RouterLink", "router-link", "NuxtLink"}
 CONTROL_TAGS = {"a", "Link", "NavLink", "RouterLink", "router-link", "NuxtLink", "button", "Button"}
 IGNORE = re.compile(r"product-ui:\s*ignore(?P<file>-file)?\s+(?P<id>PT\d+)(?P<reason>[^\n*]*?)\s*(?:-->|\*/|\}|$)", re.MULTILINE)
 SHOWN_NONE = ("(on the screen)", "the label of each", "placeholder", "—")
+TERNARY_ARM = re.compile(r"[\s()]*:[\s()]*\Z")
+LINE_COMMENT = re.compile(r"(?m)^([ \t]*)//[^\n]*")
+GAP_TAG = re.compile(r"</?[A-Za-z][^<>]*>|</?>")
 
 
 class Report:
@@ -124,7 +131,8 @@ def scan(text):
         els.append({"name": name, "start": m.start(), "open_end": end_open,
                      "end": element_end(text, name, m.start(), end_open),
                      "pattern": attrs.get("data-pattern"), "slot": attrs.get("data-pattern-slot"),
-                     "field": attrs.get("data-pattern-field")})
+                     "field": attrs.get("data-pattern-field"),
+                     "field_dynamic": bool(DYNAMIC_FIELD.search(text, m.start(), end_open))})
     return els
 
 
@@ -180,7 +188,7 @@ def read_plan(brief):
     with open(brief, encoding="utf-8") as handle:
         lines = handle.read().split("\n")
     try:
-        _, results = resolve.resolve(lines, library.load_index(), library.load_library())
+        _, results = resolve.resolve(lines, library.load_index(), library.load_library(), resolve.load_conventions(brief))
     except resolve.Stop as exc:
         return None, None, f"the brief cannot be resolved ({exc})"
     planned, fields = set(), {}
@@ -188,8 +196,9 @@ def read_plan(brief):
         if not r["pattern"]:
             continue
         planned.add(r["pattern"])
-        for _, shows, _ in r["slots"]:
-            if not shows.startswith(SHOWN_NONE):
+        for _, shows, source in r["slots"]:
+            # A row whose value comes from the section's line or from the conventions names no property of an object.
+            if not shows.startswith(SHOWN_NONE) and source.startswith(resolve.OBJECT_SOURCES):
                 fields.setdefault(r["pattern"], set()).add(shows)
     return planned, fields, None
 
@@ -209,6 +218,17 @@ def files_in(paths):
     return out
 
 
+def between(text, els, start, end):
+    """The source between two slots without the elements and the wrapper tags that lie there."""
+    gap, last = [], start
+    for e in sorted((e for e in els if start <= e["start"] and e["end"] <= end), key=lambda e: e["start"]):
+        if e["start"] >= last:
+            gap.append(text[last:e["start"]])
+            last = e["end"]
+    gap.append(text[last:end])
+    return GAP_TAG.sub("", "".join(gap))
+
+
 def check_file(path, text, patterns, planned, plan_fields, used_ids, seen_fields, rep, strict=False):
     lines_ok, file_ok = suppressions(text, path, rep)
     hard = "ERROR" if strict else "WARN"
@@ -219,9 +239,14 @@ def check_file(path, text, patterns, planned, plan_fields, used_ids, seen_fields
             return
         rep.add(severity, cid, path, line, message)
 
+    # A `//` comment on a line of its own inside a JSX tag may hold a quote; blank it for the scan, keeping every offset.
+    text = LINE_COMMENT.sub(lambda m: m.group(1) + " " * (len(m.group(0)) - len(m.group(1))), text)
     els = scan(text)
     roots = [e for e in els if e["pattern"]]
     allowed_inner = {u for pid in (planned or set()) if pid in patterns for u in patterns[pid].get("uses", [])}
+    # A confirmation or a message may stand on any screen, whether or not the brief's sections attach one.
+    allowed_inner |= {row["pattern"] for row in library.load_index().get("attach", [])
+                      if "key" not in row and row["pattern"].startswith("feedback.")}
     for root in roots:
         pid = root["pattern"]
         used_ids.add(pid)
@@ -234,11 +259,18 @@ def check_file(path, text, patterns, planned, plan_fields, used_ids, seen_fields
         pattern = patterns[pid]
         slots = [e for e in els if e["slot"] and owner(e, roots) is root]
         order = library.slot_order(pattern)
-        counts = {}
-        for s in slots:
-            counts[s["slot"]] = counts.get(s["slot"], 0) + 1
+        free = {spec["id"] for spec in pattern["slots"] if spec.get("order") == "any"}
+        counts, previous = {}, {}
+        for s in sorted(slots, key=lambda e: e["start"]):
+            before = previous.get(s["slot"])
+            previous[s["slot"]] = s
+            # The two arms of one conditional render one slot: `cond ? <a slot /> : <b slot />`.
+            if before is None or not TERNARY_ARM.match(between(text, els, before["end"], s["start"])):
+                counts[s["slot"]] = counts.get(s["slot"], 0) + 1
             if s["slot"] not in order:
                 report(hard, "PT1", s["start"], f"`{pid}` has no slot `{s['slot']}`; its slots are {', '.join(order)}")
+            if s.get("field_dynamic"):
+                seen_fields.setdefault(pid, set()).add("*")
             if s["field"]:
                 seen_fields.setdefault(pid, set()).add(s["field"])
                 if plan_fields is not None and pid in plan_fields and s["field"] not in plan_fields[pid]:
@@ -256,7 +288,7 @@ def check_file(path, text, patterns, planned, plan_fields, used_ids, seen_fields
                 report(hard, "PT4", root["start"], f"`{pid}` slot `{spec['id']}` appears {n} times; the pattern allows {high}")
         seen, last = [], -1
         for s in sorted(slots, key=lambda e: e["start"]):
-            if s["slot"] in seen or s["slot"] not in order:
+            if s["slot"] in seen or s["slot"] not in order or s["slot"] in free:
                 continue
             seen.append(s["slot"])
             pos = order.index(s["slot"])
@@ -305,7 +337,7 @@ def main():
                     "build the section from its skeleton")
         for pid, wanted in sorted((plan_fields or {}).items()):
             missing = sorted(wanted - seen_fields.get(pid, set()))
-            if pid in used_ids and missing:
+            if pid in used_ids and missing and "*" not in seen_fields.get(pid, set()):
                 rep.add("WARN", "PT6", brief, 0, f"the Slots rows of `{pid}` assign {', '.join(missing)}, and no slot "
                         "shows it (data-pattern-field)")
     status = "FAIL" if rep.errors else "PASS"
