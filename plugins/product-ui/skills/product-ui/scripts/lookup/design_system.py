@@ -43,7 +43,6 @@ LIGHT_SCREEN = {"color.background": 1.0, "color.foreground": 0.25, "color.muted"
 EFFECT_PATTERNS = [
     ("S13", r"glass|backdrop[- ]?(blur|filter)|frosted"),
     ("S12", r"gradient text|text gradient|bg-clip-text|background-clip:\s*text"),
-    ("S14", r"transition(:|-)\s*all"),
     ("S3", r"(purple|violet)[^.;]*gradient|gradient[^.;]*(purple|violet)"),
 ]
 
@@ -187,6 +186,11 @@ def _checks_line(effects: str) -> str:
 # ============ CONFIGURATION ============
 REASONING_FILE = "ui-reasoning.csv"
 
+# The product types a desktop window belongs to, in order, and the words that bring their rows into the search.
+DESKTOP_PRODUCT_TYPES = ("Productivity Tool", "Notes & Writing App", "Developer Tool / IDE", "Scanner & Document Manager",
+                         "Photo Editor & Filters", "Short Video Editor")
+DESKTOP_QUERY_WORDS = "productivity editor document tool"
+
 SEARCH_CONFIG = {
     "product": {"max_results": 1},
     "style": {"max_results": 3},
@@ -288,7 +292,9 @@ class DesignSystemGenerator:
             "color_mood": rule.get("Color_Mood", ""),
             "typography_mood": rule.get("Typography_Mood", ""),
             "key_effects": rule.get("Key_Effects", ""),
-            "anti_patterns": rule.get("Anti_Patterns", ""),
+            # The output prints a white ground (references/lookup.md), so a row's advice against one is dropped.
+            "anti_patterns": " + ".join(p for p in rule.get("Anti_Patterns", "").split(" + ")
+                                        if p and not re.search(r"(?i)white background", p)),
             "decision_rules": decision_rules,
             "severity": rule.get("Severity", "MEDIUM")
         }
@@ -334,10 +340,26 @@ class DesignSystemGenerator:
         """Extract results list from search result dict."""
         return search_result.get("results", [])
 
+    def _desktop_product(self, query: str) -> dict:
+        """The product search of a desktop window: rows of the productivity, editor and office tool types come first.
+
+        The query takes the words of those rows, so that a diagram editor or a form designer reaches them, and the
+        ranked rows are put in order of type; the first productivity row stands in when none of the top rows is one.
+        """
+        ranked = search(f"{query} {DESKTOP_QUERY_WORDS}", "product", 10)
+        rows = sorted(ranked.get("results", []), key=lambda row: row.get("Product Type") not in DESKTOP_PRODUCT_TYPES)
+        if not rows or rows[0].get("Product Type") not in DESKTOP_PRODUCT_TYPES:
+            fallback = search(DESKTOP_PRODUCT_TYPES[0], "product", 1).get("results", [])
+            rows = fallback + rows
+        return {**ranked, "query": query, "count": len(rows[:1]), "results": rows[:1]}
+
     def generate(self, query: str, project_name: str = None, surface: str = "saas", lang: str = None) -> dict:
         """Generate complete design system recommendation."""
         # Step 1: First search product to get category
-        product_result = search(query, "product", 1)
+        if surface == "desktop":
+            product_result = self._desktop_product(query)
+        else:
+            product_result = search(query, "product", 1)
         product_results = product_result.get("results", [])
         category = "General"
         if product_results:
@@ -361,6 +383,10 @@ class DesignSystemGenerator:
         # The keyword search can rank a palette of another product type first ("team" finds a sports club).
         best_color = self._category_color(category) or (color_results[0] if color_results else {})
         best_typography = next((row for row in typography_results if not font_rejected(row)), {})
+        if surface == "desktop":
+            # references/desktop.md fixes the face of a desktop window; a web font would also meet the window's CSP.
+            best_typography = {"Heading Font": "Segoe UI Variable, Yu Gothic UI", "Body Font": "Segoe UI Variable, Yu Gothic UI",
+                               "Mood/Style Keywords": "the Windows user-interface faces (references/desktop.md, Look)"}
         best_landing = landing_results[0] if landing_results else {}
 
         # Step 5: Build final recommendation
@@ -464,7 +490,7 @@ def format_ascii_box(design_system: dict) -> str:
     typography = design_system.get("typography", {})
     effects = design_system.get("key_effects", "")
     anti_patterns = design_system.get("anti_patterns", "")
-    lp = design_system.get("surface") != "saas"  # the saas surface leaves out the landing-page pattern, style and effects
+    lp = design_system.get("surface") not in ("saas", "desktop")  # an application surface leaves out the landing-page pattern, style and effects
 
     def wrap_text(text: str, prefix: str, width: int) -> list:
         """Wrap long text into multiple lines."""
@@ -595,7 +621,7 @@ def format_markdown(design_system: dict) -> str:
     typography = design_system.get("typography", {})
     effects = design_system.get("key_effects", "")
     anti_patterns = design_system.get("anti_patterns", "")
-    lp = design_system.get("surface") != "saas"  # the saas surface leaves out the landing-page pattern, style and effects
+    lp = design_system.get("surface") not in ("saas", "desktop")  # an application surface leaves out the landing-page pattern, style and effects
 
     lines = []
     lines.append(f"## Design System: {project}")
@@ -703,7 +729,7 @@ def generate_design_system(query: str, project_name: str = None, output_format: 
         persist: If True, save design system to design-system/ folder
         page: Optional page name for page-specific override file
         output_dir: Optional output directory (defaults to current working directory)
-        surface: "saas" (default) leaves out the landing-page pattern, style and key effects; "lp" keeps them
+        surface: "saas" (default) and "desktop" leave out the landing-page pattern, style and key effects; "lp" keeps them
         lang: Optional language; "ja" limits the font pairing to rows with a Japanese family
 
     Returns:
@@ -783,7 +809,7 @@ def format_master_md(design_system: dict) -> str:
     typography = design_system.get("typography", {})
     effects = design_system.get("key_effects", "")
     anti_patterns = design_system.get("anti_patterns", "")
-    lp = design_system.get("surface") != "saas"  # the saas surface leaves out the landing-page pattern, style and effects
+    lp = design_system.get("surface") not in ("saas", "desktop")  # an application surface leaves out the landing-page pattern, style and effects
     
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
@@ -1135,7 +1161,7 @@ def _generate_intelligent_overrides(page_name: str, page_query: str, design_syst
     """
     from core import search
     
-    lp = design_system.get("surface") != "saas"
+    lp = design_system.get("surface") not in ("saas", "desktop")
     page_lower = page_name.lower()
     query_lower = (page_query or "").lower()
     combined_context = f"{page_lower} {query_lower}"

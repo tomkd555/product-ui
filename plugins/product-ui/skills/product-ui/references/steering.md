@@ -16,7 +16,7 @@ Adapted from impeccable 4.8.0, `skill/reference/*.md` (Apache-2.0, Paul Bakaus);
 | animate | `emil-design-eng` |
 | optimize | `agent-skills:performance-optimization` |
 | harden | S10, S16 and S17, the brief's States section, `interfaces:break` |
-| clarify | C1-C32 in `references/ui-copy.md`, the shippable-text-auditor |
+| clarify | C1-C36 in `references/ui-copy.md`, the shippable-text-auditor |
 | adapt | R3, R5 and R11 at 1280 and 375, `interfaces:better-layout` |
 | polish | `interfaces:better-ui`, `emil-design-eng` |
 

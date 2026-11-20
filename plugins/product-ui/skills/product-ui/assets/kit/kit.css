@@ -1,0 +1,39 @@
+/* A table whose rows fold into list items under 768px, on the one markup.
+   `table-fold` goes on the table. In the folded row a cell with `data-label` prints that label at the start of its
+   line and its value at the end, and a cell with `data-fold="hide"` stays out. The column headers leave the view, so the page offers the sort
+   as a select (SortSelect). The rules sit outside every layer, so they hold over the utilities of the cells. */
+@media (width < 48rem) {
+  .table-fold,
+  .table-fold tbody,
+  .table-fold tr,
+  .table-fold td {
+    display: block;
+  }
+
+  .table-fold thead {
+    display: none;
+  }
+
+  .table-fold tr {
+    @apply py-3;
+  }
+
+  .table-fold td {
+    @apply h-auto max-w-none px-0 py-0.5 whitespace-normal;
+  }
+
+  .table-fold td[data-label] {
+    @apply text-right;
+  }
+
+  .table-fold td[data-label]::before {
+    content: attr(data-label);
+    float: left;
+    @apply text-muted-foreground;
+  }
+
+  .table-fold td[data-fold="hide"],
+  .table-fold td[data-label]:empty {
+    display: none;
+  }
+}

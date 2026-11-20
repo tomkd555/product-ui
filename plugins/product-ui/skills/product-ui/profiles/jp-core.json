@@ -1,0 +1,234 @@
+{
+  "id": "jp-core",
+  "version": 1,
+  "name": "国産の基幹パッケージ",
+  "summary": "Japanese sales and accounting packages that began on the desktop: Enter moves from field to field, the function keys sit at the foot of the screen, the saving operation is 登録, and a message asks before a registration.",
+  "keys": {
+    "enter": "next-field",
+    "enter_last": "none",
+    "display": "bottom",
+    "function": [
+      {
+        "key": "F12",
+        "label": "登録",
+        "action": "register"
+      }
+    ],
+    "shortcuts": []
+  },
+  "words": {
+    "create": "登録",
+    "save": "登録",
+    "delete": "削除",
+    "new": "新規作成",
+    "lookup": "参照",
+    "search": "検索",
+    "clear": "inherit",
+    "cancel": "inherit"
+  },
+  "required_mark": "inherit",
+  "confirm": {
+    "register": "always",
+    "sentence": "{操作}します。よろしいですか？",
+    "buttons": "inherit"
+  },
+  "messages": {
+    "error": "inherit",
+    "result": "inherit",
+    "duration_ms": "inherit",
+    "max": "inherit"
+  },
+  "waiting": {
+    "block": "button",
+    "delay_ms": "inherit"
+  },
+  "motion": "inherit",
+  "products": {
+    "yayoi-hanbai": {
+      "name": "弥生販売",
+      "set": {
+        "keys.function": [
+          {
+            "key": "F2",
+            "label": "新規作成",
+            "action": "new"
+          },
+          {
+            "key": "F8",
+            "label": "参照",
+            "action": "lookup"
+          },
+          {
+            "key": "F9",
+            "label": "削除",
+            "action": "delete"
+          },
+          {
+            "key": "F12",
+            "label": "登録",
+            "action": "register"
+          }
+        ],
+        "keys.shortcuts": [
+          {
+            "keys": "Ctrl+F",
+            "label": "検索",
+            "action": "search"
+          },
+          {
+            "keys": "Ctrl+Insert",
+            "label": "行挿入",
+            "action": "row-insert"
+          },
+          {
+            "keys": "Ctrl+Delete",
+            "label": "行削除",
+            "action": "row-delete"
+          }
+        ],
+        "confirm.register": "inherit"
+      },
+      "from": {
+        "keys.function": [
+          "yayoi-hanbai-keys"
+        ],
+        "keys.shortcuts": [
+          "yayoi-hanbai-keys"
+        ]
+      }
+    },
+    "bugyo-j": {
+      "name": "奉行Jシリーズ",
+      "set": {
+        "keys.enter_last": "register",
+        "keys.function": [
+          {
+            "key": "F6",
+            "label": "定型呼出",
+            "action": "recall"
+          },
+          {
+            "key": "F9",
+            "label": "修正",
+            "action": "edit"
+          },
+          {
+            "key": "F12",
+            "label": "登録",
+            "action": "register"
+          }
+        ]
+      },
+      "from": {
+        "keys.enter_last": [
+          "bugyo-j-recall"
+        ],
+        "keys.function": [
+          "bugyo-j-recall",
+          "bugyo-j-edit",
+          "bugyo-j-register"
+        ]
+      }
+    }
+  },
+  "evidence": [
+    {
+      "id": "yayoi-kaikei-env",
+      "source": "弥生会計 サポート情報, 弥生会計の環境設定",
+      "url": "https://support.yayoi-kk.co.jp/subcontents.html?page_id=18326",
+      "says": "In books and slips, Enter moves to the next item and Shift+Enter to the previous one."
+    },
+    {
+      "id": "yayoi-hanbai-keys",
+      "source": "弥生販売 サポート情報, 弥生販売のショートカットキー一覧",
+      "url": "https://support.yayoi-kk.co.jp/subcontents.html?page_id=22523",
+      "says": "F12 登録 registers a slip or a ledger record, F9 削除 deletes it, F2 新規作成 clears the screen for a new one, F8 参照 opens the lookup of the field under the cursor, Ctrl+F 検索 opens the search, Ctrl+Insert and Ctrl+Delete insert and delete a line, and Tab, the arrow keys and Enter move to the next item."
+    },
+    {
+      "id": "yayoi-hanbai-closing",
+      "source": "弥生販売 サポート情報, 請求締切の操作手順",
+      "url": "https://support.yayoi-kk.co.jp/faq_Subcontents.html?page_id=20329",
+      "says": "Before the closing runs, a message states what it covers and ends with よろしいですか."
+    },
+    {
+      "id": "bugyo-j-register",
+      "source": "OBC 奉行Jシリーズ 早わかり操作集, 部門を登録する",
+      "url": "https://www.obc.co.jp/bugyo-j/jseries/quick/quick-op/04",
+      "says": "The [登録](F12) button registers the entry, after a message that begins 登録します。よろしいですか."
+    },
+    {
+      "id": "bugyo-j-recall",
+      "source": "OBC 奉行Jシリーズ 早わかり操作集, 定型取引を呼び出して使用する",
+      "url": "https://www.obc.co.jp/bugyo-j/jseries/quick/quick-op/16",
+      "says": "Enter after the last item of a line registers the line, and the [定型呼出](F6) button recalls a registered transaction."
+    },
+    {
+      "id": "bugyo-j-edit",
+      "source": "OBC 奉行Jシリーズ 早わかり操作集, 帳簿入力後の検索・確認・修正をしたい",
+      "url": "https://www.obc.co.jp/bugyo-j/jseries/quick/quick-op/13",
+      "says": "The [修正](F9) button opens the chosen journal entry for editing."
+    },
+    {
+      "id": "bugyo-j-buttons",
+      "source": "OBC 勘定奉行J11, 機能",
+      "url": "https://www.obc.co.jp/bugyo-j/kanjo-j/feature/01",
+      "says": "The buttons on the screen correspond to the function keys F1 to F12."
+    },
+    {
+      "id": "pca-keys",
+      "source": "PCA 会計シリーズ マニュアル, ボタン、メニューバー、キーなどの操作",
+      "url": "https://pca.jp/area_support/manual/acc/a_Common/Button_menu_key.html",
+      "says": "The shortcuts on function keys are shown together at the foot of the screen, and each can be pressed or clicked."
+    },
+    {
+      "id": "terasoluna-double-submit",
+      "source": "TERASOLUNA Server Framework for Java (5.x) Development Guideline, 二重送信防止",
+      "url": "https://terasolunaorg.github.io/guideline/current/ja/ArchitectureInDetail/WebApplicationDetail/DoubleSubmitProtection.html",
+      "says": "After a button is clicked it cannot be clicked again until the screen is redrawn."
+    }
+  ],
+  "from": {
+    "keys.enter": [
+      "yayoi-kaikei-env",
+      "yayoi-hanbai-keys"
+    ],
+    "keys.display": [
+      "pca-keys",
+      "bugyo-j-buttons"
+    ],
+    "keys.function": [
+      "yayoi-hanbai-keys",
+      "bugyo-j-register"
+    ],
+    "words.create": [
+      "yayoi-hanbai-keys",
+      "bugyo-j-register"
+    ],
+    "words.save": [
+      "yayoi-hanbai-keys",
+      "bugyo-j-register"
+    ],
+    "words.delete": [
+      "yayoi-hanbai-keys"
+    ],
+    "words.new": [
+      "yayoi-hanbai-keys"
+    ],
+    "words.lookup": [
+      "yayoi-hanbai-keys"
+    ],
+    "words.search": [
+      "yayoi-hanbai-keys"
+    ],
+    "confirm.register": [
+      "bugyo-j-register"
+    ],
+    "confirm.sentence": [
+      "bugyo-j-register",
+      "yayoi-hanbai-closing"
+    ],
+    "waiting.block": [
+      "terasoluna-double-submit"
+    ]
+  }
+}

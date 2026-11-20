@@ -1,0 +1,138 @@
+{
+  "id": "feedback.confirm",
+  "version": 1,
+  "kind": "confirm",
+  "summary": "The dialog that asks before an operation runs: a registration where the conventions ask for it, a deletion that cannot be undone, a change to many records.",
+  "not_for": "An operation the reader can undo, which runs at once and offers 元に戻す in its message (feedback.message).",
+  "slots": [
+    {
+      "id": "title",
+      "takes": "label",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "message",
+      "takes": "text",
+      "required": false,
+      "max": 1,
+      "from_convention": "confirm.sentence",
+      "when": "The conventions give a sentence, or the operation cannot be undone."
+    },
+    {
+      "id": "confirm",
+      "takes": "action",
+      "required": true,
+      "max": 1,
+      "order": "any",
+      "from_convention": "confirm.buttons[0]"
+    },
+    {
+      "id": "cancel",
+      "takes": "action",
+      "required": true,
+      "max": 1,
+      "order": "any",
+      "from_convention": "confirm.buttons[1]"
+    }
+  ],
+  "rules": [
+    {
+      "rule": "A registration asks first where the product does, and a deletion that cannot be undone or a change to many records asks first in every product.",
+      "from": [
+        "bugyo-j-register",
+        "yayoi-hanbai-closing",
+        "smarthr-confirmation"
+      ]
+    },
+    {
+      "rule": "The message states what the operation covers and ends with the question.",
+      "from": [
+        "yayoi-hanbai-closing",
+        "im-list"
+      ]
+    },
+    {
+      "rule": "The title is a noun phrase that names the object and the operation.",
+      "from": [
+        "im-message",
+        "smarthr-delete-dialog"
+      ]
+    },
+    {
+      "rule": "Two buttons: the confirming one carries the operation's word, and the other dismisses the dialog.",
+      "from": [
+        "im-message",
+        "smarthr-delete-dialog"
+      ]
+    },
+    {
+      "rule": "The dialog blocks the page until it is answered.",
+      "from": [
+        "sapui5-message-handling"
+      ]
+    },
+    {
+      "rule": "The two buttons keep their words across the dialogs of one product.",
+      "from": [
+        "im-message"
+      ]
+    }
+  ],
+  "labels": {
+    "title": "{object}の{operation}"
+  },
+  "uses": [],
+  "maps_to": {
+    "shadcn": "AlertDialog",
+    "html": "dialog",
+    "dads": null,
+    "smarthr": "ActionDialog",
+    "astryx": null
+  },
+  "evidence": [
+    {
+      "id": "bugyo-j-register",
+      "source": "OBC 奉行Jシリーズ 早わかり操作集, 部門を登録する",
+      "url": "https://www.obc.co.jp/bugyo-j/jseries/quick/quick-op/04",
+      "says": "A department is registered by entering its code and name and pressing the [登録](F12) button, after a message that begins 登録します。よろしいですか."
+    },
+    {
+      "id": "yayoi-hanbai-closing",
+      "source": "弥生販売 サポート情報, 請求締切の操作手順",
+      "url": "https://support.yayoi-kk.co.jp/faq_Subcontents.html?page_id=20329",
+      "says": "Before the closing runs, a message states what it covers and ends with よろしいですか."
+    },
+    {
+      "id": "im-message",
+      "source": "intra-mart Accel Platform UIデザインガイドライン(PC版), アラートとコンファーム",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_ui/im_design_guideline_pc/texts/message/index.html",
+      "says": "A confirmation shows two buttons, 決定 and 取り消し; a dialog's title is a noun phrase such as 登録確認; button names stay the same within one function; message sentences take the です・ます form."
+    },
+    {
+      "id": "im-list",
+      "source": "intra-mart Accel Platform UIデザインガイドライン(PC版), 一覧画面",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_ui/im_design_guideline_pc/texts/programing_guide/sa/list.html",
+      "says": "The list screen puts a 検索 and a クリア button beside the search box above the list table, and deletes the checked rows after a confirmation that reads 選択したデータを削除します。よろしいですか."
+    },
+    {
+      "id": "smarthr-delete-dialog",
+      "source": "SmartHR Design System, 削除ダイアログ",
+      "url": "https://smarthr.design/products/design-patterns/delete-dialog/",
+      "says": "A deletion that cannot be undone asks in a dialog titled with the object, with the destructive button labelled 削除."
+    },
+    {
+      "id": "smarthr-confirmation",
+      "source": "SmartHR Design System, ワンクッション必要な操作",
+      "url": "https://smarthr.design/products/design-patterns/confirmation-step/",
+      "says": "An operation that can be undone needs no confirmation; one that changes many records states how many before it runs."
+    },
+    {
+      "id": "sapui5-message-handling",
+      "source": "SAPUI5 documentation, Message Handling",
+      "url": "https://github.com/SAP-docs/sapui5/blob/main/docs/10_More_About_Controls/message-handling-f5df293.md",
+      "says": "A message dialog interrupts the work by blocking the page until the user closes it; a message toast is for a less important message that must not block; messages have four types, each with its colour and icon."
+    }
+  ],
+  "evidence_status": "documented"
+}

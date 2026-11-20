@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """product-ui: the one rule that reads user-visible strings out of script and catalog files.
 
-Standard library only. check_copy.py imports it today and check_shippable_text.py
-after it, so both scripts read a catalog or a data file through the same rule.
+Standard library only. check_copy.py and check_shippable_text.py import it, so both
+scripts read a catalog or a data file through the same rule.
 The source of record for the scope is references/ui-copy.md.
 
 Two readers:
@@ -134,6 +134,22 @@ def _object_around(body, start, end):
     if left < 0 or right < 0 or "}" in body[left:start]:
         return ""
     return body[left:right + 1]
+def _owner_name(body, start):
+    """The name an object literal is bound to (`errors = {`, `classNames: {`); "" outside one."""
+    left = body.rfind("{", max(0, start - 300), start)
+    if left < 0 or "}" in body[left:start]:
+        return ""
+    owner = re.search(r"([A-Za-z_][\w.]*)\s*(?::\s*[\w<>,\s\[\]|]+)?\s*[:=]\s*$", body[max(0, left - 80):left])
+    return owner.group(1) if owner else ""
+
+
+def _owner_kind(body, start):
+    """The kind KEY_KIND gives the name an object literal is bound to; "" outside one."""
+    owner = _owner_name(body, start)
+    return kind_from_key(owner) if owner else ""
+
+
+CLASS_OWNER = re.compile(r"(?i)class(es|names?)$")
 KEY_BEFORE = re.compile(r"(?P<key>[A-Za-z_][\w.\-]*)[\"']?\s*:\s*$")
 ASSIGN_BEFORE = re.compile(r"(?P<key>[A-Za-z_][\w.\-]*)\s*=\s*[\[(]?\s*$")
 SKIP_LINE =re.compile(r"console\.|logger\.|\bthrow\b|^\s*import\b|^\s*export\b[^\n]*\bfrom\b")
@@ -147,7 +163,7 @@ def line_of(body, index):
 def kind_from_key(key):
     for segment in re.split(r"[._\-/]", key.lower()):
         for needle, kind in KEY_KIND:
-            if needle == segment:
+            if segment in (needle, needle + "s"):
                 return kind
     for needle, kind in KEY_KIND:
         if needle in key.lower():
@@ -227,15 +243,21 @@ def script_entries(body, embedded=False):
         key = None
         window = body[max(0, start - 60):start]
         before = KEY_BEFORE.search(window) or (ASSIGN_BEFORE.search(window) if embedded else None)
+        if before and before.group("key") == "document.title":
+            continue  # the document title, like <title>, names the product by design
         if before and ((WORD.findall(before.group("key")) or [""])[-1].lower() in UI_KEYS
                        or (embedded and kind_from_key(before.group("key")) != "prose"
                            and (JAPANESE.search(text) or reads_as_sentence(text)))):
             if not (looks_like_copy(text) or (embedded and JAPANESE.search(text))):
                 continue
+            if CLASS_OWNER.search(_owner_name(body, start)):
+                continue  # classNames = { actionButton: "!h-8 !text-sm" }: class lists keyed by the part they style
             key = before.group("key")
             kind = kind_from_key(key)
             if kind == "label" and LINK_KEY.search(_object_around(body, start, start + len(inner) + 2)):
                 kind = "link"
+            if kind != "error" and _owner_kind(body, start) == "error":
+                kind = "error"  # errors = { title: "件名を入力してください。" }: the object names the kind, the key the field
         elif JAPANESE.search(text) or (embedded and reads_as_sentence(text)):
             kind = "prose"
         else:

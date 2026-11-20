@@ -16,14 +16,21 @@
       "takes": "identifier",
       "required": true,
       "max": 1,
-      "emphasis": 1,
       "link": "single-view"
     },
     {
       "id": "price",
       "takes": "price",
       "required": true,
-      "max": 1
+      "max": 1,
+      "emphasis": 1
+    },
+    {
+      "id": "offer",
+      "takes": "offer",
+      "required": false,
+      "max": 4,
+      "when": "What the shop attaches to the offer, tagged [offer]: shipping (送料無料 or the fee), points, the delivery date, the seller."
     },
     {
       "id": "rating",
@@ -45,6 +52,13 @@
       "required": true,
       "min": 1,
       "max": 3
+    },
+    {
+      "id": "status",
+      "takes": "status",
+      "required": false,
+      "max": 1,
+      "when": "The stock state where it limits the purchase: 在庫切れ, 残り2点."
     }
   ],
   "rules": [
@@ -77,17 +91,33 @@
       "from": [
         "baymard-filters"
       ]
+    },
+    {
+      "rule": "The price is the strongest text of the item: larger and heavier than the title, which runs two or three lines and then truncates.",
+      "from": [
+        "ja-shop-results"
+      ]
+    },
+    {
+      "rule": "On a Japanese shop the shipping (送料無料 or the fee) sits beside the price, and the points, the rating with its count, the delivery date and the seller follow where the shop has them.",
+      "from": [
+        "ja-shop-results"
+      ]
     }
   ],
   "labels": {
     "collection_heading": "object or the subset shown"
   },
-  "uses": [],
+  "uses": [
+    "status.badge",
+    "state.empty"
+  ],
   "maps_to": {
     "shadcn": "Card",
     "html": "article",
     "dads": "Card",
-    "smarthr": null
+    "smarthr": null,
+    "astryx": "ClickableCard"
   },
   "evidence": [
     {
@@ -107,6 +137,12 @@
       "source": "Baymard Institute, Filters for list item information (2019)",
       "url": "https://baymard.com/research-articles/have-filters-for-list-item-info",
       "says": "38% of sites show list item information the user cannot filter by."
+    },
+    {
+      "id": "ja-shop-results",
+      "source": "Search-result pages of Amazon.co.jp, 楽天市場, Yahoo!ショッピング, メルカリ, アスクル and 価格.com, captured 2026-11 (research/20261113-production-ui-ooui/corpus/anatomy_shop_results.json)",
+      "url": "https://search.rakuten.co.jp/search/mall/%E5%86%B7%E8%94%B5%E5%BA%AB/",
+      "says": "The price is 20 to 24px and bold against a 14 to 16px regular title on 6 of 7 pages, and red on 6 of 7; shipping wording on 5 of 7, points on 4 of 7, a rating with its count on 5 of 7, the seller on 5 of 7; tax wording on 1 of 7."
     }
   ],
   "evidence_status": "documented"

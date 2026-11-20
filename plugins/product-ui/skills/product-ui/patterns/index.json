@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "about": "Decision table for scripts/patterns/resolve.py. A section takes the one row whose keys all match it; a key a row leaves out matches anything. pattern null with say: the section takes no pattern, for the reason given.",
+  "about": "Decision table for scripts/patterns/resolve.py. A section takes the one row whose keys all match it; a key a row leaves out matches anything. pattern null with say: the section takes no pattern, for the reason given. attach: a pattern a screen takes beside its sections' own; a row with key goes to the section that sets that key, a row without one goes once to each screen holding a section of the listed content, when the brief's conventions hold one of the values listed under when.",
   "rows": [
     {
       "content": "records",
@@ -23,6 +23,10 @@
     {
       "content": "record-fields",
       "pattern": "record.summary-list"
+    },
+    {
+      "content": "history",
+      "pattern": "record.activity"
     },
     {
       "content": "items",
@@ -50,14 +54,40 @@
       "job": [
         "enter",
         "lookup",
-        "decide"
+        "decide",
+        "record"
       ],
       "pattern": null,
       "say": "A figure on a screen whose job class is not monitor sits in the heading or the filter bar (references/composition.md, KPI tiles)."
     },
     {
+      "content": "chart",
+      "pattern": null,
+      "say": "A chart on a monitoring screen sits in a panel under its heading (references/composition.md, the container rule; references/components.md for the series colours)."
+    },
+    {
       "content": "tasks",
       "pattern": "task.list"
+    },
+    {
+      "content": "slip",
+      "pattern": "entry.slip"
+    },
+    {
+      "content": "master",
+      "pattern": "master.form"
+    },
+    {
+      "content": "closing",
+      "pattern": "process.closing"
+    },
+    {
+      "content": "import",
+      "pattern": "process.import"
+    },
+    {
+      "content": "approval",
+      "pattern": "approval.request"
     },
     {
       "content": "form",
@@ -68,6 +98,50 @@
       "content": "prose",
       "pattern": null,
       "say": "Running text sits on the page ground under its heading."
+    }
+  ],
+  "attach": [
+    {
+      "key": "conditions",
+      "content": [
+        "records",
+        "products"
+      ],
+      "pattern": "collection.conditions"
+    },
+    {
+      "content": [
+        "slip",
+        "master"
+      ],
+      "pattern": "action.function-keys",
+      "when": {
+        "keys.display": [
+          "bottom",
+          "toolbar"
+        ]
+      }
+    },
+    {
+      "content": [
+        "slip",
+        "master"
+      ],
+      "pattern": "feedback.confirm"
+    },
+    {
+      "content": [
+        "slip",
+        "master"
+      ],
+      "pattern": "feedback.message",
+      "when": {
+        "messages.result": [
+          "toast",
+          "bar",
+          "near-control"
+        ]
+      }
     }
   ]
 }

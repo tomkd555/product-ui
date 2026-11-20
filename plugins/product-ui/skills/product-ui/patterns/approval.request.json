@@ -1,0 +1,167 @@
+{
+  "id": "approval.request",
+  "version": 1,
+  "kind": "approval",
+  "summary": "The approval of a request on its single view: the route with its progress, the approver's comment and the actions.",
+  "not_for": "The list of requests waiting for the approver, which is a collection (collection.table.index), or the request's own fields (record.summary-list).",
+  "slots": [
+    {
+      "id": "heading",
+      "takes": "label",
+      "required": false,
+      "max": 1
+    },
+    {
+      "id": "route",
+      "takes": "section",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "comment",
+      "takes": "control",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "approve",
+      "takes": "action",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "reject",
+      "takes": "action",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "send-back",
+      "takes": "action",
+      "required": false,
+      "max": 1,
+      "when": "The route lets the approver return the request to the applicant or to an earlier step."
+    },
+    {
+      "id": "other",
+      "takes": "action",
+      "required": false,
+      "max": 2,
+      "when": "保留 and 委任, where the product has them."
+    },
+    {
+      "id": "withdraw",
+      "takes": "action",
+      "required": false,
+      "max": 1,
+      "order": "any",
+      "when": "On the applicant's view, while the next approver has not handled the request."
+    }
+  ],
+  "rules": [
+    {
+      "rule": "The request's view shows its route: each step, who handles it and how far the request has come.",
+      "from": [
+        "garoon-workflow",
+        "lineworks-workflow",
+        "im-workflow"
+      ]
+    },
+    {
+      "rule": "The approver's actions sit together: approving, rejecting and, where the route allows it, sending back.",
+      "from": [
+        "im-workflow",
+        "lineworks-workflow",
+        "kintone-process"
+      ]
+    },
+    {
+      "rule": "A comment field goes with the actions.",
+      "from": [
+        "im-workflow",
+        "power-automate-approvals"
+      ]
+    },
+    {
+      "rule": "Rejecting ends the request; sending back returns it for another submission under the same number.",
+      "from": [
+        "lineworks-workflow",
+        "im-workflow"
+      ]
+    },
+    {
+      "rule": "The applicant can take a submitted request back while the next approver has not handled it.",
+      "from": [
+        "kintone-process",
+        "im-workflow",
+        "lineworks-workflow"
+      ]
+    },
+    {
+      "rule": "The words follow the product: 却下 or 否認, 差し戻し or 差戻し, 取り戻し, 引戻し or 回収. One product keeps one word for each, settled in voice.terms.",
+      "from": [
+        "lineworks-workflow",
+        "im-workflow",
+        "kintone-process"
+      ]
+    },
+    {
+      "rule": "The requests waiting for the approver are a list of their own, which opens this view.",
+      "from": [
+        "garoon-workflow",
+        "lineworks-workflow",
+        "power-automate-approvals"
+      ]
+    }
+  ],
+  "labels": {
+    "heading": "承認",
+    "approve": "承認",
+    "reject": "却下",
+    "send_back": "差し戻し",
+    "withdraw": "取り戻し"
+  },
+  "uses": [
+    "feedback.message"
+  ],
+  "maps_to": {
+    "shadcn": "section with Textarea and Button",
+    "html": "section",
+    "dads": null,
+    "smarthr": null,
+    "astryx": null
+  },
+  "evidence": [
+    {
+      "id": "garoon-workflow",
+      "source": "Garoon ヘルプ, ワークフロー画面",
+      "url": "https://jp.cybozu.help/g/ja/user/application/workflow/view.html",
+      "says": "The workflow has a list of the requests waiting for the approver, a screen with the request's details and a screen for handling it; the details show how far the route has progressed."
+    },
+    {
+      "id": "im-workflow",
+      "source": "intra-mart IM-Workflow ユーザ操作ガイド, 承認、否認をする",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_workflow/im_workflow_user_guide/texts/basic_guide_8022/process/basic_guide_8022_5.html",
+      "says": "The approver handles a case from the list of cases, choosing among 承認, 承認終了, 否認, 保留 and 差戻し as the flow allows, with a comment field; 否認 completes the case, 差戻し returns it to a chosen step, and 引戻し takes back a case the next person has not handled yet."
+    },
+    {
+      "id": "lineworks-workflow",
+      "source": "LINE WORKS, ワークフローのトリセツ, 文書の承認・却下",
+      "url": "https://line-works.com/line-works/blog/workflow_setup_guide_7",
+      "says": "The approver has five operations: 承認, 却下, 差し戻し, 委任 and 保留. 却下 ends the request, 差し戻し asks the applicant to submit again under the same number, and the applicant can take a submitted document back until the first approval is handled."
+    },
+    {
+      "id": "kintone-process",
+      "source": "kintone ヘルプ, プロセス管理の設定例",
+      "url": "https://jp.cybozu.help/k/ja/user/app_settings/process/sample_flow.html",
+      "says": "The sample flow of a request has the actions 承認する, 却下する and 差し戻す, and 取り戻す for the applicant who takes a submitted request back."
+    },
+    {
+      "id": "power-automate-approvals",
+      "source": "Microsoft Learn, Power Automate, Approve or reject requests",
+      "url": "https://learn.microsoft.com/en-us/power-automate/approve-reject-requests",
+      "says": "The requests waiting for the approver are listed under Approvals, and approving or rejecting takes a comment."
+    }
+  ],
+  "evidence_status": "documented"
+}

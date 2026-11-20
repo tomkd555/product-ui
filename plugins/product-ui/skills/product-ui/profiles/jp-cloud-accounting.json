@@ -1,0 +1,104 @@
+{
+  "id": "jp-cloud-accounting",
+  "version": 1,
+  "name": "国産のクラウド会計",
+  "summary": "Japanese accounting services that run in the browser: a registration runs by a shortcut and returns an empty entry screen, with no function keys shown. The values are freee会計's, and 弥生会計 Next has a table for what its pages state.",
+  "keys": {
+    "enter": "none",
+    "enter_last": "none",
+    "display": "none",
+    "function": [],
+    "shortcuts": [
+      {
+        "keys": "Ctrl+Enter",
+        "label": "登録",
+        "action": "register"
+      }
+    ]
+  },
+  "words": {
+    "create": "登録",
+    "save": "登録",
+    "delete": "inherit",
+    "new": "inherit",
+    "lookup": "inherit",
+    "search": "inherit",
+    "clear": "inherit",
+    "cancel": "inherit"
+  },
+  "required_mark": "inherit",
+  "confirm": {
+    "register": "inherit",
+    "sentence": "inherit",
+    "buttons": "inherit"
+  },
+  "messages": {
+    "error": "inherit",
+    "result": "new-entry",
+    "duration_ms": "inherit",
+    "max": "inherit"
+  },
+  "waiting": {
+    "block": "inherit",
+    "delay_ms": "inherit"
+  },
+  "motion": "inherit",
+  "products": {
+    "yayoi-kaikei-next": {
+      "name": "弥生会計 Next",
+      "set": {
+        "keys.shortcuts": [
+          {
+            "keys": "Shift+F8",
+            "label": "仕訳の新規作成",
+            "action": "row-new"
+          }
+        ],
+        "words.create": "inherit",
+        "words.save": "inherit",
+        "messages.result": "inherit"
+      },
+      "from": {
+        "keys.shortcuts": [
+          "yayoi-kaikei-next-keys"
+        ]
+      }
+    }
+  },
+  "evidence": [
+    {
+      "id": "freee-journal",
+      "source": "freee ヘルプセンター, 振替伝票を作成する（仕訳形式で記帳する）",
+      "url": "https://support.freee.co.jp/hc/ja/articles/202848040-%E6%8C%AF%E6%9B%BF%E4%BC%9D%E7%A5%A8%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B-%E4%BB%95%E8%A8%B3%E5%BD%A2%E5%BC%8F%E3%81%A7%E8%A8%98%E5%B8%B3%E3%81%99%E3%82%8B",
+      "says": "Ctrl+Enter registers the 振替伝票; clicking [登録] saves what was entered and shows the screen for a new one."
+    },
+    {
+      "id": "freee-shortcuts",
+      "source": "freee ヘルプセンター, ショートカットキーを使って取引を登録する",
+      "url": "https://support.freee.co.jp/hc/ja/articles/203853240-%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E5%8F%96%E5%BC%95%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B",
+      "says": "A 取引 is registered by moving to [登録] and pressing Enter, or by Shift+Enter (登録)."
+    },
+    {
+      "id": "yayoi-kaikei-next-keys",
+      "source": "弥生会計 Next サポート情報, ショートカットキー一覧",
+      "url": "https://support.yayoi-kk.co.jp/subcontents.html?page_id=31323",
+      "says": "Shift+F8, 仕訳の新規作成, moves to the entry row of a new journal entry; some shortcuts do not work in Safari and in browsers on macOS."
+    }
+  ],
+  "from": {
+    "keys.shortcuts": [
+      "freee-journal"
+    ],
+    "words.create": [
+      "freee-journal",
+      "freee-shortcuts"
+    ],
+    "words.save": [
+      "freee-journal",
+      "freee-shortcuts"
+    ],
+    "messages.result": [
+      "freee-journal"
+    ]
+  }
+}

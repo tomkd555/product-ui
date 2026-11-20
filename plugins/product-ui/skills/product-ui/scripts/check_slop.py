@@ -33,7 +33,7 @@ import sys
 
 from colour import hex_to_oklch
 
-SCOPE_SUFFIXES = (".html", ".jsx", ".tsx", ".vue", ".svelte", ".astro", ".css")
+SCOPE_SUFFIXES = (".html", ".htm", ".jsx", ".tsx", ".vue", ".svelte", ".astro", ".css")
 
 SKIP_DIRS = {"node_modules", "vendor", "dist", "build", ".next", ".git", ".svelte-kit", "out"}
 SKIP_NAMES = {"theme.css", "tokens.css"}
@@ -141,7 +141,7 @@ EMPTY_BRANCH = re.compile(
 LOADING_BRANCH = re.compile(
     r"\b(?:loading(?!\s*=\s*[\"'])|sending|submitting|saving|pending|isLoading|isPending|isSubmitting|isFetching"
     r"|Skeleton|Spinner|Suspense)\b")
-CONST_ARRAY = r"\bconst\s+{name}\s*(?::[^=;]+)?=\s*(?:\[|Array\.from\(\s*\{{\s*length\b)"
+CONST_ARRAY = r"\bconst\s+{name}\s*(?::(?:[^=]|=>){{1,300}}?)?=\s*(?:\[|Array\.from\(\s*\{{\s*length\b)"
 ERROR_BRANCH = re.compile(r"\b(?:error|isError|ErrorBoundary|catch)\b")
 IMPORT_STMT = re.compile(r"(?ms)^[ \t]*import\b.*?[\"'][^\"'\n]+[\"'][ \t]*;?")
 CSS_MEMBER = re.compile(r"\b(?:styles|classes|css|cls)\.\w+")
@@ -608,8 +608,23 @@ def has_token(attrs, name):
 
 
 def constant_array_receiver(code, dot):
-    """True when the receiver of the .map( at dot is a constant: a name in capitals, or one bound in the file with const to an array literal or to Array.from({ length })."""
-    before = code[max(0, dot - 80):dot]
+    """True when the receiver of the .map( at dot is a constant: an array literal written in place, a name in capitals, or one bound in the file with const to an array literal or to Array.from({ length })."""
+    before = code[max(0, dot - 200):dot]
+    # STATUSES.filter((s) => s !== current).map: the receiver is the list the chain starts from.
+    before = re.sub(r"(?:\s*\.(?:filter|slice|sort|toSorted|reverse|toReversed)\((?:[^()]|\((?:[^()]|\([^()]*\))*\))*\))+\s*$", "", before)[-80:]
+    # [1, 2, 3, 4, 5].map, on one line or many: a literal with an element, where rows[0].map indexes a value.
+    head = code[:dot].rstrip()
+    if head.endswith("]"):
+        depth, i = 0, len(head) - 1
+        while i >= 0:
+            depth += head[i] == "]"
+            depth -= head[i] == "["
+            if depth == 0:
+                break
+            i -= 1
+        opener = head[:i].rstrip()[-1:] if i >= 0 else ""
+        if i >= 0 and head[i + 1:-1].strip() and not re.match(r"[\w$\])]", opener):
+            return True
     # A name in capitals is a constant by convention, imported ones included: STATUSES.map, Object.entries(LABELS).map.
     if re.search(r"(?:\bObject\.(?:entries|values|keys)\(\s*)?(?<![\w$.])[A-Z][A-Z0-9_]+\s*\)?\??$", before):
         return True

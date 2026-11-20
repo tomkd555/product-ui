@@ -1,0 +1,81 @@
+{
+  "id": "dynamics-365",
+  "version": 1,
+  "name": "Dynamics 365",
+  "summary": "Model-driven applications of Dynamics 365 and Power Apps: a form's notification is a bar at the top of the form that stays until it is cleared, an error also shows beside its field, and Ctrl+S saves.",
+  "keys": {
+    "enter": "none",
+    "enter_last": "none",
+    "display": "none",
+    "function": [],
+    "shortcuts": [
+      {
+        "keys": "Ctrl+S",
+        "label": "保存",
+        "action": "register"
+      }
+    ]
+  },
+  "words": {
+    "create": "inherit",
+    "save": "inherit",
+    "delete": "inherit",
+    "new": "inherit",
+    "lookup": "inherit",
+    "search": "inherit",
+    "clear": "inherit",
+    "cancel": "inherit"
+  },
+  "required_mark": "inherit",
+  "confirm": {
+    "register": "inherit",
+    "sentence": "inherit",
+    "buttons": "inherit"
+  },
+  "messages": {
+    "error": "top-and-field",
+    "result": "bar",
+    "duration_ms": "until-closed",
+    "max": "inherit"
+  },
+  "waiting": {
+    "block": "inherit",
+    "delay_ms": "inherit"
+  },
+  "motion": "inherit",
+  "products": {},
+  "evidence": [
+    {
+      "id": "powerapps-form-notification",
+      "source": "Microsoft Learn, Power Apps client API reference, setFormNotification",
+      "url": "https://learn.microsoft.com/en-us/power-apps/developer/model-driven-apps/clientapi/reference/formcontext-ui/setformnotification",
+      "says": "A form notification stays visible until the code removes it, and its level is error, warning or information."
+    },
+    {
+      "id": "powerapps-shortcuts",
+      "source": "Microsoft Learn, Power Apps, Keyboard shortcuts in model-driven apps",
+      "url": "https://learn.microsoft.com/en-us/power-apps/user/keyboard-shortcuts",
+      "says": "On a form, Ctrl+S saves."
+    },
+    {
+      "id": "fluent2-message-bar",
+      "source": "Fluent 2 Design System, Message bar, usage",
+      "url": "https://fluent2.microsoft.design/components/web/react/core/messagebar/usage",
+      "says": "When a form is submitted with errors, the focus moves to the message bar at the top of the form, and inline error messages beside the fields reinforce it."
+    }
+  ],
+  "from": {
+    "keys.shortcuts": [
+      "powerapps-shortcuts"
+    ],
+    "messages.error": [
+      "fluent2-message-bar"
+    ],
+    "messages.result": [
+      "powerapps-form-notification"
+    ],
+    "messages.duration_ms": [
+      "powerapps-form-notification"
+    ]
+  }
+}

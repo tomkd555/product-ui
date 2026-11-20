@@ -1,0 +1,142 @@
+{
+  "id": "master.form",
+  "version": 1,
+  "kind": "master-form",
+  "summary": "The maintenance screen of one master record (a customer, a product, a department): its fields in named groups, with the registration and the deletion.",
+  "not_for": "A document with lines (entry.slip); the read-only view of a record (record.header with record.summary-list); a list of the records (collection.table.index).",
+  "slots": [
+    {
+      "id": "heading",
+      "takes": "label",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "group",
+      "takes": "label",
+      "required": false,
+      "max": null,
+      "from_key": "groups",
+      "when": "The record has more fields than one group reads well: the section's `groups` key names them."
+    },
+    {
+      "id": "name",
+      "takes": "identifier",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "status",
+      "takes": "status",
+      "required": false,
+      "max": 1
+    },
+    {
+      "id": "field",
+      "takes": "property",
+      "required": true,
+      "min": 1,
+      "max": null
+    }
+  ],
+  "rules": [
+    {
+      "rule": "The fields sit in named groups, the identifying ones first: the code and the name, then the address, then the terms.",
+      "from": [
+        "yayoi-hanbai-ledger",
+        "bc-card-page"
+      ]
+    },
+    {
+      "rule": "A group is headed by a noun, and the groups keep one order on the create and on the edit screen.",
+      "from": [
+        "yayoi-hanbai-ledger",
+        "bc-card-page"
+      ]
+    },
+    {
+      "rule": "The registration saves the record, and the deletion removes the record on the screen after its confirmation.",
+      "from": [
+        "yayoi-hanbai-ledger",
+        "bugyo-j-register"
+      ]
+    },
+    {
+      "rule": "The actions of a register or an edit screen sit together at the foot: the registration first, the deletion last.",
+      "from": [
+        "im-button"
+      ]
+    },
+    {
+      "rule": "The saving word is the one the conventions give; without a profile it is the project's own.",
+      "from": [
+        "im-register",
+        "product-ui"
+      ]
+    },
+    {
+      "rule": "The first field the reader fills takes the focus when the form opens.",
+      "from": [
+        "im-input-form"
+      ]
+    },
+    {
+      "rule": "A required field carries the mark the conventions give, and no other field carries a mark.",
+      "from": [
+        "product-ui"
+      ]
+    }
+  ],
+  "labels": {
+    "heading": "object"
+  },
+  "uses": [
+    "status.badge"
+  ],
+  "maps_to": {
+    "shadcn": "form, with FormField of the kit",
+    "html": "form with fieldsets",
+    "dads": null,
+    "smarthr": "FormControl in a Fieldset",
+    "astryx": null
+  },
+  "evidence": [
+    {
+      "id": "yayoi-hanbai-ledger",
+      "source": "弥生販売 サポート情報, 得意先台帳の概要",
+      "url": "https://support.yayoi-kk.co.jp/subcontents.html?page_id=22603",
+      "says": "The customer ledger screen is described in sections: 得意先情報 with the code and the name, 住所情報, 出力方法 and 取引条件. F9 deletes the customer shown."
+    },
+    {
+      "id": "bc-card-page",
+      "source": "Microsoft Learn, Business Central, Designing card and document pages",
+      "url": "https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-designing-card-pages",
+      "says": "A card page holds one master record; FastTabs group its fields under a common heading, in an order the page defines."
+    },
+    {
+      "id": "bugyo-j-register",
+      "source": "OBC 奉行Jシリーズ 早わかり操作集, 部門を登録する",
+      "url": "https://www.obc.co.jp/bugyo-j/jseries/quick/quick-op/04",
+      "says": "A department is registered by entering its code and name and pressing the [登録](F12) button, after a message that begins 登録します。よろしいですか."
+    },
+    {
+      "id": "im-button",
+      "source": "intra-mart Accel Platform UIデザインガイドライン(PC版), ボタン",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_ui/im_design_guideline_pc/texts/contents_area/button.html",
+      "says": "On a register or an edit screen the action buttons sit together at the foot, 登録 before 連続登録 and 更新 before 削除; the search button sits to the right of the input in the search-condition area."
+    },
+    {
+      "id": "im-register",
+      "source": "intra-mart Accel Platform UIデザインガイドライン(PC版), 登録画面",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_ui/im_design_guideline_pc/texts/programing_guide/sa/register.html",
+      "says": "The button of a register screen reads 登録 by default."
+    },
+    {
+      "id": "im-input-form",
+      "source": "intra-mart Accel Platform UIデザインガイドライン(PC版), 入力フォーム",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_ui/im_design_guideline_pc/texts/contents_area/input_form.html",
+      "says": "Numbers are right-aligned and strings and dates left-aligned in text inputs; the first input the user fills takes the focus, the search box of a search screen included."
+    }
+  ],
+  "evidence_status": "documented"
+}

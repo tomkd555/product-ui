@@ -8,10 +8,10 @@ Source of record for what real production screens of each kind show: their regio
 2. Choose the variant. Each kind's Variants list names the forms production screens of the kind take, and a row pooled over the kind mixes them. Where the variant's line and a pooled row disagree, the variant decides: a status page takes the regions its variant names, with no chart and no time-range control, and a sign-in card takes the account-form figures.
 3. List the regions in the Composition section of `ui-brief.md`, the shell first. Every built screen has its h1: the page title is built even where its row says `some`, and on a service status page the h1 is the status headline.
 4. Build every region marked `always` (nine in ten real screens or more) and every region marked `usual` (more than half). A region is left out when the request rules it out, when the product has nothing for it to hold (a record shown whole on one page has no sub-view tabs), or when its content would be a fact about the business that the request does not give: a testimonial, a customer logo, a usage figure, a plan's sales line, the plan to recommend. The brief's Omitted line names the region with that reason. `some` marks a region on half or fewer; build it when the request asks for what it holds.
-5. Fill each region the way production screens are filled. Navigation takes the product's objects (the brief's Structure table), the sibling screens the request names or implies, and the screens every product of the kind has: the sections of a settings area (プロフィール, 通知, セキュリティ), and on a public body's site よくある質問 and お問い合わせ. Each is a link to its route, and the brief lists the ones the request left unnamed as assumed. Where none of these applies, the header holds the product name and the account control alone. A collection takes a full page of sample records, and a record its whole thread and history. A footer on a public screen takes the links every product has (利用規約, プライバシーポリシー, ヘルプ). Names, titles, messages, dates and amounts are sample data, invented for a mock. A comparison table or an FAQ is built from what the request states: the plans, the prices, the trial. The rows "Text on the page" and "Links, buttons and inputs" under Every screen give the volume production screens reach. Reach it with what production screens of the kind link and list: in a row, each label, assignee and count is a link or a filter. A fact the request does not give stays out, whatever the volume, and a back-office record or a form of a few fields stays below the figures.
+5. Fill each region the way production screens are filled. Navigation takes the product's objects whose collection the build holds (the brief's Structure table) and the sibling screens the build holds. The screens every product of the kind has (the sections of a settings area, よくある質問 and お問い合わせ on a public body's site) enter where the build holds them: a view outside the build gets no link (`references/interaction.md`, Controls that work), and the hand-over lists it. On a landing page the header's navigation links to the page's own sections (機能, 料金, よくある質問) and to the sign-up form the build holds. Where none of these applies, the header holds the product name and the account control alone. A collection takes a full page of sample records, and a record its whole thread and history. A footer on a public screen takes the links every product has (利用規約, プライバシーポリシー, ヘルプ) for the pages the build holds, and its copyright line. Names, titles, messages, dates and amounts are sample data, invented for a mock. A comparison table or an FAQ is built from what the request states: the plans, the prices, the trial. The rows "Text on the page" and "Links, buttons and inputs" under Every screen give the volume production screens reach. Reach it with what production screens of the kind link and list: in a row, each label, assignee and count is a filter of the collection or a link to a view of the build. A fact the request does not give stays out, whatever the volume, and a back-office record or a form of a few fields stays below the figures.
 6. Take sizes from the kind's Values table and the shell sizes from Every screen: a text size at the step of the tokens' type scale nearest the figure, a distance at the nearest multiple of the spacing unit (`spacing.base_px`). Where two roles land on one type step, both keep it and the higher role takes the heavier weight. A Japanese screen takes the JA figure where a row gives one for its variant. A real text size under 14px is built at 14px; 12px stays only for a Latin-only run of at most 24 characters (`references/ban-list.md`), written "Latin-short 12px".
 7. The Wording rows show what production screens print. The strings a build prints follow `voice` in `tokens.json` and `references/ui-copy.md`; where the two differ in form (「新しいイシュー」 against the button form), the voice rules decide.
-8. A reference preset named at intake (`references/dads.md`, `references/smarthr.md`) keeps its components' own conventions where they differ from the record, such as the requirement badge on a デジタル庁デザインシステム field, and its own type scale: a size takes the preset's utility nearest the figure.
+8. A reference preset named at intake (`references/dads.md`, `references/smarthr.md`, `references/astryx.md`) keeps its components' own conventions where they differ from the record, such as the requirement badge on a デジタル庁デザインシステム field, and its own type scale: a size takes the preset's utility nearest the figure.
 
 | The request asks for | Kind | Job class |
 |---|---|---|
@@ -19,12 +19,14 @@ Source of record for what real production screens of each kind show: their regio
 | Search results or a catalogue a visitor browses: jobs, products, places | Collection: consumer search results | `lookup` |
 | One record with its properties, its thread or its history | Single record | `record` |
 | A form: an application, an inquiry, a sign-up, a sign-in, a search form | Form, sign-up and sign-in | `enter` |
+| A screen of a business package: the entry of a slip (受注伝票, 仕入伝票), the maintenance of a master (得意先, 商品), a list under search conditions | Business package: entry; the list takes Collection: work tools with the conditions above it | `enter`; `lookup` for the list |
+| A process of a business package: the closing of a period (請求締切, 月次の締め処理), the import of records from a file, the approval of a request | Business package: processes; the request itself takes Single record with the approval under it | `decide` for a closing and an approval; `enter` for an import |
 | A dashboard, an analytics overview, a status page, a quote page | Monitoring | `monitor` |
 | A pricing page | Pricing page | `decide` |
 | A landing or marketing page | Landing page | `decide`, on the `lp` surface |
 | A screen of a Japanese public service | Public service (Japanese), then the kind of its variant; an application or inquiry form takes the Form kind's Japanese application form | the variant's |
 
-No capture shows a settings screen, which sits behind a sign-in. It takes the shell of the product's collection kind, Work tools for a tool a team works in and Consumer for a service a visitor browses, with that kind's shell values (header, navigation, control heights). A record inside a work tool takes the tool's shell values in the same way. The Form kind gives the field block alone (labels, inputs, gaps, the action), and the settings sections are listed in a navigation beside the fields; the job class is `enter`.
+No capture shows a settings screen, which sits behind a sign-in. It takes the shell of the product's collection kind, Work tools for a tool a team works in and Consumer for a service a visitor browses, with that kind's shell values (header, navigation, control heights). A record inside a work tool takes the tool's shell values in the same way, and so does a create or edit form inside one: the shell and the page title of the tool's collection kind, the field block of the Form kind (the Japanese application-form figures on a Japanese screen), and the confirmation step where the form sends an application. The Form kind gives the field block alone (labels, inputs, gaps, the action), and the settings sections are listed in a navigation beside the fields; the job class is `enter`.
 
 ## Every screen
 
@@ -69,7 +71,7 @@ At 375px the same screens set a control at 29px on its shorter side at the media
 
 Every capture is signed out. Behind a sign-in, the trailing end of the header holds the signed-in user's menu in place of sign in and sign up. A footer belongs to the public screens the record shows; a signed-in work screen is built with none unless the request shows one, whatever the footer's mark in the kind's Anatomy.
 
-The captures show each screen at rest, with data. The empty, loading and error states of a collection and the validation state of a form lie outside this record; the States section of `assets/brief.template.md` settles them.
+The captures show each screen at rest, with data. The empty, no-results, loading and error states of a collection, the validation state of a form and what each control does lie outside this record; `references/interaction.md` settles them.
 
 ## Collection: work tools
 
@@ -114,6 +116,7 @@ The captures show each screen at rest, with data. The empty, loading and error s
 - Forum topic table: category pills and Latest/Top tabs over a Topic, Replies, Views, Activity table at 70-92px pitch, loaded on scroll. Python Discourse, Discourse Meta, rclone Forum, Mozilla Discourse, Obsidian Forum.
 - Dense data grid: 5-10 sortable columns at full width; one-line rows of 35-37px put 21-29 records in the first 1200px. Bugzilla, Chromium Issue Tracker; GitLab CI/CD Pipelines with stacked cells.
 - Catalogue: a facet sidebar beside one bordered card per item, or a 4-column card grid. Hugging Face Models, Hugging Face Spaces.
+- Business list: the list pages of issue trackers, project tools and SAP's sales-order apps (`research/20261113-production-ui-ooui/corpus/`, 14 screens). A record count on 14 of 14, a search field on 12, the applied filter in view on 11, sorting on 10, numbered pages on 9, a create action at the trailing end of the title or search row on 9, named queries or views on 8, a checkbox per row on 4. `references/interaction.md` gives the behaviour of each.
 
 ### Rare on real screens
 
@@ -164,6 +167,31 @@ Row of 3 or more equal statistic tiles 0 of 14; subtitle describing the screen 0
 - Comparison table: records as rows, attributes as 5-12 columns. 価格.com, Yahoo!乗換案内, MusicBrainz.
 - Large record block: a 566-654px block per result with photos, attributes and an in-row action. Wantedly, SUUMO.
 
+### Japanese shops
+
+What the result pages of Amazon.co.jp, 楽天市場, Yahoo!ショッピング, メルカリ, アスクル and 価格.com show (7 pages, `research/20261113-production-ui-ooui/corpus/anatomy_shop_results.json`). A shop's result page follows these rows where they differ from the pooled tables above.
+
+| Part | Real pages | Build with |
+|---|---|---|
+| Layout | A grid of 4 columns beside a left filter column on 4 of 7, 5 columns on メルカリ, table rows on 価格.com; 40 to 50 items a page | 4 columns beside the filter column; 40 items a page |
+| Item title | 14 to 16px, regular weight, 2 or 3 lines and then truncated | 14px, clamped to 2 lines |
+| Price | 20 to 24px bold, with the currency mark smaller; red on 6 of 7. `23,800円`, `￥40,800`, `¥9,600` | The largest and heaviest text of the item. It takes `color.accent` where the tokens settle a red or orange accent that reaches 4.5:1 on the ground, and the text colour otherwise |
+| Tax wording | On 1 of 7: `￥1,320（税込）` on アスクル, which sells to businesses | None on the item: the price shown to consumers is the tax-inclusive price |
+| Shipping | 5 of 7: `送料無料` beside the price, or the fee | Beside the price: a property tagged `[offer]` in the brief's Objects table, as are the points, the delivery and the seller below |
+| Points | 4 of 7: `216ポイント(1倍)〜`, `13%（2,349pt）` | A line under the price, where the shop runs a points programme |
+| Rating | 5 of 7: stars, the number and the count, `4.33 (52件)` | The pattern's rating slot |
+| Delivery | A date or a lead time on 3 of 7: `11月15日 日曜日 にお届け`, `3営業日以内に出荷予定` | A line where the shop states one |
+| Seller | 5 of 7, the marketplaces | Where the shop is a marketplace |
+| Favourite | 4 of 7: a heart on the image or beside the title | A control on the image |
+| Add to cart on the item | 1 of 7 | Left to the product page |
+| Count | With the shown range on 4 of 6: `「冷蔵庫」の検索結果 1〜45件 （1,308,733件)`, `2175 製品 1件〜40件を表示` | The total and the range |
+| Sort | A select on 6 of 7. おすすめ順 or 標準, 価格の安い順, 価格の高い順, an order by reviews and 新着順 on most; ベストセラー or 売れ筋 on 2 | A select that shows the current order |
+| Filters | A left column on 7 of 7: checkbox groups with a count per option, a price range of two inputs, 送料無料 | The same, from the product's ranked properties |
+| Pagination | Numbered on 3 of 7; one 次へ button on メルカリ; loading on scroll on Yahoo!ショッピング | Numbered pages |
+| Metadata size | 11 to 12px on every page | 14px (the text minimum) |
+
+In a mock the shipping, the points, the delivery date and the seller are sample data like the price: the brief's `## Objects` table ranks them after the category's attributes, where the pattern's `offer` slot takes them, and the hand-over names them as invented.
+
 ### Rare on real screens
 
 Row of 3 or more equal statistic tiles 0 of 27; icon in a tinted square above a heading 0 of 27; hero heading over the first viewport 0 of 27; helper text under most form fields 0 of 27; gradient or glass 2 of 27; visible label on the header search field 0 of 21.
@@ -207,9 +235,32 @@ Row of 3 or more equal statistic tiles 0 of 27; icon in a tinted square above a 
 ### Variants
 
 - Record with a right rail: the body in a 594-872px main column, properties in a 250-394px rail; Jira, Apache JIRA and GitLab Repository add an app sidebar. GitHub Pull Requests, Jira, Apache JIRA, Hugging Face Datasets, PyPI, Docker Hub, crates.io, GitLab Repository, 国立国会図書館サーチ.
-- Quote page: a 32-48px price as the largest text with a red or green change, then a chart and a label/value grid. CoinMarketCap coin detail, Yahoo Finance quote, Yahoo!ファイナンス.
+- Quote page (built as the Monitoring kind's quote variant, job class `monitor`): a 32-48px price as the largest text with a red or green change, then a chart and a label/value grid. CoinMarketCap coin detail, Yahoo Finance quote, Yahoo!ファイナンス.
 - Media-led product page: a cover or photo leads; the title, rating and a filled collect or buy action sit beside it. Goodreads, Steam, Open Food Facts.
 - Single-column record sheet: one 972-1074px column of stacked fields or ruled sections, history below. 国税庁法人番号公表サイト, Bugzilla Bug Detail, Hacker News.
+
+### Japanese product pages
+
+What the product pages of Amazon.co.jp, 楽天市場, Yahoo!ショッピング, メルカリ, アスクル and 価格.com show (6 pages, `research/20261113-production-ui-ooui/corpus/anatomy_shop_product.json`). A shop's product page is the Media-led variant with these parts.
+
+| Part | Real pages | Build with |
+|---|---|---|
+| Path | A breadcrumb on 5 of 6 | A breadcrumb to the category |
+| Title | 30 to 131 characters, with the maker, the model number and the main attributes; 14 to 24px; a brand or shop line above it on 4 of 6 | The product's full name at 20 to 24px, the maker above it |
+| Rating | Beside the title on 3 of 6; the review count links to the reviews on 4 of 6 | Stars, the number and the count, the count a link to the reviews |
+| Price | 28px on 6 of 6, the largest text of the buy area; red on 4 of 6 | The top type step of the buy area. It takes the colour the listing gives it |
+| Tax wording | 3 of 6: `税込`, `(税込)`, `（税込）／￥1,200（税抜き）` | `（税込）` after the price |
+| Shipping | 4 of 6: `送料無料`, `送料込み`, `配送料 ¥460` | Beside or under the price |
+| Points, delivery date, stock | Each on 3 of 6: `ポイント: 408pt (1%)`, `11月15日 日曜日 にお届け`, `在庫あり。` | A line each under the price, where the shop has them |
+| Buy controls | The variation selectors, 数量 on 4 of 6, one filled action (`カートに入れる`, `かごに追加`, `カゴに入れる`; `購入手続きへ` on メルカリ) in yellow, orange or red, a second action (`今すぐ買う`, `購入手続きへ`) on 2 of 6; a favourite control on 6 of 6 | The variations, the quantity, one filled action and a favourite control, in a column beside the image |
+| Seller | 4 of 6 | Where the shop is a marketplace |
+| Image | The main image left of the information column on 6 of 6, 330 to 590px wide; thumbnails on 5 of 6 | A main image block with a strip of thumbnails |
+| Specification | A table of labels and values on 6 of 6 | The 仕様 table, under the first screen |
+| Reviews | Printed on 5 of 6, with a histogram of the stars on 4 of 6; one review holds its title, stars, date, body and name | A summary with the average, the count and the histogram, then reviews, then a link to all of them |
+| Related products | A row or grid on 5 of 6; each item holds an image, a title and a price | One row of related products |
+| Page | 10,254px high and 8,417 characters at the median; body text 14px | |
+
+In a mock the reviews, the related products and the offer terms are sample data (`SKILL.md`, Step 3), and the hand-over names them as invented.
 
 ### Rare on real screens
 
@@ -279,6 +330,102 @@ Japanese application and inquiry forms, from a second supplement of forms that p
 ### Rare on real screens
 
 Row of 3 or more equal statistic tiles 0 of 12; icon in a tinted square above a heading 0 of 12; card around every section 1 of 12; legend or caption 0 of 12; hero heading over the first viewport 0 of 12; helper text below the input 0 of 10; asterisk required marker 0 of 10; 必須/任意 badges 1 of 10 (on Japanese application and inquiry forms a 必須 mark is usual, 11 of 18); glass 0 of 12; cookie banner 1 of 12.
+
+## Business package: entry
+
+No capture shows these screens: a business package runs behind a sign-in or on the desktop. The regions and the words below are what the vendors' manuals and guidelines state (`research/20261120-jp-business-packages`: 弥生販売, 弥生会計, OBC 奉行Jシリーズ, PCA 会計シリーズ, intra-mart Accel Platform, Microsoft Dynamics 365 Business Central), and the sizes come from the rows of this file that measure the same parts. The keys, the words and the messages of a product family are in its profile (`references/profiles.md`). The patterns are `entry.slip`, `master.form`, `collection.conditions`, `action.function-keys`, `feedback.confirm` and `feedback.message` (`references/patterns.md`).
+
+### Anatomy
+
+| Region | Holds | Position | Stated by |
+|---|---|---|---|
+| Shell | The product name and the navigation of the tool | As the product's collection kind | Collection: work tools |
+| Page title | The name of the screen as the brief gives it: the document, or the master with its function (受注伝票, 得意先台帳, 部門登録). One title serves a new record and an existing one, whose own name stands in its first fields | Above the form | 弥生販売 (得意先台帳); 奉行Jシリーズ (部門登録) |
+| Header of a slip | The document's number, its date, the partner, the terms | First region | 弥生販売 (表題部); Business Central (the General FastTab) |
+| Lines of a slip | One row per line: the item, the quantity, the unit price, the amount the screen computes; a type per line where goods mix with charges or text rows | Second region | 弥生販売 (明細部, 内訳); Business Central (the Lines FastTab, Type) |
+| Totals of a slip | 小計, 消費税 and 合計, following the lines as they change | Under the lines, at the trailing end | 弥生販売 (合計部); Business Central (the totals under the lines) |
+| Groups of a master | Named groups of fields: the code and the name, the address, the terms | One order, top to bottom | 弥生販売 (得意先情報, 住所情報, 出力方法, 取引条件); Business Central (FastTabs) |
+| Search conditions | Labelled inputs with 検索 and クリア | Above the list they narrow | intra-mart (一覧画面) |
+| Function keys | One button per key, showing the key and its word | One row at the foot of the screen | PCA 会計シリーズ; 勘定奉行J11 |
+| Actions of a product without function keys | 登録; on an edit screen 更新, then 削除 | Together at the foot of the form | intra-mart (ボタン) |
+
+### Values
+
+| Value | Build with | From |
+|---|---|---|
+| Line row | 35-37px pitch, 14px text | Collection: work tools, one-line grids |
+| Field label | 14px, bold, the 必須 mark beside it | Form, Japanese application forms |
+| Text input | 32-40px high | Form, Japanese account forms |
+| Form column | The content column of the tool (950px beside a sidebar, 1233px alone), the header fields in 2 or 3 columns | Collection: work tools |
+| Number | Aligned to the end, in tabular figures, digits grouped by three | `references/interaction.md`, Collections; intra-mart (入力フォーム) |
+| Function-key button | 40px high, the key before its word, 14px | this skill's own |
+
+### Wording
+
+- Saving: 登録. `F12 登録` [弥生販売]; `[登録](F12)` [奉行Jシリーズ]; `登録` [intra-mart]
+- Function keys: the key and one word. `F9 削除`, `F2 新規作成`, `F8 参照` [弥生販売]; `[修正](F9)`, `[定型呼出](F6)` [奉行Jシリーズ]
+- Confirmation: a sentence that states the operation and asks. `登録します。よろしいですか` [奉行Jシリーズ]; `表示されているすべての請求先を締め切ります。よろしいですか?` [弥生販売]; `選択したデータを削除します。よろしいですか?` [intra-mart]
+- Dialog title: a noun phrase. `入力エラー`, `登録確認` [intra-mart]
+- Search: `検索` beside `クリア` [intra-mart]
+
+### Variants
+
+- Slip entry: the header, the lines and the totals of one document, with the function keys at the foot. 弥生販売 発注伝票.
+- Master maintenance: one record's fields in named groups, with its registration and its deletion. 弥生販売 得意先台帳, 奉行Jシリーズ 部門登録.
+- List with search conditions: the conditions above a table of the records, each row opening the record's maintenance screen. intra-mart 一覧画面.
+
+### Rare on real screens
+
+The manuals describe these screens in text and numbered callouts, so no count exists. A build keeps the rows under Collection: work tools and Form, sign-up and sign-in: no statistic tiles, no card around every section, no caption that explains a region.
+
+## Business package: processes
+
+No capture shows these screens. The regions and the words below are what the vendors' manuals and help pages state (`research/20261120-jp-business-packages`: 弥生販売, freee, OBC 商蔵奉行iクラウド, kintone, freee勤怠管理Plus, intra-mart IM-Workflow, LINE WORKS, サイボウズ Garoon, Microsoft Dynamics 365 Business Central, Dynamics 365 Customer Insights - Journeys, Power Automate), and the sizes come from the rows of this file that measure the same parts. The patterns are `process.closing`, `process.import` and `approval.request` (`references/patterns.md`).
+
+### Anatomy
+
+| Region | Holds | Position | Stated by |
+|---|---|---|---|
+| Period of a closing | The closing date or the period the run closes | Above the targets | 弥生販売 (請求締切); freee (締め処理) |
+| Targets of a closing | One row per target (a 請求先, a period) with its amounts and its state | Under the period | 弥生販売; OBC 商蔵奉行iクラウド; freee |
+| Blocker of a closing | The number of records that stand in the way, with a way to their list | Before the run | freee (invoices still being written or awaiting approval); 弥生販売 (unapproved slips) |
+| Release of a closing | The action that opens a closed period again | On the closed period | 弥生販売 (支払締切の取消); freee (仮締め解除) |
+| File of an import | The file, and how it is read: whether the first row names the columns, the row where the data starts, the character code, the delimiter | First | kintone; 弥生販売; Dynamics 365 |
+| Mapping of an import | One row per field of the object, with the file's column that fills it | After the file | kintone; 弥生販売; Dynamics 365 (Review Mapping) |
+| Existing records of an import | The key field, and whether a stored record with the same key is updated or left | After the mapping | kintone (更新キー); 弥生販売; freee勤怠管理Plus (従業員コード) |
+| Result of an import | The rows read and the rows in error, each error with its field and its reason | After the run | kintone (読み込まれたファイル); Business Central (No. of Package Errors, Error Text, Field Caption) |
+| Route of an approval | The steps in order, who handles each and how far the request has come | On the request's view | Garoon (進行状況); intra-mart; LINE WORKS (決裁ライン) |
+| Actions of an approval | Approving, rejecting and sending back, with a comment field | Together, after the route | intra-mart (処理種別, コメント); LINE WORKS; kintone |
+| Requests waiting for the approver | A list of its own, each row opening the request | A collection screen | Garoon; LINE WORKS (承認/再申請の管理); Power Automate (Approvals, Received) |
+
+### Values
+
+| Value | Build with | From |
+|---|---|---|
+| Target row, mapping row | 35-37px pitch, 14px text | Collection: work tools, one-line grids |
+| Amount | Aligned to the end, in tabular figures, digits grouped by three | `references/interaction.md`, Collections |
+| Field label and input | 14px bold label; input 32-40px high | Form, Japanese application forms |
+
+### Wording
+
+- Closing and its release: the product's own words. `支払締切`, `支払締切の取消` [弥生販売]; `仮締め`, `本締め`, `仮締め解除` [freee]
+- Confirmation of a closing: a sentence that states what is closed. `表示されているすべての請求先を締め切ります。よろしいですか?` [弥生販売]
+- Import: `インポート` [弥生販売; freee勤怠管理Plus]; `ファイルから読み込む`, `読み込む` [kintone]
+- Existing records: `レコードの追加のみ`, `レコードの更新と追加` [kintone]; `はい`, `いいえ`, `全て上書き` [弥生販売]
+- Rows in error: `読み込みを継続する(エラー行のみスキップします)`, `読み込みを中止する(エラー行以降の行は読み込みません)` [kintone]
+- Approval: `承認`, `却下`, `差し戻し`, `委任`, `保留` [LINE WORKS]; `承認`, `承認終了`, `否認`, `保留`, `差戻し`, `引戻し` [intra-mart]; `承認する`, `却下する`, `差し戻す`, `取り戻す` [kintone]. A build writes each as a noun (承認, 却下), as the button rule of `references/ui-copy.md` says, and keeps one word for each operation.
+
+### Variants
+
+- Closing by partner: the closing date, the partners it covers with their amounts, and the run. 弥生販売 請求締切.
+- Closing by period: one row per period with its state, closed in two stages. freee 締め処理 (仮締め, then 本締め).
+- Import on one screen: the file, the mapping and the choices together, with the result on a screen of its own. kintone.
+- Import in steps: the file, the review of the mapping, the run. Dynamics 365; 弥生販売.
+- Approval on the request: the route, the comment and the actions under the request's fields. intra-mart; LINE WORKS.
+
+### Rare on real screens
+
+The manuals describe these screens in text and numbered callouts, so no count exists. A build keeps the rows under Collection: work tools and Single record: no statistic tiles above the targets, no card around every step of an import, no caption that explains what a closing is.
 
 ## Monitoring
 

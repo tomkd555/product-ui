@@ -1,0 +1,182 @@
+{
+  "id": "entry.slip",
+  "version": 1,
+  "kind": "entry-slip",
+  "summary": "The entry screen of one business document (a sales order, a purchase order, an invoice): its header, its lines and its totals.",
+  "not_for": "A master record, whose fields stand alone (master.form); an application or an inquiry form (references/components.md); a list of documents (collection.table.index).",
+  "slots": [
+    {
+      "id": "heading",
+      "takes": "label",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "number",
+      "takes": "identifier",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "status",
+      "takes": "status",
+      "required": false,
+      "max": 1
+    },
+    {
+      "id": "header-field",
+      "takes": "property",
+      "required": true,
+      "min": 1,
+      "max": null
+    },
+    {
+      "id": "line-type",
+      "takes": "control",
+      "required": false,
+      "max": 1,
+      "when": "The lines mix goods with charges or with text rows."
+    },
+    {
+      "id": "line-item",
+      "takes": "identifier",
+      "of": "lines",
+      "required": true,
+      "max": 1
+    },
+    {
+      "id": "line-field",
+      "takes": "property",
+      "of": "lines",
+      "required": true,
+      "min": 1,
+      "max": null,
+      "align_numbers": "end"
+    },
+    {
+      "id": "line-action",
+      "takes": "action",
+      "required": false,
+      "max": 2,
+      "order": "any",
+      "when": "Adding a line and removing one."
+    },
+    {
+      "id": "total",
+      "takes": "measure",
+      "required": true,
+      "min": 1,
+      "max": 5,
+      "from_key": "totals"
+    }
+  ],
+  "rules": [
+    {
+      "rule": "The screen reads in three regions from the top: the header, the lines, the totals.",
+      "from": [
+        "yayoi-hanbai-slip",
+        "bc-page-layouts"
+      ]
+    },
+    {
+      "rule": "The header holds the document's number, its date and the partner; a value the system fills is shown beside the fields the reader enters and takes no input.",
+      "from": [
+        "yayoi-hanbai-slip",
+        "bc-page-layouts"
+      ]
+    },
+    {
+      "rule": "A line computes what follows from its other fields (the amount from the quantity and the unit price), and the reader does not type it.",
+      "from": [
+        "yayoi-hanbai-slip",
+        "bc-sales-order"
+      ]
+    },
+    {
+      "rule": "The totals follow the lines as they change.",
+      "from": [
+        "bc-sales-order",
+        "yayoi-hanbai-slip"
+      ]
+    },
+    {
+      "rule": "Where the lines mix goods with charges or text rows, each line starts with its type.",
+      "from": [
+        "yayoi-hanbai-slip",
+        "bc-sales-invoice"
+      ]
+    },
+    {
+      "rule": "Numbers are aligned to the end, in tabular figures.",
+      "from": [
+        "im-input-form"
+      ]
+    },
+    {
+      "rule": "The first field the reader fills takes the focus when the screen opens.",
+      "from": [
+        "im-input-form"
+      ]
+    },
+    {
+      "rule": "The heading is the document's name. The regions carry no caption that explains them.",
+      "from": [
+        "product-ui"
+      ]
+    },
+    {
+      "rule": "A document of a Japanese business prints 小計, 消費税 and 合計 among its totals.",
+      "from": [
+        "product-ui"
+      ]
+    }
+  ],
+  "labels": {
+    "heading": "object",
+    "line_add": "行を追加",
+    "line_remove": "行を削除"
+  },
+  "uses": [
+    "status.badge"
+  ],
+  "maps_to": {
+    "shadcn": "form, with LineGrid of the kit",
+    "html": "form with a table",
+    "dads": null,
+    "smarthr": null,
+    "astryx": null
+  },
+  "evidence": [
+    {
+      "id": "yayoi-hanbai-slip",
+      "source": "弥生販売 サポート情報, 発注伝票の概要",
+      "url": "https://support.yayoi-kk.co.jp/subcontents.html?page_id=22835",
+      "says": "The slip screen has three regions: 表題部 for the partner and the terms, 明細部 for the goods ordered, 合計部 for the stock and the total amount. Each line chooses its 内訳 (通常, 諸経費, 摘要, メモ), the quantity is computed from 入数 × ケース, and F12 registers the slip."
+    },
+    {
+      "id": "bc-page-layouts",
+      "source": "Microsoft Learn, Business Central, Page types and layouts",
+      "url": "https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-page-types-and-layouts",
+      "says": "A document page represents a transaction. Its header fields come first, in a General FastTab, and a Lines FastTab with the document lines comes second."
+    },
+    {
+      "id": "bc-sales-order",
+      "source": "Microsoft Learn, Business Central, Sell products with a customer sales order",
+      "url": "https://learn.microsoft.com/dynamics365/business-central/sales-how-sell-products",
+      "says": "The line amount is the unit price multiplied by the quantity, and the totals fields under the lines update as lines are created or changed."
+    },
+    {
+      "id": "bc-sales-invoice",
+      "source": "Microsoft Learn, Business Central, Invoice sales",
+      "url": "https://learn.microsoft.com/dynamics365/business-central/sales-how-invoice-sales",
+      "says": "Each line chooses in its Type field whether it holds a product, a charge or another transaction, and a line with no number holds a comment."
+    },
+    {
+      "id": "im-input-form",
+      "source": "intra-mart Accel Platform UIデザインガイドライン(PC版), 入力フォーム",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_ui/im_design_guideline_pc/texts/contents_area/input_form.html",
+      "says": "Numbers are right-aligned and strings and dates left-aligned in text inputs; the first input the user fills takes the focus, the search box of a search screen included."
+    }
+  ],
+  "evidence_status": "documented"
+}

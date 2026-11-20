@@ -1,0 +1,78 @@
+{
+  "id": "action.function-keys",
+  "version": 1,
+  "kind": "function-keys",
+  "summary": "The function keys of an entry screen as one row of buttons, each showing its key and the word of its operation.",
+  "not_for": "A screen of a product whose conventions show no function keys (keys.display none): its actions are ordinary buttons.",
+  "slots": [
+    {
+      "id": "key",
+      "takes": "action",
+      "required": true,
+      "min": 1,
+      "max": 12,
+      "from_convention": "keys.function"
+    }
+  ],
+  "rules": [
+    {
+      "rule": "The function keys of the screen are shown together in one row, at the foot of the screen, in the order of the keys.",
+      "from": [
+        "pca-keys",
+        "bugyo-j-buttons"
+      ]
+    },
+    {
+      "rule": "Each entry shows its key and the word of its operation, and runs by the key and by a click alike.",
+      "from": [
+        "pca-keys",
+        "bugyo-j-buttons",
+        "yayoi-hanbai-keys"
+      ]
+    },
+    {
+      "rule": "The row lists the keys this screen runs; a key with no operation here is left out. An operation the conventions give no key is a button after the keys, with its word alone.",
+      "from": [
+        "product-ui"
+      ]
+    },
+    {
+      "rule": "The words are the ones the conventions give, and the row carries no caption.",
+      "from": [
+        "product-ui"
+      ]
+    }
+  ],
+  "labels": {
+    "key": "{key} {word}"
+  },
+  "uses": [],
+  "maps_to": {
+    "shadcn": "FunctionKeys of the kit",
+    "html": "nav of buttons",
+    "dads": null,
+    "smarthr": null,
+    "astryx": null
+  },
+  "evidence": [
+    {
+      "id": "pca-keys",
+      "source": "PCA 会計シリーズ マニュアル, ボタン、メニューバー、キーなどの操作",
+      "url": "https://pca.jp/area_support/manual/acc/a_Common/Button_menu_key.html",
+      "says": "The shortcuts on function keys are shown together at the foot of the screen, and each can be pressed or clicked."
+    },
+    {
+      "id": "bugyo-j-buttons",
+      "source": "OBC 勘定奉行J11, 機能",
+      "url": "https://www.obc.co.jp/bugyo-j/kanjo-j/feature/01",
+      "says": "The buttons on the screen correspond to the function keys F1 to F12."
+    },
+    {
+      "id": "yayoi-hanbai-keys",
+      "source": "弥生販売 サポート情報, 弥生販売のショートカットキー一覧",
+      "url": "https://support.yayoi-kk.co.jp/subcontents.html?page_id=22523",
+      "says": "F12 登録 registers a slip or a ledger record, F9 削除 deletes it, F2 新規作成 clears the screen for a new one, F8 参照 opens the lookup of the field under the cursor, and Ctrl+F 検索 opens a screen where conditions are set to find slips."
+    }
+  ],
+  "evidence_status": "documented"
+}

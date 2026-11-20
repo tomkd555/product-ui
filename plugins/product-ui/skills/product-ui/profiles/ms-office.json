@@ -1,0 +1,268 @@
+{
+  "id": "ms-office",
+  "version": 1,
+  "name": "Microsoft Office",
+  "summary": "The document window of Word, Excel and PowerPoint for Windows: Ctrl combinations and F12 run the document's commands, Alt shows key tips on the ribbon, each tooltip shows a command's keys, and closing a changed document asks whether to save it.",
+  "keys": {
+    "enter": "none",
+    "enter_last": "none",
+    "display": "tooltip",
+    "function": [
+      {
+        "key": "F1",
+        "label": "ヘルプ",
+        "action": "help"
+      },
+      {
+        "key": "F6",
+        "label": "領域の切り替え",
+        "action": "next-region"
+      },
+      {
+        "key": "F10",
+        "label": "キー ヒント",
+        "action": "keytips"
+      },
+      {
+        "key": "F12",
+        "label": "名前を付けて保存",
+        "action": "save-as"
+      }
+    ],
+    "shortcuts": [
+      {
+        "keys": "Ctrl+N",
+        "label": "新規",
+        "action": "new"
+      },
+      {
+        "keys": "Ctrl+O",
+        "label": "開く",
+        "action": "open"
+      },
+      {
+        "keys": "Ctrl+S",
+        "label": "上書き保存",
+        "action": "save"
+      },
+      {
+        "keys": "Ctrl+W",
+        "label": "閉じる",
+        "action": "close"
+      },
+      {
+        "keys": "Ctrl+P",
+        "label": "印刷",
+        "action": "print"
+      },
+      {
+        "keys": "Ctrl+Z",
+        "label": "元に戻す",
+        "action": "undo"
+      },
+      {
+        "keys": "Ctrl+Y",
+        "label": "やり直し",
+        "action": "redo"
+      },
+      {
+        "keys": "Ctrl+X",
+        "label": "切り取り",
+        "action": "cut"
+      },
+      {
+        "keys": "Ctrl+C",
+        "label": "コピー",
+        "action": "copy"
+      },
+      {
+        "keys": "Ctrl+V",
+        "label": "貼り付け",
+        "action": "paste"
+      },
+      {
+        "keys": "Ctrl+A",
+        "label": "すべて選択",
+        "action": "select-all"
+      },
+      {
+        "keys": "Ctrl+F",
+        "label": "検索",
+        "action": "find"
+      },
+      {
+        "keys": "Ctrl+H",
+        "label": "置換",
+        "action": "replace"
+      },
+      {
+        "keys": "Ctrl+F1",
+        "label": "リボンの折りたたみ",
+        "action": "ribbon"
+      },
+      {
+        "keys": "Shift+F10",
+        "label": "ショートカット メニュー",
+        "action": "context-menu"
+      }
+    ],
+    "keytips": "alt"
+  },
+  "words": {
+    "create": "inherit",
+    "save": "上書き保存",
+    "delete": "inherit",
+    "new": "新規",
+    "lookup": "inherit",
+    "search": "inherit",
+    "clear": "inherit",
+    "cancel": "inherit",
+    "save_as": "名前を付けて保存",
+    "undo": "元に戻す",
+    "redo": "やり直し",
+    "cut": "切り取り",
+    "copy": "コピー",
+    "paste": "貼り付け",
+    "open": "開く",
+    "close": "閉じる",
+    "print": "印刷",
+    "export": "エクスポート",
+    "select_all": "すべて選択",
+    "replace": "置換"
+  },
+  "required_mark": "inherit",
+  "confirm": {
+    "register": "inherit",
+    "sentence": "inherit",
+    "buttons": "inherit",
+    "close": "always",
+    "close_sentence": "このファイルの変更内容を保存しますか?",
+    "close_buttons": [
+      "保存",
+      "保存しない",
+      "キャンセル"
+    ]
+  },
+  "messages": {
+    "error": "inherit",
+    "result": "inherit",
+    "duration_ms": "inherit",
+    "max": "inherit"
+  },
+  "waiting": {
+    "block": "inherit",
+    "delay_ms": "inherit"
+  },
+  "motion": "inherit",
+  "products": {
+    "word": {
+      "name": "Word",
+      "set": {},
+      "from": {}
+    },
+    "excel": {
+      "name": "Excel",
+      "set": {},
+      "from": {}
+    },
+    "powerpoint": {
+      "name": "PowerPoint",
+      "set": {
+        "keys.shortcuts": [
+          {"keys": "Ctrl+N", "label": "新規", "action": "new"},
+          {"keys": "Ctrl+O", "label": "開く", "action": "open"},
+          {"keys": "Ctrl+S", "label": "上書き保存", "action": "save"},
+          {"keys": "Ctrl+W", "label": "閉じる", "action": "close"},
+          {"keys": "Ctrl+Q", "label": "閉じる", "action": "close"},
+          {"keys": "Ctrl+P", "label": "印刷", "action": "print"},
+          {"keys": "Ctrl+Z", "label": "元に戻す", "action": "undo"},
+          {"keys": "Ctrl+Y", "label": "やり直し", "action": "redo"},
+          {"keys": "Ctrl+X", "label": "切り取り", "action": "cut"},
+          {"keys": "Ctrl+C", "label": "コピー", "action": "copy"},
+          {"keys": "Ctrl+V", "label": "貼り付け", "action": "paste"},
+          {"keys": "Ctrl+A", "label": "すべて選択", "action": "select-all"},
+          {"keys": "Ctrl+F", "label": "検索", "action": "find"},
+          {"keys": "Ctrl+H", "label": "置換", "action": "replace"},
+          {"keys": "Ctrl+F1", "label": "リボンの折りたたみ", "action": "ribbon"},
+          {"keys": "Shift+F10", "label": "ショートカット メニュー", "action": "context-menu"}
+        ]
+      },
+      "from": {
+        "keys.shortcuts": ["powerpoint-keys-ja"]
+      }
+    }
+  },
+  "evidence": [
+    {
+      "id": "word-keys-ja",
+      "source": "Microsoft サポート, Word のキーボード ショートカット (ja-jp)",
+      "url": "https://support.microsoft.com/ja-jp/accessibility/word/keyboard-shortcuts-in-word",
+      "says": "Ctrl+O opens a document, Ctrl+N creates one, Ctrl+S saves it and Ctrl+W closes it; Ctrl+X, Ctrl+C and Ctrl+V cut, copy and paste; Ctrl+A selects all the content; Ctrl+Z undoes and Ctrl+Y redoes the last action; F12 opens the 名前を付けて保存 dialog; F6 switches between the document, the task pane, the status bar and the ribbon; Shift+F10 shows the shortcut menu of the selection; Ctrl+H finds and replaces; Ctrl+F1 expands or collapses the ribbon; Alt or F10 selects the active tab and turns on the access keys."
+    },
+    {
+      "id": "word-keys-en",
+      "source": "Microsoft Support, Keyboard shortcuts in Word (en-us)",
+      "url": "https://support.microsoft.com/en-us/accessibility/word/keyboard-shortcuts-in-word",
+      "says": "F10 alone turns the KeyTips on or off, Ctrl+P prints the document, and Ctrl+F opens the Navigation pane to search the document."
+    },
+    {
+      "id": "powerpoint-keys-ja",
+      "source": "Microsoft サポート, PowerPoint のキーボード ショートカット (ja-jp)",
+      "url": "https://support.microsoft.com/ja-jp/office/use-keyboard-shortcuts-to-create-powerpoint-presentations-ebb3d20e-dcd4-444f-a38e-bb5c5ed180f4",
+      "says": "Ctrl+F opens the [検索] dialog and Ctrl+H the [置換] dialog; Ctrl+P prints, Ctrl+S saves and Ctrl+Q closes PowerPoint; Ctrl+Z undoes and Ctrl+Y repeats the last action; Ctrl+F1 expands or collapses the ribbon."
+    },
+    {
+      "id": "ribbon-keyboard",
+      "source": "Microsoft Support, Use the keyboard to work with the ribbon",
+      "url": "https://support.microsoft.com/en-us/accessibility/windows/use-the-keyboard-to-work-with-the-ribbon",
+      "says": "Alt shows the KeyTips and puts the focus on the selected tab; Esc goes back one KeyTip step; Alt+F opens the File page and Alt+H the Home tab; F6 moves the focus between the active tab, the document, the task pane and the status bar."
+    },
+    {
+      "id": "excel-keys",
+      "source": "Microsoft Support, Keyboard shortcuts in Excel",
+      "url": "https://support.microsoft.com/en-us/accessibility/excel/keyboard-shortcuts-in-excel",
+      "says": "Ctrl+W closes a workbook and Ctrl+O opens one."
+    },
+    {
+      "id": "win32-dialog-boxes",
+      "source": "Microsoft Learn, Dialog Boxes - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/uxguide/win-dialog-box",
+      "says": "Commit buttons sit right-aligned in one row at the bottom, the positive response first, then the negative, then Cancel; every dialog has a default commit button; Paint's prompt on unsaved changes offers Save, Don't Save, which closes without saving, and Cancel, which cancels the command."
+    },
+    {
+      "id": "win32-keyboard-tooltips",
+      "source": "Microsoft Learn, Keyboard - Win32 apps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/uxguide/inter-keyboard",
+      "says": "Shortcut keys are documented in menu bar items, in toolbar tooltips and in one Help article; context menus do not show them."
+    },
+    {
+      "id": "office-measured",
+      "source": "Microsoft 365 Word, Excel and PowerPoint 16.0.20625 for Windows, read through UI Automation",
+      "measured": "research/20261121-office-window-measure/measured.md",
+      "says": "The quick access toolbar shows 上書き保存 (Ctrl+S), 元に戻す and やり直し (Ctrl+Y); the ribbon shows 貼り付け, 切り取り and コピー; the file view lists 新規, 開く, 上書き保存, 名前を付けて保存, 印刷, エクスポート and 閉じる, and its help button takes F1; closing a changed document shows 「このファイルの変更内容を保存しますか?」 with the buttons 保存 (Alt+S), 保存しない (Alt+N) and キャンセル."
+    }
+  ],
+  "from": {
+    "keys.display": ["win32-keyboard-tooltips"],
+    "keys.function": ["office-measured", "word-keys-ja", "word-keys-en"],
+    "keys.shortcuts": ["word-keys-ja", "word-keys-en", "powerpoint-keys-ja", "excel-keys"],
+    "keys.keytips": ["word-keys-ja", "ribbon-keyboard"],
+    "words.save": ["office-measured"],
+    "words.new": ["office-measured"],
+    "words.save_as": ["office-measured", "word-keys-ja"],
+    "words.undo": ["office-measured"],
+    "words.redo": ["office-measured"],
+    "words.cut": ["office-measured"],
+    "words.copy": ["office-measured"],
+    "words.paste": ["office-measured"],
+    "words.open": ["office-measured"],
+    "words.close": ["office-measured"],
+    "words.print": ["office-measured"],
+    "words.export": ["office-measured"],
+    "words.select_all": ["word-keys-ja"],
+    "words.replace": ["powerpoint-keys-ja"],
+    "confirm.close": ["office-measured", "win32-dialog-boxes"],
+    "confirm.close_sentence": ["office-measured"],
+    "confirm.close_buttons": ["office-measured", "win32-dialog-boxes"]
+  }
+}

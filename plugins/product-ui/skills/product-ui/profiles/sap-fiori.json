@@ -1,0 +1,75 @@
+{
+  "id": "sap-fiori",
+  "version": 1,
+  "name": "SAP Fiori",
+  "summary": "Applications on SAPUI5: the result of an operation is a toast that closes after 3000 ms, one message at a time, and a busy indicator starts a second after the action. The values come from the SAPUI5 documentation and source.",
+  "keys": {
+    "enter": "none",
+    "enter_last": "none",
+    "display": "none",
+    "function": [],
+    "shortcuts": []
+  },
+  "words": {
+    "create": "inherit",
+    "save": "inherit",
+    "delete": "inherit",
+    "new": "inherit",
+    "lookup": "inherit",
+    "search": "inherit",
+    "clear": "inherit",
+    "cancel": "inherit"
+  },
+  "required_mark": "inherit",
+  "confirm": {
+    "register": "inherit",
+    "sentence": "inherit",
+    "buttons": "inherit"
+  },
+  "messages": {
+    "error": "inherit",
+    "result": "toast",
+    "duration_ms": 3000,
+    "max": 1
+  },
+  "waiting": {
+    "block": "inherit",
+    "delay_ms": 1000
+  },
+  "motion": "inherit",
+  "products": {},
+  "evidence": [
+    {
+      "id": "sapui5-message-handling",
+      "source": "SAPUI5 documentation, Message Handling",
+      "url": "https://github.com/SAP-docs/sapui5/blob/main/docs/10_More_About_Controls/message-handling-f5df293.md",
+      "says": "A message toast is a small overlay for a less important message that must not block the user and that fades out by itself; a message dialog blocks the page until it is closed; one message shows at a time."
+    },
+    {
+      "id": "openui5-message-toast",
+      "source": "OpenUI5 source, sap.m.MessageToast",
+      "url": "https://github.com/UI5/openui5/blob/master/src/sap.m/src/sap/m/MessageToast.js",
+      "says": "The default duration of a message toast is 3000 ms, the time before its close animation starts."
+    },
+    {
+      "id": "ui5-busy-delay",
+      "source": "UI5 Web Components, issue 3340, BusyIndicator: add delay property",
+      "url": "https://github.com/UI5/webcomponents/issues/3340",
+      "says": "The issue states that the Fiori 3 guidelines recommend starting the loading animation 1000 ms after the action."
+    }
+  ],
+  "from": {
+    "messages.result": [
+      "sapui5-message-handling"
+    ],
+    "messages.duration_ms": [
+      "openui5-message-toast"
+    ],
+    "messages.max": [
+      "sapui5-message-handling"
+    ],
+    "waiting.delay_ms": [
+      "ui5-busy-delay"
+    ]
+  }
+}

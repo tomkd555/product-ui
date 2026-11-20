@@ -15,6 +15,8 @@ Telling a model to avoid a colour does not hold: Anthropic's cookbook [Prompting
     "surface": "saas",
     "reference": "product being referenced, or null",
     "structure": "ooui",
+    "profile": null,
+    "profile_product": null,
     "logo": null,
     "provenance": {
       "color.primary": "brand:the product's style guide",
@@ -90,15 +92,17 @@ Telling a model to avoid a colour does not hold: Anthropic's cookbook [Prompting
 | Field | Required | Value |
 |---|---|---|
 | `name` | yes | non-empty string |
-| `surface` | yes | `saas` or `lp`. `saas` is an application screen that a person operates, behind a login or public: a dashboard, a search-results page, a sign-up form, a public-service form. `lp` is a marketing page |
+| `surface` | yes | `saas`, `lp` or `desktop`. `saas` is an application screen that a person operates, behind a login or public: a dashboard, a search-results page, a sign-up form, a public-service form. `lp` is a marketing page. `desktop` is an application in its own window, built with Electron (`references/desktop.md`) |
 | `reference` | yes | name of the product being referenced, or `null` |
-| `structure` | no | `ooui` or `task`: the screen structure Step 0 asked for. `ooui` turns on check C17 and the rules in `ooui.md`. A file written before the field existed leaves it out, and C17 then stays off |
+| `structure` | no | `ooui` or `task`: the screen structure Step 0 asked for. `ooui` turns on check C17 and the rules in `ooui.md`. A file without the field leaves C17 off |
+| `profile` | no | the id of a file under `profiles/` (`jp-core`), or `null`: the family of products whose keys, words and messages the screens follow (`references/profiles.md`). A file without the field is read as `null`, and the screens then follow this skill's own conventions |
+| `profile_product` | no | the id of one product of that profile (`yayoi-hanbai`), or `null`. Its values replace the family's where the product differs |
 | `logo` | no | a path to the product's logo file, or `null`. With `null` nothing is drawn in the logo's place: no letter tile, no monogram, no wordmark. A brand element (logo, product name, company name) appears only where the brief's `Brand area` line lists it |
 | `provenance` | no | an object that records where each visible choice came from. See below. T19 warns when it is missing or incomplete |
-| `users` | when `surface` is `saas` | an array of user groups, at least one. Each is an object with `role`, `frequency`, `expertise`, `job` and `basis`. Optional when `surface` is `lp`; where present it is validated the same way |
-| `stack.renderer` | yes | `vite-react` / `astro-react` / `next-react` / `html` / `server-templates` |
+| `users` | when `surface` is `saas` or `desktop` | an array of user groups, at least one. Each is an object with `role`, `frequency`, `expertise`, `job` and `basis`. Optional when `surface` is `lp`; where present it is validated the same way |
+| `stack.renderer` | yes | `vite-react` / `astro-react` / `next-react` / `html` / `server-templates` / `electron-vite` |
 | `stack.tailwind` | yes | `"4"`. Version 3 is out of scope for this skill. `null` is accepted when `stack.renderer` is `html`, which loads the plain stylesheet (`generate_theme.py --plain`) |
-| `stack.base` | yes | `base-ui` / `radix` / `react-aria` / `smarthr-ui`, or `null` when `stack.renderer` is `html` or `server-templates`. On the デジタル庁デザインシステム React route it is `react-aria` where the screen uses the calendar popup, and the project's own base otherwise |
+| `stack.base` | yes | `base-ui` / `radix` / `react-aria` / `smarthr-ui` / `astryx`, or `null` when `stack.renderer` is `html` or `server-templates`. On the デジタル庁デザインシステム React route it is `react-aria` where the screen uses the calendar popup, and the project's own base otherwise |
 | `defaults_applied` | yes | array of strings recording what Step 0 settled by default. May be empty |
 
 The permitted pairings of `surface` and `stack.renderer` are in `stack-defaults.md`.
@@ -106,7 +110,7 @@ The permitted pairings of `surface` and `stack.renderer` are in `stack-defaults.
 `provenance` has the keys `color.primary`, `color.accent`, `typography.display` and `typography.body`, and may add `typography.display.family_ja` and `typography.body.family_ja`. Each value is a string that starts with one of these prefixes and names the source after it:
 
 - **`brand:`** the product's own colour, typeface or style guide.
-- **`reference:`** a named reference product or a mockup the request supplied.
+- **`reference:`** a named reference product or a mockup the request supplied. On `desktop`, `typography.display` and `typography.body` take `reference: references/desktop.md` with `family` `Segoe UI Variable` and `family_ja` `Yu Gothic UI`, the face the window's Look fixes (no font lookup runs).
 - **`user:`** the user's own answer or request.
 - **`lookup:`** a result of `scripts/lookup/search.py`. The lookup offers candidates, so a value from it has not been decided by anyone yet.
 - **`derived:`** computed from another recorded choice, such as a dark palette from the light one.
@@ -178,7 +182,7 @@ At least three steps: `sm`, `md`, `lg`. Identical alpha across every step is a w
 
 ### motion
 
-`duration` carries `fast`, `base` and `slow`, each a string in milliseconds. A `base` outside 120–400ms is a warning. `easing` requires `standard`.
+`duration` carries `fast`, `base` and `slow`, each a string in milliseconds. A `base` outside 120–400ms is a warning. `easing` requires `standard`. A profile whose `motion` holds values gives the three durations (`references/profiles.md`, What `inherit` gives).
 
 ### voice
 
@@ -195,7 +199,7 @@ The interface's wording, settled before any string is written, for the same reas
 | `allow` | no | words and labels that the checks skip |
 | `status` | no | an object mapping each object's name (a row of the brief's `## Objects`) to the list of its state words: `{"請求書": ["下書き", "未入金", "期日超過", "入金済み"]}`. `status.badge` shows only these; R48 reports a rendered badge outside the lists |
 
-- **`terms`** is the copy equivalent of the colour set: the project settles the word, and check C10 asks whether the implementation used it. Settle one entry for each operation the screens offer that has competing words (`references/ui-copy.md`, The operation vocabulary). A product whose business says 「サインイン」 leaves that word out of `terms`.
+- **`terms`** is the copy equivalent of the colour set: the project settles the word, and check C10 asks whether the implementation used it. Settle one entry for each operation the screens offer that has competing words (`references/ui-copy.md`, The operation vocabulary). A product whose business says 「サインイン」 leaves that word out of `terms`. Under a profile, `terms` also holds one entry for each operation whose profile word differs from this skill's own (`{"保存": "登録"}` under `jp-core`; `references/profiles.md`, Choosing a profile).
 - **`katakana_choon`** is a project setting because the authorities disagree. The JTF style guide keeps the 長音 on every word. wordrabbit drops it from a word of five characters or more, counted with the 長音, so 「ブラウザー」 becomes 「ブラウザ」 and 「ユーザー」 keeps its 長音. Check C9 asks whether the project is consistent with itself, and its message names the form the setting implies.
 - **`status`** fixes the vocabulary of states the way `terms` fixes the operations: one word per state, an adjective or a completed form (「返金済み」, not 「返金」), the same word on every screen. A status is one word, two for a compound state (Polaris, Badge); T23 checks the shape.
 - **`case`** is a field for the same reason: product style guides differ, and the check asks only that the project is consistent with its setting.
@@ -213,7 +217,7 @@ An error means the token set does not hold together; a warning means it holds bu
 | T5 | warning | a typography family is `Space Grotesk`, `Poppins`, `Montserrat`, `Geist` or `Geist Sans`: a family a model reaches for by default. Keep it when the product or its reference chose it, and say so in `meta.provenance` (calibrated on `research/20261106-real-screens`) |
 | T6 | error | a missing `sm`, `md` or `lg` radius step, or all three identical |
 | T7 | error | `stack.tailwind` is not `"4"`; `null` is accepted when `stack.renderer` is `html` |
-| T8 | error | the `surface` and `stack.renderer` pairing is absent from the table in `stack-defaults.md`. A warning for the pairings that table marks as warned (an existing project the skill did not choose the stack for) |
+| T8 | error | the `surface` and `stack.renderer` pairing is absent from the table in `stack-defaults.md`, or `stack.base` is `astryx` with a `stack.renderer` other than `vite-react`, or exactly one of `meta.reference` and `stack.base` is `astryx` (`references/astryx.md`). A warning for the pairings that table marks as warned (an existing project the skill did not choose the stack for) |
 | T9 | warning | more than twelve `color` keys, `input`, `success`, `warning` and `info` not counted |
 | T10 | warning | identical alpha across every shadow step. Alpha is read numerically in `oklch`/`rgb` slash, `rgba()`/`hsla()` fourth-argument, `%` and `#RRGGBBAA`/`#RGBA` notation; T10 fires only when all three steps yield an alpha |
 | T11 | warning | `motion.duration.base` outside 120–400ms |
@@ -223,11 +227,12 @@ An error means the token set does not hold together; a warning means it holds bu
 | T15 | error | `lang` is `en` and `case` is neither `sentence` nor `title` |
 | T16 | error | a `terms` entry maps a word to itself, or to a word that is itself a key |
 | T17 | warning | `terms` is empty while `lang` is `ja` |
-| T18 | error | `meta.users` is missing or empty while `surface` is `saas`; or, wherever `users` is present, an entry is not an object, lacks a required key, holds an empty `role` or `job`, or holds a `frequency`, `expertise` or `basis` outside its set; a `basis` object that is empty, names a field other than `role`, `frequency`, `expertise` and `job`, or maps one to a value other than `reported` and `assumed` is the same error. The message names the entry index and the field |
+| T18 | error | `meta.users` is missing or empty while `surface` is `saas` or `desktop`; or, wherever `users` is present, an entry is not an object, lacks a required key, holds an empty `role` or `job`, or holds a `frequency`, `expertise` or `basis` outside its set; a `basis` object that is empty, names a field other than `role`, `frequency`, `expertise` and `job`, or maps one to a value other than `reported` and `assumed` is the same error. The message names the entry index and the field |
 | T19 | warning | `meta.provenance` is missing, lacks one of `color.primary`, `color.accent`, `typography.display`, `typography.body`, or holds a value without a `brand:`, `reference:`, `user:`, `lookup:` or `derived:` prefix (research T22) |
 | T20 | error; warning for a Tailwind step | `color.primary` or `color.accent` lies within ΔE_OK 0.02 of an entry in `assets/default_colours.json`, `color.background` lies within 0.02 of the cream entry, or acid green sits beside a ground at lightness ≤ 20%, or cyan sits beside a ground of relative luminance under 0.1 with a purple in the palette (the numbers are under Defaults), and the provenance of that key does not start with `brand:`, `reference:` or `user:`. A key raises one T20 however many of these it matches. The message names the default matched and, for `primary` and `accent`, the same hue and chroma at the nearest darker lightness (1% steps, down first, then up) that matches no entry, so the fix is one edit (research T1, T12) |
 | T21 | warning | a neutral (`background`, `muted`, `muted_foreground`, `border`, in `color` or `color_dark`) has chroma above 0.012, or above 0.004 at a hue more than 15° from the primary hue (rule 1 of "Deriving the colours") |
 | T22 | warning | `voice.lang` is `ja` and neither `typography.<slot>.family` nor `typography.<slot>.family_ja` matches an entry of `assets/ja_families.json` (research E21, E118 (ui-defaults); calibrated on `research/20261106-real-screens`) |
 | T23 | error | `voice.status` is not an object of non-empty arrays of state words, or names one state twice in a list. A warning for a state word over 8 characters in Japanese or over two words in Latin script (references/patterns.md, `status.badge`) |
+| T24 | error | `meta.profile` names no file under `profiles/`; `meta.profile_product` is set while `meta.profile` is `null` or missing, or names a product outside that profile's `products` (`references/profiles.md`) |
 
 A pair is checked before Step 5 with `python {SKILL_DIR}/scripts/colour.py contrast "<a>" "<b>"`, which prints the WCAG ratio of two `oklch(...)` or hex values: 4.5:1 for text on its ground, 3:1 for the edge of a control. Among the T rules, contrast ratio is deliberately absent. OKLCH lightness only approximates it, and what a pairing looks like depends on the rendered result, so Step 5 (`review-design-lead`) judges it against the running page.

@@ -1,0 +1,123 @@
+{
+  "id": "record.activity",
+  "version": 1,
+  "kind": "activity",
+  "summary": "The history of one record: who did what and when, with comments, reviews and change events in one chronological thread.",
+  "not_for": "A list of records the reader chooses among: collection.row.resource.",
+  "slots": [
+    {
+      "id": "heading",
+      "takes": "label",
+      "required": false,
+      "max": 1,
+      "when": "Where the page holds other sections: 履歴, コメント or the object's own word for it."
+    },
+    {
+      "id": "actor",
+      "takes": "text",
+      "required": true,
+      "max": 1,
+      "when": "The person or the system that acted; a link where the build holds a view of that person, plain text otherwise."
+    },
+    {
+      "id": "time",
+      "takes": "text",
+      "required": true,
+      "max": 1,
+      "when": "When it happened: a relative phrase for a recent entry with the full time in title, a date and time otherwise."
+    },
+    {
+      "id": "event",
+      "takes": "text",
+      "required": true,
+      "max": 1,
+      "when": "What happened, as a short phrase with its values: ステータスを確認待ちから出荷手配待ちに変更."
+    },
+    {
+      "id": "rating",
+      "takes": "text",
+      "required": false,
+      "max": 1,
+      "when": "The entry is a review: its stars, with the number in the accessible name."
+    },
+    {
+      "id": "body",
+      "takes": "text",
+      "required": false,
+      "max": 1,
+      "when": "The text of a comment."
+    }
+  ],
+  "rules": [
+    {
+      "rule": "Each entry states who acted, when and what; a change names the property and both values.",
+      "from": [
+        "redmine-history",
+        "github-timeline"
+      ]
+    },
+    {
+      "rule": "Comments and change events share one chronological thread.",
+      "from": [
+        "github-timeline",
+        "forgejo-timeline"
+      ]
+    },
+    {
+      "rule": "An action the reader takes on the record adds its entry to the thread.",
+      "from": [
+        "product-ui"
+      ]
+    },
+    {
+      "rule": "A review is an entry: the reviewer, the date, the stars with the review's title, and the text.",
+      "from": [
+        "ja-shop-reviews"
+      ]
+    }
+  ],
+  "labels": {
+    "heading": "履歴"
+  },
+  "uses": [],
+  "maps_to": {
+    "shadcn": "ol",
+    "html": "ol",
+    "dads": null,
+    "smarthr": null,
+    "astryx": "List + ListItem"
+  },
+  "evidence": [
+    {
+      "id": "redmine-history",
+      "source": "Redmine, an issue's 履歴 (redmine.org)",
+      "url": "https://www.redmine.org/issues/1",
+      "says": "Each entry holds the author, the time since the update and either the comment or a list of property changes such as ステータス を Closed から Reopened に変更."
+    },
+    {
+      "id": "github-timeline",
+      "source": "GitHub Issues, an issue's timeline",
+      "url": "https://github.com/microsoft/vscode/issues/1",
+      "says": "Comments (author, date, body) and event lines (added this to the milestone, closed this as completed) run in one thread."
+    },
+    {
+      "id": "forgejo-timeline",
+      "source": "Forgejo, an issue's timeline (codeberg.org)",
+      "url": "https://codeberg.org/forgejo/forgejo/issues/1",
+      "says": "Close events and reference events follow the first comment in time order, each with its actor and its age."
+    },
+    {
+      "id": "bugzilla-comments",
+      "source": "Bugzilla, a bug's comments (bugs.kde.org)",
+      "url": "https://bugs.kde.org/show_bug.cgi?id=400000",
+      "says": "Each comment carries a header with the author and the timestamp above its body."
+    },
+    {
+      "id": "ja-shop-reviews",
+      "source": "Product pages of Amazon.co.jp, 楽天市場, Yahoo!ショッピング, アスクル and 価格.com, captured 2026-11 (research/20261113-production-ui-ooui/corpus/anatomy_shop_product.json)",
+      "url": "https://www.askul.co.jp/p/9714177/",
+      "says": "Reviews are printed on 5 of 6 pages; one review holds its title, stars, date, body and name."
+    }
+  ],
+  "evidence_status": "cross-specimen"
+}

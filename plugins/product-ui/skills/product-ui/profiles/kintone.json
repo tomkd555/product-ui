@@ -1,0 +1,69 @@
+{
+  "id": "kintone",
+  "version": 1,
+  "name": "kintone",
+  "summary": "kintone and its customisations: a message shows as a bar at the top of the screen, one at a time, until it is closed, and the screen takes no operation while it loads.",
+  "keys": {
+    "enter": "none",
+    "enter_last": "none",
+    "display": "none",
+    "function": [],
+    "shortcuts": []
+  },
+  "words": {
+    "create": "inherit",
+    "save": "inherit",
+    "delete": "inherit",
+    "new": "inherit",
+    "lookup": "inherit",
+    "search": "inherit",
+    "clear": "inherit",
+    "cancel": "inherit"
+  },
+  "required_mark": "inherit",
+  "confirm": {
+    "register": "inherit",
+    "sentence": "inherit",
+    "buttons": "inherit"
+  },
+  "messages": {
+    "error": "inherit",
+    "result": "bar",
+    "duration_ms": "until-closed",
+    "max": 1
+  },
+  "waiting": {
+    "block": "screen",
+    "delay_ms": "inherit"
+  },
+  "motion": "inherit",
+  "products": {},
+  "evidence": [
+    {
+      "id": "kintone-notification",
+      "source": "cybozu developer network, kintone JavaScript API, 通知を表示する",
+      "url": "https://cybozu.dev/ja/kintone/docs/js-api/kintone/show-notification/",
+      "says": "A message at the top of the screen is one of three types (error, success, information), stays until it is closed, and shows one at a time: the last one called replaces the others."
+    },
+    {
+      "id": "kintone-loading",
+      "source": "cybozu developer network, kintone JavaScript API, ローディングを表示する",
+      "url": "https://cybozu.dev/ja/kintone/docs/js-api/kintone/show-loading/",
+      "says": "While the loading indicator is shown, the user cannot operate the screen."
+    }
+  ],
+  "from": {
+    "messages.result": [
+      "kintone-notification"
+    ],
+    "messages.duration_ms": [
+      "kintone-notification"
+    ],
+    "messages.max": [
+      "kintone-notification"
+    ],
+    "waiting.block": [
+      "kintone-loading"
+    ]
+  }
+}

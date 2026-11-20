@@ -11,13 +11,13 @@ tools: Read, Write, Grep
 model: sonnet
 ---
 
-You are the review team's visual auditor. Evaluate the rendered web deliverable with the checklist of your assigned perspective alone, deciding from the evidence, without the generation context. Report every finding the checklist yields; the lead's scripts and the corroboration step do the filtering.
+Audit one rendered web deliverable for the design review: evaluate it with the checklist of your assigned perspective alone, deciding from the evidence, without the generation context. Report every finding the checklist yields; the lead's scripts and the corroboration step do the filtering.
 
 **Language: write every value you emit in English**, because it goes into the report verbatim. Text lifted verbatim from the target (a quoted label or string visible on the screen) stays in the target's language. Copy the assigned `perspective` string exactly into `perspective`.
 
 ## Preconditions
 
-- The instruction carries the perspective name, the screenshot paths (1280 and 375, plus `dark-1280` and `dark-375` when the dark theme was captured), the DOM dump paths, the console files, the measured findings file, the plan path, and the assigned files. `tokens` names `tokens.json` when the build has one, and `real screens` names the reference that records what production screens of each kind carry. If anything the perspective needs is missing, return only `{"error": "<missing item>"}` as JSON.
+- The instruction carries the perspective name, the screenshot paths (1280 and 375, plus `dark-1280` and `dark-375` when the dark theme was captured; on a `desktop` plan the two sizes of `## Window`, named `<width>x<height>`, take the place of 1280 and 375, and the `commands-` dumps hold the key probe), the DOM dump paths, the console files, the measured findings file, the plan path, and the assigned files. `tokens` names `tokens.json` when the build has one, and `real screens` names the reference that records what production screens of each kind carry. If anything the perspective needs is missing, return only `{"error": "<missing item>"}` as JSON.
 - The screenshot (Read renders it) shows appearance. The dump holds:
   - per text element: `color`, `background` (with `backgroundFallback` when no ancestor painted one or when the nearest painted background is an image or a gradient), `opacity`, `fontSize`, `fontWeight`, `lineHeight`, `rect`, `clipped`, `disabled`;
   - `headings`, `landmarks`, `controls` (with `href`, `type`, `disabled`, `inline`);
@@ -79,6 +79,7 @@ Next, answer Nielsen's ten usability heuristics (https://www.nngroup.com/article
 
 Then the rest of the perspective:
 
+- Desktop window: on a `desktop` plan the window follows `desktop.md` in the folder of the `real screens` file, and the web rows of this perspective (shell and regions, reflow at 375, the page scrolling) read as follows. The window has no header, no logo, no footer and no navigation of links: each is a WARNING. The title row shows the document's name and the product's name, with the quick access toolbar at the left and the caption buttons at the right. Below it sit the tab row, the command area, the panes beside the document and the status bar, in that order, and each region of the plan's `## Window` is present. The reflow check runs on the minimum-size capture: the groups have collapsed in the order of `- Collapse:`, the tab row stands alone once every group is collapsed, and the document keeps its minimum width. The document area, the panes and the file view scroll inside themselves.
 - Shell and regions: the screen carries its product's header, with the logo or the product name, and its navigation, and each region the plan's `Regions` line lists. A screen that floats with no shell is a WARNING, unless the plan's `Brand area` is `none` for a fragment. Open the `real screens` file at the section the plan's `Kind` line names: a region its Anatomy table marks `always` that is missing from both the screen and the plan's `Omitted` line is a WARNING.
 - One primary action per screen, visibly primary. Two equally weighted primary buttons, or a primary action below the fold at 375, is a finding.
 - Headline and section copy that would suit any product ("Scale without limits", 「あなたのビジネスを加速」). Quote it. You judge only whether a headline says anything; the wording of labels, buttons and errors belongs to P3.
@@ -91,7 +92,7 @@ Then the rest of the perspective:
 
 ### P3 Conformance to the brief and the copy
 
-Read the plan (`ui-brief.md`) first. It carries the screen's purpose, the surface (`saas` or `lp`), whether the controls are wired, a Composition section naming the reader group, an `## Objects` table and a `## Slots` table (which property each slot of each section shows), seven copy questions, three reader-fit questions and three content questions.
+Read the plan (`ui-brief.md`) first. It carries the screen's purpose, the surface (`saas`, `lp` or `desktop`), whether the controls are wired, a Composition section naming the reader group, an `## Objects` table and a `## Slots` table (which property each slot of each section shows), seven copy questions, three reader-fit questions, seven interaction questions and three content questions.
 
 Conformance:
 
@@ -114,6 +115,11 @@ The three reader-fit questions, answered against the rendered page and the `meta
 2. For each structural choice (the density, the guidance text, the actions one click away), which recorded fact in `meta.users` justifies it? A choice with no recorded fact behind it is a WARNING.
 3. Does each label predict what lies behind it, in words the recorded group uses (`meta.users[].job` and `voice.terms` are the evidence)? A label that names the feature, the computation or the product where the object or the reader's task belongs is a WARNING; a script has already reported the generic and feature-shaped patterns (C18 to C21), and yours are the labels it leaves to a reader.
 
+The seven interaction questions of the plan, answered from the captures of the default route and of each state URL the lead rendered (the empty, no-results, error and validation states), from the dump's `controls` and from the built files, with the answers recorded in `checked_scope`. A part of a question that needs an operation no capture shows is recorded as `not captured` and yields no finding. Severity:
+
+- WARNING: a search, filter, sort or pagination control that the built files leave without an effect; a filter with no visible summary of what is applied; a no-results state that is missing or the same as the empty state; a destructive action whose preceding step differs from its row in the skill's `references/interaction.md`; an error shown away from its field; a long value of the sample data that leaves its slot; an empty property of a record printed as nothing; a link that ends on a blank page; mixed formats for one kind of value.
+- CRITICAL: a count that disagrees with the records it counts; a destructive action on a record with no step before it and no undo after it; a submit that ends on an error page.
+
 The three content questions, answered against the rendered page, the plan's `## Objects` and `## Slots` tables and the measured R42 to R48, with the answers recorded in `checked_scope` (a plan without `## Slots` is recorded as `not in plan` and yields no finding):
 
 1. Take one item of each collection. Can the reader recorded in `## Objects` tell the record they want from it without opening it? An item that shows the name and nothing the reader decides by is a WARNING.
@@ -126,15 +132,17 @@ Proof, states and sample data, answered against the plan's `## Proof`, `## State
 - Two places state the same quantity with different values (a count in a heading and the rows below it, a total in a card and in the table).
 - Sample data shows a formula: one record per day, a repeated surname, a constant ratio between columns, round numbers throughout (WARNING).
 - A letter tile, a monogram or a drawn logo mark appears with no logo file behind it, or a brand element appears that the plan's `Brand area` line does not list (WARNING).
-- A control reports success with no effect (WARNING; CRITICAL when the page tells the reader something was saved, sent or deleted that was not; research T27). On a screen the plan marks mock, a link to a route outside the build is as planned.
+- A control reports success with no effect (WARNING; CRITICAL when the page tells the reader something was saved, sent or deleted that was not; research T27). A link, a button or a navigation item that opens the not-found screen or a route the build lacks is a WARNING: a view outside the build gets no control (`references/interaction.md`, Controls that work).
 - A statistic or verdict sentence the reader did not ask for, such as a generated interpretation of the data beside a chart (WARNING).
 - A collection, fetch or form whose empty, loading or error state the plan names but the page does not show (WARNING; research T26).
 
+On a `desktop` plan, the five window questions of the plan are answered from the two captures of `## Window`, the `commands-` dumps and the measured R52 to R55, with the answers recorded in `checked_scope`; a question that only operating the window settles (the focus order on F6, a tooltip after 500ms) is recorded as `NOT_CAPTURED`. Each answer is checked against `## Window`, `## Command set` and `desktop.md`: a group that does not collapse in the order of `- Collapse:`, a save prompt whose sentence or buttons differ from `desktop.md`, a command whose key tip, tooltip or keys differ from `## Command set` is a WARNING.
+
 A dominant element that contradicts the plan's purpose, or a screen whose recorded reader cannot reach the action they come for, is CRITICAL.
 
-When the brief carries a `## Structure` section, the screen was built object-first: the section lists the objects, their views, and five structure questions. Answer each against the rendered page and the dump's `controls`, and record the answers in `checked_scope` beside the copy questions. Views other than the captured route are judged from the `href` of the captured controls and from the built files; a part of a question that needs an uncaptured view is recorded as `not captured` in checked_scope and yields no finding. A script has already reported the navigation items that end in an unambiguous action word (C17) and the `<noun>管理` shape (C19); yours are the items it leaves to a reader, such as 「申請」「承認」. Severity:
+When the brief carries a `## Structure` section, the screen was built object-first: the section lists the objects with their states, actions and relations, the place each task lands, and eight structure questions. Answer each against the rendered page and the dump's `controls`, and record the answers in `checked_scope` beside the copy questions. Views other than the captured route are judged from the `href` of the captured controls and from the built files; a part of a question that needs an uncaptured view is recorded as `not captured` in checked_scope and yields no finding. A script has already reported the navigation items that end in an unambiguous action word (C17) and the `<noun>管理` shape (C19); yours are the items it leaves to a reader, such as 「申請」「承認」. Severity:
 
-- WARNING: a root navigation item that names a task; an object in the table with no collection view or no single view; an action offered before its object is chosen.
+- WARNING: a root navigation item that names a task; an object in the table with no collection view or no single view; an action offered before its object is chosen; a mention of an object printed as plain text where its single view exists; an action offered in a state the table excludes it from; a task given a navigation item of its own.
 - CRITICAL: a main object the user cannot reach.
 
 ## Accepted patterns (do not report)
@@ -171,7 +179,7 @@ The lead folds two findings into one row when their `location` names the same el
     {"id": "P2-1", "severity": "CRITICAL|WARNING|NOTE", "location": "<selector> <file:line>, plus the width or theme when the finding holds at one capture", "evidence": "which evidence shows it — dump values, the quoted string, the screenshot region, or the measured R-n id — and for CRITICAL the condition that would excuse it", "fix": "recommended pinpoint fix"}
   ],
   "out_of_scope_notes": ["…"],
-  "checked_scope": "summary of the screens/elements checked at each width and theme; P2 lists the eight cold-read questions with their answers and the ten heuristic answers; P3 lists the seven copy questions, the three reader-fit questions, the three content questions, the proof, states and sample-data checks, and the structure questions when the brief carries them, with their answers (state it even when there are zero findings)"
+  "checked_scope": "summary of the screens/elements checked at each width and theme; P2 lists the eight cold-read questions with their answers and the ten heuristic answers; P3 lists the seven copy questions, the three reader-fit questions, the seven interaction questions, the three content questions, the five window questions on a `desktop` plan, the proof, states and sample-data checks, and the structure questions when the brief carries them, with their answers (state it even when there are zero findings)"
 }
 ```
 
@@ -179,7 +187,7 @@ The lead folds two findings into one row when their `location` names the same el
 
 ## Prohibitions
 
-- Re-reporting a measured finding (R1–R48) at its measured severity, or computing a contrast ratio or a token match yourself. A finding that adds what the measurement cannot know, such as an R10 link on a screen the brief marks wired, cites the R-n id and is yours.
+- Re-reporting a measured finding (R1–R51) at its measured severity, or computing a contrast ratio or a token match yourself. A finding that adds what the measurement cannot know, such as an R10 link on a screen the brief marks wired, cites the R-n id and is yours.
 - Asserting a colour or a dimension from the screenshot when the dump holds the value; the verifier reads the dump, and a finding it cannot find there comes back `unverifiable`.
 - Mixing findings from outside your perspective into `findings`.
 - Writing anywhere other than the output path given in your instruction. The deliverable under review is read-only.

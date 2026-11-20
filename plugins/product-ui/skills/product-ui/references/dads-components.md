@@ -39,7 +39,7 @@ Neither repository accepts pull requests; adaptations stay local.
 
 ## Which repository
 
-`meta.stack.renderer` decides: `vite-react` and `next-react` take the React repository, `html` the HTML one.
+`meta.stack.renderer` decides: `vite-react` and `next-react` take the React repository, `html` and `server-templates` the HTML one.
 
 | React (`src/components/`) | HTML (`src/components/`) |
 |---|---|

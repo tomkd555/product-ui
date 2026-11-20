@@ -145,7 +145,7 @@ The plugin supplies `bg-key-900`, `text-std-17N-170` and the rest; the template'
 | renderer | Repository | Built on |
 |---|---|---|
 | `vite-react`, `next-react` | `design-system-example-components-react` | React 19 and Tailwind classes; the component files import `react` and `react-dom` alone |
-| `html` | `design-system-example-components-html` | `dads-`-prefixed BEM, custom elements without Shadow DOM |
+| `html` (an `lp` surface; an application screen with no bundler takes `server-templates`, `references/stack-defaults.md`) | `design-system-example-components-html` | `dads-`-prefixed BEM, custom elements without Shadow DOM |
 
 On the React route, `meta.stack.base` is `react-aria` where the screen copies the calendar popup, which builds on React Aria (`assets/tokens_example.dads.json` shows this case), and otherwise the base the project's other components use (`base-ui` in a current shadcn project): T1 requires a component base for a React renderer, and the other copied DADS components import React alone. Set it to `null` on the HTML route.
 

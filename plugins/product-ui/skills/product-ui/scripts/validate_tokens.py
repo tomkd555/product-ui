@@ -22,7 +22,9 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "profiles"))
 import colour  # noqa: E402
+import conventions  # noqa: E402
 
 OKLCH = re.compile(r"^oklch\(\s*[^)]+\)$", re.IGNORECASE)
 MS = re.compile(r"^(\d+(?:\.\d+)?)ms$")
@@ -39,12 +41,14 @@ PAIRINGS = {
     ("lp", "astro-react"),
     ("lp", "next-react"),
     ("lp", "html"),
+    ("desktop", "electron-vite"),
 }
 
 # T8 raises a warning for these: an existing project the skill did not
 # choose the stack for. See the pairing table in references/stack-defaults.md.
 WARNED_PAIRINGS = {
     ("saas", "server-templates"),
+    ("lp", "vite-react"),
 }
 
 COLOR_KEYS = [
@@ -141,8 +145,8 @@ def check_meta(doc, rep):
         rep.error("T1", "meta.name", "must be a non-empty string")
 
     surface = get(doc, "meta.surface")
-    if surface is not None and surface not in ("saas", "lp"):
-        rep.error("T1", "meta.surface", f"expected 'saas' or 'lp', found {surface!r}")
+    if surface is not None and surface not in ("saas", "lp", "desktop"):
+        rep.error("T1", "meta.surface", f"expected 'saas', 'lp' or 'desktop', found {surface!r}")
 
     structure = get(doc, "meta.structure")
     if structure is not None and structure not in ("ooui", "task"):
@@ -157,17 +161,22 @@ def check_meta(doc, rep):
         if (surface, renderer) in WARNED_PAIRINGS:
             rep.warn("T8", "meta.stack",
                      f"pairing {surface}/{renderer} is admitted for an existing project only; "
-                     "record the missing component base in defaults_applied")
+                     "record the project's stack in defaults_applied")
         elif (surface, renderer) not in PAIRINGS:
             rep.error("T8", "meta.stack", f"pairing {surface}/{renderer} is not in the table in stack-defaults.md")
+    astryx_base = get(doc, "meta.stack.base") == "astryx"
+    if astryx_base and renderer != "vite-react":
+        rep.error("T8", "meta.stack", f"base astryx needs renderer vite-react, found {renderer!r} (references/astryx.md)")
+    if astryx_base != (get(doc, "meta.reference") == "astryx"):
+        rep.error("T8", "meta.stack", "meta.reference astryx and meta.stack.base astryx go together (references/astryx.md)")
 
     base = get(doc, "meta.stack.base")
     if renderer in ("html", "server-templates"):
         if base is not None:
             rep.error("T1", "meta.stack.base", f"must be null when renderer is {renderer!r}")
-    elif base not in ("base-ui", "radix", "react-aria", "smarthr-ui"):
+    elif base not in ("base-ui", "radix", "react-aria", "smarthr-ui", "astryx"):
         rep.error("T1", "meta.stack.base",
-                  f"expected base-ui, radix, react-aria or smarthr-ui, found {base!r}")
+                  f"expected base-ui, radix, react-aria, smarthr-ui or astryx, found {base!r}")
 
     applied = get(doc, "meta.defaults_applied")
     if applied is not None and not isinstance(applied, list):
@@ -196,6 +205,25 @@ def check_logo(doc, rep):
         rep.error("T1", "meta.logo", "must be a path to the logo file, or null")
 
 
+def check_profile(doc, rep):
+    """T24 - meta.profile and meta.profile_product name a profile of profiles/ and one of its products."""
+    profile, product = get(doc, "meta.profile"), get(doc, "meta.profile_product")
+    if profile is None:
+        if product is not None:
+            rep.error("T24", "meta.profile_product", "set while meta.profile is null; name the profile, or write null")
+        return
+    if not isinstance(profile, str) or not (product is None or isinstance(product, str)):
+        rep.error("T24", "meta.profile", "meta.profile and meta.profile_product are each a string or null")
+        return
+    profiles = conventions.load_profiles()
+    if profile not in profiles:
+        rep.error("T24", "meta.profile", f"{profile!r} has no file under profiles/; the profiles are "
+                  f"{', '.join(sorted(profiles)) or 'none'} (references/profiles.md)")
+    elif product is not None and product not in (profiles[profile].get("products") or {}):
+        rep.error("T24", "meta.profile_product", f"{product!r} is outside the products of {profile!r}: "
+                  f"{', '.join(sorted(profiles[profile].get('products') or {})) or 'none'}")
+
+
 def check_basis_object(basis, where, rep):
     """T18 - basis as an object: field name -> reported or assumed."""
     if not basis:
@@ -208,11 +236,12 @@ def check_basis_object(basis, where, rep):
 
 
 def check_users(doc, rep):
-    """T18 - meta.users: required on saas, validated wherever it is present."""
+    """T18 - meta.users: required on saas and desktop, validated wherever it is present."""
     users = get(doc, "meta.users")
     if users is None or users == []:
-        if get(doc, "meta.surface") == "saas":
-            rep.error("T18", "meta.users", "required and non-empty when surface is 'saas'; "
+        surface = get(doc, "meta.surface")
+        if surface in ("saas", "desktop"):
+            rep.error("T18", "meta.users", f"required and non-empty when surface is {surface!r}; "
                       "name each user group (role, frequency, expertise, job, basis)")
         return
     if not isinstance(users, list):
@@ -606,6 +635,7 @@ def validate(doc):
     check_meta(doc, rep)
     check_provenance(doc, rep)
     check_logo(doc, rep)
+    check_profile(doc, rep)
     check_users(doc, rep)
     check_voice(doc, rep)
     check_color(doc, rep)

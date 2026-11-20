@@ -1,0 +1,106 @@
+{
+  "id": "intra-mart",
+  "version": 1,
+  "name": "intra-mart",
+  "summary": "Business systems built on intra-mart Accel Platform: 登録 on a register screen and 更新 on an edit screen, an asterisk on a required field, and a confirmation answered with 決定 or 取り消し.",
+  "keys": {
+    "enter": "none",
+    "enter_last": "none",
+    "display": "none",
+    "function": [],
+    "shortcuts": []
+  },
+  "words": {
+    "create": "登録",
+    "save": "更新",
+    "delete": "削除",
+    "new": "inherit",
+    "lookup": "inherit",
+    "search": "検索",
+    "clear": "クリア",
+    "cancel": "inherit"
+  },
+  "required_mark": "asterisk",
+  "confirm": {
+    "register": "always",
+    "sentence": "{操作}します。よろしいですか？",
+    "buttons": [
+      "決定",
+      "取り消し"
+    ]
+  },
+  "messages": {
+    "error": "inherit",
+    "result": "inherit",
+    "duration_ms": "inherit",
+    "max": "inherit"
+  },
+  "waiting": {
+    "block": "inherit",
+    "delay_ms": "inherit"
+  },
+  "motion": "inherit",
+  "products": {},
+  "evidence": [
+    {
+      "id": "im-button",
+      "source": "intra-mart Accel Platform UIデザインガイドライン(PC版), ボタン",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_ui/im_design_guideline_pc/texts/contents_area/button.html",
+      "says": "On a register screen the buttons read 登録 then 連続登録, and on an edit screen 更新 then 削除, together at the foot."
+    },
+    {
+      "id": "im-register",
+      "source": "intra-mart Accel Platform UIデザインガイドライン(PC版), 登録画面",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_ui/im_design_guideline_pc/texts/programing_guide/sa/register.html",
+      "says": "The button of a register screen reads 登録 by default."
+    },
+    {
+      "id": "im-input-form",
+      "source": "intra-mart Accel Platform UIデザインガイドライン(PC版), 入力フォーム",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_ui/im_design_guideline_pc/texts/contents_area/input_form.html",
+      "says": "A required item shows a red asterisk after its label."
+    },
+    {
+      "id": "im-message",
+      "source": "intra-mart Accel Platform UIデザインガイドライン(PC版), アラートとコンファーム",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_ui/im_design_guideline_pc/texts/message/index.html",
+      "says": "A confirmation shows the buttons 決定 and 取り消し, and a dialog's title is a noun phrase such as 登録確認."
+    },
+    {
+      "id": "im-list",
+      "source": "intra-mart Accel Platform UIデザインガイドライン(PC版), 一覧画面",
+      "url": "https://document.intra-mart.jp/library/iap/public/im_ui/im_design_guideline_pc/texts/programing_guide/sa/list.html",
+      "says": "The list screen has a 検索 and a クリア button beside the search box, and asks 選択したデータを削除します。よろしいですか before it deletes the checked rows."
+    }
+  ],
+  "from": {
+    "words.create": [
+      "im-register",
+      "im-button"
+    ],
+    "words.save": [
+      "im-button"
+    ],
+    "words.delete": [
+      "im-button"
+    ],
+    "words.search": [
+      "im-list"
+    ],
+    "words.clear": [
+      "im-list"
+    ],
+    "required_mark": [
+      "im-input-form"
+    ],
+    "confirm.register": [
+      "im-message"
+    ],
+    "confirm.sentence": [
+      "im-list"
+    ],
+    "confirm.buttons": [
+      "im-message"
+    ]
+  }
+}

@@ -3,8 +3,8 @@ name: review-design-lead
 description: >-
   Independent review of how a web deliverable looks and behaves when rendered. Serves the target
   over localhost, renders it in headless Chrome over CDP at desktop (1280) and mobile (375)
-  widths, and in the dark theme when tokens.json declares one, captures a screenshot and a
-  DOM dump per capture once, measures R1–R48 with check_render.py, launches three review-design-auditor perspectives (rendering
+  widths (a `desktop` plan: at the two window sizes of its `## Window`), and in the dark theme when tokens.json declares one, captures a screenshot and a
+  DOM dump per capture once, measures R1–R55 with check_render.py, launches three review-design-auditor perspectives (rendering
   soundness, information design, conformance to the brief and the copy) on that evidence,
   corroborates CRITICAL and WARNING findings through review-verifier, and returns an advisory
   report (BLOCK/CONCERNS/CLEAN) for the user to settle with screenshots. Launched from
@@ -14,13 +14,13 @@ tools: Agent, Read, Write, Glob, Grep, Bash
 model: sonnet
 ---
 
-You are the review lead for rendered design. Every path and command below is complete: start at step 1, with no directory listing, no `--help` and no reading of the scripts' source.
+Run the rendered design review of one web deliverable: serve it, capture it, measure it, launch the three perspectives, corroborate their findings and write the report. Every path and command below is complete: start at step 1, with no `--help` and no reading of the scripts' source; list a directory only where a step names one.
 
 ## Input
 
-From your instructions: `plan:` the path to the plan, `target:` the directory to serve (the build output of a bundler project, such as `dist`; else the project directory) or an HTML path, and `scripts:` the directory holding `cdp.js` and `check_render.py` (product-ui passes `{SKILL_DIR}/scripts/render`). If a required item is missing, return only `{"error": "<missing item>"}`.
+From your instructions: `plan:` the path to the plan, `target:` the directory to serve (the build output of a bundler project, such as `dist`; else the project directory) or an HTML path, and `scripts:` the directory holding `cdp.js` and `check_render.py` (product-ui passes `{SKILL_DIR}/scripts/render`). If a required item is missing, return only `{"error": "<missing item>"}`. Two optional items: `out:` a directory for the review's files, used as `$OUT` in place of the `mktemp` path, and `port:` the port to serve on.
 
-The plan is normally `ui-brief.md` from product-ui Steps 3 and 5. It names the tokens (`Tokens:`), the generated theme (`Theme:`), the built files, the surface, whether the controls are wired, a `## Composition` section (kind, regions, job class, reader, dominant element, reading order, density, archetype, grouping, tile row, and on an `lp` the lead content) and the `## Proof`, `## States` and `## Sample data` sections, which P3 compares with the page, with eight cold-read questions, which P2 answers, seven copy questions, three reader-fit questions and, with the `## Objects` and `## Slots` tables, three content questions, which P3 answers; a screen built object-first adds a `## Structure` section with its objects and five structure questions, which P3 answers. A plan of any other shape still works: skip the token steps and say so under `## Scope covered`.
+The plan is normally `ui-brief.md` from product-ui Steps 3 and 5. It names the tokens (`Tokens:`), the generated theme (`Theme:`), the built files, the surface, whether the controls are wired, a `## Composition` section (kind, regions, job class, reader, dominant element, reading order, density, archetype, grouping, tile row, and on an `lp` the lead content) and the `## Proof`, `## States` and `## Sample data` sections, which P3 compares with the page, with eight cold-read questions, which P2 answers, seven copy questions, three reader-fit questions, seven interaction questions and, with the `## Objects` and `## Slots` tables, three content questions, which P3 answers; a screen built object-first adds a `## Structure` section with its objects and eight structure questions, which P3 answers. A `Captures:` line lists the further screens and states to render, each as a name and a URL path. A plan of any other shape still works: skip the token steps and say so under `## Scope covered`. A plan whose `- Surface:` line is `desktop` also carries `## Window`, `## Commands`, `## File view` and `## Command set` sections; its `size` and `minimum` rows (`<width>x<height>`) are the two sizes captured in place of 1280 and 375, written `$SIZE` and `$MIN` below.
 
 ## Language
 
@@ -50,9 +50,9 @@ P3 runs on opus because the seven copy questions are judgements about what a Jap
 `$OUT` is `$(mktemp -d -t design-review-XXXXXX)`; `$SCRIPTS` is the `scripts:` directory. Substitute both literal paths into every command, because shell state does not carry between Bash calls. On macOS and Linux run `python` as `python3`. In Git Bash on Windows, `mktemp` prints a `/tmp/…` path that Read and the subagents cannot open: convert it once with `cygpath -m` and use the result everywhere.
 
 1. **Entry point**: if the target is neither an HTML file nor a directory holding one, and the project has no web configuration in `.claude/launch.json`, finish as "nothing to review" without evaluating.
-2. **Read the plan**: Read it once. Note the `Tokens:` and `Theme:` paths, the `Entry:` file, the built files, and whether the controls are wired; a relative path in the plan is relative to the plan's directory. Then Read `tokens.json`: a `color_dark` object with at least one key declares a dark theme, and both widths are then captured twice.
+2. **Read the plan**: Read it once. Note the `Tokens:` and `Theme:` paths, the `Entry:` file, the `Captures:` list, the built files, and whether the controls are wired; a relative path in the plan is relative to the plan's directory. Then Read `tokens.json`: a `color_dark` object with at least one key declares a dark theme, and both widths are then captured twice.
 3. **Stage**: `mkdir -p "$OUT/files" "$OUT/shots" "$OUT/dom" "$OUT/findings" "$OUT/verdicts"`, copy the plan to `$OUT/plan.md`, and copy `tokens.json` and `theme.css` into `$OUT/files/` when the plan names them. The target HTML and stylesheets stay where they are; auditors read them by their real paths.
-4. **Serve**: Bash with `run_in_background`: the command from `.claude/launch.json`, else `python -m http.server <port> --bind 127.0.0.1 --directory <target directory> & echo $!`. Note the pid it prints. URL is `http://127.0.0.1:<port>/<path>`, where `<path>` is the plan's `Entry:` file relative to the served directory (`/` when it is `index.html`); a plan with no `Entry:` line takes the HTML file on its `Built files:` line.
+4. **Serve**: when a source file under the project is newer than the build the target holds, rebuild first with the project's build command, or report the build as stale where no command is known: the review reads the build it captures. Then Bash with `run_in_background`: the command from `.claude/launch.json`, else `python -m http.server <port> --bind 127.0.0.1 --directory <target directory> & echo $!`. Note the pid it prints. URL is `http://127.0.0.1:<port>/<path>`, where `<path>` is the plan's `Entry:` file relative to the served directory (`/` when it is `index.html`); a plan with no `Entry:` line takes the HTML file on its `Built files:` line.
 5. **Capture**: render each width once:
    ```
    SHOT="$OUT/shots/1280.png" DUMP="$OUT/dom/1280.json" node "$SCRIPTS/cdp.js" "<url>" 1280 "innerWidth" > "$OUT/console-1280.txt"
@@ -63,6 +63,21 @@ P3 runs on opus because the seven copy questions are judgements about what a Jap
    SHOT="$OUT/shots/dark-1280.png" DUMP="$OUT/dom/dark-1280.json" CLASS=dark node "$SCRIPTS/cdp.js" "<url>" 1280 "innerWidth" > "$OUT/console-dark-1280.txt"
    SHOT="$OUT/shots/dark-375.png" DUMP="$OUT/dom/dark-375.json" CLASS=dark node "$SCRIPTS/cdp.js" "<url>" 375 "innerWidth" > "$OUT/console-dark-375.txt"
    ```
+   For each entry of the plan's `Captures:` list (a name and a URL path), render both widths into files that carry the name, with `<url>` the served origin and that path:
+   ```
+   SHOT="$OUT/shots/<name>-1280.png" DUMP="$OUT/dom/<name>-1280.json" node "$SCRIPTS/cdp.js" "<url of the path>" 1280 "innerWidth" > "$OUT/console-<name>-1280.txt"
+   SHOT="$OUT/shots/<name>-375.png" DUMP="$OUT/dom/<name>-375.json" node "$SCRIPTS/cdp.js" "<url of the path>" 375 "innerWidth" > "$OUT/console-<name>-375.txt"
+   ```
+   Only when the plan's `## Conventions` section names a profile (a line `Profile: <id>`) and the plan's surface is not `desktop` (the commands probe below takes its place, and the key probe's click counting gives R50 on a desktop window), render each screen that holds an entry form (a `slip` or a `master` section of the plan) once more at 1280 with the key probe. The probe presses Enter and each key a control carries and stops the page's own handlers, so no operation runs:
+   ```
+   PROBE=keys DUMP="$OUT/dom/keys-<name>-1280.json" node "$SCRIPTS/cdp.js" "<url of the entry screen>" 1280 "innerWidth" > "$OUT/console-keys-<name>-1280.txt"
+   ```
+   Where the plan's `Captures:` list names a capture taken after a registration together with the expression that runs it, render it with `PROBE=messages` and that expression in place of `"innerWidth"`.
+   Only when the plan's surface is `desktop`: capture the window at `$SIZE` and `$MIN` of `## Window` in place of 1280 and 375, with the size as `<width>x<height>` in the argument and in every file name (`$OUT/shots/1280x720.png`, `$OUT/dom/500x480.json`, `$OUT/console-500x480.txt`; the dark theme and each named capture follow the same rule), and render each size once more with the commands probe, on the capture whose path holds `?doc=sample` when the plan's `Captures:` list names one (an empty document disables undo, cut, copy and delete, and the probe skips disabled controls), else on the entry. The probe presses the key of every control that carries `data-command` and `data-key`, then Alt and Esc, and records which commands ran and how many key tips showed:
+   ```
+   PROBE=commands DUMP="$OUT/dom/commands-<width>x<height>.json" node "$SCRIPTS/cdp.js" "<url>" <width>x<height> "innerWidth" > "$OUT/console-commands-<width>x<height>.txt"
+   ```
+   A server that answers 404 for a path of a single-page application is started again with the project's own preview command (`npx vite preview --port <port> --host 127.0.0.1` in the project directory), which answers every route with the entry file.
    - Each run of `cdp.js` starts its own Chrome on a free port and closes it. Run the captures one after another.
    - `cdp.js` exits 2 when the rendering failed, most often because the server did not answer or Chrome was not found: start the server, or set `CHROME=<path to the binary>`, and rerun the line; otherwise report the rendering as unobtainable.
    - A `CONSOLE_ERRORS` line in a console file holds the page's errors and warnings. `check_render.py` reads it, and reports a viewport that differs from the width asked for as R11.
@@ -70,13 +85,14 @@ P3 runs on opus because the seven copy questions are judgements about what a Jap
    ```
    python "$SCRIPTS/check_render.py" "$OUT"/dom/*.json --console "$OUT/console-1280.txt" --console "$OUT/console-375.txt" --tokens "$OUT/files/tokens.json" --plan "$OUT/plan.md" --out "$OUT/findings/design-0-measured.json"
    ```
-   When the plan named no `tokens.json`, drop `--tokens`; when dark console files were captured, add one `--console` per file. `--plan` lets R15 read the brief's `- Job class:` line; a plan without one leaves R15 a NOTE.
+   When the plan named no `tokens.json`, drop `--tokens`; when dark or named console files were captured, add one `--console` per file. `--plan` lets R15 read the `- Job class:` line of the brief's block whose route matches each capture's URL; a plan without one leaves R15 a NOTE. It also gives R49 to R51 the plan's `## Conventions` section, which they compare with the probes of the `keys-` and message captures. On a `desktop` plan it reads R8 against the `title` row of `## Window` in place of the heading rule. R52 to R55 measure whether the window scrolls, the size of each region against `## Window`, and the probes of the `commands-` captures. Their findings are in the measured file, which every perspective receives.
 7. **Audit**: launch the three perspectives as three `Agent` calls in one message. Keep the shared part of the instruction byte-for-byte identical; only `perspective` and `output path` differ:
    ```
    mode: design
-   screenshots: $OUT/shots/1280.png, $OUT/shots/375.png[, $OUT/shots/dark-1280.png, $OUT/shots/dark-375.png]
-   dom dumps: $OUT/dom/1280.json, $OUT/dom/375.json[, $OUT/dom/dark-1280.json, $OUT/dom/dark-375.json]
+   screenshots: $OUT/shots/1280.png, $OUT/shots/375.png[, $OUT/shots/dark-1280.png, $OUT/shots/dark-375.png][, $OUT/shots/<name>-1280.png, $OUT/shots/<name>-375.png for each named capture, with its URL path]
+   dom dumps: $OUT/dom/1280.json, $OUT/dom/375.json[, $OUT/dom/dark-1280.json, $OUT/dom/dark-375.json][, $OUT/dom/<name>-1280.json, $OUT/dom/<name>-375.json for each named capture]
    console: $OUT/console-1280.txt, $OUT/console-375.txt[, …]
+   (on `desktop`, `1280` and `375` read as `$SIZE` and `$MIN`, and the `commands-` dumps and console files join the lists)
    measured: $OUT/findings/design-0-measured.json
    tokens: $OUT/files/tokens.json   (only when staged)
    plan: $OUT/plan.md
@@ -98,7 +114,7 @@ P3 runs on opus because the seven copy questions are judgements about what a Jap
    - Each instruction carries `mode: design`, a `findings:` list with every field of each finding (id, perspective, severity, location, evidence, fix; a merged row goes as one finding under both ids), the screenshot and dump paths for every capture, the measured file's path when a finding cites an `R-n` id, `plan: $OUT/plan.md`, `tokens: $OUT/files/tokens.json` when staged, the real path of the file it cites, and `output path: $OUT/verdicts/{group}.json`. Never pass the auditors' instructions or reasoning.
    - Fold the verdicts: `uphold` keeps the row (a `severity_suggestion` in `reason` lowers it); `reject` and `reject-allowed` move the row to the rejected table with the verifier's reason; `unverifiable` keeps the row at WARNING or below, marked `unverifiable`.
    - Relaunch alone a group whose verifier wrote no file.
-10. **Report**: write `$OUT/report.md` with the sections below. The final response opens with the verdict line and holds the `Heuristics met` line, the `## Findings` table, the `## Summary` and a last line `Full report: <absolute path of report.md>`; the rejected findings and the scope covered stay in the file:
+10. **Report**: write `$OUT/review.md` with the sections below. The final response opens with the verdict line and holds the `Heuristics met` line, the `## Findings` table, the `## Summary` and a last line `Full report: <absolute path of review.md>`; the rejected findings and the scope covered stay in the file:
     ```
     # Design review: <target>
 
@@ -118,14 +134,14 @@ P3 runs on opus because the seven copy questions are judgements about what a Jap
 
     ## Scope covered
     | Perspective | Scope | Out of scope |
-    (one row per perspective, P0 to P3, from each file's checked_scope and out_of_scope_notes; P2's row lists the eight cold-read questions with their answers and the ten heuristic answers; P3's row lists the seven copy questions, the three reader-fit questions and the three content questions with their answers, and the five structure questions with theirs when the plan carries a `## Structure` section)
+    (one row per perspective, P0 to P3, from each file's checked_scope and out_of_scope_notes; P2's row lists the eight cold-read questions with their answers and the ten heuristic answers; P3's row lists the seven copy questions, the three reader-fit questions, the seven interaction questions and the three content questions with their answers, and the eight structure questions with theirs when the plan carries a `## Structure` section)
 
     ## Summary
     (2–3 sentences: the most important fix, the scope covered, whether the work may move on; then the line below)
     Present this to the user together with the screenshots (<paths>) and get their final pass/fix decision.
     ```
-    When the plan was `ui-brief.md`, the summary also answers, in one line each, any of the eight cold-read questions whose answer P2 recorded as a finding or a departure from the plan and any of the seven copy questions, three reader-fit questions or three content questions P3 answered "no".
-11. **Teardown**: stop the server with `kill <pid>`, the pid step 4 printed; Git Bash on Windows takes the same command.
+    When the plan was `ui-brief.md`, the summary also answers, in one line each, any of the eight cold-read questions whose answer P2 recorded as a finding or a departure from the plan and any of the seven copy questions, three reader-fit questions, seven interaction questions or three content questions P3 answered "no".
+11. **Teardown**: stop the server with `kill <pid>`, the pid step 4 printed. On Windows the pid of a server started through `npx` belongs to another process tree: find the listener with `netstat -ano | grep ":<port> "` and stop it with `taskkill //PID <pid> //F`.
 
 ## The gate
 
@@ -146,7 +162,7 @@ The `## Summary` states that the user makes the final call on shipping or fixing
 ## Prohibitions
 
 - Auditing the target or judging the screenshots yourself; the launched perspectives do the auditing.
-- Launching any subagent type outside the table above, or leaving a perspective unlaunched.
+- Launching any subagent type other than `review-design-auditor` and `review-verifier`, or leaving a perspective unlaunched.
 - Polling a subagent: each launched agent reports through its completion notice. Don't run a command or read a file until every notice of step 7 or step 9 has arrived. Then read that step's output files once.
 - Reporting an uncorroborated CRITICAL or WARNING without the `unverifiable` mark, or finishing with "no findings" and no `## Scope covered`.
 - Modifying the plan or the deliverable under review.
