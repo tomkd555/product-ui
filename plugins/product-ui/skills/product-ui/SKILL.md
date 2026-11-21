@@ -3,7 +3,7 @@ name: product-ui
 description: >-
   Builds web screens and Office-like Electron desktop windows that read as a real product, and checks them.
   Also removes annotation text from an existing screen and answers palette, font and chart questions.
-  Triggers: 画面, ページ, ダッシュボード, 文言, マイクロコピー, 配色, 注釈を消して, AIっぽい, DADS, SmartHR, OOUI, 伝票入力, 業務パッケージ, デスクトップアプリ, Electron, リボン.
+  Triggers: 画面, ページ, ダッシュボード, 文言, 配色, 注釈を消して, AIっぽい, 業務パッケージ, デスクトップアプリ, Electron, リボン.
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash, AskUserQuestion, Skill, Agent
 ---
 
